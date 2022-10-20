@@ -12,13 +12,6 @@ class LoadingSceneWidget extends StatefulWidget {
 
 class _LoadingSceneWidgetState extends State<LoadingSceneWidget> {
   @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -26,14 +19,27 @@ class _LoadingSceneWidgetState extends State<LoadingSceneWidget> {
       decoration: BoxDecoration(
         color: Color(0x80000000),
       ),
-      child: Align(
-        alignment: AlignmentDirectional(0, 0),
-        child: Image.asset(
-          'assets/images/Spin-1s-200px_(1).gif',
-          width: 100,
-          height: 100,
-          fit: BoxFit.scaleDown,
-        ),
+      child: Stack(
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0, 0),
+            child: Image.asset(
+              'assets/images/Spin-1s-200px_(1).gif',
+              width: 120,
+              height: 120,
+              fit: BoxFit.scaleDown,
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional(0, 0),
+            child: Image.asset(
+              'assets/images/Load-54x54-02.gif',
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
       ),
     );
   }

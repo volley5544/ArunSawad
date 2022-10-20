@@ -74,10 +74,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.password;
+    value = object.pinCode;
     if (value != null) {
       result
-        ..add('password')
+        ..add('pin_code')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -135,8 +135,8 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.username = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'password':
-          result.password = serializers.deserialize(value,
+        case 'pin_code':
+          result.pinCode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
@@ -170,7 +170,7 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String? username;
   @override
-  final String? password;
+  final String? pinCode;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -186,7 +186,7 @@ class _$UsersRecord extends UsersRecord {
       this.phoneNumber,
       this.employeeId,
       this.username,
-      this.password,
+      this.pinCode,
       this.ffRef})
       : super._();
 
@@ -209,7 +209,7 @@ class _$UsersRecord extends UsersRecord {
         phoneNumber == other.phoneNumber &&
         employeeId == other.employeeId &&
         username == other.username &&
-        password == other.password &&
+        pinCode == other.pinCode &&
         ffRef == other.ffRef;
   }
 
@@ -231,7 +231,7 @@ class _$UsersRecord extends UsersRecord {
                         phoneNumber.hashCode),
                     employeeId.hashCode),
                 username.hashCode),
-            password.hashCode),
+            pinCode.hashCode),
         ffRef.hashCode));
   }
 
@@ -246,7 +246,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('phoneNumber', phoneNumber)
           ..add('employeeId', employeeId)
           ..add('username', username)
-          ..add('password', password)
+          ..add('pinCode', pinCode)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -287,9 +287,9 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String? get username => _$this._username;
   set username(String? username) => _$this._username = username;
 
-  String? _password;
-  String? get password => _$this._password;
-  set password(String? password) => _$this._password = password;
+  String? _pinCode;
+  String? get pinCode => _$this._pinCode;
+  set pinCode(String? pinCode) => _$this._pinCode = pinCode;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -310,7 +310,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _phoneNumber = $v.phoneNumber;
       _employeeId = $v.employeeId;
       _username = $v.username;
-      _password = $v.password;
+      _pinCode = $v.pinCode;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -342,7 +342,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             phoneNumber: phoneNumber,
             employeeId: employeeId,
             username: username,
-            password: password,
+            pinCode: pinCode,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

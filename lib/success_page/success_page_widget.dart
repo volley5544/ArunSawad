@@ -21,13 +21,6 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
@@ -102,7 +95,8 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                                 ),
                               );
                             },
-                          );
+                          ).then((value) => setState(() {}));
+
                           checkLoginBeforeBack =
                               await GetUserProfileAPICall.call(
                             token: FFAppState().accessToken,
@@ -130,14 +124,21 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             );
                             setState(
                                 () => FFAppState().imei = '123456789012345');
-                            setState(() =>
-                                FFAppState().accessToken = 'access_token');
-                            setState(
-                                () => FFAppState().employeeID = 'employee_id');
+                            setState(() {
+                              FFAppState().deleteAccessToken();
+                              FFAppState().accessToken = 'access_token';
+                            });
+                            setState(() {
+                              FFAppState().deleteEmployeeID();
+                              FFAppState().employeeID = 'employee_id';
+                            });
                             setState(
                                 () => FFAppState().QRCodeLink = 'qrcode_link');
-                            setState(() => FFAppState().apiURLLocalState =
-                                'api_url_local_state');
+                            setState(() {
+                              FFAppState().deleteApiURLLocalState();
+                              FFAppState().apiURLLocalState =
+                                  'api_url_local_state';
+                            });
                             GoRouter.of(context).prepareAuthEvent();
                             await signOut();
 
@@ -189,7 +190,8 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                                 ),
                               );
                             },
-                          );
+                          ).then((value) => setState(() {}));
+
                           checkLoginBeforeToTimesheet =
                               await GetUserProfileAPICall.call(
                             token: FFAppState().accessToken,
@@ -221,16 +223,25 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             );
                             setState(
                                 () => FFAppState().imei = '123456789012345');
-                            setState(() =>
-                                FFAppState().accessToken = 'access_token');
-                            setState(
-                                () => FFAppState().employeeID = 'employee_id');
+                            setState(() {
+                              FFAppState().deleteAccessToken();
+                              FFAppState().accessToken = 'access_token';
+                            });
+                            setState(() {
+                              FFAppState().deleteEmployeeID();
+                              FFAppState().employeeID = 'employee_id';
+                            });
                             setState(
                                 () => FFAppState().QRCodeLink = 'qrcode_link');
-                            setState(() => FFAppState().apiURLLocalState =
-                                'api_url_local_state');
-                            setState(
-                                () => FFAppState().branchCode = 'branch_code');
+                            setState(() {
+                              FFAppState().deleteApiURLLocalState();
+                              FFAppState().apiURLLocalState =
+                                  'api_url_local_state';
+                            });
+                            setState(() {
+                              FFAppState().deleteBranchCode();
+                              FFAppState().branchCode = 'branch_code';
+                            });
                             GoRouter.of(context).prepareAuthEvent();
                             await signOut();
 

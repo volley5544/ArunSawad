@@ -333,6 +333,19 @@ bool checkIdCardInput(String? idCardInput) {
   }
 }
 
+bool checkPinCodeInput(String? pinCodeInput) {
+  // Add your function code here!
+  if (pinCodeInput!.length != 6) {
+    return false;
+  } else {
+    if (int.tryParse(pinCodeInput!) != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
 String showVloanCustomerName(List<String>? vloanCustomerNameList) {
   // Add your function code here!
   if (vloanCustomerNameList!.isEmpty) {
@@ -363,4 +376,390 @@ int findContNoIndex(
     }
   }
   return index;
+}
+
+int leadTimeRemain(
+  List<String>? leadCreatedTimeTextList,
+  DateTime? currentTime,
+  int? index,
+) {
+  // Add your function code here!
+  //leadCreatedTime = DateTime.parse("2022-09-20 10:00:00");
+  DateTime leadCreatedTime = DateTime.parse(leadCreatedTimeTextList![index!]);
+
+  DateTime leadFinalTime = leadCreatedTime.add(const Duration(days: 15));
+  int leadTimeLeft = leadFinalTime.difference(currentTime!).inDays;
+
+  return leadTimeLeft;
+}
+
+String showLeadTimeRemain(int? leadTimeRemain) {
+  // Add your function code here!
+  String text = '${leadTimeRemain!} วัน';
+  if (leadTimeRemain == 0) {
+    text = 'วันสุดท้าย';
+  }
+
+  return text;
+}
+
+DateTime showLeadCreatedTime(
+  List<String>? leadCreatedTimeTextList,
+  int? index,
+) {
+  // Add your function code here!
+  //DateTime time = DateTime.parse('$clockIn');
+  String timeText = leadCreatedTimeTextList![index!];
+  return DateTime.parse(timeText);
+  //leadCreatedTimeList![index!];
+}
+
+String showLeadIdInList(
+  List<String>? leadID,
+  int? index,
+  List<String>? branchCode,
+) {
+  // Add your function code here!
+  return 'Lead ID: ${leadID![index!]} (${branchCode![index!]})';
+}
+
+String showLeadEmployeeIdInList(
+  List<String>? employeeIdList,
+  int? index,
+) {
+  // Add your function code here!
+  return 'รหัสพนักงาน: ${employeeIdList![index!]}';
+}
+
+String generateStuffFirebaseEmail(String? employeeID) {
+  // Add your function code here!
+  return '${employeeID}@srisawadstaff.com';
+}
+
+bool checkDoNotShowAgain(
+  DateTime? dateDoNotShowAgain,
+  DateTime? currentDate,
+) {
+  // Add your function code here!
+  bool doNotShowAgain = true;
+
+  if (dateDoNotShowAgain != null) {
+    //doNotShowDate!.difference(currentDate!).inDays;
+    if (dateDoNotShowAgain.difference(currentDate!).inDays == 0) {
+      doNotShowAgain = false;
+    }
+  } else if (dateDoNotShowAgain == null) {
+    doNotShowAgain = false;
+  }
+  //DateTime leadFinalTime = leadCreatedTime![index!].add(Duration(days: 15));
+  //int leadTimeLeft = leadFinalTime.difference(currentTime!).inDays;
+
+  return doNotShowAgain;
+}
+
+bool checkDoNotShowAgainDateIsEmpty(DateTime? dateDoNotShowAgain) {
+  // Add your function code here!
+  bool isEmpty = false;
+  if (dateDoNotShowAgain == null) {
+    isEmpty = true;
+  }
+  return isEmpty;
+}
+
+DateTime addDoNotShowAgainDate(DateTime? currentDate) {
+  // Add your function code here!
+
+  return currentDate!.add(const Duration(days: 1));
+}
+
+int checkDiffDate(
+  DateTime? doNotShowDate,
+  DateTime? currentDate,
+) {
+  // Add your function code here!
+  //final now = DateTime.now();
+  //final today = DateTime(now.year, now.month, now.day);
+  //final yesterday = DateTime(now.year, now.month, now.day - 1);
+  //final tomorrow = DateTime(now.year, now.month, now.day + 1);
+
+  return DateTime(doNotShowDate!.year, doNotShowDate!.month, doNotShowDate!.day)
+      .difference(
+          DateTime(currentDate!.year, currentDate!.month, currentDate!.day))
+      .inDays;
+}
+
+String showUserRef(DocumentReference? userRef) {
+  // Add your function code here!
+
+  return 'userRef is ${userRef}';
+}
+
+String checkDateWeekDay(DateTime? date) {
+  // Add your function code here!
+  return DateFormat('EEEE').format(date!);
+
+  /// e.g Thursday
+}
+
+Color leadTimeRemainTextColor(
+  int? timeRemain,
+  Color? normalColor,
+  Color? lastDayColor,
+) {
+  // Add your function code here!
+  Color textColor = normalColor!;
+
+  if (timeRemain == 0) {
+    textColor = lastDayColor!;
+  }
+
+  return textColor;
+}
+
+List<String> checkLeadChannel(List<String>? leadChannelList) {
+  // Add your function code here!
+  List<String> leadChannelListFinal = [];
+  for (var i = 0; i < leadChannelList!.length; i++) {
+    if (i == 0) {
+      leadChannelListFinal.add(leadChannelList[i]);
+    } else {
+      if (leadChannelListFinal.contains(leadChannelList[i]) == false) {
+        leadChannelListFinal.add(leadChannelList[i]);
+      }
+    }
+  }
+  return leadChannelListFinal;
+}
+
+Color leadChannelLabelColor(
+  List<String>? leadChannelList,
+  List<Color>? labelColorFirebase,
+  int? index,
+) {
+  // Add your function code here!
+  Color labelColor;
+
+  if (leadChannelList![index!] == 'Lead Survey') {
+    labelColor = labelColorFirebase![0];
+  } else if (leadChannelList![index!] == 'Lead Telesale') {
+    labelColor = labelColorFirebase![1];
+  } else if (leadChannelList![index!] == 'Lead Agent') {
+    labelColor = labelColorFirebase![2];
+  } else if (leadChannelList![index!] == 'Lead GSB') {
+    labelColor = labelColorFirebase![3];
+  } else if (leadChannelList![index!] == 'Lead Vloan') {
+    labelColor = labelColorFirebase![4];
+  } else {
+    labelColor = labelColorFirebase![5];
+  }
+
+  return labelColor;
+}
+
+String greetingTextSuperApp(String? nickname) {
+  // Add your function code here!
+  return 'สวัสดี คุณ${nickname}';
+}
+
+List<String> reverseList(List<String>? somethingList) {
+  // Add your function code here!
+  //List<String> reverseList = somethingList!.reversed;
+  return somethingList!.reversed.toList();
+}
+
+Color leadDetailCardColor(
+  List<String>? callStatus,
+  int? index,
+  Color? notCallColor,
+  Color? callColor,
+  Color? inAppCallColor,
+  List<String>? leadIDInAppCallStatus,
+  String? leadID,
+) {
+  // Add your function code here!
+  Color cardColor = notCallColor!; //white
+
+  if (callStatus![index!] != 'NEW') {
+    cardColor = callColor!; //light orange
+  } else if (leadIDInAppCallStatus!.contains(leadID) == true) {
+    cardColor = inAppCallColor!; //light yellow
+  }
+
+  return cardColor;
+}
+
+String leadDetailCardColorForStatus(
+  List<String>? callStatus,
+  int? index,
+  List<String>? leadIDInAppCallStatus,
+  String? leadID,
+) {
+  // Add your function code here!
+  String status = 'WHITE'; //white
+
+  if (callStatus![index!] != 'NEW') {
+    status = 'ORANGE'; //light orange
+  } else if (leadIDInAppCallStatus!.contains(leadID) == true) {
+    status = 'YELLOW'; //light yellow
+  }
+
+  return status;
+}
+
+List<String> setCallingStatus(
+  List<String>? callStatusList,
+  int? index,
+) {
+  // Add your function code here!
+  callStatusList![index!] = 'Called';
+
+  return callStatusList;
+}
+
+bool checkLeadIdCalledInApp(
+  List<String>? leadIdCalledStatusList,
+  String? leadId,
+) {
+  // Add your function code here!
+
+  return leadIdCalledStatusList!.contains(leadId!);
+}
+
+String profileServiceDuration(
+  String? year,
+  String? month,
+  String? day,
+) {
+  // Add your function code here!
+
+  return '$year $month $day';
+}
+
+String profileShowNickName(String? nickname) {
+  // Add your function code here!
+
+  return '($nickname)';
+}
+
+List<String> checkLeadIDInAppAndLeadID(
+  List<String>? leadIDInAppCalled,
+  List<String>? leadIDList,
+  List<String>? callStatusList,
+) {
+  // Add your function code here!
+  for (var i = 0; i < callStatusList!.length; i++) {
+    if (callStatusList[i] != 'NEW') {
+      if (leadIDInAppCalled!.contains(leadIDList![i])) {
+        leadIDInAppCalled.removeWhere((item) => item == leadIDList[i]);
+      }
+    }
+  }
+
+  return leadIDInAppCalled!;
+}
+
+String leadCalledStatusText(String? leadCardColorForStatus) {
+  // Add your function code here!
+  String statusText = 'งง';
+  if (leadCardColorForStatus! == 'WHITE') {
+    statusText = 'ยังไม่ได้โทร';
+  } else if (leadCardColorForStatus! == 'ORANGE') {
+    statusText = 'โทรและมีการบันทึกแล้ว';
+  } else if (leadCardColorForStatus! == 'YELLOW') {
+    statusText = 'โทรแต่ยังไม่บันทึกระบบลีด';
+  }
+
+  return statusText;
+}
+
+String dailySplashPageText(
+  List<String>? splashPageTextList,
+  String? day,
+) {
+  // Add your function code here!
+  int dayNumber = 0;
+
+  if (day! == 'Tuesday') {
+    dayNumber = 1;
+  } else if (day! == 'Wednesday') {
+    dayNumber = 2;
+  } else if (day! == 'Thursday') {
+    dayNumber = 3;
+  } else if (day! == 'Friday') {
+    dayNumber = 4;
+  } else if (day! == 'Saturday') {
+    dayNumber = 5;
+  } else if (day! == 'Sunday') {
+    dayNumber = 6;
+  }
+
+  return splashPageTextList![dayNumber];
+}
+
+Color leadChannelAmountCardColor(
+  String? leadChannelName,
+  List<Color>? firebaseColor,
+) {
+  // Add your function code here!
+  Color cardChannelColor;
+
+  if (leadChannelName == 'Lead Survey') {
+    cardChannelColor = firebaseColor![0];
+  } else if (leadChannelName == 'Lead Telesale') {
+    cardChannelColor = firebaseColor![1];
+  } else if (leadChannelName == 'Lead Agent') {
+    cardChannelColor = firebaseColor![2];
+  } else if (leadChannelName == 'Lead GSB') {
+    cardChannelColor = firebaseColor![3];
+  } else {
+    cardChannelColor = firebaseColor![4];
+  }
+
+  return cardChannelColor;
+}
+
+List<int> setLeadChannelAmount(List<String>? leadChannelList) {
+  // Add your function code here!
+  List<int> leadChannelAmountList = [0, 0, 0, 0]; //Survey,Telesale,Agent,GSB
+  for (var i = 0; i < leadChannelList!.length; i++) {
+    if (leadChannelList[i] == 'Lead Survey') {
+      leadChannelAmountList[0]++;
+    } else if (leadChannelList[i] == 'Lead Telesale') {
+      leadChannelAmountList[1]++;
+    } else if (leadChannelList[i] == 'Lead Agent') {
+      leadChannelAmountList[2]++;
+    } else if (leadChannelList[i] == 'Lead GSB') {
+      leadChannelAmountList[3]++;
+    }
+  }
+
+  return leadChannelAmountList;
+}
+
+List<int> resetLeadChannelAmount() {
+  // Add your function code here!
+  List<int> resetList = [0, 0, 0, 0];
+
+  return resetList;
+}
+
+String helloDailyRandomText(List<String>? dailyTextFirebase) {
+  // Add your function code here!
+
+  return dailyTextFirebase![math.Random().nextInt(dailyTextFirebase.length)];
+}
+
+String introPageTextButton(int? introPageIndex) {
+  // Add your function code here!
+  String text = 'ต่อไป';
+  if (introPageIndex == 3) {
+    text = 'เริ่มใช้งาน';
+  }
+
+  return text;
+}
+
+bool checkFormServiceUrl(String? formServiceUrl) {
+  // Add your function code here!
+  return formServiceUrl!.contains('spreadsheets');
 }

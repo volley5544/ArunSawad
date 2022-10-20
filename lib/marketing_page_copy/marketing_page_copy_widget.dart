@@ -13,7 +13,6 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/lat_lng.dart';
 import '../flutter_flow/upload_media.dart';
-import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -38,28 +37,22 @@ class MarketingPageCopyWidget extends StatefulWidget {
 }
 
 class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
-  TextEditingController? areaInputController;
+  bool isMediaUploading = false;
+  String uploadedFileUrl = '';
 
-  TextEditingController? branchInputController;
-
-  TextEditingController? coordinateInputController;
-
-  TextEditingController? textController2;
-
-  String? dropDownValue;
-
-  TextEditingController? remarkInputController;
-
-  TextEditingController? textController1;
-
-  TextEditingController? textController7;
-
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
   ApiCallResponse? listAPIOutput;
   LatLng? currentUserLocationValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  String uploadedFileUrl = '';
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
+  String? dropDownValue;
+  TextEditingController? areaInputController;
+  TextEditingController? branchInputController;
+  TextEditingController? coordinateInputController;
+  TextEditingController? textController2;
+  TextEditingController? remarkInputController;
+  TextEditingController? textController1;
+  TextEditingController? textController7;
 
   @override
   void initState() {
@@ -105,7 +98,18 @@ class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
     remarkInputController = TextEditingController();
     textController1 = TextEditingController(text: 'รูปภาพ');
     textController7 = TextEditingController(text: 'อุปกรณ์การตลาดที่ใช้');
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    areaInputController?.dispose();
+    branchInputController?.dispose();
+    coordinateInputController?.dispose();
+    textController2?.dispose();
+    remarkInputController?.dispose();
+    textController1?.dispose();
+    textController7?.dispose();
+    super.dispose();
   }
 
   @override
@@ -140,6 +144,7 @@ class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
         return Scaffold(
           key: scaffoldKey,
           resizeToAvoidBottomInset: false,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           appBar: AppBar(
             backgroundColor: Color(0xFFFF6500),
             automaticallyImplyLeading: false,
@@ -184,30 +189,35 @@ class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
                         if (selectedMedia != null &&
                             selectedMedia.every((m) =>
                                 validateFileFormat(m.storagePath, context))) {
-                          showUploadMessage(
-                            context,
-                            'Uploading file...',
-                            showLoading: true,
-                          );
-                          final downloadUrls = (await Future.wait(selectedMedia
-                                  .map((m) async => await uploadData(
-                                      m.storagePath, m.bytes))))
-                              .where((u) => u != null)
-                              .map((u) => u!)
-                              .toList();
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          setState(() => isMediaUploading = true);
+                          var downloadUrls = <String>[];
+                          try {
+                            showUploadMessage(
+                              context,
+                              'Uploading file...',
+                              showLoading: true,
+                            );
+                            downloadUrls = (await Future.wait(
+                              selectedMedia.map(
+                                (m) async =>
+                                    await uploadData(m.storagePath, m.bytes),
+                              ),
+                            ))
+                                .where((u) => u != null)
+                                .map((u) => u!)
+                                .toList();
+                          } finally {
+                            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                            isMediaUploading = false;
+                          }
                           if (downloadUrls.length == selectedMedia.length) {
                             setState(
                                 () => uploadedFileUrl = downloadUrls.first);
-                            showUploadMessage(
-                              context,
-                              'Success!',
-                            );
+                            showUploadMessage(context, 'Success!');
                           } else {
+                            setState(() {});
                             showUploadMessage(
-                              context,
-                              'Failed to upload media',
-                            );
+                                context, 'Failed to upload media');
                             return;
                           }
                         }
@@ -225,7 +235,6 @@ class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
             centerTitle: true,
             elevation: 10,
           ),
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           body: SafeArea(
             child: GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
@@ -244,23 +253,6 @@ class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          Container(
-                            width: double.infinity,
-                            height: MediaQuery.of(context).size.height * 0.04,
-                            child: custom_widgets.ShowDateTime(
-                              width: double.infinity,
-                              height: MediaQuery.of(context).size.height * 0.04,
-                              currentTime: getCurrentTimestamp,
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            height: MediaQuery.of(context).size.height * 0.08,
-                            child: custom_widgets.DigitalClockWidget(
-                              width: double.infinity,
-                              height: MediaQuery.of(context).size.height * 0.08,
-                            ),
-                          ),
                           if (FFAppState().imgURL.length > 0)
                             Padding(
                               padding:
@@ -1302,7 +1294,8 @@ class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
                                                               ),
                                                             );
                                                           },
-                                                        );
+                                                        ).then((value) =>
+                                                            setState(() {}));
                                                       },
                                                       child: Text(
                                                         functions
@@ -1415,32 +1408,35 @@ class _MarketingPageCopyWidgetState extends State<MarketingPageCopyWidget> {
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
-                              child: FlutterFlowGoogleMap(
-                                controller: googleMapsController,
-                                onCameraIdle: (latLng) =>
-                                    googleMapsCenter = latLng,
-                                initialLocation: googleMapsCenter ??=
-                                    currentUserLocationValue!,
-                                markers: [
-                                  if (widget.location1 != null)
-                                    FlutterFlowMarker(
-                                      widget.location1!.reference.path,
-                                      widget.location1!.location!,
-                                    ),
-                                ],
-                                markerColor: GoogleMarkerColor.red,
-                                mapType: MapType.hybrid,
-                                style: GoogleMapStyle.standard,
-                                initialZoom: 16,
-                                allowInteraction: false,
-                                allowZoom: true,
-                                showZoomControls: true,
-                                showLocation: false,
-                                showCompass: false,
-                                showMapToolbar: false,
-                                showTraffic: false,
-                                centerMapOnMarkerTap: false,
-                              ),
+                              child: Builder(builder: (context) {
+                                final _googleMapMarker = widget.location1;
+                                return FlutterFlowGoogleMap(
+                                  controller: googleMapsController,
+                                  onCameraIdle: (latLng) =>
+                                      googleMapsCenter = latLng,
+                                  initialLocation: googleMapsCenter ??=
+                                      currentUserLocationValue!,
+                                  markers: [
+                                    if (_googleMapMarker != null)
+                                      FlutterFlowMarker(
+                                        _googleMapMarker.reference.path,
+                                        _googleMapMarker.location!,
+                                      ),
+                                  ],
+                                  markerColor: GoogleMarkerColor.red,
+                                  mapType: MapType.hybrid,
+                                  style: GoogleMapStyle.standard,
+                                  initialZoom: 16,
+                                  allowInteraction: false,
+                                  allowZoom: true,
+                                  showZoomControls: true,
+                                  showLocation: false,
+                                  showCompass: false,
+                                  showMapToolbar: false,
+                                  showTraffic: false,
+                                  centerMapOnMarkerTap: false,
+                                );
+                              }),
                             ),
                           if (FFAppState().isFromTimesheetPage == true)
                             Container(

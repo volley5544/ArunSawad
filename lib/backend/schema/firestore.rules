@@ -39,8 +39,64 @@ service cloud.firestore {
     match /mat1/{document} {
       allow create: if true;
       allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /FCM_Token/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /ArunSawadImgBanner/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /LeadChannelColor/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /user_custom/{document} {
+      allow create: if true;
+      allow read: if true;
       allow write: if true;
       allow delete: if true;
+    }
+
+    match /user_log/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /SplashPageImg/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /Key_Storage2/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /SawadFormServices/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
     }
   }
 }
