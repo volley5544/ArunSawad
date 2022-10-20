@@ -8,9 +8,10 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import '../custom_code/actions/index.dart' as actions;
-import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -28,115 +29,88 @@ class CheckInPageCopyWidget extends StatefulWidget {
 
 class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
     with TickerProviderStateMixin {
-  TextEditingController? coordinateInputController;
-
-  TextEditingController? textController1;
-
-  TextEditingController? remarkInputController;
-
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
-  bool? checkGPSBeforeSave;
-  bool? checkGPSService;
-  LatLng? currentUserLocationValue;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  String uploadedFileUrl = '';
   final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      curve: Curves.bounceOut,
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 250,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      curve: Curves.bounceOut,
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 500,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
     'wrapOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 750,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 750.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
+    'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 1000,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1000.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 1000.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 1000.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
-    'containerOnPageLoadAnimation4': AnimationInfo(
+    'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 1250,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1250.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 1250.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 1250.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
   };
+  bool isMediaUploading = false;
+  String uploadedFileUrl = '';
+
+  LatLng? currentUserLocationValue;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
+  TextEditingController? coordinateInputController;
+  TextEditingController? textController1;
+  TextEditingController? remarkInputController;
+  bool? checkGPSBeforeSave;
+  bool? checkGPSService;
 
   @override
   void initState() {
     super.initState();
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
 
@@ -145,7 +119,14 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
     remarkInputController = TextEditingController();
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    coordinateInputController?.dispose();
+    textController1?.dispose();
+    remarkInputController?.dispose();
+    super.dispose();
   }
 
   @override
@@ -164,6 +145,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
     return Scaffold(
       key: scaffoldKey,
       resizeToAvoidBottomInset: false,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: Color(0xFFFF6500),
         automaticallyImplyLeading: false,
@@ -211,29 +193,32 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                   if (selectedMedia != null &&
                       selectedMedia.every(
                           (m) => validateFileFormat(m.storagePath, context))) {
-                    showUploadMessage(
-                      context,
-                      'Uploading file...',
-                      showLoading: true,
-                    );
-                    final downloadUrls = (await Future.wait(selectedMedia.map(
-                            (m) async =>
-                                await uploadData(m.storagePath, m.bytes))))
-                        .where((u) => u != null)
-                        .map((u) => u!)
-                        .toList();
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    setState(() => isMediaUploading = true);
+                    var downloadUrls = <String>[];
+                    try {
+                      showUploadMessage(
+                        context,
+                        'Uploading file...',
+                        showLoading: true,
+                      );
+                      downloadUrls = (await Future.wait(
+                        selectedMedia.map(
+                          (m) async => await uploadData(m.storagePath, m.bytes),
+                        ),
+                      ))
+                          .where((u) => u != null)
+                          .map((u) => u!)
+                          .toList();
+                    } finally {
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      isMediaUploading = false;
+                    }
                     if (downloadUrls.length == selectedMedia.length) {
                       setState(() => uploadedFileUrl = downloadUrls.first);
-                      showUploadMessage(
-                        context,
-                        'Success!',
-                      );
+                      showUploadMessage(context, 'Success!');
                     } else {
-                      showUploadMessage(
-                        context,
-                        'Failed to upload media',
-                      );
+                      setState(() {});
+                      showUploadMessage(context, 'Failed to upload media');
                       return;
                     }
                   }
@@ -250,7 +235,6 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
         centerTitle: true,
         elevation: 10,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -259,26 +243,6 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                child: Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.04,
-                  child: custom_widgets.ShowDateTime(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * 0.04,
-                    currentTime: getCurrentTimestamp,
-                  ),
-                ).animated([animationsMap['containerOnPageLoadAnimation1']!]),
-              ),
-              Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.08,
-                child: custom_widgets.DigitalClockWidget(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.08,
-                ),
-              ).animated([animationsMap['containerOnPageLoadAnimation2']!]),
               Wrap(
                 spacing: 0,
                 runSpacing: 0,
@@ -536,7 +500,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                     ),
                   ),
                 ],
-              ).animated([animationsMap['wrapOnPageLoadAnimation']!]),
+              ).animateOnPageLoad(animationsMap['wrapOnPageLoadAnimation']!),
               SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -551,33 +515,36 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: FlutterFlowGoogleMap(
-                          controller: googleMapsController,
-                          onCameraIdle: (latLng) => googleMapsCenter = latLng,
-                          initialLocation: googleMapsCenter ??=
-                              currentUserLocationValue!,
-                          markers: [
-                            if (widget.location1 != null)
-                              FlutterFlowMarker(
-                                widget.location1!.reference.path,
-                                widget.location1!.location!,
-                              ),
-                          ],
-                          markerColor: GoogleMarkerColor.red,
-                          mapType: MapType.hybrid,
-                          style: GoogleMapStyle.standard,
-                          initialZoom: 16,
-                          allowInteraction: true,
-                          allowZoom: true,
-                          showZoomControls: true,
-                          showLocation: true,
-                          showCompass: false,
-                          showMapToolbar: false,
-                          showTraffic: false,
-                          centerMapOnMarkerTap: true,
-                        ),
-                      ).animated(
-                          [animationsMap['containerOnPageLoadAnimation3']!]),
+                        child: Builder(builder: (context) {
+                          final _googleMapMarker = widget.location1;
+                          return FlutterFlowGoogleMap(
+                            controller: googleMapsController,
+                            onCameraIdle: (latLng) => googleMapsCenter = latLng,
+                            initialLocation: googleMapsCenter ??=
+                                currentUserLocationValue!,
+                            markers: [
+                              if (_googleMapMarker != null)
+                                FlutterFlowMarker(
+                                  _googleMapMarker.reference.path,
+                                  _googleMapMarker.location!,
+                                ),
+                            ],
+                            markerColor: GoogleMarkerColor.red,
+                            mapType: MapType.hybrid,
+                            style: GoogleMapStyle.standard,
+                            initialZoom: 16,
+                            allowInteraction: true,
+                            allowZoom: true,
+                            showZoomControls: true,
+                            showLocation: true,
+                            showCompass: false,
+                            showMapToolbar: false,
+                            showTraffic: false,
+                            centerMapOnMarkerTap: true,
+                          );
+                        }),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation1']!),
                     ),
                   ],
                 ),
@@ -642,8 +609,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                                         await getCurrentUserLocation(
                                             defaultLocation: LatLng(0.0, 0.0));
                                     var _shouldSetState = false;
-                                    checkGPSService = await actions
-                                        .checkDeviceLocationService();
+                                    checkGPSService = await actions.a1();
                                     _shouldSetState = true;
                                     if (!checkGPSService!) {
                                       await showDialog(
@@ -666,8 +632,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    checkGPSBeforeSave =
-                                        await actions.checkGPSDeviceIsOnAction(
+                                    checkGPSBeforeSave = await actions.a8(
                                       currentUserLocationValue,
                                     );
                                     _shouldSetState = true;
@@ -717,8 +682,8 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                           ],
                         ),
                       ),
-                    ).animated(
-                        [animationsMap['containerOnPageLoadAnimation4']!]),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation2']!),
                   ),
                 ),
               ),

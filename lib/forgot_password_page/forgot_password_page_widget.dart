@@ -3,6 +3,8 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -16,129 +18,142 @@ class ForgotPasswordPageWidget extends StatefulWidget {
 
 class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
     with TickerProviderStateMixin {
-  TextEditingController? confirmPasswordInputController;
-
-  TextEditingController? id4DigitInputController;
-
-  TextEditingController? textController1;
-
-  TextEditingController? usernameInputController;
-
-  TextEditingController? newPasswordInputController;
-
-  final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'textFieldOnPageLoadAnimation': AnimationInfo(
-      curve: Curves.bounceOut,
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 250,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 250.ms),
+        FadeEffect(
+          curve: Curves.bounceOut,
+          delay: 250.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.bounceOut,
+          delay: 250.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 500,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 500.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'rowOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 500,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 500.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'rowOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 500,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 500.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'rowOnPageLoadAnimation4': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 500,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 500.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'rowOnPageLoadAnimation5': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 750,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 750.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
   };
+  TextEditingController? confirmPasswordInputController;
+  TextEditingController? id4DigitInputController;
+  TextEditingController? textController1;
+  TextEditingController? usernameInputController;
+  TextEditingController? newPasswordInputController;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
       this,
     );
 
@@ -147,13 +162,23 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
     textController1 = TextEditingController(text: 'ลืมรหัสผ่าน');
     usernameInputController = TextEditingController();
     newPasswordInputController = TextEditingController();
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    confirmPasswordInputController?.dispose();
+    id4DigitInputController?.dispose();
+    textController1?.dispose();
+    usernameInputController?.dispose();
+    newPasswordInputController?.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: Color(0xFFFF6500),
         automaticallyImplyLeading: false,
@@ -208,7 +233,6 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
         centerTitle: true,
         elevation: 10,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -269,7 +293,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       fontFamily: 'Noto Serif',
                       color: FlutterFlowTheme.of(context).black600,
                     ),
-              ).animated([animationsMap['textFieldOnPageLoadAnimation']!]),
+              ).animateOnPageLoad(
+                  animationsMap['textFieldOnPageLoadAnimation']!),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                 child: Row(
@@ -348,7 +373,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       ),
                     ),
                   ],
-                ).animated([animationsMap['rowOnPageLoadAnimation1']!]),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
@@ -428,7 +453,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       ),
                     ),
                   ],
-                ).animated([animationsMap['rowOnPageLoadAnimation2']!]),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
@@ -508,7 +533,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       ),
                     ),
                   ],
-                ).animated([animationsMap['rowOnPageLoadAnimation3']!]),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation3']!),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
@@ -589,7 +614,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       ),
                     ),
                   ],
-                ).animated([animationsMap['rowOnPageLoadAnimation4']!]),
+                ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation4']!),
               ),
               Expanded(
                 child: Column(
@@ -847,8 +872,8 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                 ),
                               ),
                             ],
-                          ).animated(
-                              [animationsMap['rowOnPageLoadAnimation5']!]),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation5']!),
                         ),
                       ),
                     ),

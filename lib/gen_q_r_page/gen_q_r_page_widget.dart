@@ -1,13 +1,14 @@
 import '../auth/auth_util.dart';
-import '../backend/api_requests/api_calls.dart';
-import '../components/loading_scene_widget.dart';
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/actions/index.dart' as actions;
 import '../custom_code/widgets/index.dart' as custom_widgets;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GenQRPageWidget extends StatefulWidget {
@@ -19,172 +20,158 @@ class GenQRPageWidget extends StatefulWidget {
 
 class _GenQRPageWidgetState extends State<GenQRPageWidget>
     with TickerProviderStateMixin {
-  ApiCallResponse? checkLoginBeforeBack;
-  String? qRCodeLink;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
   final animationsMap = {
     'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 250,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 250.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 250.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 250.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'textOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 500,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 500.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'imageOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 750,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 750.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 750.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
     'textOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
-      duration: 300,
-      delay: 1000,
-      hideBeforeAnimating: true,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 50),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
+      effects: [
+        VisibilityEffect(duration: 1000.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 1000.ms,
+          duration: 300.ms,
+          begin: 0,
+          end: 1,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 1000.ms,
+          duration: 300.ms,
+          begin: Offset(0, 50),
+          end: Offset(0, 0),
+        ),
+      ],
     ),
   };
+  LatLng? currentUserLocationValue;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  UserLogRecord? createdUserLogLeadQR;
+  bool? checkLatLngLeadQR;
 
   @override
   void initState() {
     super.initState();
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      qRCodeLink = await actions.getQRCodeLink(
-        FFAppState().employeeID,
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+      checkLatLngLeadQR = await actions.a8(
+        currentUserLocationValue,
       );
-      setState(() => FFAppState().QRCodeLink = qRCodeLink!);
+      if (!checkLatLngLeadQR!) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return AlertDialog(
+              title: Text('ระบบ'),
+              content: Text('กรุณาเปิดGPS ก่อนทำรายการ'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            );
+          },
+        );
+        context.pop();
+        return;
+      }
+
+      final userLogCreateData = createUserLogRecordData(
+        employeeId: FFAppState().employeeID,
+        action: 'Lead_QR',
+        actionTime: getCurrentTimestamp,
+        userLocation: currentUserLocationValue,
+      );
+      var userLogRecordReference = UserLogRecord.collection.doc();
+      await userLogRecordReference.set(userLogCreateData);
+      createdUserLogLeadQR = UserLogRecord.getDocumentFromData(
+          userLogCreateData, userLogRecordReference);
     });
-
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
-      this,
-    );
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: Color(0xFFFF6500),
         automaticallyImplyLeading: false,
-        leading: Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: InkWell(
-            onTap: () async {
-              var _shouldSetState = false;
-              showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                context: context,
-                builder: (context) {
-                  return Padding(
-                    padding: MediaQuery.of(context).viewInsets,
-                    child: Container(
-                      height: double.infinity,
-                      child: LoadingSceneWidget(),
-                    ),
-                  );
-                },
-              );
-              checkLoginBeforeBack = await GetUserProfileAPICall.call(
-                token: FFAppState().accessToken,
-                apiUrl: FFAppState().apiURLLocalState,
-              );
-              _shouldSetState = true;
-              if (!(checkLoginBeforeBack?.succeeded ?? true)) {
-                Navigator.pop(context);
-                await showDialog(
-                  context: context,
-                  builder: (alertDialogContext) {
-                    return AlertDialog(
-                      title: Text('ระบบ'),
-                      content: Text('Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    );
-                  },
-                );
-                setState(() => FFAppState().imei = '123456789012345');
-                setState(() => FFAppState().accessToken = 'access_token');
-                setState(() => FFAppState().employeeID = 'employee_id');
-                setState(() => FFAppState().QRCodeLink = 'qrcode_link');
-                setState(() =>
-                    FFAppState().apiURLLocalState = 'api_url_local_state');
-                GoRouter.of(context).prepareAuthEvent();
-                await signOut();
-
-                context.goNamedAuth('LoginPage', mounted);
-
-                if (_shouldSetState) setState(() {});
-                return;
-              }
-              setState(() => FFAppState().QRCodeLink = 'qrcode_link');
-
-              context.goNamedAuth('Dashboard', mounted);
-
-              if (_shouldSetState) setState(() {});
-            },
-            child: Icon(
-              Icons.arrow_back_sharp,
-              color: Colors.white,
-              size: 40,
+        leading: Visibility(
+          visible: !FFAppState().isFromTimesheetPage,
+          child: Align(
+            alignment: AlignmentDirectional(0, 0),
+            child: InkWell(
+              onTap: () async {
+                context.goNamed('SuperAppPage');
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: Color(0xFBFFFFFF),
+                size: 30,
+              ),
             ),
           ),
         ),
@@ -200,7 +187,6 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
         centerTitle: true,
         elevation: 10,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -217,44 +203,65 @@ class _GenQRPageWidgetState extends State<GenQRPageWidget>
                     child: Container(
                       width: 250,
                       height: 250,
-                      child: custom_widgets.QRCcodeWidget(
+                      child: custom_widgets.GenBar(
                         width: 250,
                         height: 250,
+                        qrSize: 250.0,
                         qrData: FFAppState().QRCodeLink,
                         gapLess: true,
                         qrVersion: 5,
-                        qrPadding: 0.2,
-                        qrBackgroundColor: Colors.white,
-                        qrForegroundColor: Colors.black,
                       ),
-                    ).animated(
-                        [animationsMap['containerOnPageLoadAnimation']!]),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation']!),
                   ),
                   Align(
                     alignment: AlignmentDirectional(0, 0),
                     child: Text(
                       'QR พนักงาน',
-                      style: FlutterFlowTheme.of(context).subtitle1,
-                    ).animated([animationsMap['textOnPageLoadAnimation1']!]),
+                      style: FlutterFlowTheme.of(context).subtitle1.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                          ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation1']!),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 30),
+                    padding: EdgeInsetsDirectional.fromSTEB(30, 30, 30, 20),
                     child: Image.asset(
                       'assets/images/1661925867403.jpg',
                       width: 250,
                       height: 250,
                       fit: BoxFit.cover,
-                    ).animated([animationsMap['imageOnPageLoadAnimation']!]),
+                    ).animateOnPageLoad(
+                        animationsMap['imageOnPageLoadAnimation']!),
                   ),
-                  Align(
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                      child: Text(
-                        'Line Official ศรีสวัสดิ์',
-                        style: FlutterFlowTheme.of(context).subtitle1,
-                      ).animated([animationsMap['textOnPageLoadAnimation2']!]),
-                    ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                            child: Text(
+                              'Line Official ศรีสวัสดิ์',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .subtitle1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 16,
+                                  ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation2']!),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

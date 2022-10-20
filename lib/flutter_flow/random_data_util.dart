@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
+
 final _random = Random();
 
 int randomInteger(int min, int max) {
@@ -41,4 +43,9 @@ DateTime randomDate() {
 
 String randomImageUrl(int width, int height) {
   return 'https://picsum.photos/seed/${_random.nextInt(1000)}/$width/$height';
+}
+
+Color randomColor() {
+  return Color.fromARGB(
+      255, _random.nextInt(255), _random.nextInt(255), _random.nextInt(255));
 }

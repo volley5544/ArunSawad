@@ -11,12 +11,18 @@ class AuthenAPICall {
     String? username = '',
     String? password = '',
     String? apiUrl = '1',
+    String? fcmToken = '',
+    String? uid = '',
+    String? check = '',
   }) {
     final body = '''
 {
   "username": "${username}",
   "password": "${password}",
-  "api_url": "${apiUrl}"
+  "api_url": "${apiUrl}",
+  "fcm_token": "${fcmToken}",
+  "uid": "${uid}",
+  "check": "${check}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'authenAPI',
@@ -24,6 +30,7 @@ class AuthenAPICall {
       callType: ApiCallType.POST,
       headers: {
         'ContentType': 'application/json; charset=utf-8,',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -47,6 +54,10 @@ class AuthenAPICall {
   static dynamic branchCode(dynamic response) => getJsonField(
         response,
         r'''$.user.branch_code''',
+      );
+  static dynamic status(dynamic response) => getJsonField(
+        response,
+        r'''$.status''',
       );
 }
 
@@ -78,6 +89,7 @@ class CheckInAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -116,6 +128,7 @@ class GetTimesheetAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -178,6 +191,7 @@ class TimesheetDetailAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -279,6 +293,7 @@ class GetUserProfileAPICall {
       callType: ApiCallType.POST,
       headers: {
         'ContentType': 'application/json; charset=utf-8,',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -286,6 +301,151 @@ class GetUserProfileAPICall {
       returnBody: true,
     );
   }
+
+  static dynamic profileEmployeeID(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].EmpCode''',
+      );
+  static dynamic profileFullName(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].fullName''',
+      );
+  static dynamic profileNickName(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].nickName''',
+      );
+  static dynamic profileHiredDate(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].HiredDate''',
+      );
+  static dynamic profileServiceDurationYY(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].ServiceDuration.year''',
+      );
+  static dynamic profileServiceDurationMM(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].ServiceDuration.month''',
+      );
+  static dynamic profileServiceDurationDD(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].ServiceDuration.day''',
+      );
+  static dynamic profilePositionAge(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].PositionAge''',
+      );
+  static dynamic profileArea(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].Area''',
+      );
+  static dynamic profileRegion(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].Region''',
+      );
+  static dynamic profliePositionName(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].PositionName''',
+      );
+  static dynamic profileBranchName(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].BranchName''',
+      );
+  static dynamic profileBirthDate(dynamic response) => getJsonField(
+        response,
+        r'''$.DataUserInfo[:].BirthDate''',
+      );
+}
+
+class GetLeadDetailAPICall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? apiUrl = '',
+  }) {
+    final body = '''
+{
+  "token": "${token}",
+  "api_url": "${apiUrl}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getLeadDetailAPI',
+      apiUrl: '${apiUrl}/api/lead/getlead',
+      callType: ApiCallType.POST,
+      headers: {
+        'ContentType': 'application/json; charset=utf-8,',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+    );
+  }
+
+  static dynamic connectStatus(dynamic response) => getJsonField(
+        response,
+        r'''$.status''',
+      );
+  static dynamic dataStatus(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.status''',
+      );
+  static dynamic dataLeadID(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].lead_id''',
+        true,
+      );
+  static dynamic dataFirstName(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].first_name''',
+        true,
+      );
+  static dynamic dataPhoneNum(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].phone_number''',
+        true,
+      );
+  static dynamic dataCallStatus(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].call_status''',
+        true,
+      );
+  static dynamic dataCreatedAt(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].created_at''',
+        true,
+      );
+  static dynamic dataLeadChannel(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].channel''',
+        true,
+      );
+  static dynamic dataEmployeeID(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].employee_id''',
+        true,
+      );
+  static dynamic dataBranchCode(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].branch_code''',
+        true,
+      );
+  static dynamic dataBranchName(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].branch_name''',
+        true,
+      );
+  static dynamic dataMessage(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.message''',
+      );
+  static dynamic dataLevel(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.level''',
+      );
+  static dynamic connectionMessage(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
 }
 
 class LogoutAPICall {
@@ -304,6 +464,7 @@ class LogoutAPICall {
       callType: ApiCallType.POST,
       headers: {
         'ContentType': 'application/json; charset=utf-8,',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -347,6 +508,7 @@ class SurveyAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -405,6 +567,7 @@ class CollectionAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -463,6 +626,7 @@ class CheckerAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -495,6 +659,7 @@ class GetMaterialAPICall {
       callType: ApiCallType.POST,
       headers: {
         'ContentType': 'application/json; charset=utf-8,',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -554,6 +719,7 @@ class MarketingAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -606,6 +772,7 @@ class NpaAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -653,6 +820,7 @@ class OpsAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -677,6 +845,7 @@ class NpaCheckAssetIdAPICall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
       body: body,
@@ -759,4 +928,20 @@ class GetVloanContractAPICall {
         r'''$.contract.*[4]''',
         true,
       );
+}
+
+class ApiPagingParams {
+  int nextPageNumber = 0;
+  int numItems = 0;
+  dynamic lastResponse;
+
+  ApiPagingParams({
+    required this.nextPageNumber,
+    required this.numItems,
+    required this.lastResponse,
+  });
+
+  @override
+  String toString() =>
+      'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }

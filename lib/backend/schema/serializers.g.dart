@@ -7,12 +7,32 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(ArunSawadImgBannerRecord.serializer)
       ..add(CityRecord.serializer)
+      ..add(FCMTokenRecord.serializer)
       ..add(FileUploadRecord.serializer)
+      ..add(KeyStorage2Record.serializer)
       ..add(KeyStorageRecord.serializer)
+      ..add(LeadChannelColorRecord.serializer)
       ..add(Mat1Record.serializer)
       ..add(MaterialRecord.serializer)
+      ..add(SawadFormServicesRecord.serializer)
+      ..add(SplashPageImgRecord.serializer)
+      ..add(UserCustomRecord.serializer)
+      ..add(UserLogRecord.serializer)
       ..add(UsersRecord.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Color)]),
+          () => new ListBuilder<Color>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

@@ -30,7 +30,8 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 
   String? get username;
 
-  String? get password;
+  @BuiltValueField(wireName: 'pin_code')
+  String? get pinCode;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -44,7 +45,7 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..phoneNumber = ''
     ..employeeId = 0
     ..username = ''
-    ..password = '';
+    ..pinCode = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Users');
@@ -76,7 +77,7 @@ Map<String, dynamic> createUsersRecordData({
   String? phoneNumber,
   int? employeeId,
   String? username,
-  String? password,
+  String? pinCode,
 }) {
   final firestoreData = serializers.toFirestore(
     UsersRecord.serializer,
@@ -90,7 +91,7 @@ Map<String, dynamic> createUsersRecordData({
         ..phoneNumber = phoneNumber
         ..employeeId = employeeId
         ..username = username
-        ..password = password,
+        ..pinCode = pinCode,
     ),
   );
 

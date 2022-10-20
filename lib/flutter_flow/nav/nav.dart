@@ -6,9 +6,13 @@ import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
 import '../../backend/backend.dart';
 import '../../auth/firebase_user_provider.dart';
+import '../../backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 
 import '../../index.dart';
 import '../../main.dart';
+import '../lat_lng.dart';
+import '../place.dart';
 import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -66,27 +70,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? BioAuthenPageWidget() : LoginPageWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? BioAuthenPageWidget()
-              : LoginPageWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
           routes: [
             FFRoute(
               name: 'LoginPage',
               path: 'loginPage',
               builder: (context, params) => LoginPageWidget(
-                apiURL: params.getParam(
-                    'apiURL', ParamType.DocumentReference, 'Key_Storage'),
+                apiURL: params.getParam('apiURL', ParamType.DocumentReference,
+                    false, 'Key_Storage'),
               ),
             ),
             FFRoute(
-              name: 'BioAuthenPage',
-              path: 'bioAuthenPage',
-              builder: (context, params) => BioAuthenPageWidget(),
+              name: 'PinCodePage',
+              path: 'pinCodePage',
+              builder: (context, params) => PinCodePageWidget(),
+            ),
+            FFRoute(
+              name: 'SetPinCodePage',
+              path: 'setPinCodePage',
+              builder: (context, params) => SetPinCodePageWidget(),
             ),
             FFRoute(
               name: 'Dashboard',
@@ -94,6 +102,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => DashboardWidget(
                 jwtToken: params.getParam('jwtToken', ParamType.String),
               ),
+            ),
+            FFRoute(
+              name: 'SuperAppPage',
+              path: 'superAppPage',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'SuperAppPage')
+                  : SuperAppPageWidget(
+                      dailyText: params.getParam('dailyText', ParamType.String),
+                    ),
             ),
             FFRoute(
               name: 'CheckInPage',
@@ -125,6 +142,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 landmark: params.getParam('landmark', ParamType.String),
                 remark: params.getParam('remark', ParamType.String),
                 clockIn: params.getParam('clockIn', ParamType.DateTime),
+              ),
+            ),
+            FFRoute(
+              name: 'MyProfilePage',
+              path: 'myProfilePage',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'MyProfilePage')
+                  : MyProfilePageWidget(),
+            ),
+            FFRoute(
+              name: 'LeadNotiPage',
+              path: 'leadNotiPage',
+              builder: (context, params) => LeadNotiPageWidget(
+                color: params.getParam<Color>('color', ParamType.Color, true),
               ),
             ),
             FFRoute(
@@ -162,21 +193,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'NPApage',
-              path: 'nPApage',
-              asyncParams: {
-                'location1': getDoc('city', CityRecord.serializer),
-              },
-              builder: (context, params) => NPApageWidget(
-                location1: params.getParam('location1', ParamType.Document),
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                assetId: params.getParam('assetId', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
-              ),
-            ),
-            FFRoute(
               name: 'OPSpage',
               path: 'oPSpage',
               asyncParams: {
@@ -193,6 +209,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 signboardStatus:
                     params.getParam('signboardStatus', ParamType.String),
                 remark: params.getParam('remark', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'NPApage',
+              path: 'nPApage',
+              asyncParams: {
+                'location1': getDoc('city', CityRecord.serializer),
+              },
+              builder: (context, params) => NPApageWidget(
+                location1: params.getParam('location1', ParamType.Document),
+                recordId: params.getParam('recordId', ParamType.String),
+                coordinate: params.getParam('coordinate', ParamType.String),
+                assetId: params.getParam('assetId', ParamType.String),
+                remark: params.getParam('remark', ParamType.String),
+                clockIn: params.getParam('clockIn', ParamType.DateTime),
               ),
             ),
             FFRoute(
@@ -221,16 +252,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'ForgotPasswordPage',
               path: 'forgotPasswordPage',
               builder: (context, params) => ForgotPasswordPageWidget(),
-            ),
-            FFRoute(
-              name: 'LeadSurveyRegisPage',
-              path: 'leadSurveyRegisPage',
-              builder: (context, params) => LeadSurveyRegisPageWidget(),
-            ),
-            FFRoute(
-              name: 'GenQRPage',
-              path: 'genQRPage',
-              builder: (context, params) => GenQRPageWidget(),
             ),
             FFRoute(
               name: 'SuccessPage',
@@ -278,6 +299,51 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => OPSpageCopyWidget(
                 location1: params.getParam('location1', ParamType.Document),
               ),
+            ),
+            FFRoute(
+              name: 'FormServicePage',
+              path: 'formServicePage',
+              builder: (context, params) => FormServicePageWidget(
+                formServiceName:
+                    params.getParam('formServiceName', ParamType.String),
+                formServiceUrl:
+                    params.getParam('formServiceUrl', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'GenQRPage',
+              path: 'genQRPage',
+              builder: (context, params) => GenQRPageWidget(),
+            ),
+            FFRoute(
+              name: 'LeadSurveyRegisPage',
+              path: 'leadSurveyRegisPage',
+              builder: (context, params) => LeadSurveyRegisPageWidget(),
+            ),
+            FFRoute(
+              name: 'SaleskitPage',
+              path: 'saleskitPage',
+              builder: (context, params) => SaleskitPageWidget(),
+            ),
+            FFRoute(
+              name: 'ClassroomPage',
+              path: 'classroomPage',
+              builder: (context, params) => ClassroomPageWidget(),
+            ),
+            FFRoute(
+              name: 'ITSupportPage',
+              path: 'iTSupportPage',
+              builder: (context, params) => ITSupportPageWidget(),
+            ),
+            FFRoute(
+              name: 'ActionLogPage',
+              path: 'actionLogPage',
+              builder: (context, params) => ActionLogPageWidget(),
+            ),
+            FFRoute(
+              name: 'IntrodutionPage',
+              path: 'introdutionPage',
+              builder: (context, params) => IntrodutionPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -386,9 +452,10 @@ class FFParameters {
         ),
       ).onError((_, __) => [false]).then((v) => v.every((e) => e));
 
-  dynamic getParam(
+  dynamic getParam<T>(
     String paramName,
     ParamType type, [
+    bool isList = false,
     String? collectionName,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
@@ -403,7 +470,7 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam(param, type, collectionName);
+    return deserializeParam<T>(param, type, isList, collectionName);
   }
 }
 
@@ -451,14 +518,12 @@ class FFRoute {
           final child = appStateNotifier.loading
               ? Container(
                   color: Colors.transparent,
-                  child: Builder(
-                    builder: (context) => Image.asset(
-                      'assets/images/splash-port-xxxhdpi.png',
-                      fit: BoxFit.cover,
-                    ),
+                  child: Image.asset(
+                    'assets/images/SplashLoadingApp.png',
+                    fit: BoxFit.cover,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

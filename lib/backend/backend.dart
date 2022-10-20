@@ -10,6 +10,14 @@ import 'schema/file_upload_record.dart';
 import 'schema/key_storage_record.dart';
 import 'schema/material_record.dart';
 import 'schema/mat1_record.dart';
+import 'schema/f_c_m_token_record.dart';
+import 'schema/arun_sawad_img_banner_record.dart';
+import 'schema/lead_channel_color_record.dart';
+import 'schema/user_custom_record.dart';
+import 'schema/user_log_record.dart';
+import 'schema/splash_page_img_record.dart';
+import 'schema/key_storage2_record.dart';
+import 'schema/sawad_form_services_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -23,6 +31,14 @@ export 'schema/file_upload_record.dart';
 export 'schema/key_storage_record.dart';
 export 'schema/material_record.dart';
 export 'schema/mat1_record.dart';
+export 'schema/f_c_m_token_record.dart';
+export 'schema/arun_sawad_img_banner_record.dart';
+export 'schema/lead_channel_color_record.dart';
+export 'schema/user_custom_record.dart';
+export 'schema/user_log_record.dart';
+export 'schema/splash_page_img_record.dart';
+export 'schema/key_storage2_record.dart';
+export 'schema/sawad_form_services_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -276,6 +292,345 @@ Future<FFFirestorePage<Mat1Record>> queryMat1RecordPage({
       isStream: isStream,
     );
 
+/// Functions to query FCMTokenRecords (as a Stream and as a Future).
+Stream<List<FCMTokenRecord>> queryFCMTokenRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FCMTokenRecord.collection,
+      FCMTokenRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FCMTokenRecord>> queryFCMTokenRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FCMTokenRecord.collection,
+      FCMTokenRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<FCMTokenRecord>> queryFCMTokenRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      FCMTokenRecord.collection,
+      FCMTokenRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query ArunSawadImgBannerRecords (as a Stream and as a Future).
+Stream<List<ArunSawadImgBannerRecord>> queryArunSawadImgBannerRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ArunSawadImgBannerRecord.collection,
+      ArunSawadImgBannerRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ArunSawadImgBannerRecord>> queryArunSawadImgBannerRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ArunSawadImgBannerRecord.collection,
+      ArunSawadImgBannerRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<ArunSawadImgBannerRecord>>
+    queryArunSawadImgBannerRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          ArunSawadImgBannerRecord.collection,
+          ArunSawadImgBannerRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query LeadChannelColorRecords (as a Stream and as a Future).
+Stream<List<LeadChannelColorRecord>> queryLeadChannelColorRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      LeadChannelColorRecord.collection,
+      LeadChannelColorRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<LeadChannelColorRecord>> queryLeadChannelColorRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      LeadChannelColorRecord.collection,
+      LeadChannelColorRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<LeadChannelColorRecord>>
+    queryLeadChannelColorRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          LeadChannelColorRecord.collection,
+          LeadChannelColorRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query UserCustomRecords (as a Stream and as a Future).
+Stream<List<UserCustomRecord>> queryUserCustomRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserCustomRecord.collection,
+      UserCustomRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserCustomRecord>> queryUserCustomRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserCustomRecord.collection,
+      UserCustomRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<UserCustomRecord>> queryUserCustomRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      UserCustomRecord.collection,
+      UserCustomRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query UserLogRecords (as a Stream and as a Future).
+Stream<List<UserLogRecord>> queryUserLogRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserLogRecord.collection,
+      UserLogRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserLogRecord>> queryUserLogRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserLogRecord.collection,
+      UserLogRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<UserLogRecord>> queryUserLogRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      UserLogRecord.collection,
+      UserLogRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query SplashPageImgRecords (as a Stream and as a Future).
+Stream<List<SplashPageImgRecord>> querySplashPageImgRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SplashPageImgRecord.collection,
+      SplashPageImgRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SplashPageImgRecord>> querySplashPageImgRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SplashPageImgRecord.collection,
+      SplashPageImgRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<SplashPageImgRecord>> querySplashPageImgRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      SplashPageImgRecord.collection,
+      SplashPageImgRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query KeyStorage2Records (as a Stream and as a Future).
+Stream<List<KeyStorage2Record>> queryKeyStorage2Record({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      KeyStorage2Record.collection,
+      KeyStorage2Record.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<KeyStorage2Record>> queryKeyStorage2RecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      KeyStorage2Record.collection,
+      KeyStorage2Record.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<KeyStorage2Record>> queryKeyStorage2RecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      KeyStorage2Record.collection,
+      KeyStorage2Record.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query SawadFormServicesRecords (as a Stream and as a Future).
+Stream<List<SawadFormServicesRecord>> querySawadFormServicesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SawadFormServicesRecord.collection,
+      SawadFormServicesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SawadFormServicesRecord>> querySawadFormServicesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SawadFormServicesRecord.collection,
+      SawadFormServicesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<SawadFormServicesRecord>>
+    querySawadFormServicesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          SawadFormServicesRecord.collection,
+          SawadFormServicesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
 Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
     {Query Function(Query)? queryBuilder,
     int limit = -1,
@@ -379,4 +734,24 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   final dataStream = docSnapshotStream?.map(getDocs);
   final nextPageToken = docSnapshot.docs.isEmpty ? null : docSnapshot.docs.last;
   return FFFirestorePage(data, dataStream, nextPageToken);
+}
+
+// Creates a Firestore document representing the logged in user if it doesn't yet exist
+Future maybeCreateUser(User user) async {
+  final userRecord = UsersRecord.collection.doc(user.uid);
+  final userExists = await userRecord.get().then((u) => u.exists);
+  if (userExists) {
+    return;
+  }
+
+  final userData = createUsersRecordData(
+    email: user.email,
+    displayName: user.displayName,
+    photoUrl: user.photoURL,
+    uid: user.uid,
+    phoneNumber: user.phoneNumber,
+    createdTime: getCurrentTimestamp,
+  );
+
+  await userRecord.set(userData);
 }

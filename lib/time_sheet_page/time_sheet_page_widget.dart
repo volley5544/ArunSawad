@@ -2,7 +2,6 @@ import '../backend/api_requests/api_calls.dart';
 import '../components/loading_scene_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/widgets/index.dart' as custom_widgets;
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -34,14 +33,13 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       setState(() => FFAppState().isFromTimesheetPage = true);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: Color(0xFFFF6500),
         automaticallyImplyLeading: false,
@@ -70,7 +68,6 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
         centerTitle: true,
         elevation: 10,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -78,18 +75,6 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                child: Container(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.04,
-                  child: custom_widgets.ShowDateTime(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height * 0.04,
-                    currentTime: getCurrentTimestamp,
-                  ),
-                ),
-              ),
               Expanded(
                 child: Container(
                   width: double.infinity,
@@ -154,7 +139,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                           ),
                                         );
                                       },
-                                    );
+                                    ).then((value) => setState(() {}));
+
                                     if (functions.showJobType(getJsonField(
                                           timesheetDataListItem,
                                           r'''$.Job_Type''',
@@ -176,38 +162,41 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         'CheckInPage',
                                         queryParams: {
                                           'recordId': serializeParam(
-                                              TimesheetDetailAPICall.recordID(
-                                                (checkInTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.recordID(
+                                              (checkInTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'coordinate': serializeParam(
-                                              functions.showLocationTimesheet(
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Latitude''',
-                                                  ),
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Longitude''',
-                                                  ),
-                                                  true),
-                                              ParamType.String),
+                                            functions.showLocationTimesheet(
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Latitude''',
+                                                ),
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Longitude''',
+                                                ),
+                                                true),
+                                            ParamType.String,
+                                          ),
                                           'remark': serializeParam(
-                                              TimesheetDetailAPICall.remark(
-                                                (checkInTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.remark(
+                                              (checkInTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'clockIn': serializeParam(
-                                              functions
-                                                  .showClockIn(getJsonField(
-                                                timesheetDataListItem,
-                                                r'''$.ClockIn''',
-                                              ).toString()),
-                                              ParamType.DateTime),
+                                            functions.showClockIn(getJsonField(
+                                              timesheetDataListItem,
+                                              r'''$.ClockIn''',
+                                            ).toString()),
+                                            ParamType.DateTime,
+                                          ),
                                         }.withoutNulls,
                                       );
 
@@ -236,68 +225,73 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         'SurveyPage',
                                         queryParams: {
                                           'recordId': serializeParam(
-                                              TimesheetDetailAPICall.recordID(
-                                                (surveyTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.recordID(
+                                              (surveyTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'idCardNumber': serializeParam(
-                                              TimesheetDetailAPICall.citizenID(
-                                                (surveyTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.citizenID(
+                                              (surveyTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'coordinate': serializeParam(
-                                              functions.showLocationTimesheet(
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Latitude''',
-                                                  ),
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Longitude''',
-                                                  ),
-                                                  true),
-                                              ParamType.String),
+                                            functions.showLocationTimesheet(
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Latitude''',
+                                                ),
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Longitude''',
+                                                ),
+                                                true),
+                                            ParamType.String,
+                                          ),
                                           'customerName': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .customerName(
-                                                (surveyTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.customerName(
+                                              (surveyTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'landmark': serializeParam(
-                                              TimesheetDetailAPICall.landmark(
-                                                (surveyTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.landmark(
+                                              (surveyTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'remark': serializeParam(
-                                              TimesheetDetailAPICall.remark(
-                                                (surveyTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.remark(
+                                              (surveyTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'description': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .description(
-                                                (surveyTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.description(
+                                              (surveyTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'clockIn': serializeParam(
-                                              functions
-                                                  .showClockIn(getJsonField(
-                                                timesheetDataListItem,
-                                                r'''$.ClockIn''',
-                                              ).toString()),
-                                              ParamType.DateTime),
+                                            functions.showClockIn(getJsonField(
+                                              timesheetDataListItem,
+                                              r'''$.ClockIn''',
+                                            ).toString()),
+                                            ParamType.DateTime,
+                                          ),
                                         }.withoutNulls,
                                       );
 
@@ -326,60 +320,65 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         'CollectionPage',
                                         queryParams: {
                                           'coordinate': serializeParam(
-                                              functions.showLocationTimesheet(
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Latitude''',
-                                                  ),
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Longitude''',
-                                                  ),
-                                                  true),
-                                              ParamType.String),
+                                            functions.showLocationTimesheet(
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Latitude''',
+                                                ),
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Longitude''',
+                                                ),
+                                                true),
+                                            ParamType.String,
+                                          ),
                                           'idCardNumber': serializeParam(
-                                              TimesheetDetailAPICall.citizenID(
-                                                (collectionTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.citizenID(
+                                              (collectionTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'contNo': serializeParam(
-                                              TimesheetDetailAPICall.contNo(
-                                                (collectionTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.contNo(
+                                              (collectionTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'customerName': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .customerName(
-                                                (collectionTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.customerName(
+                                              (collectionTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'remark': serializeParam(
-                                              TimesheetDetailAPICall.remark(
-                                                (collectionTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.remark(
+                                              (collectionTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'recordId': serializeParam(
-                                              TimesheetDetailAPICall.recordID(
-                                                (collectionTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.recordID(
+                                              (collectionTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'clockIn': serializeParam(
-                                              functions
-                                                  .showClockIn(getJsonField(
-                                                timesheetDataListItem,
-                                                r'''$.ClockIn''',
-                                              ).toString()),
-                                              ParamType.DateTime),
+                                            functions.showClockIn(getJsonField(
+                                              timesheetDataListItem,
+                                              r'''$.ClockIn''',
+                                            ).toString()),
+                                            ParamType.DateTime,
+                                          ),
                                         }.withoutNulls,
                                       );
 
@@ -408,62 +407,68 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         'MarketingPage',
                                         queryParams: {
                                           'coordinate': serializeParam(
-                                              functions.showLocationTimesheet(
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Latitude''',
-                                                  ),
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Longitude''',
-                                                  ),
-                                                  true),
-                                              ParamType.String),
+                                            functions.showLocationTimesheet(
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Latitude''',
+                                                ),
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Longitude''',
+                                                ),
+                                                true),
+                                            ParamType.String,
+                                          ),
                                           'branchCode': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .marketingBranchCode(
-                                                (marketingTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall
+                                                .marketingBranchCode(
+                                              (marketingTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'area': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .marketingAreaDescription(
-                                                (marketingTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall
+                                                .marketingAreaDescription(
+                                              (marketingTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'detail': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .marketingDetail(
-                                                (marketingTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall
+                                                .marketingDetail(
+                                              (marketingTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'remark': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .marketingRemark(
-                                                (marketingTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall
+                                                .marketingRemark(
+                                              (marketingTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'recordId': serializeParam(
-                                              getJsonField(
-                                                timesheetDataListItem,
-                                                r'''$.RecordId''',
-                                              ).toString(),
-                                              ParamType.String),
+                                            getJsonField(
+                                              timesheetDataListItem,
+                                              r'''$.RecordId''',
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'clockIn': serializeParam(
-                                              functions
-                                                  .showClockIn(getJsonField(
-                                                timesheetDataListItem,
-                                                r'''$.ClockIn''',
-                                              ).toString()),
-                                              ParamType.DateTime),
+                                            functions.showClockIn(getJsonField(
+                                              timesheetDataListItem,
+                                              r'''$.ClockIn''',
+                                            ).toString()),
+                                            ParamType.DateTime,
+                                          ),
                                         }.withoutNulls,
                                       );
 
@@ -492,45 +497,49 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         'NPApage',
                                         queryParams: {
                                           'recordId': serializeParam(
-                                              TimesheetDetailAPICall.recordID(
-                                                (surveyNPATimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.recordID(
+                                              (surveyNPATimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'coordinate': serializeParam(
-                                              functions.showLocationTimesheet(
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Latitude''',
-                                                  ),
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Longitude''',
-                                                  ),
-                                                  true),
-                                              ParamType.String),
+                                            functions.showLocationTimesheet(
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Latitude''',
+                                                ),
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Longitude''',
+                                                ),
+                                                true),
+                                            ParamType.String,
+                                          ),
                                           'assetId': serializeParam(
-                                              TimesheetDetailAPICall.assetID(
-                                                (surveyNPATimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.assetID(
+                                              (surveyNPATimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'remark': serializeParam(
-                                              TimesheetDetailAPICall.remark(
-                                                (surveyNPATimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.remark(
+                                              (surveyNPATimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'clockIn': serializeParam(
-                                              functions
-                                                  .showClockIn(getJsonField(
-                                                timesheetDataListItem,
-                                                r'''$.ClockIn''',
-                                              ).toString()),
-                                              ParamType.DateTime),
+                                            functions.showClockIn(getJsonField(
+                                              timesheetDataListItem,
+                                              r'''$.ClockIn''',
+                                            ).toString()),
+                                            ParamType.DateTime,
+                                          ),
                                         }.withoutNulls,
                                       );
 
@@ -570,60 +579,65 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         'CheckerPage',
                                         queryParams: {
                                           'recordId': serializeParam(
-                                              TimesheetDetailAPICall.recordID(
-                                                (checkerTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.recordID(
+                                              (checkerTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'coordinate': serializeParam(
-                                              functions.showLocationTimesheet(
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Latitude''',
-                                                  ),
-                                                  getJsonField(
-                                                    timesheetDataListItem,
-                                                    r'''$.Longitude''',
-                                                  ),
-                                                  true),
-                                              ParamType.String),
+                                            functions.showLocationTimesheet(
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Latitude''',
+                                                ),
+                                                getJsonField(
+                                                  timesheetDataListItem,
+                                                  r'''$.Longitude''',
+                                                ),
+                                                true),
+                                            ParamType.String,
+                                          ),
                                           'idCardNumber': serializeParam(
-                                              TimesheetDetailAPICall.citizenID(
-                                                (checkerTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.citizenID(
+                                              (checkerTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'contNo': serializeParam(
-                                              TimesheetDetailAPICall.contNo(
-                                                (checkerTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.contNo(
+                                              (checkerTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'customerName': serializeParam(
-                                              TimesheetDetailAPICall
-                                                  .customerName(
-                                                (checkerTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.customerName(
+                                              (checkerTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'remark': serializeParam(
-                                              TimesheetDetailAPICall.remark(
-                                                (checkerTimesheetDetail
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString(),
-                                              ParamType.String),
+                                            TimesheetDetailAPICall.remark(
+                                              (checkerTimesheetDetail
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString(),
+                                            ParamType.String,
+                                          ),
                                           'clockIn': serializeParam(
-                                              functions
-                                                  .showClockIn(getJsonField(
-                                                timesheetDataListItem,
-                                                r'''$.ClockIn''',
-                                              ).toString()),
-                                              ParamType.DateTime),
+                                            functions.showClockIn(getJsonField(
+                                              timesheetDataListItem,
+                                              r'''$.ClockIn''',
+                                            ).toString()),
+                                            ParamType.DateTime,
+                                          ),
                                         }.withoutNulls,
                                       );
 
@@ -712,12 +726,17 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                           1, 0),
                                                   child: Text(
                                                     dateTimeFormat(
-                                                        'Hm',
-                                                        functions.showClockIn(
-                                                            getJsonField(
-                                                          timesheetDataListItem,
-                                                          r'''$.ClockIn''',
-                                                        ).toString())),
+                                                      'Hm',
+                                                      functions.showClockIn(
+                                                          getJsonField(
+                                                        timesheetDataListItem,
+                                                        r'''$.ClockIn''',
+                                                      ).toString()),
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyText1

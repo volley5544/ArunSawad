@@ -29,15 +29,15 @@
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Open Graph & SEO tags -->
-  <meta property="og:title" content="arun_sawad" />
+  <meta property="og:title" content="ArunSawad" />
   <meta property="og:description" content="Built with FlutterFlow." />
   <meta property="og:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" /> 
-  <meta name="twitter:title" content="arun_sawad" />
+  <meta name="twitter:title" content="ArunSawad" />
   <meta name="twitter:description" content="Built with FlutterFlow." />
   <meta name="twitter:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <title> arun_sawad </title>
+  <title> ArunSawad </title>
   <meta name="description" content="Built with FlutterFlow." />
     
 
@@ -59,8 +59,8 @@
   
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
-  
-  
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
 
   <script>
     const firebaseConfig = {
@@ -74,6 +74,15 @@
     firebase.initializeApp(firebaseConfig);
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbHtyznWFezYtHsXJ7ycj_AqgRS9eRfdM"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.worker.min.js";
+    pdfRenderOptions = {
+      cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/cmaps/',
+      cMapPacked: true,
+    }
+  </script>
+        
   
   <script src="main.dart.js" type="application/javascript"></script>
 </body>

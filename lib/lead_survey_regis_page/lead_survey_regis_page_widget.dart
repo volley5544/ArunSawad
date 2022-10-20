@@ -1,10 +1,11 @@
 import '../auth/auth_util.dart';
-import '../backend/api_requests/api_calls.dart';
+import '../backend/backend.dart';
 import '../components/loading_scene_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_web_view.dart';
 import '../custom_code/actions/index.dart' as actions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,101 +19,98 @@ class LeadSurveyRegisPageWidget extends StatefulWidget {
 }
 
 class _LeadSurveyRegisPageWidgetState extends State<LeadSurveyRegisPageWidget> {
-  ApiCallResponse? checkLoginBeforeBack;
-  String? webViewLink;
+  LatLng? currentUserLocationValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  UserLogRecord? createdLeadRegisLog;
+  bool? checkLatLngLeadReg;
 
   @override
   void initState() {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      webViewLink = await actions.getQRCodeLink(
-        FFAppState().employeeID,
-      );
-      setState(() => FFAppState().QRCodeLink = webViewLink!);
-    });
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        context: context,
+        builder: (context) {
+          return Padding(
+            padding: MediaQuery.of(context).viewInsets,
+            child: Container(
+              height: double.infinity,
+              child: LoadingSceneWidget(),
+            ),
+          );
+        },
+      ).then((value) => setState(() {}));
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+      checkLatLngLeadReg = await actions.a8(
+        currentUserLocationValue,
+      );
+      if (!checkLatLngLeadReg!) {
+        Navigator.pop(context);
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return AlertDialog(
+              title: Text('ระบบ'),
+              content: Text('กรุณาเปิดGPSก่อนทำรายการ'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            );
+          },
+        );
+        context.pop();
+        return;
+      }
+
+      final userLogCreateData = createUserLogRecordData(
+        employeeId: FFAppState().employeeID,
+        action: 'Lead_Regis',
+        actionTime: getCurrentTimestamp,
+        userLocation: currentUserLocationValue,
+      );
+      var userLogRecordReference = UserLogRecord.collection.doc();
+      await userLogRecordReference.set(userLogCreateData);
+      createdLeadRegisLog = UserLogRecord.getDocumentFromData(
+          userLogCreateData, userLogRecordReference);
+      await Future.delayed(const Duration(milliseconds: 2000));
+      Navigator.pop(context);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
         backgroundColor: Color(0xFFFF6500),
         automaticallyImplyLeading: false,
-        leading: Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: InkWell(
-            onTap: () async {
-              var _shouldSetState = false;
-              showModalBottomSheet(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                context: context,
-                builder: (context) {
-                  return Padding(
-                    padding: MediaQuery.of(context).viewInsets,
-                    child: Container(
-                      height: double.infinity,
-                      child: LoadingSceneWidget(),
-                    ),
-                  );
-                },
-              );
-              checkLoginBeforeBack = await GetUserProfileAPICall.call(
-                token: FFAppState().accessToken,
-                apiUrl: FFAppState().apiURLLocalState,
-              );
-              _shouldSetState = true;
-              if (!(checkLoginBeforeBack?.succeeded ?? true)) {
-                Navigator.pop(context);
-                await showDialog(
-                  context: context,
-                  builder: (alertDialogContext) {
-                    return AlertDialog(
-                      title: Text('ระบบ'),
-                      content: Text('Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    );
-                  },
-                );
-                setState(() => FFAppState().imei = '123456789012345');
-                setState(() => FFAppState().accessToken = 'access_token');
-                setState(() => FFAppState().employeeID = 'employee_id');
-                setState(() => FFAppState().QRCodeLink = 'qrcode_link');
-                setState(() =>
-                    FFAppState().apiURLLocalState = 'api_url_local_state');
-                GoRouter.of(context).prepareAuthEvent();
-                await signOut();
-
-                context.goNamedAuth('LoginPage', mounted);
-
-                if (_shouldSetState) setState(() {});
-                return;
-              }
-              setState(() => FFAppState().QRCodeLink = 'qrcode_link');
-
-              context.goNamedAuth('Dashboard', mounted);
-
-              if (_shouldSetState) setState(() {});
-            },
-            child: Icon(
-              Icons.arrow_back_sharp,
-              color: Colors.white,
-              size: 40,
+        leading: Visibility(
+          visible: !FFAppState().isFromTimesheetPage,
+          child: Align(
+            alignment: AlignmentDirectional(0, 0),
+            child: InkWell(
+              onTap: () async {
+                context.goNamed('SuperAppPage');
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: Color(0xFBFFFFFF),
+                size: 30,
+              ),
             ),
           ),
         ),
         title: Text(
-          'Branch View',
+          'ฟอร์มลีด',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
@@ -123,7 +121,6 @@ class _LeadSurveyRegisPageWidgetState extends State<LeadSurveyRegisPageWidget> {
         centerTitle: true,
         elevation: 10,
       ),
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
@@ -136,10 +133,7 @@ class _LeadSurveyRegisPageWidgetState extends State<LeadSurveyRegisPageWidget> {
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 1, 0, 0),
               child: FlutterFlowWebView(
-                url: valueOrDefault<String>(
-                  webViewLink,
-                  'https://genshin.hoyoverse.com/en/',
-                ),
+                url: FFAppState().QRCodeLink,
                 bypass: false,
                 height: MediaQuery.of(context).size.height * 0.9,
                 verticalScroll: true,

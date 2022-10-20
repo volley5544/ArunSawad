@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:from_css_color/from_css_color.dart';
 
 import '../../backend/backend.dart';
 import '../../flutter_flow/lat_lng.dart';
@@ -24,10 +25,22 @@ String placeToString(FFPlace place) => jsonEncode({
       'zipCode': place.zipCode,
     });
 
-String? serializeParam(dynamic param, ParamType paramType) {
+String? serializeParam(
+  dynamic param,
+  ParamType paramType, [
+  bool isList = false,
+]) {
   try {
     if (param == null) {
       return null;
+    }
+    if (isList) {
+      final serializedValues = (param as Iterable)
+          .map((p) => serializeParam(p, paramType, false))
+          .where((p) => p != null)
+          .map((p) => p!)
+          .toList();
+      return json.encode(serializedValues);
     }
     switch (paramType) {
       case ParamType.int:
@@ -44,6 +57,8 @@ String? serializeParam(dynamic param, ParamType paramType) {
         return dateTimeRangeToString(param as DateTimeRange);
       case ParamType.LatLng:
         return (param as LatLng).serialize();
+      case ParamType.Color:
+        return (param as Color).toCssString();
       case ParamType.FFPlace:
         return placeToString(param as FFPlace);
       case ParamType.JSON:
@@ -120,20 +135,35 @@ enum ParamType {
   DateTime,
   DateTimeRange,
   LatLng,
+  Color,
   FFPlace,
   JSON,
   Document,
   DocumentReference,
 }
 
-dynamic deserializeParam(
+dynamic deserializeParam<T>(
   String? param,
-  ParamType paramType, [
+  ParamType paramType,
+  bool isList, [
   String? collectionName,
 ]) {
   try {
     if (param == null) {
       return null;
+    }
+    if (isList) {
+      final paramValues = json.decode(param);
+      if (paramValues is! Iterable || paramValues.isEmpty) {
+        return null;
+      }
+      return paramValues
+          .where((p) => p is String)
+          .map((p) => p as String)
+          .map((p) => deserializeParam(p, paramType, false, collectionName))
+          .where((p) => p != null)
+          .map((p) => p! as T)
+          .toList();
     }
     switch (paramType) {
       case ParamType.int:
@@ -153,6 +183,8 @@ dynamic deserializeParam(
         return dateTimeRangeFromString(param);
       case ParamType.LatLng:
         return latLngFromString(param);
+      case ParamType.Color:
+        return fromCssColor(param);
       case ParamType.FFPlace:
         return placeFromString(param);
       case ParamType.JSON:
@@ -177,4 +209,27 @@ Future<dynamic> Function(String) getDoc(
       .doc('$collectionName/$id')
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+}
+
+Future<List<T>> Function(String) getDocList<T>(
+  String collectionName,
+  Serializer<T> serializer,
+) {
+  return (String idsList) {
+    List<String> docIds = [];
+    try {
+      final ids = json.decode(idsList) as Iterable;
+      docIds = ids.where((d) => d is String).map((d) => d as String).toList();
+    } catch (_) {}
+    return Future.wait(
+      docIds.map(
+        (id) => FirebaseFirestore.instance
+            .doc('$collectionName/$id')
+            .get()
+            .then(
+              (s) => serializers.deserializeWith(serializer, serializedData(s)),
+            ),
+      ),
+    ).then((docs) => docs.where((d) => d != null).map((d) => d!).toList());
+  };
 }

@@ -1,4 +1,5 @@
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:from_css_color/from_css_color.dart';
 
 import 'users_record.dart';
 import 'city_record.dart';
@@ -6,6 +7,14 @@ import 'file_upload_record.dart';
 import 'key_storage_record.dart';
 import 'material_record.dart';
 import 'mat1_record.dart';
+import 'f_c_m_token_record.dart';
+import 'arun_sawad_img_banner_record.dart';
+import 'lead_channel_color_record.dart';
+import 'user_custom_record.dart';
+import 'user_log_record.dart';
+import 'splash_page_img_record.dart';
+import 'key_storage2_record.dart';
+import 'sawad_form_services_record.dart';
 
 import 'index.dart';
 
@@ -22,12 +31,21 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   KeyStorageRecord,
   MaterialRecord,
   Mat1Record,
+  FCMTokenRecord,
+  ArunSawadImgBannerRecord,
+  LeadChannelColorRecord,
+  UserCustomRecord,
+  UserLogRecord,
+  SplashPageImgRecord,
+  KeyStorage2Record,
+  SawadFormServicesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
       ..add(DateTimeSerializer())
       ..add(LatLngSerializer())
       ..add(FirestoreUtilDataSerializer())
+      ..add(ColorSerializer())
       ..addPlugin(StandardJsonPlugin()))
     .build();
 
@@ -125,6 +143,24 @@ class FirestoreUtilDataSerializer
   FirestoreUtilData deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType: FullType.unspecified}) =>
       serialized as FirestoreUtilData;
+}
+
+class ColorSerializer implements PrimitiveSerializer<Color> {
+  @override
+  final Iterable<Type> types = new BuiltList<Type>([Color]);
+  @override
+  final String wireName = 'Color';
+
+  @override
+  Object serialize(Serializers serializers, Color color,
+      {FullType specifiedType: FullType.unspecified}) {
+    return color.toCssString();
+  }
+
+  @override
+  Color deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType: FullType.unspecified}) =>
+      fromCssColor(serialized as String);
 }
 
 Map<String, dynamic> serializedData(DocumentSnapshot doc) => {
