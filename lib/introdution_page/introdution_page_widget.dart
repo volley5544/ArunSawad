@@ -1,12 +1,15 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'introdution_page_model.dart';
+export 'introdution_page_model.dart';
 
 class IntrodutionPageWidget extends StatefulWidget {
   const IntrodutionPageWidget({Key? key}) : super(key: key);
@@ -16,179 +19,116 @@ class IntrodutionPageWidget extends StatefulWidget {
 }
 
 class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
-  PageController? pageViewController;
+  late IntrodutionPageModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  int get pageViewCurrentIndex => _model.pageViewController != null &&
+          _model.pageViewController!.hasClients &&
+          _model.pageViewController!.page != null
+      ? _model.pageViewController!.page!.round()
+      : 0;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => IntrodutionPageModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'IntrodutionPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() => FFAppState().introPageIndex = 1);
+      FFAppState().update(() {
+        FFAppState().introPageIndex = 1;
+      });
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              color: FlutterFlowTheme.of(context).secondaryBackground,
-            ),
-            child: Stack(
-              children: [
-                Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: Stack(
-                    children: [
-                      PageView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        controller: pageViewController ??=
-                            PageController(initialPage: 0),
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Image.asset(
-                            'assets/images/INTRODUCTION3-Finalai-01.png',
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.fitWidth,
-                          ),
-                          Image.asset(
-                            'assets/images/INTRODUCTION3-Finalai-02.png',
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.contain,
-                          ),
-                          Image.asset(
-                            'assets/images/INTRODUCTION3-Finalai-03.png',
-                            width: 100,
-                            height: 100,
-                            fit: BoxFit.contain,
-                          ),
-                        ],
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0, 1),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                          child: smooth_page_indicator.SmoothPageIndicator(
-                            controller: pageViewController ??=
-                                PageController(initialPage: 0),
-                            count: 3,
-                            axisDirection: Axis.horizontal,
-                            onDotClicked: (i) {
-                              pageViewController!.animateToPage(
-                                i,
-                                duration: Duration(milliseconds: 500),
-                                curve: Curves.ease,
-                              );
-                            },
-                            effect: smooth_page_indicator.ExpandingDotsEffect(
-                              expansionFactor: 2,
-                              spacing: 8,
-                              radius: 16,
-                              dotWidth: 0,
-                              dotHeight: 0,
-                              dotColor: Color(0xFF9E9E9E),
-                              activeDotColor: Color(0xFFFF6B30),
-                              paintStyle: PaintingStyle.fill,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Align(
-                  alignment: AlignmentDirectional(0, 0.9),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        if (FFAppState().introPageIndex == 1) Spacer(),
-                        if (FFAppState().introPageIndex != 1)
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0, 0.9),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  if (FFAppState().introPageIndex <= 1) {
-                                    return;
-                                  }
-                                  setState(() => FFAppState().introPageIndex =
-                                      FFAppState().introPageIndex + -1);
-                                  await pageViewController?.previousPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.ease,
-                                  );
-                                },
-                                text: 'ย้อนกลับ',
-                                options: FFButtonOptions(
-                                  width: 130,
-                                  height: 40,
-                                  color: Colors.white,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .subtitle2
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                      ),
-                                  elevation: 2,
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFFF8D38),
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                            ),
-                          ),
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(0, 0.9),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                if (FFAppState().introPageIndex != 3) {
-                                  setState(() => FFAppState().introPageIndex =
-                                      FFAppState().introPageIndex + 1);
-                                  await pageViewController?.nextPage(
-                                    duration: Duration(milliseconds: 300),
-                                    curve: Curves.ease,
-                                  );
-                                  return;
-                                }
-                                setState(() => FFAppState().firstUseApp = true);
+  void dispose() {
+    _model.dispose();
 
-                                context.goNamed('LoginPage');
+    _unfocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          body: SafeArea(
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+              ),
+              child: Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    child: Stack(
+                      children: [
+                        PageView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          controller: _model.pageViewController ??=
+                              PageController(initialPage: 0),
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            Image.asset(
+                              'assets/images/INTRODUCTION3-Finalai-01.png',
+                              width: 100.0,
+                              height: 100.0,
+                              fit: BoxFit.contain,
+                            ),
+                            Image.asset(
+                              'assets/images/INTRODUCTION3-Finalai-02.png',
+                              width: 100.0,
+                              height: 100.0,
+                              fit: BoxFit.contain,
+                            ),
+                            Image.asset(
+                              'assets/images/INTRODUCTION3-Finalai-03.png',
+                              width: 100.0,
+                              height: 100.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ],
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 10.0),
+                            child: smooth_page_indicator.SmoothPageIndicator(
+                              controller: _model.pageViewController ??=
+                                  PageController(initialPage: 0),
+                              count: 3,
+                              axisDirection: Axis.horizontal,
+                              onDotClicked: (i) async {
+                                await _model.pageViewController!.animateToPage(
+                                  i,
+                                  duration: Duration(milliseconds: 500),
+                                  curve: Curves.ease,
+                                );
                               },
-                              text: functions.introPageTextButton(
-                                  FFAppState().introPageIndex),
-                              options: FFButtonOptions(
-                                width: 130,
-                                height: 40,
-                                color: Colors.white,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                    ),
-                                elevation: 2,
-                                borderSide: BorderSide(
-                                  color: Color(0xFFFF8D38),
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.circular(8),
+                              effect: smooth_page_indicator.ExpandingDotsEffect(
+                                expansionFactor: 2.0,
+                                spacing: 8.0,
+                                radius: 16.0,
+                                dotWidth: 0.0,
+                                dotHeight: 0.0,
+                                dotColor: Color(0xFF9E9E9E),
+                                activeDotColor: Color(0xFFFF6B30),
+                                paintStyle: PaintingStyle.fill,
                               ),
                             ),
                           ),
@@ -196,8 +136,114 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                       ],
                     ),
                   ),
-                ),
-              ],
+                  Align(
+                    alignment: AlignmentDirectional(0.0, 0.9),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          if (FFAppState().introPageIndex == 1) Spacer(),
+                          if (FFAppState().introPageIndex != 1)
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.9),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    if (FFAppState().introPageIndex <= 1) {
+                                      return;
+                                    }
+                                    FFAppState().update(() {
+                                      FFAppState().introPageIndex =
+                                          FFAppState().introPageIndex + -1;
+                                    });
+                                    await _model.pageViewController
+                                        ?.previousPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease,
+                                    );
+                                  },
+                                  text: 'ย้อนกลับ',
+                                  options: FFButtonOptions(
+                                    width: 130.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Colors.white,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Colors.black,
+                                        ),
+                                    elevation: 2.0,
+                                    borderSide: BorderSide(
+                                      color: Color(0xFFFF8D38),
+                                      width: 2.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.9),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  if (FFAppState().introPageIndex != 3) {
+                                    FFAppState().update(() {
+                                      FFAppState().introPageIndex =
+                                          FFAppState().introPageIndex + 1;
+                                    });
+                                    await _model.pageViewController?.nextPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease,
+                                    );
+                                    return;
+                                  }
+                                  FFAppState().update(() {
+                                    FFAppState().firstUseApp = true;
+                                  });
+
+                                  context.goNamed('LoginPage');
+                                },
+                                text: functions.introPageTextButton(
+                                    FFAppState().introPageIndex),
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Colors.white,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFFF8D38),
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

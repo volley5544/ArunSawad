@@ -1,26 +1,32 @@
-import '../auth/auth_util.dart';
-import '../backend/api_requests/api_calls.dart';
-import '../backend/backend.dart';
-import '../backend/firebase_storage/storage.dart';
-import '../components/loading_scene_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_expanded_image_view.dart';
-import '../flutter_flow/flutter_flow_google_map.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/components/loading_scene_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
+import 'collection_page_model.dart';
+export 'collection_page_model.dart';
 
 class CollectionPageWidget extends StatefulWidget {
   const CollectionPageWidget({
@@ -50,6 +56,12 @@ class CollectionPageWidget extends StatefulWidget {
 
 class _CollectionPageWidgetState extends State<CollectionPageWidget>
     with TickerProviderStateMixin {
+  late CollectionPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'wrapOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -59,15 +71,15 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -79,15 +91,15 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -99,15 +111,15 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -119,52 +131,91 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
   };
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
-
-  ApiCallResponse? checkLoginBeforeBack;
-  ApiCallResponse? checkLoginBeforeSave;
-  bool? checkGPSBeforeSave;
-  bool? checkGPSService;
-  ApiCallResponse? collectionAPISubmit;
-  FileUploadRecord? saveImgToFirebase;
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
-  TextEditingController? textController14;
-  ApiCallResponse? getVloanContract;
-  TextEditingController? coordinateInputController;
-  TextEditingController? textController2;
-  TextEditingController? idInputController;
-  String? contNoDropDownValue;
-  TextEditingController? textController5;
-  TextEditingController? nameInputController;
-  TextEditingController? remarkInputController;
-  TextEditingController? textController1;
-  TextEditingController? contnoTimesheetController;
-  TextEditingController? coordinateTimesheetController;
-  TextEditingController? textController8;
-  TextEditingController? idTimesheetController;
-  TextEditingController? nameTimesheetController;
-  TextEditingController? remarkTimesheetController;
-  LatLng? currentUserLocationValue;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CollectionPageModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'CollectionPage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+      if (isAndroid) {
+        await actions.allowScreenRecordAndroid();
+      } else {
+        await actions.allowScreenRecordIOS();
+      }
+
+      _model.checkLatLngBVCollection = await actions.a8(
+        currentUserLocationValue,
+      );
+      if (!_model.checkLatLngBVCollection!) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return AlertDialog(
+              title: Text('ระบบ'),
+              content: Text('กรุณาเปิดGPS ก่อนทำรายการ'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            );
+          },
+        );
+
+        context.goNamed('Dashboard');
+
+        return;
+      }
+      if (!FFAppState().isFromTimesheetPage) {
+        final userLogCreateData = createUserLogRecordData(
+          employeeId: FFAppState().employeeID,
+          action: 'Branch_View_Collection',
+          actionTime: getCurrentTimestamp,
+          userLocation: currentUserLocationValue,
+        );
+        var userLogRecordReference = UserLogRecord.collection.doc();
+        await userLogRecordReference.set(userLogCreateData);
+        _model.createdUserLogBVCollection = UserLogRecord.getDocumentFromData(
+            userLogCreateData, userLogRecordReference);
+      }
+    });
+
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
+    _model.textController1 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController();
+    _model.coordinateInputController ??= TextEditingController();
+    _model.idInputController ??= TextEditingController();
+    _model.textController5 ??= TextEditingController();
+    _model.nameInputController ??= TextEditingController();
+    _model.remarkInputController ??= TextEditingController();
+    _model.textController8 ??= TextEditingController();
+    _model.coordinateTimesheetController ??= TextEditingController();
+    _model.idTimesheetController ??= TextEditingController();
+    _model.contnoTimesheetController ??= TextEditingController();
+    _model.nameTimesheetController ??= TextEditingController();
+    _model.remarkTimesheetController ??= TextEditingController();
+    _model.textController14 ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -172,196 +223,202 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
       this,
     );
 
-    contnoTimesheetController = TextEditingController();
-    coordinateTimesheetController = TextEditingController();
-    textController8 = TextEditingController(text: 'ติดตามหนี้');
-    idTimesheetController = TextEditingController();
-    nameTimesheetController = TextEditingController();
-    remarkTimesheetController = TextEditingController();
-    coordinateInputController = TextEditingController();
-    textController2 = TextEditingController(text: 'ติดตามหนี้');
-    idInputController = TextEditingController();
-    textController5 = TextEditingController();
-    nameInputController = TextEditingController();
-    remarkInputController = TextEditingController();
-    textController1 = TextEditingController(text: 'รูปภาพ');
-    textController14 = TextEditingController(text: 'รูปภาพ');
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController1?.text = 'รูปภาพ';
+          _model.textController2?.text = 'ติดตามหนี้';
+          _model.textController8?.text = 'ติดตามหนี้';
+          _model.textController14?.text = 'รูปภาพ';
+        }));
   }
 
   @override
   void dispose() {
-    contnoTimesheetController?.dispose();
-    coordinateTimesheetController?.dispose();
-    textController8?.dispose();
-    idTimesheetController?.dispose();
-    nameTimesheetController?.dispose();
-    remarkTimesheetController?.dispose();
-    coordinateInputController?.dispose();
-    textController2?.dispose();
-    idInputController?.dispose();
-    textController5?.dispose();
-    nameInputController?.dispose();
-    remarkInputController?.dispose();
-    textController1?.dispose();
-    textController14?.dispose();
+    _model.dispose();
+
+    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
-      return Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            color: FlutterFlowTheme.of(context).primaryColor,
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              color: FlutterFlowTheme.of(context).primary,
+            ),
           ),
         ),
       );
     }
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF6500),
-        automaticallyImplyLeading: false,
-        leading: Visibility(
-          visible: !FFAppState().isFromTimesheetPage,
-          child: Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: InkWell(
-              onTap: () async {
-                currentUserLocationValue = await getCurrentUserLocation(
-                    defaultLocation: LatLng(0.0, 0.0));
-                await googleMapsController.future.then(
-                  (c) => c.animateCamera(
-                    CameraUpdate.newLatLng(
-                        currentUserLocationValue!.toGoogleMaps()),
-                  ),
-                );
-              },
-              child: Icon(
-                Icons.person_pin_circle_outlined,
-                color: Colors.white,
-                size: 40,
-              ),
-            ),
-          ),
-        ),
-        title: Text(
-          'Branch View',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 22,
-              ),
-        ),
-        actions: [
-          Visibility(
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF6500),
+          automaticallyImplyLeading: false,
+          leading: Visibility(
             visible: !FFAppState().isFromTimesheetPage,
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
-                child: InkWell(
-                  onTap: () async {
-                    if (FFAppState().imgURL.length >= 5) {
-                      await showDialog(
-                        context: context,
-                        builder: (alertDialogContext) {
-                          return AlertDialog(
-                            title: Text('ระบบ'),
-                            content:
-                                Text('ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
-                            actions: [
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(alertDialogContext),
-                                child: Text('Ok'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                      return;
-                    }
-                    final selectedMedia =
-                        await selectMediaWithSourceBottomSheet(
-                      context: context,
-                      imageQuality: 75,
-                      allowPhoto: true,
-                      backgroundColor:
-                          FlutterFlowTheme.of(context).secondaryColor,
-                      textColor: Color(0xFFB71C1C),
-                      pickerFontFamily: 'Raleway',
-                    );
-                    if (selectedMedia != null &&
-                        selectedMedia.every((m) =>
-                            validateFileFormat(m.storagePath, context))) {
-                      setState(() => isMediaUploading = true);
-                      var downloadUrls = <String>[];
-                      try {
-                        showUploadMessage(
-                          context,
-                          'Uploading file...',
-                          showLoading: true,
-                        );
-                        downloadUrls = (await Future.wait(
-                          selectedMedia.map(
-                            (m) async =>
-                                await uploadData(m.storagePath, m.bytes),
-                          ),
-                        ))
-                            .where((u) => u != null)
-                            .map((u) => u!)
-                            .toList();
-                      } finally {
-                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                        isMediaUploading = false;
-                      }
-                      if (downloadUrls.length == selectedMedia.length) {
-                        setState(() => uploadedFileUrl = downloadUrls.first);
-                        showUploadMessage(context, 'Success!');
-                      } else {
-                        setState(() {});
-                        showUploadMessage(context, 'Failed to upload media');
-                        return;
-                      }
-                    }
-
-                    if (uploadedFileUrl != null && uploadedFileUrl != '') {
-                      if (uploadedFileUrl != FFAppState().imgURLTemp) {
-                        setState(
-                            () => FFAppState().imgURLTemp = uploadedFileUrl);
-                      } else {
-                        return;
-                      }
-                    } else {
-                      return;
-                    }
-
-                    setState(() => FFAppState().imgURL.add(uploadedFileUrl));
-                  },
-                  child: FaIcon(
-                    FontAwesomeIcons.camera,
-                    color: Color(0xFBFFFFFF),
-                    size: 40,
-                  ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.goNamed('Dashboard');
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 40.0,
                 ),
               ),
             ),
           ),
-        ],
-        centerTitle: true,
-        elevation: 20,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          title: Text(
+            'Branch View',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [
+            Visibility(
+              visible: !FFAppState().isFromTimesheetPage,
+              child: Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      HapticFeedback.mediumImpact();
+                      if (FFAppState().imgURL.length >= 5) {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('ระบบ'),
+                              content: Text(
+                                  'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        return;
+                      }
+                      final selectedMedia =
+                          await selectMediaWithSourceBottomSheet(
+                        context: context,
+                        imageQuality: 75,
+                        allowPhoto: true,
+                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                        textColor: Color(0xFFB71C1C),
+                        pickerFontFamily: 'Raleway',
+                      );
+                      if (selectedMedia != null &&
+                          selectedMedia.every((m) =>
+                              validateFileFormat(m.storagePath, context))) {
+                        setState(() => _model.isDataUploading = true);
+                        var selectedUploadedFiles = <FFUploadedFile>[];
+                        var downloadUrls = <String>[];
+                        try {
+                          showUploadMessage(
+                            context,
+                            'Uploading file...',
+                            showLoading: true,
+                          );
+                          selectedUploadedFiles = selectedMedia
+                              .map((m) => FFUploadedFile(
+                                    name: m.storagePath.split('/').last,
+                                    bytes: m.bytes,
+                                    height: m.dimensions?.height,
+                                    width: m.dimensions?.width,
+                                    blurHash: m.blurHash,
+                                  ))
+                              .toList();
+
+                          downloadUrls = (await Future.wait(
+                            selectedMedia.map(
+                              (m) async =>
+                                  await uploadData(m.storagePath, m.bytes),
+                            ),
+                          ))
+                              .where((u) => u != null)
+                              .map((u) => u!)
+                              .toList();
+                        } finally {
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          _model.isDataUploading = false;
+                        }
+                        if (selectedUploadedFiles.length ==
+                                selectedMedia.length &&
+                            downloadUrls.length == selectedMedia.length) {
+                          setState(() {
+                            _model.uploadedLocalFile =
+                                selectedUploadedFiles.first;
+                            _model.uploadedFileUrl = downloadUrls.first;
+                          });
+                          showUploadMessage(context, 'Success!');
+                        } else {
+                          setState(() {});
+                          showUploadMessage(context, 'Failed to upload data');
+                          return;
+                        }
+                      }
+
+                      if (_model.uploadedFileUrl != null &&
+                          _model.uploadedFileUrl != '') {
+                        if (_model.uploadedFileUrl != FFAppState().imgURLTemp) {
+                          FFAppState().update(() {
+                            FFAppState().imgURLTemp = _model.uploadedFileUrl;
+                          });
+                        } else {
+                          return;
+                        }
+                      } else {
+                        return;
+                      }
+
+                      FFAppState().update(() {
+                        FFAppState().addToImgURL(_model.uploadedFileUrl);
+                      });
+                    },
+                    child: FaIcon(
+                      FontAwesomeIcons.camera,
+                      color: Color(0xFBFFFFFF),
+                      size: 40.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+          centerTitle: true,
+          elevation: 20.0,
+        ),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -377,6 +434,25 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      if (!FFAppState().isFromTimesheetPage)
+                        Container(
+                          width: double.infinity,
+                          height: 40.0,
+                          child: custom_widgets.ShowDateTime(
+                            width: double.infinity,
+                            height: 40.0,
+                            currentTime: getCurrentTimestamp,
+                          ),
+                        ),
+                      if (!FFAppState().isFromTimesheetPage)
+                        Container(
+                          width: double.infinity,
+                          height: 70.0,
+                          child: custom_widgets.ShowTime(
+                            width: double.infinity,
+                            height: 70.0,
+                          ),
+                        ),
                       if (FFAppState().isFromTimesheetPage)
                         Container(
                           width: double.infinity,
@@ -397,15 +473,15 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showDateTimesheetDetail(
                                         widget.clockIn),
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 20,
+                                          fontSize: 20.0,
                                         ),
                                   ),
                                 ),
@@ -419,15 +495,15 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showClockTimesheetDetail(
                                         widget.clockIn),
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 36,
+                                          fontSize: 36.0,
                                         ),
                                   ),
                                 ),
@@ -439,10 +515,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                           FFAppState().isFromTimesheetPage,
                           FFAppState().imgURL.length))
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Wrap(
-                            spacing: 0,
-                            runSpacing: 0,
+                            spacing: 0.0,
+                            runSpacing: 0.0,
                             alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
@@ -459,18 +536,18 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: TextFormField(
-                                  controller: textController1,
+                                  controller: _model.textController1,
                                   autofocus: true,
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -480,7 +557,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -490,7 +567,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     errorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -500,7 +577,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     focusedErrorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -510,17 +587,19 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     filled: true,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .title2
+                                      .headlineMedium
                                       .override(
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                       ),
+                                  validator: _model.textController1Validator
+                                      .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 150,
+                                height: 150.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -540,8 +619,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         final uploadedImgItem =
                                             uploadedImg[uploadedImgIndex];
                                         return Container(
-                                          width: 150,
-                                          height: 150,
+                                          width: 150.0,
+                                          height: 150.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -550,8 +629,17 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 5, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 5.0, 0.0),
                                                 child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
                                                   onTap: () async {
                                                     await Navigator.push(
                                                       context,
@@ -578,21 +666,21 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                         true,
                                                     child: Image.network(
                                                       uploadedImgItem,
-                                                      width: 150,
-                                                      height: 150,
+                                                      width: 150.0,
+                                                      height: 150.0,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                               FlutterFlowIconButton(
-                                                borderRadius: 20,
-                                                borderWidth: 1,
-                                                buttonSize: 35,
+                                                borderRadius: 20.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 35.0,
                                                 icon: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFF0000),
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   var confirmDialogResponse =
@@ -601,8 +689,6 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                             builder:
                                                                 (alertDialogContext) {
                                                               return AlertDialog(
-                                                                title: Text(
-                                                                    'ระบบ'),
                                                                 content: Text(
                                                                     'คุณต้องการจะลบรูปหรือไม่?'),
                                                                 actions: [
@@ -630,9 +716,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                   if (!confirmDialogResponse) {
                                                     return;
                                                   }
-                                                  setState(() => FFAppState()
-                                                      .imgURL
-                                                      .remove(uploadedImgItem));
+                                                  FFAppState().update(() {
+                                                    FFAppState()
+                                                        .removeFromImgURL(
+                                                            uploadedImgItem);
+                                                  });
                                                 },
                                               ),
                                             ],
@@ -648,8 +736,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                         ),
                       if (FFAppState().isFromTimesheetPage == false)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -665,18 +753,18 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController2,
+                                controller: _model.textController2,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -686,7 +774,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -696,7 +784,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -706,7 +794,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -716,12 +804,14 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController2Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
@@ -733,7 +823,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -743,7 +833,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Icon(
                                         Icons.language_outlined,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -751,17 +841,18 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'ค่าพิกัด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: coordinateInputController,
+                                        controller:
+                                            _model.coordinateInputController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -772,11 +863,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -787,7 +878,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -798,7 +889,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -810,7 +901,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -820,7 +911,10 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
+                                        validator: _model
+                                            .coordinateInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -836,7 +930,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -846,7 +940,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.creditCard,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -854,10 +948,10 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'เลขที่อ้างอิง:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
@@ -865,18 +959,17 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       Expanded(
                                         flex: 5,
                                         child: TextFormField(
-                                          controller: idInputController,
+                                          controller: _model.idInputController,
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'เลขบัตรประชาชนลูกค้า',
                                             hintText: 'เลขบัตรประชาชนลูกค้า',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2,
+                                                    .bodySmall,
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -887,7 +980,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -898,7 +991,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             errorBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -910,7 +1003,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                 UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -920,8 +1013,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                           textAlign: TextAlign.start,
+                                          validator: _model
+                                              .idInputControllerValidator
+                                              .asValidator(context),
                                         ),
                                       ),
                                     if (FFAppState().isGetVloanContract)
@@ -929,11 +1025,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         flex: 5,
                                         child: Text(
                                           valueOrDefault<String>(
-                                            idInputController!.text,
+                                            _model.idInputController.text,
                                             'id_input',
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                         ),
                                       ),
                                   ],
@@ -949,27 +1045,29 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20, 0, 20, 0),
+                                    20.0, 0.0, 20.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     var _shouldSetState = false;
+                                    HapticFeedback.mediumImpact();
                                     if (FFAppState().isGetVloanContract) {
                                       setState(() {
-                                        idInputController?.clear();
+                                        _model.idInputController?.clear();
                                       });
-                                      setState(() => FFAppState()
-                                          .vloanContNoListTemp = []);
-                                      setState(() => FFAppState()
-                                          .vloanCustomerNameListTemp = []);
-                                      setState(() => FFAppState()
-                                          .vloanServerListTemp = []);
-                                      setState(() => FFAppState()
-                                          .isGetVloanContract = false);
+                                      FFAppState().update(() {
+                                        FFAppState().vloanContNoListTemp = [];
+                                        FFAppState().vloanCustomerNameListTemp =
+                                            [];
+                                      });
+                                      FFAppState().update(() {
+                                        FFAppState().vloanServerListTemp = [];
+                                        FFAppState().isGetVloanContract = false;
+                                      });
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
                                     if (!functions.checkIdCardInput(
-                                        idInputController!.text)) {
+                                        _model.idInputController.text)) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -990,13 +1088,14 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    getVloanContract =
+                                    _model.getVloanContract =
                                         await GetVloanContractAPICall.call(
-                                      cuscod: idInputController!.text,
+                                      cuscod: _model.idInputController.text,
                                     );
                                     _shouldSetState = true;
                                     if (GetVloanContractAPICall.result(
-                                          (getVloanContract?.jsonBody ?? ''),
+                                          (_model.getVloanContract?.jsonBody ??
+                                              ''),
                                         ).toString() !=
                                         'Success') {
                                       await showDialog(
@@ -1018,54 +1117,59 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    setState(() =>
-                                        FFAppState().vloanContNoListTemp =
-                                            (GetVloanContractAPICall.contNo(
-                                          (getVloanContract?.jsonBody ?? ''),
-                                        ) as List)
-                                                .map<String>(
-                                                    (s) => s.toString())
-                                                .toList());
-                                    setState(() =>
-                                        FFAppState().vloanCustomerNameListTemp =
-                                            (GetVloanContractAPICall
-                                                    .customerName(
-                                          (getVloanContract?.jsonBody ?? ''),
-                                        ) as List)
-                                                .map<String>(
-                                                    (s) => s.toString())
-                                                .toList());
-                                    setState(() =>
-                                        FFAppState().vloanServerListTemp =
-                                            (GetVloanContractAPICall
-                                                    .vloanServer(
-                                          (getVloanContract?.jsonBody ?? ''),
-                                        ) as List)
-                                                .map<String>(
-                                                    (s) => s.toString())
-                                                .toList());
-                                    setState(() =>
-                                        FFAppState().isGetVloanContract = true);
+                                    FFAppState().update(() {
+                                      FFAppState().vloanContNoListTemp =
+                                          (GetVloanContractAPICall.contNo(
+                                        (_model.getVloanContract?.jsonBody ??
+                                            ''),
+                                      ) as List)
+                                              .map<String>((s) => s.toString())
+                                              .toList()!
+                                              .toList();
+                                      FFAppState().vloanCustomerNameListTemp =
+                                          (GetVloanContractAPICall.customerName(
+                                        (_model.getVloanContract?.jsonBody ??
+                                            ''),
+                                      ) as List)
+                                              .map<String>((s) => s.toString())
+                                              .toList()!
+                                              .toList();
+                                    });
+                                    FFAppState().update(() {
+                                      FFAppState().vloanServerListTemp =
+                                          (GetVloanContractAPICall.vloanServer(
+                                        (_model.getVloanContract?.jsonBody ??
+                                            ''),
+                                      ) as List)
+                                              .map<String>((s) => s.toString())
+                                              .toList()!
+                                              .toList();
+                                      FFAppState().isGetVloanContract = true;
+                                    });
                                     if (_shouldSetState) setState(() {});
                                   },
                                   text: functions.buttonTextVloanGetContract(
                                       FFAppState().isGetVloanContract),
                                   options: FFButtonOptions(
-                                    width: 130,
-                                    height: 40,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
+                                    width: 130.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
                                     textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
+                                        .titleSmall
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                         ),
+                                    elevation: 2.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                               ),
@@ -1079,7 +1183,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1089,7 +1193,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Icon(
                                         Icons.turned_in_not_sharp,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1097,10 +1201,10 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'เลขที่สัญญา:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
@@ -1108,18 +1212,18 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       Expanded(
                                         flex: 5,
                                         child: TextFormField(
-                                          controller: textController5,
+                                          controller: _model.textController5,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'เลขที่สัญญา',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2,
+                                                    .bodySmall,
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1130,7 +1234,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1141,7 +1245,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             errorBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1153,7 +1257,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                 UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1163,37 +1267,44 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
+                                          validator: _model
+                                              .textController5Validator
+                                              .asValidator(context),
                                         ),
                                       ),
                                     if (FFAppState().isGetVloanContract)
                                       Expanded(
                                         flex: 5,
-                                        child: FlutterFlowDropDown(
+                                        child: FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .contNoDropDownValueController ??=
+                                              FormFieldController<String>(null),
                                           options: FFAppState()
                                               .vloanContNoListTemp
                                               .toList(),
-                                          onChanged: (val) => setState(
-                                              () => contNoDropDownValue = val),
-                                          width: 180,
-                                          height: 50,
+                                          onChanged: (val) => setState(() =>
+                                              _model.contNoDropDownValue = val),
+                                          width: 180.0,
+                                          height: 50.0,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                   ),
                                           hintText: 'เลขที่สัญญา',
                                           fillColor: Colors.white,
-                                          elevation: 2,
+                                          elevation: 2.0,
                                           borderColor: Colors.transparent,
-                                          borderWidth: 0,
-                                          borderRadius: 0,
+                                          borderWidth: 0.0,
+                                          borderRadius: 0.0,
                                           margin:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 0, 4),
+                                                  0.0, 4.0, 0.0, 4.0),
                                           hidesUnderline: true,
+                                          isSearchable: false,
                                         ),
                                       ),
                                   ],
@@ -1209,7 +1320,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1219,7 +1330,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Icon(
                                         Icons.location_history,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1227,17 +1338,17 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'ชื่อลูกค้า:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: nameInputController,
+                                        controller: _model.nameInputController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1250,11 +1361,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1265,7 +1376,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1276,7 +1387,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1288,7 +1399,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1298,8 +1409,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .nameInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1315,7 +1429,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1325,7 +1439,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.edit,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1333,28 +1447,28 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'หมายเหตุ:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: remarkInputController,
+                                        controller:
+                                            _model.remarkInputController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'หมายเหตุ',
                                           hintText: 'หมายเหตุ',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1365,7 +1479,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1376,7 +1490,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1388,7 +1502,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1398,8 +1512,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .remarkInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1411,8 +1528,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                             animationsMap['wrapOnPageLoadAnimation1']!),
                       if (FFAppState().isFromTimesheetPage == true)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -1428,18 +1545,18 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController8,
+                                controller: _model.textController8,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1449,7 +1566,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1459,7 +1576,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1469,7 +1586,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1479,12 +1596,14 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController8Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
@@ -1496,7 +1615,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1506,7 +1625,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Icon(
                                         Icons.language_outlined,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1514,29 +1633,29 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'ค่าพิกัด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            coordinateTimesheetController,
+                                        controller: _model
+                                            .coordinateTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1547,7 +1666,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1558,7 +1677,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1570,7 +1689,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1580,7 +1699,10 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
+                                        validator: _model
+                                            .coordinateTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1596,7 +1718,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1606,7 +1728,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.creditCard,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1614,28 +1736,29 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'เลขที่อ้างอิง:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: idTimesheetController,
+                                        controller:
+                                            _model.idTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.idCardNumber,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1646,7 +1769,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1657,7 +1780,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1669,7 +1792,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1679,8 +1802,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .idTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1696,7 +1822,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1706,7 +1832,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Icon(
                                         Icons.turned_in_not_sharp,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1714,28 +1840,29 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'เลขที่สัญญา:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: contnoTimesheetController,
+                                        controller:
+                                            _model.contnoTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.contNo,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1746,7 +1873,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1757,7 +1884,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1769,7 +1896,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1779,8 +1906,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .contnoTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1796,7 +1926,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1806,7 +1936,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Icon(
                                         Icons.location_history,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1814,28 +1944,29 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'ชื่อลูกค้า:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: nameTimesheetController,
+                                        controller:
+                                            _model.nameTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.customerName,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1846,7 +1977,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1857,7 +1988,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1869,7 +2000,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1879,8 +2010,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .nameTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1896,7 +2030,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1906,7 +2040,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.edit,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1914,28 +2048,29 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       child: Text(
                                         'หมายเหตุ:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: remarkTimesheetController,
+                                        controller:
+                                            _model.remarkTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1946,7 +2081,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1957,7 +2092,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1969,7 +2104,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1979,8 +2114,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .remarkTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -2007,7 +2145,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                     children: [
                       if (FFAppState().isFromTimesheetPage == false)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Container(
                             width: double.infinity,
                             height: MediaQuery.of(context).size.height * 0.25,
@@ -2016,24 +2155,24 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                   .secondaryBackground,
                             ),
                             child: Builder(builder: (context) {
-                              final _googleMapMarker = widget.location1;
+                              final _googleMapMarker = currentUserLocationValue;
                               return FlutterFlowGoogleMap(
-                                controller: googleMapsController,
+                                controller: _model.googleMapsController,
                                 onCameraIdle: (latLng) =>
-                                    googleMapsCenter = latLng,
-                                initialLocation: googleMapsCenter ??=
+                                    _model.googleMapsCenter = latLng,
+                                initialLocation: _model.googleMapsCenter ??=
                                     currentUserLocationValue!,
                                 markers: [
                                   if (_googleMapMarker != null)
                                     FlutterFlowMarker(
-                                      _googleMapMarker.reference.path,
-                                      _googleMapMarker.location!,
+                                      _googleMapMarker.serialize(),
+                                      _googleMapMarker,
                                     ),
                                 ],
                                 markerColor: GoogleMarkerColor.red,
                                 mapType: MapType.hybrid,
                                 style: GoogleMapStyle.standard,
-                                initialZoom: 16,
+                                initialZoom: 16.0,
                                 allowInteraction: true,
                                 allowZoom: true,
                                 showZoomControls: true,
@@ -2049,10 +2188,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                         ),
                       if (FFAppState().isFromTimesheetPage == true)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Wrap(
-                            spacing: 0,
-                            runSpacing: 0,
+                            spacing: 0.0,
+                            runSpacing: 0.0,
                             alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
@@ -2069,18 +2209,18 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: TextFormField(
-                                  controller: textController14,
+                                  controller: _model.textController14,
                                   autofocus: true,
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2090,7 +2230,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2100,7 +2240,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     errorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2110,7 +2250,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     focusedErrorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2120,17 +2260,19 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     filled: true,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .title2
+                                      .headlineMedium
                                       .override(
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                       ),
+                                  validator: _model.textController14Validator
+                                      .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 150,
+                                height: 150.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -2149,11 +2291,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     if (!snapshot.hasData) {
                                       return Center(
                                         child: SizedBox(
-                                          width: 50,
-                                          height: 50,
+                                          width: 50.0,
+                                          height: 50.0,
                                           child: CircularProgressIndicator(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                           ),
                                         ),
                                       );
@@ -2161,7 +2303,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
-                                    // Return an empty Container when the document does not exist.
+                                    // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
                                     }
@@ -2184,8 +2326,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                 imgFromFirestore[
                                                     imgFromFirestoreIndex];
                                             return Container(
-                                              width: 150,
-                                              height: 150,
+                                              width: 150.0,
+                                              height: 150.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -2196,9 +2338,17 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
                                                       onTap: () async {
                                                         await Navigator.push(
                                                           context,
@@ -2231,8 +2381,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                             true,
                                                         child: Image.network(
                                                           imgFromFirestoreItem,
-                                                          width: 150,
-                                                          height: 150,
+                                                          width: 150.0,
+                                                          height: 150.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -2251,593 +2401,451 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                             ],
                           ),
                         ),
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.07,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0, 0.9),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 5, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          var _shouldSetState = false;
-                                          if (FFAppState()
-                                              .isFromTimesheetPage) {
-                                            context.pop();
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                            return;
-                                          }
-                                          var confirmDialogResponse =
-                                              await showDialog<bool>(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title:
-                                                            Text('Branch View'),
-                                                        content: Text(
-                                                            'คุณต้องการจะยกเลิกทำรายการหรือไม่?'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    false),
-                                                            child:
-                                                                Text('Cancel'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    true),
-                                                            child:
-                                                                Text('Confirm'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
-                                          if (confirmDialogResponse) {
-                                            showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child: Container(
-                                                    height: double.infinity,
-                                                    child: LoadingSceneWidget(),
-                                                  ),
-                                                );
-                                              },
-                                            ).then((value) => setState(() {}));
-
-                                            checkLoginBeforeBack =
-                                                await GetUserProfileAPICall
-                                                    .call(
-                                              token: FFAppState().accessToken,
-                                              apiUrl:
-                                                  FFAppState().apiURLLocalState,
-                                            );
-                                            _shouldSetState = true;
-                                            if (!(checkLoginBeforeBack
-                                                    ?.succeeded ??
-                                                true)) {
-                                              Navigator.pop(context);
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              setState(() => FFAppState().imei =
-                                                  '123456789012345');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteAccessToken();
-                                                FFAppState().accessToken =
-                                                    'access_token';
-                                              });
-                                              setState(() {
-                                                FFAppState().deleteEmployeeID();
-                                                FFAppState().employeeID =
-                                                    'employee_id';
-                                              });
-                                              setState(() => FFAppState()
-                                                  .QRCodeLink = 'qrcode_link');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteApiURLLocalState();
-                                                FFAppState().apiURLLocalState =
-                                                    'api_url_local_state';
-                                              });
-                                              setState(() =>
-                                                  FFAppState().imgURL = []);
-                                              setState(() =>
-                                                  FFAppState().imgURLTemp = '');
-                                              setState(() {
-                                                FFAppState().deleteBranchCode();
-                                                FFAppState().branchCode =
-                                                    'branch_code';
-                                              });
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-                                              await signOut();
-
-                                              context.goNamedAuth(
-                                                  'LoginPage', mounted);
-
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                          } else {
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                            return;
-                                          }
-
-                                          context.goNamedAuth(
-                                              'Dashboard', mounted);
-
-                                          if (_shouldSetState) setState(() {});
-                                        },
-                                        text: functions.cancelButtonText(
-                                            FFAppState().isFromTimesheetPage),
-                                        options: FFButtonOptions(
-                                          width: 130,
-                                          height: 40,
-                                          color: Color(0xFFFF0000),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
-                                                  ),
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  if (!FFAppState().isFromTimesheetPage)
-                                    Expanded(
-                                      flex: 1,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            currentUserLocationValue =
-                                                await getCurrentUserLocation(
-                                                    defaultLocation:
-                                                        LatLng(0.0, 0.0));
-                                            var _shouldSetState = false;
-                                            if (!FFAppState()
-                                                .isGetVloanContract) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณาค้นหาข้อมูลสัญญาก่อน'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(contNoDropDownValue != null &&
-                                                contNoDropDownValue != '')) {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'กรุณาเลือกเลขที่สัญญา',
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                  duration: Duration(
-                                                      milliseconds: 3000),
-                                                  backgroundColor:
-                                                      Color(0xB3090F13),
-                                                ),
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(remarkInputController!.text !=
-                                                    null &&
-                                                remarkInputController!.text !=
-                                                    '')) {
-                                              ScaffoldMessenger.of(context)
-                                                  .showSnackBar(
-                                                SnackBar(
-                                                  content: Text(
-                                                    'กรุณากรอก หมายเหตุ',
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                  duration: Duration(
-                                                      milliseconds: 3000),
-                                                  backgroundColor:
-                                                      Color(0xB3090F13),
-                                                ),
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            var confirmDialogResponse =
-                                                await showDialog<bool>(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return AlertDialog(
-                                                          title: Text('ระบบ'),
-                                                          content: Text(
-                                                              'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext,
-                                                                      false),
-                                                              child: Text(
-                                                                  'ยกเลิก'),
-                                                            ),
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext,
-                                                                      true),
-                                                              child:
-                                                                  Text('ตกลง'),
-                                                            ),
-                                                          ],
-                                                        );
-                                                      },
-                                                    ) ??
-                                                    false;
-                                            if (!confirmDialogResponse) {
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            checkGPSService =
-                                                await actions.a1();
-                                            _shouldSetState = true;
-                                            if (!checkGPSService!) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณาเปิด GPS ก่อนบันทึกข้อมูล'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            checkGPSBeforeSave =
-                                                await actions.a8(
-                                              currentUserLocationValue,
-                                            );
-                                            _shouldSetState = true;
-                                            if (!checkGPSBeforeSave!) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child: Container(
-                                                    height: double.infinity,
-                                                    child: LoadingSceneWidget(),
-                                                  ),
-                                                );
-                                              },
-                                            ).then((value) => setState(() {}));
-
-                                            checkLoginBeforeSave =
-                                                await GetUserProfileAPICall
-                                                    .call(
-                                              token: FFAppState().accessToken,
-                                              apiUrl:
-                                                  FFAppState().apiURLLocalState,
-                                            );
-                                            _shouldSetState = true;
-                                            if (!(checkLoginBeforeSave
-                                                    ?.succeeded ??
-                                                true)) {
-                                              Navigator.pop(context);
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              setState(() => FFAppState().imei =
-                                                  '123456789012345');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteAccessToken();
-                                                FFAppState().accessToken =
-                                                    'access_token';
-                                              });
-                                              setState(() {
-                                                FFAppState().deleteEmployeeID();
-                                                FFAppState().employeeID =
-                                                    'employee_id';
-                                              });
-                                              setState(() => FFAppState()
-                                                  .QRCodeLink = 'qrcode_link');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteApiURLLocalState();
-                                                FFAppState().apiURLLocalState =
-                                                    'api_url_local_state';
-                                              });
-                                              setState(() =>
-                                                  FFAppState().imgURL = []);
-                                              setState(() =>
-                                                  FFAppState().imgURLTemp = '');
-                                              setState(() {
-                                                FFAppState().deleteBranchCode();
-                                                FFAppState().branchCode =
-                                                    'branch_code';
-                                              });
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-                                              await signOut();
-
-                                              context.goNamedAuth(
-                                                  'LoginPage', mounted);
-
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            collectionAPISubmit =
-                                                await CollectionAPICall.call(
-                                              location:
-                                                  functions.getUserLocation(
-                                                      currentUserLocationValue),
-                                              citizenId:
-                                                  idInputController!.text,
-                                              contNo: contNoDropDownValue,
-                                              customerName: functions
-                                                  .showVloanCustomerName(
-                                                      FFAppState()
-                                                          .vloanCustomerNameListTemp
-                                                          .toList()),
-                                              remark:
-                                                  remarkInputController!.text,
-                                              uid: FFAppState().imei,
-                                              description: 'ติดตามหนี้',
-                                              jobType: 'Collection',
-                                              username: FFAppState().employeeID,
-                                              token: FFAppState().accessToken,
-                                              apiUrl:
-                                                  FFAppState().apiURLLocalState,
-                                              vLoanServer:
-                                                  functions.showMatNameInList(
-                                                      FFAppState()
-                                                          .vloanServerListTemp
-                                                          .toList(),
-                                                      functions.findContNoIndex(
-                                                          contNoDropDownValue,
-                                                          FFAppState()
-                                                              .vloanContNoListTemp
-                                                              .toList())),
-                                            );
-                                            _shouldSetState = true;
-                                            if ((collectionAPISubmit
-                                                        ?.statusCode ??
-                                                    200) ==
-                                                CollectionAPICall.status(
-                                                  (collectionAPISubmit
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )) {
-                                              if (FFAppState().imgURL.length >
-                                                  0) {
-                                                final fileUploadCreateData = {
-                                                  ...createFileUploadRecordData(
-                                                    recordId: CollectionAPICall
-                                                        .recordID(
-                                                      (collectionAPISubmit
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString(),
-                                                    picDatetime:
-                                                        getCurrentTimestamp,
-                                                    picCoordinate:
-                                                        currentUserLocationValue
-                                                            ?.toString(),
-                                                  ),
-                                                  'img_url':
-                                                      FFAppState().imgURL,
-                                                };
-                                                var fileUploadRecordReference =
-                                                    FileUploadRecord.collection
-                                                        .doc();
-                                                await fileUploadRecordReference
-                                                    .set(fileUploadCreateData);
-                                                saveImgToFirebase = FileUploadRecord
-                                                    .getDocumentFromData(
-                                                        fileUploadCreateData,
-                                                        fileUploadRecordReference);
-                                                _shouldSetState = true;
-                                                setState(() =>
-                                                    FFAppState().imgURL = []);
-                                                setState(() => FFAppState()
-                                                    .imgURLTemp = '');
-                                              }
-                                            } else {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'ไม่สามารถบันทึกข้อมูลได้ กรุณาลองอีกครั้ง'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-
-                                            context.goNamedAuth(
-                                                'SuccessPage', mounted);
-
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                          },
-                                          text: 'บันทึก',
-                                          options: FFButtonOptions(
-                                            width: 130,
-                                            height: 40,
-                                            color: Color(0xFF24D200),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .subtitle2
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.white,
-                                                    ),
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation2']!),
-                      ),
                     ],
                   ),
                 ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 5.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                HapticFeedback.mediumImpact();
+                                if (FFAppState().isFromTimesheetPage) {
+                                  context.pop();
+                                  return;
+                                }
+                                var confirmDialogResponse =
+                                    await showDialog<bool>(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              content: Text(
+                                                  'คุณต้องการจะยกเลิกทำรายการหรือไม่?'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext,
+                                                          false),
+                                                  child: Text('Cancel'),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext,
+                                                          true),
+                                                  child: Text('Confirm'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        ) ??
+                                        false;
+                                if (!confirmDialogResponse) {
+                                  return;
+                                }
+
+                                context.goNamed('Dashboard');
+                              },
+                              text: functions.cancelButtonText(
+                                  FFAppState().isFromTimesheetPage),
+                              options: FFButtonOptions(
+                                width: 130.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: Color(0xFFFF0000),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 2.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                        if (!FFAppState().isFromTimesheetPage)
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  currentUserLocationValue =
+                                      await getCurrentUserLocation(
+                                          defaultLocation: LatLng(0.0, 0.0));
+                                  var _shouldSetState = false;
+                                  HapticFeedback.mediumImpact();
+                                  if (!FFAppState().isGetVloanContract) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content:
+                                              Text('กรุณาค้นหาข้อมูลสัญญาก่อน'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  if (!(_model.contNoDropDownValue != null &&
+                                      _model.contNoDropDownValue != '')) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'กรุณาเลือกเลขที่สัญญา',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 3000),
+                                        backgroundColor: Color(0xB3090F13),
+                                      ),
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  if (!(_model.remarkInputController.text !=
+                                          null &&
+                                      _model.remarkInputController.text !=
+                                          '')) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'กรุณากรอก หมายเหตุ',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 3000),
+                                        backgroundColor: Color(0xB3090F13),
+                                      ),
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  var confirmDialogResponse =
+                                      await showDialog<bool>(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                content: Text(
+                                                    'คุณต้องการจะบันทึกข้อมูลหรือไม่?'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            false),
+                                                    child: Text('ยกเลิก'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            true),
+                                                    child: Text('ตกลง'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          ) ??
+                                          false;
+                                  if (!confirmDialogResponse) {
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  _model.checkGPSBeforeSave = await actions.a8(
+                                    currentUserLocationValue,
+                                  );
+                                  _shouldSetState = true;
+                                  if (!_model.checkGPSBeforeSave!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: Color(0x00000000),
+                                    context: context,
+                                    builder: (bottomSheetContext) {
+                                      return GestureDetector(
+                                        onTap: () => FocusScope.of(context)
+                                            .requestFocus(_unfocusNode),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.of(bottomSheetContext)
+                                                  .viewInsets,
+                                          child: Container(
+                                            height: double.infinity,
+                                            child: LoadingSceneWidget(),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+
+                                  _model.collectionAPISubmit =
+                                      await CollectionAPICall.call(
+                                    location: functions.getUserLocation(
+                                        currentUserLocationValue),
+                                    citizenId: _model.idInputController.text,
+                                    contNo: _model.contNoDropDownValue,
+                                    customerName: functions
+                                        .showVloanCustomerName(FFAppState()
+                                            .vloanCustomerNameListTemp
+                                            .toList()),
+                                    remark: _model.remarkInputController.text,
+                                    uid: FFAppState().imei,
+                                    description: 'ติดตามหนี้',
+                                    jobType: 'Collection',
+                                    username: FFAppState().employeeID,
+                                    token: FFAppState().accessToken,
+                                    apiUrl: FFAppState().apiURLLocalState,
+                                    vLoanServer: functions.showMatNameInList(
+                                        FFAppState()
+                                            .vloanServerListTemp
+                                            .toList(),
+                                        functions.findContNoIndex(
+                                            _model.contNoDropDownValue,
+                                            FFAppState()
+                                                .vloanContNoListTemp
+                                                .toList())),
+                                  );
+                                  _shouldSetState = true;
+                                  if (CollectionAPICall.status(
+                                        (_model.collectionAPISubmit?.jsonBody ??
+                                            ''),
+                                      ) ==
+                                      200) {
+                                    if (FFAppState().imgURL.length > 0) {
+                                      final fileUploadCreateData = {
+                                        ...createFileUploadRecordData(
+                                          recordId: CollectionAPICall.recordID(
+                                            (_model.collectionAPISubmit
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString(),
+                                          picDatetime: getCurrentTimestamp,
+                                          picCoordinate:
+                                              currentUserLocationValue
+                                                  ?.toString(),
+                                        ),
+                                        'img_url': FFAppState().imgURL,
+                                      };
+                                      var fileUploadRecordReference =
+                                          FileUploadRecord.collection.doc();
+                                      await fileUploadRecordReference
+                                          .set(fileUploadCreateData);
+                                      _model.saveImgToFirebase =
+                                          FileUploadRecord.getDocumentFromData(
+                                              fileUploadCreateData,
+                                              fileUploadRecordReference);
+                                      _shouldSetState = true;
+                                      FFAppState().update(() {
+                                        FFAppState().imgURL = [];
+                                        FFAppState().imgURLTemp =
+                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                      });
+                                    }
+                                    _model.remarkVLoneOutput =
+                                        await RemarkVLoneAPICall.call(
+                                      func: 'dsi',
+                                      cuscod: _model.idInputController.text,
+                                      contno: _model.contNoDropDownValue,
+                                      server: functions.showMatNameInList(
+                                          FFAppState()
+                                              .vloanServerListTemp
+                                              .toList(),
+                                          functions.findContNoIndex(
+                                              _model.contNoDropDownValue,
+                                              FFAppState()
+                                                  .vloanContNoListTemp
+                                                  .toList())),
+                                      msg: _model.remarkInputController.text,
+                                      lat: functions.userLatitude(
+                                          currentUserLocationValue),
+                                      long: functions.userLongitude(
+                                          currentUserLocationValue),
+                                    );
+                                    _shouldSetState = true;
+                                    if ((_model.remarkVLoneOutput?.statusCode ??
+                                            200) ==
+                                        200) {
+                                      if (RemarkVLoneAPICall.result(
+                                            (_model.remarkVLoneOutput
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() !=
+                                          'SUCCESS') {
+                                        Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              content: Text(
+                                                  RemarkVLoneAPICall.result(
+                                                (_model.remarkVLoneOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ).toString()),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
+                                    } else {
+                                      Navigator.pop(context);
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            content: Text(
+                                                'พบข้อผิดพลาดRemark (${(_model.remarkVLoneOutput?.statusCode ?? 200).toString()})'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
+
+                                    FFAppState().update(() {
+                                      FFAppState().isGetVloanContract = false;
+                                      FFAppState().vloanCustomerNameListTemp =
+                                          [];
+                                    });
+                                    FFAppState().update(() {
+                                      FFAppState().vloanContNoListTemp = [];
+                                    });
+                                  } else {
+                                    Navigator.pop(context);
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${CollectionAPICall.status(
+                                            (_model.collectionAPISubmit
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString()}) กรุณาลองใหม่ภายหลัง'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  context.goNamed('SuccessPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                },
+                                text: 'บันทึก',
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFF24D200),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation2']!),
               ),
             ],
           ),

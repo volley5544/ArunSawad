@@ -1,12 +1,14 @@
+import 'form_field_controller.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class FlutterFlowCheckboxGroup extends StatefulWidget {
   const FlutterFlowCheckboxGroup({
-    this.initiallySelected,
     required this.options,
     required this.onChanged,
+    required this.controller,
     required this.textStyle,
     this.labelPadding,
     this.itemPadding,
@@ -15,12 +17,11 @@ class FlutterFlowCheckboxGroup extends StatefulWidget {
     this.checkboxBorderRadius,
     required this.checkboxBorderColor,
     this.initialized = true,
-    this.selectedValuesVariable,
   });
 
-  final List<String>? initiallySelected;
   final List<String> options;
-  final void Function(List<String>) onChanged;
+  final void Function(List<String>)? onChanged;
+  final FormFieldController<List<String>> controller;
   final TextStyle textStyle;
   final EdgeInsetsGeometry? labelPadding;
   final EdgeInsetsGeometry? itemPadding;
@@ -29,7 +30,6 @@ class FlutterFlowCheckboxGroup extends StatefulWidget {
   final BorderRadius? checkboxBorderRadius;
   final Color checkboxBorderColor;
   final bool initialized;
-  final ValueNotifier<List<String>?>? selectedValuesVariable;
 
   @override
   State<FlutterFlowCheckboxGroup> createState() =>
@@ -38,41 +38,46 @@ class FlutterFlowCheckboxGroup extends StatefulWidget {
 
 class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
   late List<String> checkboxValues;
-  ValueListenable<List<String>?>? get changeSelectedValues =>
-      widget.selectedValuesVariable;
-  List<String>? get selectedValues => widget.selectedValuesVariable?.value;
+  ValueListenable<List<String>?> get changeSelectedValues => widget.controller;
+  List<String> get selectedValues => widget.controller.value ?? [];
 
   @override
   void initState() {
     super.initState();
-    checkboxValues = widget.initiallySelected ?? [];
+    checkboxValues = List.from(widget.controller.initialValue ?? []);
     if (!widget.initialized && checkboxValues.isNotEmpty) {
       SchedulerBinding.instance.addPostFrameCallback(
-        (_) => widget.onChanged(checkboxValues),
+        (_) {
+          if (widget.onChanged != null) {
+            widget.onChanged!(checkboxValues);
+          }
+        },
       );
     }
-    changeSelectedValues?.addListener(() {
-      if (widget.selectedValuesVariable != null &&
-          selectedValues != null &&
-          checkboxValues != selectedValues) {
-        setState(() => checkboxValues = List.from(selectedValues!));
+    changeSelectedValues.addListener(() {
+      if (!listEquals(checkboxValues, selectedValues)) {
+        setState(() => checkboxValues = List.from(selectedValues));
+      }
+      if (widget.onChanged != null) {
+        widget.onChanged!(selectedValues);
       }
     });
   }
 
   @override
   void dispose() {
-    changeSelectedValues?.removeListener(() {});
+    changeSelectedValues.removeListener(() {});
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) => ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: widget.options.length,
         itemBuilder: (context, index) {
           final option = widget.options[index];
-          final selected = checkboxValues.contains(option);
+          final selected = selectedValues.contains(option);
           return Theme(
             data: ThemeData(unselectedWidgetColor: widget.checkboxBorderColor),
             child: Padding(
@@ -81,16 +86,18 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
                 children: [
                   Checkbox(
                     value: selected,
-                    onChanged: (isSelected) {
-                      if (isSelected == null) {
-                        return;
-                      }
-                      isSelected
-                          ? checkboxValues.add(option)
-                          : checkboxValues.remove(option);
-                      widget.onChanged(checkboxValues);
-                      setState(() {});
-                    },
+                    onChanged: widget.onChanged != null
+                        ? (isSelected) {
+                            if (isSelected == null) {
+                              return;
+                            }
+                            isSelected
+                                ? checkboxValues.add(option)
+                                : checkboxValues.remove(option);
+                            widget.controller.value = List.from(checkboxValues);
+                            setState(() {});
+                          }
+                        : null,
                     activeColor: widget.activeColor,
                     checkColor: widget.checkColor,
                     shape: RoundedRectangleBorder(

@@ -8,16 +8,28 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ArunSawadImgBannerRecord.serializer)
+      ..add(AuthorizationRecord.serializer)
+      ..add(BuildVersionRecord.serializer)
       ..add(CityRecord.serializer)
       ..add(FCMTokenRecord.serializer)
       ..add(FileUploadRecord.serializer)
+      ..add(HideInAppContentRecord.serializer)
       ..add(KeyStorage2Record.serializer)
       ..add(KeyStorageRecord.serializer)
       ..add(LeadChannelColorRecord.serializer)
+      ..add(LeavePageDataRecord.serializer)
       ..add(Mat1Record.serializer)
       ..add(MaterialRecord.serializer)
+      ..add(NotificationRecord.serializer)
+      ..add(PromotionimagesRecord.serializer)
+      ..add(SawadAnnouncementRecord.serializer)
       ..add(SawadFormServicesRecord.serializer)
+      ..add(SplashPageBirthdayRecord.serializer)
+      ..add(SplashPageHolidayImgRecord.serializer)
       ..add(SplashPageImgRecord.serializer)
+      ..add(TextContentRecord.serializer)
+      ..add(TiktokVideoRecord.serializer)
+      ..add(UrlLinkStorageRecord.serializer)
       ..add(UserCustomRecord.serializer)
       ..add(UserLogRecord.serializer)
       ..add(UsersRecord.serializer)
@@ -38,7 +50,46 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(bool)]),
+          () => new ListBuilder<bool>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>()))
     .build();
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint

@@ -1,20 +1,22 @@
-import '../auth/auth_util.dart';
-import '../backend/api_requests/api_calls.dart';
-import '../backend/backend.dart';
-import '../backend/firebase_storage/storage.dart';
-import '../components/loading_scene_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_expanded_image_view.dart';
-import '../flutter_flow/flutter_flow_google_map.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
-import '../flutter_flow/random_data_util.dart' as random_data;
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/components/loading_scene_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -22,6 +24,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
+import 'o_p_spage_model.dart';
+export 'o_p_spage_model.dart';
 
 class OPSpageWidget extends StatefulWidget {
   const OPSpageWidget({
@@ -53,6 +58,12 @@ class OPSpageWidget extends StatefulWidget {
 
 class _OPSpageWidgetState extends State<OPSpageWidget>
     with TickerProviderStateMixin {
+  late OPSpageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'wrapOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -62,15 +73,15 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -82,15 +93,15 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -102,15 +113,15 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -122,64 +133,40 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
   };
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
-
-  LatLng? currentUserLocationValue;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  ApiCallResponse? checkLoginBeforeBack;
-  ApiCallResponse? checkLoginBeforeSave1;
-  bool? checkGPSService1;
-  bool? checkGSPBeforeSave1;
-  ApiCallResponse? opsAPI;
-  FileUploadRecord? saveImgToFirebase1;
-  bool? checkGPSService2;
-  bool? checkGPSBeforeSave2;
-  ApiCallResponse? checkLoginBeforeSave3;
-  ApiCallResponse? opsAPIFarmCar;
-  FileUploadRecord? saveImgToFirebase2;
-  bool? checkGPSService3;
-  bool? checkGPSBeforeSave3;
-  ApiCallResponse? checkLoginBeforeSave2;
-  ApiCallResponse? opsAPISignboard;
-  FileUploadRecord? saveImgToFirebase3;
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
-  TextEditingController? textController12;
-  String? assetDropDownTimesheetValue;
-  TextEditingController? branchTimesheetController;
-  TextEditingController? coordinateTimesheetController;
-  TextEditingController? textController7;
-  String? assteTypeDropDownTimesheetValue;
-  TextEditingController? carPlateTimesheetController;
-  String? signStatusDropDownTimesheetValue;
-  TextEditingController? remarkTimesheetController;
-  String? assetDropDownValue;
-  TextEditingController? branchInputController;
-  TextEditingController? coordinateInputController;
-  TextEditingController? textController2;
-  String? assteTypeDropDownValue;
-  TextEditingController? carPlateInputController;
-  String? signStatusDropDownValue;
-  TextEditingController? remarkInputController;
-  TextEditingController? textController1;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => OPSpageModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'OPSpage'});
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
+    _model.textController1 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController();
+    _model.coordinateInputController ??= TextEditingController();
+    _model.branchInputController ??= TextEditingController();
+    _model.carPlateInputController ??= TextEditingController();
+    _model.remarkInputController ??= TextEditingController();
+    _model.textController7 ??= TextEditingController();
+    _model.coordinateTimesheetController ??= TextEditingController();
+    _model.branchTimesheetController ??= TextEditingController();
+    _model.carPlateTimesheetController ??= TextEditingController();
+    _model.remarkTimesheetController ??= TextEditingController();
+    _model.textController12 ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -187,192 +174,208 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
       this,
     );
 
-    branchInputController = TextEditingController();
-    coordinateInputController = TextEditingController();
-    textController2 = TextEditingController(text: 'ทรัพย์สิน OPS');
-    carPlateInputController = TextEditingController();
-    remarkInputController = TextEditingController();
-    textController1 = TextEditingController(text: 'รูปภาพ');
-    branchTimesheetController = TextEditingController();
-    coordinateTimesheetController = TextEditingController();
-    textController7 = TextEditingController(text: 'ทรัพย์สิน OPS');
-    carPlateTimesheetController = TextEditingController();
-    remarkTimesheetController = TextEditingController();
-    textController12 = TextEditingController(text: 'รูปภาพ');
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController1?.text = 'รูปภาพ';
+          _model.textController2?.text = 'ทรัพย์สิน OPS';
+          _model.textController7?.text = 'ทรัพย์สิน OPS';
+          _model.textController12?.text = 'รูปภาพ';
+        }));
   }
 
   @override
   void dispose() {
-    branchInputController?.dispose();
-    coordinateInputController?.dispose();
-    textController2?.dispose();
-    carPlateInputController?.dispose();
-    remarkInputController?.dispose();
-    textController1?.dispose();
-    branchTimesheetController?.dispose();
-    coordinateTimesheetController?.dispose();
-    textController7?.dispose();
-    carPlateTimesheetController?.dispose();
-    remarkTimesheetController?.dispose();
-    textController12?.dispose();
+    _model.dispose();
+
+    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
-      return Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            color: FlutterFlowTheme.of(context).primaryColor,
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              color: FlutterFlowTheme.of(context).primary,
+            ),
           ),
         ),
       );
     }
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF6500),
-        automaticallyImplyLeading: false,
-        leading: Visibility(
-          visible: !FFAppState().isFromTimesheetPage,
-          child: Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: InkWell(
-              onTap: () async {
-                currentUserLocationValue = await getCurrentUserLocation(
-                    defaultLocation: LatLng(0.0, 0.0));
-                await googleMapsController.future.then(
-                  (c) => c.animateCamera(
-                    CameraUpdate.newLatLng(
-                        currentUserLocationValue!.toGoogleMaps()),
-                  ),
-                );
-              },
-              child: Icon(
-                Icons.person_pin_circle_outlined,
-                color: Colors.white,
-                size: 40,
-              ),
-            ),
-          ),
-        ),
-        title: Text(
-          'Branch View',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 22,
-              ),
-        ),
-        actions: [
-          Visibility(
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF6500),
+          automaticallyImplyLeading: false,
+          leading: Visibility(
             visible: !FFAppState().isFromTimesheetPage,
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
-                child: InkWell(
-                  onTap: () async {
-                    if (FFAppState().imgURL.length >= 5) {
-                      await showDialog(
-                        context: context,
-                        builder: (alertDialogContext) {
-                          return AlertDialog(
-                            title: Text('ระบบ'),
-                            content:
-                                Text('ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
-                            actions: [
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(alertDialogContext),
-                                child: Text('Ok'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                      return;
-                    }
-                    final selectedMedia =
-                        await selectMediaWithSourceBottomSheet(
-                      context: context,
-                      imageQuality: 75,
-                      allowPhoto: true,
-                      backgroundColor:
-                          FlutterFlowTheme.of(context).secondaryColor,
-                      textColor: Color(0xFFB71C1C),
-                      pickerFontFamily: 'Raleway',
-                    );
-                    if (selectedMedia != null &&
-                        selectedMedia.every((m) =>
-                            validateFileFormat(m.storagePath, context))) {
-                      setState(() => isMediaUploading = true);
-                      var downloadUrls = <String>[];
-                      try {
-                        showUploadMessage(
-                          context,
-                          'Uploading file...',
-                          showLoading: true,
-                        );
-                        downloadUrls = (await Future.wait(
-                          selectedMedia.map(
-                            (m) async =>
-                                await uploadData(m.storagePath, m.bytes),
-                          ),
-                        ))
-                            .where((u) => u != null)
-                            .map((u) => u!)
-                            .toList();
-                      } finally {
-                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                        isMediaUploading = false;
-                      }
-                      if (downloadUrls.length == selectedMedia.length) {
-                        setState(() => uploadedFileUrl = downloadUrls.first);
-                        showUploadMessage(context, 'Success!');
-                      } else {
-                        setState(() {});
-                        showUploadMessage(context, 'Failed to upload media');
-                        return;
-                      }
-                    }
-
-                    if (uploadedFileUrl != null && uploadedFileUrl != '') {
-                      if (uploadedFileUrl != FFAppState().imgURLTemp) {
-                        setState(
-                            () => FFAppState().imgURLTemp = uploadedFileUrl);
-                      } else {
-                        return;
-                      }
-                    } else {
-                      return;
-                    }
-
-                    setState(() => FFAppState().imgURL.add(uploadedFileUrl));
-                  },
-                  child: FaIcon(
-                    FontAwesomeIcons.camera,
-                    color: Color(0xFBFFFFFF),
-                    size: 40,
-                  ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  currentUserLocationValue = await getCurrentUserLocation(
+                      defaultLocation: LatLng(0.0, 0.0));
+                  await _model.googleMapsController.future.then(
+                    (c) => c.animateCamera(
+                      CameraUpdate.newLatLng(
+                          currentUserLocationValue!.toGoogleMaps()),
+                    ),
+                  );
+                },
+                child: Icon(
+                  Icons.person_pin_circle_outlined,
+                  color: Colors.white,
+                  size: 40.0,
                 ),
               ),
             ),
           ),
-        ],
-        centerTitle: true,
-        elevation: 10,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          title: Text(
+            'Branch View',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [
+            Visibility(
+              visible: !FFAppState().isFromTimesheetPage,
+              child: Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      if (FFAppState().imgURL.length >= 5) {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('ระบบ'),
+                              content: Text(
+                                  'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        return;
+                      }
+                      final selectedMedia =
+                          await selectMediaWithSourceBottomSheet(
+                        context: context,
+                        imageQuality: 75,
+                        allowPhoto: true,
+                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                        textColor: Color(0xFFB71C1C),
+                        pickerFontFamily: 'Raleway',
+                      );
+                      if (selectedMedia != null &&
+                          selectedMedia.every((m) =>
+                              validateFileFormat(m.storagePath, context))) {
+                        setState(() => _model.isDataUploading = true);
+                        var selectedUploadedFiles = <FFUploadedFile>[];
+                        var downloadUrls = <String>[];
+                        try {
+                          showUploadMessage(
+                            context,
+                            'Uploading file...',
+                            showLoading: true,
+                          );
+                          selectedUploadedFiles = selectedMedia
+                              .map((m) => FFUploadedFile(
+                                    name: m.storagePath.split('/').last,
+                                    bytes: m.bytes,
+                                    height: m.dimensions?.height,
+                                    width: m.dimensions?.width,
+                                    blurHash: m.blurHash,
+                                  ))
+                              .toList();
+
+                          downloadUrls = (await Future.wait(
+                            selectedMedia.map(
+                              (m) async =>
+                                  await uploadData(m.storagePath, m.bytes),
+                            ),
+                          ))
+                              .where((u) => u != null)
+                              .map((u) => u!)
+                              .toList();
+                        } finally {
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          _model.isDataUploading = false;
+                        }
+                        if (selectedUploadedFiles.length ==
+                                selectedMedia.length &&
+                            downloadUrls.length == selectedMedia.length) {
+                          setState(() {
+                            _model.uploadedLocalFile =
+                                selectedUploadedFiles.first;
+                            _model.uploadedFileUrl = downloadUrls.first;
+                          });
+                          showUploadMessage(context, 'Success!');
+                        } else {
+                          setState(() {});
+                          showUploadMessage(context, 'Failed to upload data');
+                          return;
+                        }
+                      }
+
+                      if (_model.uploadedFileUrl != null &&
+                          _model.uploadedFileUrl != '') {
+                        if (_model.uploadedFileUrl != FFAppState().imgURLTemp) {
+                          FFAppState().update(() {
+                            FFAppState().imgURLTemp = _model.uploadedFileUrl;
+                          });
+                        } else {
+                          return;
+                        }
+                      } else {
+                        return;
+                      }
+
+                      FFAppState().update(() {
+                        FFAppState().addToImgURL(_model.uploadedFileUrl);
+                      });
+                    },
+                    child: FaIcon(
+                      FontAwesomeIcons.camera,
+                      color: Color(0xFBFFFFFF),
+                      size: 40.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+          centerTitle: true,
+          elevation: 10.0,
+        ),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -388,14 +391,34 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      if (!FFAppState().isFromTimesheetPage)
+                        Container(
+                          width: double.infinity,
+                          height: 40.0,
+                          child: custom_widgets.ShowDateTime(
+                            width: double.infinity,
+                            height: 40.0,
+                            currentTime: getCurrentTimestamp,
+                          ),
+                        ),
+                      if (!FFAppState().isFromTimesheetPage)
+                        Container(
+                          width: double.infinity,
+                          height: 70.0,
+                          child: custom_widgets.ShowTime(
+                            width: double.infinity,
+                            height: 70.0,
+                          ),
+                        ),
                       if (functions.visibleUploadedImg(
                           FFAppState().isFromTimesheetPage,
                           FFAppState().imgURL.length))
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Wrap(
-                            spacing: 0,
-                            runSpacing: 0,
+                            spacing: 0.0,
+                            runSpacing: 0.0,
                             alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
@@ -412,18 +435,18 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: TextFormField(
-                                  controller: textController1,
+                                  controller: _model.textController1,
                                   autofocus: true,
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -433,7 +456,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -443,7 +466,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     errorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -453,7 +476,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     focusedErrorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -463,17 +486,19 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     filled: true,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .title2
+                                      .headlineMedium
                                       .override(
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                       ),
+                                  validator: _model.textController1Validator
+                                      .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 150,
+                                height: 150.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -493,8 +518,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         final uploadedImgItem =
                                             uploadedImg[uploadedImgIndex];
                                         return Container(
-                                          width: 150,
-                                          height: 150,
+                                          width: 150.0,
+                                          height: 150.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -503,8 +528,17 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 5, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 5.0, 0.0),
                                                 child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
                                                   onTap: () async {
                                                     await Navigator.push(
                                                       context,
@@ -531,21 +565,21 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         true,
                                                     child: Image.network(
                                                       uploadedImgItem,
-                                                      width: 150,
-                                                      height: 150,
+                                                      width: 150.0,
+                                                      height: 150.0,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                               FlutterFlowIconButton(
-                                                borderRadius: 20,
-                                                borderWidth: 1,
-                                                buttonSize: 35,
+                                                borderRadius: 20.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 35.0,
                                                 icon: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFF0000),
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   var confirmDialogResponse =
@@ -583,9 +617,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   if (!confirmDialogResponse) {
                                                     return;
                                                   }
-                                                  setState(() => FFAppState()
-                                                      .imgURL
-                                                      .remove(uploadedImgItem));
+                                                  FFAppState().update(() {
+                                                    FFAppState()
+                                                        .removeFromImgURL(
+                                                            uploadedImgItem);
+                                                  });
                                                 },
                                               ),
                                             ],
@@ -601,8 +637,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                         ),
                       if (FFAppState().isFromTimesheetPage == false)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -618,18 +654,18 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController2,
+                                controller: _model.textController2,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -639,7 +675,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -649,7 +685,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -659,7 +695,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -669,12 +705,14 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController2Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
@@ -686,7 +724,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -696,7 +734,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Icon(
                                         Icons.language_outlined,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -704,17 +742,18 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'ค่าพิกัด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: coordinateInputController,
+                                        controller:
+                                            _model.coordinateInputController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -725,11 +764,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -740,7 +779,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -751,7 +790,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -763,7 +802,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -773,7 +812,10 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
+                                        validator: _model
+                                            .coordinateInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -789,7 +831,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -799,7 +841,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.locationArrow,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -807,28 +849,29 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'รหัสสาขา:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: branchInputController,
+                                        controller:
+                                            _model.branchInputController,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'รหัสสาขา',
                                           hintText: 'รหัสสาขา',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -839,7 +882,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -850,7 +893,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -862,7 +905,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -872,8 +915,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .branchInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -889,7 +935,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -899,7 +945,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Icon(
                                         Icons.list_alt,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -907,43 +953,48 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'ทรัพย์สิน:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
-                                      child: FlutterFlowDropDown(
-                                        initialOption: assetDropDownValue ??=
-                                            'รถใช้งานของบริษัท',
+                                      child: FlutterFlowDropDown<String>(
+                                        controller: _model
+                                                .assetDropDownValueController ??=
+                                            FormFieldController<String>(
+                                          _model.assetDropDownValue ??=
+                                              'รถใช้งานของบริษัท',
+                                        ),
                                         options: [
                                           'รถใช้งานของบริษัท',
                                           'รถซื้อ',
                                           'รถยึด',
                                           'ป้ายสาขา'
                                         ],
-                                        onChanged: (val) => setState(
-                                            () => assetDropDownValue = val),
-                                        width: 180,
-                                        height: 50,
+                                        onChanged: (val) => setState(() =>
+                                            _model.assetDropDownValue = val),
+                                        width: 180.0,
+                                        height: 50.0,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                             ),
                                         hintText: 'เลือกทรัพย์สิน',
                                         fillColor: Colors.white,
-                                        elevation: 2,
+                                        elevation: 2.0,
                                         borderColor: Colors.transparent,
-                                        borderWidth: 0,
-                                        borderRadius: 0,
+                                        borderWidth: 0.0,
+                                        borderRadius: 0.0,
                                         margin: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 12, 4),
+                                            0.0, 4.0, 12.0, 4.0),
                                         hidesUnderline: true,
+                                        isSearchable: false,
                                       ),
                                     ),
                                   ],
@@ -951,7 +1002,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                             ),
                             Visibility(
-                              visible: assetDropDownValue != 'ป้ายสาขา',
+                              visible: _model.assetDropDownValue != 'ป้ายสาขา',
                               child: Container(
                                 width: double.infinity,
                                 height:
@@ -962,7 +1013,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 10, 0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -973,7 +1024,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Icon(
                                           Icons.settings_outlined,
                                           color: Colors.black,
-                                          size: 29,
+                                          size: 29.0,
                                         ),
                                       ),
                                       Expanded(
@@ -981,16 +1032,19 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Text(
                                           'ประเภทรถ:',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                               ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 5,
-                                        child: FlutterFlowDropDown(
+                                        child: FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .assteTypeDropDownValueController ??=
+                                              FormFieldController<String>(null),
                                           options: [
                                             'รถมอเตอร์ไซค์',
                                             'รถเก๋ง',
@@ -1001,26 +1055,28 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             'อื่นๆ'
                                           ],
                                           onChanged: (val) => setState(() =>
-                                              assteTypeDropDownValue = val),
-                                          width: 180,
-                                          height: 50,
+                                              _model.assteTypeDropDownValue =
+                                                  val),
+                                          width: 180.0,
+                                          height: 50.0,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                   ),
                                           hintText: 'เลือกประเภทรถ',
                                           fillColor: Colors.white,
-                                          elevation: 2,
+                                          elevation: 2.0,
                                           borderColor: Colors.transparent,
-                                          borderWidth: 0,
-                                          borderRadius: 0,
+                                          borderWidth: 0.0,
+                                          borderRadius: 0.0,
                                           margin:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 12, 4),
+                                                  0.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
+                                          isSearchable: false,
                                         ),
                                       ),
                                     ],
@@ -1029,7 +1085,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                             ),
                             Visibility(
-                              visible: assetDropDownValue != 'ป้ายสาขา',
+                              visible: _model.assetDropDownValue != 'ป้ายสาขา',
                               child: Container(
                                 width: double.infinity,
                                 height:
@@ -1040,7 +1096,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 10, 0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1051,7 +1107,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: FaIcon(
                                           FontAwesomeIcons.creditCard,
                                           color: Colors.black,
-                                          size: 29,
+                                          size: 29.0,
                                         ),
                                       ),
                                       Expanded(
@@ -1059,32 +1115,33 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Text(
                                           'ทะเบียนรถ:',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                               ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 5,
                                         child: TextFormField(
-                                          controller: carPlateInputController,
+                                          controller:
+                                              _model.carPlateInputController,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelText: functions
-                                                .getCarPlatePlaceholder(
-                                                    assteTypeDropDownValue),
+                                                .getCarPlatePlaceholder(_model
+                                                    .assteTypeDropDownValue),
                                             hintText: functions
-                                                .getCarPlatePlaceholder(
-                                                    assteTypeDropDownValue),
+                                                .getCarPlatePlaceholder(_model
+                                                    .assteTypeDropDownValue),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2,
+                                                    .bodySmall,
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1095,7 +1152,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1106,7 +1163,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             errorBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1118,7 +1175,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1128,8 +1185,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                           textAlign: TextAlign.start,
+                                          validator: _model
+                                              .carPlateInputControllerValidator
+                                              .asValidator(context),
                                         ),
                                       ),
                                     ],
@@ -1138,7 +1198,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                             ),
                             Visibility(
-                              visible: assetDropDownValue == 'ป้ายสาขา',
+                              visible: _model.assetDropDownValue == 'ป้ายสาขา',
                               child: Container(
                                 width: double.infinity,
                                 height:
@@ -1149,7 +1209,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 10, 0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1160,7 +1220,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: FaIcon(
                                           FontAwesomeIcons.flag,
                                           color: Colors.black,
-                                          size: 29,
+                                          size: 29.0,
                                         ),
                                       ),
                                       Expanded(
@@ -1168,42 +1228,47 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Text(
                                           'สภาพป้าย:',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                               ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 5,
-                                        child: FlutterFlowDropDown(
+                                        child: FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .signStatusDropDownValueController ??=
+                                              FormFieldController<String>(null),
                                           options: [
                                             'สภาพใหม่',
                                             'ต้องซ่อมแซม',
                                             'ยังไม่มีป้าย'
                                           ],
                                           onChanged: (val) => setState(() =>
-                                              signStatusDropDownValue = val),
-                                          width: 180,
-                                          height: 50,
+                                              _model.signStatusDropDownValue =
+                                                  val),
+                                          width: 180.0,
+                                          height: 50.0,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                   ),
                                           hintText: 'เลือกสภาพป้าย',
                                           fillColor: Colors.white,
-                                          elevation: 2,
+                                          elevation: 2.0,
                                           borderColor: Colors.transparent,
-                                          borderWidth: 0,
-                                          borderRadius: 0,
+                                          borderWidth: 0.0,
+                                          borderRadius: 0.0,
                                           margin:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 12, 4),
+                                                  0.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
+                                          isSearchable: false,
                                         ),
                                       ),
                                     ],
@@ -1220,7 +1285,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1230,7 +1295,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.edit,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1238,28 +1303,29 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'หมายเหตุ:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: remarkInputController,
+                                        controller:
+                                            _model.remarkInputController,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'หมายเหตุ',
                                           hintText: 'หมายเหตุ',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1270,7 +1336,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1281,7 +1347,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1293,7 +1359,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1303,8 +1369,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .remarkInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1316,8 +1385,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                             animationsMap['wrapOnPageLoadAnimation1']!),
                       if (FFAppState().isFromTimesheetPage == true)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -1333,18 +1402,18 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController7,
+                                controller: _model.textController7,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1354,7 +1423,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1364,7 +1433,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1374,7 +1443,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1384,12 +1453,14 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController7Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
@@ -1401,7 +1472,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1411,7 +1482,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Icon(
                                         Icons.language_outlined,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1419,18 +1490,18 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'ค่าพิกัด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            coordinateTimesheetController,
+                                        controller: _model
+                                            .coordinateTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1441,11 +1512,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1456,7 +1527,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1467,7 +1538,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1479,7 +1550,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1489,7 +1560,10 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
+                                        validator: _model
+                                            .coordinateTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1505,7 +1579,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1515,7 +1589,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.locationArrow,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1523,28 +1597,29 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'รหัสสาขา:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: branchTimesheetController,
+                                        controller:
+                                            _model.branchTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'รหัสสาขา',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1555,7 +1630,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1566,7 +1641,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1578,7 +1653,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1588,8 +1663,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .branchTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1605,7 +1683,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1615,7 +1693,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Icon(
                                         Icons.list_alt,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1623,19 +1701,22 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'ทรัพย์สิน:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
-                                      child: FlutterFlowDropDown(
-                                        initialOption:
-                                            assetDropDownTimesheetValue ??=
-                                                'รถใช้งานของบริษัท',
+                                      child: FlutterFlowDropDown<String>(
+                                        controller: _model
+                                                .assetDropDownTimesheetValueController ??=
+                                            FormFieldController<String>(
+                                          _model.assetDropDownTimesheetValue ??=
+                                              'รถใช้งานของบริษัท',
+                                        ),
                                         options: [
                                           'รถใช้งานของบริษัท',
                                           'รถซื้อ',
@@ -1643,24 +1724,26 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           'ป้ายสาขา'
                                         ],
                                         onChanged: (val) => setState(() =>
-                                            assetDropDownTimesheetValue = val),
-                                        width: 180,
-                                        height: 50,
+                                            _model.assetDropDownTimesheetValue =
+                                                val),
+                                        width: 180.0,
+                                        height: 50.0,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                             ),
                                         hintText: 'เลือกทรัพย์สิน',
                                         fillColor: Colors.white,
-                                        elevation: 2,
+                                        elevation: 2.0,
                                         borderColor: Colors.transparent,
-                                        borderWidth: 0,
-                                        borderRadius: 0,
+                                        borderWidth: 0.0,
+                                        borderRadius: 0.0,
                                         margin: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 12, 4),
+                                            0.0, 4.0, 12.0, 4.0),
                                         hidesUnderline: true,
+                                        isSearchable: false,
                                       ),
                                     ),
                                   ],
@@ -1668,8 +1751,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                             ),
                             Visibility(
-                              visible:
-                                  assetDropDownTimesheetValue != 'ป้ายสาขา',
+                              visible: _model.assetDropDownTimesheetValue !=
+                                  'ป้ายสาขา',
                               child: Container(
                                 width: double.infinity,
                                 height:
@@ -1680,7 +1763,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 10, 0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1691,7 +1774,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Icon(
                                           Icons.settings_outlined,
                                           color: Colors.black,
-                                          size: 29,
+                                          size: 29.0,
                                         ),
                                       ),
                                       Expanded(
@@ -1699,16 +1782,19 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Text(
                                           'ประเภทรถ:',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                               ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 5,
-                                        child: FlutterFlowDropDown(
+                                        child: FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .assteTypeDropDownTimesheetValueController ??=
+                                              FormFieldController<String>(null),
                                           options: [
                                             'รถมอเตอร์ไซค์',
                                             'รถเก๋ง',
@@ -1719,27 +1805,28 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             'อื่นๆ'
                                           ],
                                           onChanged: (val) => setState(() =>
-                                              assteTypeDropDownTimesheetValue =
+                                              _model.assteTypeDropDownTimesheetValue =
                                                   val),
-                                          width: 180,
-                                          height: 50,
+                                          width: 180.0,
+                                          height: 50.0,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                   ),
                                           hintText: 'เลือกประเภทรถ',
                                           fillColor: Colors.white,
-                                          elevation: 2,
+                                          elevation: 2.0,
                                           borderColor: Colors.transparent,
-                                          borderWidth: 0,
-                                          borderRadius: 0,
+                                          borderWidth: 0.0,
+                                          borderRadius: 0.0,
                                           margin:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 12, 4),
+                                                  0.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
+                                          isSearchable: false,
                                         ),
                                       ),
                                     ],
@@ -1748,8 +1835,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                             ),
                             Visibility(
-                              visible:
-                                  assetDropDownTimesheetValue != 'ป้ายสาขา',
+                              visible: _model.assetDropDownTimesheetValue !=
+                                  'ป้ายสาขา',
                               child: Container(
                                 width: double.infinity,
                                 height:
@@ -1760,7 +1847,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 10, 0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1771,7 +1858,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: FaIcon(
                                           FontAwesomeIcons.creditCard,
                                           color: Colors.black,
-                                          size: 29,
+                                          size: 29.0,
                                         ),
                                       ),
                                       Expanded(
@@ -1779,31 +1866,31 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Text(
                                           'ทะเบียนรถ:',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                               ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 5,
                                         child: TextFormField(
-                                          controller:
-                                              carPlateTimesheetController,
+                                          controller: _model
+                                              .carPlateTimesheetController,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: functions
-                                                .getCarPlatePlaceholder(
-                                                    assteTypeDropDownTimesheetValue),
+                                                .getCarPlatePlaceholder(_model
+                                                    .assteTypeDropDownTimesheetValue),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyText2,
+                                                    .bodySmall,
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1814,7 +1901,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1825,7 +1912,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             errorBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1837,7 +1924,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
-                                                width: 1,
+                                                width: 1.0,
                                               ),
                                               borderRadius:
                                                   const BorderRadius.only(
@@ -1847,8 +1934,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1,
+                                              .bodyMedium,
                                           textAlign: TextAlign.start,
+                                          validator: _model
+                                              .carPlateTimesheetControllerValidator
+                                              .asValidator(context),
                                         ),
                                       ),
                                     ],
@@ -1857,8 +1947,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                             ),
                             Visibility(
-                              visible:
-                                  assetDropDownTimesheetValue == 'ป้ายสาขา',
+                              visible: _model.assetDropDownTimesheetValue ==
+                                  'ป้ายสาขา',
                               child: Container(
                                 width: double.infinity,
                                 height:
@@ -1869,7 +1959,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      10, 0, 10, 0),
+                                      10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -1880,7 +1970,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: FaIcon(
                                           FontAwesomeIcons.flag,
                                           color: Colors.black,
-                                          size: 29,
+                                          size: 29.0,
                                         ),
                                       ),
                                       Expanded(
@@ -1888,43 +1978,47 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         child: Text(
                                           'สภาพป้าย:',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 18,
+                                                fontSize: 18.0,
                                               ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 5,
-                                        child: FlutterFlowDropDown(
+                                        child: FlutterFlowDropDown<String>(
+                                          controller: _model
+                                                  .signStatusDropDownTimesheetValueController ??=
+                                              FormFieldController<String>(null),
                                           options: [
                                             'สภาพใหม่',
                                             'ต้องซ่อมแซม',
                                             'ยังไม่มีป้าย'
                                           ],
                                           onChanged: (val) => setState(() =>
-                                              signStatusDropDownTimesheetValue =
+                                              _model.signStatusDropDownTimesheetValue =
                                                   val),
-                                          width: 180,
-                                          height: 50,
+                                          width: 180.0,
+                                          height: 50.0,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText1
+                                                  .bodyMedium
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                   ),
                                           hintText: 'เลือกสภาพป้าย',
                                           fillColor: Colors.white,
-                                          elevation: 2,
+                                          elevation: 2.0,
                                           borderColor: Colors.transparent,
-                                          borderWidth: 0,
-                                          borderRadius: 0,
+                                          borderWidth: 0.0,
+                                          borderRadius: 0.0,
                                           margin:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0, 4, 12, 4),
+                                                  0.0, 4.0, 12.0, 4.0),
                                           hidesUnderline: true,
+                                          isSearchable: false,
                                         ),
                                       ),
                                     ],
@@ -1941,7 +2035,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1951,7 +2045,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.edit,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1959,28 +2053,29 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       child: Text(
                                         'หมายเหตุ:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: remarkTimesheetController,
+                                        controller:
+                                            _model.remarkTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'หมายเหตุ',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1991,7 +2086,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -2002,7 +2097,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -2014,7 +2109,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -2024,8 +2119,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .remarkTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -2059,24 +2157,24 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 .secondaryBackground,
                           ),
                           child: Builder(builder: (context) {
-                            final _googleMapMarker = widget.location1;
+                            final _googleMapMarker = currentUserLocationValue;
                             return FlutterFlowGoogleMap(
-                              controller: googleMapsController,
+                              controller: _model.googleMapsController,
                               onCameraIdle: (latLng) =>
-                                  googleMapsCenter = latLng,
-                              initialLocation: googleMapsCenter ??=
+                                  _model.googleMapsCenter = latLng,
+                              initialLocation: _model.googleMapsCenter ??=
                                   currentUserLocationValue!,
                               markers: [
                                 if (_googleMapMarker != null)
                                   FlutterFlowMarker(
-                                    _googleMapMarker.reference.path,
-                                    _googleMapMarker.location!,
+                                    _googleMapMarker.serialize(),
+                                    _googleMapMarker,
                                   ),
                               ],
                               markerColor: GoogleMarkerColor.red,
                               mapType: MapType.hybrid,
                               style: GoogleMapStyle.standard,
-                              initialZoom: 16,
+                              initialZoom: 16.0,
                               allowInteraction: true,
                               allowZoom: true,
                               showZoomControls: true,
@@ -2091,10 +2189,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                             animationsMap['containerOnPageLoadAnimation1']!),
                       if (FFAppState().isFromTimesheetPage == true)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Wrap(
-                            spacing: 0,
-                            runSpacing: 0,
+                            spacing: 0.0,
+                            runSpacing: 0.0,
                             alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
@@ -2111,18 +2210,18 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: TextFormField(
-                                  controller: textController12,
+                                  controller: _model.textController12,
                                   autofocus: true,
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2132,7 +2231,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2142,7 +2241,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     errorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2152,7 +2251,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     focusedErrorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2162,17 +2261,19 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     filled: true,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .title2
+                                      .headlineMedium
                                       .override(
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                       ),
+                                  validator: _model.textController12Validator
+                                      .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 150,
+                                height: 150.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -2191,11 +2292,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     if (!snapshot.hasData) {
                                       return Center(
                                         child: SizedBox(
-                                          width: 50,
-                                          height: 50,
+                                          width: 50.0,
+                                          height: 50.0,
                                           child: CircularProgressIndicator(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                           ),
                                         ),
                                       );
@@ -2203,7 +2304,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
-                                    // Return an empty Container when the document does not exist.
+                                    // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
                                     }
@@ -2226,8 +2327,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 imgFromFirestore[
                                                     imgFromFirestoreIndex];
                                             return Container(
-                                              width: 150,
-                                              height: 150,
+                                              width: 150.0,
+                                              height: 150.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -2238,9 +2339,17 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
                                                       onTap: () async {
                                                         await Navigator.push(
                                                           context,
@@ -2273,8 +2382,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                             true,
                                                         child: Image.network(
                                                           imgFromFirestoreItem,
-                                                          width: 150,
-                                                          height: 150,
+                                                          width: 150.0,
+                                                          height: 150.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -2302,10 +2411,10 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                 .secondaryBackground,
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0, 0.9),
+                            alignment: AlignmentDirectional(0.0, 0.9),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 20.0, 10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -2314,7 +2423,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     flex: 1,
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 5, 0),
+                                          0.0, 0.0, 5.0, 0.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           var _shouldSetState = false;
@@ -2362,18 +2471,25 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               isScrollControlled: true,
                                               backgroundColor:
                                                   Colors.transparent,
+                                              barrierColor: Color(0x00000000),
                                               context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child: LoadingSceneWidget(),
+                                              builder: (bottomSheetContext) {
+                                                return GestureDetector(
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
+                                                          .requestFocus(
+                                                              _unfocusNode),
+                                                  child: Padding(
+                                                    padding: MediaQuery.of(
+                                                            bottomSheetContext)
+                                                        .viewInsets,
+                                                    child: LoadingSceneWidget(),
+                                                  ),
                                                 );
                                               },
                                             ).then((value) => setState(() {}));
 
-                                            checkLoginBeforeBack =
+                                            _model.checkLoginBeforeBack =
                                                 await GetUserProfileAPICall
                                                     .call(
                                               token: FFAppState().accessToken,
@@ -2381,7 +2497,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   FFAppState().apiURLLocalState,
                                             );
                                             _shouldSetState = true;
-                                            if (!(checkLoginBeforeBack
+                                            if (!(_model.checkLoginBeforeBack
                                                     ?.succeeded ??
                                                 true)) {
                                               Navigator.pop(context);
@@ -2403,39 +2519,42 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   );
                                                 },
                                               );
-                                              setState(() => FFAppState().imei =
-                                                  '123456789012345');
-                                              setState(() {
+                                              FFAppState().update(() {
+                                                FFAppState().imei =
+                                                    '123456789012345';
                                                 FFAppState()
                                                     .deleteAccessToken();
                                                 FFAppState().accessToken =
                                                     'access_token';
                                               });
-                                              setState(() {
+                                              FFAppState().update(() {
                                                 FFAppState().deleteEmployeeID();
                                                 FFAppState().employeeID =
                                                     'employee_id';
+
+                                                FFAppState().QRCodeLink =
+                                                    'qrcode_link';
                                               });
-                                              setState(() => FFAppState()
-                                                  .QRCodeLink = 'qrcode_link');
-                                              setState(() {
+                                              FFAppState().update(() {
                                                 FFAppState()
                                                     .deleteApiURLLocalState();
                                                 FFAppState().apiURLLocalState =
                                                     'api_url_local_state';
+
+                                                FFAppState().imgURL = [];
                                               });
-                                              setState(() =>
-                                                  FFAppState().imgURL = []);
-                                              setState(() =>
-                                                  FFAppState().imgURLTemp = '');
-                                              setState(() {
+                                              FFAppState().update(() {
+                                                FFAppState().imgURLTemp =
+                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
                                                 FFAppState().deleteBranchCode();
                                                 FFAppState().branchCode =
                                                     'branch_code';
                                               });
                                               GoRouter.of(context)
                                                   .prepareAuthEvent();
-                                              await signOut();
+                                              await authManager.signOut();
+                                              GoRouter.of(context)
+                                                  .clearRedirectLocation();
 
                                               context.goNamedAuth(
                                                   'LoginPage', mounted);
@@ -2458,22 +2577,29 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         text: functions.cancelButtonText(
                                             FFAppState().isFromTimesheetPage),
                                         options: FFButtonOptions(
-                                          width: 130,
-                                          height: 40,
+                                          width: 130.0,
+                                          height: 40.0,
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
+                                          iconPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
                                           color: Color(0xFFFF0000),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .subtitle2
+                                                  .titleSmall
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
                                                   ),
+                                          elevation: 2.0,
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius:
-                                              BorderRadius.circular(8),
+                                              BorderRadius.circular(8.0),
                                         ),
                                       ),
                                     ),
@@ -2483,7 +2609,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                       flex: 1,
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
+                                            5.0, 0.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             currentUserLocationValue =
@@ -2491,9 +2617,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     defaultLocation:
                                                         LatLng(0.0, 0.0));
                                             var _shouldSetState = false;
-                                            if (!(branchInputController!.text !=
+                                            if (!(_model.branchInputController
+                                                        .text !=
                                                     null &&
-                                                branchInputController!.text !=
+                                                _model.branchInputController
+                                                        .text !=
                                                     '')) {
                                               await showDialog(
                                                 context: context,
@@ -2517,9 +2645,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 setState(() {});
                                               return;
                                             }
-                                            if (!(remarkInputController!.text !=
+                                            if (!(_model.remarkInputController
+                                                        .text !=
                                                     null &&
-                                                remarkInputController!.text !=
+                                                _model.remarkInputController
+                                                        .text !=
                                                     '')) {
                                               await showDialog(
                                                 context: context,
@@ -2543,11 +2673,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 setState(() {});
                                               return;
                                             }
-                                            if (assetDropDownValue !=
+                                            if (_model.assetDropDownValue !=
                                                 'ป้ายสาขา') {
-                                              if (!(assteTypeDropDownValue !=
+                                              if (!(_model.assteTypeDropDownValue !=
                                                       null &&
-                                                  assteTypeDropDownValue !=
+                                                  _model.assteTypeDropDownValue !=
                                                       '')) {
                                                 await showDialog(
                                                   context: context,
@@ -2572,12 +2702,13 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   setState(() {});
                                                 return;
                                               }
-                                              if (assteTypeDropDownValue !=
+                                              if (_model
+                                                      .assteTypeDropDownValue !=
                                                   'รถการเกษตร') {
-                                                if (carPlateInputController!
+                                                if (_model.carPlateInputController
                                                             .text !=
                                                         null &&
-                                                    carPlateInputController!
+                                                    _model.carPlateInputController
                                                             .text !=
                                                         '') {
                                                   var confirmDialogResponse =
@@ -2617,10 +2748,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  checkGPSService1 =
+                                                  _model.checkGPSService1 =
                                                       await actions.a1();
                                                   _shouldSetState = true;
-                                                  if (!checkGPSService1!) {
+                                                  if (!_model
+                                                      .checkGPSService1!) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -2644,12 +2776,13 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  checkGSPBeforeSave1 =
+                                                  _model.checkGSPBeforeSave1 =
                                                       await actions.a8(
                                                     currentUserLocationValue,
                                                   );
                                                   _shouldSetState = true;
-                                                  if (!checkGSPBeforeSave1!) {
+                                                  if (!_model
+                                                      .checkGSPBeforeSave1!) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -2677,24 +2810,33 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     isScrollControlled: true,
                                                     backgroundColor:
                                                         Colors.transparent,
+                                                    barrierColor:
+                                                        Color(0x00000000),
                                                     context: context,
-                                                    builder: (context) {
-                                                      return Padding(
-                                                        padding: MediaQuery.of(
-                                                                context)
-                                                            .viewInsets,
-                                                        child: Container(
-                                                          height:
-                                                              double.infinity,
-                                                          child:
-                                                              LoadingSceneWidget(),
+                                                    builder:
+                                                        (bottomSheetContext) {
+                                                      return GestureDetector(
+                                                        onTap: () => FocusScope
+                                                                .of(context)
+                                                            .requestFocus(
+                                                                _unfocusNode),
+                                                        child: Padding(
+                                                          padding: MediaQuery.of(
+                                                                  bottomSheetContext)
+                                                              .viewInsets,
+                                                          child: Container(
+                                                            height:
+                                                                double.infinity,
+                                                            child:
+                                                                LoadingSceneWidget(),
+                                                          ),
                                                         ),
                                                       );
                                                     },
                                                   ).then((value) =>
                                                       setState(() {}));
 
-                                                  checkLoginBeforeSave1 =
+                                                  _model.checkLoginBeforeSave1 =
                                                       await GetUserProfileAPICall
                                                           .call(
                                                     token: FFAppState()
@@ -2703,38 +2845,40 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         .apiURLLocalState,
                                                   );
                                                   _shouldSetState = true;
-                                                  if ((checkLoginBeforeSave1
+                                                  if ((_model
+                                                          .checkLoginBeforeSave1
                                                           ?.succeeded ??
                                                       true)) {
-                                                    opsAPI =
+                                                    _model.opsAPI =
                                                         await OpsAPICall.call(
                                                       coordinate: functions
                                                           .getUserLocation(
                                                               currentUserLocationValue),
-                                                      branchCode:
-                                                          functions.toUpperCase(
-                                                              branchInputController!
-                                                                  .text),
-                                                      assetRef:
-                                                          functions.toUpperCase(
-                                                              carPlateInputController!
-                                                                  .text),
-                                                      assetType:
-                                                          assetDropDownValue,
-                                                      assetDetail:
-                                                          assteTypeDropDownValue,
-                                                      remark:
-                                                          remarkInputController!
-                                                              .text,
+                                                      branchCode: functions
+                                                          .toUpperCase(_model
+                                                              .branchInputController
+                                                              .text),
+                                                      assetRef: functions
+                                                          .toUpperCase(_model
+                                                              .carPlateInputController
+                                                              .text),
+                                                      assetType: _model
+                                                          .assetDropDownValue,
+                                                      assetDetail: _model
+                                                          .assteTypeDropDownValue,
+                                                      remark: _model
+                                                          .remarkInputController
+                                                          .text,
                                                     );
                                                     _shouldSetState = true;
-                                                    if ((opsAPI?.succeeded ??
+                                                    if ((_model.opsAPI
+                                                            ?.succeeded ??
                                                         true)) {
                                                       if (FFAppState()
                                                               .imgURL
                                                               .length !=
                                                           0) {
-                                                        final fileUploadCreateData =
+                                                        final fileUploadCreateData1 =
                                                             {
                                                           ...createFileUploadRecordData(
                                                             picDatetime:
@@ -2755,22 +2899,23 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                               FFAppState()
                                                                   .imgURL,
                                                         };
-                                                        var fileUploadRecordReference =
+                                                        var fileUploadRecordReference1 =
                                                             FileUploadRecord
                                                                 .collection
                                                                 .doc();
-                                                        await fileUploadRecordReference
+                                                        await fileUploadRecordReference1
                                                             .set(
-                                                                fileUploadCreateData);
-                                                        saveImgToFirebase1 =
+                                                                fileUploadCreateData1);
+                                                        _model.saveImgToFirebase1 =
                                                             FileUploadRecord
                                                                 .getDocumentFromData(
-                                                                    fileUploadCreateData,
-                                                                    fileUploadRecordReference);
+                                                                    fileUploadCreateData1,
+                                                                    fileUploadRecordReference1);
                                                         _shouldSetState = true;
-                                                        setState(() =>
-                                                            FFAppState()
-                                                                .imgURL = []);
+                                                        FFAppState().update(() {
+                                                          FFAppState().imgURL =
+                                                              [];
+                                                        });
                                                       }
                                                     } else {
                                                       Navigator.pop(context);
@@ -2819,32 +2964,30 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         );
                                                       },
                                                     );
-                                                    setState(() =>
-                                                        FFAppState().imei =
-                                                            '123456789012345');
-                                                    setState(() {
+                                                    FFAppState().update(() {
+                                                      FFAppState().imei =
+                                                          '123456789012345';
                                                       FFAppState()
                                                           .deleteAccessToken();
                                                       FFAppState().accessToken =
                                                           'access_token';
                                                     });
-                                                    setState(() {
+                                                    FFAppState().update(() {
                                                       FFAppState()
                                                           .deleteEmployeeID();
                                                       FFAppState().employeeID =
                                                           'employee_id';
+
+                                                      FFAppState().QRCodeLink =
+                                                          'qrcode_link';
                                                     });
-                                                    setState(() => FFAppState()
-                                                            .QRCodeLink =
-                                                        'qrcode_link');
-                                                    setState(() {
+                                                    FFAppState().update(() {
                                                       FFAppState()
                                                           .deleteApiURLLocalState();
                                                       FFAppState()
                                                               .apiURLLocalState =
                                                           'api_url_local_state';
-                                                    });
-                                                    setState(() {
+
                                                       FFAppState()
                                                           .deleteBranchCode();
                                                       FFAppState().branchCode =
@@ -2852,7 +2995,9 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     });
                                                     GoRouter.of(context)
                                                         .prepareAuthEvent();
-                                                    await signOut();
+                                                    await authManager.signOut();
+                                                    GoRouter.of(context)
+                                                        .clearRedirectLocation();
 
                                                     context.goNamedAuth(
                                                         'LoginPage', mounted);
@@ -2886,10 +3031,10 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   return;
                                                 }
                                               } else {
-                                                if (carPlateInputController!
+                                                if (_model.carPlateInputController
                                                             .text !=
                                                         null &&
-                                                    carPlateInputController!
+                                                    _model.carPlateInputController
                                                             .text !=
                                                         '') {
                                                   var confirmDialogResponse =
@@ -2929,10 +3074,11 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  checkGPSService2 =
+                                                  _model.checkGPSService2 =
                                                       await actions.a1();
                                                   _shouldSetState = true;
-                                                  if (!checkGPSService2!) {
+                                                  if (!_model
+                                                      .checkGPSService2!) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -2956,12 +3102,13 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  checkGPSBeforeSave2 =
+                                                  _model.checkGPSBeforeSave2 =
                                                       await actions.a8(
                                                     currentUserLocationValue,
                                                   );
                                                   _shouldSetState = true;
-                                                  if (!checkGPSBeforeSave2!) {
+                                                  if (!_model
+                                                      .checkGPSBeforeSave2!) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -2989,24 +3136,33 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     isScrollControlled: true,
                                                     backgroundColor:
                                                         Colors.transparent,
+                                                    barrierColor:
+                                                        Color(0x00000000),
                                                     context: context,
-                                                    builder: (context) {
-                                                      return Padding(
-                                                        padding: MediaQuery.of(
-                                                                context)
-                                                            .viewInsets,
-                                                        child: Container(
-                                                          height:
-                                                              double.infinity,
-                                                          child:
-                                                              LoadingSceneWidget(),
+                                                    builder:
+                                                        (bottomSheetContext) {
+                                                      return GestureDetector(
+                                                        onTap: () => FocusScope
+                                                                .of(context)
+                                                            .requestFocus(
+                                                                _unfocusNode),
+                                                        child: Padding(
+                                                          padding: MediaQuery.of(
+                                                                  bottomSheetContext)
+                                                              .viewInsets,
+                                                          child: Container(
+                                                            height:
+                                                                double.infinity,
+                                                            child:
+                                                                LoadingSceneWidget(),
+                                                          ),
                                                         ),
                                                       );
                                                     },
                                                   ).then((value) =>
                                                       setState(() {}));
 
-                                                  checkLoginBeforeSave3 =
+                                                  _model.checkLoginBeforeSave3 =
                                                       await GetUserProfileAPICall
                                                           .call(
                                                     token: FFAppState()
@@ -3015,39 +3171,40 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         .apiURLLocalState,
                                                   );
                                                   _shouldSetState = true;
-                                                  if ((checkLoginBeforeSave3
+                                                  if ((_model
+                                                          .checkLoginBeforeSave3
                                                           ?.succeeded ??
                                                       true)) {
-                                                    opsAPIFarmCar =
+                                                    _model.opsAPIFarmCar =
                                                         await OpsAPICall.call(
                                                       coordinate: functions
                                                           .getUserLocation(
                                                               currentUserLocationValue),
-                                                      branchCode:
-                                                          functions.toUpperCase(
-                                                              branchInputController!
-                                                                  .text),
-                                                      assetRef:
-                                                          functions.toUpperCase(
-                                                              carPlateInputController!
-                                                                  .text),
-                                                      assetType:
-                                                          assetDropDownValue,
-                                                      assetDetail:
-                                                          assteTypeDropDownValue,
-                                                      remark:
-                                                          remarkInputController!
-                                                              .text,
+                                                      branchCode: functions
+                                                          .toUpperCase(_model
+                                                              .branchInputController
+                                                              .text),
+                                                      assetRef: functions
+                                                          .toUpperCase(_model
+                                                              .carPlateInputController
+                                                              .text),
+                                                      assetType: _model
+                                                          .assetDropDownValue,
+                                                      assetDetail: _model
+                                                          .assteTypeDropDownValue,
+                                                      remark: _model
+                                                          .remarkInputController
+                                                          .text,
                                                     );
                                                     _shouldSetState = true;
-                                                    if ((opsAPIFarmCar
+                                                    if ((_model.opsAPIFarmCar
                                                             ?.succeeded ??
                                                         true)) {
                                                       if (FFAppState()
                                                               .imgURL
                                                               .length !=
                                                           0) {
-                                                        final fileUploadCreateData =
+                                                        final fileUploadCreateData2 =
                                                             {
                                                           ...createFileUploadRecordData(
                                                             recordId: random_data
@@ -3068,22 +3225,23 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                               FFAppState()
                                                                   .imgURL,
                                                         };
-                                                        var fileUploadRecordReference =
+                                                        var fileUploadRecordReference2 =
                                                             FileUploadRecord
                                                                 .collection
                                                                 .doc();
-                                                        await fileUploadRecordReference
+                                                        await fileUploadRecordReference2
                                                             .set(
-                                                                fileUploadCreateData);
-                                                        saveImgToFirebase2 =
+                                                                fileUploadCreateData2);
+                                                        _model.saveImgToFirebase2 =
                                                             FileUploadRecord
                                                                 .getDocumentFromData(
-                                                                    fileUploadCreateData,
-                                                                    fileUploadRecordReference);
+                                                                    fileUploadCreateData2,
+                                                                    fileUploadRecordReference2);
                                                         _shouldSetState = true;
-                                                        setState(() =>
-                                                            FFAppState()
-                                                                .imgURL = []);
+                                                        FFAppState().update(() {
+                                                          FFAppState().imgURL =
+                                                              [];
+                                                        });
                                                       }
                                                     } else {
                                                       Navigator.pop(context);
@@ -3132,32 +3290,30 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         );
                                                       },
                                                     );
-                                                    setState(() =>
-                                                        FFAppState().imei =
-                                                            '123456789012345');
-                                                    setState(() {
+                                                    FFAppState().update(() {
+                                                      FFAppState().imei =
+                                                          '123456789012345';
                                                       FFAppState()
                                                           .deleteAccessToken();
                                                       FFAppState().accessToken =
                                                           'access_token';
                                                     });
-                                                    setState(() {
+                                                    FFAppState().update(() {
                                                       FFAppState()
                                                           .deleteEmployeeID();
                                                       FFAppState().employeeID =
                                                           'employee_id';
+
+                                                      FFAppState().QRCodeLink =
+                                                          'qrcode_link';
                                                     });
-                                                    setState(() => FFAppState()
-                                                            .QRCodeLink =
-                                                        'qrcode_link');
-                                                    setState(() {
+                                                    FFAppState().update(() {
                                                       FFAppState()
                                                           .deleteApiURLLocalState();
                                                       FFAppState()
                                                               .apiURLLocalState =
                                                           'api_url_local_state';
-                                                    });
-                                                    setState(() {
+
                                                       FFAppState()
                                                           .deleteBranchCode();
                                                       FFAppState().branchCode =
@@ -3165,7 +3321,9 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     });
                                                     GoRouter.of(context)
                                                         .prepareAuthEvent();
-                                                    await signOut();
+                                                    await authManager.signOut();
+                                                    GoRouter.of(context)
+                                                        .clearRedirectLocation();
 
                                                     context.goNamedAuth(
                                                         'LoginPage', mounted);
@@ -3200,9 +3358,9 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 }
                                               }
                                             } else {
-                                              if (signStatusDropDownValue !=
+                                              if (_model.signStatusDropDownValue !=
                                                       null &&
-                                                  signStatusDropDownValue !=
+                                                  _model.signStatusDropDownValue !=
                                                       '') {
                                                 var confirmDialogResponse =
                                                     await showDialog<bool>(
@@ -3241,10 +3399,10 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                checkGPSService3 =
+                                                _model.checkGPSService3 =
                                                     await actions.a1();
                                                 _shouldSetState = true;
-                                                if (!checkGPSService3!) {
+                                                if (!_model.checkGPSService3!) {
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -3268,12 +3426,13 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                checkGPSBeforeSave3 =
+                                                _model.checkGPSBeforeSave3 =
                                                     await actions.a8(
                                                   currentUserLocationValue,
                                                 );
                                                 _shouldSetState = true;
-                                                if (!checkGPSBeforeSave3!) {
+                                                if (!_model
+                                                    .checkGPSBeforeSave3!) {
                                                   await showDialog(
                                                     context: context,
                                                     builder:
@@ -3301,23 +3460,33 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   isScrollControlled: true,
                                                   backgroundColor:
                                                       Colors.transparent,
+                                                  barrierColor:
+                                                      Color(0x00000000),
                                                   context: context,
-                                                  builder: (context) {
-                                                    return Padding(
-                                                      padding:
-                                                          MediaQuery.of(context)
-                                                              .viewInsets,
-                                                      child: Container(
-                                                        height: double.infinity,
-                                                        child:
-                                                            LoadingSceneWidget(),
+                                                  builder:
+                                                      (bottomSheetContext) {
+                                                    return GestureDetector(
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
+                                                              .requestFocus(
+                                                                  _unfocusNode),
+                                                      child: Padding(
+                                                        padding: MediaQuery.of(
+                                                                bottomSheetContext)
+                                                            .viewInsets,
+                                                        child: Container(
+                                                          height:
+                                                              double.infinity,
+                                                          child:
+                                                              LoadingSceneWidget(),
+                                                        ),
                                                       ),
                                                     );
                                                   },
                                                 ).then(
                                                     (value) => setState(() {}));
 
-                                                checkLoginBeforeSave2 =
+                                                _model.checkLoginBeforeSave2 =
                                                     await GetUserProfileAPICall
                                                         .call(
                                                   token:
@@ -3326,39 +3495,40 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       .apiURLLocalState,
                                                 );
                                                 _shouldSetState = true;
-                                                if ((checkLoginBeforeSave2
+                                                if ((_model
+                                                        .checkLoginBeforeSave2
                                                         ?.succeeded ??
                                                     true)) {
-                                                  opsAPISignboard =
+                                                  _model.opsAPISignboard =
                                                       await OpsAPICall.call(
                                                     coordinate: functions
                                                         .getUserLocation(
                                                             currentUserLocationValue),
-                                                    branchCode:
-                                                        functions.toUpperCase(
-                                                            branchInputController!
-                                                                .text),
-                                                    assetRef:
-                                                        functions.toUpperCase(
-                                                            branchInputController!
-                                                                .text),
-                                                    assetType:
-                                                        assetDropDownValue,
-                                                    assetDetail:
-                                                        signStatusDropDownValue,
-                                                    remark:
-                                                        remarkInputController!
-                                                            .text,
+                                                    branchCode: functions
+                                                        .toUpperCase(_model
+                                                            .branchInputController
+                                                            .text),
+                                                    assetRef: functions
+                                                        .toUpperCase(_model
+                                                            .branchInputController
+                                                            .text),
+                                                    assetType: _model
+                                                        .assetDropDownValue,
+                                                    assetDetail: _model
+                                                        .signStatusDropDownValue,
+                                                    remark: _model
+                                                        .remarkInputController
+                                                        .text,
                                                   );
                                                   _shouldSetState = true;
-                                                  if ((opsAPISignboard
+                                                  if ((_model.opsAPISignboard
                                                           ?.succeeded ??
                                                       true)) {
                                                     if (FFAppState()
                                                             .imgURL
                                                             .length !=
                                                         0) {
-                                                      final fileUploadCreateData =
+                                                      final fileUploadCreateData3 =
                                                           {
                                                         ...createFileUploadRecordData(
                                                           recordId: random_data
@@ -3378,21 +3548,23 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         'img_url':
                                                             FFAppState().imgURL,
                                                       };
-                                                      var fileUploadRecordReference =
+                                                      var fileUploadRecordReference3 =
                                                           FileUploadRecord
                                                               .collection
                                                               .doc();
-                                                      await fileUploadRecordReference
+                                                      await fileUploadRecordReference3
                                                           .set(
-                                                              fileUploadCreateData);
-                                                      saveImgToFirebase3 = FileUploadRecord
-                                                          .getDocumentFromData(
-                                                              fileUploadCreateData,
-                                                              fileUploadRecordReference);
+                                                              fileUploadCreateData3);
+                                                      _model.saveImgToFirebase3 =
+                                                          FileUploadRecord
+                                                              .getDocumentFromData(
+                                                                  fileUploadCreateData3,
+                                                                  fileUploadRecordReference3);
                                                       _shouldSetState = true;
-                                                      setState(() =>
-                                                          FFAppState().imgURL =
-                                                              []);
+                                                      FFAppState().update(() {
+                                                        FFAppState().imgURL =
+                                                            [];
+                                                      });
                                                     }
                                                   } else {
                                                     Navigator.pop(context);
@@ -3440,32 +3612,30 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       );
                                                     },
                                                   );
-                                                  setState(() =>
-                                                      FFAppState().imei =
-                                                          '123456789012345');
-                                                  setState(() {
+                                                  FFAppState().update(() {
+                                                    FFAppState().imei =
+                                                        '123456789012345';
                                                     FFAppState()
                                                         .deleteAccessToken();
                                                     FFAppState().accessToken =
                                                         'access_token';
                                                   });
-                                                  setState(() {
+                                                  FFAppState().update(() {
                                                     FFAppState()
                                                         .deleteEmployeeID();
                                                     FFAppState().employeeID =
                                                         'employee_id';
+
+                                                    FFAppState().QRCodeLink =
+                                                        'qrcode_link';
                                                   });
-                                                  setState(() =>
-                                                      FFAppState().QRCodeLink =
-                                                          'qrcode_link');
-                                                  setState(() {
+                                                  FFAppState().update(() {
                                                     FFAppState()
                                                         .deleteApiURLLocalState();
                                                     FFAppState()
                                                             .apiURLLocalState =
                                                         'api_url_local_state';
-                                                  });
-                                                  setState(() {
+
                                                     FFAppState()
                                                         .deleteBranchCode();
                                                     FFAppState().branchCode =
@@ -3473,7 +3643,9 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   });
                                                   GoRouter.of(context)
                                                       .prepareAuthEvent();
-                                                  await signOut();
+                                                  await authManager.signOut();
+                                                  GoRouter.of(context)
+                                                      .clearRedirectLocation();
 
                                                   context.goNamedAuth(
                                                       'LoginPage', mounted);
@@ -3516,22 +3688,29 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           },
                                           text: 'บันทึก',
                                           options: FFButtonOptions(
-                                            width: 130,
-                                            height: 40,
+                                            width: 130.0,
+                                            height: 40.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
                                             color: Color(0xFF24D200),
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .subtitle2
+                                                    .titleSmall
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
                                                     ),
+                                            elevation: 2.0,
                                             borderSide: BorderSide(
                                               color: Colors.transparent,
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                       ),

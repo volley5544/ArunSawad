@@ -1,27 +1,33 @@
-import '../auth/auth_util.dart';
-import '../backend/api_requests/api_calls.dart';
-import '../backend/backend.dart';
-import '../backend/firebase_storage/storage.dart';
-import '../components/input_widget.dart';
-import '../components/loading_scene_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_expanded_image_view.dart';
-import '../flutter_flow/flutter_flow_google_map.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/components/input_widget.dart';
+import '/components/loading_scene_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
+import 'marketing_page_model.dart';
+export 'marketing_page_model.dart';
 
 class MarketingPageWidget extends StatefulWidget {
   const MarketingPageWidget({
@@ -51,6 +57,12 @@ class MarketingPageWidget extends StatefulWidget {
 
 class _MarketingPageWidgetState extends State<MarketingPageWidget>
     with TickerProviderStateMixin {
+  late MarketingPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'wrapOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -60,15 +72,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -80,15 +92,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -100,15 +112,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -120,282 +132,326 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
           curve: Curves.easeInOut,
           delay: 1500.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1500.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
   };
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
-
-  ApiCallResponse? getMaterialAPIOutput;
-  LatLng? currentUserLocationValue;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  ApiCallResponse? checkLoginBeforeBack;
-  ApiCallResponse? checkLoginBeforeSave;
-  bool? checkGPSBeforeSave;
-  bool? checkGPSService;
-  ApiCallResponse? marketingAPISubmit;
-  FileUploadRecord? apiResulttbh;
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
-  TextEditingController? textController15;
-  String? dropDownValue;
-  TextEditingController? areaInputController;
-  TextEditingController? branchInputController;
-  TextEditingController? coordinateInputController;
-  TextEditingController? textController2;
-  TextEditingController? remarkInputController;
-  TextEditingController? textController1;
-  TextEditingController? areaTimesheetController;
-  TextEditingController? branchTimesheetController;
-  TextEditingController? coordinateTimesheetController;
-  TextEditingController? textController7;
-  TextEditingController? detailTimesheetController;
-  TextEditingController? remarkTimesheetController;
-  TextEditingController? textController13;
-  TextEditingController? textController14;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => MarketingPageModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'MarketingPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      getMaterialAPIOutput = await GetMaterialAPICall.call(
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
+      if (isAndroid) {
+        await actions.allowScreenRecordAndroid();
+      } else {
+        await actions.allowScreenRecordIOS();
+      }
+
+      _model.checkLatLngBVMarketing = await actions.a8(
+        currentUserLocationValue,
+      );
+      if (!_model.checkLatLngBVMarketing!) {
+        await showDialog(
+          context: context,
+          builder: (alertDialogContext) {
+            return AlertDialog(
+              title: Text('ระบบ'),
+              content: Text('กรุณาเปิดGPS ก่อนทำรายการ'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            );
+          },
+        );
+
+        context.goNamed('Dashboard');
+
+        return;
+      }
+      if (!FFAppState().isFromTimesheetPage) {
+        final userLogCreateData = createUserLogRecordData(
+          employeeId: FFAppState().employeeID,
+          action: 'Branch_View_Marketing',
+          actionTime: getCurrentTimestamp,
+          userLocation: currentUserLocationValue,
+        );
+        var userLogRecordReference = UserLogRecord.collection.doc();
+        await userLogRecordReference.set(userLogCreateData);
+        _model.createdUserLogBVMarketing = UserLogRecord.getDocumentFromData(
+            userLogCreateData, userLogRecordReference);
+      }
+      _model.getMaterialAPIOutput = await GetMaterialAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
-      setState(
-          () => FFAppState().materialRecordId = (GetMaterialAPICall.recordID(
-                (getMaterialAPIOutput?.jsonBody ?? ''),
-              ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()
-                  .toList());
-      setState(() => FFAppState().materialsAmount = functions
-          .createMatAmountList(FFAppState().materialRecordId.length)!
-          .toList());
-      setState(() =>
-          FFAppState().materialNameList = (GetMaterialAPICall.materialName(
-            (getMaterialAPIOutput?.jsonBody ?? ''),
-          ) as List)
-              .map<String>((s) => s.toString())
-              .toList()
-              .toList());
-      setState(() => FFAppState().materialImgList = (GetMaterialAPICall.imgUrl(
-            (getMaterialAPIOutput?.jsonBody ?? ''),
-          ) as List)
-              .map<String>((s) => s.toString())
-              .toList()
-              .toList());
+      FFAppState().update(() {
+        FFAppState().materialRecordId = (GetMaterialAPICall.recordID(
+          (_model.getMaterialAPIOutput?.jsonBody ?? ''),
+        ) as List)
+            .map<String>((s) => s.toString())
+            .toList()!
+            .toList();
+        FFAppState().materialsAmount = functions
+            .createMatAmountList(FFAppState().materialRecordId.length)!
+            .toList();
+      });
+      FFAppState().update(() {
+        FFAppState().materialNameList = (GetMaterialAPICall.materialName(
+          (_model.getMaterialAPIOutput?.jsonBody ?? ''),
+        ) as List)
+            .map<String>((s) => s.toString())
+            .toList()!
+            .toList();
+        FFAppState().materialImgList = (GetMaterialAPICall.imgUrl(
+          (_model.getMaterialAPIOutput?.jsonBody ?? ''),
+        ) as List)
+            .map<String>((s) => s.toString())
+            .toList()!
+            .toList();
+      });
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => setState(() => currentUserLocationValue = loc));
-    areaInputController = TextEditingController();
-    branchInputController =
+    _model.textController1 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController();
+    _model.coordinateInputController ??= TextEditingController();
+    _model.branchInputController ??=
         TextEditingController(text: FFAppState().branchCode);
-    coordinateInputController = TextEditingController();
-    textController2 = TextEditingController(text: 'ทำการตลาด');
-    remarkInputController = TextEditingController();
-    textController1 = TextEditingController(text: 'รูปภาพ');
-    areaTimesheetController = TextEditingController();
-    branchTimesheetController = TextEditingController();
-    coordinateTimesheetController = TextEditingController();
-    textController7 = TextEditingController(text: 'ทำการตลาด');
-    detailTimesheetController = TextEditingController();
-    remarkTimesheetController = TextEditingController();
-    textController13 = TextEditingController(text: 'อุปกรณ์การตลาดที่ใช้');
-    textController14 = TextEditingController(text: 'อุปกรณ์การตลาดที่ใช้');
-    textController15 = TextEditingController(text: 'รูปภาพ');
+    _model.areaInputController ??= TextEditingController();
+    _model.remarkInputController ??= TextEditingController();
+    _model.textController7 ??= TextEditingController();
+    _model.coordinateTimesheetController ??= TextEditingController();
+    _model.branchTimesheetController ??= TextEditingController();
+    _model.areaTimesheetController ??= TextEditingController();
+    _model.detailTimesheetController ??= TextEditingController();
+    _model.remarkTimesheetController ??= TextEditingController();
+    _model.textController13 ??= TextEditingController();
+    _model.textController14 ??= TextEditingController();
+    _model.textController15 ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController1?.text = 'รูปภาพ';
+          _model.textController2?.text = 'ทำการตลาด';
+          _model.textController7?.text = 'ทำการตลาด';
+          _model.textController13?.text = 'อุปกรณ์การตลาดที่ใช้';
+          _model.textController14?.text = 'อุปกรณ์การตลาดที่ใช้';
+          _model.textController15?.text = 'รูปภาพ';
+        }));
   }
 
   @override
   void dispose() {
-    areaInputController?.dispose();
-    branchInputController?.dispose();
-    coordinateInputController?.dispose();
-    textController2?.dispose();
-    remarkInputController?.dispose();
-    textController1?.dispose();
-    areaTimesheetController?.dispose();
-    branchTimesheetController?.dispose();
-    coordinateTimesheetController?.dispose();
-    textController7?.dispose();
-    detailTimesheetController?.dispose();
-    remarkTimesheetController?.dispose();
-    textController13?.dispose();
-    textController14?.dispose();
-    textController15?.dispose();
+    _model.dispose();
+
+    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
-      return Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            color: FlutterFlowTheme.of(context).primaryColor,
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              color: FlutterFlowTheme.of(context).primary,
+            ),
           ),
         ),
       );
     }
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF6500),
-        automaticallyImplyLeading: false,
-        leading: Visibility(
-          visible: !FFAppState().isFromTimesheetPage,
-          child: Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: InkWell(
-              onTap: () async {
-                currentUserLocationValue = await getCurrentUserLocation(
-                    defaultLocation: LatLng(0.0, 0.0));
-                await googleMapsController.future.then(
-                  (c) => c.animateCamera(
-                    CameraUpdate.newLatLng(
-                        currentUserLocationValue!.toGoogleMaps()),
-                  ),
-                );
-              },
-              child: Icon(
-                Icons.person_pin_circle_outlined,
-                color: Colors.white,
-                size: 40,
-              ),
-            ),
-          ),
-        ),
-        title: Text(
-          'Branch View',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 22,
-              ),
-        ),
-        actions: [
-          Visibility(
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF6500),
+          automaticallyImplyLeading: false,
+          leading: Visibility(
             visible: !FFAppState().isFromTimesheetPage,
             child: Align(
-              alignment: AlignmentDirectional(0, 0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
-                child: InkWell(
-                  onTap: () async {
-                    if (FFAppState().imgURL.length >= 5) {
-                      await showDialog(
-                        context: context,
-                        builder: (alertDialogContext) {
-                          return AlertDialog(
-                            title: Text('ระบบ'),
-                            content:
-                                Text('ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
-                            actions: [
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(alertDialogContext),
-                                child: Text('Ok'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                      return;
-                    }
-                    final selectedMedia =
-                        await selectMediaWithSourceBottomSheet(
-                      context: context,
-                      imageQuality: 75,
-                      allowPhoto: true,
-                      backgroundColor:
-                          FlutterFlowTheme.of(context).secondaryColor,
-                      textColor: Color(0xFFB71C1C),
-                      pickerFontFamily: 'Raleway',
-                    );
-                    if (selectedMedia != null &&
-                        selectedMedia.every((m) =>
-                            validateFileFormat(m.storagePath, context))) {
-                      setState(() => isMediaUploading = true);
-                      var downloadUrls = <String>[];
-                      try {
-                        showUploadMessage(
-                          context,
-                          'Uploading file...',
-                          showLoading: true,
-                        );
-                        downloadUrls = (await Future.wait(
-                          selectedMedia.map(
-                            (m) async =>
-                                await uploadData(m.storagePath, m.bytes),
-                          ),
-                        ))
-                            .where((u) => u != null)
-                            .map((u) => u!)
-                            .toList();
-                      } finally {
-                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                        isMediaUploading = false;
-                      }
-                      if (downloadUrls.length == selectedMedia.length) {
-                        setState(() => uploadedFileUrl = downloadUrls.first);
-                        showUploadMessage(context, 'Success!');
-                      } else {
-                        setState(() {});
-                        showUploadMessage(context, 'Failed to upload media');
-                        return;
-                      }
-                    }
-
-                    if (uploadedFileUrl != null && uploadedFileUrl != '') {
-                      if (uploadedFileUrl != FFAppState().imgURLTemp) {
-                        setState(
-                            () => FFAppState().imgURLTemp = uploadedFileUrl);
-                      } else {
-                        return;
-                      }
-                    } else {
-                      return;
-                    }
-
-                    setState(() => FFAppState().imgURL.add(uploadedFileUrl));
-                  },
-                  child: FaIcon(
-                    FontAwesomeIcons.camera,
-                    color: Color(0xFBFFFFFF),
-                    size: 40,
-                  ),
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.goNamed('Dashboard');
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 40.0,
                 ),
               ),
             ),
           ),
-        ],
-        centerTitle: true,
-        elevation: 10,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          title: Text(
+            'Branch View',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [
+            Visibility(
+              visible: !FFAppState().isFromTimesheetPage,
+              child: Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      HapticFeedback.mediumImpact();
+                      if (FFAppState().imgURL.length >= 5) {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('ระบบ'),
+                              content: Text(
+                                  'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        return;
+                      }
+                      final selectedMedia =
+                          await selectMediaWithSourceBottomSheet(
+                        context: context,
+                        imageQuality: 75,
+                        allowPhoto: true,
+                        backgroundColor: FlutterFlowTheme.of(context).secondary,
+                        textColor: Color(0xFFB71C1C),
+                        pickerFontFamily: 'Raleway',
+                      );
+                      if (selectedMedia != null &&
+                          selectedMedia.every((m) =>
+                              validateFileFormat(m.storagePath, context))) {
+                        setState(() => _model.isDataUploading = true);
+                        var selectedUploadedFiles = <FFUploadedFile>[];
+                        var downloadUrls = <String>[];
+                        try {
+                          showUploadMessage(
+                            context,
+                            'Uploading file...',
+                            showLoading: true,
+                          );
+                          selectedUploadedFiles = selectedMedia
+                              .map((m) => FFUploadedFile(
+                                    name: m.storagePath.split('/').last,
+                                    bytes: m.bytes,
+                                    height: m.dimensions?.height,
+                                    width: m.dimensions?.width,
+                                    blurHash: m.blurHash,
+                                  ))
+                              .toList();
+
+                          downloadUrls = (await Future.wait(
+                            selectedMedia.map(
+                              (m) async =>
+                                  await uploadData(m.storagePath, m.bytes),
+                            ),
+                          ))
+                              .where((u) => u != null)
+                              .map((u) => u!)
+                              .toList();
+                        } finally {
+                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                          _model.isDataUploading = false;
+                        }
+                        if (selectedUploadedFiles.length ==
+                                selectedMedia.length &&
+                            downloadUrls.length == selectedMedia.length) {
+                          setState(() {
+                            _model.uploadedLocalFile =
+                                selectedUploadedFiles.first;
+                            _model.uploadedFileUrl = downloadUrls.first;
+                          });
+                          showUploadMessage(context, 'Success!');
+                        } else {
+                          setState(() {});
+                          showUploadMessage(context, 'Failed to upload data');
+                          return;
+                        }
+                      }
+
+                      if (_model.uploadedFileUrl != null &&
+                          _model.uploadedFileUrl != '') {
+                        if (_model.uploadedFileUrl != FFAppState().imgURLTemp) {
+                          FFAppState().update(() {
+                            FFAppState().imgURLTemp = _model.uploadedFileUrl;
+                          });
+                        } else {
+                          return;
+                        }
+                      } else {
+                        return;
+                      }
+
+                      FFAppState().update(() {
+                        FFAppState().addToImgURL(_model.uploadedFileUrl);
+                      });
+                    },
+                    child: FaIcon(
+                      FontAwesomeIcons.camera,
+                      color: Color(0xFBFFFFFF),
+                      size: 40.0,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+          centerTitle: true,
+          elevation: 10.0,
+        ),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -411,6 +467,25 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
+                      if (!FFAppState().isFromTimesheetPage)
+                        Container(
+                          width: double.infinity,
+                          height: 40.0,
+                          child: custom_widgets.ShowDateTime(
+                            width: double.infinity,
+                            height: 40.0,
+                            currentTime: getCurrentTimestamp,
+                          ),
+                        ),
+                      if (!FFAppState().isFromTimesheetPage)
+                        Container(
+                          width: double.infinity,
+                          height: 70.0,
+                          child: custom_widgets.ShowTime(
+                            width: double.infinity,
+                            height: 70.0,
+                          ),
+                        ),
                       if (FFAppState().isFromTimesheetPage)
                         Container(
                           width: double.infinity,
@@ -431,15 +506,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showDateTimesheetDetail(
                                         widget.clockIn),
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 20,
+                                          fontSize: 20.0,
                                         ),
                                   ),
                                 ),
@@ -453,15 +528,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0, 0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showClockTimesheetDetail(
                                         widget.clockIn),
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 36,
+                                          fontSize: 36.0,
                                         ),
                                   ),
                                 ),
@@ -473,10 +548,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                           FFAppState().isFromTimesheetPage,
                           FFAppState().imgURL.length))
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Wrap(
-                            spacing: 0,
-                            runSpacing: 0,
+                            spacing: 0.0,
+                            runSpacing: 0.0,
                             alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
@@ -493,18 +569,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: TextFormField(
-                                  controller: textController1,
+                                  controller: _model.textController1,
                                   autofocus: true,
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -514,7 +590,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -524,7 +600,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     errorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -534,7 +610,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     focusedErrorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -544,17 +620,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     filled: true,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .title2
+                                      .headlineMedium
                                       .override(
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                       ),
+                                  validator: _model.textController1Validator
+                                      .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 150,
+                                height: 150.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -574,8 +652,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         final uploadedImgItem =
                                             uploadedImg[uploadedImgIndex];
                                         return Container(
-                                          width: 150,
-                                          height: 150,
+                                          width: 150.0,
+                                          height: 150.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
@@ -584,8 +662,17 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 5, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 5.0, 0.0),
                                                 child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
                                                   onTap: () async {
                                                     await Navigator.push(
                                                       context,
@@ -612,21 +699,21 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         true,
                                                     child: Image.network(
                                                       uploadedImgItem,
-                                                      width: 150,
-                                                      height: 150,
+                                                      width: 150.0,
+                                                      height: 150.0,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                               FlutterFlowIconButton(
-                                                borderRadius: 20,
-                                                borderWidth: 1,
-                                                buttonSize: 35,
+                                                borderRadius: 20.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 35.0,
                                                 icon: Icon(
                                                   Icons.close,
                                                   color: Color(0xFFFF0000),
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   var confirmDialogResponse =
@@ -635,8 +722,6 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             builder:
                                                                 (alertDialogContext) {
                                                               return AlertDialog(
-                                                                title: Text(
-                                                                    'ระบบ'),
                                                                 content: Text(
                                                                     'คุณต้องการจะลบรูปหรือไม่?'),
                                                                 actions: [
@@ -664,9 +749,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                   if (!confirmDialogResponse) {
                                                     return;
                                                   }
-                                                  setState(() => FFAppState()
-                                                      .imgURL
-                                                      .remove(uploadedImgItem));
+                                                  FFAppState().update(() {
+                                                    FFAppState()
+                                                        .removeFromImgURL(
+                                                            uploadedImgItem);
+                                                  });
                                                 },
                                               ),
                                             ],
@@ -682,8 +769,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                         ),
                       if (FFAppState().isFromTimesheetPage == false)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -699,18 +786,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController2,
+                                controller: _model.textController2,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -720,7 +807,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -730,7 +817,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -740,7 +827,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -750,12 +837,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController2Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
@@ -767,7 +856,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -777,7 +866,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Icon(
                                         Icons.language_outlined,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -785,17 +874,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'ค่าพิกัด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: coordinateInputController,
+                                        controller:
+                                            _model.coordinateInputController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -806,11 +896,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -821,7 +911,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -832,7 +922,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -844,7 +934,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -854,7 +944,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
+                                        validator: _model
+                                            .coordinateInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -870,7 +963,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -880,7 +973,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.locationArrow,
                                         color: Colors.black,
-                                        size: 40,
+                                        size: 40.0,
                                       ),
                                     ),
                                     Expanded(
@@ -888,28 +981,28 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'รหัสสาขา:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: branchInputController,
+                                        controller:
+                                            _model.branchInputController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'รหัสสาขา',
                                           hintText: 'รหัสสาขา',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -920,7 +1013,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -931,7 +1024,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -943,7 +1036,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -953,8 +1046,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .branchInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -970,7 +1066,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -980,7 +1076,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.at,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -988,28 +1084,27 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'ชื่อชุมชน:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: areaInputController,
+                                        controller: _model.areaInputController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'ชื่อชุมชนที่ทำตลาด',
                                           hintText: 'ชื่อชุมชนที่ทำตลาด',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1020,7 +1115,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1031,7 +1126,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1043,7 +1138,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1053,8 +1148,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .areaInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1070,7 +1168,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1080,7 +1178,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Icon(
                                         Icons.list_alt,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1088,16 +1186,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'กิจกรรม:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
-                                      child: FlutterFlowDropDown(
+                                      child: FlutterFlowDropDown<String>(
+                                        controller: _model
+                                                .dropDownValueController ??=
+                                            FormFieldController<String>(null),
                                         options: [
                                           'เดินตามหมู่บ้าน-ชุมชน',
                                           'เดินตลาดนัด-ตลาดสด',
@@ -1109,27 +1210,28 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           'สปอตโฆษณา-รถแห่',
                                           'ทำตลาดในสาขา'
                                         ],
-                                        onChanged: (val) =>
-                                            setState(() => dropDownValue = val),
-                                        width: 180,
+                                        onChanged: (val) => setState(
+                                            () => _model.dropDownValue = val),
+                                        width: 180.0,
                                         height:
                                             MediaQuery.of(context).size.height *
                                                 0.06,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF455A64),
                                             ),
                                         hintText: 'กิจกรรมการตลาด',
                                         fillColor: Colors.white,
-                                        elevation: 2,
+                                        elevation: 2.0,
                                         borderColor: Colors.transparent,
-                                        borderWidth: 0,
-                                        borderRadius: 0,
+                                        borderWidth: 0.0,
+                                        borderRadius: 0.0,
                                         margin: EdgeInsetsDirectional.fromSTEB(
-                                            0, 4, 12, 4),
+                                            0.0, 4.0, 12.0, 4.0),
                                         hidesUnderline: true,
+                                        isSearchable: false,
                                       ),
                                     ),
                                   ],
@@ -1145,7 +1247,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1155,7 +1257,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.edit,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1163,28 +1265,28 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'ผู้ทำตลาด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: remarkInputController,
+                                        controller:
+                                            _model.remarkInputController,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: 'ชื่อผู้ทำตลาด',
                                           hintText: 'ชื่อผู้ทำตลาด',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1195,7 +1297,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1206,7 +1308,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1218,7 +1320,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1228,8 +1330,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .remarkInputControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1241,8 +1346,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                             animationsMap['wrapOnPageLoadAnimation1']!),
                       if (FFAppState().isFromTimesheetPage == true)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -1258,18 +1363,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController7,
+                                controller: _model.textController7,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1279,7 +1384,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1289,7 +1394,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1299,7 +1404,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1309,12 +1414,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController7Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
@@ -1326,7 +1433,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1336,7 +1443,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Icon(
                                         Icons.language_outlined,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1344,29 +1451,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'ค่าพิกัด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            coordinateTimesheetController,
+                                        controller: _model
+                                            .coordinateTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1377,7 +1484,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1388,7 +1495,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1400,7 +1507,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1410,7 +1517,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
+                                        validator: _model
+                                            .coordinateTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1426,7 +1536,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1436,7 +1546,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.locationArrow,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1444,28 +1554,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'รหัสสาขา:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: branchTimesheetController,
+                                        controller:
+                                            _model.branchTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.branchCode,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1476,7 +1587,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1487,7 +1598,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1499,7 +1610,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1509,8 +1620,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .branchTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1526,7 +1640,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1536,7 +1650,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.at,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1544,28 +1658,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'ชื่อชุมชน:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: areaTimesheetController,
+                                        controller:
+                                            _model.areaTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.area,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1576,7 +1691,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1587,7 +1702,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1599,7 +1714,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1609,8 +1724,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .areaTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1626,7 +1744,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1636,7 +1754,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Icon(
                                         Icons.list_alt,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1644,28 +1762,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'กิจกรรม:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: detailTimesheetController,
+                                        controller:
+                                            _model.detailTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.detail,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1676,7 +1795,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1687,7 +1806,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1699,7 +1818,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1709,8 +1828,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .detailTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1726,7 +1848,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 0, 10, 0),
+                                    10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -1736,7 +1858,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: FaIcon(
                                         FontAwesomeIcons.edit,
                                         color: Colors.black,
-                                        size: 29,
+                                        size: 29.0,
                                       ),
                                     ),
                                     Expanded(
@@ -1744,28 +1866,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       child: Text(
                                         'ผู้ทำตลาด:',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18,
+                                              fontSize: 18.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: remarkTimesheetController,
+                                        controller:
+                                            _model.remarkTimesheetController,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyText2,
+                                                  .bodySmall,
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1776,7 +1899,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           focusedBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1787,7 +1910,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           errorBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1799,7 +1922,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
-                                              width: 1,
+                                              width: 1.0,
                                             ),
                                             borderRadius:
                                                 const BorderRadius.only(
@@ -1809,8 +1932,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                                            .bodyMedium,
                                         textAlign: TextAlign.start,
+                                        validator: _model
+                                            .remarkTimesheetControllerValidator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ],
@@ -1821,8 +1947,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                         ),
                       if (FFAppState().isFromTimesheetPage == false)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -1838,18 +1964,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController13,
+                                controller: _model.textController13,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1859,7 +1985,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1869,7 +1995,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1879,7 +2005,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -1889,17 +2015,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController13Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
                               width: double.infinity,
-                              height: 230,
+                              height: 230.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -1920,27 +2048,27 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           materialDetail[materialDetailIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            16, 12, 12, 12),
+                                            16.0, 12.0, 12.0, 12.0),
                                         child: Container(
-                                          width: 200,
-                                          height: 180,
+                                          width: 200.0,
+                                          height: 180.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             boxShadow: [
                                               BoxShadow(
-                                                blurRadius: 4,
+                                                blurRadius: 4.0,
                                                 color: Color(0x34090F13),
-                                                offset: Offset(0, 2),
+                                                offset: Offset(0.0, 2.0),
                                               )
                                             ],
                                             borderRadius:
-                                                BorderRadius.circular(8),
+                                                BorderRadius.circular(8.0),
                                           ),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    10, 10, 10, 10),
+                                                    10.0, 10.0, 10.0, 10.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1949,21 +2077,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                               children: [
                                                 ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(0),
+                                                      BorderRadius.circular(
+                                                          0.0),
                                                   child: Image.network(
                                                     functions.showMatImgInList(
                                                         FFAppState()
                                                             .materialImgList
                                                             .toList(),
                                                         materialDetailIndex)!,
-                                                    width: 80,
-                                                    height: 80,
+                                                    width: 80.0,
+                                                    height: 80.0,
                                                     fit: BoxFit.cover,
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 8, 0, 5),
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 5.0),
                                                   child: Text(
                                                     functions.showMatNameInList(
                                                         FFAppState()
@@ -1972,22 +2102,22 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         materialDetailIndex)!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1,
+                                                        .bodyMedium,
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 160,
-                                                  height: 40,
+                                                  width: 160.0,
+                                                  height: 40.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
-                                                            20),
+                                                            20.0),
                                                     border: Border.all(
                                                       color: Color(0xFF1776FF),
-                                                      width: 2,
+                                                      width: 2.0,
                                                     ),
                                                   ),
                                                   child: Row(
@@ -2008,27 +2138,30 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         FlutterFlowIconButton(
                                                           borderColor: Colors
                                                               .transparent,
-                                                          borderRadius: 30,
-                                                          borderWidth: 1,
-                                                          buttonSize: 40,
+                                                          borderRadius: 30.0,
+                                                          borderWidth: 1.0,
+                                                          buttonSize: 40.0,
                                                           icon: FaIcon(
                                                             FontAwesomeIcons
                                                                 .minus,
                                                             color: Color(
                                                                 0xFFFF0000),
-                                                            size: 20,
+                                                            size: 20.0,
                                                           ),
                                                           onPressed: () async {
-                                                            setState(() => FFAppState()
-                                                                    .materialsAmount =
-                                                                functions
-                                                                    .matAmountListCounterValue(
-                                                                        FFAppState()
-                                                                            .materialsAmount
-                                                                            .toList(),
-                                                                        materialDetailIndex,
-                                                                        false)!
-                                                                    .toList());
+                                                            HapticFeedback
+                                                                .mediumImpact();
+                                                            FFAppState()
+                                                                .update(() {
+                                                              FFAppState().materialsAmount = functions
+                                                                  .matAmountListCounterValue(
+                                                                      FFAppState()
+                                                                          .materialsAmount
+                                                                          .toList(),
+                                                                      materialDetailIndex,
+                                                                      false)!
+                                                                  .toList();
+                                                            });
                                                           },
                                                         ),
                                                       if (functions
@@ -2042,15 +2175,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         FlutterFlowIconButton(
                                                           borderColor: Colors
                                                               .transparent,
-                                                          borderRadius: 30,
-                                                          borderWidth: 1,
-                                                          buttonSize: 40,
+                                                          borderRadius: 30.0,
+                                                          borderWidth: 1.0,
+                                                          buttonSize: 40.0,
                                                           icon: FaIcon(
                                                             FontAwesomeIcons
                                                                 .minus,
                                                             color: Color(
                                                                 0xFFC4CBD1),
-                                                            size: 20,
+                                                            size: 20.0,
                                                           ),
                                                           onPressed: () {
                                                             print(
@@ -2058,6 +2191,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                           },
                                                         ),
                                                       InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
                                                         onTap: () async {
                                                           showModalBottomSheet(
                                                             isScrollControlled:
@@ -2065,23 +2206,31 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             backgroundColor:
                                                                 Color(
                                                                     0xFFFFF2B9),
+                                                            barrierColor: Color(
+                                                                0x00000000),
                                                             context: context,
-                                                            builder: (context) {
-                                                              return Padding(
-                                                                padding: MediaQuery.of(
+                                                            builder:
+                                                                (bottomSheetContext) {
+                                                              return GestureDetector(
+                                                                onTap: () => FocusScope.of(
                                                                         context)
-                                                                    .viewInsets,
-                                                                child:
-                                                                    Container(
-                                                                  height: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .height *
-                                                                      0.3,
+                                                                    .requestFocus(
+                                                                        _unfocusNode),
+                                                                child: Padding(
+                                                                  padding: MediaQuery.of(
+                                                                          bottomSheetContext)
+                                                                      .viewInsets,
                                                                   child:
-                                                                      InputWidget(
-                                                                    index:
-                                                                        materialDetailIndex,
+                                                                      Container(
+                                                                    height: MediaQuery.of(context)
+                                                                            .size
+                                                                            .height *
+                                                                        0.3,
+                                                                    child:
+                                                                        InputWidget(
+                                                                      index:
+                                                                          materialDetailIndex,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               );
@@ -2099,11 +2248,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                               .toString(),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .bodyText1
+                                                              .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                fontSize: 16,
+                                                                fontSize: 16.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2116,27 +2265,30 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         FlutterFlowIconButton(
                                                           borderColor: Colors
                                                               .transparent,
-                                                          borderRadius: 30,
-                                                          borderWidth: 1,
-                                                          buttonSize: 40,
+                                                          borderRadius: 30.0,
+                                                          borderWidth: 1.0,
+                                                          buttonSize: 40.0,
                                                           icon: FaIcon(
                                                             FontAwesomeIcons
                                                                 .plus,
                                                             color: Color(
                                                                 0xFF54FF00),
-                                                            size: 20,
+                                                            size: 20.0,
                                                           ),
                                                           onPressed: () async {
-                                                            setState(() => FFAppState()
-                                                                    .materialsAmount =
-                                                                functions
-                                                                    .matAmountListCounterValue(
-                                                                        FFAppState()
-                                                                            .materialsAmount
-                                                                            .toList(),
-                                                                        materialDetailIndex,
-                                                                        true)!
-                                                                    .toList());
+                                                            HapticFeedback
+                                                                .mediumImpact();
+                                                            FFAppState()
+                                                                .update(() {
+                                                              FFAppState().materialsAmount = functions
+                                                                  .matAmountListCounterValue(
+                                                                      FFAppState()
+                                                                          .materialsAmount
+                                                                          .toList(),
+                                                                      materialDetailIndex,
+                                                                      true)!
+                                                                  .toList();
+                                                            });
                                                           },
                                                         ),
                                                       if (functions
@@ -2148,15 +2300,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         FlutterFlowIconButton(
                                                           borderColor: Colors
                                                               .transparent,
-                                                          borderRadius: 30,
-                                                          borderWidth: 1,
-                                                          buttonSize: 40,
+                                                          borderRadius: 30.0,
+                                                          borderWidth: 1.0,
+                                                          buttonSize: 40.0,
                                                           icon: FaIcon(
                                                             FontAwesomeIcons
                                                                 .plus,
                                                             color: Color(
                                                                 0xFFC4CBD1),
-                                                            size: 20,
+                                                            size: 20.0,
                                                           ),
                                                           onPressed: () {
                                                             print(
@@ -2181,8 +2333,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                             animationsMap['wrapOnPageLoadAnimation2']!),
                       if (FFAppState().isFromTimesheetPage == true)
                         Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -2198,18 +2350,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController14,
+                                controller: _model.textController14,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -2219,7 +2371,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -2229,7 +2381,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -2239,7 +2391,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -2249,17 +2401,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController14Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
                               width: double.infinity,
-                              height: 200,
+                              height: 200.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -2276,11 +2430,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                       ),
                                     );
@@ -2291,9 +2445,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     builder: (context) {
                                       final materialTimesheetList =
                                           TimesheetDetailAPICall.material(
-                                        listViewTimesheetDetailAPIResponse
-                                            .jsonBody,
-                                      ).toList();
+                                                listViewTimesheetDetailAPIResponse
+                                                    .jsonBody,
+                                              )?.toList() ??
+                                              [];
                                       return ListView.builder(
                                         padding: EdgeInsets.zero,
                                         scrollDirection: Axis.horizontal,
@@ -2306,27 +2461,28 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           return Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    16, 12, 12, 12),
+                                                    16.0, 12.0, 12.0, 12.0),
                                             child: Container(
-                                              width: 200,
-                                              height: 150,
+                                              width: 200.0,
+                                              height: 150.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 boxShadow: [
                                                   BoxShadow(
-                                                    blurRadius: 4,
+                                                    blurRadius: 4.0,
                                                     color: Color(0x34090F13),
-                                                    offset: Offset(0, 2),
+                                                    offset: Offset(0.0, 2.0),
                                                   )
                                                 ],
                                                 borderRadius:
-                                                    BorderRadius.circular(8),
+                                                    BorderRadius.circular(8.0),
                                               ),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(12, 12, 12, 12),
+                                                    .fromSTEB(
+                                                        12.0, 12.0, 12.0, 12.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -2336,14 +2492,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                     ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
-                                                              0),
+                                                              0.0),
                                                       child: Image.network(
                                                         getJsonField(
                                                           materialTimesheetListItem,
                                                           r'''$.Img_Url''',
                                                         ),
-                                                        width: 80,
-                                                        height: 80,
+                                                        width: 80.0,
+                                                        height: 80.0,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
@@ -2351,7 +2507,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0, 8, 0, 5),
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  5.0),
                                                       child: Text(
                                                         getJsonField(
                                                           materialTimesheetListItem,
@@ -2360,23 +2519,23 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyText1,
+                                                                .bodyMedium,
                                                       ),
                                                     ),
                                                     Container(
-                                                      width: 160,
-                                                      height: 40,
+                                                      width: 160.0,
+                                                      height: 40.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         borderRadius:
                                                             BorderRadius
-                                                                .circular(20),
+                                                                .circular(20.0),
                                                         border: Border.all(
                                                           color:
                                                               Color(0xFF1776FF),
-                                                          width: 2,
+                                                          width: 2.0,
                                                         ),
                                                       ),
                                                       child: Row(
@@ -2389,15 +2548,15 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                           FlutterFlowIconButton(
                                                             borderColor: Colors
                                                                 .transparent,
-                                                            borderRadius: 30,
-                                                            borderWidth: 1,
-                                                            buttonSize: 40,
+                                                            borderRadius: 30.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 40.0,
                                                             icon: FaIcon(
                                                               FontAwesomeIcons
                                                                   .minus,
                                                               color: Color(
                                                                   0xFFC4CBD1),
-                                                              size: 20,
+                                                              size: 20.0,
                                                             ),
                                                             onPressed: () {
                                                               print(
@@ -2411,25 +2570,26 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             ).toString(),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyText1
+                                                                .bodyMedium
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
-                                                                  fontSize: 16,
+                                                                  fontSize:
+                                                                      16.0,
                                                                 ),
                                                           ),
                                                           FlutterFlowIconButton(
                                                             borderColor: Colors
                                                                 .transparent,
-                                                            borderRadius: 30,
-                                                            borderWidth: 1,
-                                                            buttonSize: 40,
+                                                            borderRadius: 30.0,
+                                                            borderWidth: 1.0,
+                                                            buttonSize: 40.0,
                                                             icon: FaIcon(
                                                               FontAwesomeIcons
                                                                   .plus,
                                                               color: Color(
                                                                   0xFFC4CBD1),
-                                                              size: 20,
+                                                              size: 20.0,
                                                             ),
                                                             onPressed: () {
                                                               print(
@@ -2475,24 +2635,24 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 .secondaryBackground,
                           ),
                           child: Builder(builder: (context) {
-                            final _googleMapMarker = widget.location1;
+                            final _googleMapMarker = currentUserLocationValue;
                             return FlutterFlowGoogleMap(
-                              controller: googleMapsController,
+                              controller: _model.googleMapsController,
                               onCameraIdle: (latLng) =>
-                                  googleMapsCenter = latLng,
-                              initialLocation: googleMapsCenter ??=
+                                  _model.googleMapsCenter = latLng,
+                              initialLocation: _model.googleMapsCenter ??=
                                   currentUserLocationValue!,
                               markers: [
                                 if (_googleMapMarker != null)
                                   FlutterFlowMarker(
-                                    _googleMapMarker.reference.path,
-                                    _googleMapMarker.location!,
+                                    _googleMapMarker.serialize(),
+                                    _googleMapMarker,
                                   ),
                               ],
                               markerColor: GoogleMarkerColor.red,
                               mapType: MapType.hybrid,
                               style: GoogleMapStyle.standard,
-                              initialZoom: 16,
+                              initialZoom: 16.0,
                               allowInteraction: true,
                               allowZoom: true,
                               showZoomControls: true,
@@ -2507,10 +2667,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                             animationsMap['containerOnPageLoadAnimation1']!),
                       if (FFAppState().isFromTimesheetPage == true)
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
                           child: Wrap(
-                            spacing: 0,
-                            runSpacing: 0,
+                            spacing: 0.0,
+                            runSpacing: 0.0,
                             alignment: WrapAlignment.start,
                             crossAxisAlignment: WrapCrossAlignment.start,
                             direction: Axis.horizontal,
@@ -2527,18 +2688,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       .secondaryBackground,
                                 ),
                                 child: TextFormField(
-                                  controller: textController15,
+                                  controller: _model.textController15,
                                   autofocus: true,
                                   readOnly: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
                                     hintStyle:
-                                        FlutterFlowTheme.of(context).bodyText2,
+                                        FlutterFlowTheme.of(context).bodySmall,
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2548,7 +2709,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     focusedBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2558,7 +2719,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     errorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2568,7 +2729,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     focusedErrorBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
-                                        width: 1,
+                                        width: 1.0,
                                       ),
                                       borderRadius: const BorderRadius.only(
                                         topLeft: Radius.circular(4.0),
@@ -2578,17 +2739,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     filled: true,
                                   ),
                                   style: FlutterFlowTheme.of(context)
-                                      .title2
+                                      .headlineMedium
                                       .override(
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
                                       ),
+                                  validator: _model.textController15Validator
+                                      .asValidator(context),
                                 ),
                               ),
                               Container(
                                 width: double.infinity,
-                                height: 150,
+                                height: 150.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -2607,11 +2770,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     if (!snapshot.hasData) {
                                       return Center(
                                         child: SizedBox(
-                                          width: 50,
-                                          height: 50,
+                                          width: 50.0,
+                                          height: 50.0,
                                           child: CircularProgressIndicator(
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                                .primary,
                                           ),
                                         ),
                                       );
@@ -2619,7 +2782,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
-                                    // Return an empty Container when the document does not exist.
+                                    // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
                                     }
@@ -2642,8 +2805,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                 imgFromFirestore[
                                                     imgFromFirestoreIndex];
                                             return Container(
-                                              width: 150,
-                                              height: 150,
+                                              width: 150.0,
+                                              height: 150.0,
                                               decoration: BoxDecoration(
                                                 color:
                                                     FlutterFlowTheme.of(context)
@@ -2654,9 +2817,17 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                0, 0, 5, 0),
+                                                            .fromSTEB(0.0, 0.0,
+                                                                5.0, 0.0),
                                                     child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
                                                       onTap: () async {
                                                         await Navigator.push(
                                                           context,
@@ -2689,8 +2860,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                             true,
                                                         child: Image.network(
                                                           imgFromFirestoreItem,
-                                                          width: 150,
-                                                          height: 150,
+                                                          width: 150.0,
+                                                          height: 150.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       ),
@@ -2709,676 +2880,430 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                             ],
                           ),
                         ),
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.07,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0, 0.9),
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 5, 0),
-                                      child: FFButtonWidget(
-                                        onPressed: () async {
-                                          var _shouldSetState = false;
-                                          if (FFAppState()
-                                              .isFromTimesheetPage) {
-                                            context.pop();
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                            return;
-                                          }
-                                          var confirmDialogResponse =
-                                              await showDialog<bool>(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title:
-                                                            Text('Branch View'),
-                                                        content: Text(
-                                                            'คุณต้องการจะยกเลิกทำรายการหรือไม่?'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    false),
-                                                            child:
-                                                                Text('Cancel'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext,
-                                                                    true),
-                                                            child:
-                                                                Text('Confirm'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
-                                          if (confirmDialogResponse) {
-                                            showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child: Container(
-                                                    height: double.infinity,
-                                                    child: LoadingSceneWidget(),
-                                                  ),
-                                                );
-                                              },
-                                            ).then((value) => setState(() {}));
-
-                                            checkLoginBeforeBack =
-                                                await GetUserProfileAPICall
-                                                    .call(
-                                              token: FFAppState().accessToken,
-                                              apiUrl:
-                                                  FFAppState().apiURLLocalState,
-                                            );
-                                            _shouldSetState = true;
-                                            if (!(checkLoginBeforeBack
-                                                    ?.succeeded ??
-                                                true)) {
-                                              Navigator.pop(context);
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              setState(() => FFAppState().imei =
-                                                  '123456789012345');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteAccessToken();
-                                                FFAppState().accessToken =
-                                                    'access_token';
-                                              });
-                                              setState(() {
-                                                FFAppState().deleteEmployeeID();
-                                                FFAppState().employeeID =
-                                                    'employee_id';
-                                              });
-                                              setState(() => FFAppState()
-                                                  .QRCodeLink = 'qrcode_link');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteApiURLLocalState();
-                                                FFAppState().apiURLLocalState =
-                                                    'api_url_local_state';
-                                              });
-                                              setState(() =>
-                                                  FFAppState().imgURL = []);
-                                              setState(() =>
-                                                  FFAppState().imgURLTemp = '');
-                                              setState(() {
-                                                FFAppState().deleteBranchCode();
-                                                FFAppState().branchCode =
-                                                    'branch_code';
-                                              });
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-                                              await signOut();
-
-                                              context.goNamedAuth(
-                                                  'LoginPage', mounted);
-
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                          } else {
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                            return;
-                                          }
-
-                                          context.goNamedAuth(
-                                              'Dashboard', mounted);
-
-                                          if (_shouldSetState) setState(() {});
-                                        },
-                                        text: functions.cancelButtonText(
-                                            FFAppState().isFromTimesheetPage),
-                                        options: FFButtonOptions(
-                                          width: 130,
-                                          height: 40,
-                                          color: Color(0xFFFF0000),
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
-                                                  ),
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  if (!FFAppState().isFromTimesheetPage)
-                                    Expanded(
-                                      flex: 1,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5, 0, 0, 0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            currentUserLocationValue =
-                                                await getCurrentUserLocation(
-                                                    defaultLocation:
-                                                        LatLng(0.0, 0.0));
-                                            var _shouldSetState = false;
-                                            if (!(branchInputController!.text !=
-                                                    null &&
-                                                branchInputController!.text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณากรอก รหัสสาขา'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(areaInputController!.text !=
-                                                    null &&
-                                                areaInputController!.text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณากรอก ชื่อชุมชน'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(dropDownValue != null &&
-                                                dropDownValue != '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณาเลือก กิจกรรม'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(remarkInputController!.text !=
-                                                    null &&
-                                                remarkInputController!.text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณากรอก Description'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (functions.checkmatAmountIsEmpty(
-                                                FFAppState()
-                                                    .materialsAmount
-                                                    .toList())) {
-                                              var confirmDialogResponse =
-                                                  await showDialog<bool>(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return AlertDialog(
-                                                            title: Text('ระบบ'),
-                                                            content: Text(
-                                                                'คุณยังไม่ได้ใส่จำนวนอุปกรณ์ทำการตลาด\nต้องการบันทึกข้อมูลเลยหรือไม่?'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child: Text(
-                                                                    'ยกเลิก'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child: Text(
-                                                                    'บันทึก'),
-                                                              ),
-                                                            ],
-                                                          );
-                                                        },
-                                                      ) ??
-                                                      false;
-                                              if (confirmDialogResponse) {
-                                                setState(() => FFAppState()
-                                                        .materialsAmount =
-                                                    functions
-                                                        .updateMatAmountList(
-                                                            FFAppState()
-                                                                .materialsAmount
-                                                                .toList(),
-                                                            0,
-                                                            1)!
-                                                        .toList());
-                                              } else {
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                            } else {
-                                              var confirmDialogResponse =
-                                                  await showDialog<bool>(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return AlertDialog(
-                                                            title: Text('ระบบ'),
-                                                            content: Text(
-                                                                'คุณต้องการบันทึกข้อมูลหรือไม่?'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child: Text(
-                                                                    'ยกเลิก'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child: Text(
-                                                                    'ตกลง'),
-                                                              ),
-                                                            ],
-                                                          );
-                                                        },
-                                                      ) ??
-                                                      false;
-                                              if (!confirmDialogResponse) {
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                            }
-
-                                            checkGPSService =
-                                                await actions.a1();
-                                            _shouldSetState = true;
-                                            if (!checkGPSService!) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณาเปิด GPS ก่อนบันทึกข้อมูล '),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            checkGPSBeforeSave =
-                                                await actions.a8(
-                                              currentUserLocationValue,
-                                            );
-                                            _shouldSetState = true;
-                                            if (!checkGPSBeforeSave!) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'กรุณาเปิด GPS แล้วทำรายการใหม่'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              context: context,
-                                              builder: (context) {
-                                                return Padding(
-                                                  padding:
-                                                      MediaQuery.of(context)
-                                                          .viewInsets,
-                                                  child: Container(
-                                                    height: double.infinity,
-                                                    child: LoadingSceneWidget(),
-                                                  ),
-                                                );
-                                              },
-                                            ).then((value) => setState(() {}));
-
-                                            checkLoginBeforeSave =
-                                                await GetUserProfileAPICall
-                                                    .call(
-                                              token: FFAppState().accessToken,
-                                              apiUrl:
-                                                  FFAppState().apiURLLocalState,
-                                            );
-                                            _shouldSetState = true;
-                                            if (!(checkLoginBeforeSave
-                                                    ?.succeeded ??
-                                                true)) {
-                                              Navigator.pop(context);
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'Session Loginหมดอายุ'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              setState(() => FFAppState().imei =
-                                                  '123456789012345');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteAccessToken();
-                                                FFAppState().accessToken =
-                                                    'access_token';
-                                              });
-                                              setState(() {
-                                                FFAppState().deleteEmployeeID();
-                                                FFAppState().employeeID =
-                                                    'employee_id';
-                                              });
-                                              setState(() => FFAppState()
-                                                  .QRCodeLink = 'qrcode_link');
-                                              setState(() {
-                                                FFAppState()
-                                                    .deleteApiURLLocalState();
-                                                FFAppState().apiURLLocalState =
-                                                    'api_url_local_state';
-                                              });
-                                              setState(() {
-                                                FFAppState().deleteBranchCode();
-                                                FFAppState().branchCode =
-                                                    'branch_code';
-                                              });
-                                              GoRouter.of(context)
-                                                  .prepareAuthEvent();
-                                              await signOut();
-
-                                              context.goNamedAuth(
-                                                  'LoginPage', mounted);
-
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            marketingAPISubmit =
-                                                await MarketingAPICall.call(
-                                              description: 'ทำการตลาด',
-                                              remark:
-                                                  remarkInputController!.text,
-                                              uid: FFAppState().imei,
-                                              jobType: 'Marketing',
-                                              username: FFAppState().employeeID,
-                                              token: FFAppState().accessToken,
-                                              apiUrl:
-                                                  FFAppState().apiURLLocalState,
-                                              branchCode: functions.toUpperCase(
-                                                  branchInputController!.text),
-                                              areaDescription:
-                                                  areaInputController!.text,
-                                              detail: dropDownValue,
-                                              materialRecordId: functions
-                                                  .materialListToString(
-                                                      FFAppState()
-                                                          .materialRecordId
-                                                          .toList()),
-                                              amount: functions
-                                                  .materialAmountListToString(
-                                                      FFAppState()
-                                                          .materialsAmount
-                                                          .toList()),
-                                              location:
-                                                  functions.getUserLocation(
-                                                      currentUserLocationValue),
-                                            );
-                                            _shouldSetState = true;
-                                            if ((marketingAPISubmit
-                                                        ?.statusCode ??
-                                                    200) ==
-                                                MarketingAPICall.status(
-                                                  (marketingAPISubmit
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )) {
-                                              if (FFAppState().imgURL.length !=
-                                                  0) {
-                                                final fileUploadCreateData = {
-                                                  ...createFileUploadRecordData(
-                                                    recordId: MarketingAPICall
-                                                        .recordID(
-                                                      (marketingAPISubmit
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString(),
-                                                    picDatetime:
-                                                        getCurrentTimestamp,
-                                                    picCoordinate: functions
-                                                        .getUserLocation(
-                                                            currentUserLocationValue),
-                                                  ),
-                                                  'img_url':
-                                                      FFAppState().imgURL,
-                                                };
-                                                var fileUploadRecordReference =
-                                                    FileUploadRecord.collection
-                                                        .doc();
-                                                await fileUploadRecordReference
-                                                    .set(fileUploadCreateData);
-                                                apiResulttbh = FileUploadRecord
-                                                    .getDocumentFromData(
-                                                        fileUploadCreateData,
-                                                        fileUploadRecordReference);
-                                                _shouldSetState = true;
-                                                setState(() => FFAppState()
-                                                    .imgURLTemp = '');
-                                                setState(() =>
-                                                    FFAppState().imgURL = []);
-                                              }
-                                              setState(() => FFAppState()
-                                                  .locationTemp = '');
-                                            } else {
-                                              Navigator.pop(context);
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return AlertDialog(
-                                                    title: Text('ระบบ'),
-                                                    content: Text(
-                                                        'ไม่สามารถบันทึกข้อมูลได้\nกรุณาลองใหม่อีกครั้ง'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  );
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-
-                                            context.goNamedAuth(
-                                                'SuccessPage', mounted);
-
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                          },
-                                          text: 'บันทึก',
-                                          options: FFButtonOptions(
-                                            width: 130,
-                                            height: 40,
-                                            color: Color(0xFF24D200),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .subtitle2
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.white,
-                                                    ),
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation2']!),
-                      ),
                     ],
                   ),
                 ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 5.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                HapticFeedback.mediumImpact();
+                                if (FFAppState().isFromTimesheetPage) {
+                                  context.pop();
+                                  return;
+                                }
+                                var confirmDialogResponse =
+                                    await showDialog<bool>(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              content: Text(
+                                                  'คุณต้องการจะยกเลิกทำรายการหรือไม่?'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext,
+                                                          false),
+                                                  child: Text('Cancel'),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext,
+                                                          true),
+                                                  child: Text('Confirm'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        ) ??
+                                        false;
+                                if (!confirmDialogResponse) {
+                                  return;
+                                }
+
+                                context.goNamed('Dashboard');
+                              },
+                              text: functions.cancelButtonText(
+                                  FFAppState().isFromTimesheetPage),
+                              options: FFButtonOptions(
+                                width: 130.0,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: Color(0xFFFF0000),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
+                                elevation: 2.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                        if (!FFAppState().isFromTimesheetPage)
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  currentUserLocationValue =
+                                      await getCurrentUserLocation(
+                                          defaultLocation: LatLng(0.0, 0.0));
+                                  var _shouldSetState = false;
+                                  HapticFeedback.mediumImpact();
+                                  if (!(_model.branchInputController.text !=
+                                          null &&
+                                      _model.branchInputController.text !=
+                                          '')) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'กรุณากรอก รหัสสาขา',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 3000),
+                                        backgroundColor: Color(0xB2000000),
+                                      ),
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  if (!(_model.areaInputController.text !=
+                                          null &&
+                                      _model.areaInputController.text != '')) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'กรุณากรอก ชื่อชุมชน',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 3000),
+                                        backgroundColor: Color(0xB3000000),
+                                      ),
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  if (!(_model.dropDownValue != null &&
+                                      _model.dropDownValue != '')) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'กรุณาเลือก กิจกรรม',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 3000),
+                                        backgroundColor: Color(0xB3000000),
+                                      ),
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  if (!(_model.remarkInputController.text !=
+                                          null &&
+                                      _model.remarkInputController.text !=
+                                          '')) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'กรุณากรอก ชื่อผู้ทำตลาด',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 3000),
+                                        backgroundColor: Color(0xB2000000),
+                                      ),
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  if (functions.checkmatAmountIsEmpty(
+                                      FFAppState().materialsAmount.toList())) {
+                                    var confirmDialogResponse =
+                                        await showDialog<bool>(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return AlertDialog(
+                                                  content: Text(
+                                                      'คุณยังไม่ได้ใส่จำนวนอุปกรณ์ทำการตลาด\nต้องการบันทึกข้อมูลเลยหรือไม่?'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              false),
+                                                      child: Text('ยกเลิก'),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              true),
+                                                      child: Text('บันทึก'),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ) ??
+                                            false;
+                                    if (confirmDialogResponse) {
+                                      FFAppState().update(() {
+                                        FFAppState().materialsAmount = functions
+                                            .updateMatAmountList(
+                                                FFAppState()
+                                                    .materialsAmount
+                                                    .toList(),
+                                                0,
+                                                1)!
+                                            .toList();
+                                      });
+                                    } else {
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
+                                  } else {
+                                    var confirmDialogResponse =
+                                        await showDialog<bool>(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return AlertDialog(
+                                                  content: Text(
+                                                      'คุณต้องการบันทึกข้อมูลหรือไม่?'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              false),
+                                                      child: Text('ยกเลิก'),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext,
+                                                              true),
+                                                      child: Text('ตกลง'),
+                                                    ),
+                                                  ],
+                                                );
+                                              },
+                                            ) ??
+                                            false;
+                                    if (!confirmDialogResponse) {
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
+                                  }
+
+                                  _model.checkGPSBeforeSave = await actions.a8(
+                                    currentUserLocationValue,
+                                  );
+                                  _shouldSetState = true;
+                                  if (!_model.checkGPSBeforeSave!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'กรุณาเปิดGPS แล้วทำรายการใหม่'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: Color(0x00000000),
+                                    context: context,
+                                    builder: (bottomSheetContext) {
+                                      return GestureDetector(
+                                        onTap: () => FocusScope.of(context)
+                                            .requestFocus(_unfocusNode),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.of(bottomSheetContext)
+                                                  .viewInsets,
+                                          child: Container(
+                                            height: double.infinity,
+                                            child: LoadingSceneWidget(),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+
+                                  _model.marketingAPISubmit =
+                                      await MarketingAPICall.call(
+                                    description: 'ทำการตลาด',
+                                    remark: _model.remarkInputController.text,
+                                    uid: FFAppState().imei,
+                                    jobType: 'Marketing',
+                                    username: FFAppState().employeeID,
+                                    token: FFAppState().accessToken,
+                                    apiUrl: FFAppState().apiURLLocalState,
+                                    branchCode: functions.toUpperCase(
+                                        _model.branchInputController.text),
+                                    areaDescription:
+                                        _model.areaInputController.text,
+                                    detail: _model.dropDownValue,
+                                    materialRecordId: functions
+                                        .materialListToString(FFAppState()
+                                            .materialRecordId
+                                            .toList()),
+                                    amount: functions
+                                        .materialAmountListToString(FFAppState()
+                                            .materialsAmount
+                                            .toList()),
+                                    location: functions.getUserLocation(
+                                        currentUserLocationValue),
+                                  );
+                                  _shouldSetState = true;
+                                  if (MarketingAPICall.status(
+                                        (_model.marketingAPISubmit?.jsonBody ??
+                                            ''),
+                                      ) ==
+                                      200) {
+                                    if (FFAppState().imgURL.length != 0) {
+                                      final fileUploadCreateData = {
+                                        ...createFileUploadRecordData(
+                                          recordId: MarketingAPICall.recordID(
+                                            (_model.marketingAPISubmit
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString(),
+                                          picDatetime: getCurrentTimestamp,
+                                          picCoordinate:
+                                              functions.getUserLocation(
+                                                  currentUserLocationValue),
+                                        ),
+                                        'img_url': FFAppState().imgURL,
+                                      };
+                                      var fileUploadRecordReference =
+                                          FileUploadRecord.collection.doc();
+                                      await fileUploadRecordReference
+                                          .set(fileUploadCreateData);
+                                      _model.apiResulttbh =
+                                          FileUploadRecord.getDocumentFromData(
+                                              fileUploadCreateData,
+                                              fileUploadRecordReference);
+                                      _shouldSetState = true;
+                                      FFAppState().update(() {
+                                        FFAppState().imgURLTemp =
+                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                        FFAppState().imgURL = [];
+                                      });
+                                    }
+                                    FFAppState().update(() {
+                                      FFAppState().locationTemp = '';
+                                    });
+                                  } else {
+                                    Navigator.pop(context);
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${MarketingAPICall.status(
+                                            (_model.marketingAPISubmit
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString()}) กรุณาลองใหม่ภายหลัง'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  context.goNamed('SuccessPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                },
+                                text: 'บันทึก',
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFF24D200),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation2']!),
               ),
             ],
           ),

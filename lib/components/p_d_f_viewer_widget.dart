@@ -1,21 +1,52 @@
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_pdf_viewer.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_pdf_viewer.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'p_d_f_viewer_model.dart';
+export 'p_d_f_viewer_model.dart';
 
 class PDFViewerWidget extends StatefulWidget {
-  const PDFViewerWidget({Key? key}) : super(key: key);
+  const PDFViewerWidget({
+    Key? key,
+    this.pdfUrl,
+  }) : super(key: key);
+
+  final String? pdfUrl;
 
   @override
   _PDFViewerWidgetState createState() => _PDFViewerWidgetState();
 }
 
 class _PDFViewerWidgetState extends State<PDFViewerWidget> {
+  late PDFViewerModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => PDFViewerModel());
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,
@@ -25,20 +56,20 @@ class _PDFViewerWidgetState extends State<PDFViewerWidget> {
           Stack(
             children: [
               FlutterFlowPdfViewer(
-                assetPath: 'assets/pdfs/incentive__06-10-2022.pdf',
+                networkPath: widget.pdfUrl!,
                 width: double.infinity,
-                height: 600,
+                height: 600.0,
                 horizontalScroll: false,
               ),
               FlutterFlowIconButton(
                 borderColor: Colors.transparent,
-                borderRadius: 30,
-                borderWidth: 1,
-                buttonSize: 50,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 50.0,
                 icon: FaIcon(
                   FontAwesomeIcons.times,
                   color: Color(0xFFFF0000),
-                  size: 30,
+                  size: 30.0,
                 ),
                 onPressed: () async {
                   Navigator.pop(context);

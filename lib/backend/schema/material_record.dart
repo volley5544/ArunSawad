@@ -20,6 +20,13 @@ abstract class MaterialRecord
   @BuiltValueField(wireName: 'record_id')
   int? get recordId;
 
+  BuiltList<String>? get phone;
+
+  BuiltList<String>? get name;
+
+  @BuiltValueField(wireName: 'employee_id')
+  String? get employeeId;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -27,7 +34,10 @@ abstract class MaterialRecord
   static void _initializeBuilder(MaterialRecordBuilder builder) => builder
     ..matetialName = ''
     ..imgUrl = ''
-    ..recordId = 0;
+    ..recordId = 0
+    ..phone = ListBuilder()
+    ..name = ListBuilder()
+    ..employeeId = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('material');
@@ -54,6 +64,7 @@ Map<String, dynamic> createMaterialRecordData({
   String? matetialName,
   String? imgUrl,
   int? recordId,
+  String? employeeId,
 }) {
   final firestoreData = serializers.toFirestore(
     MaterialRecord.serializer,
@@ -61,7 +72,10 @@ Map<String, dynamic> createMaterialRecordData({
       (m) => m
         ..matetialName = matetialName
         ..imgUrl = imgUrl
-        ..recordId = recordId,
+        ..recordId = recordId
+        ..phone = null
+        ..name = null
+        ..employeeId = employeeId,
     ),
   );
 

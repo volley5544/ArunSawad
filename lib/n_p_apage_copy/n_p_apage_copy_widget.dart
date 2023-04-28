@@ -1,21 +1,24 @@
-import '../backend/api_requests/api_calls.dart';
-import '../backend/backend.dart';
-import '../backend/firebase_storage/storage.dart';
-import '../components/loading_scene_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_expanded_image_view.dart';
-import '../flutter_flow/flutter_flow_google_map.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/components/loading_scene_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
+import 'n_p_apage_copy_model.dart';
+export 'n_p_apage_copy_model.dart';
 
 class NPApageCopyWidget extends StatefulWidget {
   const NPApageCopyWidget({
@@ -31,6 +34,12 @@ class NPApageCopyWidget extends StatefulWidget {
 
 class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
     with TickerProviderStateMixin {
+  late NPApageCopyModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'wrapOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -40,15 +49,15 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -60,15 +69,15 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -80,39 +89,33 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
   };
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
-
-  LatLng? currentUserLocationValue;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  ApiCallResponse? checkAssetID;
-  ApiCallResponse? checkLoginBeforeSave;
-  ApiCallResponse? npaAPISubmit;
-  ApiCallResponse? checkLoginBeforeBack;
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
-  TextEditingController? assetIDInputController;
-  TextEditingController? coordinateInputController;
-  TextEditingController? textController2;
-  TextEditingController? remarkInputController;
-  TextEditingController? textController1;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => NPApageCopyModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'NPApageCopy'});
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
+    _model.textController1 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController();
+    _model.coordinateInputController ??= TextEditingController();
+    _model.assetIDInputController ??= TextEditingController();
+    _model.remarkInputController ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -120,137 +123,163 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
       this,
     );
 
-    assetIDInputController = TextEditingController();
-    coordinateInputController = TextEditingController();
-    textController2 = TextEditingController(text: 'สำรวจ NPA');
-    remarkInputController = TextEditingController();
-    textController1 = TextEditingController(text: 'รูปภาพ');
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController1?.text = 'รูปภาพ';
+          _model.textController2?.text = 'สำรวจ NPA';
+        }));
   }
 
   @override
   void dispose() {
-    assetIDInputController?.dispose();
-    coordinateInputController?.dispose();
-    textController2?.dispose();
-    remarkInputController?.dispose();
-    textController1?.dispose();
+    _model.dispose();
+
+    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
-      return Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            color: FlutterFlowTheme.of(context).primaryColor,
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              color: FlutterFlowTheme.of(context).primary,
+            ),
           ),
         ),
       );
     }
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF6500),
-        automaticallyImplyLeading: false,
-        leading: Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: InkWell(
-            onTap: () async {
-              currentUserLocationValue = await getCurrentUserLocation(
-                  defaultLocation: LatLng(0.0, 0.0));
-              await googleMapsController.future.then(
-                (c) => c.animateCamera(
-                  CameraUpdate.newLatLng(
-                      currentUserLocationValue!.toGoogleMaps()),
-                ),
-              );
-            },
-            child: Icon(
-              Icons.person_pin_circle_outlined,
-              color: Colors.white,
-              size: 40,
-            ),
-          ),
-        ),
-        title: Text(
-          'Branch View',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF6500),
+          automaticallyImplyLeading: false,
+          leading: Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                currentUserLocationValue = await getCurrentUserLocation(
+                    defaultLocation: LatLng(0.0, 0.0));
+                await _model.googleMapsController.future.then(
+                  (c) => c.animateCamera(
+                    CameraUpdate.newLatLng(
+                        currentUserLocationValue!.toGoogleMaps()),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.person_pin_circle_outlined,
                 color: Colors.white,
-                fontSize: 22,
-              ),
-        ),
-        actions: [
-          Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
-              child: InkWell(
-                onTap: () async {
-                  final selectedMedia = await selectMediaWithSourceBottomSheet(
-                    context: context,
-                    imageQuality: 100,
-                    allowPhoto: true,
-                    backgroundColor:
-                        FlutterFlowTheme.of(context).secondaryColor,
-                    textColor: Color(0xFFB71C1C),
-                    pickerFontFamily: 'Raleway',
-                  );
-                  if (selectedMedia != null &&
-                      selectedMedia.every(
-                          (m) => validateFileFormat(m.storagePath, context))) {
-                    setState(() => isMediaUploading = true);
-                    var downloadUrls = <String>[];
-                    try {
-                      showUploadMessage(
-                        context,
-                        'Uploading file...',
-                        showLoading: true,
-                      );
-                      downloadUrls = (await Future.wait(
-                        selectedMedia.map(
-                          (m) async => await uploadData(m.storagePath, m.bytes),
-                        ),
-                      ))
-                          .where((u) => u != null)
-                          .map((u) => u!)
-                          .toList();
-                    } finally {
-                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                      isMediaUploading = false;
-                    }
-                    if (downloadUrls.length == selectedMedia.length) {
-                      setState(() => uploadedFileUrl = downloadUrls.first);
-                      showUploadMessage(context, 'Success!');
-                    } else {
-                      setState(() {});
-                      showUploadMessage(context, 'Failed to upload media');
-                      return;
-                    }
-                  }
-                },
-                child: FaIcon(
-                  FontAwesomeIcons.camera,
-                  color: Color(0xFBFFFFFF),
-                  size: 40,
-                ),
+                size: 40.0,
               ),
             ),
           ),
-        ],
-        centerTitle: true,
-        elevation: 10,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          title: Text(
+            'Branch View',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [
+            Align(
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      imageQuality: 100,
+                      allowPhoto: true,
+                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                      textColor: Color(0xFFB71C1C),
+                      pickerFontFamily: 'Raleway',
+                    );
+                    if (selectedMedia != null &&
+                        selectedMedia.every((m) =>
+                            validateFileFormat(m.storagePath, context))) {
+                      setState(() => _model.isDataUploading = true);
+                      var selectedUploadedFiles = <FFUploadedFile>[];
+                      var downloadUrls = <String>[];
+                      try {
+                        showUploadMessage(
+                          context,
+                          'Uploading file...',
+                          showLoading: true,
+                        );
+                        selectedUploadedFiles = selectedMedia
+                            .map((m) => FFUploadedFile(
+                                  name: m.storagePath.split('/').last,
+                                  bytes: m.bytes,
+                                  height: m.dimensions?.height,
+                                  width: m.dimensions?.width,
+                                  blurHash: m.blurHash,
+                                ))
+                            .toList();
+
+                        downloadUrls = (await Future.wait(
+                          selectedMedia.map(
+                            (m) async =>
+                                await uploadData(m.storagePath, m.bytes),
+                          ),
+                        ))
+                            .where((u) => u != null)
+                            .map((u) => u!)
+                            .toList();
+                      } finally {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        _model.isDataUploading = false;
+                      }
+                      if (selectedUploadedFiles.length ==
+                              selectedMedia.length &&
+                          downloadUrls.length == selectedMedia.length) {
+                        setState(() {
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
+                          _model.uploadedFileUrl = downloadUrls.first;
+                        });
+                        showUploadMessage(context, 'Success!');
+                      } else {
+                        setState(() {});
+                        showUploadMessage(context, 'Failed to upload data');
+                        return;
+                      }
+                    }
+                  },
+                  child: FaIcon(
+                    FontAwesomeIcons.camera,
+                    color: Color(0xFBFFFFFF),
+                    size: 40.0,
+                  ),
+                ),
+              ),
+            ),
+          ],
+          centerTitle: true,
+          elevation: 10.0,
+        ),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -268,10 +297,11 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: Wrap(
-                          spacing: 0,
-                          runSpacing: 0,
+                          spacing: 0.0,
+                          runSpacing: 0.0,
                           alignment: WrapAlignment.start,
                           crossAxisAlignment: WrapCrossAlignment.start,
                           direction: Axis.horizontal,
@@ -287,18 +317,18 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                     .secondaryBackground,
                               ),
                               child: TextFormField(
-                                controller: textController1,
+                                controller: _model.textController1,
                                 autofocus: true,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
                                   hintStyle:
-                                      FlutterFlowTheme.of(context).bodyText2,
+                                      FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -308,7 +338,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -318,7 +348,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   errorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -328,7 +358,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   focusedErrorBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
-                                      width: 1,
+                                      width: 1.0,
                                     ),
                                     borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
@@ -338,17 +368,19 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   filled: true,
                                 ),
                                 style: FlutterFlowTheme.of(context)
-                                    .title2
+                                    .headlineMedium
                                     .override(
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
                                     ),
+                                validator: _model.textController1Validator
+                                    .asValidator(context),
                               ),
                             ),
                             Container(
                               width: double.infinity,
-                              height: 150,
+                              height: 150.0,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
@@ -365,11 +397,11 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   if (!snapshot.hasData) {
                                     return Center(
                                       child: SizedBox(
-                                        width: 50,
-                                        height: 50,
+                                        width: 50.0,
+                                        height: 50.0,
                                         child: CircularProgressIndicator(
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .primary,
                                         ),
                                       ),
                                     );
@@ -377,7 +409,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   List<FileUploadRecord>
                                       listViewFileUploadRecordList =
                                       snapshot.data!;
-                                  // Return an empty Container when the document does not exist.
+                                  // Return an empty Container when the item does not exist.
                                   if (snapshot.data!.isEmpty) {
                                     return Container();
                                   }
@@ -400,8 +432,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                               imgFromFirestore[
                                                   imgFromFirestoreIndex];
                                           return Container(
-                                            width: 150,
-                                            height: 150,
+                                            width: 150.0,
+                                            height: 150.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -411,8 +443,17 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(0, 0, 5, 0),
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
                                                   child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
                                                     onTap: () async {
                                                       await Navigator.push(
                                                         context,
@@ -443,8 +484,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                                           true,
                                                       child: Image.network(
                                                         imgFromFirestoreItem,
-                                                        width: 150,
-                                                        height: 150,
+                                                        width: 150.0,
+                                                        height: 150.0,
                                                         fit: BoxFit.contain,
                                                       ),
                                                     ),
@@ -464,8 +505,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                         ),
                       ),
                       Wrap(
-                        spacing: 0,
-                        runSpacing: 0,
+                        spacing: 0.0,
+                        runSpacing: 0.0,
                         alignment: WrapAlignment.start,
                         crossAxisAlignment: WrapCrossAlignment.start,
                         direction: Axis.horizontal,
@@ -481,18 +522,18 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   .secondaryBackground,
                             ),
                             child: TextFormField(
-                              controller: textController2,
+                              controller: _model.textController2,
                               autofocus: true,
                               readOnly: true,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: '[Some hint text...]',
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
+                                    FlutterFlowTheme.of(context).bodySmall,
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -502,7 +543,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -512,7 +553,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                 errorBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -522,7 +563,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                 focusedErrorBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -532,12 +573,14 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                 filled: true,
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .title2
+                                  .headlineMedium
                                   .override(
                                     fontFamily: 'Noto Serif',
                                     color:
                                         FlutterFlowTheme.of(context).black600,
                                   ),
+                              validator: _model.textController2Validator
+                                  .asValidator(context),
                             ),
                           ),
                           Container(
@@ -548,8 +591,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   .secondaryBackground,
                             ),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -559,7 +602,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                     child: Icon(
                                       Icons.language_outlined,
                                       color: Colors.black,
-                                      size: 29,
+                                      size: 29.0,
                                     ),
                                   ),
                                   Expanded(
@@ -567,17 +610,18 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                     child: Text(
                                       'ค่าพิกัด:',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 18,
+                                            fontSize: 18.0,
                                           ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 5,
                                     child: TextFormField(
-                                      controller: coordinateInputController,
+                                      controller:
+                                          _model.coordinateInputController,
                                       autofocus: true,
                                       readOnly: true,
                                       obscureText: false,
@@ -588,11 +632,11 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                           'Latitude,Longitude',
                                         ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2,
+                                            .bodySmall,
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -602,7 +646,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         focusedBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -612,7 +656,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         errorBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -623,7 +667,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                             UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -632,7 +676,10 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
+                                      validator: _model
+                                          .coordinateInputControllerValidator
+                                          .asValidator(context),
                                     ),
                                   ),
                                 ],
@@ -647,8 +694,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   .secondaryBackground,
                             ),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -658,7 +705,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                     child: Icon(
                                       Icons.home_sharp,
                                       color: Colors.black,
-                                      size: 29,
+                                      size: 29.0,
                                     ),
                                   ),
                                   Expanded(
@@ -666,27 +713,27 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                     child: Text(
                                       'รหัสทรัพย์:',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 18,
+                                            fontSize: 18.0,
                                           ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 5,
                                     child: TextFormField(
-                                      controller: assetIDInputController,
+                                      controller: _model.assetIDInputController,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'รหัสทรัพย์',
                                         hintText: 'รหัสทรัพย์',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2,
+                                            .bodySmall,
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -696,7 +743,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         focusedBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -706,7 +753,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         errorBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -717,7 +764,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                             UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -726,7 +773,10 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
+                                      validator: _model
+                                          .assetIDInputControllerValidator
+                                          .asValidator(context),
                                     ),
                                   ),
                                 ],
@@ -741,8 +791,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   .secondaryBackground,
                             ),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -752,7 +802,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                     child: FaIcon(
                                       FontAwesomeIcons.edit,
                                       color: Colors.black,
-                                      size: 29,
+                                      size: 29.0,
                                     ),
                                   ),
                                   Expanded(
@@ -760,27 +810,27 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                     child: Text(
                                       'หมายเหตุ:',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 18,
+                                            fontSize: 18.0,
                                           ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 5,
                                     child: TextFormField(
-                                      controller: remarkInputController,
+                                      controller: _model.remarkInputController,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'หมายเหตุ',
                                         hintText: 'หมายเหตุ',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2,
+                                            .bodySmall,
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -790,7 +840,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         focusedBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -800,7 +850,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         errorBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -811,7 +861,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                             UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
-                                            width: 1,
+                                            width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
                                             topLeft: Radius.circular(4.0),
@@ -820,8 +870,11 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyMedium,
                                       textAlign: TextAlign.start,
+                                      validator: _model
+                                          .remarkInputControllerValidator
+                                          .asValidator(context),
                                     ),
                                   ),
                                 ],
@@ -845,7 +898,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: Container(
                           width: double.infinity,
                           height: MediaQuery.of(context).size.height * 0.25,
@@ -856,10 +910,10 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                           child: Builder(builder: (context) {
                             final _googleMapMarker = widget.location1;
                             return FlutterFlowGoogleMap(
-                              controller: googleMapsController,
+                              controller: _model.googleMapsController,
                               onCameraIdle: (latLng) =>
-                                  googleMapsCenter = latLng,
-                              initialLocation: googleMapsCenter ??=
+                                  _model.googleMapsCenter = latLng,
+                              initialLocation: _model.googleMapsCenter ??=
                                   currentUserLocationValue!,
                               markers: [
                                 if (_googleMapMarker != null)
@@ -869,9 +923,9 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   ),
                               ],
                               markerColor: GoogleMarkerColor.red,
-                              mapType: MapType.hybrid,
-                              style: GoogleMapStyle.standard,
-                              initialZoom: 16,
+                              mapType: MapType.satellite,
+                              style: GoogleMapStyle.silver,
+                              initialZoom: 16.0,
                               allowInteraction: true,
                               allowZoom: true,
                               showZoomControls: true,
@@ -894,8 +948,8 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                 .secondaryBackground,
                           ),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 20.0, 10.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -903,7 +957,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   flex: 1,
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 5, 0),
+                                        0.0, 0.0, 5.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         var _shouldSetState = false;
@@ -939,14 +993,14 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                                 ) ??
                                                 false;
                                         if (confirmDialogResponse) {
-                                          checkLoginBeforeBack =
+                                          _model.checkLoginBeforeBack =
                                               await GetUserProfileAPICall.call(
                                             token: FFAppState().accessToken,
                                             apiUrl:
                                                 FFAppState().apiURLLocalState,
                                           );
                                           _shouldSetState = true;
-                                          if (!(checkLoginBeforeBack
+                                          if (!(_model.checkLoginBeforeBack
                                                   ?.succeeded ??
                                               true)) {
                                             Navigator.pop(context);
@@ -968,21 +1022,22 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                                 );
                                               },
                                             );
-                                            setState(() => FFAppState().imei =
-                                                '123456789012345');
-                                            setState(() {
+                                            FFAppState().update(() {
+                                              FFAppState().imei =
+                                                  '123456789012345';
                                               FFAppState().deleteAccessToken();
                                               FFAppState().accessToken =
                                                   'access_token';
                                             });
-                                            setState(() {
+                                            FFAppState().update(() {
                                               FFAppState().deleteEmployeeID();
                                               FFAppState().employeeID =
                                                   'employee_id';
+
+                                              FFAppState().QRCodeLink =
+                                                  'qrcode_link';
                                             });
-                                            setState(() => FFAppState()
-                                                .QRCodeLink = 'qrcode_link');
-                                            setState(() {
+                                            FFAppState().update(() {
                                               FFAppState()
                                                   .deleteApiURLLocalState();
                                               FFAppState().apiURLLocalState =
@@ -1006,20 +1061,27 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                       },
                                       text: 'ยกเลิก',
                                       options: FFButtonOptions(
-                                        width: 130,
-                                        height: 40,
+                                        width: 130.0,
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: Color(0xFFFF0000),
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
                                             ),
+                                        elevation: 2.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                   ),
@@ -1028,7 +1090,7 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                   flex: 1,
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 0, 0, 0),
+                                        5.0, 0.0, 0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         currentUserLocationValue =
@@ -1036,9 +1098,11 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                                 defaultLocation:
                                                     LatLng(0.0, 0.0));
                                         var _shouldSetState = false;
-                                        if (!(assetIDInputController!.text !=
+                                        if (!(_model.assetIDInputController
+                                                    .text !=
                                                 null &&
-                                            assetIDInputController!.text !=
+                                            _model.assetIDInputController
+                                                    .text !=
                                                 '')) {
                                           await showDialog(
                                             context: context,
@@ -1061,45 +1125,54 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                           if (_shouldSetState) setState(() {});
                                           return;
                                         }
-                                        if (remarkInputController!.text !=
+                                        if (_model.remarkInputController.text !=
                                                 null &&
-                                            remarkInputController!.text != '') {
+                                            _model.remarkInputController.text !=
+                                                '') {
                                           showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
+                                            barrierColor: Color(0x00000000),
                                             context: context,
-                                            builder: (context) {
-                                              return Padding(
-                                                padding: MediaQuery.of(context)
-                                                    .viewInsets,
-                                                child: Container(
-                                                  height: double.infinity,
-                                                  child: LoadingSceneWidget(),
+                                            builder: (bottomSheetContext) {
+                                              return GestureDetector(
+                                                onTap: () => FocusScope.of(
+                                                        context)
+                                                    .requestFocus(_unfocusNode),
+                                                child: Padding(
+                                                  padding: MediaQuery.of(
+                                                          bottomSheetContext)
+                                                      .viewInsets,
+                                                  child: Container(
+                                                    height: double.infinity,
+                                                    child: LoadingSceneWidget(),
+                                                  ),
                                                 ),
                                               );
                                             },
                                           ).then((value) => setState(() {}));
 
-                                          checkLoginBeforeSave =
+                                          _model.checkLoginBeforeSave =
                                               await GetUserProfileAPICall.call(
                                             token: FFAppState().accessToken,
                                             apiUrl:
                                                 FFAppState().apiURLLocalState,
                                           );
                                           _shouldSetState = true;
-                                          if (!(checkLoginBeforeSave
+                                          if (!(_model.checkLoginBeforeSave
                                                   ?.succeeded ??
                                               true)) {
-                                            checkAssetID =
+                                            _model.checkAssetID =
                                                 await NpaCheckAssetIdAPICall
                                                     .call(
-                                              assetid:
-                                                  assetIDInputController!.text,
+                                              assetid: _model
+                                                  .assetIDInputController.text,
                                             );
                                             _shouldSetState = true;
                                             if (!NpaCheckAssetIdAPICall
                                                 .resultResponse(
-                                              (checkAssetID?.jsonBody ?? ''),
+                                              (_model.checkAssetID?.jsonBody ??
+                                                  ''),
                                             )) {
                                               await showDialog(
                                                 context: context,
@@ -1143,21 +1216,22 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                                 );
                                               },
                                             );
-                                            setState(() => FFAppState().imei =
-                                                '123456789012345');
-                                            setState(() {
+                                            FFAppState().update(() {
+                                              FFAppState().imei =
+                                                  '123456789012345';
                                               FFAppState().deleteAccessToken();
                                               FFAppState().accessToken =
                                                   'access_token';
                                             });
-                                            setState(() {
+                                            FFAppState().update(() {
                                               FFAppState().deleteEmployeeID();
                                               FFAppState().employeeID =
                                                   'employee_id';
+
+                                              FFAppState().QRCodeLink =
+                                                  'qrcode_link';
                                             });
-                                            setState(() => FFAppState()
-                                                .QRCodeLink = 'qrcode_link');
-                                            setState(() {
+                                            FFAppState().update(() {
                                               FFAppState()
                                                   .deleteApiURLLocalState();
                                               FFAppState().apiURLLocalState =
@@ -1193,11 +1267,14 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                           return;
                                         }
 
-                                        npaAPISubmit = await NpaAPICall.call(
+                                        _model.npaAPISubmit =
+                                            await NpaAPICall.call(
                                           location: functions.getUserLocation(
                                               currentUserLocationValue),
-                                          assetId: assetIDInputController!.text,
-                                          remark: remarkInputController!.text,
+                                          assetId: _model
+                                              .assetIDInputController.text,
+                                          remark:
+                                              _model.remarkInputController.text,
                                           uid: FFAppState().imei,
                                           jobType: 'Survey NPA',
                                           description: 'สำรวจ NPA',
@@ -1206,10 +1283,13 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                           apiUrl: FFAppState().apiURLLocalState,
                                         );
                                         _shouldSetState = true;
-                                        if ((npaAPISubmit?.statusCode ?? 200) !=
-                                            valueOrDefault<dynamic>(
+                                        if ((_model.npaAPISubmit?.statusCode ??
+                                                200) !=
+                                            valueOrDefault<int>(
                                               NpaAPICall.status(
-                                                (npaAPISubmit?.jsonBody ?? ''),
+                                                (_model.npaAPISubmit
+                                                        ?.jsonBody ??
+                                                    ''),
                                               ),
                                               500,
                                             )) {
@@ -1242,20 +1322,27 @@ class _NPApageCopyWidgetState extends State<NPApageCopyWidget>
                                       },
                                       text: 'บันทึก',
                                       options: FFButtonOptions(
-                                        width: 130,
-                                        height: 40,
+                                        width: 130.0,
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
                                         color: Color(0xFF24D200),
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .subtitle2
+                                            .titleSmall
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
                                             ),
+                                        elevation: 2.0,
                                         borderSide: BorderSide(
                                           color: Colors.transparent,
-                                          width: 1,
+                                          width: 1.0,
                                         ),
-                                        borderRadius: BorderRadius.circular(8),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                     ),
                                   ),

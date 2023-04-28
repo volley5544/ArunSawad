@@ -1,12 +1,15 @@
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'forgot_password_page_model.dart';
+export 'forgot_password_page_model.dart';
 
 class ForgotPasswordPageWidget extends StatefulWidget {
   const ForgotPasswordPageWidget({Key? key}) : super(key: key);
@@ -18,6 +21,11 @@ class ForgotPasswordPageWidget extends StatefulWidget {
 
 class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
     with TickerProviderStateMixin {
+  late ForgotPasswordPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   final animationsMap = {
     'textFieldOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -27,15 +35,15 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
           curve: Curves.bounceOut,
           delay: 250.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.bounceOut,
           delay: 250.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -47,15 +55,15 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -67,15 +75,15 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -87,15 +95,15 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -107,15 +115,15 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 500.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -127,29 +135,32 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
   };
-  TextEditingController? confirmPasswordInputController;
-  TextEditingController? id4DigitInputController;
-  TextEditingController? textController1;
-  TextEditingController? usernameInputController;
-  TextEditingController? newPasswordInputController;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => ForgotPasswordPageModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'ForgotPasswordPage'});
+    _model.textController1 ??= TextEditingController();
+    _model.usernameInputController ??= TextEditingController();
+    _model.id4DigitInputController ??= TextEditingController();
+    _model.newPasswordInputController ??= TextEditingController();
+    _model.confirmPasswordInputController ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -157,100 +168,102 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
       this,
     );
 
-    confirmPasswordInputController = TextEditingController();
-    id4DigitInputController = TextEditingController();
-    textController1 = TextEditingController(text: 'ลืมรหัสผ่าน');
-    usernameInputController = TextEditingController();
-    newPasswordInputController = TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController1?.text = 'ลืมรหัสผ่าน';
+        }));
   }
 
   @override
   void dispose() {
-    confirmPasswordInputController?.dispose();
-    id4DigitInputController?.dispose();
-    textController1?.dispose();
-    usernameInputController?.dispose();
-    newPasswordInputController?.dispose();
+    _model.dispose();
+
+    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF6500),
-        automaticallyImplyLeading: false,
-        leading: Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: InkWell(
-            onTap: () async {
-              var confirmDialogResponse = await showDialog<bool>(
-                    context: context,
-                    builder: (alertDialogContext) {
-                      return AlertDialog(
-                        title: Text('ระบบ'),
-                        content: Text('คุณต้องการจะยกเลิกทำรายการหรือไม่?'),
-                        actions: [
-                          TextButton(
-                            onPressed: () =>
-                                Navigator.pop(alertDialogContext, false),
-                            child: Text('ยกเลิก'),
-                          ),
-                          TextButton(
-                            onPressed: () =>
-                                Navigator.pop(alertDialogContext, true),
-                            child: Text('ตกลง'),
-                          ),
-                        ],
-                      );
-                    },
-                  ) ??
-                  false;
-              if (!confirmDialogResponse) {
-                return;
-              }
+    context.watch<FFAppState>();
 
-              context.pushNamed('LoginPage');
-            },
-            child: Icon(
-              Icons.login_outlined,
-              color: Colors.white,
-              size: 40,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF6500),
+          automaticallyImplyLeading: false,
+          leading: Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                var confirmDialogResponse = await showDialog<bool>(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return AlertDialog(
+                          title: Text('ระบบ'),
+                          content: Text('คุณต้องการจะยกเลิกทำรายการหรือไม่?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext, false),
+                              child: Text('ยกเลิก'),
+                            ),
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(alertDialogContext, true),
+                              child: Text('ตกลง'),
+                            ),
+                          ],
+                        );
+                      },
+                    ) ??
+                    false;
+                if (!confirmDialogResponse) {
+                  return;
+                }
+
+                context.pushNamed('LoginPage');
+              },
+              child: Icon(
+                Icons.login_outlined,
+                color: Colors.white,
+                size: 40.0,
+              ),
             ),
           ),
+          title: Text(
+            'Branch View',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [],
+          centerTitle: true,
+          elevation: 10.0,
         ),
-        title: Text(
-          'Branch View',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 22,
-              ),
-        ),
-        actions: [],
-        centerTitle: true,
-        elevation: 10,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               TextFormField(
-                controller: textController1,
+                controller: _model.textController1,
                 autofocus: true,
                 readOnly: true,
                 obscureText: false,
                 decoration: InputDecoration(
                   hintText: '[Some hint text...]',
-                  hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(4.0),
@@ -260,7 +273,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(4.0),
@@ -270,7 +283,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   errorBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(4.0),
@@ -280,7 +293,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   focusedErrorBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
-                      width: 1,
+                      width: 1.0,
                     ),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(4.0),
@@ -289,14 +302,15 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   ),
                   filled: true,
                 ),
-                style: FlutterFlowTheme.of(context).title2.override(
+                style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Noto Serif',
                       color: FlutterFlowTheme.of(context).black600,
                     ),
+                validator: _model.textController1Validator.asValidator(context),
               ).animateOnPageLoad(
                   animationsMap['textFieldOnPageLoadAnimation']!),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -306,32 +320,32 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: Icon(
                         Icons.lock_open_sharp,
                         color: Colors.black,
-                        size: 29,
+                        size: 29.0,
                       ),
                     ),
                     Expanded(
                       flex: 4,
                       child: Text(
                         'Username:',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
-                              fontSize: 18,
+                              fontSize: 18.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: usernameInputController,
+                        controller: _model.usernameInputController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'รหัสผนักงาน',
                           hintText: 'รหัสผนักงาน',
-                          hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -341,7 +355,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -351,7 +365,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           errorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -361,7 +375,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedErrorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -369,14 +383,16 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        validator: _model.usernameInputControllerValidator
+                            .asValidator(context),
                       ),
                     ),
                   ],
                 ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -386,32 +402,32 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: FaIcon(
                         FontAwesomeIcons.idCard,
                         color: Colors.black,
-                        size: 29,
+                        size: 29.0,
                       ),
                     ),
                     Expanded(
                       flex: 4,
                       child: Text(
                         'เลขอ้างอิง:',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
-                              fontSize: 18,
+                              fontSize: 18.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: id4DigitInputController,
+                        controller: _model.id4DigitInputController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'เลยบัตรปชช. 4ตัวท้าย',
                           hintText: 'เลยบัตรปชช. 4ตัวท้าย',
-                          hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -421,7 +437,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -431,7 +447,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           errorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -441,7 +457,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedErrorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -449,14 +465,16 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        validator: _model.id4DigitInputControllerValidator
+                            .asValidator(context),
                       ),
                     ),
                   ],
                 ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -466,32 +484,32 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: FaIcon(
                         FontAwesomeIcons.unlockAlt,
                         color: Colors.black,
-                        size: 29,
+                        size: 29.0,
                       ),
                     ),
                     Expanded(
                       flex: 4,
                       child: Text(
                         'รหัสผ่านใหม่:',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
-                              fontSize: 18,
+                              fontSize: 18.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: newPasswordInputController,
+                        controller: _model.newPasswordInputController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'รหัสผนักงาน',
                           hintText: 'รหัสผ่านใหม่',
-                          hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -501,7 +519,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -511,7 +529,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           errorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -521,7 +539,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedErrorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -529,14 +547,16 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        validator: _model.newPasswordInputControllerValidator
+                            .asValidator(context),
                       ),
                     ),
                   ],
                 ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation3']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -546,32 +566,32 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                       child: FaIcon(
                         FontAwesomeIcons.unlockAlt,
                         color: Colors.black,
-                        size: 29,
+                        size: 29.0,
                       ),
                     ),
                     Expanded(
                       flex: 4,
                       child: Text(
                         'ยืนยันรหัสผ่าน:',
-                        style: FlutterFlowTheme.of(context).bodyText1.override(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
-                              fontSize: 18,
+                              fontSize: 18.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: confirmPasswordInputController,
+                        controller: _model.confirmPasswordInputController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'ยืนยันรหัสผ่านใหม่',
                           hintText: 'ยืนยันรหัสผ่านใหม่',
-                          hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -581,7 +601,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -591,7 +611,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           errorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -601,7 +621,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                           focusedErrorBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 1,
+                              width: 1.0,
                             ),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(4.0),
@@ -609,8 +629,11 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                         textAlign: TextAlign.start,
+                        validator: _model
+                            .confirmPasswordInputControllerValidator
+                            .asValidator(context),
                       ),
                     ),
                   ],
@@ -622,10 +645,10 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   children: [
                     Expanded(
                       child: Align(
-                        alignment: AlignmentDirectional(0, 0.9),
+                        alignment: AlignmentDirectional(0.0, 0.9),
                         child: Padding(
-                          padding:
-                              EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -633,7 +656,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                 flex: 1,
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 5, 0),
+                                      0.0, 0.0, 5.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       var confirmDialogResponse =
@@ -672,20 +695,26 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                     },
                                     text: 'ยกเลิก',
                                     options: FFButtonOptions(
-                                      width: 130,
-                                      height: 40,
+                                      width: 130.0,
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
                                       color: Color(0xFFFF0000),
                                       textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
+                                          .titleSmall
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
                                           ),
+                                      elevation: 2.0,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
-                                        width: 1,
+                                        width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ),
@@ -694,31 +723,36 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                 flex: 1,
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 0, 0),
+                                      5.0, 0.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      if (usernameInputController!.text !=
+                                      if (_model.usernameInputController.text !=
                                               null &&
-                                          usernameInputController!.text != '') {
-                                        if (id4DigitInputController!.text !=
+                                          _model.usernameInputController.text !=
+                                              '') {
+                                        if (_model.id4DigitInputController
+                                                    .text !=
                                                 null &&
-                                            id4DigitInputController!.text !=
+                                            _model.id4DigitInputController
+                                                    .text !=
                                                 '') {
-                                          if (newPasswordInputController!
+                                          if (_model.newPasswordInputController
                                                       .text !=
                                                   null &&
-                                              newPasswordInputController!
+                                              _model.newPasswordInputController
                                                       .text !=
                                                   '') {
-                                            if (confirmPasswordInputController!
+                                            if (_model.confirmPasswordInputController
                                                         .text !=
                                                     null &&
-                                                confirmPasswordInputController!
+                                                _model.confirmPasswordInputController
                                                         .text !=
                                                     '') {
-                                              if (newPasswordInputController!
+                                              if (_model
+                                                      .newPasswordInputController
                                                       .text !=
-                                                  confirmPasswordInputController!
+                                                  _model
+                                                      .confirmPasswordInputController
                                                       .text) {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
@@ -727,7 +761,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                       'รหัสผ่านใหม่และยืนยันรหัสผ่านไม่ตรงกัน กรุณาลองใหม่',
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodyText1
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Poppins',
@@ -750,7 +784,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                     'กรุณาใส่ ยืนยันรหัสผ่าน',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
@@ -772,7 +806,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                   'กรุณาใส่ รหัสผ่านใหม่',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
@@ -794,7 +828,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                 'กรุณาใส่ เลขอ้างอิง',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
@@ -835,7 +869,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                               'กรุณาใส่ Username',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
@@ -853,20 +887,26 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                     },
                                     text: 'เปลี่ยนรหัสผ่าน',
                                     options: FFButtonOptions(
-                                      width: 130,
-                                      height: 40,
+                                      width: 130.0,
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
                                       color: Color(0xFF24D200),
                                       textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
+                                          .titleSmall
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
                                           ),
+                                      elevation: 2.0,
                                       borderSide: BorderSide(
                                         color: Colors.transparent,
-                                        width: 1,
+                                        width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(8),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ),

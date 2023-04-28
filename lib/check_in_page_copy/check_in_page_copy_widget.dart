@@ -1,19 +1,23 @@
-import '../auth/auth_util.dart';
-import '../backend/backend.dart';
-import '../backend/firebase_storage/storage.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_google_map.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/upload_media.dart';
-import '../custom_code/actions/index.dart' as actions;
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'check_in_page_copy_model.dart';
+export 'check_in_page_copy_model.dart';
 
 class CheckInPageCopyWidget extends StatefulWidget {
   const CheckInPageCopyWidget({
@@ -29,6 +33,12 @@ class CheckInPageCopyWidget extends StatefulWidget {
 
 class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
     with TickerProviderStateMixin {
+  late CheckInPageCopyModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+  LatLng? currentUserLocationValue;
+
   final animationsMap = {
     'wrapOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -38,15 +48,15 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -58,15 +68,15 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1000.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -78,35 +88,33 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 1250.ms,
           duration: 300.ms,
-          begin: Offset(0, 50),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
   };
-  bool isMediaUploading = false;
-  String uploadedFileUrl = '';
-
-  LatLng? currentUserLocationValue;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  LatLng? googleMapsCenter;
-  final googleMapsController = Completer<GoogleMapController>();
-  TextEditingController? coordinateInputController;
-  TextEditingController? textController1;
-  TextEditingController? remarkInputController;
-  bool? checkGPSBeforeSave;
-  bool? checkGPSService;
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => CheckInPageCopyModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'CheckInPageCopy'});
+    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
+        .then((loc) => setState(() => currentUserLocationValue = loc));
+    _model.textController1 ??= TextEditingController();
+    _model.coordinateInputController ??= TextEditingController();
+    _model.remarkInputController ??= TextEditingController();
+    _model.textController4 ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -114,138 +122,168 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
       this,
     );
 
-    coordinateInputController = TextEditingController();
-    textController1 = TextEditingController(text: 'เช็คอิน');
-    remarkInputController = TextEditingController();
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController1?.text = 'เช็คอิน';
+        }));
   }
 
   @override
   void dispose() {
-    coordinateInputController?.dispose();
-    textController1?.dispose();
-    remarkInputController?.dispose();
+    _model.dispose();
+
+    _unfocusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     if (currentUserLocationValue == null) {
-      return Center(
-        child: SizedBox(
-          width: 50,
-          height: 50,
-          child: CircularProgressIndicator(
-            color: FlutterFlowTheme.of(context).primaryColor,
+      return Container(
+        color: FlutterFlowTheme.of(context).primaryBackground,
+        child: Center(
+          child: SizedBox(
+            width: 50.0,
+            height: 50.0,
+            child: CircularProgressIndicator(
+              color: FlutterFlowTheme.of(context).primary,
+            ),
           ),
         ),
       );
     }
-    return Scaffold(
-      key: scaffoldKey,
-      resizeToAvoidBottomInset: false,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF6500),
-        automaticallyImplyLeading: false,
-        leading: Align(
-          alignment: AlignmentDirectional(0, 0),
-          child: InkWell(
-            onTap: () async {
-              await googleMapsController.future.then(
-                (c) => c.animateCamera(
-                  CameraUpdate.newLatLng(googleMapsCenter!.toGoogleMaps()),
-                ),
-              );
-            },
-            child: Icon(
-              Icons.person_pin_circle_outlined,
-              color: Colors.white,
-              size: 40,
-            ),
-          ),
-        ),
-        title: Text(
-          'Branch View',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFF6500),
+          automaticallyImplyLeading: false,
+          leading: Align(
+            alignment: AlignmentDirectional(0.0, 0.0),
+            child: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                await _model.googleMapsController.future.then(
+                  (c) => c.animateCamera(
+                    CameraUpdate.newLatLng(
+                        _model.googleMapsCenter!.toGoogleMaps()),
+                  ),
+                );
+              },
+              child: Icon(
+                Icons.person_pin_circle_outlined,
                 color: Colors.white,
-                fontSize: 22,
-              ),
-        ),
-        actions: [
-          Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
-              child: InkWell(
-                onTap: () async {
-                  final selectedMedia = await selectMediaWithSourceBottomSheet(
-                    context: context,
-                    imageQuality: 100,
-                    allowPhoto: true,
-                    backgroundColor:
-                        FlutterFlowTheme.of(context).secondaryColor,
-                    textColor: Color(0xFFB71C1C),
-                    pickerFontFamily: 'Raleway',
-                  );
-                  if (selectedMedia != null &&
-                      selectedMedia.every(
-                          (m) => validateFileFormat(m.storagePath, context))) {
-                    setState(() => isMediaUploading = true);
-                    var downloadUrls = <String>[];
-                    try {
-                      showUploadMessage(
-                        context,
-                        'Uploading file...',
-                        showLoading: true,
-                      );
-                      downloadUrls = (await Future.wait(
-                        selectedMedia.map(
-                          (m) async => await uploadData(m.storagePath, m.bytes),
-                        ),
-                      ))
-                          .where((u) => u != null)
-                          .map((u) => u!)
-                          .toList();
-                    } finally {
-                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                      isMediaUploading = false;
-                    }
-                    if (downloadUrls.length == selectedMedia.length) {
-                      setState(() => uploadedFileUrl = downloadUrls.first);
-                      showUploadMessage(context, 'Success!');
-                    } else {
-                      setState(() {});
-                      showUploadMessage(context, 'Failed to upload media');
-                      return;
-                    }
-                  }
-                },
-                child: FaIcon(
-                  FontAwesomeIcons.camera,
-                  color: Color(0xFBFFFFFF),
-                  size: 40,
-                ),
+                size: 40.0,
               ),
             ),
           ),
-        ],
-        centerTitle: true,
-        elevation: 10,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          title: Text(
+            'Branch View',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [
+            Align(
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      imageQuality: 100,
+                      allowPhoto: true,
+                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                      textColor: Color(0xFFB71C1C),
+                      pickerFontFamily: 'Raleway',
+                    );
+                    if (selectedMedia != null &&
+                        selectedMedia.every((m) =>
+                            validateFileFormat(m.storagePath, context))) {
+                      setState(() => _model.isDataUploading = true);
+                      var selectedUploadedFiles = <FFUploadedFile>[];
+                      var downloadUrls = <String>[];
+                      try {
+                        showUploadMessage(
+                          context,
+                          'Uploading file...',
+                          showLoading: true,
+                        );
+                        selectedUploadedFiles = selectedMedia
+                            .map((m) => FFUploadedFile(
+                                  name: m.storagePath.split('/').last,
+                                  bytes: m.bytes,
+                                  height: m.dimensions?.height,
+                                  width: m.dimensions?.width,
+                                  blurHash: m.blurHash,
+                                ))
+                            .toList();
+
+                        downloadUrls = (await Future.wait(
+                          selectedMedia.map(
+                            (m) async =>
+                                await uploadData(m.storagePath, m.bytes),
+                          ),
+                        ))
+                            .where((u) => u != null)
+                            .map((u) => u!)
+                            .toList();
+                      } finally {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        _model.isDataUploading = false;
+                      }
+                      if (selectedUploadedFiles.length ==
+                              selectedMedia.length &&
+                          downloadUrls.length == selectedMedia.length) {
+                        setState(() {
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
+                          _model.uploadedFileUrl = downloadUrls.first;
+                        });
+                        showUploadMessage(context, 'Success!');
+                      } else {
+                        setState(() {});
+                        showUploadMessage(context, 'Failed to upload data');
+                        return;
+                      }
+                    }
+                  },
+                  child: FaIcon(
+                    FontAwesomeIcons.camera,
+                    color: Color(0xFBFFFFFF),
+                    size: 40.0,
+                  ),
+                ),
+              ),
+            ),
+          ],
+          centerTitle: true,
+          elevation: 10.0,
+        ),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Wrap(
-                spacing: 0,
-                runSpacing: 0,
+                spacing: 0.0,
+                runSpacing: 0.0,
                 alignment: WrapAlignment.start,
                 crossAxisAlignment: WrapCrossAlignment.start,
                 direction: Axis.horizontal,
@@ -260,16 +298,16 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: TextFormField(
-                      controller: textController1,
+                      controller: _model.textController1,
                       readOnly: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         hintText: '[Some hint text...]',
-                        hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                        hintStyle: FlutterFlowTheme.of(context).bodySmall,
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 1,
+                            width: 1.0,
                           ),
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(4.0),
@@ -279,7 +317,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                         focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 1,
+                            width: 1.0,
                           ),
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(4.0),
@@ -289,7 +327,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                         errorBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 1,
+                            width: 1.0,
                           ),
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(4.0),
@@ -299,7 +337,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                         focusedErrorBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: Color(0x00000000),
-                            width: 1,
+                            width: 1.0,
                           ),
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(4.0),
@@ -308,10 +346,13 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                         ),
                         filled: true,
                       ),
-                      style: FlutterFlowTheme.of(context).title2.override(
-                            fontFamily: 'Noto Serif',
-                            color: FlutterFlowTheme.of(context).black600,
-                          ),
+                      style:
+                          FlutterFlowTheme.of(context).headlineMedium.override(
+                                fontFamily: 'Noto Serif',
+                                color: FlutterFlowTheme.of(context).black600,
+                              ),
+                      validator:
+                          _model.textController1Validator.asValidator(context),
                     ),
                   ),
                   Container(
@@ -321,7 +362,8 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -331,7 +373,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                             child: Icon(
                               Icons.language_outlined,
                               color: Colors.black,
-                              size: 29,
+                              size: 29.0,
                             ),
                           ),
                           Expanded(
@@ -339,17 +381,17 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                             child: Text(
                               'ค่าพิกัด:',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 18,
+                                    fontSize: 18.0,
                                   ),
                             ),
                           ),
                           Expanded(
                             flex: 5,
                             child: TextFormField(
-                              controller: coordinateInputController,
+                              controller: _model.coordinateInputController,
                               readOnly: true,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -359,11 +401,11 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                                   'Latitude,Longitude',
                                 ),
                                 hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
+                                    FlutterFlowTheme.of(context).bodySmall,
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -373,7 +415,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -383,7 +425,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                                 errorBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -393,7 +435,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                                 focusedErrorBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
-                                    width: 1,
+                                    width: 1.0,
                                   ),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
@@ -401,7 +443,10 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              validator: _model
+                                  .coordinateInputControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
                         ],
@@ -415,7 +460,8 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -425,7 +471,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                             child: FaIcon(
                               FontAwesomeIcons.edit,
                               color: Colors.black,
-                              size: 29,
+                              size: 29.0,
                             ),
                           ),
                           Expanded(
@@ -433,66 +479,129 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                             child: Text(
                               'หมายเหตุ:',
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText1
+                                  .bodyMedium
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 18,
+                                    fontSize: 18.0,
                                   ),
                             ),
                           ),
                           Expanded(
                             flex: 5,
-                            child: TextFormField(
-                              controller: remarkInputController,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'หมายเหตุ',
-                                hintText: 'หมายเหตุ',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodyText2,
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
+                            child: Autocomplete<String>(
+                              initialValue: TextEditingValue(),
+                              optionsBuilder: (textEditingValue) {
+                                if (textEditingValue.text == '') {
+                                  return const Iterable<String>.empty();
+                                }
+                                return [
+                                  'Option 1',
+                                  'fluke2',
+                                  'fluke3',
+                                  'fluke1',
+                                  'volley1',
+                                  'volley2',
+                                  'wichakorn',
+                                  'krairomsom'
+                                ].where((option) {
+                                  final lowercaseOption = option.toLowerCase();
+                                  return lowercaseOption.contains(
+                                      textEditingValue.text.toLowerCase());
+                                });
+                              },
+                              optionsViewBuilder:
+                                  (context, onSelected, options) {
+                                return AutocompleteOptionsList(
+                                  textFieldKey: _model.remarkInputKey,
+                                  textController: _model.remarkInputController!,
+                                  options: options.toList(),
+                                  onSelected: onSelected,
+                                  textStyle:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  textHighlightStyle: TextStyle(),
+                                  elevation: 4.0,
+                                  optionBackgroundColor:
+                                      FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                  optionHighlightColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                  maxHeight: 200.0,
+                                );
+                              },
+                              onSelected: (String selection) {
+                                setState(() => _model
+                                    .remarkInputSelectedOption = selection);
+                                FocusScope.of(context).unfocus();
+                              },
+                              fieldViewBuilder: (
+                                context,
+                                textEditingController,
+                                focusNode,
+                                onEditingComplete,
+                              ) {
+                                _model.remarkInputController =
+                                    textEditingController;
+                                return TextFormField(
+                                  key: _model.remarkInputKey,
+                                  controller: textEditingController,
+                                  focusNode: focusNode,
+                                  onEditingComplete: onEditingComplete,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'หมายเหตุ',
+                                    hintText: 'หมายเหตุ',
+                                    hintStyle:
+                                        FlutterFlowTheme.of(context).bodySmall,
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
                                   ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                              ),
-                              style: FlutterFlowTheme.of(context).bodyText1,
-                              textAlign: TextAlign.start,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  textAlign: TextAlign.start,
+                                  validator: _model
+                                      .remarkInputControllerValidator
+                                      .asValidator(context),
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -507,7 +616,8 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                       child: Container(
                         width: double.infinity,
                         height: MediaQuery.of(context).size.height * 0.25,
@@ -518,9 +628,10 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                         child: Builder(builder: (context) {
                           final _googleMapMarker = widget.location1;
                           return FlutterFlowGoogleMap(
-                            controller: googleMapsController,
-                            onCameraIdle: (latLng) => googleMapsCenter = latLng,
-                            initialLocation: googleMapsCenter ??=
+                            controller: _model.googleMapsController,
+                            onCameraIdle: (latLng) =>
+                                _model.googleMapsCenter = latLng,
+                            initialLocation: _model.googleMapsCenter ??=
                                 currentUserLocationValue!,
                             markers: [
                               if (_googleMapMarker != null)
@@ -532,7 +643,7 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                             markerColor: GoogleMarkerColor.red,
                             mapType: MapType.hybrid,
                             style: GoogleMapStyle.standard,
-                            initialZoom: 16,
+                            initialZoom: 16.0,
                             allowInteraction: true,
                             allowZoom: true,
                             showZoomControls: true,
@@ -549,11 +660,78 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                   ],
                 ),
               ),
+              Text(
+                FFAppState().HOLocation!.toString(),
+                style: FlutterFlowTheme.of(context).bodyMedium,
+              ),
+              Text(
+                valueOrDefault<String>(
+                  _model.isEnterGeofence?.toString(),
+                  '[test_geofence]',
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium,
+              ),
+              Text(
+                'Hello World',
+                style: FlutterFlowTheme.of(context).bodyMedium,
+              ),
+              TextFormField(
+                controller: _model.textController4,
+                autofocus: true,
+                obscureText: false,
+                decoration: InputDecoration(
+                  hintText: '  input radius in mater',
+                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 1.0,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 1.0,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 1.0,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                  focusedErrorBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 1.0,
+                    ),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(4.0),
+                      topRight: Radius.circular(4.0),
+                    ),
+                  ),
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium,
+                validator: _model.textController4Validator.asValidator(context),
+              ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0, 0.9),
+                  alignment: AlignmentDirectional(0.0, 0.9),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: Container(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.07,
@@ -561,7 +739,8 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 10),
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 0.0, 20.0, 10.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -569,31 +748,38 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                             Expanded(
                               flex: 1,
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 5.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     GoRouter.of(context).prepareAuthEvent();
-                                    await signOut();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
 
                                     context.goNamedAuth('LoginPage', mounted);
                                   },
                                   text: 'ยกเลิก',
                                   options: FFButtonOptions(
-                                    width: 130,
-                                    height: 40,
+                                    width: 130.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFFFF0000),
                                     textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
+                                        .titleSmall
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                         ),
+                                    elevation: 2.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                               ),
@@ -601,80 +787,74 @@ class _CheckInPageCopyWidgetState extends State<CheckInPageCopyWidget>
                             Expanded(
                               flex: 1,
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     currentUserLocationValue =
                                         await getCurrentUserLocation(
                                             defaultLocation: LatLng(0.0, 0.0));
-                                    var _shouldSetState = false;
-                                    checkGPSService = await actions.a1();
-                                    _shouldSetState = true;
-                                    if (!checkGPSService!) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('ระบบ'),
-                                            content: Text(
-                                                'กรุณาเปิด GPS ก่อนบันทึกข้อมูล'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) setState(() {});
-                                      return;
-                                    }
-                                    checkGPSBeforeSave = await actions.a8(
+                                    _model.isEnterGeofence =
+                                        await actions.test1(
+                                      FFAppState().HOLocation,
                                       currentUserLocationValue,
+                                      double.tryParse(
+                                          _model.textController4.text),
                                     );
-                                    _shouldSetState = true;
-                                    if (!checkGPSBeforeSave!) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('ระบบ'),
-                                            content: Text(
-                                                'กรุณาเปิด GPS แล้วทำรายการอีกครั้ง'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) setState(() {});
-                                      return;
-                                    }
-                                    if (_shouldSetState) setState(() {});
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text('Action1'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text('Action2'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+
+                                    setState(() {});
                                   },
                                   text: 'บันทึก',
                                   options: FFButtonOptions(
-                                    width: 130,
-                                    height: 40,
+                                    width: 130.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
                                     color: Color(0xFF24D200),
                                     textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
+                                        .titleSmall
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                         ),
+                                    elevation: 2.0,
                                     borderSide: BorderSide(
                                       color: Colors.transparent,
-                                      width: 1,
+                                      width: 1.0,
                                     ),
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                               ),

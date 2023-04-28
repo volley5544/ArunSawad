@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ArunSawad</string>
+	<string>อรุณสวัสดิ์</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.379132035355-90jnuktq6r8rl5po359a4brc5ldthp86</string>
+                <string>com.googleusercontent.apps.379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o</string>
                 
             </array>
         </dict>
@@ -54,15 +54,17 @@
 	<true/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-      <string>In order to search nearby, this app requires access to your current location.</string>
+    <string>Allow อรุณสวัสดิ์ to access this device's locantion ?</string>
 	<key>NSCameraUsageDescription</key>
-      <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>Allow อรุณสวัสดิ์ to take pictures and record video  ?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-      <string>In order to upload media, this app requires permission to access the photo library.</string>
+    <string>Allow อรุณสวัสดิ์ to access photos and media on your device ?</string>
 	<key>NSFaceIDUsageDescription</key>
-      <string>This app requires permissions to perform a biometric verification.</string>
+    <string>อณุญาตให้อรุณสวัสดิ์ใช้งาน biometric verification เพื่อทำการยืนยันตัวตน</string>
 	<key>PermissionGroupNotification</key>
-      <string>For get notification please enable notification permission</string>
+    <string>For get notification please enable notification permission</string>
+	<key>NSContactsUsageDescription</key>
+    <string>Allow to access Contract</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>

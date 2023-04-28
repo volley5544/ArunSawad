@@ -1,14 +1,18 @@
-import '../auth/auth_util.dart';
-import '../backend/api_requests/api_calls.dart';
-import '../components/loading_scene_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../custom_code/actions/index.dart' as actions;
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/components/loading_scene_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'dashboard_model.dart';
+export 'dashboard_model.dart';
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({
@@ -24,6 +28,11 @@ class DashboardWidget extends StatefulWidget {
 
 class _DashboardWidgetState extends State<DashboardWidget>
     with TickerProviderStateMixin {
+  late DashboardModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
   final animationsMap = {
     'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -33,8 +42,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -46,15 +55,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 150.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 150.ms,
           duration: 500.ms,
-          begin: Offset(0, -100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, -100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -66,15 +75,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 250.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 250.ms,
           duration: 500.ms,
-          begin: Offset(0, -100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, -100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -86,15 +95,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 350.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 350.ms,
           duration: 500.ms,
-          begin: Offset(-100, 0),
-          end: Offset(0, 0),
+          begin: Offset(-100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -106,15 +115,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 450.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 450.ms,
           duration: 500.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -126,15 +135,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 550.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 550.ms,
           duration: 500.ms,
-          begin: Offset(-100, 0),
-          end: Offset(0, 0),
+          begin: Offset(-100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -146,15 +155,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 650.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 650.ms,
           duration: 500.ms,
-          begin: Offset(100, 0),
-          end: Offset(0, 0),
+          begin: Offset(100.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -166,15 +175,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 750.ms,
           duration: 500.ms,
-          begin: Offset(0, 100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -186,78 +195,65 @@ class _DashboardWidgetState extends State<DashboardWidget>
           curve: Curves.easeInOut,
           delay: 850.ms,
           duration: 500.ms,
-          begin: 0,
-          end: 1,
+          begin: 0.0,
+          end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
           delay: 850.ms,
           duration: 500.ms,
-          begin: Offset(0, 100),
-          end: Offset(0, 0),
+          begin: Offset(0.0, 100.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
   };
-  ApiCallResponse? checkLoginCheckInPage;
-  bool? checkInLocationService;
-  bool? checkInLocationPermission;
-  ApiCallResponse? checkLoginSurveyPage;
-  bool? surveyLocationService;
-  bool? surveyLocationPermission;
-  ApiCallResponse? checkLoginCollectionPage;
-  bool? collectionLocationService;
-  bool? collectionLocationPermission;
-  ApiCallResponse? checkLoginMarketingPage;
-  bool? marketingLocationService;
-  bool? marketingLocationPermission;
-  ApiCallResponse? checkLoginNPAPage;
-  bool? nPALocationService;
-  bool? nPALocationPermission;
-  ApiCallResponse? checkLoginOPSPage;
-  bool? oPSLocationService;
-  bool? oPSLocationPermission;
-  ApiCallResponse? checkLoginCheckerPage;
-  bool? checkerLocationService;
-  bool? checkerLocationPermission;
-  ApiCallResponse? checkLoginTimesheetPage;
-  String? androidIMEI;
-  String? iOSidentifierForVendor;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => DashboardModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Dashboard'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() => FFAppState().counterNum = 0);
-      setState(() => FFAppState().imgURL = []);
-      setState(() => FFAppState().imgURLTemp = '');
-      setState(() => FFAppState().materialRecordId = []);
-      setState(() => FFAppState().materialsAmount = []);
-      setState(() => FFAppState().isGetVloanContract = false);
-      setState(() => FFAppState().vloanCustomerNameListTemp = []);
-      setState(() => FFAppState().vloanContNoListTemp = []);
-      setState(() => FFAppState().vloanServerListTemp = []);
-      setState(() => FFAppState().materialImgList = []);
-      setState(() => FFAppState().materialNameList = []);
-      if (FFAppState().accessToken == 'access_token') {
-        GoRouter.of(context).prepareAuthEvent();
-        await signOut();
-
-        context.goNamedAuth('LoginPage', mounted);
-
-        return;
+      if (!((FFAppState().employeeID == '31622') ||
+          (FFAppState().employeeID == '33511') ||
+          (FFAppState().employeeID == '32758') ||
+          (FFAppState().employeeID == '31247') ||
+          (FFAppState().employeeID == '30427') ||
+          (FFAppState().employeeID == '23328'))) {
+        if (isAndroid) {
+          await actions.preventScreenRecordAndroid();
+        } else {
+          await actions.preventScreenRecordIOS();
+        }
       }
-      await actions.lockOrientation();
-      setDarkModeSetting(context, ThemeMode.light);
-      if (isAndroid) {
-        androidIMEI = await actions.a3();
-        setState(() => FFAppState().imei = androidIMEI!);
-      } else {
-        iOSidentifierForVendor = await actions.a4();
-        setState(() => FFAppState().imei = iOSidentifierForVendor!);
-      }
+      FFAppState().update(() {
+        FFAppState().counterNum = 0;
+        FFAppState().isFromTimesheetPage = false;
+      });
+      FFAppState().update(() {
+        FFAppState().imgURL = [];
+        FFAppState().imgURLTemp =
+            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+      });
+      FFAppState().update(() {
+        FFAppState().materialRecordId = [];
+        FFAppState().materialsAmount = [];
+      });
+      FFAppState().update(() {
+        FFAppState().isGetVloanContract = false;
+        FFAppState().vloanCustomerNameListTemp = [];
+      });
+      FFAppState().update(() {
+        FFAppState().vloanContNoListTemp = [];
+        FFAppState().vloanServerListTemp = [];
+      });
+      FFAppState().update(() {
+        FFAppState().materialImgList = [];
+        FFAppState().materialNameList = [];
+      });
     });
 
     setupAnimations(
@@ -269,1019 +265,178 @@ class _DashboardWidgetState extends State<DashboardWidget>
   }
 
   @override
+  void dispose() {
+    _model.dispose();
+
+    _unfocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFF6500),
-        automaticallyImplyLeading: false,
-        leading: InkWell(
-          onTap: () async {
-            context.goNamed('SuperAppPage');
-          },
-          child: Icon(
-            Icons.arrow_back_rounded,
-            color: Colors.white,
-            size: 30,
-          ),
-        ),
-        title: Text(
-          'Branch View',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+    context.watch<FFAppState>();
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          key: scaffoldKey,
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          appBar: AppBar(
+            backgroundColor: Color(0xFFFF6500),
+            automaticallyImplyLeading: false,
+            leading: InkWell(
+              splashColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              onTap: () async {
+                context.goNamed('SuperAppPage');
+              },
+              child: Icon(
+                Icons.arrow_back_rounded,
                 color: Colors.white,
-                fontSize: 32,
+                size: 30.0,
               ),
-        ),
-        actions: [],
-        centerTitle: true,
-        elevation: 10,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Align(
-            alignment: AlignmentDirectional(0, 0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFF893A),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5,
-                          color: Color(0x27000000),
-                          offset: Offset(0, 3),
-                        )
-                      ],
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Text(
-                        'Menu',
-                        style: FlutterFlowTheme.of(context).title2.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.white,
-                            ),
+            ),
+            title: Text(
+              'Branch View',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Poppins',
+                    color: Colors.white,
+                    fontSize: 32.0,
+                  ),
+            ),
+            actions: [],
+            centerTitle: true,
+            elevation: 10.0,
+          ),
+          body: SafeArea(
+            child: Align(
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 70.0,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFFF893A),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 5.0,
+                            color: Color(0x27000000),
+                            offset: Offset(0.0, 3.0),
+                          )
+                        ],
                       ),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation1']!),
-                  Align(
-                    alignment: AlignmentDirectional(0, 0),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 44),
-                      child: Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        alignment: WrapAlignment.start,
-                        crossAxisAlignment: WrapCrossAlignment.start,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.start,
-                        verticalDirection: VerticalDirection.down,
-                        clipBehavior: Clip.none,
-                        children: [
-                          InkWell(
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: LoadingSceneWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-
-                              checkLoginCheckInPage =
-                                  await GetUserProfileAPICall.call(
-                                token: FFAppState().accessToken,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-                              _shouldSetState = true;
-                              if ((checkLoginCheckInPage?.succeeded ?? true)) {
-                                Navigator.pop(context);
-                              } else {
-                                Navigator.pop(context);
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                setState(() =>
-                                    FFAppState().imei = '123456789012345');
-                                setState(() {
-                                  FFAppState().deleteAccessToken();
-                                  FFAppState().accessToken = 'access_token';
-                                });
-                                setState(() {
-                                  FFAppState().deleteEmployeeID();
-                                  FFAppState().employeeID = 'employee_id';
-                                });
-                                setState(() =>
-                                    FFAppState().QRCodeLink = 'qrcode_link');
-                                setState(() {
-                                  FFAppState().deleteApiURLLocalState();
-                                  FFAppState().apiURLLocalState =
-                                      'api_url_local_state';
-                                });
-                                setState(() {
-                                  FFAppState().deleteBranchCode();
-                                  FFAppState().branchCode = 'branch_code';
-                                });
-                                GoRouter.of(context).prepareAuthEvent();
-                                await signOut();
-
-                                context.goNamedAuth('LoginPage', mounted);
-
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              checkInLocationService = await actions.a1();
-                              _shouldSetState = true;
-                              if (checkInLocationService!) {
-                                checkInLocationPermission = await actions.a2();
-                                _shouldSetState = true;
-                                if (!checkInLocationPermission!) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('ผิดพลาด'),
-                                        content: Text(
-                                            'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
-                                setState(() =>
-                                    FFAppState().isFromTimesheetPage = false);
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              context.goNamedAuth('CheckInPage', mounted);
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              height: 190,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x33000000),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Text(
+                          'Menu',
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
                               ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/google-maps-new-interface1.jpg',
-                                        width: double.infinity,
-                                        height: 115,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 12, 0, 0),
-                                        child: Text(
-                                          'เช็คอิน',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation2']!),
-                          InkWell(
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: LoadingSceneWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-
-                              checkLoginSurveyPage =
-                                  await GetUserProfileAPICall.call(
-                                token: FFAppState().accessToken,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-                              _shouldSetState = true;
-                              if ((checkLoginSurveyPage?.succeeded ?? true)) {
-                                Navigator.pop(context);
-                              } else {
-                                Navigator.pop(context);
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                setState(() =>
-                                    FFAppState().imei = '123456789012345');
-                                setState(() {
-                                  FFAppState().deleteAccessToken();
-                                  FFAppState().accessToken = 'access_token';
-                                });
-                                setState(() {
-                                  FFAppState().deleteEmployeeID();
-                                  FFAppState().employeeID = 'employee_id';
-                                });
-                                setState(() =>
-                                    FFAppState().QRCodeLink = 'qrcode_link');
-                                setState(() {
-                                  FFAppState().deleteApiURLLocalState();
-                                  FFAppState().apiURLLocalState =
-                                      'api_url_local_state';
-                                });
-                                setState(() {
-                                  FFAppState().deleteBranchCode();
-                                  FFAppState().branchCode = 'branch_code';
-                                });
-                                GoRouter.of(context).prepareAuthEvent();
-                                await signOut();
-
-                                context.goNamedAuth('LoginPage', mounted);
-
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              surveyLocationService = await actions.a1();
-                              _shouldSetState = true;
-                              if (surveyLocationService!) {
-                                surveyLocationPermission = await actions.a2();
-                                _shouldSetState = true;
-                                if (!surveyLocationPermission!) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('ผิดพลาด'),
-                                        content: Text(
-                                            'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
-                                setState(() =>
-                                    FFAppState().isFromTimesheetPage = false);
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              context.goNamedAuth('SurveyPage', mounted);
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              height: 190,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x230E151B),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/istock_blossomstar_survey.jpg',
-                                        width: double.infinity,
-                                        height: 115,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 12, 0, 0),
-                                        child: Text(
-                                          'ตรวจสอบลูกค้า',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation3']!),
-                          InkWell(
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: LoadingSceneWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-
-                              checkLoginCollectionPage =
-                                  await GetUserProfileAPICall.call(
-                                token: FFAppState().accessToken,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-                              _shouldSetState = true;
-                              if (!(checkLoginCollectionPage?.succeeded ??
-                                  true)) {
-                                Navigator.pop(context);
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                setState(() =>
-                                    FFAppState().imei = '123456789012345');
-                                setState(() {
-                                  FFAppState().deleteAccessToken();
-                                  FFAppState().accessToken = 'access_token';
-                                });
-                                setState(() {
-                                  FFAppState().deleteEmployeeID();
-                                  FFAppState().employeeID = 'employee_id';
-                                });
-                                setState(() =>
-                                    FFAppState().QRCodeLink = 'qrcode_link');
-                                setState(() {
-                                  FFAppState().deleteApiURLLocalState();
-                                  FFAppState().apiURLLocalState =
-                                      'api_url_local_state';
-                                });
-                                setState(() {
-                                  FFAppState().deleteBranchCode();
-                                  FFAppState().branchCode = 'branch_code';
-                                });
-                                GoRouter.of(context).prepareAuthEvent();
-                                await signOut();
-
-                                context.goNamedAuth('LoginPage', mounted);
-
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-                              Navigator.pop(context);
-                              collectionLocationService = await actions.a1();
-                              _shouldSetState = true;
-                              if (collectionLocationService!) {
-                                collectionLocationPermission =
-                                    await actions.a2();
-                                _shouldSetState = true;
-                                if (!collectionLocationPermission!) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('ผิดพลาด'),
-                                        content: Text(
-                                            'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
-                                setState(() =>
-                                    FFAppState().isFromTimesheetPage = false);
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              context.goNamedAuth('CollectionPage', mounted);
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              height: 190,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x230E151B),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/handing-over-money-image-dp-300x250.jpg',
-                                        width: double.infinity,
-                                        height: 115,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 12, 0, 0),
-                                        child: Text(
-                                          'ติดตามหนี้',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation4']!),
-                          InkWell(
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: LoadingSceneWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-
-                              checkLoginMarketingPage =
-                                  await GetUserProfileAPICall.call(
-                                token: FFAppState().accessToken,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-                              _shouldSetState = true;
-                              if ((checkLoginMarketingPage?.succeeded ??
-                                  true)) {
-                                Navigator.pop(context);
-                              } else {
-                                Navigator.pop(context);
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                setState(() =>
-                                    FFAppState().imei = '123456789012345');
-                                setState(() {
-                                  FFAppState().deleteAccessToken();
-                                  FFAppState().accessToken = 'access_token';
-                                });
-                                setState(() {
-                                  FFAppState().deleteEmployeeID();
-                                  FFAppState().employeeID = 'employee_id';
-                                });
-                                setState(() =>
-                                    FFAppState().QRCodeLink = 'qrcode_link');
-                                setState(() {
-                                  FFAppState().deleteApiURLLocalState();
-                                  FFAppState().apiURLLocalState =
-                                      'api_url_local_state';
-                                });
-                                setState(() {
-                                  FFAppState().deleteBranchCode();
-                                  FFAppState().branchCode = 'branch_code';
-                                });
-                                GoRouter.of(context).prepareAuthEvent();
-                                await signOut();
-
-                                context.goNamedAuth('LoginPage', mounted);
-
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              marketingLocationService = await actions.a1();
-                              _shouldSetState = true;
-                              if (marketingLocationService!) {
-                                marketingLocationPermission =
-                                    await actions.a2();
-                                _shouldSetState = true;
-                                if (!marketingLocationPermission!) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('ผิดพลาด'),
-                                        content: Text(
-                                            'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
-                                setState(() =>
-                                    FFAppState().isFromTimesheetPage = false);
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              context.goNamedAuth('MarketingPage', mounted);
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              height: 190,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x230E151B),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/noisy_big_megaphone_74855_7630_fed38ffd42.jpg',
-                                        width: double.infinity,
-                                        height: 115,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 12, 0, 0),
-                                        child: Text(
-                                          'ทำการตลาด',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation5']!),
-                          InkWell(
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: LoadingSceneWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-
-                              checkLoginNPAPage =
-                                  await GetUserProfileAPICall.call(
-                                token: FFAppState().accessToken,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-                              _shouldSetState = true;
-                              if ((checkLoginNPAPage?.succeeded ?? true)) {
-                                Navigator.pop(context);
-                              } else {
-                                Navigator.pop(context);
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                setState(() =>
-                                    FFAppState().imei = '123456789012345');
-                                setState(() {
-                                  FFAppState().deleteAccessToken();
-                                  FFAppState().accessToken = 'access_token';
-                                });
-                                setState(() {
-                                  FFAppState().deleteEmployeeID();
-                                  FFAppState().employeeID = 'employee_id';
-                                });
-                                setState(() =>
-                                    FFAppState().QRCodeLink = 'qrcode_link');
-                                setState(() {
-                                  FFAppState().deleteApiURLLocalState();
-                                  FFAppState().apiURLLocalState =
-                                      'api_url_local_state';
-                                });
-                                setState(() {
-                                  FFAppState().deleteBranchCode();
-                                  FFAppState().branchCode = 'branch_code';
-                                });
-                                GoRouter.of(context).prepareAuthEvent();
-                                await signOut();
-
-                                context.goNamedAuth('LoginPage', mounted);
-
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              nPALocationService = await actions.a1();
-                              _shouldSetState = true;
-                              if (nPALocationService!) {
-                                nPALocationPermission = await actions.a2();
-                                _shouldSetState = true;
-                                if (!nPALocationPermission!) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return AlertDialog(
-                                        title: Text('ผิดพลาด'),
-                                        content: Text(
-                                            'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                  if (_shouldSetState) setState(() {});
-                                  return;
-                                }
-                                setState(() =>
-                                    FFAppState().isFromTimesheetPage = false);
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              context.goNamedAuth('NPApage', mounted);
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              height: 190,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x230E151B),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/74a40a4b-2704-4e25-9c48-05e2be5741b5.jpg',
-                                        width: double.infinity,
-                                        height: 115,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 12, 0, 0),
-                                        child: Text(
-                                          'สำรวจ NPA',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation6']!),
-                          Visibility(
-                            visible: FFAppState().opsMenuVisible,
-                            child: InkWell(
+                        ),
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['containerOnPageLoadAnimation1']!),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 20.0, 0.0, 44.0),
+                        child: Wrap(
+                          spacing: 8.0,
+                          runSpacing: 8.0,
+                          alignment: WrapAlignment.start,
+                          crossAxisAlignment: WrapCrossAlignment.start,
+                          direction: Axis.horizontal,
+                          runAlignment: WrapAlignment.start,
+                          verticalDirection: VerticalDirection.down,
+                          clipBehavior: Clip.none,
+                          children: [
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
                               onTap: () async {
                                 var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
                                 showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
                                   context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding:
-                                          MediaQuery.of(context).viewInsets,
-                                      child: Container(
-                                        height: double.infinity,
-                                        child: LoadingSceneWidget(),
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
+                                        ),
                                       ),
                                     );
                                   },
                                 ).then((value) => setState(() {}));
 
-                                checkLoginOPSPage =
-                                    await GetUserProfileAPICall.call(
+                                _model.checkLoginCheckInPage =
+                                    await ActionUserAPICall.call(
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
                                 _shouldSetState = true;
-                                if ((checkLoginOPSPage?.succeeded ?? true)) {
-                                  Navigator.pop(context);
-                                } else {
-                                  Navigator.pop(context);
+                                if ((_model.checkLoginCheckInPage?.statusCode ??
+                                        200) !=
+                                    200) {
+                                  if (!((ActionUserAPICall.message(
+                                            (_model.checkLoginCheckInPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'The token has been blacklisted') ||
+                                      (ActionUserAPICall.message(
+                                            (_model.checkLoginCheckInPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'Token Signature could not be verified.'))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.checkLoginCheckInPage?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return AlertDialog(
-                                        title: Text('ผิดพลาด'),
-                                        content: Text(
-                                            'Session Login หมดอายุ\nกรุณาLoginใหม่'),
+                                        content: Text('Session Loginหมดอายุ'),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(
@@ -1292,47 +447,75 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  setState(() =>
-                                      FFAppState().imei = '123456789012345');
-                                  setState(() {
+                                  FFAppState().update(() {
+                                    FFAppState().loginStateFirebase =
+                                        '[loginStateFirebase]';
                                     FFAppState().deleteAccessToken();
                                     FFAppState().accessToken = 'access_token';
                                   });
-                                  setState(() {
+                                  FFAppState().update(() {
                                     FFAppState().deleteEmployeeID();
                                     FFAppState().employeeID = 'employee_id';
+
+                                    FFAppState().QRCodeLink = 'qrcode_link';
                                   });
-                                  setState(() =>
-                                      FFAppState().QRCodeLink = 'qrcode_link');
-                                  setState(() {
+                                  FFAppState().update(() {
                                     FFAppState().deleteApiURLLocalState();
                                     FFAppState().apiURLLocalState =
                                         'api_url_local_state';
-                                  });
-                                  setState(() {
+
                                     FFAppState().deleteBranchCode();
                                     FFAppState().branchCode = 'branch_code';
                                   });
-                                  GoRouter.of(context).prepareAuthEvent();
-                                  await signOut();
+                                  FFAppState().update(() {
+                                    FFAppState().isFromSetPinPage = false;
+                                    FFAppState().leadChannelColor = [];
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().leadChannelList = [];
+                                    FFAppState().isFromLoginPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deletePinCodeAuthen();
+                                    FFAppState().pinCodeAuthen = '013972';
 
-                                  context.goNamedAuth('LoginPage', mounted);
+                                    FFAppState().isFromAuthenPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteDateDoNotShowAgain();
+                                    FFAppState().dateDoNotShowAgain = null;
+
+                                    FFAppState().deleteDoNotShowAgain();
+                                    FFAppState().doNotShowAgain = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().inAppViaNotification = true;
+                                    FFAppState().isInApp = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().fcmToken = 'fcm_token';
+                                    FFAppState().isPassLoginSection = false;
+                                  });
+                                  Navigator.pop(context);
+                                  await actions.a22();
+
+                                  context.goNamed('LoginPage');
 
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-
-                                oPSLocationService = await actions.a1();
+                                _model.checkInLocationService =
+                                    await actions.a1();
                                 _shouldSetState = true;
-                                if (oPSLocationService!) {
-                                  oPSLocationPermission = await actions.a2();
+                                if (_model.checkInLocationService!) {
+                                  _model.checkInLocationPermission =
+                                      await actions.a2();
                                   _shouldSetState = true;
-                                  if (!oPSLocationPermission!) {
+                                  if (!_model.checkInLocationPermission!) {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return AlertDialog(
-                                          title: Text('ผิดพลาด'),
                                           content: Text(
                                               'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
                                           actions: [
@@ -1348,14 +531,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  setState(() =>
-                                      FFAppState().isFromTimesheetPage = false);
+                                  FFAppState().update(() {
+                                    FFAppState().isFromTimesheetPage = false;
+                                  });
                                 } else {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return AlertDialog(
-                                        title: Text('ผิดพลาด'),
                                         content: Text(
                                             'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
                                         actions: [
@@ -1372,57 +555,55 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   return;
                                 }
 
-                                context.goNamedAuth('OPSpage', mounted);
+                                context.goNamed('CheckInPage');
 
                                 if (_shouldSetState) setState(() {});
                               },
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.45,
-                                height: 190,
+                                height: 190.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   boxShadow: [
                                     BoxShadow(
-                                      blurRadius: 4,
-                                      color: Color(0x230E151B),
-                                      offset: Offset(0, 2),
+                                      blurRadius: 4.0,
+                                      color: Color(0x33000000),
+                                      offset: Offset(0.0, 2.0),
                                     )
                                   ],
-                                  borderRadius: BorderRadius.circular(12),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      4, 4, 4, 4),
+                                      4.0, 4.0, 4.0, 4.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Container(
-                                        width: double.infinity,
-                                        height: 115,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFD2D2D2),
-                                        ),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                         child: Image.asset(
-                                          'assets/images/kindpng_5675046.png',
+                                          'assets/images/google-maps-new-interface1.jpg',
                                           width: double.infinity,
-                                          height: 115,
-                                          fit: BoxFit.contain,
+                                          height: 115.0,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
                                       Align(
-                                        alignment: AlignmentDirectional(0, 0),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8, 12, 0, 0),
+                                                  8.0, 12.0, 0.0, 0.0),
                                           child: Text(
-                                            'ทรัพย์สิน OPS',
+                                            'เช็คอิน',
                                             style: FlutterFlowTheme.of(context)
-                                                .subtitle1,
+                                                .titleMedium,
                                           ),
                                         ),
                                       ),
@@ -1431,96 +612,186 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation7']!),
-                          ),
-                          InkWell(
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: LoadingSceneWidget(),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => setState(() {}));
-
-                              checkLoginCheckerPage =
-                                  await GetUserProfileAPICall.call(
-                                token: FFAppState().accessToken,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-                              _shouldSetState = true;
-                              if ((checkLoginCheckerPage?.succeeded ?? true)) {
-                                Navigator.pop(context);
-                              } else {
-                                Navigator.pop(context);
-                                await showDialog(
+                                'containerOnPageLoadAnimation2']!),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
                                   context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
                                         ),
-                                      ],
+                                      ),
                                     );
                                   },
+                                ).then((value) => setState(() {}));
+
+                                _model.checkLoginSurveyPage =
+                                    await ActionUserAPICall.call(
+                                  token: FFAppState().accessToken,
+                                  apiUrl: FFAppState().apiURLLocalState,
                                 );
-                                setState(() =>
-                                    FFAppState().imei = '123456789012345');
-                                setState(() {
-                                  FFAppState().deleteAccessToken();
-                                  FFAppState().accessToken = 'access_token';
-                                });
-                                setState(() {
-                                  FFAppState().deleteEmployeeID();
-                                  FFAppState().employeeID = 'employee_id';
-                                });
-                                setState(() =>
-                                    FFAppState().QRCodeLink = 'qrcode_link');
-                                setState(() {
-                                  FFAppState().deleteApiURLLocalState();
-                                  FFAppState().apiURLLocalState =
-                                      'api_url_local_state';
-                                });
-                                setState(() {
-                                  FFAppState().deleteBranchCode();
-                                  FFAppState().branchCode = 'branch_code';
-                                });
-                                GoRouter.of(context).prepareAuthEvent();
-                                await signOut();
-
-                                context.goNamedAuth('LoginPage', mounted);
-
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              checkerLocationService = await actions.a1();
-                              _shouldSetState = true;
-                              if (checkerLocationService!) {
-                                checkerLocationPermission = await actions.a2();
                                 _shouldSetState = true;
-                                if (!checkerLocationPermission!) {
+                                if ((_model.checkLoginSurveyPage?.statusCode ??
+                                        200) !=
+                                    200) {
+                                  if (!((ActionUserAPICall.message(
+                                            (_model.checkLoginSurveyPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'The token has been blacklisted') ||
+                                      (ActionUserAPICall.message(
+                                            (_model.checkLoginSurveyPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'Token Signature could not be verified.'))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.checkLoginSurveyPage?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return AlertDialog(
-                                        title: Text('ผิดพลาด'),
+                                        content: Text('Session Loginหมดอายุ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  FFAppState().update(() {
+                                    FFAppState().loginStateFirebase =
+                                        '[loginStateFirebase]';
+                                    FFAppState().deleteAccessToken();
+                                    FFAppState().accessToken = 'access_token';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteEmployeeID();
+                                    FFAppState().employeeID = 'employee_id';
+
+                                    FFAppState().QRCodeLink = 'qrcode_link';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteApiURLLocalState();
+                                    FFAppState().apiURLLocalState =
+                                        'api_url_local_state';
+
+                                    FFAppState().deleteBranchCode();
+                                    FFAppState().branchCode = 'branch_code';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().isFromSetPinPage = false;
+                                    FFAppState().leadChannelColor = [];
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().leadChannelList = [];
+                                    FFAppState().isFromLoginPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deletePinCodeAuthen();
+                                    FFAppState().pinCodeAuthen = '013972';
+
+                                    FFAppState().isFromAuthenPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteDateDoNotShowAgain();
+                                    FFAppState().dateDoNotShowAgain = null;
+
+                                    FFAppState().deleteDoNotShowAgain();
+                                    FFAppState().doNotShowAgain = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().inAppViaNotification = true;
+                                    FFAppState().isInApp = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().fcmToken = 'fcm_token';
+                                    FFAppState().isPassLoginSection = false;
+                                  });
+                                  Navigator.pop(context);
+                                  await actions.a22();
+
+                                  context.goNamed('LoginPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                _model.surveyLocationService =
+                                    await actions.a1();
+                                _shouldSetState = true;
+                                if (_model.surveyLocationService!) {
+                                  _model.surveyLocationPermission =
+                                      await actions.a2();
+                                  _shouldSetState = true;
+                                  if (!_model.surveyLocationPermission!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  FFAppState().update(() {
+                                    FFAppState().isFromTimesheetPage = false;
+                                  });
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
                                         content: Text(
-                                            'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                            'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(
@@ -1534,221 +805,1489 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-                                setState(() =>
-                                    FFAppState().isFromTimesheetPage = false);
-                              } else {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
+
+                                context.goNamed('SurveyPage');
+
                                 if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              context.goNamedAuth('CheckerPage', mounted);
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              height: 190,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x230E151B),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/webpc-passthru.webp',
-                                        width: double.infinity,
-                                        height: 115,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 12, 0, 0),
-                                        child: Text(
-                                          'ฝ่ายตรวจสอบ',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                height: 190.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x230E151B),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          'assets/images/istock_blossomstar_survey.jpg',
+                                          width: double.infinity,
+                                          height: 115.0,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 12.0, 0.0, 0.0),
+                                          child: Text(
+                                            'ตรวจสอบลูกค้า',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation8']!),
-                          InkWell(
-                            onTap: () async {
-                              var _shouldSetState = false;
-                              showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: LoadingSceneWidget(),
-                                    ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation3']!),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
+                                  context: context,
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+
+                                _model.checkLoginCollectionPage =
+                                    await ActionUserAPICall.call(
+                                  token: FFAppState().accessToken,
+                                  apiUrl: FFAppState().apiURLLocalState,
+                                );
+                                _shouldSetState = true;
+                                if ((_model.checkLoginCollectionPage
+                                            ?.statusCode ??
+                                        200) !=
+                                    200) {
+                                  if (!((ActionUserAPICall.message(
+                                            (_model.checkLoginCollectionPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'The token has been blacklisted') ||
+                                      (ActionUserAPICall.message(
+                                            (_model.checkLoginCollectionPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'Token Signature could not be verified.'))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.checkLoginCollectionPage?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text('Session Loginหมดอายุ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
                                   );
-                                },
-                              ).then((value) => setState(() {}));
+                                  FFAppState().update(() {
+                                    FFAppState().loginStateFirebase =
+                                        '[loginStateFirebase]';
+                                    FFAppState().deleteAccessToken();
+                                    FFAppState().accessToken = 'access_token';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteEmployeeID();
+                                    FFAppState().employeeID = 'employee_id';
 
-                              checkLoginTimesheetPage =
-                                  await GetUserProfileAPICall.call(
-                                token: FFAppState().accessToken,
-                                apiUrl: FFAppState().apiURLLocalState,
-                              );
-                              _shouldSetState = true;
-                              if ((checkLoginTimesheetPage?.succeeded ??
-                                  true)) {
+                                    FFAppState().QRCodeLink = 'qrcode_link';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteApiURLLocalState();
+                                    FFAppState().apiURLLocalState =
+                                        'api_url_local_state';
+
+                                    FFAppState().deleteBranchCode();
+                                    FFAppState().branchCode = 'branch_code';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().isFromSetPinPage = false;
+                                    FFAppState().leadChannelColor = [];
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().leadChannelList = [];
+                                    FFAppState().isFromLoginPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deletePinCodeAuthen();
+                                    FFAppState().pinCodeAuthen = '013972';
+
+                                    FFAppState().isFromAuthenPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteDateDoNotShowAgain();
+                                    FFAppState().dateDoNotShowAgain = null;
+
+                                    FFAppState().deleteDoNotShowAgain();
+                                    FFAppState().doNotShowAgain = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().inAppViaNotification = true;
+                                    FFAppState().isInApp = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().fcmToken = 'fcm_token';
+                                    FFAppState().isPassLoginSection = false;
+                                  });
+                                  Navigator.pop(context);
+                                  await actions.a22();
+
+                                  context.goNamed('LoginPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
                                 Navigator.pop(context);
-                                setState(() =>
-                                    FFAppState().isFromTimesheetPage = true);
-                              } else {
-                                Navigator.pop(context);
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return AlertDialog(
-                                      title: Text('ผิดพลาด'),
-                                      content: Text(
-                                          'Session Login หมดอายุ\nกรุณาLoginใหม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
+                                _model.collectionLocationService =
+                                    await actions.a1();
+                                _shouldSetState = true;
+                                if (_model.collectionLocationService!) {
+                                  _model.collectionLocationPermission =
+                                      await actions.a2();
+                                  _shouldSetState = true;
+                                  if (!_model.collectionLocationPermission!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
                                     );
-                                  },
-                                );
-                                setState(() =>
-                                    FFAppState().imei = '123456789012345');
-                                setState(() {
-                                  FFAppState().deleteAccessToken();
-                                  FFAppState().accessToken = 'access_token';
-                                });
-                                setState(() {
-                                  FFAppState().deleteEmployeeID();
-                                  FFAppState().employeeID = 'employee_id';
-                                });
-                                setState(() =>
-                                    FFAppState().QRCodeLink = 'qrcode_link');
-                                setState(() {
-                                  FFAppState().deleteApiURLLocalState();
-                                  FFAppState().apiURLLocalState =
-                                      'api_url_local_state';
-                                });
-                                setState(() {
-                                  FFAppState().deleteBranchCode();
-                                  FFAppState().branchCode = 'branch_code';
-                                });
-                                GoRouter.of(context).prepareAuthEvent();
-                                await signOut();
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  FFAppState().update(() {
+                                    FFAppState().isFromTimesheetPage = false;
+                                  });
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
 
-                                context.goNamedAuth('LoginPage', mounted);
+                                context.goNamed('CollectionPage');
 
                                 if (_shouldSetState) setState(() {});
-                                return;
-                              }
-
-                              context.goNamedAuth('TimeSheetPage', mounted);
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.45,
-                              height: 190,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    blurRadius: 4,
-                                    color: Color(0x230E151B),
-                                    offset: Offset(0, 2),
-                                  )
-                                ],
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/Time-tracking-system.jpg',
-                                        width: double.infinity,
-                                        height: 115,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0, 0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8, 12, 0, 0),
-                                        child: Text(
-                                          'ไทม์ชีท',
-                                          style: FlutterFlowTheme.of(context)
-                                              .subtitle1,
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                height: 190.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x230E151B),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          'assets/images/handing-over-money-image-dp-300x250.jpg',
+                                          width: double.infinity,
+                                          height: 115.0,
+                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 12.0, 0.0, 0.0),
+                                          child: Text(
+                                            'ติดตามหนี้',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation4']!),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
+                                  context: context,
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+
+                                _model.checkLoginMarketingPage =
+                                    await ActionUserAPICall.call(
+                                  token: FFAppState().accessToken,
+                                  apiUrl: FFAppState().apiURLLocalState,
+                                );
+                                _shouldSetState = true;
+                                if ((_model.checkLoginMarketingPage
+                                            ?.statusCode ??
+                                        200) !=
+                                    200) {
+                                  if (!((ActionUserAPICall.message(
+                                            (_model.checkLoginMarketingPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'The token has been blacklisted') ||
+                                      (ActionUserAPICall.message(
+                                            (_model.checkLoginMarketingPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'Token Signature could not be verified.'))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.checkLoginMarketingPage?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text('Session Loginหมดอายุ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  FFAppState().update(() {
+                                    FFAppState().loginStateFirebase =
+                                        '[loginStateFirebase]';
+                                    FFAppState().deleteAccessToken();
+                                    FFAppState().accessToken = 'access_token';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteEmployeeID();
+                                    FFAppState().employeeID = 'employee_id';
+
+                                    FFAppState().QRCodeLink = 'qrcode_link';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteApiURLLocalState();
+                                    FFAppState().apiURLLocalState =
+                                        'api_url_local_state';
+
+                                    FFAppState().deleteBranchCode();
+                                    FFAppState().branchCode = 'branch_code';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().isFromSetPinPage = false;
+                                    FFAppState().leadChannelColor = [];
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().leadChannelList = [];
+                                    FFAppState().isFromLoginPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deletePinCodeAuthen();
+                                    FFAppState().pinCodeAuthen = '013972';
+
+                                    FFAppState().isFromAuthenPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteDateDoNotShowAgain();
+                                    FFAppState().dateDoNotShowAgain = null;
+
+                                    FFAppState().deleteDoNotShowAgain();
+                                    FFAppState().doNotShowAgain = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().inAppViaNotification = true;
+                                    FFAppState().isInApp = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().fcmToken = 'fcm_token';
+                                    FFAppState().isPassLoginSection = false;
+                                  });
+                                  Navigator.pop(context);
+                                  await actions.a22();
+
+                                  context.goNamed('LoginPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                _model.marketingLocationService =
+                                    await actions.a1();
+                                _shouldSetState = true;
+                                if (_model.marketingLocationService!) {
+                                  _model.marketingLocationPermission =
+                                      await actions.a2();
+                                  _shouldSetState = true;
+                                  if (!_model.marketingLocationPermission!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  FFAppState().update(() {
+                                    FFAppState().isFromTimesheetPage = false;
+                                  });
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+
+                                context.goNamed('MarketingPage');
+
+                                if (_shouldSetState) setState(() {});
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                height: 190.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x230E151B),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          'assets/images/noisy_big_megaphone_74855_7630_fed38ffd42.jpg',
+                                          width: double.infinity,
+                                          height: 115.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 12.0, 0.0, 0.0),
+                                          child: Text(
+                                            'ทำการตลาด',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation5']!),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
+                                  context: context,
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+
+                                _model.checkLoginNPAPage =
+                                    await ActionUserAPICall.call(
+                                  token: FFAppState().accessToken,
+                                  apiUrl: FFAppState().apiURLLocalState,
+                                );
+                                _shouldSetState = true;
+                                if ((_model.checkLoginNPAPage?.statusCode ??
+                                        200) !=
+                                    200) {
+                                  if (!((ActionUserAPICall.message(
+                                            (_model.checkLoginNPAPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'The token has been blacklisted') ||
+                                      (ActionUserAPICall.message(
+                                            (_model.checkLoginNPAPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'Token Signature could not be verified.'))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.checkLoginNPAPage?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text('Session Loginหมดอายุ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  FFAppState().update(() {
+                                    FFAppState().loginStateFirebase =
+                                        '[loginStateFirebase]';
+                                    FFAppState().deleteAccessToken();
+                                    FFAppState().accessToken = 'access_token';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteEmployeeID();
+                                    FFAppState().employeeID = 'employee_id';
+
+                                    FFAppState().QRCodeLink = 'qrcode_link';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteApiURLLocalState();
+                                    FFAppState().apiURLLocalState =
+                                        'api_url_local_state';
+
+                                    FFAppState().deleteBranchCode();
+                                    FFAppState().branchCode = 'branch_code';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().isFromSetPinPage = false;
+                                    FFAppState().leadChannelColor = [];
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().leadChannelList = [];
+                                    FFAppState().isFromLoginPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deletePinCodeAuthen();
+                                    FFAppState().pinCodeAuthen = '013972';
+
+                                    FFAppState().isFromAuthenPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteDateDoNotShowAgain();
+                                    FFAppState().dateDoNotShowAgain = null;
+
+                                    FFAppState().deleteDoNotShowAgain();
+                                    FFAppState().doNotShowAgain = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().inAppViaNotification = true;
+                                    FFAppState().isInApp = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().fcmToken = 'fcm_token';
+                                    FFAppState().isPassLoginSection = false;
+                                  });
+                                  Navigator.pop(context);
+                                  await actions.a22();
+
+                                  context.goNamed('LoginPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                _model.nPALocationService = await actions.a1();
+                                _shouldSetState = true;
+                                if (_model.nPALocationService!) {
+                                  _model.nPALocationPermission =
+                                      await actions.a2();
+                                  _shouldSetState = true;
+                                  if (!_model.nPALocationPermission!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  FFAppState().update(() {
+                                    FFAppState().isFromTimesheetPage = false;
+                                  });
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+
+                                context.goNamed('NPApage');
+
+                                if (_shouldSetState) setState(() {});
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                height: 190.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x230E151B),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          'assets/images/74a40a4b-2704-4e25-9c48-05e2be5741b5.jpg',
+                                          width: double.infinity,
+                                          height: 115.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 12.0, 0.0, 0.0),
+                                          child: Text(
+                                            'สำรวจ NPA',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation6']!),
+                            Visibility(
+                              visible: FFAppState().opsMenuVisible,
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  var _shouldSetState = false;
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: Color(0x00000000),
+                                    context: context,
+                                    builder: (bottomSheetContext) {
+                                      return GestureDetector(
+                                        onTap: () => FocusScope.of(context)
+                                            .requestFocus(_unfocusNode),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.of(bottomSheetContext)
+                                                  .viewInsets,
+                                          child: Container(
+                                            height: double.infinity,
+                                            child: LoadingSceneWidget(),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+
+                                  _model.checkLoginOPSPage =
+                                      await GetUserProfileAPICall.call(
+                                    token: FFAppState().accessToken,
+                                    apiUrl: FFAppState().apiURLLocalState,
+                                  );
+                                  _shouldSetState = true;
+                                  if ((_model.checkLoginOPSPage?.succeeded ??
+                                      true)) {
+                                    Navigator.pop(context);
+                                  } else {
+                                    Navigator.pop(context);
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('ผิดพลาด'),
+                                          content: Text(
+                                              'Session Login หมดอายุ\nกรุณาLoginใหม่'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    FFAppState().update(() {
+                                      FFAppState().imei = '123456789012345';
+                                      FFAppState().deleteAccessToken();
+                                      FFAppState().accessToken = 'access_token';
+                                    });
+                                    FFAppState().update(() {
+                                      FFAppState().deleteEmployeeID();
+                                      FFAppState().employeeID = 'employee_id';
+
+                                      FFAppState().QRCodeLink = 'qrcode_link';
+                                    });
+                                    FFAppState().update(() {
+                                      FFAppState().deleteApiURLLocalState();
+                                      FFAppState().apiURLLocalState =
+                                          'api_url_local_state';
+
+                                      FFAppState().deleteBranchCode();
+                                      FFAppState().branchCode = 'branch_code';
+                                    });
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
+
+                                    context.goNamedAuth('LoginPage', mounted);
+
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  _model.oPSLocationService =
+                                      await actions.a1();
+                                  _shouldSetState = true;
+                                  if (_model.oPSLocationService!) {
+                                    _model.oPSLocationPermission =
+                                        await actions.a2();
+                                    _shouldSetState = true;
+                                    if (!_model.oPSLocationPermission!) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            title: Text('ผิดพลาด'),
+                                            content: Text(
+                                                'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
+                                    FFAppState().update(() {
+                                      FFAppState().isFromTimesheetPage = false;
+                                    });
+                                  } else {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          title: Text('ผิดพลาด'),
+                                          content: Text(
+                                              'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+
+                                  context.goNamedAuth('OPSpage', mounted);
+
+                                  if (_shouldSetState) setState(() {});
+                                },
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.45,
+                                  height: 190.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x230E151B),
+                                        offset: Offset(0.0, 2.0),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        4.0, 4.0, 4.0, 4.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: double.infinity,
+                                          height: 115.0,
+                                          decoration: BoxDecoration(
+                                            color: Color(0xFFD2D2D2),
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/kindpng_5675046.png',
+                                            width: double.infinity,
+                                            height: 115.0,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 12.0, 0.0, 0.0),
+                                            child: Text(
+                                              'ทรัพย์สิน OPS',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMedium,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation7']!),
                             ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation9']!),
-                        ],
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
+                                  context: context,
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+
+                                _model.checkLoginCheckerPage =
+                                    await ActionUserAPICall.call(
+                                  token: FFAppState().accessToken,
+                                  apiUrl: FFAppState().apiURLLocalState,
+                                );
+                                _shouldSetState = true;
+                                if ((_model.checkLoginCheckerPage?.statusCode ??
+                                        200) !=
+                                    200) {
+                                  if (!((ActionUserAPICall.message(
+                                            (_model.checkLoginCheckerPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'The token has been blacklisted') ||
+                                      (ActionUserAPICall.message(
+                                            (_model.checkLoginCheckerPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'Token Signature could not be verified.'))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.checkLoginCheckerPage?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text('Session Loginหมดอายุ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  FFAppState().update(() {
+                                    FFAppState().loginStateFirebase =
+                                        '[loginStateFirebase]';
+                                    FFAppState().deleteAccessToken();
+                                    FFAppState().accessToken = 'access_token';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteEmployeeID();
+                                    FFAppState().employeeID = 'employee_id';
+
+                                    FFAppState().QRCodeLink = 'qrcode_link';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteApiURLLocalState();
+                                    FFAppState().apiURLLocalState =
+                                        'api_url_local_state';
+
+                                    FFAppState().deleteBranchCode();
+                                    FFAppState().branchCode = 'branch_code';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().isFromSetPinPage = false;
+                                    FFAppState().leadChannelColor = [];
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().leadChannelList = [];
+                                    FFAppState().isFromLoginPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deletePinCodeAuthen();
+                                    FFAppState().pinCodeAuthen = '013972';
+
+                                    FFAppState().isFromAuthenPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteDateDoNotShowAgain();
+                                    FFAppState().dateDoNotShowAgain = null;
+
+                                    FFAppState().deleteDoNotShowAgain();
+                                    FFAppState().doNotShowAgain = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().inAppViaNotification = true;
+                                    FFAppState().isInApp = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().fcmToken = 'fcm_token';
+                                    FFAppState().isPassLoginSection = false;
+                                  });
+                                  Navigator.pop(context);
+                                  await actions.a22();
+
+                                  context.goNamed('LoginPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                _model.checkerLocationService =
+                                    await actions.a1();
+                                _shouldSetState = true;
+                                if (_model.checkerLocationService!) {
+                                  _model.checkerLocationPermission =
+                                      await actions.a2();
+                                  _shouldSetState = true;
+                                  if (!_model.checkerLocationPermission!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'ต้องอนุญาตให้Branch View เข้าถึงตำแหน่งของคุณ เพื่อทำรายการต่อ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  FFAppState().update(() {
+                                    FFAppState().isFromTimesheetPage = false;
+                                  });
+                                } else {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            'ต้องทำการเปิดGPS เพื่อทำรายการต่อ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+
+                                context.goNamed('CheckerPage');
+
+                                if (_shouldSetState) setState(() {});
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                height: 190.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x230E151B),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          'assets/images/webpc-passthru.webp',
+                                          width: double.infinity,
+                                          height: 115.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 12.0, 0.0, 0.0),
+                                          child: Text(
+                                            'ฝ่ายตรวจสอบ',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation8']!),
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  barrierColor: Color(0x00000000),
+                                  context: context,
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+
+                                _model.checkLoginTimesheetPage =
+                                    await ActionUserAPICall.call(
+                                  token: FFAppState().accessToken,
+                                  apiUrl: FFAppState().apiURLLocalState,
+                                );
+                                _shouldSetState = true;
+                                if ((_model.checkLoginTimesheetPage
+                                            ?.statusCode ??
+                                        200) !=
+                                    200) {
+                                  if (!((ActionUserAPICall.message(
+                                            (_model.checkLoginTimesheetPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'The token has been blacklisted') ||
+                                      (ActionUserAPICall.message(
+                                            (_model.checkLoginTimesheetPage
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString() ==
+                                          'Token Signature could not be verified.'))) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.checkLoginTimesheetPage?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text('Session Loginหมดอายุ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  FFAppState().update(() {
+                                    FFAppState().loginStateFirebase =
+                                        '[loginStateFirebase]';
+                                    FFAppState().deleteAccessToken();
+                                    FFAppState().accessToken = 'access_token';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteEmployeeID();
+                                    FFAppState().employeeID = 'employee_id';
+
+                                    FFAppState().QRCodeLink = 'qrcode_link';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteApiURLLocalState();
+                                    FFAppState().apiURLLocalState =
+                                        'api_url_local_state';
+
+                                    FFAppState().deleteBranchCode();
+                                    FFAppState().branchCode = 'branch_code';
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().isFromSetPinPage = false;
+                                    FFAppState().leadChannelColor = [];
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().leadChannelList = [];
+                                    FFAppState().isFromLoginPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deletePinCodeAuthen();
+                                    FFAppState().pinCodeAuthen = '013972';
+
+                                    FFAppState().isFromAuthenPage = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().deleteDateDoNotShowAgain();
+                                    FFAppState().dateDoNotShowAgain = null;
+
+                                    FFAppState().deleteDoNotShowAgain();
+                                    FFAppState().doNotShowAgain = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().inAppViaNotification = true;
+                                    FFAppState().isInApp = false;
+                                  });
+                                  FFAppState().update(() {
+                                    FFAppState().fcmToken = 'fcm_token';
+                                    FFAppState().isPassLoginSection = false;
+                                  });
+                                  Navigator.pop(context);
+                                  await actions.a22();
+
+                                  context.goNamed('LoginPage');
+
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                FFAppState().update(() {
+                                  FFAppState().isFromTimesheetPage = true;
+                                });
+
+                                context.goNamed('TimeSheetPage');
+
+                                if (_shouldSetState) setState(() {});
+                              },
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.45,
+                                height: 190.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4.0,
+                                      color: Color(0x230E151B),
+                                      offset: Offset(0.0, 2.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4.0, 4.0, 4.0, 4.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.asset(
+                                          'assets/images/Time-tracking-system.jpg',
+                                          width: double.infinity,
+                                          height: 115.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 12.0, 0.0, 0.0),
+                                          child: Text(
+                                            'ไทม์ชีท',
+                                            style: FlutterFlowTheme.of(context)
+                                                .titleMedium,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ).animateOnPageLoad(animationsMap[
+                                'containerOnPageLoadAnimation9']!),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

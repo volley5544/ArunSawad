@@ -1,11 +1,13 @@
 // Automatic FlutterFlow imports
-import '../../backend/backend.dart';
-import '../../flutter_flow/flutter_flow_theme.dart';
-import '../../flutter_flow/flutter_flow_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
-import '../../flutter_flow/custom_functions.dart'; // Imports custom functions
+import '/flutter_flow/custom_functions.dart'; // Imports custom functions
 import 'package:flutter/material.dart';
 // Begin custom action code
+// DO NOT REMOVE OR MODIFY THE CODE ABOVE!
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -20,7 +22,7 @@ Future<String> a4() async {
   //print('Running on ${androidInfo.model}');  // e.g. "Moto G (4)"
 
   IosDeviceInfo iosInfo = await deviceInfo.iosInfo;
-  return 'identifierForVendor ios is ${iosInfo.identifierForVendor}';
+  return '${iosInfo.identifierForVendor}';
   //print('Running on ${iosInfo.utsname.machine}');  // e.g. "iPod7,1"
 
   //WebBrowserInfo webBrowserInfo = await deviceInfo.webBrowserInfo;

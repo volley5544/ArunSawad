@@ -15,6 +15,18 @@ import 'user_log_record.dart';
 import 'splash_page_img_record.dart';
 import 'key_storage2_record.dart';
 import 'sawad_form_services_record.dart';
+import 'sawad_announcement_record.dart';
+import 'notification_record.dart';
+import 'url_link_storage_record.dart';
+import 'promotionimages_record.dart';
+import 'splash_page_holiday_img_record.dart';
+import 'leave_page_data_record.dart';
+import 'build_version_record.dart';
+import 'splash_page_birthday_record.dart';
+import 'tiktok_video_record.dart';
+import 'hide_in_app_content_record.dart';
+import 'authorization_record.dart';
+import 'text_content_record.dart';
 
 import 'index.dart';
 
@@ -39,6 +51,18 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   SplashPageImgRecord,
   KeyStorage2Record,
   SawadFormServicesRecord,
+  SawadAnnouncementRecord,
+  NotificationRecord,
+  UrlLinkStorageRecord,
+  PromotionimagesRecord,
+  SplashPageHolidayImgRecord,
+  LeavePageDataRecord,
+  BuildVersionRecord,
+  SplashPageBirthdayRecord,
+  TiktokVideoRecord,
+  HideInAppContentRecord,
+  AuthorizationRecord,
+  TextContentRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
@@ -223,6 +247,9 @@ Map<String, dynamic> mapToFirestore(Map<String, dynamic> data) =>
       }
       return MapEntry(key, value);
     });
+
+List<GeoPoint>? convertToGeoPointList(List<LatLng>? list) =>
+    list?.map((e) => e.toGeoPoint()).toList();
 
 extension GeoPointExtension on LatLng {
   GeoPoint toGeoPoint() => GeoPoint(latitude, longitude);

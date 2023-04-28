@@ -1,13 +1,19 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_checkbox_group.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/backend.dart';
+import '/components/loading_scene_copy_widget.dart';
+import '/flutter_flow/flutter_flow_checkbox_group.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'splash_page_model.dart';
+export 'splash_page_model.dart';
 
 class SplashPageWidget extends StatefulWidget {
   const SplashPageWidget({
@@ -22,11 +28,37 @@ class SplashPageWidget extends StatefulWidget {
 }
 
 class _SplashPageWidgetState extends State<SplashPageWidget> {
-  List<String>? checkboxGroupValues;
-  PageController? pageViewController;
+  late SplashPageModel _model;
+
+  int get pageViewCurrentIndex => _model.pageViewController != null &&
+          _model.pageViewController!.hasClients &&
+          _model.pageViewController!.page != null
+      ? _model.pageViewController!.page!.round()
+      : 0;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => SplashPageModel());
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -37,64 +69,63 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: 330,
-            height: 600,
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(8),
-                bottomRight: Radius.circular(8),
-                topLeft: Radius.circular(24),
-                topRight: Radius.circular(24),
-              ),
+          FutureBuilder<List<SplashPageImgRecord>>(
+            future: querySplashPageImgRecordOnce(
+              queryBuilder: (splashPageImgRecord) => splashPageImgRecord.where(
+                  'day',
+                  isEqualTo: functions.checkDateWeekDay(getCurrentTimestamp)),
+              singleRecord: true,
             ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: FutureBuilder<List<SplashPageImgRecord>>(
-                    future: querySplashPageImgRecordOnce(
-                      queryBuilder: (splashPageImgRecord) =>
-                          splashPageImgRecord.where('day',
-                              isEqualTo: functions
-                                  .checkDateWeekDay(getCurrentTimestamp)),
-                      singleRecord: true,
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50,
-                            height: 50,
-                            child: CircularProgressIndicator(
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                            ),
-                          ),
-                        );
-                      }
-                      List<SplashPageImgRecord>
-                          pageViewSplashPageImgRecordList = snapshot.data!;
-                      // Return an empty Container when the document does not exist.
-                      if (snapshot.data!.isEmpty) {
-                        return Container();
-                      }
-                      final pageViewSplashPageImgRecord =
-                          pageViewSplashPageImgRecordList.isNotEmpty
-                              ? pageViewSplashPageImgRecordList.first
-                              : null;
-                      return Builder(
+                  ),
+                );
+              }
+              List<SplashPageImgRecord> containerSplashPageImgRecordList =
+                  snapshot.data!;
+              // Return an empty Container when the item does not exist.
+              if (snapshot.data!.isEmpty) {
+                return Container();
+              }
+              final containerSplashPageImgRecord =
+                  containerSplashPageImgRecordList.isNotEmpty
+                      ? containerSplashPageImgRecordList.first
+                      : null;
+              return Container(
+                width: 330.0,
+                height: 600.0,
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(8.0),
+                    bottomRight: Radius.circular(8.0),
+                    topLeft: Radius.circular(24.0),
+                    topRight: Radius.circular(24.0),
+                  ),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Builder(
                         builder: (context) {
                           final splashPageImgList =
-                              pageViewSplashPageImgRecord!.imgURL!.toList();
+                              containerSplashPageImgRecord!.imgURL!.toList();
                           return Container(
                             width: double.infinity,
-                            height: 500,
+                            height: 500.0,
                             child: Stack(
                               children: [
                                 PageView.builder(
-                                  controller: pageViewController ??=
+                                  controller: _model.pageViewController ??=
                                       PageController(
                                           initialPage: min(
                                               0, splashPageImgList.length - 1)),
@@ -109,7 +140,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                       children: [
                                         ClipRRect(
                                           borderRadius:
-                                              BorderRadius.circular(12),
+                                              BorderRadius.circular(12.0),
                                           child: Image.network(
                                             splashPageImgListItem,
                                             width: double.infinity,
@@ -119,10 +150,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0, 0.5),
+                                              AlignmentDirectional(0.0, 0.5),
                                           child: Container(
-                                            width: 280,
-                                            height: 200,
+                                            width: 280.0,
+                                            height: 200.0,
                                             decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -131,17 +162,18 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(8, 8, 8, 8),
+                                                      .fromSTEB(
+                                                          8.0, 8.0, 8.0, 8.0),
                                                   child: Text(
                                                     FFAppState().dailyText,
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyText1
+                                                        .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'FC Home Italic',
-                                                          fontSize: 22,
+                                                          fontSize: 22.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           fontStyle:
@@ -159,13 +191,13 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   },
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0, 1),
+                                  alignment: AlignmentDirectional(0.0, 1.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 0, 0, 10),
+                                        0.0, 0.0, 0.0, 10.0),
                                     child: smooth_page_indicator
                                         .SmoothPageIndicator(
-                                      controller: pageViewController ??=
+                                      controller: _model.pageViewController ??=
                                           PageController(
                                               initialPage: min(
                                                   0,
@@ -173,18 +205,19 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                                       1)),
                                       count: splashPageImgList.length,
                                       axisDirection: Axis.horizontal,
-                                      onDotClicked: (i) {
-                                        pageViewController!.animateToPage(
+                                      onDotClicked: (i) async {
+                                        await _model.pageViewController!
+                                            .animateToPage(
                                           i,
                                           duration: Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
                                       },
                                       effect: smooth_page_indicator.SlideEffect(
-                                        spacing: 8,
-                                        radius: 5,
-                                        dotWidth: 12,
-                                        dotHeight: 12,
+                                        spacing: 8.0,
+                                        radius: 5.0,
+                                        dotWidth: 12.0,
+                                        dotHeight: 12.0,
                                         dotColor: Color(0xFF9E9E9E),
                                         activeDotColor: Color(0xFF3F51B5),
                                         paintStyle: PaintingStyle.fill,
@@ -196,75 +229,175 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                             ),
                           );
                         },
-                      );
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: FlutterFlowCheckboxGroup(
-                          options: ['ไม่แสดงอีกในวันนี้'],
-                          onChanged: (val) =>
-                              setState(() => checkboxGroupValues = val),
-                          activeColor:
-                              FlutterFlowTheme.of(context).primaryColor,
-                          checkColor: Colors.white,
-                          checkboxBorderColor: Color(0xFF95A1AC),
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyText1.override(
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: FlutterFlowCheckboxGroup(
+                              options: ['ไม่แสดงอีกในวันนี้'],
+                              onChanged: (val) => setState(
+                                  () => _model.checkboxGroupValues = val),
+                              controller:
+                                  _model.checkboxGroupValueController ??=
+                                      FormFieldController<List<String>>(
+                                [],
+                              ),
+                              activeColor: FlutterFlowTheme.of(context).primary,
+                              checkColor: Colors.white,
+                              checkboxBorderColor: Color(0xFF95A1AC),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                   ),
-                          initialized: checkboxGroupValues != null,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            if (checkboxGroupValues?.length == 1) {
-                              setState(() => FFAppState().dateDoNotShowAgain =
-                                  functions.addDoNotShowAgainDate(
-                                      getCurrentTimestamp));
-                            }
-                            Navigator.pop(context);
-                          },
-                          text: 'ปิด',
-                          options: FFButtonOptions(
-                            width: 130,
-                            height: 40,
-                            color: Colors.white,
-                            textStyle:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                    ),
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF8D38),
-                              width: 2,
+                              initialized: _model.checkboxGroupValues != null,
                             ),
-                            borderRadius: BorderRadius.circular(8),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 7.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  if (_model.checkboxGroupValues?.length == 1) {
+                                    FFAppState().update(() {
+                                      FFAppState().dateDoNotShowAgain =
+                                          functions.addDoNotShowAgainDate(
+                                              getCurrentTimestamp);
+                                    });
+                                  }
+                                  Navigator.pop(context);
+                                },
+                                text: 'ปิด',
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Colors.white,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFFF8D38),
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  7.0, 0.0, 0.0, 0.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  await actions.capScene(
+                                    context,
+                                    functions.showMatNameInList(
+                                        functions
+                                            .imgPathToString(
+                                                containerSplashPageImgRecord!
+                                                    .imgURL!
+                                                    .toList())
+                                            .toList(),
+                                        pageViewCurrentIndex),
+                                    FFAppState().dailyText,
+                                  );
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: Color(0x00000000),
+                                    context: context,
+                                    builder: (bottomSheetContext) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneCopyWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => setState(() {}));
+
+                                  await Future.delayed(
+                                      const Duration(milliseconds: 6000));
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return AlertDialog(
+                                        content: Text(
+                                            'บันทึกภาพลง Gallery เรียบร้อย'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                  Navigator.pop(context);
+                                },
+                                text: 'บันทึกรูป',
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Color(0xFFFFB71A),
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.white,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              );
+            },
           ),
         ],
       ),

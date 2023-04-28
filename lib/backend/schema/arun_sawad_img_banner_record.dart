@@ -15,12 +15,20 @@ abstract class ArunSawadImgBannerRecord
   @BuiltValueField(wireName: 'img_url')
   BuiltList<String>? get imgUrl;
 
+  BuiltList<bool>? get isHaveLink;
+
+  @BuiltValueField(wireName: 'link_url')
+  BuiltList<String>? get linkUrl;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(ArunSawadImgBannerRecordBuilder builder) =>
-      builder..imgUrl = ListBuilder();
+      builder
+        ..imgUrl = ListBuilder()
+        ..isHaveLink = ListBuilder()
+        ..linkUrl = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('ArunSawadImgBanner');
@@ -49,7 +57,10 @@ Map<String, dynamic> createArunSawadImgBannerRecordData() {
   final firestoreData = serializers.toFirestore(
     ArunSawadImgBannerRecord.serializer,
     ArunSawadImgBannerRecord(
-      (a) => a..imgUrl = null,
+      (a) => a
+        ..imgUrl = null
+        ..isHaveLink = null
+        ..linkUrl = null,
     ),
   );
 

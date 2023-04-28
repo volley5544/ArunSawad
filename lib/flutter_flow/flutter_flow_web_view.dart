@@ -1,7 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:webviewx/webviewx.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'flutter_flow_util.dart';
 
 class FlutterFlowWebView extends StatefulWidget {
   const FlutterFlowWebView({
@@ -38,6 +41,21 @@ class _FlutterFlowWebViewState extends State<FlutterFlowWebView> {
         initialSourceType:
             widget.bypass ? SourceType.urlBypass : SourceType.url,
         javascriptMode: JavascriptMode.unrestricted,
+        navigationDelegate: (request) async {
+          if (isAndroid) {
+            if (request.content.source
+                .startsWith('https://api.whatsapp.com/send?phone')) {
+              String url = request.content.source;
+
+              await launchUrl(
+                Uri.parse(url),
+                mode: LaunchMode.externalApplication,
+              );
+              return NavigationDecision.prevent;
+            }
+          }
+          return NavigationDecision.navigate;
+        },
         webSpecificParams: const WebSpecificParams(
           webAllowFullscreenContent: true,
         ),
