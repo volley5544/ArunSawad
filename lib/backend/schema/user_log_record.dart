@@ -1,56 +1,86 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'user_log_record.g.dart';
+class UserLogRecord extends FirestoreRecord {
+  UserLogRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class UserLogRecord
-    implements Built<UserLogRecord, UserLogRecordBuilder> {
-  static Serializer<UserLogRecord> get serializer => _$userLogRecordSerializer;
+  // "employee_id" field.
+  String? _employeeId;
+  String get employeeId => _employeeId ?? '';
+  bool hasEmployeeId() => _employeeId != null;
 
-  @BuiltValueField(wireName: 'employee_id')
-  String? get employeeId;
+  // "action" field.
+  String? _action;
+  String get action => _action ?? '';
+  bool hasAction() => _action != null;
 
-  String? get action;
+  // "action_time" field.
+  DateTime? _actionTime;
+  DateTime? get actionTime => _actionTime;
+  bool hasActionTime() => _actionTime != null;
 
-  @BuiltValueField(wireName: 'action_time')
-  DateTime? get actionTime;
+  // "user_ref" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
 
-  @BuiltValueField(wireName: 'user_ref')
-  DocumentReference? get userRef;
+  // "user_location" field.
+  LatLng? _userLocation;
+  LatLng? get userLocation => _userLocation;
+  bool hasUserLocation() => _userLocation != null;
 
-  @BuiltValueField(wireName: 'user_location')
-  LatLng? get userLocation;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(UserLogRecordBuilder builder) => builder
-    ..employeeId = ''
-    ..action = '';
+  void _initializeFields() {
+    _employeeId = snapshotData['employee_id'] as String?;
+    _action = snapshotData['action'] as String?;
+    _actionTime = snapshotData['action_time'] as DateTime?;
+    _userRef = snapshotData['user_ref'] as DocumentReference?;
+    _userLocation = snapshotData['user_location'] as LatLng?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('user_log');
 
-  static Stream<UserLogRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<UserLogRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => UserLogRecord.fromSnapshot(s));
 
-  static Future<UserLogRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<UserLogRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => UserLogRecord.fromSnapshot(s));
 
-  UserLogRecord._();
-  factory UserLogRecord([void Function(UserLogRecordBuilder) updates]) =
-      _$UserLogRecord;
+  static UserLogRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      UserLogRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static UserLogRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      UserLogRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'UserLogRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is UserLogRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createUserLogRecordData({
@@ -60,17 +90,35 @@ Map<String, dynamic> createUserLogRecordData({
   DocumentReference? userRef,
   LatLng? userLocation,
 }) {
-  final firestoreData = serializers.toFirestore(
-    UserLogRecord.serializer,
-    UserLogRecord(
-      (u) => u
-        ..employeeId = employeeId
-        ..action = action
-        ..actionTime = actionTime
-        ..userRef = userRef
-        ..userLocation = userLocation,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'employee_id': employeeId,
+      'action': action,
+      'action_time': actionTime,
+      'user_ref': userRef,
+      'user_location': userLocation,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class UserLogRecordDocumentEquality implements Equality<UserLogRecord> {
+  const UserLogRecordDocumentEquality();
+
+  @override
+  bool equals(UserLogRecord? e1, UserLogRecord? e2) {
+    return e1?.employeeId == e2?.employeeId &&
+        e1?.action == e2?.action &&
+        e1?.actionTime == e2?.actionTime &&
+        e1?.userRef == e2?.userRef &&
+        e1?.userLocation == e2?.userLocation;
+  }
+
+  @override
+  int hash(UserLogRecord? e) => const ListEquality().hash(
+      [e?.employeeId, e?.action, e?.actionTime, e?.userRef, e?.userLocation]);
+
+  @override
+  bool isValidKey(Object? o) => o is UserLogRecord;
 }

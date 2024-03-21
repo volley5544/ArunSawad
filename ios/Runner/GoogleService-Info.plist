@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>379132035355-90jnuktq6r8rl5po359a4brc5ldthp86.apps.googleusercontent.com</string>
+	<string>379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.379132035355-90jnuktq6r8rl5po359a4brc5ldthp86</string>
+	<string>com.googleusercontent.apps.379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>379132035355-7k6re7f85tfbke3fmqv3ql29326qk2l2.apps.googleusercontent.com</string>
+	<string>379132035355-54ldqrk1ofcmg0pge4rrhel7b9r4oern.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDNtjNYdYHsg2FHT_cuzts1LeLMCjQWKwg</string>
 	<key>GCM_SENDER_ID</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mycompany.arunsawad</string>
+	<string>com.mycompany.publicarunsawad</string>
 	<key>PROJECT_ID</key>
 	<string>flut-flow-test</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:379132035355:ios:9f7f39786ba8b7fa2153be</string>
+	<string>1:379132035355:ios:e49397f84f3ee5942153be</string>
 	<key>DATABASE_URL</key>
 	<string>https://flut-flow-test-default-rtdb.asia-southeast1.firebasedatabase.app</string>
 </dict>
