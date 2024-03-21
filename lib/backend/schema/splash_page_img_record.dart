@@ -1,65 +1,111 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'splash_page_img_record.g.dart';
+class SplashPageImgRecord extends FirestoreRecord {
+  SplashPageImgRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class SplashPageImgRecord
-    implements Built<SplashPageImgRecord, SplashPageImgRecordBuilder> {
-  static Serializer<SplashPageImgRecord> get serializer =>
-      _$splashPageImgRecordSerializer;
+  // "day" field.
+  String? _day;
+  String get day => _day ?? '';
+  bool hasDay() => _day != null;
 
-  String? get day;
+  // "imgURL" field.
+  List<String>? _imgURL;
+  List<String> get imgURL => _imgURL ?? const [];
+  bool hasImgURL() => _imgURL != null;
 
-  BuiltList<String>? get imgURL;
+  // "text" field.
+  List<String>? _text;
+  List<String> get text => _text ?? const [];
+  bool hasText() => _text != null;
 
-  BuiltList<String>? get text;
+  // "blur_hash" field.
+  List<String>? _blurHash;
+  List<String> get blurHash => _blurHash ?? const [];
+  bool hasBlurHash() => _blurHash != null;
 
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(SplashPageImgRecordBuilder builder) => builder
-    ..day = ''
-    ..imgURL = ListBuilder()
-    ..text = ListBuilder();
+  void _initializeFields() {
+    _day = snapshotData['day'] as String?;
+    _imgURL = getDataList(snapshotData['imgURL']);
+    _text = getDataList(snapshotData['text']);
+    _blurHash = getDataList(snapshotData['blur_hash']);
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('SplashPageImg');
 
-  static Stream<SplashPageImgRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<SplashPageImgRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => SplashPageImgRecord.fromSnapshot(s));
 
   static Future<SplashPageImgRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => SplashPageImgRecord.fromSnapshot(s));
 
-  SplashPageImgRecord._();
-  factory SplashPageImgRecord(
-          [void Function(SplashPageImgRecordBuilder) updates]) =
-      _$SplashPageImgRecord;
+  static SplashPageImgRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      SplashPageImgRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static SplashPageImgRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      SplashPageImgRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'SplashPageImgRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is SplashPageImgRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createSplashPageImgRecordData({
   String? day,
 }) {
-  final firestoreData = serializers.toFirestore(
-    SplashPageImgRecord.serializer,
-    SplashPageImgRecord(
-      (s) => s
-        ..day = day
-        ..imgURL = null
-        ..text = null,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'day': day,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class SplashPageImgRecordDocumentEquality
+    implements Equality<SplashPageImgRecord> {
+  const SplashPageImgRecordDocumentEquality();
+
+  @override
+  bool equals(SplashPageImgRecord? e1, SplashPageImgRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.day == e2?.day &&
+        listEquality.equals(e1?.imgURL, e2?.imgURL) &&
+        listEquality.equals(e1?.text, e2?.text) &&
+        listEquality.equals(e1?.blurHash, e2?.blurHash);
+  }
+
+  @override
+  int hash(SplashPageImgRecord? e) =>
+      const ListEquality().hash([e?.day, e?.imgURL, e?.text, e?.blurHash]);
+
+  @override
+  bool isValidKey(Object? o) => o is SplashPageImgRecord;
 }

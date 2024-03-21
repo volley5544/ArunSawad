@@ -1,52 +1,80 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'text_content_record.g.dart';
+class TextContentRecord extends FirestoreRecord {
+  TextContentRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class TextContentRecord
-    implements Built<TextContentRecord, TextContentRecordBuilder> {
-  static Serializer<TextContentRecord> get serializer =>
-      _$textContentRecordSerializer;
+  // "kpiText" field.
+  String? _kpiText;
+  String get kpiText => _kpiText ?? '';
+  bool hasKpiText() => _kpiText != null;
 
-  String? get kpiText;
+  // "kpiTextcolor" field.
+  Color? _kpiTextcolor;
+  Color? get kpiTextcolor => _kpiTextcolor;
+  bool hasKpiTextcolor() => _kpiTextcolor != null;
 
-  Color? get kpiTextcolor;
+  // "kpiHideText" field.
+  bool? _kpiHideText;
+  bool get kpiHideText => _kpiHideText ?? false;
+  bool hasKpiHideText() => _kpiHideText != null;
 
-  bool? get kpiHideText;
+  // "contentName" field.
+  String? _contentName;
+  String get contentName => _contentName ?? '';
+  bool hasContentName() => _contentName != null;
 
-  String? get contentName;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(TextContentRecordBuilder builder) => builder
-    ..kpiText = ''
-    ..kpiHideText = false
-    ..contentName = '';
+  void _initializeFields() {
+    _kpiText = snapshotData['kpiText'] as String?;
+    _kpiTextcolor = getSchemaColor(snapshotData['kpiTextcolor']);
+    _kpiHideText = snapshotData['kpiHideText'] as bool?;
+    _contentName = snapshotData['contentName'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('textContent');
 
-  static Stream<TextContentRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<TextContentRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => TextContentRecord.fromSnapshot(s));
 
-  static Future<TextContentRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<TextContentRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => TextContentRecord.fromSnapshot(s));
 
-  TextContentRecord._();
-  factory TextContentRecord([void Function(TextContentRecordBuilder) updates]) =
-      _$TextContentRecord;
+  static TextContentRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      TextContentRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static TextContentRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      TextContentRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'TextContentRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is TextContentRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createTextContentRecordData({
@@ -55,16 +83,33 @@ Map<String, dynamic> createTextContentRecordData({
   bool? kpiHideText,
   String? contentName,
 }) {
-  final firestoreData = serializers.toFirestore(
-    TextContentRecord.serializer,
-    TextContentRecord(
-      (t) => t
-        ..kpiText = kpiText
-        ..kpiTextcolor = kpiTextcolor
-        ..kpiHideText = kpiHideText
-        ..contentName = contentName,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'kpiText': kpiText,
+      'kpiTextcolor': kpiTextcolor,
+      'kpiHideText': kpiHideText,
+      'contentName': contentName,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class TextContentRecordDocumentEquality implements Equality<TextContentRecord> {
+  const TextContentRecordDocumentEquality();
+
+  @override
+  bool equals(TextContentRecord? e1, TextContentRecord? e2) {
+    return e1?.kpiText == e2?.kpiText &&
+        e1?.kpiTextcolor == e2?.kpiTextcolor &&
+        e1?.kpiHideText == e2?.kpiHideText &&
+        e1?.contentName == e2?.contentName;
+  }
+
+  @override
+  int hash(TextContentRecord? e) => const ListEquality()
+      .hash([e?.kpiText, e?.kpiTextcolor, e?.kpiHideText, e?.contentName]);
+
+  @override
+  bool isValidKey(Object? o) => o is TextContentRecord;
 }

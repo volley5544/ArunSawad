@@ -1,64 +1,97 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'url_link_storage_record.g.dart';
+class UrlLinkStorageRecord extends FirestoreRecord {
+  UrlLinkStorageRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class UrlLinkStorageRecord
-    implements Built<UrlLinkStorageRecord, UrlLinkStorageRecordBuilder> {
-  static Serializer<UrlLinkStorageRecord> get serializer =>
-      _$urlLinkStorageRecordSerializer;
+  // "url_name" field.
+  String? _urlName;
+  String get urlName => _urlName ?? '';
+  bool hasUrlName() => _urlName != null;
 
-  @BuiltValueField(wireName: 'url_name')
-  String? get urlName;
+  // "url_link" field.
+  String? _urlLink;
+  String get urlLink => _urlLink ?? '';
+  bool hasUrlLink() => _urlLink != null;
 
-  @BuiltValueField(wireName: 'url_link')
-  String? get urlLink;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(UrlLinkStorageRecordBuilder builder) => builder
-    ..urlName = ''
-    ..urlLink = '';
+  void _initializeFields() {
+    _urlName = snapshotData['url_name'] as String?;
+    _urlLink = snapshotData['url_link'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('urlLinkStorage');
 
-  static Stream<UrlLinkStorageRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<UrlLinkStorageRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => UrlLinkStorageRecord.fromSnapshot(s));
 
   static Future<UrlLinkStorageRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => UrlLinkStorageRecord.fromSnapshot(s));
 
-  UrlLinkStorageRecord._();
-  factory UrlLinkStorageRecord(
-          [void Function(UrlLinkStorageRecordBuilder) updates]) =
-      _$UrlLinkStorageRecord;
+  static UrlLinkStorageRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      UrlLinkStorageRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static UrlLinkStorageRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      UrlLinkStorageRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'UrlLinkStorageRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is UrlLinkStorageRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createUrlLinkStorageRecordData({
   String? urlName,
   String? urlLink,
 }) {
-  final firestoreData = serializers.toFirestore(
-    UrlLinkStorageRecord.serializer,
-    UrlLinkStorageRecord(
-      (u) => u
-        ..urlName = urlName
-        ..urlLink = urlLink,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'url_name': urlName,
+      'url_link': urlLink,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class UrlLinkStorageRecordDocumentEquality
+    implements Equality<UrlLinkStorageRecord> {
+  const UrlLinkStorageRecordDocumentEquality();
+
+  @override
+  bool equals(UrlLinkStorageRecord? e1, UrlLinkStorageRecord? e2) {
+    return e1?.urlName == e2?.urlName && e1?.urlLink == e2?.urlLink;
+  }
+
+  @override
+  int hash(UrlLinkStorageRecord? e) =>
+      const ListEquality().hash([e?.urlName, e?.urlLink]);
+
+  @override
+  bool isValidKey(Object? o) => o is UrlLinkStorageRecord;
 }

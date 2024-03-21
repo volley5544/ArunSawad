@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -10,13 +11,19 @@ import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-Future open3CXAction(String? phoneNumber) async {
+Future<bool> open3CXAction(String? phoneNumber) async {
   // Add your function code here!
 
-  final url = 'tel:${Uri.encodeComponent(phoneNumber!)}';
+  final url = 'sip:${Uri.encodeComponent(phoneNumber!)}';
+  final urlPhone = 'tel:${Uri.encodeComponent(phoneNumber!)}';
 
-  await launchUrl(Uri.parse(url));
+  if (await canLaunchUrl(Uri.parse(url))) {
+    await launchUrl(Uri.parse(url));
+    return true;
+  } else {
+    await launchUrl(Uri.parse(urlPhone));
+    return true;
+  }
 }
-
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the button on the right!

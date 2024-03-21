@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:379132035355:ios:8afc7e7656e98f5f2153be</string>
+	<string>1:379132035355:ios:e49397f84f3ee5942153be</string>
 	<key>DATABASE_URL</key>
 	<string>https://flut-flow-test-default-rtdb.asia-southeast1.firebasedatabase.app</string>
 </dict>

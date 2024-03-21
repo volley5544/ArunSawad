@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -26,7 +27,6 @@ Future<String> a13(String? username) async {
     //else if (e.code == 'wrong-password') {
     //print('Wrong password provided for that user.');
     //}
-
   }
 
   if (thisFirebaseAccountIsCreated == false) {

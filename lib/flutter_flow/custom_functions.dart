@@ -7,13 +7,49 @@ import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
 import 'place.dart';
-import '../backend/backend.dart';
+import 'uploaded_file.dart';
+import '/backend/backend.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../../auth/firebase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
+import '/auth/firebase_auth/auth_util.dart';
 
 String getUserLocation(LatLng? userLocation) {
   String userLatLng = '${userLocation!.latitude},${userLocation.longitude}';
   return userLatLng;
+}
+
+List<String>? combine2List(
+  List<String>? list1,
+  List<String>? list2,
+) {
+  List<String> listString = [];
+
+  for (int i = 0; i < list1!.length; i++) {
+    listString.add('[${list1![i]}] ${list2![i]}');
+  }
+
+  return listString; // Join the list elements into a single string
+}
+
+List<String>? returnValueSaveCallCollection(
+  List<String>? list1,
+  List<String>? list2,
+  String? dropdown1Input,
+) {
+  List<String> listString = [];
+
+  // Check if dropdown1Input is not null before using it in the loop
+  if (dropdown1Input != null) {
+    for (int i = 0; i < list1!.length; i++) {
+      // Use == to compare the values, not the lists themselves
+      if (list1[i] == dropdown1Input) {
+        listString.add('${list2![i]}');
+        // Perform your desired action here
+      }
+    }
+  }
+
+  return listString; // Join the list elements into a single string
 }
 
 double getLatLngBranchDouble(
@@ -46,6 +82,22 @@ bool checkGPSDeviceIsOn(LatLng? currentDeviceLocation) {
 bool returnTrueFunction() {
   // Add your function code here!
   return true;
+}
+
+List<String> returnvalueBooleanToString(
+  List<bool>? somethingList1,
+  List<String>? somethingList2,
+  bool? searchValue,
+) {
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (searchValue! == somethingList2![i]) {
+      mappedList.add(somethingList2![i]);
+    }
+  }
+
+  return mappedList;
 }
 
 String? imgPathListToStringCopy(List<String>? imgPathList) {
@@ -108,6 +160,22 @@ String? materialImgListToString(List<String>? materialImgList) {
     }
   }
   return materialRecord;
+}
+
+List<String>? returnValueSaveCallCollectionCopy(
+  List<String>? remgCode,
+  List<String>? remDetCode,
+  String? dropdown1Input,
+) {
+  List<String> listString = [];
+
+  for (int i = 0; i < remgCode!.length; i++) {
+    if (remgCode[i] == dropdown1Input) {
+      listString.add(remDetCode![i]);
+    }
+  }
+
+  return listString; // Join the list elements into a single string
 }
 
 String? materialAmountListToString(List<int>? matAmountList) {
@@ -204,7 +272,7 @@ String? showMatNameInList(
   int? index,
 ) {
   // Add your function code here!
-  return materialNameList![index!];
+  return '${materialNameList![index!]}';
 }
 
 bool visibleUploadedImg(
@@ -217,21 +285,6 @@ bool visibleUploadedImg(
     isVisible = true;
   }
   return isVisible;
-}
-
-CityRecord markerLocation(LatLng? currentLocation) {
-  // Add your function code here!
-  final marker = CityRecord();
-
-  //marker.name = 'My Location';
-  //marker.location = currentLocation;
-
-  // CityRecord location1 =CityRecord((p0) => {
-  //   p0.name = 'My Location',
-  //   p0.location = currentLocation
-  // });
-
-  return marker;
 }
 
 bool checkmatAmountIsEmpty(List<int>? matAmountList) {
@@ -326,6 +379,32 @@ String showDateTimesheetDetail(DateTime? date) {
 String showClockTimesheetDetail(DateTime? time) {
   // Add your function code here!
   return DateFormat.Hms().format(time!);
+}
+
+String? checkLeaveCheckinType(
+  List<String>? leaveStartDate,
+  List<String>? leaveEndDate,
+  String? currentDate,
+  List<String>? leaveType,
+  List<String>? subLeaveType,
+) {
+  if (leaveStartDate!.length == 0) {
+    return 'ไม่มีวันหยุด';
+  } else {
+    for (int i = 0; i < leaveStartDate!.length; i++) {
+      if (DateTime.parse(leaveStartDate![i])
+              .isBefore(DateTime.parse(currentDate!)) &&
+          DateTime.parse(leaveEndDate![i])
+              .isAfter(DateTime.parse(currentDate!))) {
+        return '${leaveType![i]}${subLeaveType![i]}';
+      } else if (DateTime.parse(leaveStartDate![i]) ==
+              DateTime.parse(currentDate!) ||
+          DateTime.parse(leaveEndDate![i]) == DateTime.parse(currentDate!)) {
+        return '${leaveType![i]}${subLeaveType![i]}';
+      }
+    }
+    return 'ไม่มีวันหยุด';
+  }
 }
 
 int matAmountDoubleToInt(double? amount) {
@@ -426,12 +505,13 @@ int leadTimeRemain(
   List<String>? leadCreatedTimeTextList,
   DateTime? currentTime,
   int? index,
+  int? leadAge,
 ) {
   // Add your function code here!
   //leadCreatedTime = DateTime.parse("2022-09-20 10:00:00");
   DateTime leadCreatedTime = DateTime.parse(leadCreatedTimeTextList![index!]);
 
-  DateTime leadFinalTime = leadCreatedTime.add(const Duration(days: 15));
+  DateTime leadFinalTime = leadCreatedTime.add(Duration(days: leadAge!));
   int leadTimeLeft = leadFinalTime.difference(currentTime!).inDays;
 
   return leadTimeLeft;
@@ -696,6 +776,12 @@ List<String> setCallingStatus(
   callStatusList![index!] = 'Called';
 
   return callStatusList;
+}
+
+int convertDynamicListToFirstIntValue(List<dynamic>? dynamicList) {
+  List<int> outputList = List<int>.from(dynamicList!);
+
+  return outputList[0];
 }
 
 bool checkLeadIdCalledInApp(
@@ -1055,6 +1141,8 @@ String getCheckinStatusText(
   int? index,
   bool? isThisMonth,
   List<String>? holidayNameList,
+  bool? isLeaving,
+  String? leaveType,
 ) {
   // Add your function code here!
   //DateFormat('EEEE').format(date!);
@@ -1081,11 +1169,14 @@ String getCheckinStatusText(
   if (employeeLevel == 'HO') {
     if (DateFormat('EEEE').format(DateTime.parse(date!)) == 'Saturday' ||
         DateFormat('EEEE').format(DateTime.parse(date!)) == 'Sunday' ||
-        holidayList!.contains(date)) {
+        holidayList!.contains(date) ||
+        isLeaving!) {
       statusText = 'วันหยุด';
       if (holidayList!.contains(date)) {
         holidayIndex = holidayList.indexOf(date);
         statusText = holidayNameList![holidayIndex];
+      } else if (isLeaving!) {
+        statusText = leaveType!;
       }
     } else {
       if (index == 0 &&
@@ -1133,12 +1224,15 @@ String getCheckinStatusText(
     }
   } else {
     if (DateFormat('EEEE').format(DateTime.parse(date!)) == 'Sunday' ||
-        holidayList!.contains(date)) {
+        holidayList!.contains(date) ||
+        isLeaving!) {
       statusText = 'วันหยุด';
 
       if (holidayList!.contains(date)) {
         holidayIndex = holidayList.indexOf(date);
         statusText = holidayNameList![holidayIndex];
+      } else if (isLeaving!) {
+        statusText = leaveType!;
       }
     } else if (DateFormat('EEEE').format(DateTime.parse(date!)) == 'Saturday') {
       if (index == 0 &&
@@ -1245,6 +1339,7 @@ Color getCheckinStatusColor(
   List<String>? holidayList,
   int? index,
   bool? isThisMonth,
+  bool? isLeaving,
 ) {
   // Add your function code here!
   //DateFormat('EEEE').format(date!);
@@ -1263,7 +1358,8 @@ Color getCheckinStatusColor(
   if (employeeLevel == 'HO') {
     if (DateFormat('EEEE').format(DateTime.parse(date!)) == 'Saturday' ||
         DateFormat('EEEE').format(DateTime.parse(date!)) == 'Sunday' ||
-        holidayList!.contains(date)) {
+        holidayList!.contains(date) ||
+        isLeaving!) {
       statusColor = colorList![0];
     } else {
       if (index == 0 &&
@@ -1311,7 +1407,8 @@ Color getCheckinStatusColor(
     }
   } else {
     if (DateFormat('EEEE').format(DateTime.parse(date!)) == 'Sunday' ||
-        holidayList!.contains(date)) {
+        holidayList!.contains(date) ||
+        isLeaving!) {
       statusColor = colorList![0];
     } else if (DateFormat('EEEE').format(DateTime.parse(date!)) == 'Saturday') {
       if (index == 0 &&
@@ -1427,7 +1524,18 @@ String getTeleBrandID(
 ) {
   // Add your function code here!
   //brandNameList!.indexOf(brandNameTextField!)
+  if (brandNameList!.indexOf(brandNameTextField!) == -1) {
+    return '999999';
+  }
+
   return brandIDList![brandNameList!.indexOf(brandNameTextField!)];
+}
+
+String? dateToBEDateCopy(String? inputDate) {
+  List<String> dateSplitList = inputDate!.split('/');
+  int yearOutput = int.parse(dateSplitList[2]) + 543;
+
+  return '${dateSplitList[0]}/${dateSplitList[1]}/${yearOutput}';
 }
 
 String garageTypeToEng(String? garageThai) {
@@ -1768,33 +1876,38 @@ String startLeaveDayString(DateTime? startLeaveDayInput) {
   return result;
 }
 
-int leaveTypeToCanLeaveSince(String? leaveTypeDropdown) {
+int leaveTypeToCanLeaveSince(
+  String? leaveTypeDropdown,
+  List<String>? leaveListAllowDay,
+  List<int>? leaveListAllowInt,
+) {
   // Add your function code here!
-  int result = 0;
-  if (leaveTypeDropdown == 'ลาป่วย') {
-    result = -7;
-  }
-  if (leaveTypeDropdown == 'ลากิจ') {
-    result = 1;
-  }
-  if (leaveTypeDropdown == 'ลาพักร้อน') {
-    result = 7;
-  }
-  if (leaveTypeDropdown == 'ลาคลอด') {
-    result = 14;
-  }
-  if (leaveTypeDropdown == 'ลาอุปสมบท') {
-    result = 14;
-  }
-  if (leaveTypeDropdown == 'ลาไม่โดยรับค่าตอบแทน') {
-    result = 14;
-  }
-  if (leaveTypeDropdown == 'ลาทำหมัน') {
-    result = 14;
-  }
-  if (leaveTypeDropdown == 'ลาเพื่อรับราชการทหาร') {
-    result = 14;
-  }
+  int index = leaveListAllowDay!.indexOf('$leaveTypeDropdown');
+  int result = leaveListAllowInt![index];
+  // if (leaveTypeDropdown == 'ลาป่วย') {
+  //   result = -7;
+  // }
+  // if (leaveTypeDropdown == 'ลากิจ') {
+  //   result = 1;
+  // }
+  // if (leaveTypeDropdown == 'ลาพักร้อน') {
+  //   result = 7;
+  // }
+  // if (leaveTypeDropdown == 'ลาคลอด') {
+  //   result = 14;
+  // }
+  // if (leaveTypeDropdown == 'ลาอุปสมบท') {
+  //   result = 14;
+  // }
+  // if (leaveTypeDropdown == 'ลาไม่โดยรับค่าตอบแทน') {
+  //   result = 14;
+  // }
+  // if (leaveTypeDropdown == 'ลาทำหมัน') {
+  //   result = 14;
+  // }
+  // if (leaveTypeDropdown == 'ลาเพื่อรับราชการทหาร') {
+  //   result = 14;
+  // }
 
   return result;
 }
@@ -1973,6 +2086,22 @@ bool? checkLeaveDays(double? leaveDaysInput) {
     result = true;
   }
   return result;
+}
+
+String? imgPathListToStringCopy2(List<String>? imgPathList) {
+  if (imgPathList == null) {
+    return "";
+  }
+  String namesString = '';
+
+  for (String name in imgPathList!) {
+    namesString += name + ',';
+  }
+
+// Remove the last comma
+  namesString = namesString.substring(0, namesString.length - 1);
+
+  return namesString;
 }
 
 bool? checkLeaveDayNumber(String? leaveDayNumber) {
@@ -2208,16 +2337,13 @@ int? checkHoliDayBetween2Day(
   List<String>? holidayList,
 ) {
   int numHoliday = 0;
-  endDate = endDate!.add(Duration(days: 1));
   DateFormat dateFormat = new DateFormat('yyyy-MM-dd');
   // Loop through each day between the start and end dates
 
   for (int i = 0; i < holidayList!.length; i++) {
     // Check if the current day is a Sunday
-    if (dateFormat
-            .parse(holidayList[i])
-            .isAfter(startDate!.add(Duration(days: -1))) &&
-        dateFormat.parse(holidayList[i]).isBefore(endDate)) {
+    if (dateFormat.parse(holidayList[i]).isAfter(startDate!) &&
+        dateFormat.parse(holidayList[i]).isBefore(endDate!)) {
       numHoliday++;
     }
   }
@@ -2228,7 +2354,7 @@ int? checkHoliDayBetween2Day(
 bool? checkYearLeave(DateTime? startDate) {
   int year = startDate!.year;
 
-  if (year == 2022 || year == 2023) {
+  if (year == 2024 || year == 2023) {
     return true;
   } else {
     return false;
@@ -2295,7 +2421,7 @@ String? combineStringFromList(List<String>? stringList) {
 bool checkPhoneNumberChar(String? text) {
   bool isPhoneNumber = false;
 
-  if (text!.length == 9 || text.length == 10) {
+  if ((text!.length == 9 || text.length == 10) && (text![0] == "0")) {
     isPhoneNumber = true;
   }
   return isPhoneNumber;
@@ -2823,6 +2949,10 @@ List<String>? convertIntListToStringList(List<int>? callStatusId) {
 }
 
 String? returnNumberWithComma2Decimal(String? number) {
+  if (number == 'null') {
+    return '0.00';
+  }
+
   RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
@@ -2908,4 +3038,982 @@ String? showDateThaiFormat(String? dateString) {
   //print(formatted); // something like 2013-04-20
 
   return formatted;
+}
+
+String? getFirstLastNameFromFullName(
+  String? fullName,
+  String? nameType,
+) {
+  String nameOutput = '';
+  String firstName = '';
+  String lastName = '';
+
+  if (fullName!.split(' ').length > 2) {
+    firstName = fullName!.split(' ')[0];
+    for (int i = 1; i < fullName!.split(' ').length; i++) {
+      if (i == 1) {
+        lastName = fullName!.split(' ')[1];
+      } else {
+        lastName = lastName + ' ' + fullName!.split(' ')[i];
+      }
+    }
+  } else {
+    firstName = fullName!.split(' ')[0];
+    lastName = fullName!.split(' ')[1];
+  }
+
+  if (nameType! == 'first_name') {
+    nameOutput = firstName;
+  } else {
+    nameOutput = lastName;
+  }
+
+  return nameOutput;
+}
+
+String generateBranchViewMapLink(String? recordID) {
+  // http://27.254.207.150:90/vloan_remark.html?id=7E72LN4914M3
+  // https://pt.swpfin.com/bv/branchview_route.html?start=${branchLocation!}&?end=${coordinate!}&?branch=${branch!}&?id=${recordID}
+
+  // return '<a target="_blank" href="http://27.254.207.150:90/vloan_remark.html?id=${recordID!}" title="${remark!}">คลิกที่นี่</a>';
+
+  // String url = '';
+  // int imgAmount = imgUrl!.length;
+  // if (imgUrl!.length > 0) {
+  //   for (int i = 0; i < imgUrl!.length; i++) {
+  //     if (i == imgUrl!.length - 1) {
+  //       url = url + imgUrl![i];
+  //     } else {
+  //       url = url + imgUrl![i] + ',';
+  //     }
+  //   }
+  // } else {
+  //   url = 'no_img';
+  // }
+
+  // String result = url.replaceAll("&", "volley5544");
+  //start=${branchLocation!}&end=${coordinate!}&branch=${branch!}&
+  //title="${remark!}"
+
+  return '<a target="_blank" href="https://pt.swpfin.com/bv/branchview_route.php?id=${recordID!}">คลิกที่นี่</a>';
+}
+
+List<String>? createSomethingListWithNullValue(
+  List<int>? statusCodeList,
+  List<String>? inputList,
+) {
+  //List<int> inputStatusCode = List<int>.from(statusCodeList!);
+
+  List<String> outputList = [];
+  int indexOfInput = 0;
+
+  for (int i = 0; i < statusCodeList!.length; i++) {
+    if (statusCodeList![i] == 200) {
+      outputList.add(inputList![indexOfInput]);
+      indexOfInput++;
+    } else {
+      outputList.add('9999-01-01');
+    }
+  }
+
+  return outputList;
+}
+
+List<int>? convertDynamicListToIntList(List<dynamic>? dynamicList) {
+  List<int> outputList = List<int>.from(dynamicList!);
+
+  return outputList;
+}
+
+List<DateTime>? stringlistToDateAD(List<String>? bcDateStrings) {
+  List<DateTime> adDateTimes = [];
+
+  for (String bcDateString in bcDateStrings!) {
+    // Extract the year, month, and day components from the B.E. date string
+    List<String> components = bcDateString!.split('-');
+    int year = int.parse(components[0]);
+    int month = int.parse(components[1]);
+    int day = int.parse(components[2]);
+
+    // Convert from B.E. to A.D. by subtracting 543 years
+    year = year - 543;
+    // Create a DateTime object using the A.D. components
+    DateTime adDateTime = DateTime(year, month, day);
+
+    adDateTimes.add(adDateTime);
+  }
+
+  return adDateTimes;
+}
+
+List<bool>? compareDate30(
+  List<DateTime>? adDatetime,
+  String? currentdate,
+) {
+  List<bool> result = [];
+  DateTime current = DateTime.parse(currentdate!);
+  for (int i = 0; i < adDatetime!.length; i++) {
+    DateTime targetDate = adDatetime[i]!.subtract(Duration(days: 30));
+    int comparison = current.compareTo(targetDate);
+    if (comparison < 0) {
+      result.add(false);
+    } else {
+      result.add(true);
+    }
+  }
+  return result;
+}
+
+int? lengthMinus1(List<int>? list) {
+  int result = list!.length;
+  return result - 1;
+}
+
+List<bool>? changelistFalseToTrue(
+  List<bool>? listFalse,
+  int? index,
+) {
+  listFalse![index!] = true;
+  return listFalse;
+}
+
+bool? compareListof2Date(
+  List<DateTime>? firebaseList,
+  List<DateTime>? currentList,
+) {
+  bool result = true;
+  int comparison = 0;
+  if (currentList!.length != firebaseList!.length) {
+    return false;
+  }
+
+  for (int i = 0; i < currentList.length; i++) {
+    int comparison = currentList[i].compareTo(firebaseList[i]);
+    if (comparison != 0) {
+      return false;
+    }
+  }
+  return result;
+}
+
+String? censorString(
+  String? inputString,
+  int? visibledigit,
+) {
+  int totalLength = inputString!.length;
+
+  if (totalLength <= visibledigit!) {
+    return inputString;
+  }
+
+  String maskedString = '';
+
+  for (int i = 0; i < totalLength - visibledigit!; i++) {
+    maskedString += 'X';
+  }
+
+  maskedString += inputString!.substring(totalLength - visibledigit!);
+
+  return maskedString;
+}
+
+String? splitDateintoStartDate(String? leavedate) {
+  List<String> result = leavedate!.split(" - ");
+  return result[0];
+}
+
+String? splitDateintoEndDate(String? leavedate) {
+  List<String> result = leavedate!.split(" - ");
+  return result[1];
+}
+
+LatLng? randomLatLng(
+  double? latitude,
+  double? longitude,
+) {
+  double radius = 30;
+  // Calculate latitude range
+  double latitudeRange = radius / 111000;
+
+  // Calculate longitude range
+  double longitudeRange =
+      radius / (111000 * math.cos(latitude! * math.pi / 180));
+
+  // Generate random latitude
+  double randomLatitude = latitude! +
+      math.Random().nextDouble() * 2 * latitudeRange -
+      latitudeRange;
+
+  // Generate random longitude
+  double randomLongitude = longitude! +
+      math.Random().nextDouble() * 2 * longitudeRange -
+      longitudeRange;
+
+  return LatLng(double.parse(randomLatitude.toStringAsFixed(6)),
+      double.parse(randomLongitude.toStringAsFixed(6)));
+}
+
+bool? containWordinStringUrl(
+  String? word,
+  String? url,
+) {
+  if (url!.contains(word!)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+String? checkType(String? target) {
+  return target != null ? target.runtimeType.toString() : null;
+}
+
+bool? checkLeaveCheckin(
+  List<String>? leaveStartDate,
+  List<String>? leaveEndDate,
+  String? currentDate,
+) {
+  if (leaveStartDate!.length == 0) {
+    return false;
+  } else {
+    for (int i = 0; i < leaveStartDate!.length; i++) {
+      if (DateTime.parse(leaveStartDate![i])
+              .isBefore(DateTime.parse(currentDate!)) &&
+          DateTime.parse(leaveEndDate![i])
+              .isAfter(DateTime.parse(currentDate!))) {
+        return true;
+      } else if (DateTime.parse(leaveStartDate![i]) ==
+              DateTime.parse(currentDate!) ||
+          DateTime.parse(leaveEndDate![i]) == DateTime.parse(currentDate!)) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+int? getLeadAgeIndex(
+  List<String>? leadChannelList,
+  String? leadChannel,
+) {
+  return leadChannelList!.indexOf(leadChannel!);
+}
+
+List<int>? setReportItemIndexList(String? pageNumber) {
+  int page = int.parse(pageNumber!);
+  //int firstIndex = (int.parse(pageNumber!)-1);
+  int firstIndex = 0;
+  int lastIndex = 9;
+  List<int> indexList = [firstIndex, lastIndex];
+  if (page == 1) {
+    return indexList;
+  } else {
+    firstIndex = (((page - 1) * 10) + 1) - 1;
+    lastIndex = (page * 10) - 1;
+    indexList = [firstIndex, lastIndex];
+    return indexList;
+  }
+}
+
+List<String>? generate5CurrentPageNumber(
+  String? currentPageNumber,
+  int? maxPage,
+) {
+  List<String> pageSelectionList = [];
+  int currentPage = int.parse(currentPageNumber!);
+
+  if (currentPage == maxPage! || (currentPage + 1) == maxPage!) {
+    for (int i = maxPage! - 4; i <= maxPage!; i++) {
+      pageSelectionList.add('$i');
+    }
+  } else if (currentPage == 1 || currentPage == 2) {
+    for (int i = 1; i <= 5!; i++) {
+      pageSelectionList.add('$i');
+    }
+  } else {
+    for (int i = currentPage - 2;
+        i <= (currentPage + 2) && i <= maxPage!;
+        i++) {
+      pageSelectionList.add('$i');
+    }
+  }
+
+  return pageSelectionList;
+}
+
+List<dynamic> reverseListJson(List<dynamic>? somethingList) {
+  // Add your function code here!
+  //List<String> reverseList = somethingList!.reversed;
+  return somethingList!.reversed.toList();
+}
+
+bool? checkVisiblePreviousForwordButton(
+  String? currentPage,
+  String? buttonName,
+  int? maxPage,
+) {
+  int currentSelected = int.parse(currentPage!);
+
+  if (buttonName == 'previous_button') {
+    if (currentSelected == 1) {
+      return false;
+    } else {
+      return true;
+    }
+  } else {
+    if (currentSelected == maxPage!) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+}
+
+int? getMaxPageNumber(int? reportItemNumber) {
+  if (reportItemNumber! == 0) {
+    return 1;
+  }
+  var maxPageNumber = reportItemNumber! / 10;
+  int maxPage = 1;
+
+  bool isInteger(num value) => value is int || value == value.roundToDouble();
+  if (isInteger(maxPageNumber)) {
+    // for (int i = 1; i <= maxPageNumber.toInt(); i++) {
+    //   pageSelectionList.add('$i');
+    // }
+    maxPage = maxPageNumber.toInt();
+  } else {
+    // for (int i = 1; i <= (maxPageNumber.toInt() + 1); i++) {
+    //   pageSelectionList.add('$i');
+    // }
+    maxPage = maxPageNumber.toInt() + 1;
+  }
+
+  return maxPage;
+}
+
+List<String>? generateMaxPageNumberList(int? maxPage) {
+  List<String> pageSelectionList = [];
+
+  for (int i = 1; i <= maxPage! && i <= 5; i++) {
+    pageSelectionList.add('$i');
+  }
+  return pageSelectionList;
+}
+
+int stringToInteger(String? stringNumber) {
+  return int.parse(stringNumber!);
+}
+
+List<String> generateLeadListByChannel(
+  List<String>? leadChannelList,
+  List<String>? leadDataList,
+  String? channel,
+) {
+  List<String> dataOutput =
+      List.generate(leadChannelList!.length, (index) => index)
+          .where((index) => leadChannelList![index] == channel!)
+          .map((index) => leadDataList![index])
+          .toList();
+
+  return dataOutput;
+}
+
+List<bool> generateTimeIsVisibleInChatPageList(int? totalMessage) {
+  // int length = 5; // Specify the desired length of the list
+  List<bool> visibleList = List.filled(totalMessage!, false);
+
+  return visibleList;
+}
+
+bool? checkPhoneNumberInput(String? phoneNumber) {
+  bool output = false;
+  if (phoneNumber!.length == 10 &&
+      phoneNumber![0] == '0' &&
+      int.tryParse(phoneNumber!) != null) {
+    output = true;
+  }
+
+  return output;
+}
+
+int checkStringLength(String? inputString) {
+  return inputString!.length;
+}
+
+String generateBranchViewVloneRemark(
+  int? urlLength,
+  String? remark,
+) {
+  int endIndex = 300 - (urlLength! + 1);
+  if (endIndex > remark!.length) {
+    return remark!;
+  }
+  String output = remark!.substring(0, endIndex);
+
+  return output;
+}
+
+List<dynamic>? test2DList() {
+  List<String> listText = ['1', '2', '3'];
+  List<String> listText1 = ['4', '5', '6'];
+  List<String> listText2 = ['11', '22', '33'];
+  List<dynamic> finalList = [listText1, listText2, listText];
+
+  // List<String> insurerId = ['1','2','7];
+  // List<String> insurerCode = ['111','222','777];
+  // List<String> insurerName = ['ชับบ์','ทิพย์','ซัมติง']
+  // List<dynamic> coverTypeId = [['1','2','3'],['2','3','5'],['1','2','3','4','5']];
+  // List<dynamic> coverTypeName = [['ชั้น 1','ชั้น 2','ชั้น 2+'],['ชั้น 2','ชั้น 2+','ชั้น 3+'],['ชั้น 1','ชั้น 2','ชั้น 2+','ชั้น 3','ชั้น 3+']];
+
+  return finalList;
+}
+
+String returnStringWithNoSpace(String? somethingText) {
+  String textWithoutSpaces = somethingText!.replaceAll(' ', '');
+
+  return textWithoutSpaces;
+}
+
+String searchMapValueFrom2List(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? searchValue,
+) {
+  // ใส่valueของ list2 เพื่อหาค่าที่mapกันของlist1
+
+  Map<String, String> mappedList =
+      Map.fromIterables(somethingList1!, somethingList2!);
+
+  List<String> keysWithSearchValue = mappedList.entries
+      .where((entry) => entry.value == searchValue!)
+      .map((entry) => entry.key)
+      .toList();
+
+  if (keysWithSearchValue.length > 0) {
+    return keysWithSearchValue[0];
+  } else {
+    return '';
+  }
+}
+
+String? newCustomFunctionImagePath(FFUploadedFile? wow) {
+  String eiei = '${wow!}';
+  return eiei;
+}
+
+List<String> returnMappedListFrom2List(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? searchValue,
+) {
+  Map<String, String> mappedList =
+      Map.fromIterables(somethingList1!, somethingList2!);
+
+  List<String> keysWithSearchValue = mappedList.entries
+      .where((entry) => entry.value == searchValue!)
+      .map((entry) => entry.key)
+      .toList();
+
+  return keysWithSearchValue;
+}
+
+List<String>? generateInsuranceVehicleTypeDropdown(
+  List<String>? vehicleTypeCodeList,
+  List<String>? vehicleTypeTypeList,
+  List<String>? vehicleTypeNameList,
+) {
+  List<String> vehicleTypeDropdown = [];
+
+  for (int i = 0; i < vehicleTypeCodeList!.length; i++) {
+    vehicleTypeDropdown.add(
+        '${vehicleTypeCodeList![i]} ${vehicleTypeTypeList![i]}-${vehicleTypeNameList![i]}');
+  }
+
+  return vehicleTypeDropdown;
+}
+
+List<String>? returnMappedList(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  List<String>? searchedList,
+) {
+  List<String> output = [];
+
+  for (int i = 0; i < searchedList!.length; i++) {
+    output.add(somethingList1![somethingList2!.indexOf(searchedList![i])]);
+  }
+
+  return output;
+}
+
+List<String>? createListByItemNumber(
+  String? value,
+  int? listLength,
+) {
+  List<String> output = List.filled(listLength!, value!);
+
+  return output;
+}
+
+bool? checkIsIntValue(String? value) {
+  bool isInt = false;
+  if (int.tryParse(value!) != null) {
+    isInt = true;
+  }
+
+  return isInt;
+}
+
+String? getValueWithMappedList(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? searchValue,
+) {
+  return somethingList1![somethingList2!.indexOf(searchValue!)];
+}
+
+String? replaceUnderscrollToDat(String? originalString) {
+  //String originalString = "example_string_with_underscores";
+  String replacedString = originalString!.replaceAll('_', '-');
+
+  return replacedString;
+}
+
+String? limitingString(
+  String? originalString,
+  int? maxCharacters,
+) {
+  String limitedString = '';
+
+  if (maxCharacters! > originalString!.length) {
+    limitedString = originalString!.substring(0, originalString!.length);
+  } else {
+    limitedString = originalString.substring(0, maxCharacters);
+  }
+
+  return limitedString;
+}
+
+bool? checkIsStringLengthInLength(
+  String? inputString,
+  int? length,
+) {
+  bool isInLength = false;
+
+  if (inputString!.length <= length!) {
+    isInLength = true;
+  }
+
+  return isInLength;
+}
+
+List<String>? randomItemList(List<String>? originalList) {
+  originalList!.shuffle();
+  List<String> randomList = originalList!;
+
+  return randomList;
+}
+
+List<String>? returnInsuranceBasicInsurerList(
+  List<String>? originalList1,
+  List<String>? originalList2,
+  List<String>? selectedList,
+) {
+  // find index of originalList1
+  List<String> outputList = [];
+  for (int i = 0; i < selectedList!.length; i++) {
+    outputList.add(originalList1![originalList2!.indexOf(selectedList![i])]);
+  }
+
+  return outputList;
+}
+
+FFUploadedFile? returnFileUploadedNull() {
+  return null;
+}
+
+List<String>? ganerateYearList(
+  int? start,
+  int? end,
+) {
+  List<String> yearList = [];
+
+  for (int year = start!; year <= end!; year++) {
+    yearList.add(year.toString());
+  }
+
+  return yearList;
+}
+
+List<String>? generateListFromSingleString(String? text) {
+  List<String> listOutput = [];
+  listOutput.add(text!);
+
+  return listOutput;
+}
+
+String? generateVehicelUsedTesxt(
+  List<String>? vehicleTypeCodeList,
+  List<String>? vehicleTypeTypeList,
+  List<String>? vehicleTypeNameList,
+  String? vehicleTypeCode,
+) {
+  String type =
+      vehicleTypeTypeList![vehicleTypeCodeList!.indexOf(vehicleTypeCode!)];
+  String name =
+      vehicleTypeNameList![vehicleTypeCodeList!.indexOf(vehicleTypeCode!)];
+
+  return '${vehicleTypeCode!} ${type}-${name}';
+}
+
+String? stringToImgPath(String? stringImageLink) {
+  return stringImageLink!;
+}
+
+List<String> returnListInList(
+  List<dynamic>? mainList,
+  int? index,
+) {
+  List<String> outputList = List<String>.from(mainList![index!]);
+  return outputList;
+}
+
+List<String>? generateSelectedInsurerList(
+  List<String>? insurerDisplayNameList,
+  List<String>? insurerNameList,
+  List<String>? insurerNameSelected,
+) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < insurerNameSelected!.length; i++) {
+    outputList.add(insurerDisplayNameList![
+        insurerNameList!.indexOf(insurerNameSelected![i])]);
+  }
+
+  return outputList;
+}
+
+List<bool>? sortingBoolListByOrder(
+  List<bool>? boolList,
+  List<int>? orderList,
+) {
+  List<bool> outputList = [];
+
+  for (int i = 0; i < orderList!.length; i++) {
+    outputList.add(boolList![orderList!.indexOf(i + 1)]);
+  }
+
+  return outputList;
+}
+
+String? convertDoubleTextToIntText(String? doubleTextInput) {
+  if (doubleTextInput! == '-') {
+    return '0';
+  }
+
+  double input = double.parse(doubleTextInput!);
+  int intOutput = input.toInt();
+
+  return '$intOutput';
+}
+
+double? changeToDouble(String? input) {
+  if (double.tryParse(input!) != null) {
+    return double.tryParse(input!);
+  } else {
+    return 0.0;
+  }
+}
+
+String? roundStringTo2(String? originalString) {
+// Parse the string as a double
+  double originalNumber = double.parse(originalString!);
+
+// Round the number to two decimal places
+  String roundedNumber = '${double.parse(originalNumber.toStringAsFixed(2))}';
+
+  return roundedNumber; // This will print 1.38 as a double
+}
+
+List<String>? removeDupeInList(List<String>? inputList) {
+  // Convert the list to a set to remove duplicates
+  Set<String> uniqueSet = Set<String>.from(inputList!);
+
+  // Convert the set back to a list
+  List<String> result = uniqueSet.toList();
+
+  return result;
+}
+
+int? checkSameValueAmount(
+  List<String>? leadChannelList,
+  List<String>? leadSystemList,
+) {
+  int sameValueAmount = 0;
+
+  for (int i = 0; i < leadChannelList!.length; i++) {
+    if (leadChannelList![i] == 'Lead Telesale' &&
+        leadSystemList![i] == 'Lead_Telesale') {
+      sameValueAmount++;
+    }
+  }
+
+  return sameValueAmount;
+}
+
+int? countTheValueInList(
+  List<String>? somethingList,
+  String? value,
+) {
+  int count = somethingList!.where((item) => item == value!).length;
+
+  //print('The count of $targetValue is: $count');
+  return count;
+}
+
+List<String>? createLeadCustomerList(
+  List<String>? leadChannelList,
+  List<String>? leadTeleCustomerList,
+  List<String>? leadSystemList,
+  List<String>? leadManagementCustomerList,
+) {
+  List<String> outputList = [];
+  int leadTeleListIndex = 0;
+  int leadManagementListIndex = 0;
+
+  for (int i = 0; i < leadChannelList!.length; i++) {
+    if (leadChannelList![i] == 'Lead Telesale') {
+      if (leadSystemList![i] == 'Lead_Telesale') {
+        outputList.add(leadTeleCustomerList![leadTeleListIndex]);
+        leadTeleListIndex++;
+      } else {
+        outputList.add(leadManagementCustomerList![leadManagementListIndex]);
+        leadManagementListIndex++;
+      }
+    } else {
+      outputList.add('-');
+    }
+  }
+
+  return outputList;
+}
+
+String? showCensorPhoneNumber(String? phoneNumber) {
+  if (phoneNumber!.length == 10) {
+    return '${phoneNumber![0]}${phoneNumber![1]}${phoneNumber![2]}-${phoneNumber![3]}${phoneNumber![4]}${phoneNumber![5]}-XXXX';
+  } else {
+    return '-';
+  }
+}
+
+bool? containsValueInDataTypeList(
+  List<AdminRoleGroupStruct>? dataTypeList,
+  String? value,
+  String? menuName,
+) {
+  for (int i = 0; i < dataTypeList!.length; i++) {
+    if (dataTypeList![i].visibleMenuName.contains(menuName!)) {
+      if (dataTypeList![i].employeeId.contains(value!)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+List<String> returnMapListFromBoolList(
+  List<String>? somethingList1,
+  List<bool>? somethingList2,
+  bool? searchValue,
+) {
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (searchValue! == somethingList2![i]) {
+      mappedList.add(somethingList1![i]);
+    }
+  }
+
+  return mappedList;
+}
+
+List<bool>? createFalseListByItemNumber(
+  bool? value,
+  int? listLength,
+) {
+  List<bool> output = List.filled(listLength!, value!);
+
+  return output;
+}
+
+List<String>? combine3List(
+  List<String>? list1,
+  List<String>? list2,
+  List<String>? list3,
+  String? dropdown1Input,
+) {
+  List<String> listString = [];
+
+  // Check if dropdown1Input is not null before using it in the loop
+  if (dropdown1Input != null) {
+    for (int i = 0; i < list1!.length; i++) {
+      // Use == to compare the values, not the lists themselves
+      if (list1[i] == dropdown1Input) {
+        listString.add('${list1[i]}${list2![i]}${list3![i]}');
+        // Perform your desired action here
+      }
+    }
+  }
+
+  return listString; // Join the list elements into a single string
+}
+
+List<String>? generateListFromString(
+  String? inputString,
+  int? numberOfString,
+) {
+  List<String> myList = [];
+
+  for (int i = 0; i < numberOfString!; i++) {
+    myList.add(inputString!);
+  }
+
+  // พิมพ์ list ที่ได้
+  return myList;
+}
+
+int? countTrueInBoolList(List<bool>? booleanList) {
+  int trueCount = booleanList!.where((element) => element == true).length;
+
+  return trueCount;
+}
+
+List<String>? returnMappedListFromBoolList(
+  List<String>? somethingList1,
+  List<bool>? somethingList2,
+  bool? searchValue,
+) {
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (searchValue! == somethingList2![i]) {
+      mappedList.add(somethingList1![i]);
+    }
+  }
+
+  return mappedList;
+}
+
+List<String>? createdCallReasonCollectionDropdown(
+  List<String>? remarkCodeList,
+  List<String>? remarkDetCodeList,
+  List<String>? remarkDetDescList,
+  String? remarkCodeInput,
+) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < remarkCodeList!.length; i++) {
+    if (remarkCodeInput! == remarkCodeList![i]) {
+      outputList.add(
+          '[${remarkCodeList![i]}][${remarkDetCodeList![i]}] ${remarkDetDescList![i]}');
+    }
+  }
+
+  return outputList;
+}
+
+List<String>? generateStringListFromMappedValue(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? mappedValue,
+) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (mappedValue! == somethingList2![i]) {
+      outputList.add(somethingList1![i]);
+    }
+  }
+  return outputList;
+}
+
+List<String>? generateNoneDupDataList(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+) {
+  List<String> tempList = [];
+
+  for (int i = 0; i < somethingList2!.length; i++) {
+    if (tempList.contains(somethingList2![i])) {
+    } else {
+      tempList.add(somethingList1![i]);
+    }
+  }
+
+  return tempList;
+}
+
+String? showDateBE(String? inputDateStr) {
+  DateTime inputDate = DateTime.parse(inputDateStr!);
+  DateTime newDate =
+      DateTime(inputDate!.year + 543, inputDate!.month, inputDate!.day);
+
+  // Create a DateFormat instance with the Thai locale and B.E. era
+//   final thaiDateFormat = DateFormat.yMd('th').add_y();
+  final thaiDateFormat = DateFormat('dd/MM/y');
+
+  // Format the date in Thai style with B.E. era
+  String formattedDate = thaiDateFormat.format(newDate);
+
+  print(formattedDate); // Output: "13 กุมภาพันธ์ 2539"
+  return formattedDate;
+}
+
+String? return2ListIndexOfToString(
+  List<String>? list1,
+  List<String>? list2,
+  String? keyword,
+) {
+  int? indexOfValue = list1!.indexOf(keyword!);
+
+  if (indexOfValue != -1) {
+    String? value = list2![indexOfValue];
+    return value!; // Return value if index is valid
+  } else {
+    return null; // Return null if index is not found
+  }
+}
+
+List<String>? sortingListByOrder(
+  List<String>? somethingList,
+  List<int>? orderList,
+) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < orderList!.length; i++) {
+    outputList.add(somethingList![orderList!.indexOf(i + 1)]);
+  }
+
+  return outputList;
+}
+
+List<String>? imgPathListToStringList(List<String>? somethingList) {
+  return somethingList!;
+}
+
+String? dateToBEDate(String? inputDate) {
+  List<String> dateSplitList = inputDate!.split('/');
+  int yearOutput = int.parse(dateSplitList[2]) + 543;
+
+  return '${dateSplitList[0]}/${dateSplitList[1]}/${yearOutput}';
+}
+
+List<bool>? createFalseList(
+  bool? value,
+  int? listLength,
+) {
+  List<bool> output = List.filled(listLength!, value!);
+
+  return output;
 }

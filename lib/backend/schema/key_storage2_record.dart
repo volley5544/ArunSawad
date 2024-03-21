@@ -1,56 +1,87 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'key_storage2_record.g.dart';
+class KeyStorage2Record extends FirestoreRecord {
+  KeyStorage2Record._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class KeyStorage2Record
-    implements Built<KeyStorage2Record, KeyStorage2RecordBuilder> {
-  static Serializer<KeyStorage2Record> get serializer =>
-      _$keyStorage2RecordSerializer;
+  // "uat_api_url" field.
+  String? _uatApiUrl;
+  String get uatApiUrl => _uatApiUrl ?? '';
+  bool hasUatApiUrl() => _uatApiUrl != null;
 
-  @BuiltValueField(wireName: 'uat_api_url')
-  String? get uatApiUrl;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(KeyStorage2RecordBuilder builder) =>
-      builder..uatApiUrl = '';
+  void _initializeFields() {
+    _uatApiUrl = snapshotData['uat_api_url'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Key_Storage2');
 
-  static Stream<KeyStorage2Record> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<KeyStorage2Record> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => KeyStorage2Record.fromSnapshot(s));
 
-  static Future<KeyStorage2Record> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<KeyStorage2Record> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => KeyStorage2Record.fromSnapshot(s));
 
-  KeyStorage2Record._();
-  factory KeyStorage2Record([void Function(KeyStorage2RecordBuilder) updates]) =
-      _$KeyStorage2Record;
+  static KeyStorage2Record fromSnapshot(DocumentSnapshot snapshot) =>
+      KeyStorage2Record._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static KeyStorage2Record getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      KeyStorage2Record._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'KeyStorage2Record(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is KeyStorage2Record &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createKeyStorage2RecordData({
   String? uatApiUrl,
 }) {
-  final firestoreData = serializers.toFirestore(
-    KeyStorage2Record.serializer,
-    KeyStorage2Record(
-      (k) => k..uatApiUrl = uatApiUrl,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'uat_api_url': uatApiUrl,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class KeyStorage2RecordDocumentEquality implements Equality<KeyStorage2Record> {
+  const KeyStorage2RecordDocumentEquality();
+
+  @override
+  bool equals(KeyStorage2Record? e1, KeyStorage2Record? e2) {
+    return e1?.uatApiUrl == e2?.uatApiUrl;
+  }
+
+  @override
+  int hash(KeyStorage2Record? e) => const ListEquality().hash([e?.uatApiUrl]);
+
+  @override
+  bool isValidKey(Object? o) => o is KeyStorage2Record;
 }

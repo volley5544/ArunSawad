@@ -1,5 +1,6 @@
 // Automatic FlutterFlow imports
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom actions
@@ -14,7 +15,6 @@ Future<bool> a16(BuildContext context) async {
 
   if (MediaQuery.of(context).orientation == Orientation.portrait) {
     // is portrait
-
   } else {
 // is landscape
     isLandscape = true;

@@ -26,7 +26,8 @@ export 'prevent_screen_record_android.dart' show preventScreenRecordAndroid;
 export 'prevent_screen_record_i_o_s.dart' show preventScreenRecordIOS;
 export 'allow_screen_record_i_o_s.dart' show allowScreenRecordIOS;
 export 'allow_screen_record_android.dart' show allowScreenRecordAndroid;
-export 'test1.dart' show test1;
+export 'cal_distance_between.dart' show calDistanceBetween;
+export 'check_status_firebase_copy.dart' show checkStatusFirebaseCopy;
 export 'location_cal.dart' show locationCal;
 export 'batch_update.dart' show batchUpdate;
 export 'batch_update1.dart' show batchUpdate1;
@@ -41,4 +42,15 @@ export 'open_tableau_browser.dart' show openTableauBrowser;
 export 'open3_c_x_action.dart' show open3CXAction;
 export 'get_device_contract_phone_number.dart'
     show getDeviceContractPhoneNumber;
+export 'open_inapp_browser.dart' show openInappBrowser;
 export 'lock_lanscape_orientation.dart' show lockLanscapeOrientation;
+export 'check_status_firebase.dart' show checkStatusFirebase;
+export 'get_contract_web.dart' show getContractWeb;
+export 'delete_file_by_url_batch.dart' show deleteFileByUrlBatch;
+export 'query_firebase_collection_string.dart'
+    show queryFirebaseCollectionString;
+export 'get_device_current_location.dart' show getDeviceCurrentLocation;
+export 'add_watermark.dart' show addWatermark;
+export 'enough_email.dart' show enoughEmail;
+export 'upload_file_firebase_storage.dart' show uploadFileFirebaseStorage;
+export 'check_image_is_available.dart' show checkImageIsAvailable;

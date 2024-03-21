@@ -1,63 +1,97 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'authorization_record.g.dart';
+class AuthorizationRecord extends FirestoreRecord {
+  AuthorizationRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class AuthorizationRecord
-    implements Built<AuthorizationRecord, AuthorizationRecordBuilder> {
-  static Serializer<AuthorizationRecord> get serializer =>
-      _$authorizationRecordSerializer;
+  // "content_name" field.
+  String? _contentName;
+  String get contentName => _contentName ?? '';
+  bool hasContentName() => _contentName != null;
 
-  @BuiltValueField(wireName: 'content_name')
-  String? get contentName;
+  // "employee_id_list" field.
+  List<String>? _employeeIdList;
+  List<String> get employeeIdList => _employeeIdList ?? const [];
+  bool hasEmployeeIdList() => _employeeIdList != null;
 
-  @BuiltValueField(wireName: 'employee_id_list')
-  BuiltList<String>? get employeeIdList;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(AuthorizationRecordBuilder builder) => builder
-    ..contentName = ''
-    ..employeeIdList = ListBuilder();
+  void _initializeFields() {
+    _contentName = snapshotData['content_name'] as String?;
+    _employeeIdList = getDataList(snapshotData['employee_id_list']);
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('Authorization');
 
-  static Stream<AuthorizationRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<AuthorizationRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => AuthorizationRecord.fromSnapshot(s));
 
   static Future<AuthorizationRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => AuthorizationRecord.fromSnapshot(s));
 
-  AuthorizationRecord._();
-  factory AuthorizationRecord(
-          [void Function(AuthorizationRecordBuilder) updates]) =
-      _$AuthorizationRecord;
+  static AuthorizationRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      AuthorizationRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static AuthorizationRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      AuthorizationRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'AuthorizationRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is AuthorizationRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createAuthorizationRecordData({
   String? contentName,
 }) {
-  final firestoreData = serializers.toFirestore(
-    AuthorizationRecord.serializer,
-    AuthorizationRecord(
-      (a) => a
-        ..contentName = contentName
-        ..employeeIdList = null,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'content_name': contentName,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class AuthorizationRecordDocumentEquality
+    implements Equality<AuthorizationRecord> {
+  const AuthorizationRecordDocumentEquality();
+
+  @override
+  bool equals(AuthorizationRecord? e1, AuthorizationRecord? e2) {
+    const listEquality = ListEquality();
+    return e1?.contentName == e2?.contentName &&
+        listEquality.equals(e1?.employeeIdList, e2?.employeeIdList);
+  }
+
+  @override
+  int hash(AuthorizationRecord? e) =>
+      const ListEquality().hash([e?.contentName, e?.employeeIdList]);
+
+  @override
+  bool isValidKey(Object? o) => o is AuthorizationRecord;
 }

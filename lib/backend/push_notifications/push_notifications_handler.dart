@@ -56,7 +56,7 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
         final parameterData = await parametersBuilder(initialParameterData);
         context.pushNamed(
           initialPageName,
-          params: parameterData.params,
+          pathParameters: parameterData.pathParameters,
           extra: parameterData.extra,
         );
       }
@@ -93,7 +93,7 @@ class ParameterData {
   final Map<String, String?> requiredParams;
   final Map<String, dynamic> allParams;
 
-  Map<String, String> get params => Map.fromEntries(
+  Map<String, String> get pathParameters => Map.fromEntries(
         requiredParams.entries
             .where((e) => e.value != null)
             .map((e) => MapEntry(e.key, e.value!)),
@@ -111,6 +111,7 @@ final parametersBuilderMap =
   'LoginPage': (data) async => ParameterData(
         allParams: {
           'apiURL': getParameter<DocumentReference>(data, 'apiURL'),
+          'token': getParameter<String>(data, 'token'),
         },
       ),
   'SetPinCodePage': ParameterData.none(),
@@ -120,15 +121,8 @@ final parametersBuilderMap =
           'jwtToken': getParameter<String>(data, 'jwtToken'),
         },
       ),
-  'SuperAppPage': (data) async => ParameterData(
-        allParams: {
-          'dailyText': getParameter<String>(data, 'dailyText'),
-        },
-      ),
   'CheckInPage': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'recordId': getParameter<String>(data, 'recordId'),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'remark': getParameter<String>(data, 'remark'),
@@ -137,8 +131,6 @@ final parametersBuilderMap =
       ),
   'SurveyPage': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'recordId': getParameter<String>(data, 'recordId'),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'description': getParameter<String>(data, 'description'),
@@ -149,6 +141,11 @@ final parametersBuilderMap =
           'clockIn': getParameter<DateTime>(data, 'clockIn'),
         },
       ),
+  'SuperAppPage': (data) async => ParameterData(
+        allParams: {
+          'dailyText': getParameter<String>(data, 'dailyText'),
+        },
+      ),
   'NotificationDetailPage': ParameterData.none(),
   'MyProfilePage': ParameterData.none(),
   'LeadNotiPage': (data) async => ParameterData(
@@ -156,8 +153,6 @@ final parametersBuilderMap =
       ),
   'CollectionPage': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'idCardNumber': getParameter<String>(data, 'idCardNumber'),
           'contNo': getParameter<String>(data, 'contNo'),
@@ -169,8 +164,6 @@ final parametersBuilderMap =
       ),
   'MarketingPage': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'branchCode': getParameter<String>(data, 'branchCode'),
           'area': getParameter<String>(data, 'area'),
@@ -182,8 +175,6 @@ final parametersBuilderMap =
       ),
   'OPSpage': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'recordId': getParameter<String>(data, 'recordId'),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'branchCode': getParameter<String>(data, 'branchCode'),
@@ -196,8 +187,6 @@ final parametersBuilderMap =
       ),
   'CheckerPage': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'recordId': getParameter<String>(data, 'recordId'),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'idCardNumber': getParameter<String>(data, 'idCardNumber'),
@@ -209,8 +198,6 @@ final parametersBuilderMap =
       ),
   'NPApage': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'recordId': getParameter<String>(data, 'recordId'),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'assetId': getParameter<String>(data, 'assetId'),
@@ -221,32 +208,6 @@ final parametersBuilderMap =
   'TimeSheetPage': ParameterData.none(),
   'ForgotPasswordPage': ParameterData.none(),
   'SuccessPage': ParameterData.none(),
-  'MarketingPageCopy': (data) async => ParameterData(
-        allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
-          'materialID': await getDocumentParameter<MaterialRecord>(
-              data, 'materialID', MaterialRecord.serializer),
-        },
-      ),
-  'CheckInPageCopy': (data) async => ParameterData(
-        allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
-        },
-      ),
-  'NPApageCopy': (data) async => ParameterData(
-        allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
-        },
-      ),
-  'OPSpageCopy': (data) async => ParameterData(
-        allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
-        },
-      ),
   'FormServicePage': (data) async => ParameterData(
         allParams: {
           'formServiceName': getParameter<String>(data, 'formServiceName'),
@@ -261,8 +222,6 @@ final parametersBuilderMap =
   'IntrodutionPage': ParameterData.none(),
   'ReportITSupport': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'recordId': getParameter<String>(data, 'recordId'),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'description': getParameter<String>(data, 'description'),
@@ -281,8 +240,6 @@ final parametersBuilderMap =
       ),
   'EmpolyeeCheckIn': (data) async => ParameterData(
         allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
           'recordId': getParameter<String>(data, 'recordId'),
           'coordinate': getParameter<String>(data, 'coordinate'),
           'remark': getParameter<String>(data, 'remark'),
@@ -356,16 +313,7 @@ final parametersBuilderMap =
         },
       ),
   'ReportList': ParameterData.none(),
-  'InfoReport': (data) async => ParameterData(
-        allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
-          'recordId': getParameter<String>(data, 'recordId'),
-          'coordinate': getParameter<String>(data, 'coordinate'),
-          'remark': getParameter<String>(data, 'remark'),
-          'clockIn': getParameter<DateTime>(data, 'clockIn'),
-        },
-      ),
+  'InfoReport': ParameterData.none(),
   'CheckInStatusPageCopy': (data) async => ParameterData(
         allParams: {
           'checkinImage': getParameter<String>(data, 'checkinImage'),
@@ -401,6 +349,7 @@ final parametersBuilderMap =
   'DashboardLeavePage': (data) async => ParameterData(
         allParams: {
           'jwtToken': getParameter<String>(data, 'jwtToken'),
+          'param1': getParameter<String>(data, 'param1'),
         },
       ),
   'ApproveShowPage': ParameterData.none(),
@@ -434,21 +383,16 @@ final parametersBuilderMap =
   'PhoneNumberInfo': ParameterData.none(),
   'E-learning': ParameterData.none(),
   'supportTemplate': ParameterData.none(),
-  'SaleskitPageCopy': ParameterData.none(),
+  'htmlPage': (data) async => ParameterData(
+        allParams: {
+          'contentHtml': getParameter<String>(data, 'contentHtml'),
+        },
+      ),
   'EmployeeKpiCEOPage': ParameterData.none(),
   'WelfareKPICEOPage': ParameterData.none(),
   'ertert': ParameterData.none(),
   'InspocPage': ParameterData.none(),
-  'ChangeLatLngPage': (data) async => ParameterData(
-        allParams: {
-          'location1': await getDocumentParameter<CityRecord>(
-              data, 'location1', CityRecord.serializer),
-          'recordId': getParameter<String>(data, 'recordId'),
-          'coordinate': getParameter<String>(data, 'coordinate'),
-          'remark': getParameter<String>(data, 'remark'),
-          'clockIn': getParameter<DateTime>(data, 'clockIn'),
-        },
-      ),
+  'ChangeLatLngPage': ParameterData.none(),
   'ClassroomPage': ParameterData.none(),
   'testCircleMap': ParameterData.none(),
   'redeemPointPage': (data) async => ParameterData(
@@ -459,7 +403,178 @@ final parametersBuilderMap =
   'PlanningSelfKPI': ParameterData.none(),
   'ThaipaiboonPage': ParameterData.none(),
   'LeaveShowPageCopy': ParameterData.none(),
-  'LifeInsuranceLicenseCardPage': ParameterData.none(),
+  'LifeInsuranceLicenseCardPage': (data) async => ParameterData(
+        allParams: {
+          'index': getParameter<int>(data, 'index'),
+          'insuranceName': getParameter<String>(data, 'insuranceName'),
+          'insuranceType': getParameter<String>(data, 'insuranceType'),
+        },
+      ),
+  'ChangeLatLngPageWeb': (data) async => ParameterData(
+        allParams: {
+          'token': getParameter<String>(data, 'token'),
+        },
+      ),
+  'ChatSearchPage': ParameterData.none(),
+  'ChatHomePage': ParameterData.none(),
+  'ChattingPage': (data) async => ParameterData(
+        allParams: {
+          'userBProfileImage': getParameter<String>(data, 'userBProfileImage'),
+          'userBDocRef': getParameter<DocumentReference>(data, 'userBDocRef'),
+          'userBName': getParameter<String>(data, 'userBName'),
+          'userBNickname': getParameter<String>(data, 'userBNickname'),
+          'userBEmployeeId': getParameter<String>(data, 'userBEmployeeId'),
+        },
+      ),
+  'InsuranceRequestInsurerPage': ParameterData.none(),
+  'InsuranceRequestImagePage': ParameterData.none(),
+  'InsuranceRequestBasicPage': ParameterData.none(),
+  'InsuranceRequestListPage': ParameterData.none(),
+  'InsuranceRequestDashboardPage': (data) async => ParameterData(
+        allParams: {
+          'jwtToken': getParameter<String>(data, 'jwtToken'),
+        },
+      ),
+  'InsuranceRequestEditPage': (data) async => ParameterData(
+        allParams: {
+          'leadId': getParameter<String>(data, 'leadId'),
+          'leadNo': getParameter<String>(data, 'leadNo'),
+          'idCardNumber': getParameter<String>(data, 'idCardNumber'),
+          'firstname': getParameter<String>(data, 'firstname'),
+          'lastname': getParameter<String>(data, 'lastname'),
+          'phoneNumber': getParameter<String>(data, 'phoneNumber'),
+          'carType': getParameter<String>(data, 'carType'),
+          'brandName': getParameter<String>(data, 'brandName'),
+          'modelName': getParameter<String>(data, 'modelName'),
+          'provinceName': getParameter<String>(data, 'provinceName'),
+          'plateNo': getParameter<String>(data, 'plateNo'),
+          'year': getParameter<String>(data, 'year'),
+          'vehicleTypeCode': getParameter<String>(data, 'vehicleTypeCode'),
+          'flagRenew': getParameter<String>(data, 'flagRenew'),
+          'oldVmiPolicyNumber':
+              getParameter<String>(data, 'oldVmiPolicyNumber'),
+          'flagDecoration': getParameter<String>(data, 'flagDecoration'),
+          'decorationDetail': getParameter<String>(data, 'decorationDetail'),
+          'flagCarrier': getParameter<String>(data, 'flagCarrier'),
+          'flagCoop': getParameter<String>(data, 'flagCoop'),
+          'carrierType': getParameter<String>(data, 'carrierType'),
+          'carrierPrice': getParameter<String>(data, 'carrierPrice'),
+          'customerType': getParameter<String>(data, 'customerType'),
+          'truckPart': getParameter<String>(data, 'truckPart'),
+          'customerMemberchip':
+              getParameter<String>(data, 'customerMemberchip'),
+          'trailerPlateNo': getParameter<String>(data, 'trailerPlateNo'),
+          'carrierPropose': getParameter<String>(data, 'carrierPropose'),
+          'remark': getParameter<String>(data, 'remark'),
+          'trailerSumInsured': getParameter<String>(data, 'trailerSumInsured'),
+          'flagAct': getParameter<String>(data, 'flagAct'),
+          'truckCurrentPrice': getParameter<String>(data, 'truckCurrentPrice'),
+          'sumInsured': getParameter<String>(data, 'sumInsured'),
+          'coverTypeNameList': getParameter<String>(data, 'coverTypeNameList'),
+          'garageTypeName': getParameter<String>(data, 'garageTypeName'),
+        },
+      ),
+  'inboxEmail': ParameterData.none(),
+  'SearchInsurancePage': (data) async => ParameterData(
+        allParams: {
+          'recordId': getParameter<String>(data, 'recordId'),
+          'coordinate': getParameter<String>(data, 'coordinate'),
+          'description': getParameter<String>(data, 'description'),
+          'idCardNumber': getParameter<String>(data, 'idCardNumber'),
+          'customerName': getParameter<String>(data, 'customerName'),
+          'landmark': getParameter<String>(data, 'landmark'),
+          'remark': getParameter<String>(data, 'remark'),
+          'clockIn': getParameter<DateTime>(data, 'clockIn'),
+        },
+      ),
+  'AboutUsPage': (data) async => ParameterData(
+        allParams: {
+          'recordId': getParameter<String>(data, 'recordId'),
+          'coordinate': getParameter<String>(data, 'coordinate'),
+          'description': getParameter<String>(data, 'description'),
+          'idCardNumber': getParameter<String>(data, 'idCardNumber'),
+          'customerName': getParameter<String>(data, 'customerName'),
+          'landmark': getParameter<String>(data, 'landmark'),
+          'remark': getParameter<String>(data, 'remark'),
+          'clockIn': getParameter<DateTime>(data, 'clockIn'),
+        },
+      ),
+  'ContactUsPage': (data) async => ParameterData(
+        allParams: {
+          'recordId': getParameter<String>(data, 'recordId'),
+          'coordinate': getParameter<String>(data, 'coordinate'),
+          'description': getParameter<String>(data, 'description'),
+          'idCardNumber': getParameter<String>(data, 'idCardNumber'),
+          'customerName': getParameter<String>(data, 'customerName'),
+          'landmark': getParameter<String>(data, 'landmark'),
+          'remark': getParameter<String>(data, 'remark'),
+          'clockIn': getParameter<DateTime>(data, 'clockIn'),
+        },
+      ),
+  'IBSReport': (data) async => ParameterData(
+        allParams: {
+          'employeeId': getParameter<String>(data, 'employeeId'),
+        },
+      ),
+  'KPIAllCEOPage': ParameterData.none(),
+  'BsiReportPage': ParameterData.none(),
+  'listNameTabFollowUpDebt': (data) async => ParameterData(
+        allParams: {
+          'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+        },
+      ),
+  'List10OrderHistory': ParameterData.none(),
+  'detailListFollowUpDebt': (data) async => ParameterData(
+        allParams: {
+          'cusCod': getParameter<String>(data, 'cusCod'),
+          'name': getParameter<String>(data, 'name'),
+          'lastName': getParameter<String>(data, 'lastName'),
+          'followupDebtTab': getParameter<int>(data, 'followupDebtTab'),
+        },
+      ),
+  'saveOnSiteFollowUpDebt': (data) async => ParameterData(
+        allParams: {
+          'firstname': getParameter<String>(data, 'firstname'),
+          'lastname': getParameter<String>(data, 'lastname'),
+          'contNo': getParameter<String>(data, 'contNo'),
+          'dateOfExp': getParameter<String>(data, 'dateOfExp'),
+          'tragetStat': getParameter<String>(data, 'tragetStat'),
+          'contStat': getParameter<String>(data, 'contStat'),
+          'expAmt': getParameter<String>(data, 'expAmt'),
+          'cusCode': getParameter<String>(data, 'cusCode'),
+          'database': getParameter<String>(data, 'database'),
+          'expFrm': getParameter<String>(data, 'expFrm'),
+          'dateOfDue': getParameter<String>(data, 'dateOfDue'),
+          'followupDebtTab': getParameter<int>(data, 'followupDebtTab'),
+          'dateOfData': getParameter<String>(data, 'dateOfData'),
+          'sumCurrentDueAmt': getParameter<String>(data, 'sumCurrentDueAmt'),
+          'lastPayDate': getParameter<String>(data, 'lastPayDate'),
+        },
+      ),
+  'saveCallFollowUpDebt': (data) async => ParameterData(
+        allParams: {
+          'name1': getParameter<String>(data, 'name1'),
+          'name2': getParameter<String>(data, 'name2'),
+          'followupDebtTab': getParameter<int>(data, 'followupDebtTab'),
+        },
+      ),
+  'recordFollowUpDebt': (data) async => ParameterData(
+        allParams: {
+          'contNo': getParameter<String>(data, 'contNo'),
+        },
+      ),
+  'successPageCollecction': ParameterData.none(),
+  'tabCollection': ParameterData.none(),
+  'SearchCollectionPage': (data) async => ParameterData(
+        allParams: {
+          'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+        },
+      ),
+  'SearchCollectionPP': (data) async => ParameterData(
+        allParams: {
+          'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

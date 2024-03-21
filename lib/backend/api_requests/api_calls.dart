@@ -1,13 +1,50 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
-import '../../flutter_flow/flutter_flow_util.dart';
-
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
+
+/// Start Spring Firebase Api Group Group Code
+
+class SpringFirebaseApiGroupGroup {
+  static String baseUrl = 'https://4d69-223-27-201-20.ngrok-free.app';
+  static Map<String, String> headers = {};
+  static UploadFileFirebaseStorageApiCall uploadFileFirebaseStorageApiCall =
+      UploadFileFirebaseStorageApiCall();
+}
+
+class UploadFileFirebaseStorageApiCall {
+  Future<ApiCallResponse> call({
+    FFUploadedFile? multipartFile,
+    String? uploadedFolderName = '',
+    String? appName = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'uploadFileFirebaseStorageApi',
+      apiUrl: '${SpringFirebaseApiGroupGroup.baseUrl}/firebase-storage/upload',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'multipartFile': multipartFile,
+        'uploadedFolderName': uploadedFolderName,
+        'appName': appName,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End Spring Firebase Api Group Group Code
 
 class AuthenAPICall {
   static Future<ApiCallResponse> call({
@@ -17,8 +54,8 @@ class AuthenAPICall {
     String? fcmToken = '',
     String? uid = '',
     String? check = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "username": "${username}",
   "password": "${password}",
@@ -36,35 +73,38 @@ class AuthenAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic message(dynamic response) => getJsonField(
+  static String? message(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic token(dynamic response) => getJsonField(
+      ));
+  static String? token(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.access_token''',
-      );
-  static dynamic employeeID(dynamic response) => getJsonField(
+      ));
+  static String? employeeID(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.user.employee_id''',
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ));
+  static String? branchCode(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.user.branch_code''',
-      );
-  static dynamic status(dynamic response) => getJsonField(
+      ));
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
+      ));
 }
 
 class CheckInAPICall {
@@ -77,8 +117,8 @@ class CheckInAPICall {
     String? username = '',
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "Description": "${description}",
   "Remark": "${remark}",
@@ -98,35 +138,36 @@ class CheckInAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static String? status(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data.RecordId''',
-      );
+      ));
 }
 
 class GetTimesheetAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -140,44 +181,45 @@ class GetTimesheetAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data[:].RecordId''',
-      );
-  static dynamic jobType(dynamic response) => getJsonField(
+      ));
+  static String? jobType(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data[:].Job_Type''',
-      );
-  static dynamic clockIn(dynamic response) => getJsonField(
+      ));
+  static String? clockIn(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data[:].ClockIn''',
-      );
-  static dynamic latitude(dynamic response) => getJsonField(
+      ));
+  static int? latitude(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.Data[:].Latitude''',
-      );
-  static dynamic longitude(dynamic response) => getJsonField(
+      ));
+  static int? longitude(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.Data[:].Longitude''',
-      );
-  static dynamic timesheetData(dynamic response) => getJsonField(
+      ));
+  static dynamic? timesheetData(dynamic response) => getJsonField(
         response,
         r'''$.info.Timesheet.Data''',
       );
@@ -188,8 +230,8 @@ class GetApprovedAPICall {
     String? token = '',
     String? apiUrl = '',
     String? approvedTypes = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}",
@@ -204,92 +246,147 @@ class GetApprovedAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic approvedID(dynamic response) => getJsonField(
+      ));
+  static List<String>? approvedID(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ID''',
         true,
-      );
-  static dynamic approvedEmpID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedEmpID(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].EmpCode''',
         true,
-      );
-  static dynamic approvedEmpName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedEmpName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].FullName''',
         true,
-      );
-  static dynamic approvedLeaveName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedLeaveName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveName''',
         true,
-      );
-  static dynamic approvedLeaveCountDay(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedLeaveCountDay(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveCountDay''',
         true,
-      );
-  static dynamic approvedLeaveDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedLeaveDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDate''',
         true,
-      );
-  static dynamic approvedLeavePeriod(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedLeavePeriod(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeavePeriod''',
         true,
-      );
-  static dynamic approvedLeaveReason(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedLeaveReason(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveReason''',
         true,
-      );
-  static dynamic approvedLeaveDoc(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedLeaveDoc(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDocument''',
         true,
-      );
-  static dynamic approvedEmpTel(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedEmpTel(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Tel''',
         true,
-      );
-  static dynamic approvedLeaveCreateDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? approvedLeaveCreateDate(dynamic response) =>
+      (getJsonField(
         response,
         r'''$.info.info[:].CreateDate''',
         true,
-      );
-  static dynamic cancelBy(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? cancelBy(dynamic response) => getJsonField(
         response,
         r'''$.info.info[:].CancelBy''',
         true,
-      );
-  static dynamic reasonResign(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? reasonResign(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ReasonResign''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class SendResignFormEmailAPICall {
@@ -298,8 +395,8 @@ class SendResignFormEmailAPICall {
     String? apiUrl = '',
     String? leaveDocId = '',
     String? email = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}",
@@ -315,27 +412,30 @@ class SendResignFormEmailAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic mainStatus(dynamic response) => getJsonField(
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static String? statusLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.message''',
-      );
+      ));
 }
 
 class TimesheetDetailAPICall {
@@ -346,8 +446,8 @@ class TimesheetDetailAPICall {
     String? recordId = '',
     String? editCheck = '',
     String? remark = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}",
@@ -365,90 +465,106 @@ class TimesheetDetailAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].RecordId''',
-      );
-  static dynamic citizenID(dynamic response) => getJsonField(
+      ));
+  static String? citizenID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].CitizenId''',
-      );
-  static dynamic customerName(dynamic response) => getJsonField(
+      ));
+  static String? customerName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].Customer_Name''',
-      );
-  static dynamic landmark(dynamic response) => getJsonField(
+      ));
+  static String? landmark(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].Landmark''',
-      );
-  static dynamic remark(dynamic response) => getJsonField(
+      ));
+  static String? remark(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].Remark''',
-      );
-  static dynamic description(dynamic response) => getJsonField(
+      ));
+  static String? description(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].Description''',
-      );
-  static dynamic contNo(dynamic response) => getJsonField(
+      ));
+  static String? contNo(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].ContNo''',
-      );
-  static dynamic assetID(dynamic response) => getJsonField(
+      ));
+  static String? assetID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data[:].AssetId''',
-      );
-  static dynamic matName(dynamic response) => getJsonField(
+      ));
+  static List<String>? matName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].Data.Product[:].Material_Name''',
         true,
-      );
-  static dynamic matImg(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? matImg(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].Data.Product[:].Img_Url''',
         true,
-      );
-  static dynamic material(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? material(dynamic response) => getJsonField(
         response,
         r'''$.info[:].Data.Product[:]''',
         true,
-      );
-  static dynamic marketingBranchCode(dynamic response) => getJsonField(
+      ) as List?;
+  static String? marketingBranchCode(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data.Marketing[:].Branch_Code''',
-      );
-  static dynamic marketingAreaDescription(dynamic response) => getJsonField(
+      ));
+  static String? marketingAreaDescription(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data.Marketing[:].Area_Description''',
-      );
-  static dynamic marketingDetail(dynamic response) => getJsonField(
+      ));
+  static String? marketingDetail(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data.Marketing[:].Detail''',
-      );
-  static dynamic marketingRemark(dynamic response) => getJsonField(
+      ));
+  static String? marketingRemark(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data.Marketing[:].Remark''',
-      );
-  static dynamic marketingRecordId(dynamic response) => getJsonField(
+      ));
+  static String? marketingRecordId(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].Data.Marketing[:].RecordId''',
-      );
+      ));
   static dynamic statusDescription(dynamic response) => getJsonField(
         response,
         r'''$.info[:].status_desc''',
@@ -459,11 +575,13 @@ class GetUserProfileAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+    String? projectName = '',
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
-  "api_url": "${apiUrl}"
+  "api_url": "${apiUrl}",
+  "project_name": "${projectName}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getUserProfileAPI',
@@ -474,131 +592,292 @@ class GetUserProfileAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic profileEmployeeID(dynamic response) => getJsonField(
+  static String? profileEmployeeID(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].EmpCode''',
-      );
-  static dynamic profileFullName(dynamic response) => getJsonField(
+      ));
+  static String? profileFullName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].fullName''',
-      );
-  static dynamic profileNickName(dynamic response) => getJsonField(
+      ));
+  static String? profileNickName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].nickName''',
-      );
-  static dynamic profileHiredDate(dynamic response) => getJsonField(
+      ));
+  static String? profileHiredDate(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].HiredDate''',
-      );
-  static dynamic profileServiceDurationYY(dynamic response) => getJsonField(
+      ));
+  static String? profileServiceDurationYY(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].ServiceDuration.year''',
-      );
-  static dynamic profileServiceDurationMM(dynamic response) => getJsonField(
+      ));
+  static String? profileServiceDurationMM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].ServiceDuration.month''',
-      );
-  static dynamic profileServiceDurationDD(dynamic response) => getJsonField(
+      ));
+  static String? profileServiceDurationDD(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].ServiceDuration.day''',
-      );
-  static dynamic profileArea(dynamic response) => getJsonField(
+      ));
+  static String? profileArea(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].Area''',
-      );
-  static dynamic profileRegion(dynamic response) => getJsonField(
+      ));
+  static String? profileRegion(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].Region''',
-      );
-  static dynamic profliePositionName(dynamic response) => getJsonField(
+      ));
+  static String? profliePositionName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].PositionName''',
-      );
-  static dynamic profileBranchName(dynamic response) => getJsonField(
+      ));
+  static String? profileBranchName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].BranchName''',
-      );
-  static dynamic profileBirthDate(dynamic response) => getJsonField(
+      ));
+  static String? profileBirthDate(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].BirthDate''',
-      );
-  static dynamic message(dynamic response) => getJsonField(
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic profilePositionAge(dynamic response) => getJsonField(
+      ));
+  static dynamic? profilePositionAge(dynamic response) => getJsonField(
         response,
         r'''$.DataUserInfo[:].PositionAge''',
       );
-  static dynamic profilePositionAgeYY(dynamic response) => getJsonField(
+  static String? profilePositionAgeYY(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].PositionAge.year''',
-      );
-  static dynamic profilePositionAgeMM(dynamic response) => getJsonField(
+      ));
+  static String? profilePositionAgeMM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].PositionAge.month''',
-      );
-  static dynamic profilePositionAgeDD(dynamic response) => getJsonField(
+      ));
+  static String? profilePositionAgeDD(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].PositionAge.day''',
-      );
-  static dynamic profilePositionAgeCheck(dynamic response) => getJsonField(
+      ));
+  static String? profilePositionAgeCheck(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].checkPositionAge''',
-      );
-  static dynamic profilePhoneNumber(dynamic response) => getJsonField(
+      ));
+  static String? profilePhoneNumber(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].MobileNumber''',
-      );
-  static dynamic profileFirstBossEmpID(dynamic response) => getJsonField(
+      ));
+  static String? profileFirstBossEmpID(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].HeadOfWork.EmpCodeBefore''',
-      );
-  static dynamic profileFirstBossName(dynamic response) => getJsonField(
+      ));
+  static String? profileFirstBossName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].HeadOfWork.FullnameBefore''',
-      );
-  static dynamic profileSecondBossEmpID(dynamic response) => getJsonField(
+      ));
+  static String? profileSecondBossEmpID(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].HeadOfWork.EmpCodeAfter''',
-      );
-  static dynamic profileSecondBossName(dynamic response) => getJsonField(
+      ));
+  static String? profileSecondBossName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].HeadOfWork.FullnameAfter''',
-      );
-  static dynamic profileLevel(dynamic response) => getJsonField(
+      ));
+  static String? profileLevel(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].Level''',
-      );
-  static dynamic profileBranch(dynamic response) => getJsonField(
+      ));
+  static String? profileBranch(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].Branch''',
-      );
-  static dynamic insurancePlan(dynamic response) => getJsonField(
+      ));
+  static String? insurancePlan(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].InsurancePlan''',
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ));
+  static String? branchCode(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].BranchCode''',
+      ));
+  static String? department(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.DataUserInfo[:].Department''',
+      ));
+  static String? profileRoleName(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.UserRole[:].profile[:].role_name''',
+      ));
+}
+
+class GetUserInsuranceLicenseCall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "token": "${token}",
+  "api_url": "${apiUrl}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getUserInsuranceLicense',
+      apiUrl: '${apiUrl}/api/insurance/license-insurance-broker',
+      callType: ApiCallType.POST,
+      headers: {
+        'ContentType': 'application/json; charset=utf-8,',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic? jsonData(dynamic response) => getJsonField(
+        response,
+        r'''$.dataInfo''',
       );
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<int>? statusLayer2(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].status''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? messageLayer2(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].message''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeID(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].data[*].EmployeeID''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? fullName(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].data[*].FullName''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? idCard(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].data[*].IDCard''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? licenseNumber(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].data[*].LicenseNumber''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? startDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].data[*].IssuuedDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? expireDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].data[*].ExpirationDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? data(dynamic response) => (getJsonField(
+        response,
+        r'''$.dataInfo[*].data''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ActionUserAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -612,79 +891,92 @@ class ActionUserAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic profileEmployeeID(dynamic response) => getJsonField(
+  static String? profileEmployeeID(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].EmpCode''',
-      );
-  static dynamic profileFullName(dynamic response) => getJsonField(
+      ));
+  static String? profileFullName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].fullName''',
-      );
-  static dynamic profileNickName(dynamic response) => getJsonField(
+      ));
+  static String? profileNickName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].nickName''',
-      );
-  static dynamic profileHiredDate(dynamic response) => getJsonField(
+      ));
+  static String? profileHiredDate(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].HiredDate''',
-      );
-  static dynamic profileServiceDurationYY(dynamic response) => getJsonField(
+      ));
+  static String? profileServiceDurationYY(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].ServiceDuration.year''',
-      );
-  static dynamic profileServiceDurationMM(dynamic response) => getJsonField(
+      ));
+  static String? profileServiceDurationMM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].ServiceDuration.month''',
-      );
-  static dynamic profileServiceDurationDD(dynamic response) => getJsonField(
+      ));
+  static String? profileServiceDurationDD(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].ServiceDuration.day''',
-      );
-  static dynamic profilePositionAge(dynamic response) => getJsonField(
+      ));
+  static dynamic? profilePositionAge(dynamic response) => getJsonField(
         response,
         r'''$.DataUserInfo[:].PositionAge''',
       );
-  static dynamic profileArea(dynamic response) => getJsonField(
+  static String? profileArea(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].Area''',
-      );
-  static dynamic profileRegion(dynamic response) => getJsonField(
+      ));
+  static String? profileRegion(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].Region''',
-      );
-  static dynamic profliePositionName(dynamic response) => getJsonField(
+      ));
+  static String? profliePositionName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].PositionName''',
-      );
-  static dynamic profileBranchName(dynamic response) => getJsonField(
+      ));
+  static String? profileBranchName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].BranchName''',
-      );
-  static dynamic profileBirthDate(dynamic response) => getJsonField(
+      ));
+  static String? profileBirthDate(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataUserInfo[:].BirthDate''',
-      );
-  static dynamic message(dynamic response) => getJsonField(
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
+      ));
 }
 
 class GetLeadDetailAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -698,138 +990,237 @@ class GetLeadDetailAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic connectStatus(dynamic response) => getJsonField(
+  static int? connectStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic dataStatus(dynamic response) => getJsonField(
+      ));
+  static int? dataStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.DataLeadInfo.status''',
-      );
-  static dynamic dataLeadID(dynamic response) => getJsonField(
+      ));
+  static List<String>? dataLeadID(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].lead_id''',
         true,
-      );
-  static dynamic dataFirstName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataFirstName(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].first_name''',
         true,
-      );
-  static dynamic dataPhoneNum(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataPhoneNum(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].phone_number''',
         true,
-      );
-  static dynamic dataCallStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataCallStatus(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].call_status''',
         true,
-      );
-  static dynamic dataCreatedAt(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataCreatedAt(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].created_at''',
         true,
-      );
-  static dynamic dataLeadChannel(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataLeadChannel(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].channel''',
         true,
-      );
-  static dynamic dataEmployeeID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataEmployeeID(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].employee_id''',
         true,
-      );
-  static dynamic dataBranchCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataBranchCode(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].branch_code''',
         true,
-      );
-  static dynamic dataBranchName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataBranchName(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].branch_name''',
         true,
-      );
-  static dynamic dataMessage(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? dataMessage(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.DataLeadInfo.message''',
-      );
-  static dynamic dataLevel(dynamic response) => getJsonField(
+      ));
+  static String? dataLevel(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.DataLeadInfo.level''',
-      );
-  static dynamic connectionMessage(dynamic response) => getJsonField(
+      ));
+  static String? connectionMessage(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic countCalled(dynamic response) => getJsonField(
+      ));
+  static List<String>? countCalled(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].countCall''',
         true,
-      );
-  static dynamic firstName2(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? firstName2(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].desc_info.first_name2''',
         true,
-      );
-  static dynamic phoneNumber2(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? phoneNumber2(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].desc_info.phone_number2''',
         true,
-      );
-  static dynamic lastName2(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? lastName2(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].desc_info.last_name2''',
         true,
-      );
-  static dynamic descInfo(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? descInfo(dynamic response) => getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].desc_info''',
         true,
-      );
-  static dynamic carVehicleName(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? carVehicleName(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].car_vehicle_name''',
         true,
-      );
-  static dynamic amountRequest(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? amountRequest(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].amount_request''',
         true,
-      );
-  static dynamic statusReason(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? statusReason(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].statusCallOut''',
         true,
-      );
-  static dynamic contractStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? contractStatus(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].StatusContract''',
         true,
-      );
-  static dynamic contractDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? contractDate(dynamic response) => (getJsonField(
         response,
         r'''$.DataLeadInfo.DataInfo[:].contract_date''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? fullName2LeadManagement(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].desc_info.customerName''',
+        true,
+      ) as List?;
+  static List? lastName2LeadManagement(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].desc_info.customerLastname''',
+        true,
+      ) as List?;
+  static List? phoneNumber2LeadManagement(dynamic response) => getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].desc_info.customerPhoneNumber''',
+        true,
+      ) as List?;
+  static List<String>? leadSystem(dynamic response) => (getJsonField(
+        response,
+        r'''$.DataLeadInfo.DataInfo[:].lead_system''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetWelfareKpiCurrentMonthAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -843,55 +1234,63 @@ class GetWelfareKpiCurrentMonthAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.message''',
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ));
+  static String? branchCode(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].branch_code''',
-      );
-  static dynamic branchName(dynamic response) => getJsonField(
+      ));
+  static String? branchName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].branch_name''',
-      );
-  static dynamic percentSuccess(dynamic response) => getJsonField(
+      ));
+  static String? percentSuccess(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].success_percent''',
-      );
-  static dynamic flagSuccess(dynamic response) => getJsonField(
+      ));
+  static String? flagSuccess(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].success_flag''',
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ));
+  static String? month(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].kpi_month''',
-      );
-  static dynamic percentTarget(dynamic response) => getJsonField(
+      ));
+  static String? percentTarget(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].target_percent''',
-      );
+      ));
   static dynamic branchDetail(dynamic response) => getJsonField(
         response,
         r'''$.info.info[:].branch_detail''',
@@ -904,8 +1303,8 @@ class GetWelfareKpiCEOAPICall {
     String? apiUrl = '',
     String? branchCode = '',
     String? branchType = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}",
@@ -921,127 +1320,151 @@ class GetWelfareKpiCEOAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2CM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2CM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].status''',
-      );
-  static dynamic messageLayer2CM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2CM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].message''',
-      );
-  static dynamic statusLayer2LM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2LM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.LastMonth[:].status''',
-      );
-  static dynamic messageLayer2LM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2LM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].message''',
-      );
-  static dynamic branchCodeLM(dynamic response) => getJsonField(
+      ));
+  static String? branchCodeLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].BranchCode''',
-      );
-  static dynamic branchNameLM(dynamic response) => getJsonField(
+      ));
+  static String? branchNameLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].BranchName''',
-      );
-  static dynamic successPercentLM(dynamic response) => getJsonField(
+      ));
+  static String? successPercentLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].SuccessPercent''',
-      );
-  static dynamic succesFlagLM(dynamic response) => getJsonField(
+      ));
+  static String? succesFlagLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].SuccessFlag''',
-      );
-  static dynamic targetSuccessLM(dynamic response) => getJsonField(
+      ));
+  static String? targetSuccessLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].TargetPercent''',
-      );
-  static dynamic regionCodeLM(dynamic response) => getJsonField(
+      ));
+  static String? regionCodeLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].RegionCode''',
-      );
-  static dynamic regionNameLM(dynamic response) => getJsonField(
+      ));
+  static String? regionNameLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].RegionName''',
-      );
-  static dynamic areaCodeLM(dynamic response) => getJsonField(
+      ));
+  static String? areaCodeLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].AreaCode''',
-      );
-  static dynamic areaNameLM(dynamic response) => getJsonField(
+      ));
+  static String? areaNameLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].AreaName''',
-      );
-  static dynamic branchCodeCM(dynamic response) => getJsonField(
+      ));
+  static String? branchCodeCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].BranchCode''',
-      );
-  static dynamic branchNameCM(dynamic response) => getJsonField(
+      ));
+  static String? branchNameCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].BranchName''',
-      );
-  static dynamic successPercentCM(dynamic response) => getJsonField(
+      ));
+  static String? successPercentCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].SuccessPercent''',
-      );
-  static dynamic succesFlagCM(dynamic response) => getJsonField(
+      ));
+  static String? succesFlagCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].SuccessFlag''',
-      );
-  static dynamic targetSuccessCM(dynamic response) => getJsonField(
+      ));
+  static String? targetSuccessCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].TargetPercent''',
-      );
-  static dynamic regionCodeCM(dynamic response) => getJsonField(
+      ));
+  static String? regionCodeCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].RegionCode''',
-      );
-  static dynamic regionNameCM(dynamic response) => getJsonField(
+      ));
+  static String? regionNameCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].RegionName''',
-      );
-  static dynamic areaCodeCM(dynamic response) => getJsonField(
+      ));
+  static String? areaCodeCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].AreaCode''',
-      );
-  static dynamic areaNameCM(dynamic response) => getJsonField(
+      ));
+  static String? areaNameCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].AreaName''',
-      );
-  static dynamic branchDetailCM(dynamic response) => getJsonField(
+      ));
+  static String? branchDetailCM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.CurrentMonth[:].currentMonth[:].BranchDetail''',
-      );
-  static dynamic branchDetailLM(dynamic response) => getJsonField(
+      ));
+  static String? branchDetailLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.LastMonth[:].lastMonth[:].BranchDetail''',
-      );
+      ));
 }
 
 class GetWelfareKpiLastMonthAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -1055,67 +1478,76 @@ class GetWelfareKpiLastMonthAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.message''',
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ));
+  static String? branchCode(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].branch_code''',
-      );
-  static dynamic branchName(dynamic response) => getJsonField(
+      ));
+  static String? branchName(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].branch_name''',
-      );
-  static dynamic percentSuccess(dynamic response) => getJsonField(
+      ));
+  static String? percentSuccess(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].success_percent''',
-      );
-  static dynamic flagSuccess(dynamic response) => getJsonField(
+      ));
+  static String? flagSuccess(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].success_flag''',
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ));
+  static String? month(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].kpi_month''',
-      );
-  static dynamic percentTarget(dynamic response) => getJsonField(
+      ));
+  static String? percentTarget(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].target_percent''',
-      );
-  static dynamic branchDetail(dynamic response) => getJsonField(
+      ));
+  static String? branchDetail(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.info[:].branch_detail''',
-      );
+      ));
 }
 
 class LeaveDayAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -1129,61 +1561,91 @@ class LeaveDayAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic connectStatus(dynamic response) => getJsonField(
+  static int? connectStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic connectionMessage(dynamic response) => getJsonField(
+      ));
+  static String? connectionMessage(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic dateInfo(dynamic response) => getJsonField(
+      ));
+  static List? dateInfo(dynamic response) => getJsonField(
         response,
         r'''$.Detail.info''',
         true,
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ) as List?;
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Detail.status''',
-      );
-  static dynamic statusCheckCount(dynamic response) => getJsonField(
+      ));
+  static List<String>? statusCheckCount(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].StatusCheckCount''',
         true,
-      );
-  static dynamic totalLeave(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalLeave(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].TotalLeave''',
         true,
-      );
-  static dynamic countLeave(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countLeave(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].CountLeave''',
         true,
-      );
-  static dynamic leaveTypeDay(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveTypeDay(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].LeaveDay''',
         true,
-      );
-  static dynamic leaveTypeName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveTypeName(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].LeaveName''',
         true,
-      );
-  static dynamic leaveTypeId(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveTypeId(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].LeaveID''',
         true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static dynamic messageLayer2(dynamic response) => getJsonField(
+        response,
+        r'''$.Detail.message''',
       );
 }
 
@@ -1191,8 +1653,8 @@ class LogoutAPICall {
   static Future<ApiCallResponse> call({
     String? token = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -1206,19 +1668,20 @@ class LogoutAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic message(dynamic response) => getJsonField(
+  static String? message(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
+      ));
   static dynamic status(dynamic response) => getJsonField(
         response,
         r'''$.status''',
@@ -1238,8 +1701,8 @@ class SurveyAPICall {
     String? customerName = '',
     String? landmark = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "Description": "${description}",
   "Remark": "${remark}",
@@ -1262,27 +1725,28 @@ class SurveyAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data.RecordId''',
-      );
+      ));
 }
 
 class CollectionAPICall {
@@ -1299,8 +1763,11 @@ class CollectionAPICall {
     String? contNo = '',
     String? apiUrl = '',
     String? vLoanServer = '',
-  }) {
-    final body = '''
+    String? urlImg = '',
+    String? branchLocation = '',
+    String? branchName = '',
+  }) async {
+    final ffApiRequestBody = '''
 {
   "Description": "${description}",
   "Remark": "${remark}",
@@ -1313,7 +1780,10 @@ class CollectionAPICall {
   "Customer_Name": "${customerName}",
   "ContNo": "${contNo}",
   "api_url": "${apiUrl}",
-  "VLoan_Server": "${vLoanServer}"
+  "VLoan_Server": "${vLoanServer}",
+  "url_img": "${urlImg}",
+  "Branch_Location": "${branchLocation}",
+  "Branch_Name": "${branchName}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CollectionAPI',
@@ -1324,27 +1794,28 @@ class CollectionAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data.RecordId''',
-      );
+      ));
 }
 
 class CheckerAPICall {
@@ -1361,8 +1832,11 @@ class CheckerAPICall {
     String? contNo = '',
     String? apiUrl = '',
     String? vLoanServer = '',
-  }) {
-    final body = '''
+    String? urlImg = '',
+    String? branchLocation = '',
+    String? branchName = '',
+  }) async {
+    final ffApiRequestBody = '''
 {
   "Description": "${description}",
   "Remark": "${remark}",
@@ -1375,7 +1849,10 @@ class CheckerAPICall {
   "Customer_Name": "${customerName}",
   "ContNo": "${contNo}",
   "api_url": "${apiUrl}",
-  "VLoan_Server": "${vLoanServer}"
+  "VLoan_Server": "${vLoanServer}",
+  "url_img": "${urlImg}",
+  "Branch_Location": "${branchLocation}",
+  "Branch_Name": "${branchName}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CheckerAPI ',
@@ -1386,33 +1863,34 @@ class CheckerAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data.RecordId''',
-      );
+      ));
 }
 
 class GetMaterialAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getMaterialAPI',
       apiUrl: '${apiUrl}/api/get-materials',
@@ -1427,6 +1905,7 @@ class GetMaterialAPICall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1448,8 +1927,8 @@ class GetCheckinTimeAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -1463,12 +1942,13 @@ class GetCheckinTimeAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1484,20 +1964,28 @@ class GetCheckinTimeAPICall {
         response,
         r'''$[:].Img_Url''',
       );
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic checkinDate(dynamic response) => getJsonField(
+      ));
+  static List<String>? checkinDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.Date''',
         true,
-      );
-  static dynamic checkinTime(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? checkinTime(dynamic response) => (getJsonField(
         response,
         r'''$.info.Time''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class MarketingAPICall {
@@ -1515,8 +2003,8 @@ class MarketingAPICall {
     String? detail = '',
     String? materialRecordId = '',
     String? amount = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "Description": "${description}",
   "Remark": "${remark}",
@@ -1541,27 +2029,28 @@ class MarketingAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data.RecordId''',
-      );
+      ));
 }
 
 class NpaAPICall {
@@ -1575,8 +2064,8 @@ class NpaAPICall {
     String? token = '',
     String? apiUrl = '',
     String? assetId = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "Description": "${description}",
   "Remark": "${remark}",
@@ -1597,27 +2086,28 @@ class NpaAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static int? status(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.Timesheet.status_code''',
-      );
-  static dynamic mainStatus(dynamic response) => getJsonField(
+      ));
+  static int? mainStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic recordID(dynamic response) => getJsonField(
+      ));
+  static String? recordID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.Timesheet.Data.RecordId''',
-      );
+      ));
 }
 
 class OpsAPICall {
@@ -1628,8 +2118,8 @@ class OpsAPICall {
     String? assetType = '',
     String? assetDetail = '',
     String? remark = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "coordinate": "${coordinate}",
   "branch_code": "${branchCode}",
@@ -1648,12 +2138,13 @@ class OpsAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1661,8 +2152,8 @@ class OpsAPICall {
 class NpaCheckAssetIdAPICall {
   static Future<ApiCallResponse> call({
     String? assetid = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "assetid": "${assetid}"
 }''';
@@ -1676,12 +2167,13 @@ class NpaCheckAssetIdAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -1692,41 +2184,56 @@ class NpaCheckAssetIdAPICall {
 }
 
 class ListAPITestCall {
-  static Future<ApiCallResponse> call() {
+  static Future<ApiCallResponse> call({
+    String? perPage = '',
+    String? page = '',
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'listAPITest',
       apiUrl: 'https://reqres.in/api/unknown',
       callType: ApiCallType.GET,
       headers: {},
-      params: {},
+      params: {
+        'per_page': perPage,
+        'page': page,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic data(dynamic response) => getJsonField(
+  static List? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
-  static dynamic id(dynamic response) => getJsonField(
+      ) as List?;
+  static List<int>? id(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].id''',
         true,
-      );
-  static dynamic name(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].name''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetVloanContractAPICall {
   static Future<ApiCallResponse> call({
     String? cuscod = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getVloanContractAPI',
       apiUrl: 'http://115.31.145.26/api/v1/branchview/contract',
@@ -1743,28 +2250,41 @@ class GetVloanContractAPICall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic contNo(dynamic response) => getJsonField(
+  static List<String>? contNo(dynamic response) => (getJsonField(
         response,
         r'''$.contract.*[0]''',
         true,
-      );
-  static dynamic customerName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? customerName(dynamic response) => (getJsonField(
         response,
         r'''$.contract.*[3]''',
         true,
-      );
-  static dynamic result(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? result(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.result''',
-      );
-  static dynamic vloanServer(dynamic response) => getJsonField(
+      ));
+  static List<String>? vloanServer(dynamic response) => (getJsonField(
         response,
         r'''$.contract.*[4]''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class RemarkVLoneAPICall {
@@ -1776,7 +2296,7 @@ class RemarkVLoneAPICall {
     String? server = '',
     String? msg = '',
     String? func = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'remarkVLoneAPI',
       apiUrl: 'http://115.31.145.26/api/v1/branchview/remark',
@@ -1798,13 +2318,14 @@ class RemarkVLoneAPICall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic result(dynamic response) => getJsonField(
+  static String? result(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.result''',
-      );
+      ));
 }
 
 class GetlocationAPICall {
@@ -1812,8 +2333,8 @@ class GetlocationAPICall {
     String? token = '',
     String? branch = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "branch": "${branch}",
@@ -1828,56 +2349,82 @@ class GetlocationAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic group(dynamic response) => getJsonField(
+      ));
+  static String? group(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Detail.Group''',
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ));
+  static List<String>? branchCode(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.Location[:].BRANCH_CODE''',
         true,
-      );
-  static dynamic branchName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchName(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.Location[:].BRANCH_NAME''',
         true,
-      );
-  static dynamic branchLat(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchLat(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.Location[:].LATITUDE''',
         true,
-      );
-  static dynamic branchLong(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchLong(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.Location[:].LONGITUDE''',
         true,
-      );
-  static dynamic branchRadius(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchRadius(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.Location[:].RADIUS''',
         true,
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Detail.status''',
-      );
-  static dynamic statusLayer3(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer3(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Detail.Location.status''',
-      );
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetBranchAPICall {
@@ -1886,8 +2433,8 @@ class GetBranchAPICall {
     String? branchCode = '',
     String? apiUrl = '',
     String? type = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "branchCode": "${branchCode}",
@@ -1903,71 +2450,106 @@ class GetBranchAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ));
+  static List<String>? branchCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].BranchCode''',
         true,
-      );
-  static dynamic branchName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].BranchName''',
         true,
-      );
-  static dynamic regionCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regionCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].RegionCode''',
         true,
-      );
-  static dynamic regionName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regionName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].RegionName''',
         true,
-      );
-  static dynamic areaCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].AreaCode''',
         true,
-      );
-  static dynamic areaName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].AreaName''',
         true,
-      );
-  static dynamic groupCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? groupCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].GroupCode''',
         true,
-      );
-  static dynamic branchSize(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchSize(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].branch[:].BranchSize''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetRegionAreaAPICall {
@@ -1975,8 +2557,8 @@ class GetRegionAreaAPICall {
     String? token = '',
     String? branchType = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "branchType": "${branchType}",
@@ -1991,61 +2573,76 @@ class GetRegionAreaAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic areaCode(dynamic response) => getJsonField(
+      ));
+  static List? areaCode(dynamic response) => getJsonField(
         response,
         r'''$.info[:].area[:].AreaCode''',
         true,
-      );
-  static dynamic areaName(dynamic response) => getJsonField(
+      ) as List?;
+  static List? areaName(dynamic response) => getJsonField(
         response,
         r'''$.info[:].area[:].AreaName''',
         true,
-      );
-  static dynamic areaType(dynamic response) => getJsonField(
+      ) as List?;
+  static List? areaType(dynamic response) => getJsonField(
         response,
         r'''$.info[:].area[:].Type''',
         true,
-      );
-  static dynamic regionCode(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? regionCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].region[:].RegionCode''',
         true,
-      );
-  static dynamic regionName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regionName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].region[:].RegionName''',
         true,
-      );
-  static dynamic regionType(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regionType(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].region[:].Type''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetEmployeeIdFromNicknameAPICall {
@@ -2053,8 +2650,8 @@ class GetEmployeeIdFromNicknameAPICall {
     String? token = '',
     String? searchName = '',
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "searchName": "${searchName}",
@@ -2069,71 +2666,193 @@ class GetEmployeeIdFromNicknameAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic employeeID(dynamic response) => getJsonField(
+      ));
+  static List<String>? employeeID(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail[:].EmpCode''',
         true,
-      );
-  static dynamic firstName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? firstName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail[:].FirstName''',
         true,
-      );
-  static dynamic lastName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? lastName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail[:].LastName''',
         true,
-      );
-  static dynamic nickName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? nickName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail[:].NickName''',
         true,
-      );
-  static dynamic mapNickname(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? mapNickname(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail[:].MapNickName''',
         true,
-      );
-  static dynamic branch(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branch(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail[:].Brach''',
         true,
-      );
-  static dynamic getKeyWordName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? getKeyWordName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail[:].GetKeyWord''',
         true,
-      );
-  static dynamic detailMessage(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? detailMessage(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].detail''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class GetAllEmployeeAPICall {
+  static Future<ApiCallResponse> call({
+    String? token = '',
+    String? searchKeyname = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "token": "${token}",
+  "search_keyname": "${searchKeyname}",
+  "api_url": "${apiUrl}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getAllEmployeeAPI',
+      apiUrl: '${apiUrl}/api/internal-service/get-list-name',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statusCode''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.statusMessages''',
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.status''',
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.message''',
+      ));
+  static List<String>? fullname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].FullName''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].EmployeeCode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workPosition(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].Position''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].BranchCode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class CheckinAPICall {
@@ -2144,15 +2863,17 @@ class CheckinAPICall {
     String? branch = '',
     String? token = '',
     String? longitude = '',
-  }) {
-    final body = '''
+    String? remark = '',
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "branch": "${branch}",
   "latitude": "${latitude}",
   "longitude": "${longitude}",
   "api_url": "${apiUrl}",
-  "url_img": "${urlImg}"
+  "url_img": "${urlImg}",
+  "remark": "${remark}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CheckinAPI',
@@ -2163,35 +2884,42 @@ class CheckinAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Detail.status''',
-      );
-  static dynamic checkinMessage(dynamic response) => getJsonField(
+      ));
+  static String? checkinMessage(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.Detail.message''',
-      );
+      ));
+  static String? massageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetDateTimeAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "token": "${token}",
   "api_url": "${apiUrl}"
@@ -2205,27 +2933,30 @@ class GetDateTimeAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic currentDate(dynamic response) => getJsonField(
+      ));
+  static String? currentDate(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.Date''',
-      );
-  static dynamic currentTime(dynamic response) => getJsonField(
+      ));
+  static String? currentTime(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.Time''',
-      );
+      ));
   static dynamic currentDateYMD(dynamic response) => getJsonField(
         response,
         r'''$.info.DateYMD''',
@@ -2237,8 +2968,8 @@ class AddPhoneCalledLeadAPICall {
     String? apiUrl = '',
     String? leadID = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "leadID": "${leadID}",
@@ -2253,31 +2984,33 @@ class AddPhoneCalledLeadAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic info(dynamic response) => getJsonField(
+      ));
+  static String? info(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].info''',
-      );
+      ));
   static dynamic countCalled(dynamic response) => getJsonField(
         response,
         r'''$.info[:].CountCall''',
@@ -2288,8 +3021,8 @@ class CheckinoutThisMonthAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -2303,103 +3036,159 @@ class CheckinoutThisMonthAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Detail.status''',
-      );
-  static dynamic flagCheck(dynamic response) => getJsonField(
+      ));
+  static String? flagCheck(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Detail.flag''',
-      );
-  static dynamic listBranchCheckin(dynamic response) => getJsonField(
+      ));
+  static List<String>? listBranchCheckin(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].BRANCH_HERE''',
         true,
-      );
-  static dynamic listTimeCheckin(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listTimeCheckin(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].TIME''',
         true,
-      );
-  static dynamic listDateCheckin(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listDateCheckin(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].DATE_FLAG''',
         true,
-      );
-  static dynamic listActionStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listActionStatus(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].STATUS_CHECK''',
         true,
-      );
-  static dynamic listCheckinoutDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listCheckinoutDate(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].DATE''',
         true,
-      );
-  static dynamic date(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? date(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].YMD''',
         true,
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.Detail.message''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic workInStatus(dynamic response) => getJsonField(
+      ));
+  static List<String>? workInStatus(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkIN''',
         true,
-      );
-  static dynamic workInDateTH(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workInDateTH(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkDateIn''',
         true,
-      );
-  static dynamic workInTime(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workInTime(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkTimeIn''',
         true,
-      );
-  static dynamic workOutStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workOutStatus(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkOUT''',
         true,
-      );
-  static dynamic workOutDateTH(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workOutDateTH(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkDateOut''',
         true,
-      );
-  static dynamic workOutTime(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workOutTime(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkTimeOut''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? infoCheckCurrent(dynamic response) => getJsonField(
+        response,
+        r'''$.Detail.info''',
+        true,
+      ) as List?;
 }
 
 class CheckinoutLastMonthAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -2413,103 +3202,154 @@ class CheckinoutLastMonthAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Detail.status''',
-      );
-  static dynamic flagCheck(dynamic response) => getJsonField(
+      ));
+  static String? flagCheck(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Detail.flag''',
-      );
-  static dynamic listBranchCheckin(dynamic response) => getJsonField(
+      ));
+  static List<String>? listBranchCheckin(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].BRANCH_HERE''',
         true,
-      );
-  static dynamic listTimeCheckin(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listTimeCheckin(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].TIME''',
         true,
-      );
-  static dynamic listDateCheckin(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listDateCheckin(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].DATE_FLAG''',
         true,
-      );
-  static dynamic listActionStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listActionStatus(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].STATUS_CHECK''',
         true,
-      );
-  static dynamic listCheckinoutDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? listCheckinoutDate(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].DATE''',
         true,
-      );
-  static dynamic date(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? date(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].YMD''',
         true,
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.Detail.message''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic workInStatus(dynamic response) => getJsonField(
+      ));
+  static List<String>? workInStatus(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkIN''',
         true,
-      );
-  static dynamic workInDateTH(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workInDateTH(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkDateIn''',
         true,
-      );
-  static dynamic workInTime(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workInTime(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkTimeIn''',
         true,
-      );
-  static dynamic workOutStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workOutStatus(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkOUT''',
         true,
-      );
-  static dynamic workOutDateTH(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workOutDateTH(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkDateOut''',
         true,
-      );
-  static dynamic workOutTime(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? workOutTime(dynamic response) => (getJsonField(
         response,
         r'''$.Detail.info[:].WorkTimeOut''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetTargetContractKPIAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -2523,127 +3363,192 @@ class GetTargetContractKPIAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic dataInfo(dynamic response) => getJsonField(
+      ));
+  static List<String>? dataInfo(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo''',
         true,
-      );
-  static dynamic position(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? position(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Position''',
         true,
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Department''',
         true,
-      );
-  static dynamic productType(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productType(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].ProductType''',
         true,
-      );
-  static dynamic actual(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actual(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic targetQuantity(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetQuantity(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].TargetQuantity''',
         true,
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? month(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].YearMonth''',
         true,
-      );
-  static dynamic statusLayer3LM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statusLayer3LM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].lastMonth.status''',
-      );
-  static dynamic statusLayer3TM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer3TM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].currentMonth.status''',
-      );
-  static dynamic messageLayer3LM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3LM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.message''',
-      );
-  static dynamic dataInfoLastMonth(dynamic response) => getJsonField(
+      ));
+  static List? dataInfoLastMonth(dynamic response) => getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo''',
         true,
-      );
-  static dynamic messageLayer3TM(dynamic response) => getJsonField(
+      ) as List?;
+  static String? messageLayer3TM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.message''',
-      );
-  static dynamic positionLM(dynamic response) => getJsonField(
+      ));
+  static List<String>? positionLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Position''',
         true,
-      );
-  static dynamic branchCodeLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchCodeLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Department''',
         true,
-      );
-  static dynamic productTypeLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypeLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].ProductType''',
         true,
-      );
-  static dynamic actualLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actualLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic targetQuantityLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetQuantityLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].TargetQuantity''',
         true,
-      );
-  static dynamic monthLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? monthLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].YearMonth''',
         true,
-      );
-  static dynamic areaRespons(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaRespons(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
-  static dynamic areaResponsLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaResponsLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetEmpTargetContractKPIAPICall {
@@ -2651,8 +3556,8 @@ class GetEmpTargetContractKPIAPICall {
     String? apiUrl = '',
     String? token = '',
     String? empCode = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -2667,145 +3572,222 @@ class GetEmpTargetContractKPIAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic dataInfo(dynamic response) => getJsonField(
+      ));
+  static List<String>? dataInfo(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo''',
         true,
-      );
-  static dynamic position(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? position(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Position''',
         true,
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Department''',
         true,
-      );
-  static dynamic productType(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productType(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].ProductType''',
         true,
-      );
-  static dynamic actual(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actual(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic targetQuantity(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetQuantity(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].TargetQuantity''',
         true,
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? month(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].YearMonth''',
         true,
-      );
-  static dynamic statusLayer3LM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statusLayer3LM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].lastMonth.status''',
-      );
-  static dynamic statusLayer3TM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer3TM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].currentMonth.status''',
-      );
-  static dynamic messageLayer3LM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3LM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.message''',
-      );
-  static dynamic dataInfoLastMonth(dynamic response) => getJsonField(
+      ));
+  static List<String>? dataInfoLastMonth(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo''',
         true,
-      );
-  static dynamic messageLayer3TM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? messageLayer3TM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.message''',
-      );
-  static dynamic positionLM(dynamic response) => getJsonField(
+      ));
+  static List<String>? positionLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Position''',
         true,
-      );
-  static dynamic branchCodeLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchCodeLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Department''',
         true,
-      );
-  static dynamic productTypeLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypeLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].ProductType''',
         true,
-      );
-  static dynamic actualLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actualLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic targetQuantityLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetQuantityLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].TargetQuantity''',
         true,
-      );
-  static dynamic monthLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? monthLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].YearMonth''',
         true,
-      );
-  static dynamic areaRespons(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaRespons(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
-  static dynamic areaResponsLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaResponsLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
-  static dynamic employeeIdTM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeIdTM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].EmpCode''',
         true,
-      );
-  static dynamic employeeIdLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeIdLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].EmpCode''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetTargetBudgetKPIAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -2819,129 +3801,149 @@ class GetTargetBudgetKPIAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic dataInfo(dynamic response) => getJsonField(
+      ));
+  static List? dataInfo(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo''',
         true,
-      );
-  static dynamic position(dynamic response) => getJsonField(
+      ) as List?;
+  static String? position(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Position''',
-      );
-  static dynamic branchCodeTM(dynamic response) => getJsonField(
+      ));
+  static String? branchCodeTM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Department''',
-      );
-  static dynamic actual(dynamic response) => getJsonField(
+      ));
+  static String? actual(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Actual''',
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ));
+  static String? month(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].YearMonth''',
-      );
-  static dynamic targetBudget(dynamic response) => getJsonField(
+      ));
+  static String? targetBudget(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].TargetKEYINCSHPRC''',
-      );
-  static dynamic areaRespons(dynamic response) => getJsonField(
+      ));
+  static String? areaRespons(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaOfRespons''',
-      );
-  static dynamic statusLayer3LM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer3LM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].lastMonth.status''',
-      );
-  static dynamic messageLayer3LM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3LM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.message''',
-      );
-  static dynamic dataInfoLM(dynamic response) => getJsonField(
+      ));
+  static List? dataInfoLM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo''',
         true,
-      );
-  static dynamic actualBudgetLM(dynamic response) => getJsonField(
+      ) as List?;
+  static String? actualBudgetLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Actual''',
-      );
-  static dynamic targetBudgetLM(dynamic response) => getJsonField(
+      ));
+  static String? targetBudgetLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].TargetKEYINCSHPRC''',
-      );
-  static dynamic areaResponsLM(dynamic response) => getJsonField(
+      ));
+  static String? areaResponsLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaOfRespons''',
-      );
-  static dynamic statusLayer3TM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer3TM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].currentMonth.status''',
-      );
-  static dynamic messageLayer3TM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3TM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.message''',
-      );
-  static dynamic areaGradeTM(dynamic response) => getJsonField(
+      ));
+  static String? areaGradeTM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaGrade''',
-      );
-  static dynamic areaTypeTM(dynamic response) => getJsonField(
+      ));
+  static String? areaTypeTM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaType''',
-      );
-  static dynamic ageOfPositionTM(dynamic response) => getJsonField(
+      ));
+  static String? ageOfPositionTM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AgeOfPosition''',
-      );
-  static dynamic areaGradeLM(dynamic response) => getJsonField(
+      ));
+  static String? areaGradeLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaGrade''',
-      );
-  static dynamic areaTypeLM(dynamic response) => getJsonField(
+      ));
+  static String? areaTypeLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaType''',
-      );
-  static dynamic ageOfPositionLM(dynamic response) => getJsonField(
+      ));
+  static String? ageOfPositionLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AgeOfPosition''',
-      );
-  static dynamic employeeID(dynamic response) => getJsonField(
+      ));
+  static String? employeeID(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].EmpCode''',
-      );
-  static dynamic employeeIDLM(dynamic response) => getJsonField(
+      ));
+  static String? employeeIDLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].EmpCode''',
-      );
-  static dynamic branchCodeLM(dynamic response) => getJsonField(
+      ));
+  static String? branchCodeLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Department''',
-      );
+      ));
 }
 
 class GetEmpTargetBudgetKPIAPICall {
@@ -2949,8 +3951,8 @@ class GetEmpTargetBudgetKPIAPICall {
     String? apiUrl = '',
     String? token = '',
     String? empCode = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -2965,101 +3967,114 @@ class GetEmpTargetBudgetKPIAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic dataInfo(dynamic response) => getJsonField(
+      ));
+  static List? dataInfo(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo''',
         true,
-      );
-  static dynamic position(dynamic response) => getJsonField(
+      ) as List?;
+  static String? position(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Position''',
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ));
+  static String? branchCode(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Department''',
-      );
-  static dynamic actual(dynamic response) => getJsonField(
+      ));
+  static String? actual(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Actual''',
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ));
+  static String? month(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].YearMonth''',
-      );
-  static dynamic targetBudget(dynamic response) => getJsonField(
+      ));
+  static String? targetBudget(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].TargetKEYINCSHPRC''',
-      );
-  static dynamic areaRespons(dynamic response) => getJsonField(
+      ));
+  static String? areaRespons(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaOfRespons''',
-      );
-  static dynamic statusLayer3LM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer3LM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].lastMonth.status''',
-      );
-  static dynamic messageLayer3LM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3LM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.message''',
-      );
-  static dynamic dataInfoLM(dynamic response) => getJsonField(
+      ));
+  static List? dataInfoLM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo''',
         true,
-      );
-  static dynamic actualBudgetLM(dynamic response) => getJsonField(
+      ) as List?;
+  static String? actualBudgetLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Actual''',
-      );
-  static dynamic targetBudgetLM(dynamic response) => getJsonField(
+      ));
+  static String? targetBudgetLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].TargetKEYINCSHPRC''',
-      );
-  static dynamic areaResponsLM(dynamic response) => getJsonField(
+      ));
+  static String? areaResponsLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaOfRespons''',
-      );
-  static dynamic statusLayer3TM(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer3TM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].currentMonth.status''',
-      );
-  static dynamic messageLayer3TM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3TM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.message''',
-      );
-  static dynamic employeeIdTM(dynamic response) => getJsonField(
+      ));
+  static String? employeeIdTM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].EmpCode''',
-      );
-  static dynamic employeeIdLM(dynamic response) => getJsonField(
+      ));
+  static String? employeeIdLM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].EmpCode''',
-      );
+      ));
   static dynamic areaGradeCM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaGrade''',
@@ -3091,8 +4106,8 @@ class GetTargetBudgetKpiCEOAPICall {
     String? apiUrl = '',
     String? branchCode = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "branchCode": "${branchCode}",
@@ -3107,142 +4122,199 @@ class GetTargetBudgetKpiCEOAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic dataInfo(dynamic response) => getJsonField(
+      ));
+  static List<String>? dataInfo(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo''',
         true,
-      );
-  static dynamic position(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? position(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Position''',
         true,
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Department''',
         true,
-      );
-  static dynamic actual(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actual(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? month(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].YearMonth''',
         true,
-      );
-  static dynamic targetBudget(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetBudget(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].TargetKEYINCSHPRC''',
         true,
-      );
-  static dynamic areaRespons(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaRespons(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
-  static dynamic statusLayer3LM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statusLayer3LM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].lastMonth.status''',
-      );
-  static dynamic messageLayer3LM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3LM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.message''',
-      );
-  static dynamic dataInfoLM(dynamic response) => getJsonField(
+      ));
+  static List<String>? dataInfoLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo''',
         true,
-      );
-  static dynamic actualBudgetLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actualBudgetLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic targetBudgetLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetBudgetLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].TargetKEYINCSHPRC''',
         true,
-      );
-  static dynamic areaResponsLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaResponsLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
-  static dynamic statusLayer3TM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statusLayer3TM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].currentMonth.status''',
-      );
-  static dynamic messageLayer3TM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3TM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.message''',
-      );
-  static dynamic employeeID(dynamic response) => getJsonField(
+      ));
+  static List<String>? employeeID(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].EmpCode''',
         true,
-      );
-  static dynamic employeeIdLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeIdLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].EmpCode''',
         true,
-      );
-  static dynamic areaGradeCM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? areaGradeCM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaGrade''',
         true,
-      );
-  static dynamic areaTypeCM(dynamic response) => getJsonField(
+      ) as List?;
+  static List? areaTypeCM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaType''',
         true,
-      );
-  static dynamic ageOfPositionCM(dynamic response) => getJsonField(
+      ) as List?;
+  static List? ageOfPositionCM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AgeOfPosition''',
         true,
-      );
-  static dynamic areaGradeLM(dynamic response) => getJsonField(
+      ) as List?;
+  static List? areaGradeLM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaGrade''',
         true,
-      );
-  static dynamic areaTypeLM(dynamic response) => getJsonField(
+      ) as List?;
+  static List? areaTypeLM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaType''',
         true,
-      );
-  static dynamic ageOfPositionLM(dynamic response) => getJsonField(
+      ) as List?;
+  static List? ageOfPositionLM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AgeOfPosition''',
         true,
-      );
+      ) as List?;
 }
 
 class GetTargetContractKpiCEOAPICall {
@@ -3250,8 +4322,8 @@ class GetTargetContractKpiCEOAPICall {
     String? apiUrl = '',
     String? branchCode = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "branchCode": "${branchCode}",
@@ -3266,152 +4338,225 @@ class GetTargetContractKpiCEOAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic dataInfo(dynamic response) => getJsonField(
+      ));
+  static List<String>? dataInfo(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo''',
         true,
-      );
-  static dynamic position(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? position(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Position''',
         true,
-      );
-  static dynamic branchCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Department''',
         true,
-      );
-  static dynamic actual(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actual(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic month(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? month(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].YearMonth''',
         true,
-      );
-  static dynamic areaRespons(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaRespons(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
-  static dynamic statusLayer3LM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statusLayer3LM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].lastMonth.status''',
-      );
-  static dynamic messageLayer3LM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3LM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].lastMonth.message''',
-      );
-  static dynamic dataInfoLM(dynamic response) => getJsonField(
+      ));
+  static List? dataInfoLM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo''',
         true,
-      );
-  static dynamic actualBudgetLM(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? actualBudgetLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].Actual''',
         true,
-      );
-  static dynamic areaResponsLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaResponsLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaOfRespons''',
         true,
-      );
-  static dynamic statusLayer3TM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statusLayer3TM(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].currentMonth.status''',
-      );
-  static dynamic messageLayer3TM(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer3TM(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].currentMonth.message''',
-      );
-  static dynamic employeeID(dynamic response) => getJsonField(
+      ));
+  static List<String>? employeeID(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].EmpCode''',
         true,
-      );
-  static dynamic employeeIdLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeIdLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].EmpCode''',
         true,
-      );
-  static dynamic productType(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productType(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].ProductType''',
         true,
-      );
-  static dynamic targetQuantity(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetQuantity(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].TargetQuantity''',
         true,
-      );
-  static dynamic productTypeLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? productTypeLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].ProductType''',
         true,
-      );
-  static dynamic targetQuantityLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetQuantityLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].TargetQuantity''',
         true,
-      );
-  static dynamic areaGradeCM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? areaGradeCM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaGrade''',
         true,
-      );
-  static dynamic areaTypeCM(dynamic response) => getJsonField(
+      ) as List?;
+  static List? areaTypeCM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AreaType''',
         true,
-      );
-  static dynamic ageOfPositionCM(dynamic response) => getJsonField(
+      ) as List?;
+  static List? ageOfPositionCM(dynamic response) => getJsonField(
         response,
         r'''$.info[:].currentMonth.DataInfo[:].AgeOfPosition''',
         true,
-      );
-  static dynamic areaGradeLM(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? areaGradeLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaGrade''',
         true,
-      );
-  static dynamic areaTypeLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaTypeLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AreaType''',
         true,
-      );
-  static dynamic ageOfPositionLM(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? ageOfPositionLM(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].lastMonth.DataInfo[:].AgeOfPosition''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TelePackageSearchAPICall {
@@ -3426,11 +4571,11 @@ class TelePackageSearchAPICall {
     List<String>? companyIdList,
     List<String>? coverTypeList,
     String? apiUrl = '',
-  }) {
+  }) async {
     final companyId = _serializeList(companyIdList);
     final coverType = _serializeList(coverTypeList);
 
-    final body = '''
+    final ffApiRequestBody = '''
 {
   "brand_code": "${brandCode}",
   "model_code": "${modelCode}",
@@ -3452,110 +4597,168 @@ class TelePackageSearchAPICall {
         'Authorization': 'Bearer 17|7sJzQO3NJByIKfCID3xPMSk6MsI9P1bVXMLABiXr',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.code''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static List? statusLayer2(dynamic response) => getJsonField(
         response,
         r'''$.results''',
         true,
-      );
-  static dynamic coverType(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? coverType(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].cover_type''',
         true,
-      );
-  static dynamic fullName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? fullName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].full_name''',
         true,
-      );
-  static dynamic grossTotal(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? grossTotal(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].gross_total''',
         true,
-      );
-  static dynamic expiryDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? expiryDate(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].expiry_date''',
         true,
-      );
-  static dynamic pa(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? pa(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].pa''',
         true,
-      );
-  static dynamic tppd(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tppd(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].tppd''',
         true,
-      );
-  static dynamic sumInsured(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? sumInsured(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].sum_insured''',
         true,
-      );
-  static dynamic garageType(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? garageType(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].garage_type''',
         true,
-      );
-  static dynamic brandCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? brandCode(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].brand_code''',
         true,
-      );
-  static dynamic brandName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? brandName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].brand_name''',
         true,
-      );
-  static dynamic modelCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelCode(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].model_code''',
         true,
-      );
-  static dynamic modelName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].model_name''',
         true,
-      );
-  static dynamic actAmount(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? actAmount(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].act_amount''',
         true,
-      );
-  static dynamic statusLayer1Message(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? statusLayer1Message(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic dataList(dynamic response) => getJsonField(
+      ));
+  static List? dataList(dynamic response) => getJsonField(
         response,
         r'''$.results.data''',
         true,
-      );
-  static dynamic serialName(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? serialName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].serial_name''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TeleGetBrandAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}"
 }''';
@@ -3567,45 +4770,58 @@ class TeleGetBrandAPICall {
         'Content-Type': 'application/json',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLevel1(dynamic response) => getJsonField(
+  static int? statusLevel1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.code''',
-      );
-  static dynamic totalBrand(dynamic response) => getJsonField(
+      ));
+  static int? totalBrand(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.total''',
-      );
-  static dynamic brandID(dynamic response) => getJsonField(
+      ));
+  static List<String>? brandID(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].brand_id''',
         true,
-      );
-  static dynamic brandName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? brandName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].name''',
         true,
-      );
-  static dynamic brandType(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? brandType(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].type''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TeleGetModelAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {"api_url":"${apiUrl}"
 }''';
     return ApiManager.instance.makeApiCall(
@@ -3616,65 +4832,94 @@ class TeleGetModelAPICall {
         'Content-Type': 'application/json',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLevel1(dynamic response) => getJsonField(
+  static int? statusLevel1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.code''',
-      );
-  static dynamic totalModel(dynamic response) => getJsonField(
+      ));
+  static int? totalModel(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.total''',
-      );
-  static dynamic brandID(dynamic response) => getJsonField(
+      ));
+  static List<String>? brandID(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].brand_id''',
         true,
-      );
-  static dynamic modelName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].name''',
         true,
-      );
-  static dynamic modelCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelCode(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].code''',
         true,
-      );
-  static dynamic modelVehicleGroup(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelVehicleGroup(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].veh_group''',
         true,
-      );
-  static dynamic modelNubmerSeat(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelNubmerSeat(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].no_seats''',
         true,
-      );
-  static dynamic modelEnginCapacity(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelEnginCapacity(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].engine_capacity''',
         true,
-      );
-  static dynamic modelWeight(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelWeight(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].weight''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TeleGetInsurersAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}"
 }''';
@@ -3686,50 +4931,67 @@ class TeleGetInsurersAPICall {
         'Content-Type': 'application/json',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLevel1(dynamic response) => getJsonField(
+  static int? statusLevel1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.code''',
-      );
-  static dynamic totalInsurers(dynamic response) => getJsonField(
+      ));
+  static int? totalInsurers(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.total''',
-      );
-  static dynamic companyCode(dynamic response) => getJsonField(
+      ));
+  static List<String>? companyCode(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].code''',
         true,
-      );
-  static dynamic companyShortName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? companyShortName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].short_name''',
         true,
-      );
-  static dynamic companyFullName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? companyFullName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].full_name''',
         true,
-      );
-  static dynamic companyID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? companyID(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].company_id''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TeleGetProvinceAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}"
 }''';
@@ -3741,45 +5003,58 @@ class TeleGetProvinceAPICall {
         'Content-Type': 'application/json',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLevel1(dynamic response) => getJsonField(
+  static int? statusLevel1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.code''',
-      );
-  static dynamic totalProvince(dynamic response) => getJsonField(
+      ));
+  static int? totalProvince(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.total''',
-      );
-  static dynamic provinceID(dynamic response) => getJsonField(
+      ));
+  static List<String>? provinceID(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].prov_id''',
         true,
-      );
-  static dynamic provinceNameTH(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? provinceNameTH(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].prov_th''',
         true,
-      );
-  static dynamic provinceNameEN(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? provinceNameEN(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].prov_en''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TeleGetGarageTypeAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}"
 }''';
@@ -3791,45 +5066,46 @@ class TeleGetGarageTypeAPICall {
         'Content-Type': 'application/json',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLevel1(dynamic response) => getJsonField(
+  static int? statusLevel1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.code''',
-      );
-  static dynamic totalProvince(dynamic response) => getJsonField(
+      ));
+  static int? totalProvince(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.total''',
-      );
-  static dynamic provinceID(dynamic response) => getJsonField(
+      ));
+  static List? provinceID(dynamic response) => getJsonField(
         response,
         r'''$.results.data[:].prov_id''',
         true,
-      );
-  static dynamic provinceNameTH(dynamic response) => getJsonField(
+      ) as List?;
+  static List? provinceNameTH(dynamic response) => getJsonField(
         response,
         r'''$.results.data[:].prov_th''',
         true,
-      );
-  static dynamic provinceNameEN(dynamic response) => getJsonField(
+      ) as List?;
+  static List? provinceNameEN(dynamic response) => getJsonField(
         response,
         r'''$.results.data[:].prov_en''',
         true,
-      );
+      ) as List?;
 }
 
 class TeleGetCoverTypeAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}"
 }''';
@@ -3841,38 +5117,51 @@ class TeleGetCoverTypeAPICall {
         'Content-Type': 'application/json',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLevel1(dynamic response) => getJsonField(
+  static int? statusLevel1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.code''',
-      );
-  static dynamic totalProvince(dynamic response) => getJsonField(
+      ));
+  static int? totalProvince(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.results.total''',
-      );
-  static dynamic coverTypeName(dynamic response) => getJsonField(
+      ));
+  static List<String>? coverTypeName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].cover_type_name''',
         true,
-      );
-  static dynamic coverTypeCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? coverTypeCode(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].cover_type_code''',
         true,
-      );
-  static dynamic coverTypeId(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? coverTypeId(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].cover_type_id''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class LeaveRequestFirstAPICall {
@@ -3897,8 +5186,8 @@ class LeaveRequestFirstAPICall {
     String? postcode = '',
     String? asset = '',
     String? otherAsset = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -3930,35 +5219,38 @@ class LeaveRequestFirstAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic infoMessage(dynamic response) => getJsonField(
+      ));
+  static String? infoMessage(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.message''',
-      );
-  static dynamic infoInfo(dynamic response) => getJsonField(
+      ));
+  static String? infoInfo(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.info''',
-      );
+      ));
 }
 
 class LeaveEditAPICall {
@@ -3984,8 +5276,8 @@ class LeaveEditAPICall {
     String? postcode = '',
     String? asset = '',
     String? otherAsset = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -4018,43 +5310,46 @@ class LeaveEditAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic infoMessage(dynamic response) => getJsonField(
+      ));
+  static String? infoMessage(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.message''',
-      );
-  static dynamic infoInfo(dynamic response) => getJsonField(
+      ));
+  static String? infoInfo(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.info''',
-      );
+      ));
 }
 
 class LeaveListAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -4068,106 +5363,168 @@ class LeaveListAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic createDate(dynamic response) => getJsonField(
+      ));
+  static List<String>? createDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].CreateDate''',
         true,
-      );
-  static dynamic leaveStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveStatus(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveStatus''',
         true,
-      );
-  static dynamic headBefore(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? headBefore(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].HeadOfWork.HeadBefore''',
         true,
-      );
-  static dynamic headOfWork(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? headOfWork(dynamic response) => getJsonField(
         response,
         r'''$.info.info[:].HeadOfWork''',
         true,
-      );
-  static dynamic leaveDocument(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? leaveDocument(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDocument''',
         true,
-      );
-  static dynamic leaveReason(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveReason(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveReason''',
         true,
-      );
-  static dynamic leavePeriod(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leavePeriod(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeavePeriod''',
         true,
-      );
-  static dynamic leaveDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDate''',
         true,
-      );
-  static dynamic leaveCountDay(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveCountDay(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveCountDay''',
         true,
-      );
-  static dynamic leaveName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveName''',
         true,
-      );
-  static dynamic empCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? empCode(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].EmpCode''',
         true,
-      );
-  static dynamic leaveID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveID(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ID''',
         true,
-      );
-  static dynamic headAfter(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? headAfter(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].HeadOfWork.HeadAfter''',
         true,
-      );
-  static dynamic userPhoneNumber(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? userPhoneNumber(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Tel''',
         true,
-      );
-  static dynamic checkEdit(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? checkEdit(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].CheckEdit''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class ResignListAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -4181,166 +5538,271 @@ class ResignListAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic createDate(dynamic response) => getJsonField(
+      ));
+  static List<String>? createDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].CreateDate''',
         true,
-      );
-  static dynamic leaveStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveStatus(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveStatus''',
         true,
-      );
-  static dynamic headBefore(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? headBefore(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].HeadOfWork.HeadBefore''',
         true,
-      );
-  static dynamic headOfWork(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? headOfWork(dynamic response) => getJsonField(
         response,
         r'''$.info.info[:].HeadOfWork''',
         true,
-      );
-  static dynamic leaveDocument(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? leaveDocument(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDocument''',
         true,
-      );
-  static dynamic leaveReason(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveReason(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveReason''',
         true,
-      );
-  static dynamic leavePeriod(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leavePeriod(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeavePeriod''',
         true,
-      );
-  static dynamic leaveStartDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveStartDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDateStart''',
         true,
-      );
-  static dynamic leaveCountDay(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveCountDay(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveCountDay''',
         true,
-      );
-  static dynamic leaveName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveName''',
         true,
-      );
-  static dynamic empCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? empCode(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].EmpCode''',
         true,
-      );
-  static dynamic leaveID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveID(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ID''',
         true,
-      );
-  static dynamic headAfter(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? headAfter(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].HeadOfWork.HeadAfter''',
         true,
-      );
-  static dynamic userPhoneNumber(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? userPhoneNumber(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Tel''',
         true,
-      );
-  static dynamic checkEdit(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? checkEdit(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].CheckEdit''',
         true,
-      );
-  static dynamic otherAsset(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? otherAsset(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].OtherAsset''',
         true,
-      );
-  static dynamic asset(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? asset(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Asset''',
         true,
-      );
-  static dynamic postCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? postCode(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].PostCode''',
         true,
-      );
-  static dynamic subDistrict(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? subDistrict(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].SubDistrict''',
         true,
-      );
-  static dynamic district(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? district(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].District''',
         true,
-      );
-  static dynamic province(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? province(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Province''',
         true,
-      );
-  static dynamic address(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? address(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Address''',
         true,
-      );
-  static dynamic flagComback(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? flagComback(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].FlagComeBack''',
         true,
-      );
-  static dynamic otherReasonResign(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? otherReasonResign(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].OtherReasonResign''',
         true,
-      );
-  static dynamic reasonResign(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? reasonResign(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ReasonResign''',
         true,
-      );
-  static dynamic cancelBy(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? cancelBy(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].CancelBy''',
         true,
-      );
-  static dynamic leaveDateEnd(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveDateEnd(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDateEnd''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class LeaveListAprroveAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -4354,112 +5816,182 @@ class LeaveListAprroveAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic createDate(dynamic response) => getJsonField(
+      ));
+  static List<String>? createDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].CreateDate''',
         true,
-      );
-  static dynamic leaveStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveStatus(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveStatus''',
         true,
-      );
-  static dynamic leaveDocument(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveDocument(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDocument''',
         true,
-      );
-  static dynamic leaveReason(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveReason(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveReason''',
         true,
-      );
-  static dynamic leavePeriod(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leavePeriod(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeavePeriod''',
         true,
-      );
-  static dynamic leaveDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDate''',
         true,
-      );
-  static dynamic leaveCountDay(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveCountDay(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveCountDay''',
         true,
-      );
-  static dynamic leaveName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveName''',
         true,
-      );
-  static dynamic empCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? empCode(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].EmpCode''',
         true,
-      );
-  static dynamic leaveID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveID(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ID''',
         true,
-      );
-  static dynamic leaveUserName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveUserName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].FullName''',
         true,
-      );
-  static dynamic userPhoneNumber(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? userPhoneNumber(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Tel''',
         true,
-      );
-  static dynamic reasonResign(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? reasonResign(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ReasonResign''',
         true,
-      );
-  static dynamic empIdBoss1(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? empIdBoss1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.fcm.Username_O''',
-      );
-  static dynamic fcmBoss1(dynamic response) => getJsonField(
+      ));
+  static String? fcmBoss1(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.fcm.Head_O''',
-      );
-  static dynamic empIdBoss2(dynamic response) => getJsonField(
+      ));
+  static String? empIdBoss2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.fcm.Username_T''',
-      );
-  static dynamic fcmBoss2(dynamic response) => getJsonField(
+      ));
+  static String? fcmBoss2(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.fcm.Head_T''',
-      );
+      ));
+  static String? massageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? nickName(dynamic response) => getJsonField(
+        response,
+        r'''$.info.info[:].AboutEmployee[:].NickName''',
+        true,
+      ) as List?;
+  static List? department(dynamic response) => getJsonField(
+        response,
+        r'''$.info.info[:].AboutEmployee[:].Department''',
+        true,
+      ) as List?;
 }
 
 class LeaveListAprroveTwoAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -4473,78 +6005,123 @@ class LeaveListAprroveTwoAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic createDate(dynamic response) => getJsonField(
+      ));
+  static List<String>? createDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].CreateDate''',
         true,
-      );
-  static dynamic leaveStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveStatus(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveStatus''',
         true,
-      );
-  static dynamic leaveDocument(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveDocument(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDocument''',
         true,
-      );
-  static dynamic leaveReason(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveReason(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveReason''',
         true,
-      );
-  static dynamic leavePeriod(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leavePeriod(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeavePeriod''',
         true,
-      );
-  static dynamic leaveDate(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveDate(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveDate''',
         true,
-      );
-  static dynamic leaveCountDay(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveCountDay(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveCountDay''',
         true,
-      );
-  static dynamic leaveName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].LeaveName''',
         true,
-      );
-  static dynamic empCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? empCode(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].EmpCode''',
         true,
-      );
-  static dynamic leaveID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveID(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].ID''',
         true,
-      );
-  static dynamic leaveUserName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveUserName(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].FullName''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class LeaveListCancelAPICall {
@@ -4553,8 +6130,8 @@ class LeaveListCancelAPICall {
     String? token = '',
     String? leaveId = '',
     String? reasonCancel = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -4570,26 +6147,31 @@ class LeaveListCancelAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
+      ));
   static dynamic infoDetail(dynamic response) => getJsonField(
         response,
         r'''$.info.detail''',
+      );
+  static dynamic messageLayer1(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
       );
 }
 
@@ -4599,8 +6181,8 @@ class LeaveFlagApproveAPICall {
     String? token = '',
     String? leaveId = '',
     String? flagApprove = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -4616,27 +6198,86 @@ class LeaveFlagApproveAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic infoInfo(dynamic response) => getJsonField(
+      ));
+  static String? infoInfo(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.info''',
-      );
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class LeaveFlagApproveListAPICall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? token = '',
+    List<String>? leaveIdList,
+    String? flagApprove = '',
+  }) async {
+    final leaveId = _serializeList(leaveIdList);
+
+    final ffApiRequestBody = '''
+{
+  "leaveId": ${leaveId},
+  "flagApprove": "${flagApprove}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'leaveFlagApproveListAPI',
+      apiUrl: '${apiUrl}/api/leave/leave-approve-list',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.info.status''',
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.info.info''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class SendFCMNotificationAPICall {
@@ -4644,10 +6285,10 @@ class SendFCMNotificationAPICall {
     String? to = '',
     dynamic? notificationJson,
     dynamic? dataJson,
-  }) {
+  }) async {
     final notification = _serializeJson(notificationJson);
     final data = _serializeJson(dataJson);
-    final body = '''
+    final ffApiRequestBody = '''
 {
   "to": "${to}",
   "notification": ${notification},
@@ -4662,31 +6303,33 @@ class SendFCMNotificationAPICall {
             'key=AAAAWEYHwRs:APA91bG7ezsMWzUoITp6S--2hs3LdrivYaMprdAPl42YdwC1CIu6e8FkOSOGhbtJvaYkdCIjsKBU_U76PKM-bhrwWrPJQy3gHg3ZSi6Uqb76XIuNSh-lIPQ_rloc5wXnTlQlzbaWUSpk',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic success(dynamic response) => getJsonField(
+  static int? success(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.success''',
-      );
-  static dynamic failure(dynamic response) => getJsonField(
+      ));
+  static int? failure(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.failure''',
-      );
-  static dynamic errerMessage(dynamic response) => getJsonField(
+      ));
+  static String? errerMessage(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.results[:].error''',
-      );
-  static dynamic messageID(dynamic response) => getJsonField(
+      ));
+  static String? messageID(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.results[:].message_id''',
-      );
+      ));
 }
 
 class LeaveFlagApproveTwoAPICall {
@@ -4695,8 +6338,8 @@ class LeaveFlagApproveTwoAPICall {
     String? token = '',
     String? leaveId = '',
     String? flagApprove = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -4712,34 +6355,35 @@ class LeaveFlagApproveTwoAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic infoStatus(dynamic response) => getJsonField(
+      ));
+  static int? infoStatus(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic infoInfo(dynamic response) => getJsonField(
+      ));
+  static String? infoInfo(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.info''',
-      );
+      ));
 }
 
 class GetProvinceAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}"
   
@@ -4753,29 +6397,38 @@ class GetProvinceAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic provCode(dynamic response) => getJsonField(
+      ));
+  static List<String>? provCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].ProvCode''',
         true,
-      );
-  static dynamic provName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? provName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].ProvName''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ChangeLocationAPICall {
@@ -4786,8 +6439,8 @@ class ChangeLocationAPICall {
     String? branchCode = '',
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "latitude": "${latitude}",
@@ -4798,62 +6451,136 @@ class ChangeLocationAPICall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ChangeLocationAPI',
-      apiUrl: '${apiUrl}/api/fordevelop/change-location',
+      apiUrl: '${apiUrl}/api/hr-management/change-location',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.returnDataView.status''',
-      );
-  static dynamic oldLat(dynamic response) => getJsonField(
+      ));
+  static String? oldLat(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.returnDataView.info[:].LATITUDE''',
-      );
-  static dynamic oldLng(dynamic response) => getJsonField(
+      ));
+  static String? oldLng(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.returnDataView.info[:].LONGITUDE''',
-      );
-  static dynamic statusConfirm(dynamic response) => getJsonField(
+      ));
+  static int? statusConfirm(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.returnDataToEdit.status''',
-      );
-  static dynamic messageView(dynamic response) => getJsonField(
+      ));
+  static String? messageView(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.returnDataView.message''',
-      );
-  static dynamic messageEdit(dynamic response) => getJsonField(
+      ));
+  static String? messageEdit(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.returnDataToEdit.message''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
+      ));
+  static String? branchName(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.returnDataView.info[:].BRANCH_NAME''',
+      ));
+}
+
+class InsertLocationAPICall {
+  static Future<ApiCallResponse> call({
+    String? latitude = '',
+    String? longitude = '',
+    String? branchCode = '',
+    String? apiUrl = '',
+    String? token = '',
+    String? branchName = '',
+    String? groupCode = '',
+    String? regionCode = '',
+    String? radius = '',
+    String? areaCode = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "api_url": "${apiUrl}",
+  "latitude": "${latitude}",
+  "longitude": "${longitude}",
+  "branch_code": "${branchCode}",
+  "token": "${token}",
+  "branch_name": "${branchName}",
+  "group_code": "${groupCode}",
+  "region_code": "${regionCode}",
+  "radius": "${radius}",
+  "area_code": "${areaCode}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'InsertLocationAPI',
+      apiUrl: '${apiUrl}/api/hr-management/insert-location',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.returnDataInsert.status''',
+      ));
+  static String? statusMessage(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.returnDataInsert.message''',
+      ));
 }
 
 class GetBossAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -4867,38 +6594,44 @@ class GetBossAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic bossCheck(dynamic response) => getJsonField(
+      ));
+  static String? bossCheck(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Detail.info''',
-      );
-  static dynamic message(dynamic response) => getJsonField(
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.Detail.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.Detail.status''',
-      );
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
 }
 
 class GetHolidayAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}"
   
@@ -4912,41 +6645,239 @@ class GetHolidayAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic holidayDate(dynamic response) => getJsonField(
+      ));
+  static List? holidayDate(dynamic response) => getJsonField(
         response,
         r'''$.info.info[:].DATE_OF_YEAR''',
         true,
-      );
-  static dynamic holidayName(dynamic response) => getJsonField(
+      ) as List?;
+  static List? holidayName(dynamic response) => getJsonField(
         response,
         r'''$.info.info[:].NAME_TH''',
         true,
-      );
+      ) as List?;
   static dynamic statusLayer2(dynamic response) => getJsonField(
         response,
         r'''$.info.status''',
       );
+  static dynamic messageLayer1(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
+}
+
+class GetLeaveDateCheckinAPICall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? token = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "api_url": "${apiUrl}",
+  "token": "${token}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetLeaveDateCheckinAPI',
+      apiUrl: '${apiUrl}/api/leave/check-leave',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.status''',
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.message''',
+      ));
+  static int? statusLayer3CM(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.info.currentMonth.status''',
+      ));
+  static String? messageLayer3CM(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.currentMonth.message''',
+      ));
+  static int? statusLayer3LM(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.info.lastMonth.status''',
+      ));
+  static String? messageLayer3LM(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.lastMonth.message''',
+      ));
+  static List<String>? employeeIdLM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.lastMonth.info[:].Employee''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? fullnameLM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.lastMonth.info[:].FullName''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveTypeLM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.lastMonth.info[:].LeaveType''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countDayLM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.lastMonth.info[:].CountDay''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? startLeaveDateLM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.lastMonth.info[:].StartDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? endLeaveDateLM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.lastMonth.info[:].EndDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? subLeaveTypeLM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.lastMonth.info[:].Type''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeIdCM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.currentMonth.info[:].Employee''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? fullnameCM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.currentMonth.info[:].FullName''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leaveTypeCM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.currentMonth.info[:].LeaveType''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countDayCM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.currentMonth.info[:].CountDay''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? startLeaveDateCM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.currentMonth.info[:].StartDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? endLeaveDateCM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.currentMonth.info[:].EndDate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? subLeaveTypeCM(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info.currentMonth.info[:].Type''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetDistrictAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? provCode = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "provCode": "${provCode}"
@@ -4960,39 +6891,213 @@ class GetDistrictAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic provCode(dynamic response) => getJsonField(
+      ));
+  static List<String>? provCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].ProvCode''',
         true,
-      );
-  static dynamic postCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? postCode(dynamic response) => getJsonField(
         response,
         r'''$.info[:].PostCode''',
         true,
-      );
-  static dynamic districtName(dynamic response) => getJsonField(
+      ) as List?;
+  static List? districtName(dynamic response) => getJsonField(
         response,
         r'''$.info[:].DistrictName''',
         true,
-      );
-  static dynamic districtCode(dynamic response) => getJsonField(
+      ) as List?;
+  static List? districtCode(dynamic response) => getJsonField(
         response,
         r'''$.info[:].DistrictCode''',
         true,
+      ) as List?;
+  static dynamic messageLayer1(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
       );
+}
+
+class GetKPIAllCall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? empCode = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "api_url": "${apiUrl}",
+  "emp_code": "${empCode}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetKPIAll',
+      apiUrl: '${apiUrl}/api/personal-kpi/all',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusCode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static List<String>? monthth(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..month_th''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countNonLifeLicenseNumber(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data[*]..count_NonLifeLicenseNumber''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countLifeLicenseNumber(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data[*]..count_LifeLicenseNumber''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countleadsurvey(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..count_lead_survey''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tagetUnit(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..Taget_Unit''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countLeadID(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..CountLeadID''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? sumKEYINCSHPRCLead(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..SumKEYINCSHPRCLead''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tagetkeyincshprc(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..TAGET_KEYINCSHPRC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? achieveKEYINCSHPRCLead(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data[*]..AchieveKEYINCSHPRCLead''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countPolicyNoTPB(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..CountPolicyNo_TPB''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? ibssumApp(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..ibs_sumApp''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? ibssumPremium(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..ibs_sumPremium''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? insureSumTotalPremiumTPB(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data[*]..Insure_SumTotalPremium_TPB''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? etlCreateDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..etl_create_date''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLeadCalledStatusDropdownAPICall {
@@ -5000,8 +7105,8 @@ class GetLeadCalledStatusDropdownAPICall {
     String? apiUrl = '',
     String? token = '',
     String? leadChannel = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -5016,48 +7121,70 @@ class GetLeadCalledStatusDropdownAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic callStatusId(dynamic response) => getJsonField(
+      ));
+  static List<String>? callStatusId(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].CallStatusID''',
         true,
-      );
-  static dynamic channel(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? channel(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].Channel''',
         true,
-      );
-  static dynamic callStatusType(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? callStatusType(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].CallStatusType''',
         true,
-      );
-  static dynamic callStatusCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? callStatusCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].CallStatusCode''',
         true,
-      );
-  static dynamic callStatusName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? callStatusName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].CallStatusName''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLeadCalledHistoryAPICall {
@@ -5065,8 +7192,8 @@ class GetLeadCalledHistoryAPICall {
     String? apiUrl = '',
     String? token = '',
     String? leadID = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -5081,65 +7208,88 @@ class GetLeadCalledHistoryAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info.message''',
-      );
-  static dynamic info(dynamic response) => getJsonField(
+      ));
+  static String? info(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info.info''',
-      );
-  static dynamic callStatus(dynamic response) => getJsonField(
+      ));
+  static List<String>? callStatus(dynamic response) => (getJsonField(
         response,
         r'''$.info.Data[:].HistoryCallStatus''',
         true,
-      );
-  static dynamic reasonName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? reasonName(dynamic response) => (getJsonField(
         response,
         r'''$.info.Data[:].HistoryReasonName''',
         true,
-      );
-  static dynamic note(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? note(dynamic response) => getJsonField(
         response,
         r'''$.info.Data[:].HistoryNote''',
         true,
-      );
-  static dynamic callTime(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? callTime(dynamic response) => (getJsonField(
         response,
         r'''$.info.Data[:].HistoryCallTime''',
         true,
-      );
-  static dynamic historyStatus(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? historyStatus(dynamic response) => (getJsonField(
         response,
         r'''$.info.Data[:].HistoryStatus''',
         true,
-      );
-  static dynamic employeeId(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? employeeId(dynamic response) => (getJsonField(
         response,
         r'''$.info.Data[:].HistoryUserID''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class SaveCallStatusAPICall {
@@ -5150,8 +7300,8 @@ class SaveCallStatusAPICall {
     String? statusCallID = '',
     String? reasonID = '',
     String? reasonDetail = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -5169,47 +7319,53 @@ class SaveCallStatusAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic statusLayer2(dynamic response) => getJsonField(
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info[:].status''',
-      );
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].message''',
-      );
-  static dynamic info(dynamic response) => getJsonField(
+      ));
+  static String? info(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.info[:].info''',
-      );
-  static dynamic callStatus(dynamic response) => getJsonField(
+      ));
+  static String? callStatus(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].statusCall.call''',
-      );
-  static dynamic callStatusReason(dynamic response) => getJsonField(
+      ));
+  static String? callStatusReason(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].statusCall.callStatus''',
-      );
-  static dynamic statusReasonDetail(dynamic response) => getJsonField(
+      ));
+  static String? statusReasonDetail(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.info[:].statusCall.callReason''',
-      );
+      ));
 }
 
 class GetLeadReasonCallDropdownAPICall {
@@ -5217,8 +7373,8 @@ class GetLeadReasonCallDropdownAPICall {
     String? apiUrl = '',
     String? token = '',
     String? callStatusId = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}",
@@ -5233,46 +7389,60 @@ class GetLeadReasonCallDropdownAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic messageLayer1(dynamic response) => getJsonField(
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.message''',
-      );
-  static dynamic callStatusId(dynamic response) => getJsonField(
+      ));
+  static List<String>? callStatusId(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].CallStatusID''',
         true,
-      );
-  static dynamic reasonId(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? reasonId(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].ReasonID''',
         true,
-      );
-  static dynamic reasonName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? reasonName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].ReasonName''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetSubDistrictAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? districtCode = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "districtCode": "${districtCode}"
@@ -5286,42 +7456,55 @@ class GetSubDistrictAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic districtCode(dynamic response) => getJsonField(
+      ));
+  static List<String>? districtCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].DistrictCode''',
         true,
-      );
-  static dynamic subName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? subName(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].SubDistrictName''',
         true,
-      );
-  static dynamic subCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? subCode(dynamic response) => (getJsonField(
         response,
         r'''$.info[:].SubDistrictCode''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ThaipaiboonAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
     String? token = '',
-  }) {
-    final body = '''
+  }) async {
+    final ffApiRequestBody = '''
 {
   "api_url": "${apiUrl}",
   "token": "${token}"
@@ -5335,57 +7518,78 @@ class ThaipaiboonAPICall {
         'Authorization': 'Basic dGFra286MTIzNDU2',
       },
       params: {},
-      body: body,
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic statusLayer1(dynamic response) => getJsonField(
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic date(dynamic response) => getJsonField(
+      ));
+  static List<String>? date(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Date''',
         true,
-      );
-  static dynamic empCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? empCode(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].EmpCode''',
         true,
-      );
-  static dynamic statuslayer2(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statuslayer2(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.info.status''',
-      );
-  static dynamic groupCampaign(dynamic response) => getJsonField(
+      ));
+  static List<String>? groupCampaign(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].GroupCampaign''',
         true,
-      );
-  static dynamic premiums(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? premiums(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].Premiums''',
         true,
-      );
-  static dynamic noOfPolicy(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? noOfPolicy(dynamic response) => (getJsonField(
         response,
         r'''$.info.info[:].NoOfPolicy''',
         true,
-      );
-  static dynamic info(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? info(dynamic response) => getJsonField(
         response,
         r'''$.info.info''',
         true,
-      );
+      ) as List?;
 }
 
 class GetUniversalTimeCall {
-  static Future<ApiCallResponse> call() {
+  static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getUniversalTime',
       apiUrl: 'http://worldtimeapi.org/api/timezone/Asia/Bangkok',
@@ -5396,17 +7600,2278 @@ class GetUniversalTimeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic unixTime(dynamic response) => getJsonField(
+  static int? unixTime(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.unixtime''',
-      );
-  static dynamic dateTime(dynamic response) => getJsonField(
+      ));
+  static String? dateTime(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.datetime''',
+      ));
+  static dynamic dateTime1(dynamic response) => getJsonField(
+        response,
+        r'''$.utc_datetime''',
       );
+}
+
+class GetCheckinImgUrlApiCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getCheckinImgUrlApi',
+      apiUrl: 'https://40dd-223-27-201-20.ngrok-free.app/api/get',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? imageUrl(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].urlImg''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? id(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? time(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].time''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dateFlag(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dateFlag''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class GetCheckinImgUrlUrlApiCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getCheckinImgUrlUrlApi',
+      apiUrl: 'https://40dd-223-27-201-20.ngrok-free.app/api/get1',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? imageUrl(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].urlImg''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? id(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? time(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].time''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dateFlag(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].dateFlag''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class InsuranceRequestSendEmailAPICall {
+  static Future<ApiCallResponse> call({
+    String? carBrandId = '',
+    String? carBrandName = '',
+    String? carModelId = '',
+    String? carModelName = '',
+    String? firstName = '',
+    String? lastName = '',
+    String? phoneNumber = '',
+    String? driverType = '',
+    String? carProvinceCode = '',
+    String? carProvinceName = '',
+    String? idNumber = '',
+    String? carRegistration = '',
+    String? carRegistrationYear = '',
+    String? vehicleId = '',
+    String? vehicleCode = '',
+    String? vehicleName = '',
+    String? idType = '',
+    String? branchCode = '',
+    FFUploadedFile? imageFront,
+    FFUploadedFile? imageRear,
+    FFUploadedFile? imageLeft,
+    FFUploadedFile? imageRight,
+    FFUploadedFile? imageRightfront,
+    FFUploadedFile? imageRightrear,
+    FFUploadedFile? imageLeftfront,
+    FFUploadedFile? imageLeftrear,
+    FFUploadedFile? imageRoof,
+    FFUploadedFile? imageApplication,
+    FFUploadedFile? imageIdcard,
+    FFUploadedFile? imageBluebook,
+    FFUploadedFile? imageExamination,
+    FFUploadedFile? imageOther1,
+    String? apiUrl = '',
+    FFUploadedFile? imageOther2,
+    FFUploadedFile? imageOther3,
+    FFUploadedFile? imageOther4,
+    FFUploadedFile? imageOther5,
+    List<String>? insurerCodeList,
+    List<String>? insurerIdList,
+    List<String>? insurerNameList,
+    List<String>? insurerShortNameList,
+    List<String>? coverTypeIdList,
+    List<String>? coverTypeCodeList,
+    List<String>? coverTypeNameList,
+    List<String>? garageTypeIdList,
+    List<String>? garageTypeNameList,
+    String? companyName = '',
+    String? flgRenew = '',
+    String? oldVMIPolicyNumber = '',
+    String? flgDecoration = '',
+    String? decorationDetail = '',
+    String? flgCarrier = '',
+    String? flgCoOrg = '',
+    String? carrierType = '',
+    String? carrierPrice = '',
+    String? customerType = '',
+    String? trailerCarRegistration = '',
+    String? carrierPropose = '',
+    String? remark = '',
+    FFUploadedFile? imageFrontTrailer,
+    FFUploadedFile? imageRearTrailer,
+    FFUploadedFile? imageLeftTrailer,
+    FFUploadedFile? imageRightTrailer,
+    FFUploadedFile? imageRightfrontTrailer,
+    FFUploadedFile? imageRightrearTrailer,
+    FFUploadedFile? imageLeftfrontTrailer,
+    FFUploadedFile? imageLeftrearTrailer,
+    FFUploadedFile? imageRoofTrailer,
+    String? carType = '',
+    String? customerMemberchip = '',
+    String? truckPart = '',
+    String? flgAct = '',
+    String? sumInsured = '',
+    String? trailerSumInsured = '',
+    String? truckCurrentPrice = '',
+    String? token = '',
+  }) async {
+    final insurerCode = _serializeList(insurerCodeList);
+    final insurerId = _serializeList(insurerIdList);
+    final insurerName = _serializeList(insurerNameList);
+    final insurerShortName = _serializeList(insurerShortNameList);
+    final coverTypeId = _serializeList(coverTypeIdList);
+    final coverTypeCode = _serializeList(coverTypeCodeList);
+    final coverTypeName = _serializeList(coverTypeNameList);
+    final garageTypeId = _serializeList(garageTypeIdList);
+    final garageTypeName = _serializeList(garageTypeNameList);
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'insuranceRequestSendEmailAPI',
+      apiUrl: '${apiUrl}/ssw_insurance_manual_api/api/manual-insurance/save',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'car_brand_id': carBrandId,
+        'car_brand_name': carBrandName,
+        'car_model_id': carModelId,
+        'car_model_name': carModelName,
+        'first_name': firstName,
+        'last_name': lastName,
+        'phone_number': phoneNumber,
+        'driver_type': driverType,
+        'car_province_code': carProvinceCode,
+        'car_province_name': carProvinceName,
+        'id_number': idNumber,
+        'car_registration': carRegistration,
+        'car_registration_year': carRegistrationYear,
+        'vehicle_id': vehicleId,
+        'vehicle_code': vehicleCode,
+        'vehicle_name': vehicleName,
+        'id_type': idType,
+        'branch_code': branchCode,
+        'image_front': imageFront,
+        'image_rear': imageRear,
+        'image_left': imageLeft,
+        'image_right': imageRight,
+        'image_rightfront': imageRightfront,
+        'image_rightrear': imageRightrear,
+        'image_leftfront': imageLeftfront,
+        'image_leftrear': imageLeftrear,
+        'image_roof': imageRoof,
+        'image_application': imageApplication,
+        'image_idcard': imageIdcard,
+        'image_bluebook': imageBluebook,
+        'image_examination': imageExamination,
+        'image_other1': imageOther1,
+        'api_url': apiUrl,
+        'image_other2': imageOther2,
+        'image_other3': imageOther3,
+        'image_other4': imageOther4,
+        'image_other5': imageOther5,
+        'insurer_code': insurerCode,
+        'insurer_id': insurerId,
+        'insurer_name': insurerName,
+        'insurer_short_name': insurerShortName,
+        'cover_type_id': coverTypeId,
+        'cover_type_code': coverTypeCode,
+        'cover_type_name': coverTypeName,
+        'garage_type_id': garageTypeId,
+        'garage_type_name': garageTypeName,
+        'company_name': companyName,
+        'flg_renew': flgRenew,
+        'old_VMI_policyNumber': oldVMIPolicyNumber,
+        'flg_decoration': flgDecoration,
+        'decoration_detail': decorationDetail,
+        'flg_carrier': flgCarrier,
+        'flg_co_org': flgCoOrg,
+        'carrier_type': carrierType,
+        'carrier_price': carrierPrice,
+        'customer_type': customerType,
+        'trailer_car_registration': trailerCarRegistration,
+        'carrier_propose': carrierPropose,
+        'remark': remark,
+        'image_front_trailer': imageFrontTrailer,
+        'image_rear_trailer': imageRearTrailer,
+        'image_left_trailer': imageLeftTrailer,
+        'image_right_trailer': imageRightTrailer,
+        'image_rightfront_trailer': imageRightfrontTrailer,
+        'image_rightrear_trailer': imageRightrearTrailer,
+        'image_leftfront_trailer': imageLeftfrontTrailer,
+        'image_leftrear_trailer': imageLeftrearTrailer,
+        'image_roof_trailer': imageRoofTrailer,
+        'car_type': carType,
+        'customer_memberchip': customerMemberchip,
+        'truck_part': truckPart,
+        'flg_act': flgAct,
+        'sum_insured': sumInsured,
+        'trailer_sum_insured': trailerSumInsured,
+        'truck_current_price': truckCurrentPrice,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statusCode''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.statusMessage''',
+      ));
+  static dynamic statusLayer2(dynamic response) => getJsonField(
+        response,
+        r'''$.results.statusCode''',
+      );
+  static dynamic messageLayer2(dynamic response) => getJsonField(
+        response,
+        r'''$.results.statusMessage''',
+      );
+  static dynamic resultInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info''',
+      );
+}
+
+class InsuranceRequestEditAPICall {
+  static Future<ApiCallResponse> call({
+    FFUploadedFile? imageFront,
+    FFUploadedFile? imageRear,
+    FFUploadedFile? imageLeft,
+    FFUploadedFile? imageRight,
+    FFUploadedFile? imageRightfront,
+    FFUploadedFile? imageRightrear,
+    FFUploadedFile? imageLeftfront,
+    FFUploadedFile? imageLeftrear,
+    FFUploadedFile? imageRoof,
+    FFUploadedFile? imageIdcard,
+    FFUploadedFile? imageBluebook,
+    FFUploadedFile? imageOther1,
+    String? apiUrl = '',
+    FFUploadedFile? imageOther2,
+    FFUploadedFile? imageOther3,
+    FFUploadedFile? imageOther4,
+    FFUploadedFile? imageOther5,
+    String? insurerShortName = '',
+    FFUploadedFile? imageFrontTrailer,
+    FFUploadedFile? imageRearTrailer,
+    FFUploadedFile? imageLeftTrailer,
+    FFUploadedFile? imageRightTrailer,
+    FFUploadedFile? imageRightfrontTrailer,
+    FFUploadedFile? imageRightrearTrailer,
+    FFUploadedFile? imageLeftfrontTrailer,
+    FFUploadedFile? imageLeftrearTrailer,
+    String? token = '',
+    String? leadId = '',
+    String? leadNo = '',
+    String? imageOtherName = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'insuranceRequestEditAPI',
+      apiUrl: '${apiUrl}/ssw_insurance_manual_api/api/manual-insurance/edit',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'image_front': imageFront,
+        'image_rear': imageRear,
+        'image_left': imageLeft,
+        'image_right': imageRight,
+        'image_rightfront': imageRightfront,
+        'image_rightrear': imageRightrear,
+        'image_leftfront': imageLeftfront,
+        'image_leftrear': imageLeftrear,
+        'image_roof': imageRoof,
+        'image_idcard': imageIdcard,
+        'image_bluebook': imageBluebook,
+        'image_other1': imageOther1,
+        'api_url': apiUrl,
+        'image_other2': imageOther2,
+        'image_other3': imageOther3,
+        'image_other4': imageOther4,
+        'image_other5': imageOther5,
+        'insurer_short_name': insurerShortName,
+        'image_front_trailer': imageFrontTrailer,
+        'image_rear_trailer': imageRearTrailer,
+        'image_left_trailer': imageLeftTrailer,
+        'image_right_trailer': imageRightTrailer,
+        'image_rightfront_trailer': imageRightfrontTrailer,
+        'image_rightrear_trailer': imageRightrearTrailer,
+        'image_leftfront_trailer': imageLeftfrontTrailer,
+        'image_leftrear_trailer': imageLeftrearTrailer,
+        'lead_id': leadId,
+        'lead_no': leadNo,
+        'image_other_name': imageOtherName,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statusCode''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.statusMessage''',
+      ));
+  static dynamic statusLayer2(dynamic response) => getJsonField(
+        response,
+        r'''$.results.statusCode''',
+      );
+  static dynamic messageLayer2(dynamic response) => getJsonField(
+        response,
+        r'''$.results.statusMessage''',
+      );
+  static dynamic resultInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info''',
+      );
+}
+
+class InsuranceRequestListAPICall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? token = '',
+    String? ownerId = '',
+    String? mode = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "owner_id": "${ownerId}",
+  "mode": "${mode}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'insuranceRequestListAPI',
+      apiUrl: '${apiUrl}/ssw_insurance_manual_api/api/lead/get-lead-list',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statusCode''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.statusMessage''',
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.statusCode''',
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.statusMessage''',
+      ));
+  static int? listTotal(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.total''',
+      ));
+  static List<int>? leadId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].lead_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? leadNo(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].lead_no''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? leadStatus(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info[:].lead_status''',
+        true,
+      ) as List?;
+  static List<String>? firstname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].first_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? lastname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].last_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? company(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info[:].company_name''',
+        true,
+      ) as List?;
+  static List<String>? customerType(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].customer_type''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? phoneNumber(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].phone_number''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? flagRenew(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].flg_renew''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? coverTypeName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].cover_type_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class InsuranceRequestDetailAPICall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? token = '',
+    String? leadId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "lead_id": "${leadId}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'insuranceRequestDetailAPI',
+      apiUrl: '${apiUrl}/ssw_insurance_manual_api/api/lead/get-lead-detail',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statusCode''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.statusMessage''',
+      ));
+  static int? statusLayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.statusCode''',
+      ));
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.statusMessage''',
+      ));
+  static int? leadId(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.info[:].lead_id''',
+      ));
+  static String? leadNo(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].lead_no''',
+      ));
+  static dynamic leadStatus(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info[:].lead_status''',
+      );
+  static String? firstname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].first_name''',
+      ));
+  static String? lastname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].last_name''',
+      ));
+  static dynamic company(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info[:].company_name''',
+      );
+  static String? customerType(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].customer_type''',
+      ));
+  static String? phoneNumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].phone_number''',
+      ));
+  static String? flagRenew(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].flg_renew''',
+      ));
+  static String? idCardNumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].id_number''',
+      ));
+  static String? carType(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].car_type''',
+      ));
+  static String? brandName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].car_brand_name''',
+      ));
+  static String? modelName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].car_model_name''',
+      ));
+  static String? province(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].car_province_name''',
+      ));
+  static String? plateNo(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].car_registration''',
+      ));
+  static String? year(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].car_registration_year''',
+      ));
+  static String? vehicleCode(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].vehicle_code''',
+      ));
+  static String? vehicleName(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].vehicle_name''',
+      ));
+  static int? vehicleId(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.info[:].vehicle_id''',
+      ));
+  static String? flagDecoration(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].flg_decoration''',
+      ));
+  static String? decorationDetail(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].decoration_detail''',
+      ));
+  static String? flagCarrier(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].flg_carrier''',
+      ));
+  static String? flagCoop(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].flg_co_org''',
+      ));
+  static String? carrierType(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].carrier_type''',
+      ));
+  static String? carrierPrice(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].carrier_price''',
+      ));
+  static String? remark(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].remark''',
+      ));
+  static String? flagAct(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].flg_act''',
+      ));
+  static String? sumInsured(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].sum_insured''',
+      ));
+  static List<String>? insurerNameList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].insurer_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? coverTypeNameList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].cover_type_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? garageTypeNameList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].garage_type_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? leadDetailId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].lead_dtl_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? insurerShortName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].insurer_short_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageFrontList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_front''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRearList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_rear''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageLeftList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_left''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRightList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_right''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRightFrontList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_rightfront''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRightRearList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_rightrear''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageLeftFrontList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_leftfront''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageLeftRearList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_leftrear''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRoofList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_roof''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageFrontTrailerList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_front_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRearTrailerList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_rear_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageLeftTrailerList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_left_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRightTrailerList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_right_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRightFrontTrailerList(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_rightfront_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRightRearTrailerList(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_rightrear_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageLeftFrontTrailerList(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_leftfront_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageLeftRearTrailerList(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_leftrear_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageRoofTrailerList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_roof_trailer''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageBluebookList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_bluebook''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageIdCardList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_idcard''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? imageOtherList(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_other''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? oldVmiPolicyNumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].old_VMI_policyNumber''',
+      ));
+  static String? truckPart(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].truck_part''',
+      ));
+  static String? customerMemberchip(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].customer_memberchip''',
+      ));
+  static dynamic trailerPlateNo(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info[:].trailer_car_registration''',
+      );
+  static String? carrierPropose(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].carrier_propose''',
+      ));
+  static dynamic trailerSumInsured(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info[:].trailer_sum_insured''',
+      );
+  static String? truckCurrentPrice(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info[:].truck_current_price''',
+      ));
+  static List<String>? imageOtherName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].leads_detail[:].image_other_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class InsuranceRequestGetVehicleAPICall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'insuranceRequestGetVehicleAPI',
+      apiUrl: '${apiUrl}/api/insurance/master/get_vehicle',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static List<String>? vehicleId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].vehicle_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? vehicleCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].vehicle_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? vehicleName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].vehicle_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? vehicletype(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].vehicle_type''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class InsuranceRequestGetInsurerAPICall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'insuranceRequestGetInsurerAPI',
+      apiUrl: '${apiUrl}/api/insurance/master/get_insurers_all',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.NONE,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<String>? companyId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].company_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? companyCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? companyShortName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].short_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? companyFullName(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].full_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? companyListName(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data[:].list_name''',
+        true,
+      ) as List?;
+}
+
+class CollectionFollowupDebtCall {
+  static Future<ApiCallResponse> call({
+    String? branchCode = '',
+    int? dataPage,
+    int? pageSize,
+    String? dataFilter = '',
+    String? searchBy = '',
+    String? search = '',
+    String? sortBy = '',
+    String? areaCode = '',
+    String? regionCode = '',
+    String? role = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "branchCode": "${branchCode}",
+  "dataPage": ${dataPage},
+  "pageSize": ${pageSize},
+  "dataFilter": "${dataFilter}",
+  "searchBy": "${searchBy}",
+  "search": "${search}",
+  "sortBy": "${sortBy}",
+  "codeKate": "${areaCode}",
+  "codeRegion": "${regionCode}",
+  "role": "${role}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionFollowupDebt',
+      apiUrl: '${apiUrl}/collection/api/get_data_list',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<int>? totalPages(dynamic response) => (getJsonField(
+        response,
+        r'''$.totalPages''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? id(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ID''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? database(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DATABASE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name1(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME1''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name2(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME2''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countNo(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CONTNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? mobileNumber(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].MOBILE_NUMBER''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? cusCod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CUSCOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? teamFromCld(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].TEAM_FROM_CLD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? expDay(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].EXP_DAY''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dayOfDue(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DAYOFDUE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? codeBranch(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODEBRANCH''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? codeKate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODEKATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? codeRegion(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODEREGION''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? codeNameRegion(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODENAMEREGION''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? calltype(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CALL_TYPE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? expAmt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].EXP_AMT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static List<String>? dateOfExp(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DATEOFEXP''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static List<String>? statusRefcontno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].Status_REFCONTNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? arnow(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ARNOW''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataTabName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].dataTab''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REGNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class CollectionFollowupDebtPPCall {
+  static Future<ApiCallResponse> call({
+    String? branchCode = '',
+    String? areaCode = '',
+    String? regionCode = '',
+    String? searchMonth = '',
+    String? role = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "branchCode": "${branchCode}",
+  "codeKate": "${areaCode}",
+  "codeRegion": "${regionCode}",
+  "searchMonth": "${searchMonth}",
+  "role": "${role}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionFollowupDebtPP',
+      apiUrl: '${apiUrl}/collection/api/get_data_pp',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? name1(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME1''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name2(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME2''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? cusCod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CUSCOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? statusLayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static List<String>? remdetcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDETCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? arappdate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ARAPPDATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REGNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class CollectionApiGetDataPersonCall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? idCard = '',
+    int? dataFilter,
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "api_url": "${apiUrl}",
+  "idCard": "${idCard}",
+  "dataFilter": ${dataFilter}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionApiGetDataPerson',
+      apiUrl: '${apiUrl}/collection/api/get_data_person',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? cuscod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CUSCOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? teamfromcld(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].TEAM_FROM_CLD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? expday(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].EXP_DAY''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? mobilenumber(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].MOBILE_NUMBER''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? contno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CONTNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name2(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME2''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? name1(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].NAME1''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? database(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DATABASE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static int? statuscode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static List<String>? id(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ID''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dayofdue(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DAYOFDUE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? codebranch(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODEBRANCH''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? codekate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODEKATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? coderegion(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODEREGION''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? codenameregion(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CODENAMEREGION''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? calltype(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CALL_TYPE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? expamt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].EXP_AMT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? targetstat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].TARGETSTAT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? contstat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].CONTSTAT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dateofexp(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DATEOFEXP''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<String>? fDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].FDATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? statusRefContno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].Status_REFCONTNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? expFrm(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].EXP_FRM''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? updatedAt(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].UPDATED_AT''',
+        true,
+      ) as List?;
+  static List<String>? dateofdue(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DATEOFDUE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? sumCurrentDueAmt(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].SUM_CURRENTDUEAMT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dateOfData(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].DATEOFDATA''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? lastPayDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].LPAYD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataTab(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].dataTab''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class SaveCallCollectionCall {
+  static Future<ApiCallResponse> call({
+    dynamic? saveCallJson,
+    String? apiUrl = '',
+  }) async {
+    final saveCall = _serializeJson(saveCallJson);
+    final ffApiRequestBody = '''
+{
+  "saveCall": ${saveCall},
+  "api_url": "${apiUrl}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'saveCallCollection',
+      apiUrl: '${apiUrl}/collection/api/save_call_collection',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? statuscode(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class CollectionApiVloanDataCall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionApiVloanData',
+      apiUrl: '${apiUrl}/collection/api/vloanData',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuscode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static List<String>? remgcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMGCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remdesc(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDESC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remdetcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDETCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remdetdesc(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDETDESC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static dynamic message(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
+}
+
+class GetDataSearchCollectionCall {
+  static Future<ApiCallResponse> call({
+    String? searchBy = '',
+    String? search = '',
+    int? dataFilter,
+    String? branchCode = '',
+    String? codeKate = '',
+    String? codeRegion = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "searchBy": "${searchBy}",
+  "search": "${search}",
+  "dataFilter": ${dataFilter},
+  "branchCode": "${branchCode}",
+  "codeKate": "${codeKate}",
+  "codeRegion": "${codeRegion}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getDataSearchCollection',
+      apiUrl: '${apiUrl}/collection/api/get_data_search',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuscode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static String? cuscod(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CUSCOD''',
+      ));
+  static String? database(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].DATABASE''',
+      ));
+  static String? name1(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].NAME1''',
+      ));
+  static String? name2(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].NAME2''',
+      ));
+  static String? contno(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CONTNO''',
+      ));
+  static String? mobilenumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].MOBILE_NUMBER''',
+      ));
+  static String? teamfromcld(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].TEAM_FROM_CLD''',
+      ));
+  static String? expday(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].EXP_DAY''',
+      ));
+  static String? dayofdue(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].DAYOFDUE''',
+      ));
+  static String? codebranch(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CODEBRANCH''',
+      ));
+  static String? coderegion(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CODEREGION''',
+      ));
+  static String? codekate(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CODEKATE''',
+      ));
+  static String? codenameregion(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CODENAMEREGION''',
+      ));
+  static String? calltype(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CALL_TYPE''',
+      ));
+  static String? expamt(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].EXP_AMT''',
+      ));
+  static String? targetstat(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].TARGETSTAT''',
+      ));
+  static String? contstat(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].CONTSTAT''',
+      ));
+  static String? dateofexp(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].DATEOFEXP''',
+      ));
+}
+
+class CollectionApiGetDataCountCall {
+  static Future<ApiCallResponse> call({
+    String? branchCode = '',
+    String? codeKate = '',
+    String? codeRegion = '',
+    String? role = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "branchCode": "${branchCode}",
+  "codeKate": "${codeKate}",
+  "codeRegion": "${codeRegion}",
+  "role": "${role}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionApiGetDataCount',
+      apiUrl: '${apiUrl}/collection/api/get_data_count',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusCode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static List<String>? dataTab(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].dataTab''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? count(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].Count''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class CollectionApiGetDataCountPPCall {
+  static Future<ApiCallResponse> call({
+    String? branchCode = '',
+    String? codeKate = '',
+    String? codeRegion = '',
+    String? role = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "branchCode": "${branchCode}",
+  "codeKate": "${codeKate}",
+  "codeRegion": "${codeRegion}",
+  "role": "${role}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'collectionApiGetDataCountPP',
+      apiUrl: '${apiUrl}/collection/api/get_data_count_pp',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusCode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static dynamic pp(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].PP''',
+      );
+}
+
+class GetCalledHistoryCollectionApiCall {
+  static Future<ApiCallResponse> call({
+    String? contNo = '',
+    String? apiUrl = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "contNo": "${contNo}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getCalledHistoryCollectionApi',
+      apiUrl: '${apiUrl}/collection/api/get_data_history',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusCode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      ) as List?;
+  static List<String>? calledStatus(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].HISTORY_CALL_STATUS''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? calledTime(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].HISTORY_CALL_TIME''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? reasonName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].HISTORY_REASON_NAME''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? arDate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ARDATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? arDesc(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ARDESC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? arAppdate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ARAPPDATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remdetcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMDETCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remgcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].REMGCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ApiPagingParams {
@@ -5434,11 +9899,11 @@ String _serializeList(List? list) {
   }
 }
 
-String _serializeJson(dynamic jsonVar) {
-  jsonVar ??= {};
+String _serializeJson(dynamic jsonVar, [bool isList = false]) {
+  jsonVar ??= (isList ? [] : {});
   try {
     return json.encode(jsonVar);
   } catch (_) {
-    return '{}';
+    return isList ? '[]' : '{}';
   }
 }

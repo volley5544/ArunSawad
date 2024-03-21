@@ -54,7 +54,7 @@
 	<true/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>Allow อรุณสวัสดิ์ to access this device's locantion ?</string>
+    <string>Allow อรุณสวัสดิ์ to access this device&#39;s locantion ?</string>
 	<key>NSCameraUsageDescription</key>
     <string>Allow อรุณสวัสดิ์ to take pictures and record video  ?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
