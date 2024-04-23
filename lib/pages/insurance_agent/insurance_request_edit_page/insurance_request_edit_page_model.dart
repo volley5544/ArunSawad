@@ -180,9 +180,9 @@ class InsuranceRequestEditPageModel
       customerTypeChoiceChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for InsuranceLicenseNoInput widget.
   FocusNode? insuranceLicenseNoInputFocusNode;
-  TextEditingController? insuranceLicenseNoInputController;
+  TextEditingController? insuranceLicenseNoInputTextController;
   String? Function(BuildContext, String?)?
-      insuranceLicenseNoInputControllerValidator;
+      insuranceLicenseNoInputTextControllerValidator;
   // State field(s) for VehicleTypeDropDown widget.
   String? vehicleTypeDropDownValue;
   FormFieldController<String>? vehicleTypeDropDownValueController;
@@ -208,31 +208,31 @@ class InsuranceRequestEditPageModel
       boxTypeChoiceChipValueController?.value = val != null ? [val] : [];
   // State field(s) for FreezeBoxPriceInput widget.
   FocusNode? freezeBoxPriceInputFocusNode;
-  TextEditingController? freezeBoxPriceInputController;
+  TextEditingController? freezeBoxPriceInputTextController;
   String? Function(BuildContext, String?)?
-      freezeBoxPriceInputControllerValidator;
+      freezeBoxPriceInputTextControllerValidator;
   // State field(s) for brandInput widget.
   FocusNode? brandInputFocusNode;
-  TextEditingController? brandInputController;
-  String? Function(BuildContext, String?)? brandInputControllerValidator;
+  TextEditingController? brandInputTextController;
+  String? Function(BuildContext, String?)? brandInputTextControllerValidator;
   // State field(s) for modelInput widget.
   FocusNode? modelInputFocusNode;
-  TextEditingController? modelInputController;
-  String? Function(BuildContext, String?)? modelInputControllerValidator;
+  TextEditingController? modelInputTextController;
+  String? Function(BuildContext, String?)? modelInputTextControllerValidator;
   // State field(s) for TruckCurrentPriceInput widget.
   FocusNode? truckCurrentPriceInputFocusNode;
-  TextEditingController? truckCurrentPriceInputController;
+  TextEditingController? truckCurrentPriceInputTextController;
   String? Function(BuildContext, String?)?
-      truckCurrentPriceInputControllerValidator;
+      truckCurrentPriceInputTextControllerValidator;
   // State field(s) for plateInput widget.
   FocusNode? plateInputFocusNode;
-  TextEditingController? plateInputController;
-  String? Function(BuildContext, String?)? plateInputControllerValidator;
+  TextEditingController? plateInputTextController;
+  String? Function(BuildContext, String?)? plateInputTextControllerValidator;
   // State field(s) for plateAdditionalInput widget.
   FocusNode? plateAdditionalInputFocusNode;
-  TextEditingController? plateAdditionalInputController;
+  TextEditingController? plateAdditionalInputTextController;
   String? Function(BuildContext, String?)?
-      plateAdditionalInputControllerValidator;
+      plateAdditionalInputTextControllerValidator;
   // State field(s) for yearDropDown widget.
   String? yearDropDownValue;
   FormFieldController<String>? yearDropDownValueController;
@@ -244,35 +244,36 @@ class InsuranceRequestEditPageModel
   FormFieldController<String>? useTypeDropDownValueController;
   // State field(s) for LogistPoposeInput widget.
   FocusNode? logistPoposeInputFocusNode;
-  TextEditingController? logistPoposeInputController;
-  String? Function(BuildContext, String?)? logistPoposeInputControllerValidator;
+  TextEditingController? logistPoposeInputTextController;
+  String? Function(BuildContext, String?)?
+      logistPoposeInputTextControllerValidator;
   // State field(s) for CarModifyCheckbox widget.
   bool? carModifyCheckboxValue;
   // State field(s) for AccessoryProtectedInput widget.
   FocusNode? accessoryProtectedInputFocusNode;
-  TextEditingController? accessoryProtectedInputController;
+  TextEditingController? accessoryProtectedInputTextController;
   String? Function(BuildContext, String?)?
-      accessoryProtectedInputControllerValidator;
+      accessoryProtectedInputTextControllerValidator;
   // State field(s) for nameInput widget.
   FocusNode? nameInputFocusNode;
-  TextEditingController? nameInputController;
-  String? Function(BuildContext, String?)? nameInputControllerValidator;
+  TextEditingController? nameInputTextController;
+  String? Function(BuildContext, String?)? nameInputTextControllerValidator;
   // State field(s) for lastnameInput widget.
   FocusNode? lastnameInputFocusNode;
-  TextEditingController? lastnameInputController;
-  String? Function(BuildContext, String?)? lastnameInputControllerValidator;
+  TextEditingController? lastnameInputTextController;
+  String? Function(BuildContext, String?)? lastnameInputTextControllerValidator;
   // State field(s) for phoneInput widget.
   FocusNode? phoneInputFocusNode;
-  TextEditingController? phoneInputController;
-  String? Function(BuildContext, String?)? phoneInputControllerValidator;
+  TextEditingController? phoneInputTextController;
+  String? Function(BuildContext, String?)? phoneInputTextControllerValidator;
   // State field(s) for idInput widget.
   FocusNode? idInputFocusNode;
-  TextEditingController? idInputController;
-  String? Function(BuildContext, String?)? idInputControllerValidator;
+  TextEditingController? idInputTextController;
+  String? Function(BuildContext, String?)? idInputTextControllerValidator;
   // State field(s) for RemarkInput widget.
   FocusNode? remarkInputFocusNode;
-  TextEditingController? remarkInputController;
-  String? Function(BuildContext, String?)? remarkInputControllerValidator;
+  TextEditingController? remarkInputTextController;
+  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
   // State field(s) for InsurerRadioButton widget.
   FormFieldController<String>? insurerRadioButtonValueController;
   // State field(s) for GarageTypeChoiceChips widget.
@@ -285,15 +286,14 @@ class InsuranceRequestEditPageModel
   bool? flagActCheckboxValue;
   // State field(s) for SumInsuredInput widget.
   FocusNode? sumInsuredInputFocusNode;
-  TextEditingController? sumInsuredInputController;
-  String? Function(BuildContext, String?)? sumInsuredInputControllerValidator;
+  TextEditingController? sumInsuredInputTextController;
+  String? Function(BuildContext, String?)?
+      sumInsuredInputTextControllerValidator;
   // State field(s) for TrailerSumInsuredInput widget.
   FocusNode? trailerSumInsuredInputFocusNode;
-  TextEditingController? trailerSumInsuredInputController;
+  TextEditingController? trailerSumInsuredInputTextController;
   String? Function(BuildContext, String?)?
-      trailerSumInsuredInputControllerValidator;
-
-  /// Initialization and disposal methods.
+      trailerSumInsuredInputTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
@@ -311,58 +311,55 @@ class InsuranceRequestEditPageModel
     columnController2?.dispose();
     insuranceBasicColumn?.dispose();
     insuranceLicenseNoInputFocusNode?.dispose();
-    insuranceLicenseNoInputController?.dispose();
+    insuranceLicenseNoInputTextController?.dispose();
 
     freezeBoxPriceInputFocusNode?.dispose();
-    freezeBoxPriceInputController?.dispose();
+    freezeBoxPriceInputTextController?.dispose();
 
     brandInputFocusNode?.dispose();
-    brandInputController?.dispose();
+    brandInputTextController?.dispose();
 
     modelInputFocusNode?.dispose();
-    modelInputController?.dispose();
+    modelInputTextController?.dispose();
 
     truckCurrentPriceInputFocusNode?.dispose();
-    truckCurrentPriceInputController?.dispose();
+    truckCurrentPriceInputTextController?.dispose();
 
     plateInputFocusNode?.dispose();
-    plateInputController?.dispose();
+    plateInputTextController?.dispose();
 
     plateAdditionalInputFocusNode?.dispose();
-    plateAdditionalInputController?.dispose();
+    plateAdditionalInputTextController?.dispose();
 
     logistPoposeInputFocusNode?.dispose();
-    logistPoposeInputController?.dispose();
+    logistPoposeInputTextController?.dispose();
 
     accessoryProtectedInputFocusNode?.dispose();
-    accessoryProtectedInputController?.dispose();
+    accessoryProtectedInputTextController?.dispose();
 
     nameInputFocusNode?.dispose();
-    nameInputController?.dispose();
+    nameInputTextController?.dispose();
 
     lastnameInputFocusNode?.dispose();
-    lastnameInputController?.dispose();
+    lastnameInputTextController?.dispose();
 
     phoneInputFocusNode?.dispose();
-    phoneInputController?.dispose();
+    phoneInputTextController?.dispose();
 
     idInputFocusNode?.dispose();
-    idInputController?.dispose();
+    idInputTextController?.dispose();
 
     remarkInputFocusNode?.dispose();
-    remarkInputController?.dispose();
+    remarkInputTextController?.dispose();
 
     sumInsuredInputFocusNode?.dispose();
-    sumInsuredInputController?.dispose();
+    sumInsuredInputTextController?.dispose();
 
     trailerSumInsuredInputFocusNode?.dispose();
-    trailerSumInsuredInputController?.dispose();
+    trailerSumInsuredInputTextController?.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   String? get radioButtonValue => radioButtonValueController?.value;
   String? get truckPartRadioButtonValue =>
       truckPartRadioButtonValueController?.value;

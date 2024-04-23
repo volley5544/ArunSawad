@@ -61,7 +61,7 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                 child: PageView.builder(
                   controller: _model.pageViewController ??= PageController(
-                      initialPage: min(0, leaveimagelist.length - 1)),
+                      initialPage: max(0, min(0, leaveimagelist.length - 1))),
                   scrollDirection: Axis.horizontal,
                   itemCount: leaveimagelist.length,
                   itemBuilder: (context, leaveimagelistIndex) {
@@ -127,7 +127,7 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: smooth_page_indicator.SmoothPageIndicator(
                     controller: _model.pageViewController ??= PageController(
-                        initialPage: min(0, leaveimagelist.length - 1)),
+                        initialPage: max(0, min(0, leaveimagelist.length - 1))),
                     count: leaveimagelist.length,
                     axisDirection: Axis.horizontal,
                     onDotClicked: (i) async {

@@ -26,8 +26,6 @@ class ReportListModel extends FlutterFlowModel<ReportListWidget> {
   UserLogRecord? createdUserLogBVSurvey;
   Completer<ApiCallResponse>? apiRequestCompleter;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -36,10 +34,7 @@ class ReportListModel extends FlutterFlowModel<ReportListWidget> {
     unfocusNode.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForApiRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,

@@ -201,6 +201,7 @@ class _InsuranceRequestListPageWidgetState
                           fontFamily: 'Poppins',
                           color: Colors.white,
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                   actions: [],
@@ -228,7 +229,12 @@ class _InsuranceRequestListPageWidgetState
                             child: Text(
                               'ประเภท',
                               textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Expanded(
@@ -236,7 +242,12 @@ class _InsuranceRequestListPageWidgetState
                             child: Text(
                               'ชื่อ-สกุล',
                               textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Expanded(
@@ -247,7 +258,12 @@ class _InsuranceRequestListPageWidgetState
                               child: Text(
                                 'ประกัน',
                                 textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ),
@@ -256,7 +272,12 @@ class _InsuranceRequestListPageWidgetState
                             child: Text(
                               'ดำเนินการ',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ]
@@ -310,6 +331,7 @@ class _InsuranceRequestListPageWidgetState
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 11.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -341,6 +363,7 @@ class _InsuranceRequestListPageWidgetState
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 11.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -360,6 +383,7 @@ class _InsuranceRequestListPageWidgetState
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 11.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -381,6 +405,7 @@ class _InsuranceRequestListPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 11.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -1122,6 +1147,7 @@ class _InsuranceRequestListPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -1582,6 +1608,7 @@ class _InsuranceRequestListPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -1633,6 +1660,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1646,6 +1674,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1659,6 +1688,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1675,6 +1705,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -1707,6 +1738,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -1738,6 +1770,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -1771,6 +1804,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1787,6 +1821,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -1801,6 +1836,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1817,6 +1853,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -1849,6 +1886,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -1880,6 +1918,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -1913,6 +1952,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1926,6 +1966,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1939,6 +1980,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1955,6 +1997,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -1987,6 +2030,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2018,6 +2062,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2051,6 +2096,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2064,6 +2110,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2077,6 +2124,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2093,6 +2141,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -2125,6 +2174,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2156,6 +2206,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2189,6 +2240,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2202,6 +2254,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2215,6 +2268,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2231,6 +2285,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -2263,6 +2318,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2294,6 +2350,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2327,6 +2384,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2340,6 +2398,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2353,6 +2412,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2369,6 +2429,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -2401,6 +2462,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2432,6 +2494,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2465,6 +2528,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2478,6 +2542,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2491,6 +2556,7 @@ class _InsuranceRequestListPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 11.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2507,6 +2573,7 @@ class _InsuranceRequestListPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 11.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -2539,6 +2606,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(
@@ -2570,6 +2638,7 @@ class _InsuranceRequestListPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(

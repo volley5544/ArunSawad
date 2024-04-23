@@ -33,7 +33,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChatSearchPage'});
-    _model.searchBoxController ??= TextEditingController();
+    _model.searchBoxTextController ??= TextEditingController();
     _model.searchBoxFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -80,6 +80,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -105,18 +106,24 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                           child: Container(
                             width: double.infinity,
                             child: TextFormField(
-                              controller: _model.searchBoxController,
+                              controller: _model.searchBoxTextController,
                               focusNode: _model.searchBoxFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintText: 'ชื่อ,รหัสพนักงาน...',
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                                 enabledBorder: InputBorder.none,
@@ -126,8 +133,13 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                 contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                              validator: _model.searchBoxControllerValidator
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
+                              validator: _model.searchBoxTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -148,8 +160,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                       onPressed: () async {
                         var _shouldSetState = false;
                         HapticFeedback.mediumImpact();
-                        if (!(_model.searchBoxController.text != null &&
-                            _model.searchBoxController.text != '')) {
+                        if (!(_model.searchBoxTextController.text != null &&
+                            _model.searchBoxTextController.text != '')) {
                           await showDialog(
                             context: context,
                             builder: (alertDialogContext) {
@@ -198,7 +210,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                         _model.getEmployee = await GetAllEmployeeAPICall.call(
                           token: FFAppState().accessToken,
                           apiUrl: FFAppState().apiURLLocalState,
-                          searchKeyname: _model.searchBoxController.text,
+                          searchKeyname: _model.searchBoxTextController.text,
                         );
                         _shouldSetState = true;
                         if ((_model.getEmployee?.statusCode ?? 200) != 200) {
@@ -305,7 +317,10 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                       BoxShadow(
                                         blurRadius: 0.0,
                                         color: Color(0xFFDBE2E7),
-                                        offset: Offset(0.0, 2.0),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
                                       )
                                     ],
                                   ),
@@ -411,6 +426,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                               'Poppins',
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
@@ -451,6 +468,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                               'Poppins',
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -479,6 +498,8 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),

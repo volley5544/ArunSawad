@@ -26,7 +26,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'supportTemplate'});
-    _model.searchFieldController ??= TextEditingController();
+    _model.searchFieldTextController ??= TextEditingController();
     _model.searchFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -49,7 +49,10 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Classes',
-          style: FlutterFlowTheme.of(context).displaySmall,
+          style: FlutterFlowTheme.of(context).displaySmall.override(
+                fontFamily: 'Poppins',
+                letterSpacing: 0.0,
+              ),
         ),
         actions: [],
         centerTitle: false,
@@ -74,7 +77,10 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                         BoxShadow(
                           blurRadius: 5.0,
                           color: Color(0x430F1113),
-                          offset: Offset(0.0, 2.0),
+                          offset: Offset(
+                            0.0,
+                            2.0,
+                          ),
                         )
                       ],
                     ),
@@ -82,12 +88,16 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 0.0),
                       child: TextFormField(
-                        controller: _model.searchFieldController,
+                        controller: _model.searchFieldTextController,
                         focusNode: _model.searchFieldFocusNode,
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: 'Search for classes here...',
-                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodySmall.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context)
@@ -123,9 +133,12 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                             size: 24.0,
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                         maxLines: null,
-                        validator: _model.searchFieldControllerValidator
+                        validator: _model.searchFieldTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -140,7 +153,10 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                 children: [
                   Text(
                     'Workout Categories',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ],
               ),
@@ -193,7 +209,12 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   'IT',
-                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                             ],
@@ -242,7 +263,12 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   'Marketing',
-                                  style: FlutterFlowTheme.of(context).bodySmall,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                             ],
@@ -297,6 +323,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -353,6 +380,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -409,6 +437,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF8B97A2),
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -429,7 +458,10 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                 children: [
                   Text(
                     'Upcoming Classes',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ],
               ),
@@ -460,7 +492,10 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                           BoxShadow(
                             blurRadius: 3.0,
                             color: Color(0x33000000),
-                            offset: Offset(0.0, 2.0),
+                            offset: Offset(
+                              0.0,
+                              2.0,
+                            ),
                           )
                         ],
                         borderRadius: BorderRadius.circular(8.0),
@@ -497,7 +532,11 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                       Text(
                                         'Class Name',
                                         style: FlutterFlowTheme.of(context)
-                                            .headlineMedium,
+                                            .headlineMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                       Text(
                                         '30m | High Intensity | Indoor/Outdoor',
@@ -507,6 +546,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                               fontFamily: 'Lexend Deca',
                                               color: Color(0xFF39D2C0),
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
@@ -575,7 +615,10 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                           BoxShadow(
                             blurRadius: 3.0,
                             color: Color(0x33000000),
-                            offset: Offset(0.0, 2.0),
+                            offset: Offset(
+                              0.0,
+                              2.0,
+                            ),
                           )
                         ],
                         borderRadius: BorderRadius.circular(8.0),
@@ -612,7 +655,11 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                       Text(
                                         'Class Name',
                                         style: FlutterFlowTheme.of(context)
-                                            .headlineMedium,
+                                            .headlineMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                       Text(
                                         '30m | High Intensity | Indoor/Outdoor',
@@ -622,6 +669,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                               fontFamily: 'Lexend Deca',
                                               color: Color(0xFF39D2C0),
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
@@ -690,7 +738,10 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                           BoxShadow(
                             blurRadius: 3.0,
                             color: Color(0x33000000),
-                            offset: Offset(0.0, 2.0),
+                            offset: Offset(
+                              0.0,
+                              2.0,
+                            ),
                           )
                         ],
                         borderRadius: BorderRadius.circular(8.0),
@@ -727,7 +778,11 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                       Text(
                                         'Class Name',
                                         style: FlutterFlowTheme.of(context)
-                                            .headlineMedium,
+                                            .headlineMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                       Text(
                                         '30m | High Intensity | Indoor/Outdoor',
@@ -737,6 +792,7 @@ class _SupportTemplateWidgetState extends State<SupportTemplateWidget> {
                                               fontFamily: 'Lexend Deca',
                                               color: Color(0xFF39D2C0),
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),

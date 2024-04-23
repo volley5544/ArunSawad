@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -12,6 +13,7 @@ import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -36,68 +38,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -213,8 +154,71 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
       Navigator.pop(context);
     });
 
-    _model.branchInputController ??= TextEditingController();
+    _model.branchInputTextController ??= TextEditingController();
     _model.branchInputFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -297,6 +301,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                         fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 22.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
                 actions: [],
@@ -411,21 +416,27 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
                                           Expanded(
                                             flex: 6,
                                             child: TextFormField(
-                                              controller:
-                                                  _model.branchInputController,
+                                              controller: _model
+                                                  .branchInputTextController,
                                               focusNode:
                                                   _model.branchInputFocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 hintText:
                                                     'กรอกรหัสสาขา/ชื่อสาขา',
                                                 hintStyle:
@@ -434,6 +445,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
@@ -502,10 +514,11 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               textAlign: TextAlign.start,
                                               validator: _model
-                                                  .branchInputControllerValidator
+                                                  .branchInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -525,10 +538,10 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               onPressed: () async {
                                                 var _shouldSetState = false;
                                                 HapticFeedback.mediumImpact();
-                                                if (!(_model.branchInputController
+                                                if (!(_model.branchInputTextController
                                                             .text !=
                                                         null &&
-                                                    _model.branchInputController
+                                                    _model.branchInputTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -599,7 +612,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                   token:
                                                       FFAppState().accessToken,
                                                   branchCode: _model
-                                                      .branchInputController
+                                                      .branchInputTextController
                                                       .text,
                                                   apiUrl: FFAppState()
                                                       .apiURLLocalState,
@@ -757,6 +770,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -832,13 +846,18 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               searchHintTextStyle: TextStyle(),
                                               searchTextStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               hintText: 'สาขา...',
                                               searchHintText:
@@ -909,6 +928,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -935,13 +955,18 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               searchHintTextStyle: TextStyle(),
                                               searchTextStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               hintText: 'รายงาน...',
                                               searchHintText:
@@ -989,10 +1014,65 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                         Expanded(
                                           child: FFButtonWidget(
                                             onPressed: () async {
+                                              var _shouldSetState = false;
+                                              if (_model.reportDropDownValue ==
+                                                  'Hello World') {
+                                                _model.getCollectionApiUrl =
+                                                    await queryUrlLinkStorageRecordOnce(
+                                                  queryBuilder:
+                                                      (urlLinkStorageRecord) =>
+                                                          urlLinkStorageRecord
+                                                              .where(
+                                                    'url_name',
+                                                    isEqualTo:
+                                                        'branch_view_collection',
+                                                  ),
+                                                  singleRecord: true,
+                                                ).then((s) => s.firstOrNull);
+                                                _shouldSetState = true;
+                                                FFAppState().update(() {
+                                                  FFAppState()
+                                                          .isFromTimesheetPage =
+                                                      false;
+                                                });
+                                                setState(() {
+                                                  FFAppState()
+                                                      .collectionSortBy = '';
+                                                  FFAppState()
+                                                      .collectionSearch = '';
+                                                  FFAppState()
+                                                      .collectionSearchBy = '';
+                                                  FFAppState().selectCardList =
+                                                      [];
+                                                  FFAppState()
+                                                      .collectionListBoolean = [];
+                                                  FFAppState().saveCalled =
+                                                      SaveCallStruct
+                                                          .fromSerializableMap(
+                                                              jsonDecode(
+                                                                  '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                                });
+                                                setState(() {
+                                                  FFAppState()
+                                                          .apiUrlBranchViewCollection =
+                                                      _model
+                                                          .getCollectionApiUrl!
+                                                          .urlLink;
+                                                });
+
+                                                context
+                                                    .pushNamed('tabCollection');
+
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
                                               await actions.openTableauBrowser(
                                                 '${FFAppState().accessToken}/${FFAppState().profileLevel == 'สาขา' ? FFAppState().profileBranch : _model.branchDropDownValue}',
                                                 '${bsiReportPageUrlLinkStorageRecord?.urlLink}/${_model.reportDropDownValue}',
                                               );
+                                              if (_shouldSetState)
+                                                setState(() {});
                                             },
                                             text: 'ดูรายงาน',
                                             options: FFButtonOptions(
@@ -1011,6 +1091,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(

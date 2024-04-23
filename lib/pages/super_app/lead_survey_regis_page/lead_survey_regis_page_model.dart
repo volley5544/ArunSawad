@@ -21,8 +21,6 @@ class LeadSurveyRegisPageModel
   // Stores action output result for [Backend Call - Create Document] action in LeadSurveyRegisPage widget.
   UserLogRecord? createdLeadRegisLog;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -30,8 +28,4 @@ class LeadSurveyRegisPageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

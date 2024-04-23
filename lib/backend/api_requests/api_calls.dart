@@ -2236,7 +2236,7 @@ class GetVloanContractAPICall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getVloanContractAPI',
-      apiUrl: 'http://115.31.145.26/api/v1/branchview/contract',
+      apiUrl: 'http://115.31.145.26:8888/api/v1/branchview/contract',
       callType: ApiCallType.POST,
       headers: {
         'Authorization': 'Basic YnJhbmNodmlldzpidjEyMzQq',

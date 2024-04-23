@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
+import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -60,88 +59,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'wrapOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'wrapOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -212,48 +130,130 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.coordinateInputController1 ??= TextEditingController();
+    _model.coordinateInputTextController1 ??= TextEditingController();
     _model.coordinateInputFocusNode1 ??= FocusNode();
 
-    _model.desInputController ??= TextEditingController();
+    _model.desInputTextController ??= TextEditingController();
     _model.desInputFocusNode ??= FocusNode();
 
-    _model.idInputController ??= TextEditingController();
+    _model.idInputTextController ??= TextEditingController();
     _model.idInputFocusNode ??= FocusNode();
 
-    _model.nameInputController ??= TextEditingController();
+    _model.nameInputTextController ??= TextEditingController();
     _model.nameInputFocusNode ??= FocusNode();
 
-    _model.landmarkInputController ??= TextEditingController();
+    _model.landmarkInputTextController ??= TextEditingController();
     _model.landmarkInputFocusNode ??= FocusNode();
 
-    _model.remarkInputController ??= TextEditingController();
+    _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
 
     _model.textController9 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.coordinateInputController2 ??= TextEditingController();
+    _model.coordinateInputTextController2 ??= TextEditingController();
     _model.coordinateInputFocusNode2 ??= FocusNode();
 
-    _model.desTimesheetController ??= TextEditingController();
+    _model.desTimesheetTextController ??= TextEditingController();
     _model.desTimesheetFocusNode ??= FocusNode();
 
-    _model.idTimesheetController ??= TextEditingController();
+    _model.idTimesheetTextController ??= TextEditingController();
     _model.idTimesheetFocusNode ??= FocusNode();
 
-    _model.nameTimesheetController ??= TextEditingController();
+    _model.nameTimesheetTextController ??= TextEditingController();
     _model.nameTimesheetFocusNode ??= FocusNode();
 
-    _model.landmarkTimesheetController ??= TextEditingController();
+    _model.landmarkTimesheetTextController ??= TextEditingController();
     _model.landmarkTimesheetFocusNode ??= FocusNode();
 
-    _model.remarkTimesheetController ??= TextEditingController();
+    _model.remarkTimesheetTextController ??= TextEditingController();
     _model.remarkTimesheetFocusNode ??= FocusNode();
 
     _model.textController16 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
+    animationsMap.addAll({
+      'wrapOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'wrapOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -333,130 +333,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [
-            Visibility(
-              visible: !FFAppState().isFromTimesheetPage,
-              child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      HapticFeedback.mediumImpact();
-                      if (FFAppState().imgURL.length >= 5) {
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return WebViewAware(
-                              child: AlertDialog(
-                                title: Text('ระบบ'),
-                                content: Text(
-                                    'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                        return;
-                      }
-                      final selectedMedia =
-                          await selectMediaWithSourceBottomSheet(
-                        context: context,
-                        imageQuality: 75,
-                        allowPhoto: true,
-                        backgroundColor: FlutterFlowTheme.of(context).secondary,
-                        textColor: Color(0xFFB71C1C),
-                        pickerFontFamily: 'Raleway',
-                      );
-                      if (selectedMedia != null &&
-                          selectedMedia.every((m) =>
-                              validateFileFormat(m.storagePath, context))) {
-                        setState(() => _model.isDataUploading = true);
-                        var selectedUploadedFiles = <FFUploadedFile>[];
-
-                        var downloadUrls = <String>[];
-                        try {
-                          showUploadMessage(
-                            context,
-                            'Uploading file...',
-                            showLoading: true,
-                          );
-                          selectedUploadedFiles = selectedMedia
-                              .map((m) => FFUploadedFile(
-                                    name: m.storagePath.split('/').last,
-                                    bytes: m.bytes,
-                                    height: m.dimensions?.height,
-                                    width: m.dimensions?.width,
-                                    blurHash: m.blurHash,
-                                  ))
-                              .toList();
-
-                          downloadUrls = (await Future.wait(
-                            selectedMedia.map(
-                              (m) async =>
-                                  await uploadData(m.storagePath, m.bytes),
-                            ),
-                          ))
-                              .where((u) => u != null)
-                              .map((u) => u!)
-                              .toList();
-                        } finally {
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                          _model.isDataUploading = false;
-                        }
-                        if (selectedUploadedFiles.length ==
-                                selectedMedia.length &&
-                            downloadUrls.length == selectedMedia.length) {
-                          setState(() {
-                            _model.uploadedLocalFile =
-                                selectedUploadedFiles.first;
-                            _model.uploadedFileUrl = downloadUrls.first;
-                          });
-                          showUploadMessage(context, 'Success!');
-                        } else {
-                          setState(() {});
-                          showUploadMessage(context, 'Failed to upload data');
-                          return;
-                        }
-                      }
-
-                      if (_model.uploadedFileUrl != null &&
-                          _model.uploadedFileUrl != '') {
-                        if (_model.uploadedFileUrl != FFAppState().imgURLTemp) {
-                          FFAppState().update(() {
-                            FFAppState().imgURLTemp = _model.uploadedFileUrl;
-                          });
-                        } else {
-                          return;
-                        }
-                      } else {
-                        return;
-                      }
-
-                      FFAppState().update(() {
-                        FFAppState().addToImgURL(_model.uploadedFileUrl);
-                      });
-                    },
-                    child: FaIcon(
-                      FontAwesomeIcons.camera,
-                      color: Color(0xFBFFFFFF),
-                      size: 40.0,
-                    ),
-                  ),
-                ),
-              ),
+            wrapWithModel(
+              model: _model.cameraButtonModel,
+              updateCallback: () => setState(() {}),
+              child: CameraButtonWidget(),
             ),
           ],
           centerTitle: true,
@@ -527,6 +411,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -549,6 +434,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 36.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -588,8 +474,12 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -638,6 +528,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController1Validator
                                       .asValidator(context),
@@ -807,8 +698,12 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -857,6 +752,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController2Validator
                                     .asValidator(context),
@@ -893,19 +789,22 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.coordinateInputController1,
+                                        controller: _model
+                                            .coordinateInputTextController1,
                                         focusNode:
                                             _model.coordinateInputFocusNode1,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: valueOrDefault<String>(
                                             functions.getUserLocation(
                                                 currentUserLocationValue),
@@ -913,7 +812,11 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -961,9 +864,13 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .coordinateInputController1Validator
+                                            .coordinateInputTextController1Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1002,20 +909,27 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.desInputController,
+                                        controller:
+                                            _model.desInputTextController,
                                         focusNode: _model.desInputFocusNode,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'จุดประสงค์การตรวจสอบ',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1063,10 +977,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .desInputControllerValidator
+                                            .desInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1105,20 +1023,27 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.idInputController,
+                                        controller:
+                                            _model.idInputTextController,
                                         focusNode: _model.idInputFocusNode,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'เลขบัตรประชาชนลูกค้า',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1166,10 +1091,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .idInputControllerValidator
+                                            .idInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1208,20 +1137,27 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.nameInputController,
+                                        controller:
+                                            _model.nameInputTextController,
                                         focusNode: _model.nameInputFocusNode,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'ชื่อ-นามสกุลลูกค้า',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1269,10 +1205,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .nameInputControllerValidator
+                                            .nameInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1311,6 +1251,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1318,15 +1259,20 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.landmarkInputController,
+                                            _model.landmarkInputTextController,
                                         focusNode:
                                             _model.landmarkInputFocusNode,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'สถานที่ใกล้เคียง',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1374,10 +1320,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .landmarkInputControllerValidator
+                                            .landmarkInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1421,6 +1371,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 18.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -1428,15 +1379,20 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         flex: 5,
                                         child: TextFormField(
                                           controller:
-                                              _model.remarkInputController,
+                                              _model.remarkInputTextController,
                                           focusNode:
                                               _model.remarkInputFocusNode,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'หมายเหตุ',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
@@ -1484,10 +1440,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                           textAlign: TextAlign.start,
                                           validator: _model
-                                              .remarkInputControllerValidator
+                                              .remarkInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1525,8 +1485,12 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -1575,6 +1539,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController9Validator
                                     .asValidator(context),
@@ -1611,23 +1576,30 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.coordinateInputController2,
+                                        controller: _model
+                                            .coordinateInputTextController2,
                                         focusNode:
                                             _model.coordinateInputFocusNode2,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: widget.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1675,9 +1647,13 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .coordinateInputController2Validator
+                                            .coordinateInputTextController2Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1716,6 +1692,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1723,15 +1700,20 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.desTimesheetController,
+                                            _model.desTimesheetTextController,
                                         focusNode: _model.desTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.description,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1779,10 +1761,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .desTimesheetControllerValidator
+                                            .desTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1821,6 +1807,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1828,15 +1815,20 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.idTimesheetController,
+                                            _model.idTimesheetTextController,
                                         focusNode: _model.idTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.idCardNumber,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1884,10 +1876,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .idTimesheetControllerValidator
+                                            .idTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1926,6 +1922,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1933,16 +1930,21 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.nameTimesheetController,
+                                            _model.nameTimesheetTextController,
                                         focusNode:
                                             _model.nameTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.customerName,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1990,10 +1992,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .nameTimesheetControllerValidator
+                                            .nameTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -2032,23 +2038,29 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.landmarkTimesheetController,
+                                        controller: _model
+                                            .landmarkTimesheetTextController,
                                         focusNode:
                                             _model.landmarkTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.landmark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -2096,10 +2108,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .landmarkTimesheetControllerValidator
+                                            .landmarkTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -2138,23 +2154,29 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.remarkTimesheetController,
+                                        controller: _model
+                                            .remarkTimesheetTextController,
                                         focusNode:
                                             _model.remarkTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -2202,10 +2224,14 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .remarkTimesheetControllerValidator
+                                            .remarkTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -2304,8 +2330,12 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -2354,6 +2384,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController16Validator
                                       .asValidator(context),
@@ -2577,6 +2608,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(
@@ -2601,9 +2633,10 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           defaultLocation: LatLng(0.0, 0.0));
                                   var _shouldSetState = false;
                                   HapticFeedback.mediumImpact();
-                                  if (!(_model.desInputController.text !=
+                                  if (!(_model.desInputTextController.text !=
                                           null &&
-                                      _model.desInputController.text != '')) {
+                                      _model.desInputTextController.text !=
+                                          '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
@@ -2619,8 +2652,10 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.idInputController.text != null &&
-                                      _model.idInputController.text != '')) {
+                                  if (!(_model.idInputTextController.text !=
+                                          null &&
+                                      _model.idInputTextController.text !=
+                                          '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
@@ -2636,9 +2671,10 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.nameInputController.text !=
+                                  if (!(_model.nameInputTextController.text !=
                                           null &&
-                                      _model.nameInputController.text != '')) {
+                                      _model.nameInputTextController.text !=
+                                          '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
@@ -2654,9 +2690,10 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.landmarkInputController.text !=
+                                  if (!(_model.landmarkInputTextController
+                                              .text !=
                                           null &&
-                                      _model.landmarkInputController.text !=
+                                      _model.landmarkInputTextController.text !=
                                           '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -2673,9 +2710,9 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.remarkInputController.text !=
+                                  if (!(_model.remarkInputTextController.text !=
                                           null &&
-                                      _model.remarkInputController.text !=
+                                      _model.remarkInputTextController.text !=
                                           '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -2786,13 +2823,16 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           currentUserLocationValue),
                                       'Latitude,Longitude',
                                     ),
-                                    description: _model.desInputController.text,
-                                    citizenId: _model.idInputController.text,
+                                    description:
+                                        _model.desInputTextController.text,
+                                    citizenId:
+                                        _model.idInputTextController.text,
                                     customerName:
-                                        _model.nameInputController.text,
+                                        _model.nameInputTextController.text,
                                     landmark:
-                                        _model.landmarkInputController.text,
-                                    remark: _model.remarkInputController.text,
+                                        _model.landmarkInputTextController.text,
+                                    remark:
+                                        _model.remarkInputTextController.text,
                                     uid: FFAppState().imei,
                                     username: FFAppState().employeeID,
                                     jobType: 'Survey',
@@ -2896,6 +2936,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(

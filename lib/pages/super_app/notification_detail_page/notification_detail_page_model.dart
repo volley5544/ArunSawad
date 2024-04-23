@@ -29,8 +29,6 @@ class NotificationDetailPageModel
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutputNotipage;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -39,10 +37,7 @@ class NotificationDetailPageModel
     unfocusNode.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForFirestoreRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,

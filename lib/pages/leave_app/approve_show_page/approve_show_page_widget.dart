@@ -392,6 +392,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -433,6 +434,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: Colors.black,
+                          letterSpacing: 0.0,
                         ),
                     hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
                     icon: FaIcon(
@@ -460,6 +462,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     fontSize: 18.0,
+                                    letterSpacing: 0.0,
                                   ),
                           unselectedLabelStyle: TextStyle(),
                           indicatorColor:
@@ -569,7 +572,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
-                                                offset: Offset(0.0, 2.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
                                               )
                                             ],
                                             borderRadius:
@@ -622,6 +628,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -670,6 +678,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -710,6 +720,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -762,6 +774,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -802,6 +816,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -854,6 +870,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -894,6 +912,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -946,6 +966,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -989,6 +1011,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1041,6 +1065,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1084,6 +1110,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1149,6 +1177,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1214,6 +1244,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1379,6 +1411,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                               Colors.white,
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -1492,7 +1526,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
-                                                offset: Offset(0.0, 2.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
                                               )
                                             ],
                                             borderRadius:
@@ -1545,6 +1582,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -1593,6 +1632,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1633,6 +1674,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1685,6 +1728,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1725,6 +1770,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1777,6 +1824,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1817,6 +1866,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1869,6 +1920,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1912,6 +1965,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1964,6 +2019,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2007,6 +2064,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2072,6 +2131,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2137,6 +2198,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2240,7 +2303,10 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
-                                                offset: Offset(0.0, 2.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
                                               )
                                             ],
                                             borderRadius:
@@ -2293,6 +2359,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -2341,6 +2409,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2381,6 +2451,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2433,6 +2505,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2473,6 +2547,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2525,6 +2601,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2565,6 +2643,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2617,6 +2697,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2660,6 +2742,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2712,6 +2796,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2755,6 +2841,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2820,6 +2908,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2885,6 +2975,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -2937,6 +3029,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -2980,6 +3074,8 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,

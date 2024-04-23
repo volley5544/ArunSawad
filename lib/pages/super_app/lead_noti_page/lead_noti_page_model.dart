@@ -37,8 +37,6 @@ class LeadNotiPageModel extends FlutterFlowModel<LeadNotiPageWidget> {
   // Stores action output result for [Backend Call - API (getLeadCalledHistoryAPI)] action in Button widget.
   ApiCallResponse? getCallHistory;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -46,8 +44,4 @@ class LeadNotiPageModel extends FlutterFlowModel<LeadNotiPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

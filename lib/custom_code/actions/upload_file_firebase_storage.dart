@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'dart:typed_data';
+import 'package:flutter/services.dart';
 import '/backend/firebase_storage/storage.dart'; // Imports firebase storage function
 
 Future<String?> uploadFileFirebaseStorage(

@@ -54,48 +54,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'iconOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.elasticOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: Offset(0.0, -57.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.elasticOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconButtonOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.elasticOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: Offset(0.0, -57.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.elasticOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -167,6 +126,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      logFirebaseEvent('super_app_page_view_5544');
       _model.getDeviceVersion = await actions.getBuildVersion();
       FFAppState().update(() {
         FFAppState().isSelectedBranch = false;
@@ -363,6 +323,49 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       });
     });
 
+    animationsMap.addAll({
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: Offset(0.0, -57.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: Offset(0.0, -57.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -392,8 +395,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
               elevation: 16.0,
               child: WebViewAware(
                 child: Container(
-                  width: 100.0,
-                  height: 100.0,
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
                   decoration: BoxDecoration(
                     color: Color(0xFF261E1E),
                   ),
@@ -432,6 +435,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                               Text(
@@ -445,6 +449,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ],
@@ -466,6 +471,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                               .override(
                                 fontFamily: 'Poppins',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -741,6 +747,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                     trailing: FaIcon(
@@ -823,6 +830,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -922,6 +930,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                       showBadge:
@@ -1001,6 +1010,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -1019,6 +1029,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -1090,11 +1101,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 40.0),
                                     child: PageView.builder(
-                                      controller: _model
-                                              .pageViewBannerController ??=
-                                          PageController(
-                                              initialPage: min(
-                                                  0, bannerImgList.length - 1)),
+                                      controller:
+                                          _model.pageViewBannerController ??=
+                                              PageController(
+                                                  initialPage: max(
+                                                      0,
+                                                      min(
+                                                          0,
+                                                          bannerImgList.length -
+                                                              1))),
                                       scrollDirection: Axis.horizontal,
                                       itemCount: bannerImgList.length,
                                       itemBuilder:
@@ -1245,8 +1260,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                         controller: _model
                                                 .pageViewBannerController ??=
                                             PageController(
-                                                initialPage: min(0,
-                                                    bannerImgList.length - 1)),
+                                                initialPage: max(
+                                                    0,
+                                                    min(
+                                                        0,
+                                                        bannerImgList.length -
+                                                            1))),
                                         count: bannerImgList.length,
                                         axisDirection: Axis.horizontal,
                                         onDotClicked: (i) async {
@@ -1337,8 +1356,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                     child: PageView.builder(
                                       controller: _model.pageViewController ??=
                                           PageController(
-                                              initialPage: min(
-                                                  0, bannerImgList.length - 1)),
+                                              initialPage: max(
+                                                  0,
+                                                  min(
+                                                      0,
+                                                      bannerImgList.length -
+                                                          1))),
                                       scrollDirection: Axis.horizontal,
                                       itemCount: bannerImgList.length,
                                       itemBuilder:
@@ -1421,8 +1444,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                         controller: _model
                                                 .pageViewController ??=
                                             PageController(
-                                                initialPage: min(0,
-                                                    bannerImgList.length - 1)),
+                                                initialPage: max(
+                                                    0,
+                                                    min(
+                                                        0,
+                                                        bannerImgList.length -
+                                                            1))),
                                         count: bannerImgList.length,
                                         axisDirection: Axis.horizontal,
                                         onDotClicked: (i) async {
@@ -1621,8 +1648,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                         blurRadius: 4.0,
                                                         color:
                                                             Color(0x33000000),
-                                                        offset:
-                                                            Offset(0.0, 2.0),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          2.0,
+                                                        ),
                                                       )
                                                     ],
                                                     borderRadius:
@@ -1668,6 +1697,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       'Poppins',
                                                                   fontSize:
                                                                       20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -1844,6 +1875,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -2158,6 +2190,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: Colors.white,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                   showBadge: badgeNotificationRecordList.length > 0,
@@ -2191,11 +2224,209 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
                                                                         ),
                                                                       ),
+                                                                    ),
+                                                                  if (() {
+                                                                        if (FFAppState().profileLevel ==
+                                                                            'HO') {
+                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'สาขา') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'เขต') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        } else {
+                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        }
+                                                                      }() ||
+                                                                      gridViewRoleMenuRecord!
+                                                                          .empAdmin
+                                                                          .contains(FFAppState()
+                                                                              .employeeID) ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'GEN E-PA')!)
+                                                                    FutureBuilder<
+                                                                        List<
+                                                                            UrlLinkStorageRecord>>(
+                                                                      future:
+                                                                          queryUrlLinkStorageRecordOnce(
+                                                                        queryBuilder:
+                                                                            (urlLinkStorageRecord) =>
+                                                                                urlLinkStorageRecord.where(
+                                                                          'url_name',
+                                                                          isEqualTo:
+                                                                              'tableau_report_base_url',
+                                                                        ),
+                                                                        singleRecord:
+                                                                            true,
+                                                                      ),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                SizedBox(
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).tertiary,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        List<UrlLinkStorageRecord>
+                                                                            containerUrlLinkStorageRecordList =
+                                                                            snapshot.data!;
+                                                                        final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
+                                                                            ? containerUrlLinkStorageRecordList.first
+                                                                            : null;
+                                                                        return InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            HapticFeedback.mediumImpact();
+                                                                            if (!(FFAppState().isFromAuthenPage ||
+                                                                                FFAppState().isFromSetPinPage)) {
+                                                                              Navigator.pop(context);
+
+                                                                              context.goNamed('PinCodePage');
+
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              enableDrag: false,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: LoadingSceneWidget(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+
+                                                                            _model.reportStorageGenEpaQuery =
+                                                                                await queryReportStorageRecordOnce(
+                                                                              queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                'report_name',
+                                                                                isEqualTo: 'gen_epa',
+                                                                              ),
+                                                                              singleRecord: true,
+                                                                            ).then((s) => s.firstOrNull);
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            Navigator.pop(context);
+                                                                            if (FFAppState().profileLevel ==
+                                                                                'เขต') {
+                                                                              await actions.openTableauBrowser(
+                                                                                FFAppState().accessToken,
+                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?[1]}',
+                                                                              );
+                                                                            } else {
+                                                                              if (FFAppState().profileLevel == 'ภาค') {
+                                                                                await actions.openTableauBrowser(
+                                                                                  FFAppState().accessToken,
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.first}',
+                                                                                );
+                                                                              } else {
+                                                                                await actions.openTableauBrowser(
+                                                                                  FFAppState().accessToken,
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQuery?.reportUrl?.last}',
+                                                                                );
+                                                                              }
+                                                                            }
+
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Colors.white,
+                                                                              shape: BoxShape.circle,
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                  child: Container(
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.asset(
+                                                                                      'assets/images/1712632790359.jpg',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'GEN E-PA',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
                                                                     ),
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
@@ -2369,6 +2600,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -2565,6 +2797,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -3160,6 +3393,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -3266,6 +3500,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 12.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ],
@@ -3424,311 +3659,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
-                                                                                  ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'สวัสดีดอทคอม')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'สวัสดีดอทคอม')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'สวัสดีดอทคอม')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'สวัสดีดอทคอม')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        currentUserLocationValue =
-                                                                            await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
-                                                                        var _shouldSetState =
-                                                                            false;
-                                                                        HapticFeedback
-                                                                            .mediumImpact();
-                                                                        if (!(FFAppState().isFromAuthenPage ||
-                                                                            FFAppState().isFromSetPinPage)) {
-                                                                          Navigator.pop(
-                                                                              context);
-
-                                                                          context
-                                                                              .goNamed('PinCodePage');
-
-                                                                          if (_shouldSetState)
-                                                                            setState(() {});
-                                                                          return;
-                                                                        }
-                                                                        showModalBottomSheet(
-                                                                          isScrollControlled:
-                                                                              true,
-                                                                          backgroundColor:
-                                                                              Colors.transparent,
-                                                                          barrierColor:
-                                                                              Color(0x00000000),
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (context) {
-                                                                            return WebViewAware(
-                                                                              child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                child: Padding(
-                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                  child: Container(
-                                                                                    height: double.infinity,
-                                                                                    child: LoadingSceneWidget(),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          },
-                                                                        ).then((value) =>
-                                                                            safeSetState(() {}));
-
-                                                                        _model.checkLoginSawaddee =
-                                                                            await ActionUserAPICall.call(
-                                                                          token:
-                                                                              FFAppState().accessToken,
-                                                                          apiUrl:
-                                                                              FFAppState().apiURLLocalState,
-                                                                        );
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                        if ((_model.checkLoginSawaddee?.statusCode ??
-                                                                                200) !=
-                                                                            200) {
-                                                                          if (!((ActionUserAPICall.message(
-                                                                                    (_model.checkLoginSawaddee?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  'The token has been blacklisted') ||
-                                                                              (ActionUserAPICall.message(
-                                                                                    (_model.checkLoginSawaddee?.jsonBody ?? ''),
-                                                                                  ) ==
-                                                                                  'Token Signature could not be verified.'))) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                    content: Text('พบข้อผิดพลาด (${(_model.checkLoginSawaddee?.statusCode ?? 200).toString()})'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-                                                                            if (_shouldSetState)
-                                                                              setState(() {});
-                                                                            return;
-                                                                          }
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  content: Text('Session Loginหมดอายุ'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          );
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().loginStateFirebase =
-                                                                                '[loginStateFirebase]';
-                                                                            FFAppState().deleteAccessToken();
-                                                                            FFAppState().accessToken =
-                                                                                'access_token';
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().deleteEmployeeID();
-                                                                            FFAppState().employeeID =
-                                                                                'employee_id';
-
-                                                                            FFAppState().QRCodeLink =
-                                                                                'qrcode_link';
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().deleteApiURLLocalState();
-                                                                            FFAppState().apiURLLocalState =
-                                                                                'api_url_local_state';
-
-                                                                            FFAppState().deleteBranchCode();
-                                                                            FFAppState().branchCode =
-                                                                                'branch_code';
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().isFromSetPinPage =
-                                                                                false;
-                                                                            FFAppState().leadChannelColor =
-                                                                                [];
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().leadChannelList =
-                                                                                [];
-                                                                            FFAppState().isFromLoginPage =
-                                                                                false;
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().deletePinCodeAuthen();
-                                                                            FFAppState().pinCodeAuthen =
-                                                                                '013972';
-
-                                                                            FFAppState().isFromAuthenPage =
-                                                                                false;
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().deleteDateDoNotShowAgain();
-                                                                            FFAppState().dateDoNotShowAgain =
-                                                                                null;
-
-                                                                            FFAppState().deleteDoNotShowAgain();
-                                                                            FFAppState().doNotShowAgain =
-                                                                                false;
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().inAppViaNotification =
-                                                                                true;
-                                                                            FFAppState().isInApp =
-                                                                                false;
-                                                                          });
-                                                                          FFAppState()
-                                                                              .update(() {
-                                                                            FFAppState().fcmToken =
-                                                                                'fcm_token';
-                                                                            FFAppState().isPassLoginSection =
-                                                                                false;
-                                                                          });
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                          await actions
-                                                                              .a22();
-
-                                                                          context
-                                                                              .goNamed('LoginPage');
-
-                                                                          if (_shouldSetState)
-                                                                            setState(() {});
-                                                                          return;
-                                                                        }
-
-                                                                        var userLogRecordReference = UserLogRecord
-                                                                            .collection
-                                                                            .doc();
-                                                                        await userLogRecordReference
-                                                                            .set(createUserLogRecordData(
-                                                                          employeeId:
-                                                                              FFAppState().employeeID,
-                                                                          action:
-                                                                              'COACH',
-                                                                          actionTime:
-                                                                              getCurrentTimestamp,
-                                                                          userLocation:
-                                                                              currentUserLocationValue,
-                                                                        ));
-                                                                        _model.createdUserLogSawaddee = UserLogRecord.getDocumentFromData(
-                                                                            createUserLogRecordData(
-                                                                              employeeId: FFAppState().employeeID,
-                                                                              action: 'COACH',
-                                                                              actionTime: getCurrentTimestamp,
-                                                                              userLocation: currentUserLocationValue,
-                                                                            ),
-                                                                            userLogRecordReference);
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                        Navigator.pop(
-                                                                            context);
-                                                                        await launchURL(
-                                                                            'https://www.sawaddee.com/?utm_source=arunsawad&utm_medium=appbutton&utm_campaign=arunsawadapp_2023');
-                                                                        if (_shouldSetState)
-                                                                          setState(
-                                                                              () {});
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            100.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        ),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                              child: Container(
-                                                                                width: 50.0,
-                                                                                height: 50.0,
-                                                                                clipBehavior: Clip.antiAlias,
-                                                                                decoration: BoxDecoration(
-                                                                                  shape: BoxShape.circle,
-                                                                                ),
-                                                                                child: Image.asset(
-                                                                                  'assets/images/Screenshot_2566-07-14_at_09.57.37.png',
-                                                                                  fit: BoxFit.cover,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Text(
-                                                                              'สวัสดีดอทคอม',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -4037,6 +3968,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -4326,6 +4258,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -4638,6 +4571,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -4971,6 +4905,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -5274,6 +5209,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: Colors.white,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                   showBadge: badgeNotificationRecordList.length > 0,
@@ -5307,6 +5243,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -5587,6 +5524,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -5894,6 +5832,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -6173,6 +6112,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -6453,6 +6393,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -6733,6 +6674,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -7013,6 +6955,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -7318,6 +7261,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -7597,6 +7541,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -7877,6 +7822,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -7963,8 +7909,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                         blurRadius: 4.0,
                                                         color:
                                                             Color(0x33000000),
-                                                        offset:
-                                                            Offset(0.0, 2.0),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          2.0,
+                                                        ),
                                                       )
                                                     ],
                                                     borderRadius:
@@ -7995,6 +7943,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 32.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -8180,6 +8130,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -8494,6 +8445,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: Colors.white,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                   showBadge: badgeNotificationRecordList.length > 0,
@@ -8527,11 +8479,209 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
                                                                         ),
                                                                       ),
+                                                                    ),
+                                                                  if (() {
+                                                                        if (FFAppState().profileLevel ==
+                                                                            'HO') {
+                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'สาขา') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'เขต') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        } else {
+                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'GEN E-PA')];
+                                                                        }
+                                                                      }() ||
+                                                                      gridViewRoleMenuRecord!.empAdmin.contains(gridViewRoleMenuRecord
+                                                                          ?.empAdmin
+                                                                          ?.contains(FFAppState()
+                                                                              .employeeID)
+                                                                          ?.toString()) ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'GEN E-PA')!)
+                                                                    FutureBuilder<
+                                                                        List<
+                                                                            UrlLinkStorageRecord>>(
+                                                                      future:
+                                                                          queryUrlLinkStorageRecordOnce(
+                                                                        queryBuilder:
+                                                                            (urlLinkStorageRecord) =>
+                                                                                urlLinkStorageRecord.where(
+                                                                          'url_name',
+                                                                          isEqualTo:
+                                                                              'tableau_report_base_url',
+                                                                        ),
+                                                                        singleRecord:
+                                                                            true,
+                                                                      ),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                SizedBox(
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).tertiary,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        List<UrlLinkStorageRecord>
+                                                                            containerUrlLinkStorageRecordList =
+                                                                            snapshot.data!;
+                                                                        final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
+                                                                            ? containerUrlLinkStorageRecordList.first
+                                                                            : null;
+                                                                        return InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            HapticFeedback.mediumImpact();
+                                                                            if (!(FFAppState().isFromAuthenPage ||
+                                                                                FFAppState().isFromSetPinPage)) {
+                                                                              Navigator.pop(context);
+
+                                                                              context.goNamed('PinCodePage');
+
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              enableDrag: false,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: LoadingSceneWidget(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+
+                                                                            _model.reportStorageGenEpaQueryTab =
+                                                                                await queryReportStorageRecordOnce(
+                                                                              queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                'report_name',
+                                                                                isEqualTo: 'gen_epa',
+                                                                              ),
+                                                                              singleRecord: true,
+                                                                            ).then((s) => s.firstOrNull);
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            Navigator.pop(context);
+                                                                            if (FFAppState().profileLevel ==
+                                                                                'เขต') {
+                                                                              await actions.openTableauBrowser(
+                                                                                FFAppState().accessToken,
+                                                                                '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?[1]}',
+                                                                              );
+                                                                            } else {
+                                                                              if (FFAppState().profileLevel == 'ภาค') {
+                                                                                await actions.openTableauBrowser(
+                                                                                  FFAppState().accessToken,
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.first}',
+                                                                                );
+                                                                              } else {
+                                                                                await actions.openTableauBrowser(
+                                                                                  FFAppState().accessToken,
+                                                                                  '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageGenEpaQueryTab?.reportUrl?.last}',
+                                                                                );
+                                                                              }
+                                                                            }
+
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                  child: Container(
+                                                                                    width: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                    height: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.asset(
+                                                                                      'assets/images/1712632790359.jpg',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'GEN E-PA',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
                                                                     ),
                                                                   if (() {
                                                                         if (FFAppState().profileLevel ==
@@ -8657,7 +8807,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 await queryReportStorageRecordOnce(
                                                                               queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
                                                                                 'report_name',
-                                                                                isEqualTo: 'ZUV',
+                                                                                isEqualTo: 'impound_car',
                                                                               ),
                                                                               singleRecord: true,
                                                                             ).then((s) => s.firstOrNull);
@@ -8705,6 +8855,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -8901,6 +9052,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -9562,6 +9714,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -9661,6 +9814,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -9809,6 +9963,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -10110,6 +10265,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -10392,6 +10548,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -10704,6 +10861,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -11007,6 +11165,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Poppins',
                                                                                           color: Colors.white,
+                                                                                          letterSpacing: 0.0,
                                                                                         ),
                                                                                   ),
                                                                                   showBadge: badgeNotificationRecordList.length > 0,
@@ -11040,6 +11199,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -11364,6 +11524,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ],
@@ -11646,6 +11807,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -11953,6 +12115,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -12232,6 +12395,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -12512,6 +12676,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -12792,6 +12957,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -13072,6 +13238,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -13377,6 +13544,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -13656,6 +13824,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -13937,6 +14106,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -14956,9 +15126,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               4.0,
                                                                           color:
                                                                               Color(0x230E151B),
-                                                                          offset: Offset(
-                                                                              0.0,
-                                                                              2.0),
+                                                                          offset:
+                                                                              Offset(
+                                                                            0.0,
+                                                                            2.0,
+                                                                          ),
                                                                         )
                                                                       ],
                                                                       borderRadius:
@@ -15000,6 +15172,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 18.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                                 Divider(
@@ -15007,12 +15180,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 ),
                                                                                 Text(
                                                                                   listViewSawadAnnouncementRecord.announceDate,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
                                                                                 ),
                                                                                 Text(
                                                                                   listViewSawadAnnouncementRecord.body,
                                                                                   textAlign: TextAlign.start,
-                                                                                  style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
                                                                                 ),
                                                                               ],
                                                                             ),
@@ -15211,7 +15390,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                 color: Color(
                                                                     0x230E151B),
                                                                 offset: Offset(
-                                                                    0.0, 2.0),
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
                                                               )
                                                             ],
                                                             borderRadius:
@@ -15251,6 +15432,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 18.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                       Divider(
@@ -15261,7 +15443,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         listViewSawadAnnouncementRecord
                                                                             .announceDate,
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                       Text(
                                                                         listViewSawadAnnouncementRecord
@@ -15269,7 +15455,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         textAlign:
                                                                             TextAlign.start,
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium,
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              letterSpacing: 0.0,
+                                                                            ),
                                                                       ),
                                                                     ],
                                                                   ),

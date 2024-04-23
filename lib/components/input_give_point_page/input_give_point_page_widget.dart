@@ -71,7 +71,10 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
               decoration: InputDecoration(
                 labelText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
                 hintText: 'ใส่จำนวนตั้งแต่ 0 ขึ้นไป',
-                hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                      fontFamily: 'Poppins',
+                      letterSpacing: 0.0,
+                    ),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).black600,
@@ -126,7 +129,10 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
                       )
                     : null,
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Poppins',
+                    letterSpacing: 0.0,
+                  ),
               keyboardType: TextInputType.number,
               validator: _model.textControllerValidator.asValidator(context),
             ),
@@ -148,6 +154,7 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
               textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
+                    letterSpacing: 0.0,
                   ),
               elevation: 2.0,
               borderSide: BorderSide(

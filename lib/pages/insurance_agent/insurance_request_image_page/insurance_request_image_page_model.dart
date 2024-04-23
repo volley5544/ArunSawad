@@ -153,8 +153,6 @@ class InsuranceRequestImagePageModel
   // Stores action output result for [Backend Call - API (insuranceRequestSendEmailAPI)] action in Button widget.
   ApiCallResponse? sendEmailRequestApi;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -162,8 +160,4 @@ class InsuranceRequestImagePageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

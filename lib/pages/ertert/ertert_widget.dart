@@ -54,6 +54,7 @@ class _ErtertWidgetState extends State<ErtertWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],

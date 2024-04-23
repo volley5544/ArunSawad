@@ -18,8 +18,6 @@ class TestCircleMapModel extends FlutterFlowModel<TestCircleMapWidget> {
   // Stores action output result for [Backend Call - API (getCheckinImgUrlUrlApi)] action in Button widget.
   ApiCallResponse? getCheckinImgUrl2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -27,8 +25,4 @@ class TestCircleMapModel extends FlutterFlowModel<TestCircleMapWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

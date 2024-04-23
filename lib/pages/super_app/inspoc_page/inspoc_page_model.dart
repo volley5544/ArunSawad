@@ -23,8 +23,6 @@ class InspocPageModel extends FlutterFlowModel<InspocPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in InspocPage widget.
   UserLogRecord? createdUserLogClassroom;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -32,8 +30,4 @@ class InspocPageModel extends FlutterFlowModel<InspocPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

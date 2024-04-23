@@ -20,8 +20,6 @@ class FormServicePageModel extends FlutterFlowModel<FormServicePageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in FormServicePage widget.
   UserLogRecord? createdUserLogFormService;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -29,8 +27,4 @@ class FormServicePageModel extends FlutterFlowModel<FormServicePageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

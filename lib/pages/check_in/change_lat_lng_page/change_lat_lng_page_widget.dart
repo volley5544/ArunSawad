@@ -36,88 +36,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'wrapOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -181,15 +100,97 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
       }
     });
 
-    _model.branchCodeInputController ??= TextEditingController();
+    _model.branchCodeInputTextController ??= TextEditingController();
     _model.branchCodeInputFocusNode ??= FocusNode();
 
-    _model.latInputController ??= TextEditingController();
+    _model.latInputTextController ??= TextEditingController();
     _model.latInputFocusNode ??= FocusNode();
 
-    _model.lngInputController ??= TextEditingController();
+    _model.lngInputTextController ??= TextEditingController();
     _model.lngInputFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'wrapOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -248,6 +249,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -306,27 +308,34 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.branchCodeInputController,
+                                        controller: _model
+                                            .branchCodeInputTextController,
                                         focusNode:
                                             _model.branchCodeInputFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
-                                          '_model.branchCodeInputController',
+                                          '_model.branchCodeInputTextController',
                                           Duration(milliseconds: 100),
                                           () => setState(() {}),
                                         ),
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: 'กรอกรหัสสาขา',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -374,9 +383,13 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .branchCodeInputControllerValidator
+                                            .branchCodeInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -407,25 +420,33 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.latInputController,
+                                        controller:
+                                            _model.latInputTextController,
                                         focusNode: _model.latInputFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
-                                          '_model.latInputController',
+                                          '_model.latInputTextController',
                                           Duration(milliseconds: 100),
                                           () => setState(() {}),
                                         ),
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: 'กรอกละติจูด',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -473,9 +494,13 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .latInputControllerValidator
+                                            .latInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -506,28 +531,39 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.lngInputController,
+                                        controller:
+                                            _model.lngInputTextController,
                                         focusNode: _model.lngInputFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
-                                          '_model.lngInputController',
+                                          '_model.lngInputTextController',
                                           Duration(milliseconds: 100),
                                           () => setState(() {}),
                                         ),
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMedium,
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           hintText: 'กรอกลองจิจูด',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -575,10 +611,14 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .lngInputControllerValidator
+                                            .lngInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -624,10 +664,10 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                   return FFButtonWidget(
                                     onPressed: () async {
                                       var _shouldSetState = false;
-                                      if (!(_model.branchCodeInputController
+                                      if (!(_model.branchCodeInputTextController
                                                   .text !=
                                               null &&
-                                          _model.branchCodeInputController
+                                          _model.branchCodeInputTextController
                                                   .text !=
                                               '')) {
                                         await showDialog(
@@ -652,9 +692,10 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         if (_shouldSetState) setState(() {});
                                         return;
                                       }
-                                      if (!(_model.latInputController.text !=
+                                      if (!(_model.latInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.latInputController.text !=
+                                          _model.latInputTextController.text !=
                                               '')) {
                                         await showDialog(
                                           context: context,
@@ -678,9 +719,10 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         if (_shouldSetState) setState(() {});
                                         return;
                                       }
-                                      if (!(_model.lngInputController.text !=
+                                      if (!(_model.lngInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.lngInputController.text !=
+                                          _model.lngInputTextController.text !=
                                               '')) {
                                         await showDialog(
                                           context: context,
@@ -704,21 +746,21 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         if (_shouldSetState) setState(() {});
                                         return;
                                       }
-                                      if (!(((functions.changeToDouble(_model.latInputController.text)! <=
+                                      if (!(((functions.changeToDouble(_model.latInputTextController.text)! <=
                                                   90.0) &&
                                               (functions.changeToDouble(_model
-                                                      .latInputController
+                                                      .latInputTextController
                                                       .text)! >=
                                                   -90.0)) &&
-                                          ((functions.changeToDouble(_model.lngInputController.text)! <=
+                                          ((functions.changeToDouble(_model.lngInputTextController.text)! <=
                                                   180.0) &&
                                               (functions.changeToDouble(_model
-                                                      .lngInputController
+                                                      .lngInputTextController
                                                       .text)! >=
                                                   -180.0)) &&
-                                          ((functions.changeToDouble(_model.latInputController.text) != 0.0) &&
+                                          ((functions.changeToDouble(_model.latInputTextController.text) != 0.0) &&
                                               (functions.changeToDouble(
-                                                      _model.lngInputController.text) !=
+                                                      _model.lngInputTextController.text) !=
                                                   0.0)))) {
                                         await showDialog(
                                           context: context,
@@ -740,8 +782,10 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           },
                                         );
                                         setState(() {
-                                          _model.latInputController?.clear();
-                                          _model.lngInputController?.clear();
+                                          _model.latInputTextController
+                                              ?.clear();
+                                          _model.lngInputTextController
+                                              ?.clear();
                                         });
                                         if (_shouldSetState) setState(() {});
                                         return;
@@ -775,11 +819,11 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
 
                                       setState(() {
                                         FFAppState().changeBranchCode = _model
-                                            .branchCodeInputController.text;
+                                            .branchCodeInputTextController.text;
                                         FFAppState().changeLat =
-                                            _model.latInputController.text;
+                                            _model.latInputTextController.text;
                                         FFAppState().changeLng =
-                                            _model.lngInputController.text;
+                                            _model.lngInputTextController.text;
                                       });
                                       _model.changeLocationAPIOutput =
                                           await ChangeLocationAPICall.call(
@@ -872,8 +916,10 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                                       ''),
                                                 )),
                                             functions.stringToLatLng(
-                                                _model.latInputController.text,
-                                                _model.lngInputController.text),
+                                                _model.latInputTextController
+                                                    .text,
+                                                _model.lngInputTextController
+                                                    .text),
                                           );
                                           _shouldSetState = true;
                                           await _model
@@ -941,13 +987,13 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                                         child:
                                                             AddBranchLoWidget(
                                                           branchCode: _model
-                                                              .branchCodeInputController
+                                                              .branchCodeInputTextController
                                                               .text,
                                                           lat: _model
-                                                              .latInputController
+                                                              .latInputTextController
                                                               .text,
                                                           lng: _model
-                                                              .lngInputController
+                                                              .lngInputTextController
                                                               .text,
                                                           apiUrl: FFAppState()
                                                               .apiURLLocalState,
@@ -1032,6 +1078,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 2.0,
                                       borderSide: BorderSide(
@@ -1067,6 +1114,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1083,6 +1131,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF4C525A),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1113,6 +1162,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 16.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                       Divider(
@@ -1188,6 +1238,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 16.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                       Divider(
@@ -1271,10 +1322,11 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                   onPressed: () async {
                                     var _shouldSetState = false;
                                     HapticFeedback.mediumImpact();
-                                    if (!(_model.branchCodeInputController
+                                    if (!(_model.branchCodeInputTextController
                                                 .text !=
                                             null &&
-                                        _model.branchCodeInputController.text !=
+                                        _model.branchCodeInputTextController
+                                                .text !=
                                             '')) {
                                       await showDialog(
                                         context: context,
@@ -1298,9 +1350,10 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    if (!(_model.latInputController.text !=
+                                    if (!(_model.latInputTextController.text !=
                                             null &&
-                                        _model.latInputController.text != '')) {
+                                        _model.latInputTextController.text !=
+                                            '')) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -1323,9 +1376,10 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    if (!(_model.lngInputController.text !=
+                                    if (!(_model.lngInputTextController.text !=
                                             null &&
-                                        _model.lngInputController.text != '')) {
+                                        _model.lngInputTextController.text !=
+                                            '')) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -1383,10 +1437,12 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                     }
                                     _model.changeLocationAPIOutputEdit =
                                         await ChangeLocationAPICall.call(
-                                      latitude: _model.latInputController.text,
-                                      longitude: _model.lngInputController.text,
-                                      branchCode:
-                                          _model.branchCodeInputController.text,
+                                      latitude:
+                                          _model.latInputTextController.text,
+                                      longitude:
+                                          _model.lngInputTextController.text,
+                                      branchCode: _model
+                                          .branchCodeInputTextController.text,
                                       apiUrl: FFAppState().apiURLLocalState,
                                       flag: 'Y',
                                       token: FFAppState().accessToken,
@@ -1422,10 +1478,12 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           },
                                         );
                                         setState(() {
-                                          _model.branchCodeInputController
+                                          _model.branchCodeInputTextController
                                               ?.clear();
-                                          _model.latInputController?.clear();
-                                          _model.lngInputController?.clear();
+                                          _model.latInputTextController
+                                              ?.clear();
+                                          _model.lngInputTextController
+                                              ?.clear();
                                         });
                                       } else {
                                         if (ChangeLocationAPICall.statusConfirm(
@@ -1526,6 +1584,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 2.0,
                                     borderSide: BorderSide(

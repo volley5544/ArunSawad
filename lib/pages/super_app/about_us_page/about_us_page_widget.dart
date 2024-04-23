@@ -248,6 +248,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                         color:
                                                             Color(0xFF002D5E),
                                                         fontSize: 19.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -273,6 +274,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                     fontFamily: 'Poppins',
                                                     color: Color(0xFF002D5E),
                                                     fontSize: 16.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -303,6 +305,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -335,6 +338,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -367,6 +371,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -399,6 +404,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -431,6 +437,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -460,6 +467,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                                         color:
                                                             Color(0xFF002D5E),
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -527,6 +535,7 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF002D5E),
                                   fontSize: 18.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),

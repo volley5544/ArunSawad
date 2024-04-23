@@ -114,6 +114,7 @@ class _SearchCollectionPageWidgetState
                               fontFamily: 'Poppins',
                               color: Colors.white,
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ],
@@ -154,13 +155,13 @@ class _SearchCollectionPageWidgetState
                               onChanged: (val) =>
                                   setState(() => _model.dropDownValue = val),
                               width: 150.0,
-                              height: 40.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
+                                    letterSpacing: 0.0,
                                   ),
                               hintText: 'ค้นหาโดย',
                               icon: Icon(
@@ -237,7 +238,6 @@ class _SearchCollectionPageWidgetState
                                 Navigator.pop(context);
                               },
                               width: 170.0,
-                              height: 40.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -245,6 +245,7 @@ class _SearchCollectionPageWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     fontSize: 11.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                               hintText: 'เรียงข้อมูลโดย',
@@ -259,7 +260,7 @@ class _SearchCollectionPageWidgetState
                               borderWidth: 2.0,
                               borderRadius: 20.0,
                               margin: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 4.0, 16.0, 4.0),
+                                  16.0, 0.0, 16.0, 0.0),
                               hidesUnderline: true,
                               isOverButton: true,
                               isSearchable: false,
@@ -300,12 +301,15 @@ class _SearchCollectionPageWidgetState
                                   Duration(milliseconds: 1000),
                                   () => setState(() {}),
                                 ),
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
+                                  isDense: false,
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   hintText: 'ค้นหา',
@@ -314,6 +318,7 @@ class _SearchCollectionPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   enabledBorder: OutlineInputBorder(
@@ -367,6 +372,7 @@ class _SearchCollectionPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 textAlign: TextAlign.start,
@@ -493,6 +499,7 @@ class _SearchCollectionPageWidgetState
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -577,6 +584,7 @@ class _SearchCollectionPageWidgetState
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
@@ -618,6 +626,7 @@ class _SearchCollectionPageWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         ),
@@ -878,6 +887,8 @@ class _SearchCollectionPageWidgetState
                                                                           'Poppins',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -921,6 +932,7 @@ class _SearchCollectionPageWidgetState
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -947,6 +959,8 @@ class _SearchCollectionPageWidgetState
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Poppins',
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1003,6 +1017,7 @@ class _SearchCollectionPageWidgetState
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),

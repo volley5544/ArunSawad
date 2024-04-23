@@ -40,86 +40,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 49.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(1.0, 1.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 49.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(1.0, 1.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 49.0),
-          end: Offset(0.0, 0.0),
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(1.0, 1.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -196,6 +117,86 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
       }
     });
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 49.0),
+            end: Offset(0.0, 0.0),
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 49.0),
+            end: Offset(0.0, 0.0),
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 49.0),
+            end: Offset(0.0, 0.0),
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -731,6 +732,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFF0039E3),
                                         fontSize: 24.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -745,6 +747,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF0039E3),
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                             Padding(
@@ -779,6 +782,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF0039E3),
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -797,7 +801,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x33000000),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(18.0),
@@ -811,7 +818,11 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       FFAppState().profilePositionName,
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -1219,6 +1230,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFF0039E3),
                                         fontSize: 28.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -1233,6 +1245,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     fontFamily: 'Poppins',
                                     color: Color(0xFF0039E3),
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                             Padding(
@@ -1264,6 +1277,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF0039E3),
                                             fontSize: 20.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -1282,7 +1296,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x33000000),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(18.0),
@@ -1300,6 +1317,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -1375,25 +1393,41 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                 children: [
                                   Text(
                                     'รหัสพนักงาน: ${FFAppState().employeeID}',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   Text(
                                     'สาขา: (${FFAppState().branchCode}) ${FFAppState().profileUnitCodeName}',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   if (FFAppState().branchCode != 'HO')
                                     Text(
                                       'เขต: ${FFAppState().profileParentUnit}',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   if (FFAppState().branchCode != 'HO')
                                     Text(
                                       'ภาค: ${FFAppState().profileRegion}',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   if (FFAppState().profileHiredDate != 'null')
                                     Text(
@@ -1405,19 +1439,31 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               .languageCode,
                                         ) : '-'}',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   Text(
                                     'อายุงาน: ${FFAppState().profileServiceDuration}',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   if (FFAppState().profilePositionAgeCheck !=
                                       '-')
                                     Text(
                                       'อายุตำแหน่ง: ${FFAppState().profilePositionAge}',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1425,7 +1471,11 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       Text(
                                         'แผนประกัน: ${functions.insurancePlanToThai(FFAppState().insurancePlanNumber)}',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                       if (functions.insurancePlanToThai(
                                               FFAppState()
@@ -1494,6 +1544,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 2.0,
                                                 borderSide: BorderSide(
@@ -1575,6 +1626,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                   Text(
@@ -1584,6 +1636,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                   if (FFAppState().branchCode != 'HO')
@@ -1594,6 +1647,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   if (FFAppState().branchCode != 'HO')
@@ -1604,6 +1658,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   Text(
@@ -1619,6 +1674,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                   Text(
@@ -1628,6 +1684,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                   if (FFAppState().profilePositionAgeCheck !=
@@ -1639,6 +1696,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 19.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   Row(
@@ -1651,6 +1709,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                       if (functions.insurancePlanToThai(
@@ -1727,6 +1786,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 20.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 2.0,
                                                 borderSide: BorderSide(
@@ -1789,7 +1849,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x3F14181B),
-                                          offset: Offset(0.0, 3.0),
+                                          offset: Offset(
+                                            0.0,
+                                            3.0,
+                                          ),
                                         )
                                       ],
                                       borderRadius: BorderRadius.circular(8.0),
@@ -1818,6 +1881,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           context)
                                                       .primaryText,
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
 
@@ -1844,6 +1908,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     fontFamily: 'Poppins',
                                                     color: Color(0xFFFF731B),
                                                     fontSize: 32.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                             ),
@@ -1873,6 +1938,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryBtnText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -1916,7 +1982,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x3F14181B),
-                                          offset: Offset(0.0, 3.0),
+                                          offset: Offset(
+                                            0.0,
+                                            3.0,
+                                          ),
                                         )
                                       ],
                                       borderRadius: BorderRadius.circular(8.0),
@@ -1945,6 +2014,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           context)
                                                       .primaryText,
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
 
@@ -1963,6 +2033,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     fontFamily: 'Poppins',
                                                     color: Color(0xFFFF731B),
                                                     fontSize: 32.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                             ),
@@ -1992,6 +2063,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryBtnText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -2082,7 +2154,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
-                                              offset: Offset(2.0, 3.0),
+                                              offset: Offset(
+                                                2.0,
+                                                3.0,
+                                              ),
                                             )
                                           ],
                                           borderRadius:
@@ -2115,6 +2190,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                               Column(
@@ -2135,6 +2211,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2157,6 +2235,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2177,6 +2257,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2193,6 +2275,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2263,6 +2347,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       .primaryBtnText,
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,

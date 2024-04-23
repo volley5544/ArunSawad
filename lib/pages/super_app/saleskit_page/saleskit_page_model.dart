@@ -20,8 +20,6 @@ class SaleskitPageModel extends FlutterFlowModel<SaleskitPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in SaleskitPage widget.
   UserLogRecord? createdUserLogSaleskit;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -29,8 +27,4 @@ class SaleskitPageModel extends FlutterFlowModel<SaleskitPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

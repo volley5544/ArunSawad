@@ -28,8 +28,6 @@ class InfoCheckinModel extends FlutterFlowModel<InfoCheckinWidget> {
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -37,8 +35,4 @@ class InfoCheckinModel extends FlutterFlowModel<InfoCheckinWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

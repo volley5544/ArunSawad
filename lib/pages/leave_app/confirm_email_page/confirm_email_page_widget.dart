@@ -76,6 +76,7 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -167,6 +168,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 20.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -204,7 +207,13 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                               hintStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmall,
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                               enabledBorder:
                                                                   UnderlineInputBorder(
                                                                 borderSide:
@@ -277,6 +286,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                       'Poppins',
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -346,6 +357,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                           .white,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -410,6 +423,8 @@ class _ConfirmEmailPageWidgetState extends State<ConfirmEmailPageWidget> {
                                                                             .white,
                                                                         fontSize:
                                                                             15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),

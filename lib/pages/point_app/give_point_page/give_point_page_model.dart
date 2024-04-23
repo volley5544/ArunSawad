@@ -17,8 +17,6 @@ class GivePointPageModel extends FlutterFlowModel<GivePointPageWidget> {
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -28,8 +26,4 @@ class GivePointPageModel extends FlutterFlowModel<GivePointPageWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

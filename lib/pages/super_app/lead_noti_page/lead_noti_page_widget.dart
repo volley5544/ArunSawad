@@ -42,27 +42,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 90.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -335,6 +315,27 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
       Navigator.pop(context);
     });
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -420,6 +421,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                         fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 22.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
                 actions: [
@@ -638,7 +640,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             color: Color(
                                                                 0x33000000),
                                                             offset: Offset(
-                                                                0.0, 2.0),
+                                                              0.0,
+                                                              2.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -685,6 +689,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -702,7 +708,13 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ],
                                                       ),
@@ -744,7 +756,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             color: Color(
                                                                 0x33000000),
                                                             offset: Offset(
-                                                                0.0, 2.0),
+                                                              0.0,
+                                                              2.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -791,6 +805,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -808,7 +824,13 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ],
                                                       ),
@@ -855,7 +877,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             color: Color(
                                                                 0x33000000),
                                                             offset: Offset(
-                                                                0.0, 2.0),
+                                                              0.0,
+                                                              2.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -902,6 +926,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -919,7 +945,13 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ],
                                                       ),
@@ -961,7 +993,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             color: Color(
                                                                 0x33000000),
                                                             offset: Offset(
-                                                                0.0, 2.0),
+                                                              0.0,
+                                                              2.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -1008,6 +1042,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1025,7 +1061,13 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ],
                                                       ),
@@ -1139,6 +1181,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               color: Color(
                                                                   0xFF101213),
                                                               fontSize: 20.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
@@ -1166,6 +1210,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -1231,6 +1277,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               color: Color(
                                                                   0xFF101213),
                                                               fontSize: 20.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
@@ -1258,6 +1306,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -1330,7 +1380,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x2B202529),
-                                            offset: Offset(0.0, 2.0),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
                                           )
                                         ],
                                         borderRadius:
@@ -1424,6 +1477,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                                 Colors.white,
                                                                             fontSize:
                                                                                 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1476,6 +1531,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                                     Colors.black,
                                                                                   ),
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           ),
@@ -1511,6 +1567,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                                 'Poppins',
                                                                             fontSize:
                                                                                 16.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
@@ -1539,6 +1597,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1565,6 +1625,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1591,6 +1653,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                           0xFF57636C),
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1821,6 +1885,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                             0xFFFF0000)
                                                                         : Colors
                                                                             .black,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -1869,6 +1935,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 color: Color(
                                                                     0xFFFF0000),
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1910,6 +1978,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       0xFF101213),
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1946,6 +2016,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       0xFF101213),
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -2177,6 +2249,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       'Poppins',
                                                                   color: Colors
                                                                       .white,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                         elevation: 2.0,
                                                         borderSide: BorderSide(
@@ -2460,6 +2534,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         'Poppins',
                                                                     color: Colors
                                                                         .white,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           elevation: 2.0,
                                                           borderSide:

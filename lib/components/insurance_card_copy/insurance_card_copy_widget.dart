@@ -57,7 +57,10 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
             BoxShadow(
               blurRadius: 3.0,
               color: Color(0x33000000),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.circular(8.0),
@@ -88,7 +91,12 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
                       children: [
                         Text(
                           'วันที่ออกบัตร / วันหมดอายุ',
-                          style: FlutterFlowTheme.of(context).headlineMedium,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
+                                fontFamily: 'Poppins',
+                                letterSpacing: 0.0,
+                              ),
                         ),
                         Text(
                           '${dateTimeFormat(
@@ -105,6 +113,7 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
                                     fontFamily: 'Lexend Deca',
                                     color: Color(0xFF39D2C0),
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         ),
@@ -117,13 +126,19 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
                     children: [
                       Text(
                         'จำนวนวันที่เหลือ',
-                        style: FlutterFlowTheme.of(context).headlineMedium,
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                       Text(
                         'xx วัน',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               color: FlutterFlowTheme.of(context).tertiary400,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ],

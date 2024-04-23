@@ -75,8 +75,6 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
   NotificationRecord? createInsuPageNotificationBio;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     pinCodeController = TextEditingController();
@@ -87,8 +85,4 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
     unfocusNode.dispose();
     pinCodeController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

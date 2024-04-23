@@ -277,19 +277,19 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
       Navigator.pop(context);
     });
 
-    _model.nameInputController ??= TextEditingController();
+    _model.nameInputTextController ??= TextEditingController();
     _model.nameInputFocusNode ??= FocusNode();
 
-    _model.lastnameInputController ??= TextEditingController();
+    _model.lastnameInputTextController ??= TextEditingController();
     _model.lastnameInputFocusNode ??= FocusNode();
 
-    _model.idInputController ??= TextEditingController();
+    _model.idInputTextController ??= TextEditingController();
     _model.idInputFocusNode ??= FocusNode();
 
-    _model.phoneInputController ??= TextEditingController();
+    _model.phoneInputTextController ??= TextEditingController();
     _model.phoneInputFocusNode ??= FocusNode();
 
-    _model.plateInputController ??= TextEditingController();
+    _model.plateInputTextController ??= TextEditingController();
     _model.plateInputFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -338,6 +338,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -385,6 +386,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -444,12 +446,21 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  letterSpacing: 0.0,
                                                 ),
                                         searchTextStyle:
                                             FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintText: 'กรุณาเลือก',
                                         searchHintText: 'ยี่ห้อรถ...',
                                         fillColor: FlutterFlowTheme.of(context)
@@ -489,6 +500,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -520,7 +532,11 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                           ),
                                           searchTextStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMedium,
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
@@ -528,6 +544,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -568,6 +585,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -607,6 +625,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     hintText: 'กรุณาเลือก...',
@@ -641,6 +660,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -671,13 +691,18 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                         ),
                                         searchTextStyle:
                                             FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         hintText: 'กรุณาเลือก...',
@@ -715,6 +740,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -754,6 +780,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         hintText: 'กรุณาเลือก...',
@@ -790,6 +817,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -808,20 +836,25 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             0.0, 0.0, 0.0, 5.0),
                                         child: TextFormField(
                                           controller:
-                                              _model.nameInputController,
+                                              _model.nameInputTextController,
                                           focusNode: _model.nameInputFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.nameInputController',
+                                            '_model.nameInputTextController',
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -863,12 +896,13 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             suffixIcon: _model
-                                                    .nameInputController!
+                                                    .nameInputTextController!
                                                     .text
                                                     .isNotEmpty
                                                 ? InkWell(
                                                     onTap: () async {
-                                                      _model.nameInputController
+                                                      _model
+                                                          .nameInputTextController
                                                           ?.clear();
                                                       setState(() {});
                                                     },
@@ -885,10 +919,11 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 lineHeight: 1.0,
                                               ),
                                           validator: _model
-                                              .nameInputControllerValidator
+                                              .nameInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -915,6 +950,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -932,22 +968,27 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
                                         child: TextFormField(
-                                          controller:
-                                              _model.lastnameInputController,
+                                          controller: _model
+                                              .lastnameInputTextController,
                                           focusNode:
                                               _model.lastnameInputFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.lastnameInputController',
+                                            '_model.lastnameInputTextController',
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -989,13 +1030,13 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             suffixIcon: _model
-                                                    .lastnameInputController!
+                                                    .lastnameInputTextController!
                                                     .text
                                                     .isNotEmpty
                                                 ? InkWell(
                                                     onTap: () async {
                                                       _model
-                                                          .lastnameInputController
+                                                          .lastnameInputTextController
                                                           ?.clear();
                                                       setState(() {});
                                                     },
@@ -1013,10 +1054,11 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF0A0A0A),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           validator: _model
-                                              .lastnameInputControllerValidator
+                                              .lastnameInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1043,6 +1085,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -1060,20 +1103,26 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
                                         child: TextFormField(
-                                          controller: _model.idInputController,
+                                          controller:
+                                              _model.idInputTextController,
                                           focusNode: _model.idInputFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.idInputController',
+                                            '_model.idInputTextController',
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -1115,12 +1164,13 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             suffixIcon: _model
-                                                    .idInputController!
+                                                    .idInputTextController!
                                                     .text
                                                     .isNotEmpty
                                                 ? InkWell(
                                                     onTap: () async {
-                                                      _model.idInputController
+                                                      _model
+                                                          .idInputTextController
                                                           ?.clear();
                                                       setState(() {});
                                                     },
@@ -1138,11 +1188,12 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF0A0A0A),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           keyboardType: TextInputType.phone,
                                           validator: _model
-                                              .idInputControllerValidator
+                                              .idInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1169,6 +1220,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -1187,20 +1239,25 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             0.0, 0.0, 0.0, 5.0),
                                         child: TextFormField(
                                           controller:
-                                              _model.phoneInputController,
+                                              _model.phoneInputTextController,
                                           focusNode: _model.phoneInputFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.phoneInputController',
+                                            '_model.phoneInputTextController',
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -1242,13 +1299,13 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             suffixIcon: _model
-                                                    .phoneInputController!
+                                                    .phoneInputTextController!
                                                     .text
                                                     .isNotEmpty
                                                 ? InkWell(
                                                     onTap: () async {
                                                       _model
-                                                          .phoneInputController
+                                                          .phoneInputTextController
                                                           ?.clear();
                                                       setState(() {});
                                                     },
@@ -1266,11 +1323,12 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF0A0A0A),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           keyboardType: TextInputType.phone,
                                           validator: _model
-                                              .phoneInputControllerValidator
+                                              .phoneInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1297,6 +1355,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -1316,20 +1375,25 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             0.0, 0.0, 0.0, 5.0),
                                         child: TextFormField(
                                           controller:
-                                              _model.plateInputController,
+                                              _model.plateInputTextController,
                                           focusNode: _model.plateInputFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.plateInputController',
+                                            '_model.plateInputTextController',
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -1371,13 +1435,13 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 24.0, 24.0, 24.0),
                                             suffixIcon: _model
-                                                    .plateInputController!
+                                                    .plateInputTextController!
                                                     .text
                                                     .isNotEmpty
                                                 ? InkWell(
                                                     onTap: () async {
                                                       _model
-                                                          .plateInputController
+                                                          .plateInputTextController
                                                           ?.clear();
                                                       setState(() {});
                                                     },
@@ -1395,10 +1459,11 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF0A0A0A),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           validator: _model
-                                              .plateInputControllerValidator
+                                              .plateInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1425,6 +1490,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -1468,6 +1534,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -1614,9 +1681,9 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                       );
                                       return;
                                     }
-                                    if (!(_model.nameInputController.text !=
+                                    if (!(_model.nameInputTextController.text !=
                                             null &&
-                                        _model.nameInputController.text !=
+                                        _model.nameInputTextController.text !=
                                             '')) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -1634,9 +1701,11 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                       );
                                       return;
                                     }
-                                    if (!(_model.lastnameInputController.text !=
+                                    if (!(_model.lastnameInputTextController
+                                                .text !=
                                             null &&
-                                        _model.lastnameInputController.text !=
+                                        _model.lastnameInputTextController
+                                                .text !=
                                             '')) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -1654,9 +1723,10 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                       );
                                       return;
                                     }
-                                    if (!(_model.phoneInputController.text !=
+                                    if (!(_model.phoneInputTextController
+                                                .text !=
                                             null &&
-                                        _model.phoneInputController.text !=
+                                        _model.phoneInputTextController.text !=
                                             '')) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -1674,9 +1744,10 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                       );
                                       return;
                                     }
-                                    if (!(_model.plateInputController.text !=
+                                    if (!(_model.plateInputTextController
+                                                .text !=
                                             null &&
-                                        _model.plateInputController.text !=
+                                        _model.plateInputTextController.text !=
                                             '')) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
@@ -1781,6 +1852,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 2.0,

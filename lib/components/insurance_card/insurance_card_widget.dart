@@ -63,7 +63,10 @@ class _InsuranceCardWidgetState extends State<InsuranceCardWidget> {
                 children: [
                   Text(
                     'ใบอนุญาตเป็นตัวแทนประกันชีวิต',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ],
               ),
@@ -75,7 +78,10 @@ class _InsuranceCardWidgetState extends State<InsuranceCardWidget> {
                   children: [
                     Text(
                       'ประเภท ตัวแทนประกันชีวิต',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ],
                 ),
@@ -86,7 +92,10 @@ class _InsuranceCardWidgetState extends State<InsuranceCardWidget> {
                 children: [
                   Text(
                     'บริษัท ประกันชีวิต จำกัด (มหาชน)',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ],
               ),

@@ -120,6 +120,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -137,6 +138,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Poppins',
                         fontSize: 16.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
                 Expanded(
@@ -259,6 +261,8 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                                                       .black600,
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                       ),
                                                     ),

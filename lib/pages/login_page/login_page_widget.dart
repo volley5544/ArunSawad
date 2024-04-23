@@ -42,125 +42,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 100.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 100.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'imageOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 300.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 300.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 400.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 400.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'textFieldOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 500.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'textFieldOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 600.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 600.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 700.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 700.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 800.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -262,12 +144,131 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       }
     });
 
-    _model.usernameInputController ??= TextEditingController();
+    _model.usernameInputTextController ??= TextEditingController();
     _model.usernameInputFocusNode ??= FocusNode();
 
-    _model.passwordInputController ??= TextEditingController();
+    _model.passwordInputTextController ??= TextEditingController();
     _model.passwordInputFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 100.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 200.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 300.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 300.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 400.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 400.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 500.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 600.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 700.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 700.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 800.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 800.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -525,13 +526,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   children: [
                                     TextFormField(
                                       controller:
-                                          _model.usernameInputController,
+                                          _model.usernameInputTextController,
                                       focusNode: _model.usernameInputFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.usernameInputController',
+                                        '_model.usernameInputTextController',
                                         Duration(milliseconds: 2000),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelText: 'Username',
@@ -542,10 +544,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .grayIcon,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText: 'Username',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFFEEEEEE),
@@ -592,12 +599,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           color: Color(0xFF0006D6),
                                         ),
                                         suffixIcon: _model
-                                                .usernameInputController!
+                                                .usernameInputTextController!
                                                 .text
                                                 .isNotEmpty
                                             ? InkWell(
                                                 onTap: () async {
-                                                  _model.usernameInputController
+                                                  _model
+                                                      .usernameInputTextController
                                                       ?.clear();
                                                   setState(() {});
                                                 },
@@ -614,21 +622,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
+                                            letterSpacing: 0.0,
                                           ),
                                       validator: _model
-                                          .usernameInputControllerValidator
+                                          .usernameInputTextControllerValidator
                                           .asValidator(context),
                                     ).animateOnPageLoad(animationsMap[
                                         'textFieldOnPageLoadAnimation1']!),
                                     TextFormField(
                                       controller:
-                                          _model.passwordInputController,
+                                          _model.passwordInputTextController,
                                       focusNode: _model.passwordInputFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.passwordInputController',
+                                        '_model.passwordInputTextController',
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText:
                                           !_model.passwordInputVisibility,
                                       decoration: InputDecoration(
@@ -640,10 +650,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .grayIcon,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText: 'Password',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0xFFEEEEEE),
@@ -711,9 +726,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
+                                            letterSpacing: 0.0,
                                           ),
                                       validator: _model
-                                          .passwordInputControllerValidator
+                                          .passwordInputTextControllerValidator
                                           .asValidator(context),
                                     ).animateOnPageLoad(animationsMap[
                                         'textFieldOnPageLoadAnimation2']!),
@@ -766,10 +782,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     queryBuilder: (insuranceNotiDataRecord) =>
                                         insuranceNotiDataRecord.where(
                                       'emp_id',
-                                      isEqualTo: _model.usernameInputController
+                                      isEqualTo: _model
+                                                  .usernameInputTextController
                                                   .text !=
                                               ''
-                                          ? _model.usernameInputController.text
+                                          ? _model
+                                              .usernameInputTextController.text
                                           : null,
                                     ),
                                     singleRecord: true,
@@ -992,7 +1010,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .isProduction) {
                                                                         if (!functions.checkIsHaveThisValueInList(
                                                                             columnAuthorizationRecord?.employeeIdList?.toList(),
-                                                                            _model.usernameInputController.text)!) {
+                                                                            _model.usernameInputTextController.text)!) {
                                                                           if (isiOS) {
                                                                             if (signinButtonBuildVersionRecord?.appVersionIos !=
                                                                                 _model.deviceBuildVersion) {
@@ -1084,20 +1102,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         FFAppState().brachListNew =
                                                                             [];
                                                                       });
-                                                                      if (_model.usernameInputController.text !=
+                                                                      if (_model.usernameInputTextController.text !=
                                                                               null &&
-                                                                          _model.usernameInputController.text !=
+                                                                          _model.usernameInputTextController.text !=
                                                                               '') {
-                                                                        if (_model.passwordInputController.text !=
+                                                                        if (_model.passwordInputTextController.text !=
                                                                                 null &&
-                                                                            _model.passwordInputController.text !=
+                                                                            _model.passwordInputTextController.text !=
                                                                                 '') {
                                                                           _model.authenAPIOutputBtn =
                                                                               await AuthenAPICall.call(
                                                                             username:
-                                                                                _model.usernameInputController.text,
+                                                                                _model.usernameInputTextController.text,
                                                                             password:
-                                                                                _model.passwordInputController.text,
+                                                                                _model.passwordInputTextController.text,
                                                                             apiUrl:
                                                                                 FFAppState().apiURLLocalState,
                                                                             fcmToken:
@@ -1118,6 +1136,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       color: Colors.white,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                               duration: Duration(milliseconds: 3000),
@@ -1161,8 +1180,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 false;
                                                                             if (confirmDialogResponse) {
                                                                               _model.confirmAuthen = await AuthenAPICall.call(
-                                                                                username: _model.usernameInputController.text,
-                                                                                password: _model.passwordInputController.text,
+                                                                                username: _model.usernameInputTextController.text,
+                                                                                password: _model.passwordInputTextController.text,
                                                                                 apiUrl: FFAppState().apiURLLocalState,
                                                                                 fcmToken: FFAppState().fcmToken,
                                                                                 uid: FFAppState().imei,
@@ -1182,7 +1201,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                   FFAppState().branchCode = AuthenAPICall.branchCode(
                                                                                     (_model.confirmAuthen?.jsonBody ?? ''),
                                                                                   )!;
-                                                                                  FFAppState().employeeID = _model.usernameInputController.text;
+                                                                                  FFAppState().employeeID = _model.usernameInputTextController.text;
                                                                                 });
                                                                               } else {
                                                                                 await showDialog(
@@ -1227,7 +1246,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               FFAppState().branchCode = AuthenAPICall.branchCode(
                                                                                 (_model.authenAPIOutputBtn?.jsonBody ?? ''),
                                                                               )!;
-                                                                              FFAppState().employeeID = _model.usernameInputController.text;
+                                                                              FFAppState().employeeID = _model.usernameInputTextController.text;
                                                                             });
                                                                           }
 
@@ -1251,6 +1270,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         color: Colors.white,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                                 duration: Duration(milliseconds: 4000),
@@ -1543,6 +1563,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     color: Colors.white,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             duration:
@@ -1561,7 +1582,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           await actions
                                                                               .a13(
                                                                         functions.generateStuffFirebaseEmail(_model
-                                                                            .usernameInputController
+                                                                            .usernameInputTextController
                                                                             .text),
                                                                       );
                                                                       _shouldSetState =
@@ -1679,7 +1700,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           fcmToken:
                                                                               FFAppState().fcmToken,
                                                                           employeeId: _model
-                                                                              .usernameInputController
+                                                                              .usernameInputTextController
                                                                               .text,
                                                                         ));
                                                                         _model.androidCreateFMCTokenDoc = FCMTokenRecord.getDocumentFromData(
@@ -1687,7 +1708,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               createdAt: getCurrentTimestamp,
                                                                               deviceType: 'Android',
                                                                               fcmToken: FFAppState().fcmToken,
-                                                                              employeeId: _model.usernameInputController.text,
+                                                                              employeeId: _model.usernameInputTextController.text,
                                                                             ),
                                                                             fCMTokenRecordReference1);
                                                                         _shouldSetState =
@@ -1729,7 +1750,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           fcmToken:
                                                                               FFAppState().fcmToken,
                                                                           employeeId: _model
-                                                                              .usernameInputController
+                                                                              .usernameInputTextController
                                                                               .text,
                                                                         ));
                                                                         _model.iosCreateFMCTokenDoc = FCMTokenRecord.getDocumentFromData(
@@ -1737,7 +1758,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               createdAt: getCurrentTimestamp,
                                                                               deviceType: 'Ios',
                                                                               fcmToken: FFAppState().fcmToken,
-                                                                              employeeId: _model.usernameInputController.text,
+                                                                              employeeId: _model.usernameInputTextController.text,
                                                                             ),
                                                                             fCMTokenRecordReference2);
                                                                         _shouldSetState =
@@ -1776,6 +1797,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Colors.white,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                       elevation:
                                                                           2.0,
@@ -1884,6 +1907,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       fontFamily: 'Poppins',
                                       color: Color(0xFF607D8B),
                                       fontSize: 13.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),

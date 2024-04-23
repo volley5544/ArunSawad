@@ -70,8 +70,6 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginTimesheetPage;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -79,8 +77,4 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

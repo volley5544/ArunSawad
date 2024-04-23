@@ -23,8 +23,6 @@ class IntrodutionPageModel extends FlutterFlowModel<IntrodutionPageWidget> {
       ? pageViewController!.page!.round()
       : 0;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -32,8 +30,4 @@ class IntrodutionPageModel extends FlutterFlowModel<IntrodutionPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

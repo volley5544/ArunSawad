@@ -37,14 +37,14 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'FormItSupport'});
-    _model.leaveDaysController ??= TextEditingController();
+    _model.leaveDaysTextController ??= TextEditingController();
     _model.leaveDaysFocusNode ??= FocusNode();
 
-    _model.phoneNumberController ??=
+    _model.phoneNumberTextController ??=
         TextEditingController(text: FFAppState().ProfilePhoneNumber);
     _model.phoneNumberFocusNode ??= FocusNode();
 
-    _model.reasonToLeaveController ??= TextEditingController();
+    _model.reasonToLeaveTextController ??= TextEditingController();
     _model.reasonToLeaveFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -97,6 +97,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -218,6 +219,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ),
@@ -248,6 +250,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             )),
                                           ),
@@ -267,18 +270,22 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                               child: TextFormField(
-                                                controller:
-                                                    _model.leaveDaysController,
+                                                controller: _model
+                                                    .leaveDaysTextController,
                                                 focusNode:
                                                     _model.leaveDaysFocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText:
                                                       'ใส่จำนวนวันที่ต้องการลา',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -335,12 +342,13 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           lineHeight: 1.0,
                                                         ),
                                                 keyboardType:
                                                     TextInputType.number,
                                                 validator: _model
-                                                    .leaveDaysControllerValidator
+                                                    .leaveDaysTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -370,6 +378,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             )),
                                           ),
@@ -393,17 +402,21 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         0.0, 0.0, 0.0, 5.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .phoneNumberController,
+                                                      .phoneNumberTextController,
                                                   focusNode: _model
                                                       .phoneNumberFocusNode,
+                                                  autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     hintText:
                                                         'กรุณากรอกเบอร์โทรศัพท์',
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmall,
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
@@ -473,13 +486,14 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                                   keyboardType:
                                                       TextInputType.phone,
                                                   validator: _model
-                                                      .phoneNumberControllerValidator
+                                                      .phoneNumberTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -510,6 +524,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             )),
                                           ),
@@ -527,9 +542,10 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                           Expanded(
                                             child: TextFormField(
                                               controller: _model
-                                                  .reasonToLeaveController,
+                                                  .reasonToLeaveTextController,
                                               focusNode:
                                                   _model.reasonToLeaveFocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -537,6 +553,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -594,12 +611,13 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               textAlign: TextAlign.start,
                                               validator: _model
-                                                  .reasonToLeaveControllerValidator
+                                                  .reasonToLeaveTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -628,6 +646,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             )),
                                           ),
@@ -765,6 +784,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -814,10 +834,12 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                             controller: _model
                                                                     .pageViewController ??=
                                                                 PageController(
-                                                                    initialPage: min(
+                                                                    initialPage: max(
                                                                         0,
-                                                                        uploadListNum.length -
-                                                                            1)),
+                                                                        min(
+                                                                            0,
+                                                                            uploadListNum.length -
+                                                                                1))),
                                                             scrollDirection:
                                                                 Axis.horizontal,
                                                             itemCount:
@@ -856,10 +878,10 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                               controller: _model
                                                                       .pageViewController ??=
                                                                   PageController(
-                                                                      initialPage: min(
+                                                                      initialPage: max(
                                                                           0,
-                                                                          uploadListNum.length -
-                                                                              1)),
+                                                                          min(0,
+                                                                              uploadListNum.length - 1))),
                                                               count:
                                                                   uploadListNum
                                                                       .length,
@@ -950,6 +972,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),

@@ -75,7 +75,10 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                       BoxShadow(
                         blurRadius: 12.0,
                         color: Color(0x33000000),
-                        offset: Offset(0.0, 5.0),
+                        offset: Offset(
+                          0.0,
+                          5.0,
+                        ),
                       )
                     ],
                     borderRadius: BorderRadius.circular(16.0),
@@ -117,6 +120,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                   fontFamily: 'Outfit',
                                                   color: Color(0xFF101213),
                                                   fontSize: 22.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -160,6 +164,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -194,6 +199,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -211,6 +217,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -228,6 +235,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -244,7 +252,11 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       winnerListItemIndex],
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                                 Text(
                                                   FFAppState()
@@ -252,7 +264,11 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       winnerListItemIndex],
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                                 Text(
                                                   FFAppState()
@@ -260,7 +276,11 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                                       winnerListItemIndex],
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ]
                                                   .map((c) => DataCell(c))
@@ -304,6 +324,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                     fontFamily: 'Outfit',
                                     color: Color(0xFF101213),
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -320,6 +341,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -335,6 +357,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),

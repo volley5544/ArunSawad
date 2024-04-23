@@ -1,6 +1,4 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
@@ -13,7 +11,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'detail_list_follow_up_debt_widget.dart'
     show DetailListFollowUpDebtWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -32,8 +29,8 @@ class DetailListFollowUpDebtModel
   ApiCallResponse? getListDataPerson;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
-  // Stores action output result for [Backend Call - Create Document] action in IconButton widget.
-  UserLogRecord? createUserLogCollectionCall;
+  // Stores action output result for [Custom Action - sha256Encoder] action in IconButton widget.
+  String? getHashThaiId;
   // Stores action output result for [Custom Action - open3CXAction] action in IconButton widget.
   bool? open3CXActionOutput;
   // State field(s) for TextField widget.
@@ -45,8 +42,6 @@ class DetailListFollowUpDebtModel
   Map<dynamic, bool> checkboxValueMap = {};
   List<dynamic> get checkboxCheckedItems =>
       checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
@@ -61,8 +56,4 @@ class DetailListFollowUpDebtModel
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

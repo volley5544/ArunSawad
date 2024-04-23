@@ -19,12 +19,10 @@ class ChatSearchPageModel extends FlutterFlowModel<ChatSearchPageWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for SearchBox widget.
   FocusNode? searchBoxFocusNode;
-  TextEditingController? searchBoxController;
-  String? Function(BuildContext, String?)? searchBoxControllerValidator;
+  TextEditingController? searchBoxTextController;
+  String? Function(BuildContext, String?)? searchBoxTextControllerValidator;
   // Stores action output result for [Backend Call - API (getAllEmployeeAPI)] action in IconButton widget.
   ApiCallResponse? getEmployee;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -33,10 +31,6 @@ class ChatSearchPageModel extends FlutterFlowModel<ChatSearchPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     searchBoxFocusNode?.dispose();
-    searchBoxController?.dispose();
+    searchBoxTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

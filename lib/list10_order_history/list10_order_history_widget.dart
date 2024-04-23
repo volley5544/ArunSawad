@@ -82,7 +82,10 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: Text(
                   'Recent Orders',
-                  style: FlutterFlowTheme.of(context).headlineMedium,
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 ),
               ),
               Padding(
@@ -90,7 +93,10 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                 child: Text(
                   'Below are your most recent orders',
                   textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).labelMedium,
+                  style: FlutterFlowTheme.of(context).labelMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 ),
               ),
               Expanded(
@@ -203,7 +209,14 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                                               )
                                             ],
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyLarge,
+                                                .bodyLarge
+                                                .override(
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyLargeFamily,
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Padding(
@@ -216,7 +229,11 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                                               r'''$.NAME1''',
                                             ).toString(),
                                             style: FlutterFlowTheme.of(context)
-                                                .labelMedium,
+                                                .labelMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Padding(
@@ -249,7 +266,11 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                                                   '2.5 lbs',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelMedium,
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -272,7 +293,11 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                                           ).toString(),
                                           textAlign: TextAlign.end,
                                           style: FlutterFlowTheme.of(context)
-                                              .headlineSmall,
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Padding(
@@ -309,6 +334,7 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),

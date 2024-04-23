@@ -35,52 +35,54 @@ class AddResignPageCopyModel extends FlutterFlowModel<AddResignPageCopyWidget> {
   FormFieldController<List<String>>? checkboxGroupValueController1;
   // State field(s) for ReasonToLeaveEtcTextField widget.
   FocusNode? reasonToLeaveEtcTextFieldFocusNode;
-  TextEditingController? reasonToLeaveEtcTextFieldController;
+  TextEditingController? reasonToLeaveEtcTextFieldTextController;
   String? Function(BuildContext, String?)?
-      reasonToLeaveEtcTextFieldControllerValidator;
+      reasonToLeaveEtcTextFieldTextControllerValidator;
   // State field(s) for ReasonToLeaveTextField widget.
   FocusNode? reasonToLeaveTextFieldFocusNode;
-  TextEditingController? reasonToLeaveTextFieldController;
+  TextEditingController? reasonToLeaveTextFieldTextController;
   String? Function(BuildContext, String?)?
-      reasonToLeaveTextFieldControllerValidator;
+      reasonToLeaveTextFieldTextControllerValidator;
   // State field(s) for provinceInput widget.
   final provinceInputKey = GlobalKey();
   FocusNode? provinceInputFocusNode;
-  TextEditingController? provinceInputController;
+  TextEditingController? provinceInputTextController;
   String? provinceInputSelectedOption;
-  String? Function(BuildContext, String?)? provinceInputControllerValidator;
+  String? Function(BuildContext, String?)? provinceInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (GetDistrictAPI)] action in provinceInput widget.
   ApiCallResponse? getDistrictAPIOutput;
   // State field(s) for districtInput widget.
   final districtInputKey = GlobalKey();
   FocusNode? districtInputFocusNode;
-  TextEditingController? districtInputController;
+  TextEditingController? districtInputTextController;
   String? districtInputSelectedOption;
-  String? Function(BuildContext, String?)? districtInputControllerValidator;
+  String? Function(BuildContext, String?)? districtInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (GetSubDistrictAPI)] action in districtInput widget.
   ApiCallResponse? getSubDistrictAPIOutput;
   // State field(s) for subdistrictInput widget.
   final subdistrictInputKey = GlobalKey();
   FocusNode? subdistrictInputFocusNode;
-  TextEditingController? subdistrictInputController;
+  TextEditingController? subdistrictInputTextController;
   String? subdistrictInputSelectedOption;
-  String? Function(BuildContext, String?)? subdistrictInputControllerValidator;
+  String? Function(BuildContext, String?)?
+      subdistrictInputTextControllerValidator;
   // State field(s) for batchRoadTextField widget.
   FocusNode? batchRoadTextFieldFocusNode;
-  TextEditingController? batchRoadTextFieldController;
+  TextEditingController? batchRoadTextFieldTextController;
   String? Function(BuildContext, String?)?
-      batchRoadTextFieldControllerValidator;
+      batchRoadTextFieldTextControllerValidator;
   // State field(s) for PostCodeTextField widget.
   final postCodeTextFieldKey = GlobalKey();
   FocusNode? postCodeTextFieldFocusNode;
-  TextEditingController? postCodeTextFieldController;
+  TextEditingController? postCodeTextFieldTextController;
   String? postCodeTextFieldSelectedOption;
-  String? Function(BuildContext, String?)? postCodeTextFieldControllerValidator;
+  String? Function(BuildContext, String?)?
+      postCodeTextFieldTextControllerValidator;
   // State field(s) for PhoneNumberTextField widget.
   FocusNode? phoneNumberTextFieldFocusNode;
-  TextEditingController? phoneNumberTextFieldController;
+  TextEditingController? phoneNumberTextFieldTextController;
   String? Function(BuildContext, String?)?
-      phoneNumberTextFieldControllerValidator;
+      phoneNumberTextFieldTextControllerValidator;
   // State field(s) for ChanceToWorkTgtDropDown widget.
   String? chanceToWorkTgtDropDownValue;
   FormFieldController<String>? chanceToWorkTgtDropDownValueController;
@@ -89,11 +91,9 @@ class AddResignPageCopyModel extends FlutterFlowModel<AddResignPageCopyWidget> {
   FormFieldController<List<String>>? checkboxGroupValueController2;
   // State field(s) for ReturnAssetTextField widget.
   FocusNode? returnAssetTextFieldFocusNode;
-  TextEditingController? returnAssetTextFieldController;
+  TextEditingController? returnAssetTextFieldTextController;
   String? Function(BuildContext, String?)?
-      returnAssetTextFieldControllerValidator;
-
-  /// Initialization and disposal methods.
+      returnAssetTextFieldTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -105,10 +105,10 @@ class AddResignPageCopyModel extends FlutterFlowModel<AddResignPageCopyWidget> {
     textController1?.dispose();
 
     reasonToLeaveEtcTextFieldFocusNode?.dispose();
-    reasonToLeaveEtcTextFieldController?.dispose();
+    reasonToLeaveEtcTextFieldTextController?.dispose();
 
     reasonToLeaveTextFieldFocusNode?.dispose();
-    reasonToLeaveTextFieldController?.dispose();
+    reasonToLeaveTextFieldTextController?.dispose();
 
     provinceInputFocusNode?.dispose();
 
@@ -117,18 +117,14 @@ class AddResignPageCopyModel extends FlutterFlowModel<AddResignPageCopyWidget> {
     subdistrictInputFocusNode?.dispose();
 
     batchRoadTextFieldFocusNode?.dispose();
-    batchRoadTextFieldController?.dispose();
+    batchRoadTextFieldTextController?.dispose();
 
     postCodeTextFieldFocusNode?.dispose();
 
     phoneNumberTextFieldFocusNode?.dispose();
-    phoneNumberTextFieldController?.dispose();
+    phoneNumberTextFieldTextController?.dispose();
 
     returnAssetTextFieldFocusNode?.dispose();
-    returnAssetTextFieldController?.dispose();
+    returnAssetTextFieldTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

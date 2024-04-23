@@ -75,6 +75,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -102,6 +103,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 15.0,
+                              letterSpacing: 0.0,
                             ),
                       )),
                     ),
@@ -124,7 +126,11 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'ชื่อเล่น/ชื่อ/นามสกุล/รหัสพนักงาน',
-                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodySmall.override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                             enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color:
@@ -161,6 +167,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                     lineHeight: 1.0,
                                   ),

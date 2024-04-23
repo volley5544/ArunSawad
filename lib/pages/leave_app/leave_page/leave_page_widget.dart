@@ -209,6 +209,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -282,7 +283,11 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                         child: Text(
                                       'ประกาศวันหยุดตามประเพณี ประจำปี  2567',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     )),
                                   ),
                                 ],
@@ -317,7 +322,10 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                           BoxShadow(
                                             blurRadius: 6.0,
                                             color: Color(0x4B1A1F24),
-                                            offset: Offset(0.0, 2.0),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
                                           )
                                         ],
                                         gradient: LinearGradient(
@@ -457,6 +465,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                       SelectionArea(
@@ -477,6 +487,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ],
@@ -493,15 +505,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '              | ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -514,15 +526,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 0),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -537,15 +549,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '              | คงเหลือ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -558,15 +570,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 0),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -687,6 +699,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                       SelectionArea(
@@ -707,6 +721,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ],
@@ -723,15 +739,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '              | ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -744,15 +760,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 1),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -767,15 +783,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '              | คงเหลือ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -788,15 +804,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 1),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -917,6 +933,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                       SelectionArea(
@@ -937,6 +955,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ],
@@ -953,15 +973,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                    | ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -974,15 +994,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 2),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -997,15 +1017,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                    | คงเหลือ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1018,15 +1038,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 2),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1147,6 +1167,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                       SelectionArea(
@@ -1167,6 +1189,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ],
@@ -1183,15 +1207,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                        | ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1204,15 +1228,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 3),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1227,15 +1251,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                        | คงเหลือ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1248,15 +1272,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 3),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1376,6 +1400,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                       SelectionArea(
@@ -1396,6 +1422,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ],
@@ -1412,15 +1440,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                          | ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1433,15 +1461,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 4),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1456,15 +1484,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                          | คงเหลือ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1477,15 +1505,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 4),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1605,6 +1633,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                       SelectionArea(
@@ -1625,6 +1655,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ],
@@ -1641,15 +1673,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                    | ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1662,15 +1694,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 5),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1685,15 +1717,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       '                    | คงเหลือ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1706,15 +1738,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 5),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1818,15 +1850,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       'ลาทำหมัน   | ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1839,15 +1871,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 6),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1925,15 +1957,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                   children: [
                                                     Text(
                                                       'ลาไม่รับค่าจ้าง |ใช้ไป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     SelectionArea(
                                                         child: Text(
@@ -1946,15 +1978,15 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                                 7),
                                                         '0',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -2075,6 +2107,8 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ],

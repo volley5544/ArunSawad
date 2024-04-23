@@ -70,27 +70,27 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    _model.reasonToLeaveEtcTextFieldController ??= TextEditingController();
+    _model.reasonToLeaveEtcTextFieldTextController ??= TextEditingController();
     _model.reasonToLeaveEtcTextFieldFocusNode ??= FocusNode();
 
-    _model.reasonToLeaveTextFieldController ??= TextEditingController();
+    _model.reasonToLeaveTextFieldTextController ??= TextEditingController();
     _model.reasonToLeaveTextFieldFocusNode ??= FocusNode();
 
-    _model.provinceInputController ??= TextEditingController();
+    _model.provinceInputTextController ??= TextEditingController();
 
-    _model.districtInputController ??= TextEditingController();
+    _model.districtInputTextController ??= TextEditingController();
 
-    _model.subdistrictInputController ??= TextEditingController();
+    _model.subdistrictInputTextController ??= TextEditingController();
 
-    _model.batchRoadTextFieldController ??= TextEditingController();
+    _model.batchRoadTextFieldTextController ??= TextEditingController();
     _model.batchRoadTextFieldFocusNode ??= FocusNode();
 
-    _model.postCodeTextFieldController ??= TextEditingController();
+    _model.postCodeTextFieldTextController ??= TextEditingController();
 
-    _model.phoneNumberTextFieldController ??= TextEditingController();
+    _model.phoneNumberTextFieldTextController ??= TextEditingController();
     _model.phoneNumberTextFieldFocusNode ??= FocusNode();
 
-    _model.returnAssetTextFieldController ??= TextEditingController();
+    _model.returnAssetTextFieldTextController ??= TextEditingController();
     _model.returnAssetTextFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
@@ -176,6 +176,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                         fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
                 actions: [],
@@ -224,6 +225,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -250,13 +252,18 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   _model.textController1,
                                               focusNode:
                                                   _model.textFieldFocusNode,
+                                              autofocus: false,
                                               readOnly: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: '[Some hint text...]',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -320,6 +327,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               textAlign: TextAlign.start,
                                               validator: _model
@@ -352,6 +360,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -454,6 +463,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -491,6 +501,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -532,7 +543,11 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   Color(0xFF95A1AC),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               initialized:
                                                   _model.checkboxGroupValues1 !=
                                                       null,
@@ -580,6 +595,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -598,16 +614,23 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 Expanded(
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .reasonToLeaveEtcTextFieldController,
+                                                        .reasonToLeaveEtcTextFieldTextController,
                                                     focusNode: _model
                                                         .reasonToLeaveEtcTextFieldFocusNode,
+                                                    autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       hintText: 'ระบุ...',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodySmall,
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -672,11 +695,12 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                     validator: _model
-                                                        .reasonToLeaveEtcTextFieldControllerValidator
+                                                        .reasonToLeaveEtcTextFieldTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -707,6 +731,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -730,9 +755,10 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     2.0, 10.0, 0.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .reasonToLeaveTextFieldController,
+                                                  .reasonToLeaveTextFieldTextController,
                                               focusNode: _model
                                                   .reasonToLeaveTextFieldFocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -740,6 +766,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -751,6 +778,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           fontFamily: 'Poppins',
                                                           color:
                                                               Color(0xFF0A0A0A),
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
@@ -805,13 +833,14 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               textAlign: TextAlign.start,
                                               maxLines: 4,
                                               validator: _model
-                                                  .reasonToLeaveTextFieldControllerValidator
+                                                  .reasonToLeaveTextFieldTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -840,6 +869,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -882,12 +912,16 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 textFieldKey:
                                                     _model.provinceInputKey,
                                                 textController: _model
-                                                    .provinceInputController!,
+                                                    .provinceInputTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -914,7 +948,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               _model.provinceInputFocusNode =
                                                   focusNode;
 
-                                              _model.provinceInputController =
+                                              _model.provinceInputTextController =
                                                   textEditingController;
                                               return TextFormField(
                                                 key: _model.provinceInputKey,
@@ -925,7 +959,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     onEditingComplete,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
-                                                  '_model.provinceInputController',
+                                                  '_model.provinceInputTextController',
                                                   Duration(milliseconds: 2000),
                                                   () async {
                                                     var _shouldSetState = false;
@@ -949,7 +983,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                                     ''),
                                                               )?.toList(),
                                                               _model
-                                                                  .provinceInputController
+                                                                  .provinceInputTextController
                                                                   .text),
                                                     );
                                                     _shouldSetState = true;
@@ -990,10 +1024,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'กรุณากรอกจังหวัด',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1057,9 +1094,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 validator: _model
-                                                    .provinceInputControllerValidator
+                                                    .provinceInputTextControllerValidator
                                                     .asValidator(context),
                                               );
                                             },
@@ -1106,12 +1147,16 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 textFieldKey:
                                                     _model.districtInputKey,
                                                 textController: _model
-                                                    .districtInputController!,
+                                                    .districtInputTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -1138,7 +1183,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               _model.districtInputFocusNode =
                                                   focusNode;
 
-                                              _model.districtInputController =
+                                              _model.districtInputTextController =
                                                   textEditingController;
                                               return TextFormField(
                                                 key: _model.districtInputKey,
@@ -1149,7 +1194,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                     onEditingComplete,
                                                 onChanged: (_) =>
                                                     EasyDebounce.debounce(
-                                                  '_model.districtInputController',
+                                                  '_model.districtInputTextController',
                                                   Duration(milliseconds: 2000),
                                                   () async {
                                                     var _shouldSetState = false;
@@ -1181,7 +1226,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                                   .toList()
                                                                   ?.toList(),
                                                               _model
-                                                                  .subdistrictInputController
+                                                                  .subdistrictInputTextController
                                                                   .text),
                                                     );
                                                     _shouldSetState = true;
@@ -1218,13 +1263,17 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                       setState(() {});
                                                   },
                                                 ),
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'กรุณากรอกอำเภอ',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1288,9 +1337,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 validator: _model
-                                                    .districtInputControllerValidator
+                                                    .districtInputTextControllerValidator
                                                     .asValidator(context),
                                               );
                                             },
@@ -1335,12 +1388,16 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 textFieldKey:
                                                     _model.subdistrictInputKey,
                                                 textController: _model
-                                                    .subdistrictInputController!,
+                                                    .subdistrictInputTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -1367,7 +1424,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               _model.subdistrictInputFocusNode =
                                                   focusNode;
 
-                                              _model.subdistrictInputController =
+                                              _model.subdistrictInputTextController =
                                                   textEditingController;
                                               return TextFormField(
                                                 key: _model.subdistrictInputKey,
@@ -1380,10 +1437,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'กรุณากรอกตำบล',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1447,9 +1507,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 validator: _model
-                                                    .subdistrictInputControllerValidator
+                                                    .subdistrictInputTextControllerValidator
                                                     .asValidator(context),
                                               );
                                             },
@@ -1469,15 +1533,20 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                         Expanded(
                                           child: TextFormField(
                                             controller: _model
-                                                .batchRoadTextFieldController,
+                                                .batchRoadTextFieldTextController,
                                             focusNode: _model
                                                 .batchRoadTextFieldFocusNode,
+                                            autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'ระบุหมู่ที่/ถนน',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -1528,10 +1597,11 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFF0A0A0A),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             validator: _model
-                                                .batchRoadTextFieldControllerValidator
+                                                .batchRoadTextFieldTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -1576,12 +1646,16 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 textFieldKey:
                                                     _model.postCodeTextFieldKey,
                                                 textController: _model
-                                                    .postCodeTextFieldController!,
+                                                    .postCodeTextFieldTextController!,
                                                 options: options.toList(),
                                                 onSelected: onSelected,
                                                 textStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textHighlightStyle: TextStyle(),
                                                 elevation: 4.0,
                                                 optionBackgroundColor:
@@ -1608,7 +1682,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               _model.postCodeTextFieldFocusNode =
                                                   focusNode;
 
-                                              _model.postCodeTextFieldController =
+                                              _model.postCodeTextFieldTextController =
                                                   textEditingController;
                                               return TextFormField(
                                                 key:
@@ -1618,13 +1692,17 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 focusNode: focusNode,
                                                 onEditingComplete:
                                                     onEditingComplete,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'รหัสไปรษณีย์',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -1683,11 +1761,12 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                 validator: _model
-                                                    .postCodeTextFieldControllerValidator
+                                                    .postCodeTextFieldTextControllerValidator
                                                     .asValidator(context),
                                               );
                                             },
@@ -1707,15 +1786,20 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                         Expanded(
                                           child: TextFormField(
                                             controller: _model
-                                                .phoneNumberTextFieldController,
+                                                .phoneNumberTextFieldTextController,
                                             focusNode: _model
                                                 .phoneNumberTextFieldFocusNode,
+                                            autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'เบอร์ติดต่อ',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -1766,10 +1850,11 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFF0A0A0A),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             validator: _model
-                                                .phoneNumberTextFieldControllerValidator
+                                                .phoneNumberTextFieldTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -1797,6 +1882,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -1830,6 +1916,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                       fontFamily: 'Poppins',
                                                       color: Colors.black,
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
@@ -1869,6 +1956,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -1910,7 +1998,11 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   Color(0xFF95A1AC),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               initialized:
                                                   _model.checkboxGroupValues2 !=
                                                       null,
@@ -1946,6 +2038,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             )),
                                           ),
@@ -1973,16 +2066,20 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             Expanded(
                                               child: TextFormField(
                                                 controller: _model
-                                                    .returnAssetTextFieldController,
+                                                    .returnAssetTextFieldTextController,
                                                 focusNode: _model
                                                     .returnAssetTextFieldFocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'ระบุ...',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -2041,12 +2138,13 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                 maxLines: 5,
                                                 validator: _model
-                                                    .returnAssetTextFieldControllerValidator
+                                                    .returnAssetTextFieldTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -2125,10 +2223,10 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                               return;
                                             }
-                                            if (!(_model.provinceInputController
+                                            if (!(_model.provinceInputTextController
                                                         .text !=
                                                     null &&
-                                                _model.provinceInputController
+                                                _model.provinceInputTextController
                                                         .text !=
                                                     '')) {
                                               await showDialog(
@@ -2152,10 +2250,10 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                               return;
                                             }
-                                            if (!(_model.districtInputController
+                                            if (!(_model.districtInputTextController
                                                         .text !=
                                                     null &&
-                                                _model.districtInputController
+                                                _model.districtInputTextController
                                                         .text !=
                                                     '')) {
                                               await showDialog(
@@ -2179,10 +2277,10 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                               return;
                                             }
-                                            if (!(_model.subdistrictInputController
+                                            if (!(_model.subdistrictInputTextController
                                                         .text !=
                                                     null &&
-                                                _model.subdistrictInputController
+                                                _model.subdistrictInputTextController
                                                         .text !=
                                                     '')) {
                                               await showDialog(
@@ -2206,10 +2304,10 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                               return;
                                             }
-                                            if (!(_model.batchRoadTextFieldController
+                                            if (!(_model.batchRoadTextFieldTextController
                                                         .text !=
                                                     null &&
-                                                _model.batchRoadTextFieldController
+                                                _model.batchRoadTextFieldTextController
                                                         .text !=
                                                     '')) {
                                               await showDialog(
@@ -2233,10 +2331,10 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                               return;
                                             }
-                                            if (!(_model.postCodeTextFieldController
+                                            if (!(_model.postCodeTextFieldTextController
                                                         .text !=
                                                     null &&
-                                                _model.postCodeTextFieldController
+                                                _model.postCodeTextFieldTextController
                                                         .text !=
                                                     '')) {
                                               await showDialog(
@@ -2260,10 +2358,10 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                               return;
                                             }
-                                            if (!(_model.phoneNumberTextFieldController
+                                            if (!(_model.phoneNumberTextFieldTextController
                                                         .text !=
                                                     null &&
-                                                _model.phoneNumberTextFieldController
+                                                _model.phoneNumberTextFieldTextController
                                                         .text !=
                                                     '')) {
                                               await showDialog(
@@ -2392,6 +2490,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),

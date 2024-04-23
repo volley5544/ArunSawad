@@ -21,8 +21,6 @@ class LeavePageModel extends FlutterFlowModel<LeavePageWidget> {
   // Stores action output result for [Backend Call - API (LeaveDayAPI)] action in LeavePage widget.
   ApiCallResponse? leaveDayAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -30,8 +28,4 @@ class LeavePageModel extends FlutterFlowModel<LeavePageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

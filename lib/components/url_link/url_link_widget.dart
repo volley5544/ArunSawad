@@ -67,7 +67,10 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x33000000),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.circular(12.0),
@@ -118,6 +121,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyLargeFamily,
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                         unselectedLabelStyle: TextStyle(),
                         labelColor: FlutterFlowTheme.of(context).primaryText,
@@ -276,7 +280,10 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
-                                                  offset: Offset(2.0, 1.0),
+                                                  offset: Offset(
+                                                    2.0,
+                                                    1.0,
+                                                  ),
                                                 )
                                               ],
                                               borderRadius:
@@ -297,6 +304,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   Padding(

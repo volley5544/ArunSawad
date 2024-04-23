@@ -84,7 +84,7 @@ class _InsuranceRequestBasicPageWidgetState
           ];
         });
         setState(() {
-          _model.insuranceLicenseNoInputController?.text =
+          _model.insuranceLicenseNoInputTextController?.text =
               FFAppState().insuranceBasicOldLicenseNo;
         });
         setState(() {
@@ -124,7 +124,7 @@ class _InsuranceRequestBasicPageWidgetState
           ];
         });
         setState(() {
-          _model.freezeBoxPriceInputController?.text =
+          _model.freezeBoxPriceInputTextController?.text =
               functions.convertDoubleTextToIntText(
                   FFAppState().insuranceBasicPickupBoxPrice)!;
         });
@@ -147,26 +147,26 @@ class _InsuranceRequestBasicPageWidgetState
           },
         );
         setState(() {
-          _model.brandInputController?.text =
+          _model.brandInputTextController?.text =
               FFAppState().insuranceBasicBrandName;
         });
         setState(() {
-          _model.modelInputController?.text =
+          _model.modelInputTextController?.text =
               FFAppState().insuranceBasicModelName;
         });
         setState(() {
-          _model.truckCurrentPriceInputController?.text =
+          _model.truckCurrentPriceInputTextController?.text =
               (FFAppState().insuranceBasicTruckCurrentPrice == '-'
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicTruckCurrentPrice)!);
         });
         setState(() {
-          _model.plateInputController?.text =
+          _model.plateInputTextController?.text =
               FFAppState().insuranceBasicPlateNo;
         });
         setState(() {
-          _model.plateAdditionalInputController?.text =
+          _model.plateAdditionalInputTextController?.text =
               (FFAppState().insuranceBasicPlateAdditional == '-'
                   ? ''
                   : FFAppState().insuranceBasicPlateAdditional);
@@ -184,7 +184,7 @@ class _InsuranceRequestBasicPageWidgetState
               FFAppState().insuranceBasicVehicleUsedTypeCode;
         });
         setState(() {
-          _model.logistPoposeInputController?.text =
+          _model.logistPoposeInputTextController?.text =
               (FFAppState().insuranceBasicCarryPurpose == '-'
                   ? ''
                   : FFAppState().insuranceBasicCarryPurpose);
@@ -193,30 +193,31 @@ class _InsuranceRequestBasicPageWidgetState
           _model.carModifyCheckboxValue = FFAppState().insuranceBasicCarModify;
         });
         setState(() {
-          _model.accessoryProtectedInputController?.text =
+          _model.accessoryProtectedInputTextController?.text =
               (FFAppState().insuranceBasicAccessoryProtected == '-'
                   ? ''
                   : FFAppState().insuranceBasicAccessoryProtected);
         });
         setState(() {
-          _model.nameInputController?.text = FFAppState().insuranceBasicCusName;
+          _model.nameInputTextController?.text =
+              FFAppState().insuranceBasicCusName;
         });
         setState(() {
-          _model.lastnameInputController?.text =
+          _model.lastnameInputTextController?.text =
               FFAppState().insuranceBasicCusLastname;
         });
         setState(() {
-          _model.phoneInputController?.text =
+          _model.phoneInputTextController?.text =
               FFAppState().insuranceBasicCusPhone;
         });
         setState(() {
-          _model.idInputController?.text =
+          _model.idInputTextController?.text =
               (FFAppState().insuranceBasicIdCardNo == '-'
                   ? ''
                   : FFAppState().insuranceBasicIdCardNo);
         });
         setState(() {
-          _model.remarkInputController?.text =
+          _model.remarkInputTextController?.text =
               (FFAppState().insuranceBasicRemark == '-'
                   ? ''
                   : FFAppState().insuranceBasicRemark);
@@ -225,44 +226,44 @@ class _InsuranceRequestBasicPageWidgetState
       Navigator.pop(context);
     });
 
-    _model.insuranceLicenseNoInputController ??= TextEditingController();
+    _model.insuranceLicenseNoInputTextController ??= TextEditingController();
     _model.insuranceLicenseNoInputFocusNode ??= FocusNode();
 
-    _model.freezeBoxPriceInputController ??= TextEditingController();
+    _model.freezeBoxPriceInputTextController ??= TextEditingController();
     _model.freezeBoxPriceInputFocusNode ??= FocusNode();
 
-    _model.brandInputController ??= TextEditingController();
+    _model.brandInputTextController ??= TextEditingController();
 
-    _model.modelInputController ??= TextEditingController();
+    _model.modelInputTextController ??= TextEditingController();
 
-    _model.truckCurrentPriceInputController ??= TextEditingController();
+    _model.truckCurrentPriceInputTextController ??= TextEditingController();
     _model.truckCurrentPriceInputFocusNode ??= FocusNode();
 
-    _model.plateInputController ??= TextEditingController();
+    _model.plateInputTextController ??= TextEditingController();
     _model.plateInputFocusNode ??= FocusNode();
 
-    _model.plateAdditionalInputController ??= TextEditingController();
+    _model.plateAdditionalInputTextController ??= TextEditingController();
     _model.plateAdditionalInputFocusNode ??= FocusNode();
 
-    _model.logistPoposeInputController ??= TextEditingController();
+    _model.logistPoposeInputTextController ??= TextEditingController();
     _model.logistPoposeInputFocusNode ??= FocusNode();
 
-    _model.accessoryProtectedInputController ??= TextEditingController();
+    _model.accessoryProtectedInputTextController ??= TextEditingController();
     _model.accessoryProtectedInputFocusNode ??= FocusNode();
 
-    _model.nameInputController ??= TextEditingController();
+    _model.nameInputTextController ??= TextEditingController();
     _model.nameInputFocusNode ??= FocusNode();
 
-    _model.lastnameInputController ??= TextEditingController();
+    _model.lastnameInputTextController ??= TextEditingController();
     _model.lastnameInputFocusNode ??= FocusNode();
 
-    _model.phoneInputController ??= TextEditingController();
+    _model.phoneInputTextController ??= TextEditingController();
     _model.phoneInputFocusNode ??= FocusNode();
 
-    _model.idInputController ??= TextEditingController();
+    _model.idInputTextController ??= TextEditingController();
     _model.idInputFocusNode ??= FocusNode();
 
-    _model.remarkInputController ??= TextEditingController();
+    _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -323,6 +324,7 @@ class _InsuranceRequestBasicPageWidgetState
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: [],
@@ -376,6 +378,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   iconColor: Colors.white,
                                   iconSize: 18.0,
@@ -391,6 +394,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .lineColor,
+                                        letterSpacing: 0.0,
                                       ),
                                   iconColor: Color(0xFFE0E3E7),
                                   iconSize: 18.0,
@@ -448,6 +452,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   iconColor: Colors.white,
                                   iconSize: 18.0,
@@ -463,6 +468,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .lineColor,
+                                        letterSpacing: 0.0,
                                       ),
                                   iconColor: Color(0xFFE0E3E7),
                                   iconSize: 18.0,
@@ -507,6 +513,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -522,6 +529,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -545,19 +553,24 @@ class _InsuranceRequestBasicPageWidgetState
                                       0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
                                     controller: _model
-                                        .insuranceLicenseNoInputController,
+                                        .insuranceLicenseNoInputTextController,
                                     focusNode:
                                         _model.insuranceLicenseNoInputFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.insuranceLicenseNoInputController',
+                                      '_model.insuranceLicenseNoInputTextController',
                                       Duration(milliseconds: 2000),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'กรุณากรอก...',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -597,13 +610,13 @@ class _InsuranceRequestBasicPageWidgetState
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 24.0, 24.0),
                                       suffixIcon: _model
-                                              .insuranceLicenseNoInputController!
+                                              .insuranceLicenseNoInputTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
                                                 _model
-                                                    .insuranceLicenseNoInputController
+                                                    .insuranceLicenseNoInputTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -620,10 +633,11 @@ class _InsuranceRequestBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           lineHeight: 1.0,
                                         ),
                                     validator: _model
-                                        .insuranceLicenseNoInputControllerValidator
+                                        .insuranceLicenseNoInputTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -652,6 +666,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -667,6 +682,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -762,6 +778,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                           Icon(
@@ -796,6 +813,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -810,6 +828,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -855,6 +874,7 @@ class _InsuranceRequestBasicPageWidgetState
                                   fontFamily: 'Poppins',
                                   color: Colors.black,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                             hintText: 'กรุณาเลือก...',
@@ -899,6 +919,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                         ),
                                     iconColor: Colors.white,
                                     iconSize: 18.0,
@@ -914,6 +935,7 @@ class _InsuranceRequestBasicPageWidgetState
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .lineColor,
+                                          letterSpacing: 0.0,
                                         ),
                                     iconColor: Color(0xFFE0E3E7),
                                     iconSize: 18.0,
@@ -964,12 +986,14 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 selectedTextStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 buttonPosition: RadioButtonPosition.left,
                                 direction: Axis.vertical,
@@ -1006,6 +1030,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -1045,6 +1070,11 @@ class _InsuranceRequestBasicPageWidgetState
                                         });
                                       }
                                     },
+                                    side: BorderSide(
+                                      width: 2,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     activeColor:
                                         FlutterFlowTheme.of(context).primary,
                                     checkColor: Colors.white,
@@ -1081,6 +1111,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -1108,6 +1139,11 @@ class _InsuranceRequestBasicPageWidgetState
                                       setState(() =>
                                           _model.coopCheckboxValue = newValue!);
                                     },
+                                    side: BorderSide(
+                                      width: 2,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     activeColor:
                                         FlutterFlowTheme.of(context).primary,
                                     checkColor: Colors.white,
@@ -1154,6 +1190,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                         ),
                                     iconColor: Colors.white,
                                     iconSize: 18.0,
@@ -1169,6 +1206,7 @@ class _InsuranceRequestBasicPageWidgetState
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .lineColor,
+                                          letterSpacing: 0.0,
                                         ),
                                     iconColor: Color(0xFFE0E3E7),
                                     iconSize: 18.0,
@@ -1215,6 +1253,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -1230,6 +1269,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -1254,20 +1294,25 @@ class _InsuranceRequestBasicPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
-                                    controller:
-                                        _model.freezeBoxPriceInputController,
+                                    controller: _model
+                                        .freezeBoxPriceInputTextController,
                                     focusNode:
                                         _model.freezeBoxPriceInputFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.freezeBoxPriceInputController',
+                                      '_model.freezeBoxPriceInputTextController',
                                       Duration(milliseconds: 2000),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'กรุณากรอก...',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -1307,13 +1352,13 @@ class _InsuranceRequestBasicPageWidgetState
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 24.0, 24.0),
                                       suffixIcon: _model
-                                              .freezeBoxPriceInputController!
+                                              .freezeBoxPriceInputTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
                                                 _model
-                                                    .freezeBoxPriceInputController
+                                                    .freezeBoxPriceInputTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -1330,10 +1375,11 @@ class _InsuranceRequestBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           lineHeight: 1.0,
                                         ),
                                     validator: _model
-                                        .freezeBoxPriceInputControllerValidator
+                                        .freezeBoxPriceInputTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -1359,6 +1405,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -1373,6 +1420,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -1411,11 +1459,15 @@ class _InsuranceRequestBasicPageWidgetState
                                     return AutocompleteOptionsList(
                                       textFieldKey: _model.brandInputKey,
                                       textController:
-                                          _model.brandInputController!,
+                                          _model.brandInputTextController!,
                                       options: options.toList(),
                                       onSelected: onSelected,
                                       textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       textHighlightStyle: TextStyle(),
                                       elevation: 4.0,
                                       optionBackgroundColor:
@@ -1440,7 +1492,7 @@ class _InsuranceRequestBasicPageWidgetState
                                   ) {
                                     _model.brandInputFocusNode = focusNode;
 
-                                    _model.brandInputController =
+                                    _model.brandInputTextController =
                                         textEditingController;
                                     return TextFormField(
                                       key: _model.brandInputKey,
@@ -1448,7 +1500,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       focusNode: focusNode,
                                       onEditingComplete: onEditingComplete,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.brandInputController',
+                                        '_model.brandInputTextController',
                                         Duration(milliseconds: 1000),
                                         () async {
                                           setState(() {
@@ -1468,18 +1520,23 @@ class _InsuranceRequestBasicPageWidgetState
                                                             .insuranceBasicBrandNameList
                                                             .toList(),
                                                         _model
-                                                            .brandInputController
+                                                            .brandInputTextController
                                                             .text))
                                                 .toList()
                                                 .cast<String>();
                                           });
                                         },
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'กรุณากรอก...',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -1519,11 +1576,14 @@ class _InsuranceRequestBasicPageWidgetState
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 24.0, 24.0, 24.0),
-                                        suffixIcon: _model.brandInputController!
-                                                .text.isNotEmpty
+                                        suffixIcon: _model
+                                                .brandInputTextController!
+                                                .text
+                                                .isNotEmpty
                                             ? InkWell(
                                                 onTap: () async {
-                                                  _model.brandInputController
+                                                  _model
+                                                      .brandInputTextController
                                                       ?.clear();
                                                   setState(() {
                                                     FFAppState().insuranceBasicModelNameList = functions
@@ -1542,7 +1602,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                                     .insuranceBasicBrandNameList
                                                                     .toList(),
                                                                 _model
-                                                                    .brandInputController
+                                                                    .brandInputTextController
                                                                     .text))
                                                         .toList()
                                                         .cast<String>();
@@ -1562,10 +1622,11 @@ class _InsuranceRequestBasicPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             lineHeight: 1.0,
                                           ),
                                       validator: _model
-                                          .brandInputControllerValidator
+                                          .brandInputTextControllerValidator
                                           .asValidator(context),
                                     );
                                   },
@@ -1593,6 +1654,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -1607,6 +1669,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -1644,11 +1707,15 @@ class _InsuranceRequestBasicPageWidgetState
                                     return AutocompleteOptionsList(
                                       textFieldKey: _model.modelInputKey,
                                       textController:
-                                          _model.modelInputController!,
+                                          _model.modelInputTextController!,
                                       options: options.toList(),
                                       onSelected: onSelected,
                                       textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       textHighlightStyle: TextStyle(),
                                       elevation: 4.0,
                                       optionBackgroundColor:
@@ -1673,7 +1740,7 @@ class _InsuranceRequestBasicPageWidgetState
                                   ) {
                                     _model.modelInputFocusNode = focusNode;
 
-                                    _model.modelInputController =
+                                    _model.modelInputTextController =
                                         textEditingController;
                                     return TextFormField(
                                       key: _model.modelInputKey,
@@ -1681,15 +1748,20 @@ class _InsuranceRequestBasicPageWidgetState
                                       focusNode: focusNode,
                                       onEditingComplete: onEditingComplete,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.modelInputController',
+                                        '_model.modelInputTextController',
                                         Duration(milliseconds: 2000),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'กรุณากรอก...',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -1729,11 +1801,14 @@ class _InsuranceRequestBasicPageWidgetState
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 24.0, 24.0, 24.0),
-                                        suffixIcon: _model.modelInputController!
-                                                .text.isNotEmpty
+                                        suffixIcon: _model
+                                                .modelInputTextController!
+                                                .text
+                                                .isNotEmpty
                                             ? InkWell(
                                                 onTap: () async {
-                                                  _model.modelInputController
+                                                  _model
+                                                      .modelInputTextController
                                                       ?.clear();
                                                   setState(() {});
                                                 },
@@ -1750,10 +1825,11 @@ class _InsuranceRequestBasicPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             lineHeight: 1.0,
                                           ),
                                       validator: _model
-                                          .modelInputControllerValidator
+                                          .modelInputTextControllerValidator
                                           .asValidator(context),
                                     );
                                   },
@@ -1783,6 +1859,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -1803,20 +1880,25 @@ class _InsuranceRequestBasicPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
-                                    controller:
-                                        _model.truckCurrentPriceInputController,
+                                    controller: _model
+                                        .truckCurrentPriceInputTextController,
                                     focusNode:
                                         _model.truckCurrentPriceInputFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.truckCurrentPriceInputController',
+                                      '_model.truckCurrentPriceInputTextController',
                                       Duration(milliseconds: 2000),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'กรุณากรอก...',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -1856,13 +1938,13 @@ class _InsuranceRequestBasicPageWidgetState
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 24.0, 24.0),
                                       suffixIcon: _model
-                                              .truckCurrentPriceInputController!
+                                              .truckCurrentPriceInputTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
                                                 _model
-                                                    .truckCurrentPriceInputController
+                                                    .truckCurrentPriceInputTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -1879,11 +1961,12 @@ class _InsuranceRequestBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           lineHeight: 1.0,
                                         ),
                                     keyboardType: TextInputType.number,
                                     validator: _model
-                                        .truckCurrentPriceInputControllerValidator
+                                        .truckCurrentPriceInputTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -1917,6 +2000,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .black600,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -1934,6 +2018,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1953,6 +2038,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .black600,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -1964,8 +2050,12 @@ class _InsuranceRequestBasicPageWidgetState
                                         ),
                                       )
                                     ],
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                             ],
@@ -1985,163 +2075,24 @@ class _InsuranceRequestBasicPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
-                                    controller: _model.plateInputController,
+                                    controller: _model.plateInputTextController,
                                     focusNode: _model.plateInputFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.plateInputController',
+                                      '_model.plateInputTextController',
                                       Duration(milliseconds: 2000),
                                       () async {},
                                     ),
+                                    autofocus: false,
                                     textCapitalization: TextCapitalization.none,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'เลขทะเบียนรถ ไม่ต้องใส่ขีด -',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
-                                      enabledBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBtnText,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      filled: true,
-                                      fillColor: Color(0xFFF5F5F5),
-                                      contentPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              20.0, 24.0, 24.0, 24.0),
-                                      suffixIcon: _model.plateInputController!
-                                              .text.isNotEmpty
-                                          ? InkWell(
-                                              onTap: () async {
-                                                _model.plateInputController
-                                                    ?.clear();
-                                                setState(() {});
-                                              },
-                                              child: Icon(
-                                                Icons.clear,
-                                                color: Color(0xFF757575),
-                                                size: 22.0,
-                                              ),
-                                            )
-                                          : null,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF0A0A0A),
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                    validator: _model
-                                        .plateInputControllerValidator
-                                        .asValidator(context),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      if ((FFAppState().insuranceVehicleTypeDropDown ==
-                              'รถบรรทุก หัวลาก หางพ่วง') &&
-                          (_model.truckPartRadioButtonValue ==
-                              'หัวลาก + หางพ่วง'))
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 10.0, 10.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(-0.35, -0.09),
-                                child: SelectionArea(
-                                    child: Text(
-                                  'เลขทะเบียนหางพ่วง  : ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 15.0,
-                                      ),
-                                )),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(-0.35, -0.09),
-                                child: SelectionArea(
-                                    child: Text(
-                                  'กรุณากรอก',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        fontSize: 15.0,
-                                      ),
-                                )),
-                              ),
-                            ],
-                          ),
-                        ),
-                      if ((FFAppState().insuranceVehicleTypeDropDown ==
-                              'รถบรรทุก หัวลาก หางพ่วง') &&
-                          (_model.truckPartRadioButtonValue ==
-                              'หัวลาก + หางพ่วง'))
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 15.0, 5.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              // บังคับให้เลือก
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 5.0),
-                                  child: TextFormField(
-                                    controller:
-                                        _model.plateAdditionalInputController,
-                                    focusNode:
-                                        _model.plateAdditionalInputFocusNode,
-                                    onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.plateAdditionalInputController',
-                                      Duration(milliseconds: 2000),
-                                      () async {},
-                                    ),
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText: 'กรุณากรอก...',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -2181,13 +2132,12 @@ class _InsuranceRequestBasicPageWidgetState
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 24.0, 24.0),
                                       suffixIcon: _model
-                                              .plateAdditionalInputController!
+                                              .plateInputTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
-                                                _model
-                                                    .plateAdditionalInputController
+                                                _model.plateInputTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -2205,10 +2155,166 @@ class _InsuranceRequestBasicPageWidgetState
                                           fontFamily: 'Poppins',
                                           color: Color(0xFF0A0A0A),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     validator: _model
-                                        .plateAdditionalInputControllerValidator
+                                        .plateInputTextControllerValidator
+                                        .asValidator(context),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      if ((FFAppState().insuranceVehicleTypeDropDown ==
+                              'รถบรรทุก หัวลาก หางพ่วง') &&
+                          (_model.truckPartRadioButtonValue ==
+                              'หัวลาก + หางพ่วง'))
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 10.0, 10.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Align(
+                                alignment: AlignmentDirectional(-0.35, -0.09),
+                                child: SelectionArea(
+                                    child: Text(
+                                  'เลขทะเบียนหางพ่วง  : ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                )),
+                              ),
+                              Align(
+                                alignment: AlignmentDirectional(-0.35, -0.09),
+                                child: SelectionArea(
+                                    child: Text(
+                                  'กรุณากรอก',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                )),
+                              ),
+                            ],
+                          ),
+                        ),
+                      if ((FFAppState().insuranceVehicleTypeDropDown ==
+                              'รถบรรทุก หัวลาก หางพ่วง') &&
+                          (_model.truckPartRadioButtonValue ==
+                              'หัวลาก + หางพ่วง'))
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 15.0, 5.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              // บังคับให้เลือก
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 5.0),
+                                  child: TextFormField(
+                                    controller: _model
+                                        .plateAdditionalInputTextController,
+                                    focusNode:
+                                        _model.plateAdditionalInputFocusNode,
+                                    onChanged: (_) => EasyDebounce.debounce(
+                                      '_model.plateAdditionalInputTextController',
+                                      Duration(milliseconds: 2000),
+                                      () async {},
+                                    ),
+                                    autofocus: false,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      hintText: 'กรุณากรอก...',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
+                                      enabledBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      errorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      focusedErrorBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0x00000000),
+                                          width: 2.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      filled: true,
+                                      fillColor: Color(0xFFF5F5F5),
+                                      contentPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              20.0, 24.0, 24.0, 24.0),
+                                      suffixIcon: _model
+                                              .plateAdditionalInputTextController!
+                                              .text
+                                              .isNotEmpty
+                                          ? InkWell(
+                                              onTap: () async {
+                                                _model
+                                                    .plateAdditionalInputTextController
+                                                    ?.clear();
+                                                setState(() {});
+                                              },
+                                              child: Icon(
+                                                Icons.clear,
+                                                color: Color(0xFF757575),
+                                                size: 22.0,
+                                              ),
+                                            )
+                                          : null,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFF0A0A0A),
+                                          fontSize: 15.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    validator: _model
+                                        .plateAdditionalInputTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -2234,6 +2340,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2248,6 +2355,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2283,14 +2391,19 @@ class _InsuranceRequestBasicPageWidgetState
                             searchHintTextStyle: GoogleFonts.getFont(
                               'Roboto',
                             ),
-                            searchTextStyle:
-                                FlutterFlowTheme.of(context).bodyMedium,
+                            searchTextStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: Colors.black,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                             hintText: 'กรุณาเลือก...',
@@ -2325,6 +2438,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2339,6 +2453,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2367,14 +2482,19 @@ class _InsuranceRequestBasicPageWidgetState
                                 searchHintTextStyle: GoogleFonts.getFont(
                                   'Roboto',
                                 ),
-                                searchTextStyle:
-                                    FlutterFlowTheme.of(context).bodyMedium,
+                                searchTextStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 hintText: 'กรุณาเลือก...',
@@ -2411,6 +2531,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2425,6 +2546,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2474,6 +2596,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 hintText: 'กรุณาเลือก...',
@@ -2511,6 +2634,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -2526,6 +2650,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -2546,19 +2671,24 @@ class _InsuranceRequestBasicPageWidgetState
                                       0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
                                     controller:
-                                        _model.logistPoposeInputController,
+                                        _model.logistPoposeInputTextController,
                                     focusNode:
                                         _model.logistPoposeInputFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.logistPoposeInputController',
+                                      '_model.logistPoposeInputTextController',
                                       Duration(milliseconds: 2000),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'กรุณากรอก...',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -2598,13 +2728,13 @@ class _InsuranceRequestBasicPageWidgetState
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 24.0, 24.0),
                                       suffixIcon: _model
-                                              .logistPoposeInputController!
+                                              .logistPoposeInputTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
                                                 _model
-                                                    .logistPoposeInputController
+                                                    .logistPoposeInputTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -2622,10 +2752,11 @@ class _InsuranceRequestBasicPageWidgetState
                                           fontFamily: 'Poppins',
                                           color: Color(0xFF0A0A0A),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     validator: _model
-                                        .logistPoposeInputControllerValidator
+                                        .logistPoposeInputTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -2651,6 +2782,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -2673,6 +2805,11 @@ class _InsuranceRequestBasicPageWidgetState
                                   setState(() => _model.carModifyCheckboxValue =
                                       newValue!);
                                 },
+                                side: BorderSide(
+                                  width: 2,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                ),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 checkColor: Colors.white,
@@ -2700,6 +2837,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -2719,19 +2857,24 @@ class _InsuranceRequestBasicPageWidgetState
                                       0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
                                     controller: _model
-                                        .accessoryProtectedInputController,
+                                        .accessoryProtectedInputTextController,
                                     focusNode:
                                         _model.accessoryProtectedInputFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.accessoryProtectedInputController',
+                                      '_model.accessoryProtectedInputTextController',
                                       Duration(milliseconds: 2000),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'กรุณากรอก...',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -2771,13 +2914,13 @@ class _InsuranceRequestBasicPageWidgetState
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 24.0, 24.0),
                                       suffixIcon: _model
-                                              .accessoryProtectedInputController!
+                                              .accessoryProtectedInputTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
                                                 _model
-                                                    .accessoryProtectedInputController
+                                                    .accessoryProtectedInputTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -2795,10 +2938,11 @@ class _InsuranceRequestBasicPageWidgetState
                                           fontFamily: 'Poppins',
                                           color: Color(0xFF0A0A0A),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     validator: _model
-                                        .accessoryProtectedInputControllerValidator
+                                        .accessoryProtectedInputTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -2827,6 +2971,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2841,6 +2986,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2858,18 +3004,23 @@ class _InsuranceRequestBasicPageWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: TextFormField(
-                                  controller: _model.nameInputController,
+                                  controller: _model.nameInputTextController,
                                   focusNode: _model.nameInputFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.nameInputController',
+                                    '_model.nameInputTextController',
                                     Duration(milliseconds: 2000),
                                     () => setState(() {}),
                                   ),
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'กรุณากรอก...',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -2904,11 +3055,11 @@ class _InsuranceRequestBasicPageWidgetState
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             20.0, 24.0, 24.0, 24.0),
-                                    suffixIcon: _model.nameInputController!.text
-                                            .isNotEmpty
+                                    suffixIcon: _model.nameInputTextController!
+                                            .text.isNotEmpty
                                         ? InkWell(
                                             onTap: () async {
-                                              _model.nameInputController
+                                              _model.nameInputTextController
                                                   ?.clear();
                                               setState(() {});
                                             },
@@ -2925,9 +3076,11 @@ class _InsuranceRequestBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         lineHeight: 1.0,
                                       ),
-                                  validator: _model.nameInputControllerValidator
+                                  validator: _model
+                                      .nameInputTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -2956,6 +3109,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2970,6 +3124,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -2987,18 +3142,24 @@ class _InsuranceRequestBasicPageWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: TextFormField(
-                                  controller: _model.lastnameInputController,
+                                  controller:
+                                      _model.lastnameInputTextController,
                                   focusNode: _model.lastnameInputFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.lastnameInputController',
+                                    '_model.lastnameInputTextController',
                                     Duration(milliseconds: 2000),
                                     () => setState(() {}),
                                   ),
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'กรุณากรอก...',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -3033,11 +3194,13 @@ class _InsuranceRequestBasicPageWidgetState
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             20.0, 24.0, 24.0, 24.0),
-                                    suffixIcon: _model.lastnameInputController!
-                                            .text.isNotEmpty
+                                    suffixIcon: _model
+                                            .lastnameInputTextController!
+                                            .text
+                                            .isNotEmpty
                                         ? InkWell(
                                             onTap: () async {
-                                              _model.lastnameInputController
+                                              _model.lastnameInputTextController
                                                   ?.clear();
                                               setState(() {});
                                             },
@@ -3055,10 +3218,11 @@ class _InsuranceRequestBasicPageWidgetState
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF0A0A0A),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   validator: _model
-                                      .lastnameInputControllerValidator
+                                      .lastnameInputTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -3084,6 +3248,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -3098,6 +3263,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -3115,18 +3281,23 @@ class _InsuranceRequestBasicPageWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: TextFormField(
-                                  controller: _model.phoneInputController,
+                                  controller: _model.phoneInputTextController,
                                   focusNode: _model.phoneInputFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.phoneInputController',
+                                    '_model.phoneInputTextController',
                                     Duration(milliseconds: 2000),
                                     () => setState(() {}),
                                   ),
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'กรุณากรอก...',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -3161,11 +3332,11 @@ class _InsuranceRequestBasicPageWidgetState
                                     contentPadding:
                                         EdgeInsetsDirectional.fromSTEB(
                                             20.0, 24.0, 24.0, 24.0),
-                                    suffixIcon: _model.phoneInputController!
+                                    suffixIcon: _model.phoneInputTextController!
                                             .text.isNotEmpty
                                         ? InkWell(
                                             onTap: () async {
-                                              _model.phoneInputController
+                                              _model.phoneInputTextController
                                                   ?.clear();
                                               setState(() {});
                                             },
@@ -3183,11 +3354,12 @@ class _InsuranceRequestBasicPageWidgetState
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF0A0A0A),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   keyboardType: TextInputType.phone,
                                   validator: _model
-                                      .phoneInputControllerValidator
+                                      .phoneInputTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -3213,6 +3385,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -3227,18 +3400,23 @@ class _InsuranceRequestBasicPageWidgetState
                           children: [
                             Expanded(
                               child: TextFormField(
-                                controller: _model.idInputController,
+                                controller: _model.idInputTextController,
                                 focusNode: _model.idInputFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
-                                  '_model.idInputController',
+                                  '_model.idInputTextController',
                                   Duration(milliseconds: 2000),
                                   () => setState(() {}),
                                 ),
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: 'กรุณากรอก...',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -3273,11 +3451,12 @@ class _InsuranceRequestBasicPageWidgetState
                                   contentPadding:
                                       EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 24.0, 24.0),
-                                  suffixIcon: _model
-                                          .idInputController!.text.isNotEmpty
+                                  suffixIcon: _model.idInputTextController!.text
+                                          .isNotEmpty
                                       ? InkWell(
                                           onTap: () async {
-                                            _model.idInputController?.clear();
+                                            _model.idInputTextController
+                                                ?.clear();
                                             setState(() {});
                                           },
                                           child: Icon(
@@ -3294,10 +3473,11 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: Color(0xFF0A0A0A),
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 keyboardType: TextInputType.phone,
-                                validator: _model.idInputControllerValidator
+                                validator: _model.idInputTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -3322,6 +3502,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -3336,18 +3517,23 @@ class _InsuranceRequestBasicPageWidgetState
                           children: [
                             Expanded(
                               child: TextFormField(
-                                controller: _model.remarkInputController,
+                                controller: _model.remarkInputTextController,
                                 focusNode: _model.remarkInputFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
-                                  '_model.remarkInputController',
+                                  '_model.remarkInputTextController',
                                   Duration(milliseconds: 2000),
                                   () => setState(() {}),
                                 ),
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: 'กรุณากรอก...',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: FlutterFlowTheme.of(context)
@@ -3382,11 +3568,11 @@ class _InsuranceRequestBasicPageWidgetState
                                   contentPadding:
                                       EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 24.0, 24.0),
-                                  suffixIcon: _model.remarkInputController!.text
-                                          .isNotEmpty
+                                  suffixIcon: _model.remarkInputTextController!
+                                          .text.isNotEmpty
                                       ? InkWell(
                                           onTap: () async {
-                                            _model.remarkInputController
+                                            _model.remarkInputTextController
                                                 ?.clear();
                                             setState(() {});
                                           },
@@ -3404,9 +3590,11 @@ class _InsuranceRequestBasicPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: Color(0xFF0A0A0A),
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
-                                validator: _model.remarkInputControllerValidator
+                                validator: _model
+                                    .remarkInputTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -3451,10 +3639,10 @@ class _InsuranceRequestBasicPageWidgetState
                                     if (functions.returnStringWithNoSpace(
                                             _model.operationChoiceChipsValue) !=
                                         'งานใหม่') {
-                                      if (!(_model.insuranceLicenseNoInputController
+                                      if (!(_model.insuranceLicenseNoInputTextController
                                                   .text !=
                                               null &&
-                                          _model.insuranceLicenseNoInputController
+                                          _model.insuranceLicenseNoInputTextController
                                                   .text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
@@ -3491,10 +3679,12 @@ class _InsuranceRequestBasicPageWidgetState
                                         return;
                                       }
                                     }
-                                    if (_model.idInputController.text != null &&
-                                        _model.idInputController.text != '') {
+                                    if (_model.idInputTextController.text !=
+                                            null &&
+                                        _model.idInputTextController.text !=
+                                            '') {
                                       if (!functions.checkIdCardInput(
-                                          _model.idInputController.text)) {
+                                          _model.idInputTextController.text)) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
                                           SnackBar(
@@ -3516,9 +3706,10 @@ class _InsuranceRequestBasicPageWidgetState
                                             'รถเก๋ง') ||
                                         (_model.vehicleTypeDropDownValue ==
                                             'รถตู้')) {
-                                      if (!((_model.brandInputController.text !=
+                                      if (!((_model.brandInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.brandInputController
+                                              _model.brandInputTextController
                                                       .text !=
                                                   '') ||
                                           (_model.brandInputSelectedOption !=
@@ -3541,9 +3732,10 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!((_model.modelInputController.text !=
+                                      if (!((_model.modelInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.modelInputController
+                                              _model.modelInputTextController
                                                       .text !=
                                                   '') ||
                                           (_model.modelInputSelectedOption !=
@@ -3622,9 +3814,10 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!(_model.nameInputController.text !=
+                                      if (!(_model.nameInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.nameInputController.text !=
+                                          _model.nameInputTextController.text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
@@ -3647,10 +3840,11 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!(_model.lastnameInputController
+                                      if (!(_model.lastnameInputTextController
                                                   .text !=
                                               null &&
-                                          _model.lastnameInputController.text !=
+                                          _model.lastnameInputTextController
+                                                  .text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
@@ -3673,17 +3867,20 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!((_model.phoneInputController.text !=
+                                      if (!((_model.phoneInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.phoneInputController
+                                              _model.phoneInputTextController
                                                       .text !=
                                                   '') &&
                                           functions.checkPhoneNumberInput(_model
-                                              .phoneInputController.text)!)) {
-                                        if (!(_model.phoneInputController
+                                              .phoneInputTextController
+                                              .text)!)) {
+                                        if (!(_model.phoneInputTextController
                                                     .text !=
                                                 null &&
-                                            _model.phoneInputController.text !=
+                                            _model.phoneInputTextController
+                                                    .text !=
                                                 '')) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
@@ -3718,14 +3915,16 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (_model.plateInputController.text !=
+                                      if (_model.plateInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.plateInputController.text !=
+                                          _model.plateInputTextController
+                                                  .text !=
                                               '') {
                                         if (!functions
                                             .checkIsStringLengthInLength(
-                                                _model
-                                                    .plateInputController.text,
+                                                _model.plateInputTextController
+                                                    .text,
                                                 8)!) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
@@ -3764,9 +3963,10 @@ class _InsuranceRequestBasicPageWidgetState
                                     } else if (_model
                                             .vehicleTypeDropDownValue ==
                                         'รถกระบะ') {
-                                      if (!((_model.brandInputController.text !=
+                                      if (!((_model.brandInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.brandInputController
+                                              _model.brandInputTextController
                                                       .text !=
                                                   '') ||
                                           (_model.brandInputSelectedOption !=
@@ -3789,9 +3989,10 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!((_model.modelInputController.text !=
+                                      if (!((_model.modelInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.modelInputController
+                                              _model.modelInputTextController
                                                       .text !=
                                                   '') ||
                                           (_model.modelInputSelectedOption !=
@@ -3870,9 +4071,10 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!(_model.nameInputController.text !=
+                                      if (!(_model.nameInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.nameInputController.text !=
+                                          _model.nameInputTextController.text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
@@ -3895,10 +4097,11 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!(_model.lastnameInputController
+                                      if (!(_model.lastnameInputTextController
                                                   .text !=
                                               null &&
-                                          _model.lastnameInputController.text !=
+                                          _model.lastnameInputTextController
+                                                  .text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
@@ -3921,13 +4124,15 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!((_model.phoneInputController.text !=
+                                      if (!((_model.phoneInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.phoneInputController
+                                              _model.phoneInputTextController
                                                       .text !=
                                                   '') &&
                                           functions.checkPhoneNumberInput(_model
-                                              .phoneInputController.text)!)) {
+                                              .phoneInputTextController
+                                              .text)!)) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
                                           SnackBar(
@@ -3944,14 +4149,16 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (_model.plateInputController.text !=
+                                      if (_model.plateInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.plateInputController.text !=
+                                          _model.plateInputTextController
+                                                  .text !=
                                               '') {
                                         if (!functions
                                             .checkIsStringLengthInLength(
-                                                _model
-                                                    .plateInputController.text,
+                                                _model.plateInputTextController
+                                                    .text,
                                                 8)!) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
@@ -3991,14 +4198,14 @@ class _InsuranceRequestBasicPageWidgetState
                                       if (_model.boxCheckboxValue!) {
                                         if (_model.boxTypeChoiceChipValue ==
                                             'ตู้เย็น') {
-                                          if (_model.freezeBoxPriceInputController
+                                          if (_model.freezeBoxPriceInputTextController
                                                       .text !=
                                                   null &&
-                                              _model.freezeBoxPriceInputController
+                                              _model.freezeBoxPriceInputTextController
                                                       .text !=
                                                   '') {
                                             if (!functions.checkIsIntValue(_model
-                                                .freezeBoxPriceInputController
+                                                .freezeBoxPriceInputTextController
                                                 .text)!) {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
@@ -4055,14 +4262,15 @@ class _InsuranceRequestBasicPageWidgetState
                                                 (_model.boxTypeChoiceChipValue ==
                                                     'ตู้เย็น')
                                             ? _model
-                                                .freezeBoxPriceInputController
+                                                .freezeBoxPriceInputTextController
                                                 .text
                                             : '';
                                       });
                                     } else {
-                                      if (!((_model.brandInputController.text !=
+                                      if (!((_model.brandInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.brandInputController
+                                              _model.brandInputTextController
                                                       .text !=
                                                   '') ||
                                           (_model.brandInputSelectedOption !=
@@ -4085,9 +4293,10 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!((_model.modelInputController.text !=
+                                      if (!((_model.modelInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.modelInputController
+                                              _model.modelInputTextController
                                                       .text !=
                                                   '') ||
                                           (_model.modelInputSelectedOption !=
@@ -4166,9 +4375,10 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!(_model.nameInputController.text !=
+                                      if (!(_model.nameInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.nameInputController.text !=
+                                          _model.nameInputTextController.text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
@@ -4191,10 +4401,11 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!(_model.lastnameInputController
+                                      if (!(_model.lastnameInputTextController
                                                   .text !=
                                               null &&
-                                          _model.lastnameInputController.text !=
+                                          _model.lastnameInputTextController
+                                                  .text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
@@ -4217,13 +4428,15 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (!((_model.phoneInputController.text !=
+                                      if (!((_model.phoneInputTextController
+                                                      .text !=
                                                   null &&
-                                              _model.phoneInputController
+                                              _model.phoneInputTextController
                                                       .text !=
                                                   '') &&
                                           functions.checkPhoneNumberInput(_model
-                                              .phoneInputController.text)!)) {
+                                              .phoneInputTextController
+                                              .text)!)) {
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
                                           SnackBar(
@@ -4240,15 +4453,19 @@ class _InsuranceRequestBasicPageWidgetState
                                         );
                                         return;
                                       }
-                                      if (_model.plateInputController.text !=
+                                      if (_model.plateInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.plateInputController.text !=
+                                          _model.plateInputTextController
+                                                  .text !=
                                               '') {
                                         if (!(functions.checkIsIntValue(_model
-                                                .plateInputController.text)! &&
+                                                .plateInputTextController
+                                                .text)! &&
                                             functions
                                                 .checkIsStringLengthInLength(
-                                                    _model.plateInputController
+                                                    _model
+                                                        .plateInputTextController
                                                         .text,
                                                     6)!)) {
                                           ScaffoldMessenger.of(context)
@@ -4286,10 +4503,10 @@ class _InsuranceRequestBasicPageWidgetState
                                         return;
                                       }
 
-                                      if (!(_model.logistPoposeInputController
+                                      if (!(_model.logistPoposeInputTextController
                                                   .text !=
                                               null &&
-                                          _model.logistPoposeInputController
+                                          _model.logistPoposeInputTextController
                                                   .text !=
                                               '')) {
                                         ScaffoldMessenger.of(context)
@@ -4310,18 +4527,18 @@ class _InsuranceRequestBasicPageWidgetState
                                       }
                                       if (_model.truckPartRadioButtonValue ==
                                           'หัวลาก + หางพ่วง') {
-                                        if (_model.plateAdditionalInputController
+                                        if (_model.plateAdditionalInputTextController
                                                     .text !=
                                                 null &&
-                                            _model.plateAdditionalInputController
+                                            _model.plateAdditionalInputTextController
                                                     .text !=
                                                 '') {
                                           if (!(functions.checkIsIntValue(_model
-                                                  .plateAdditionalInputController
+                                                  .plateAdditionalInputTextController
                                                   .text)! &&
                                               functions.checkIsStringLengthInLength(
                                                   _model
-                                                      .plateAdditionalInputController
+                                                      .plateAdditionalInputTextController
                                                       .text,
                                                   6)!)) {
                                             ScaffoldMessenger.of(context)
@@ -4360,14 +4577,14 @@ class _InsuranceRequestBasicPageWidgetState
                                           return;
                                         }
                                       }
-                                      if (!(_model.truckCurrentPriceInputController
+                                      if (!(_model.truckCurrentPriceInputTextController
                                                   .text ==
                                               null ||
-                                          _model.truckCurrentPriceInputController
+                                          _model.truckCurrentPriceInputTextController
                                                   .text ==
                                               '')) {
                                         if (!functions.checkIsIntValue(_model
-                                            .truckCurrentPriceInputController
+                                            .truckCurrentPriceInputTextController
                                             .text)!) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
@@ -4403,25 +4620,25 @@ class _InsuranceRequestBasicPageWidgetState
                                             .insuranceBasicTruckCurrentPrice = _model
                                                     .vehicleTypeDropDownValue ==
                                                 'รถบรรทุก หัวลาก หางพ่วง'
-                                            ? (_model.truckCurrentPriceInputController
+                                            ? (_model.truckCurrentPriceInputTextController
                                                             .text !=
                                                         null &&
-                                                    _model.truckCurrentPriceInputController
+                                                    _model.truckCurrentPriceInputTextController
                                                             .text !=
                                                         ''
                                                 ? _model
-                                                    .truckCurrentPriceInputController
+                                                    .truckCurrentPriceInputTextController
                                                     .text
                                                 : '')
                                             : '';
                                         FFAppState()
-                                                .insuranceBasicCarryPurpose =
-                                            _model.vehicleTypeDropDownValue ==
-                                                    'รถบรรทุก หัวลาก หางพ่วง'
-                                                ? _model
-                                                    .logistPoposeInputController
-                                                    .text
-                                                : '';
+                                            .insuranceBasicCarryPurpose = _model
+                                                    .vehicleTypeDropDownValue ==
+                                                'รถบรรทุก หัวลาก หางพ่วง'
+                                            ? _model
+                                                .logistPoposeInputTextController
+                                                .text
+                                            : '';
                                         FFAppState()
                                             .insuranceBasicPlateAdditional = (_model
                                                         .vehicleTypeDropDownValue ==
@@ -4429,7 +4646,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 (_model.truckPartRadioButtonValue ==
                                                     'หัวลาก + หางพ่วง')
                                             ? _model
-                                                .plateAdditionalInputController
+                                                .plateAdditionalInputTextController
                                                 .text
                                             : '';
                                         FFAppState().insuranceBasicTruckPart =
@@ -4449,17 +4666,18 @@ class _InsuranceRequestBasicPageWidgetState
                                           _model.vehicleTypeDropDownValue!;
                                       FFAppState().insuranceBasicCusName =
                                           functions.replaceUnderscrollToDat(
-                                              _model.nameInputController.text)!;
+                                              _model.nameInputTextController
+                                                  .text)!;
                                       FFAppState().insuranceBasicCusLastname =
                                           functions.replaceUnderscrollToDat(
-                                              _model.lastnameInputController
+                                              _model.lastnameInputTextController
                                                   .text)!;
                                       FFAppState().insuranceBasicPlateNo =
                                           functions.replaceUnderscrollToDat(
-                                              _model
-                                                  .plateInputController.text)!;
+                                              _model.plateInputTextController
+                                                  .text)!;
                                       FFAppState().insuranceBasicBrandName =
-                                          _model.brandInputController.text;
+                                          _model.brandInputTextController.text;
                                       FFAppState().insuranceBasicBrandId =
                                           functions.searchMapValueFrom2List(
                                               FFAppState()
@@ -4468,9 +4686,10 @@ class _InsuranceRequestBasicPageWidgetState
                                               FFAppState()
                                                   .insuranceBasicBrandNameList
                                                   .toList(),
-                                              _model.brandInputController.text);
+                                              _model.brandInputTextController
+                                                  .text);
                                       FFAppState().insuranceBasicModelName =
-                                          _model.modelInputController.text;
+                                          _model.modelInputTextController.text;
                                       FFAppState().insuranceBasicModelId =
                                           functions.searchMapValueFrom2List(
                                               FFAppState()
@@ -4479,7 +4698,8 @@ class _InsuranceRequestBasicPageWidgetState
                                               FFAppState()
                                                   .insuranceBasicModelNameListOriginal
                                                   .toList(),
-                                              _model.modelInputController.text);
+                                              _model.modelInputTextController
+                                                  .text);
                                       FFAppState().insuranceBasicYear =
                                           _model.yearDropDownValue!;
                                       FFAppState().insuranceBasicProvinceName =
@@ -4499,18 +4719,19 @@ class _InsuranceRequestBasicPageWidgetState
                                           .insuranceBasicAccessoryProtected = _model
                                               .carModifyCheckboxValue!
                                           ? _model
-                                              .accessoryProtectedInputController
+                                              .accessoryProtectedInputTextController
                                               .text
                                           : '';
                                       FFAppState().insuranceBasicCusPhone =
-                                          _model.phoneInputController.text;
+                                          _model.phoneInputTextController.text;
                                       FFAppState().insuranceBasicIdCardNo =
-                                          _model.idInputController.text !=
+                                          _model.idInputTextController.text !=
                                                       null &&
-                                                  _model.idInputController
+                                                  _model.idInputTextController
                                                           .text !=
                                                       ''
-                                              ? _model.idInputController.text
+                                              ? _model
+                                                  .idInputTextController.text
                                               : '';
                                       FFAppState()
                                           .insuranceBasicOldLicenseNo = functions
@@ -4519,16 +4740,17 @@ class _InsuranceRequestBasicPageWidgetState
                                               'งานใหม่'
                                           ? ''
                                           : _model
-                                              .insuranceLicenseNoInputController
+                                              .insuranceLicenseNoInputTextController
                                               .text;
                                       FFAppState().insuranceBasicRemark = _model
-                                                      .remarkInputController
+                                                      .remarkInputTextController
                                                       .text !=
                                                   null &&
-                                              _model.remarkInputController
+                                              _model.remarkInputTextController
                                                       .text !=
                                                   ''
-                                          ? _model.remarkInputController.text
+                                          ? _model
+                                              .remarkInputTextController.text
                                           : '';
                                       FFAppState()
                                               .insuranceBasicVehicleUsedTypeId =
@@ -4606,6 +4828,7 @@ class _InsuranceRequestBasicPageWidgetState
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 2.0,

@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
+import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -12,7 +12,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -60,88 +59,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
   var hasTextFieldTriggered = false;
-  final animationsMap = {
-    'wrapOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'wrapOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -212,42 +130,124 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.coordinateInputController1 ??= TextEditingController();
+    _model.coordinateInputTextController1 ??= TextEditingController();
     _model.coordinateInputFocusNode1 ??= FocusNode();
 
-    _model.idInputController1 ??= TextEditingController();
+    _model.idInputTextController1 ??= TextEditingController();
     _model.idInputFocusNode1 ??= FocusNode();
 
-    _model.contnoInputController ??= TextEditingController();
+    _model.contnoInputTextController ??= TextEditingController();
     _model.contnoInputFocusNode ??= FocusNode();
 
-    _model.nameInputController1 ??= TextEditingController();
+    _model.nameInputTextController1 ??= TextEditingController();
     _model.nameInputFocusNode1 ??= FocusNode();
 
-    _model.remarkInputController ??= TextEditingController();
+    _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
 
     _model.textController8 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.coordinateInputController2 ??= TextEditingController();
+    _model.coordinateInputTextController2 ??= TextEditingController();
     _model.coordinateInputFocusNode2 ??= FocusNode();
 
-    _model.idInputController2 ??= TextEditingController();
+    _model.idInputTextController2 ??= TextEditingController();
     _model.idInputFocusNode2 ??= FocusNode();
 
     _model.textController11 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
 
-    _model.nameInputController2 ??= TextEditingController();
+    _model.nameInputTextController2 ??= TextEditingController();
     _model.nameInputFocusNode2 ??= FocusNode();
 
-    _model.remarkInput33Controller ??= TextEditingController();
+    _model.remarkInput33TextController ??= TextEditingController();
     _model.remarkInput33FocusNode ??= FocusNode();
 
     _model.textController14 ??= TextEditingController();
     _model.textFieldFocusNode5 ??= FocusNode();
 
+    animationsMap.addAll({
+      'wrapOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'wrapOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -327,130 +327,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [
-            Visibility(
-              visible: !FFAppState().isFromTimesheetPage,
-              child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      HapticFeedback.mediumImpact();
-                      if (FFAppState().imgURL.length >= 5) {
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return WebViewAware(
-                              child: AlertDialog(
-                                title: Text('ระบบ'),
-                                content: Text(
-                                    'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                        return;
-                      }
-                      final selectedMedia =
-                          await selectMediaWithSourceBottomSheet(
-                        context: context,
-                        imageQuality: 75,
-                        allowPhoto: true,
-                        backgroundColor: FlutterFlowTheme.of(context).secondary,
-                        textColor: Color(0xFFB71C1C),
-                        pickerFontFamily: 'Raleway',
-                      );
-                      if (selectedMedia != null &&
-                          selectedMedia.every((m) =>
-                              validateFileFormat(m.storagePath, context))) {
-                        setState(() => _model.isDataUploading = true);
-                        var selectedUploadedFiles = <FFUploadedFile>[];
-
-                        var downloadUrls = <String>[];
-                        try {
-                          showUploadMessage(
-                            context,
-                            'Uploading file...',
-                            showLoading: true,
-                          );
-                          selectedUploadedFiles = selectedMedia
-                              .map((m) => FFUploadedFile(
-                                    name: m.storagePath.split('/').last,
-                                    bytes: m.bytes,
-                                    height: m.dimensions?.height,
-                                    width: m.dimensions?.width,
-                                    blurHash: m.blurHash,
-                                  ))
-                              .toList();
-
-                          downloadUrls = (await Future.wait(
-                            selectedMedia.map(
-                              (m) async =>
-                                  await uploadData(m.storagePath, m.bytes),
-                            ),
-                          ))
-                              .where((u) => u != null)
-                              .map((u) => u!)
-                              .toList();
-                        } finally {
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                          _model.isDataUploading = false;
-                        }
-                        if (selectedUploadedFiles.length ==
-                                selectedMedia.length &&
-                            downloadUrls.length == selectedMedia.length) {
-                          setState(() {
-                            _model.uploadedLocalFile =
-                                selectedUploadedFiles.first;
-                            _model.uploadedFileUrl = downloadUrls.first;
-                          });
-                          showUploadMessage(context, 'Success!');
-                        } else {
-                          setState(() {});
-                          showUploadMessage(context, 'Failed to upload data');
-                          return;
-                        }
-                      }
-
-                      if (_model.uploadedFileUrl != null &&
-                          _model.uploadedFileUrl != '') {
-                        if (_model.uploadedFileUrl != FFAppState().imgURLTemp) {
-                          FFAppState().update(() {
-                            FFAppState().imgURLTemp = _model.uploadedFileUrl;
-                          });
-                        } else {
-                          return;
-                        }
-                      } else {
-                        return;
-                      }
-
-                      FFAppState().update(() {
-                        FFAppState().addToImgURL(_model.uploadedFileUrl);
-                      });
-                    },
-                    child: FaIcon(
-                      FontAwesomeIcons.camera,
-                      color: Color(0xFBFFFFFF),
-                      size: 40.0,
-                    ),
-                  ),
-                ),
-              ),
+            wrapWithModel(
+              model: _model.cameraButtonModel,
+              updateCallback: () => setState(() {}),
+              child: CameraButtonWidget(),
             ),
           ],
           centerTitle: true,
@@ -521,6 +405,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -543,6 +428,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 36.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -582,8 +468,12 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -632,6 +522,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController1Validator
                                       .asValidator(context),
@@ -801,8 +692,12 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -851,6 +746,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController2Validator
                                     .asValidator(context),
@@ -887,23 +783,30 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.coordinateInputController1,
+                                        controller: _model
+                                            .coordinateInputTextController1,
                                         focusNode:
                                             _model.coordinateInputFocusNode1,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: widget.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -951,9 +854,13 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .coordinateInputController1Validator
+                                            .coordinateInputTextController1Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -992,21 +899,28 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.idInputController1,
+                                        controller:
+                                            _model.idInputTextController1,
                                         focusNode: _model.idInputFocusNode1,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.idCardNumber,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1054,10 +968,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .idInputController1Validator
+                                            .idInputTextController1Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1096,6 +1014,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1103,15 +1022,20 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.contnoInputController,
+                                            _model.contnoInputTextController,
                                         focusNode: _model.contnoInputFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.contNo,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1159,10 +1083,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .contnoInputControllerValidator
+                                            .contnoInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1201,21 +1129,28 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.nameInputController1,
+                                        controller:
+                                            _model.nameInputTextController1,
                                         focusNode: _model.nameInputFocusNode1,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.customerName,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1263,10 +1198,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .nameInputController1Validator
+                                            .nameInputTextController1Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1305,6 +1244,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1312,15 +1252,20 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.remarkInputController,
+                                            _model.remarkInputTextController,
                                         focusNode: _model.remarkInputFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1368,10 +1313,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .remarkInputControllerValidator
+                                            .remarkInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1408,8 +1357,12 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -1458,6 +1411,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController8Validator
                                     .asValidator(context),
@@ -1494,19 +1448,22 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.coordinateInputController2,
+                                        controller: _model
+                                            .coordinateInputTextController2,
                                         focusNode:
                                             _model.coordinateInputFocusNode2,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: valueOrDefault<String>(
                                             functions.getUserLocation(
                                                 currentUserLocationValue),
@@ -1514,7 +1471,11 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1562,9 +1523,13 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .coordinateInputController2Validator
+                                            .coordinateInputTextController2Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1603,6 +1568,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1610,14 +1576,20 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       Expanded(
                                         flex: 5,
                                         child: TextFormField(
-                                          controller: _model.idInputController2,
+                                          controller:
+                                              _model.idInputTextController2,
                                           focusNode: _model.idInputFocusNode2,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'เลขบัตรประชาชนลูกค้า',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
@@ -1665,10 +1637,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                           textAlign: TextAlign.start,
                                           validator: _model
-                                              .idInputController2Validator
+                                              .idInputTextController2Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -1676,9 +1652,13 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       Expanded(
                                         flex: 5,
                                         child: Text(
-                                          _model.idInputController2.text,
+                                          _model.idInputTextController2.text,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                   ],
@@ -1701,7 +1681,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     HapticFeedback.mediumImpact();
                                     if (FFAppState().isGetVloanContract) {
                                       setState(() {
-                                        _model.idInputController2?.clear();
+                                        _model.idInputTextController2?.clear();
                                       });
                                       FFAppState().update(() {
                                         FFAppState().vloanContNoListTemp = [];
@@ -1716,7 +1696,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       return;
                                     }
                                     if (!functions.checkIdCardInput(
-                                        _model.idInputController2.text)) {
+                                        _model.idInputTextController2.text)) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
@@ -1742,7 +1722,8 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     }
                                     _model.getVloanContract =
                                         await GetVloanContractAPICall.call(
-                                      cuscod: _model.idInputController2.text,
+                                      cuscod:
+                                          _model.idInputTextController2.text,
                                     );
                                     _shouldSetState = true;
                                     if (GetVloanContractAPICall.result(
@@ -1815,6 +1796,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 2.0,
                                     borderSide: BorderSide(
@@ -1857,6 +1839,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1866,13 +1849,18 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         child: TextFormField(
                                           controller: _model.textController11,
                                           focusNode: _model.textFieldFocusNode4,
+                                          autofocus: false,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'เลขที่สัญญา',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
@@ -1920,7 +1908,11 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                           validator: _model
                                               .textController11Validator
                                               .asValidator(context),
@@ -1945,6 +1937,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           hintText: 'เลขที่สัญญา',
                                           fillColor: Colors.white,
@@ -1995,14 +1988,17 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.nameInputController2,
+                                        controller:
+                                            _model.nameInputTextController2,
                                         focusNode: _model.nameInputFocusNode2,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -2015,7 +2011,11 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -2063,10 +2063,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .nameInputController2Validator
+                                            .nameInputTextController2Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -2110,22 +2114,28 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 18.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
                                       Expanded(
                                         flex: 5,
                                         child: TextFormField(
-                                          controller:
-                                              _model.remarkInput33Controller,
+                                          controller: _model
+                                              .remarkInput33TextController,
                                           focusNode:
                                               _model.remarkInput33FocusNode,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'หมายเหตุ',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color: Color(0x00000000),
@@ -2173,10 +2183,14 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             ),
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                           textAlign: TextAlign.start,
                                           validator: _model
-                                              .remarkInput33ControllerValidator
+                                              .remarkInput33TextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -2272,8 +2286,12 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -2322,6 +2340,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController14Validator
                                       .asValidator(context),
@@ -2545,6 +2564,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(
@@ -2608,9 +2628,10 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.remarkInput33Controller.text !=
+                                  if (!(_model.remarkInput33TextController
+                                              .text !=
                                           null &&
-                                      _model.remarkInput33Controller.text !=
+                                      _model.remarkInput33TextController.text !=
                                           '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -2627,8 +2648,8 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (functions.checkStringLength(
-                                          _model.remarkInput33Controller.text) >
+                                  if (functions.checkStringLength(_model
+                                          .remarkInput33TextController.text) >
                                       275) {
                                     await showDialog(
                                       context: context,
@@ -2784,13 +2805,15 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       await CheckerAPICall.call(
                                     location: functions.getUserLocation(
                                         currentUserLocationValue),
-                                    citizenId: _model.idInputController2.text,
+                                    citizenId:
+                                        _model.idInputTextController2.text,
                                     contNo: _model.contNoDropDownValue,
                                     customerName: functions
                                         .showVloanCustomerName(FFAppState()
                                             .vloanCustomerNameListTemp
                                             .toList()),
-                                    remark: _model.remarkInput33Controller.text,
+                                    remark:
+                                        _model.remarkInput33TextController.text,
                                     uid: FFAppState().imei,
                                     username: FFAppState().employeeID,
                                     jobType: 'Checker',
@@ -2878,7 +2901,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                                   (_model.checkerAPISubmit
                                                           ?.jsonBody ??
                                                       ''),
-                                                ))), _model.remarkInput33Controller.text)} ${functions.generateBranchViewMapLink(CheckerAPICall.recordID(
+                                                ))), _model.remarkInput33TextController.text)} ${functions.generateBranchViewMapLink(CheckerAPICall.recordID(
                                           (_model.checkerAPISubmit?.jsonBody ??
                                               ''),
                                         ))}') >
@@ -2908,7 +2931,8 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     _model.remarkVLoneOutput =
                                         await RemarkVLoneAPICall.call(
                                       func: 'checker',
-                                      cuscod: _model.idInputController2.text,
+                                      cuscod:
+                                          _model.idInputTextController2.text,
                                       contno: _model.contNoDropDownValue,
                                       server: functions.showMatNameInList(
                                           FFAppState()
@@ -2923,7 +2947,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             (_model.checkerAPISubmit
                                                     ?.jsonBody ??
                                                 ''),
-                                          ))), _model.remarkInput33Controller.text)} ${functions.generateBranchViewMapLink(CheckerAPICall.recordID(
+                                          ))), _model.remarkInput33TextController.text)} ${functions.generateBranchViewMapLink(CheckerAPICall.recordID(
                                         (_model.checkerAPISubmit?.jsonBody ??
                                             ''),
                                       ))}',
@@ -3053,6 +3077,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(

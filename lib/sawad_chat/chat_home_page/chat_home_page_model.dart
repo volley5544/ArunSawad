@@ -12,8 +12,6 @@ class ChatHomePageModel extends FlutterFlowModel<ChatHomePageWidget> {
 
   final unfocusNode = FocusNode();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -21,8 +19,4 @@ class ChatHomePageModel extends FlutterFlowModel<ChatHomePageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

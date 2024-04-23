@@ -149,6 +149,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                   fontFamily: 'Poppins',
                   color: Color(0xFF143678),
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -192,6 +193,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -208,6 +210,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -242,6 +245,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -287,6 +291,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -303,6 +308,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -337,6 +343,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -382,6 +389,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -398,6 +406,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -425,6 +434,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -433,17 +443,26 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
                                         errorBorder: InputBorder.none,
                                         focusedErrorBorder: InputBorder.none,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       validator: _model.textControllerValidator
                                           .asValidator(context),
                                     ),
@@ -476,6 +495,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -492,6 +512,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -526,6 +547,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -571,6 +593,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -587,6 +610,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -621,6 +645,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -666,6 +691,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -682,6 +708,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -716,6 +743,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -761,6 +789,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                             fontFamily: 'Poppins',
                                             color: Color(0xFF424242),
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -777,6 +806,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -811,6 +841,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF868686),
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -875,6 +906,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
                                   fontSize: 20.0,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(

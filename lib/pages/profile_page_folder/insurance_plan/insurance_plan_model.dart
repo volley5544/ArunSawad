@@ -14,8 +14,8 @@ class InsurancePlanModel extends FlutterFlowModel<InsurancePlanWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for planInsurance widget.
   FocusNode? planInsuranceFocusNode;
-  TextEditingController? planInsuranceController;
-  String? Function(BuildContext, String?)? planInsuranceControllerValidator;
+  TextEditingController? planInsuranceTextController;
+  String? Function(BuildContext, String?)? planInsuranceTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController2;
@@ -77,8 +77,6 @@ class InsurancePlanModel extends FlutterFlowModel<InsurancePlanWidget> {
   TextEditingController? textController16;
   String? Function(BuildContext, String?)? textController16Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -86,7 +84,7 @@ class InsurancePlanModel extends FlutterFlowModel<InsurancePlanWidget> {
   void dispose() {
     unfocusNode.dispose();
     planInsuranceFocusNode?.dispose();
-    planInsuranceController?.dispose();
+    planInsuranceTextController?.dispose();
 
     textFieldFocusNode1?.dispose();
     textController2?.dispose();
@@ -133,8 +131,4 @@ class InsurancePlanModel extends FlutterFlowModel<InsurancePlanWidget> {
     textFieldFocusNode15?.dispose();
     textController16?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

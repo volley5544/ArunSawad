@@ -132,10 +132,13 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                 PageView.builder(
                                   controller: _model.pageViewController ??=
                                       PageController(
-                                          initialPage: min(
+                                          initialPage: max(
                                               0,
-                                              splashPageHolidayImgList.length -
-                                                  1)),
+                                              min(
+                                                  0,
+                                                  splashPageHolidayImgList
+                                                          .length -
+                                                      1))),
                                   scrollDirection: Axis.horizontal,
                                   itemCount: splashPageHolidayImgList.length,
                                   itemBuilder:
@@ -256,11 +259,13 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                         .SmoothPageIndicator(
                                       controller: _model.pageViewController ??=
                                           PageController(
-                                              initialPage: min(
+                                              initialPage: max(
                                                   0,
-                                                  splashPageHolidayImgList
-                                                          .length -
-                                                      1)),
+                                                  min(
+                                                      0,
+                                                      splashPageHolidayImgList
+                                                              .length -
+                                                          1))),
                                       count: splashPageHolidayImgList.length,
                                       axisDirection: Axis.horizontal,
                                       onDotClicked: (i) async {
@@ -314,6 +319,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                               initialized: _model.checkboxGroupValues != null,
                             ),
@@ -357,6 +363,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(
@@ -446,6 +453,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(

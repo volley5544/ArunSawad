@@ -41,8 +41,6 @@ class TimeSheetPageModel extends FlutterFlowModel<TimeSheetPageWidget> {
   // Stores action output result for [Backend Call - API (TimesheetDetailAPI)] action in Container widget.
   ApiCallResponse? checkerTimesheetDetail;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -51,10 +49,7 @@ class TimeSheetPageModel extends FlutterFlowModel<TimeSheetPageWidget> {
     unfocusNode.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForApiRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,

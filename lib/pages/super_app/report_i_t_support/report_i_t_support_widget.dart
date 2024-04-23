@@ -49,48 +49,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'wrapOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -151,24 +110,66 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    _model.coordinateInputController ??= TextEditingController();
+    _model.coordinateInputTextController ??= TextEditingController();
     _model.coordinateInputFocusNode ??= FocusNode();
 
-    _model.desInputController ??= TextEditingController();
+    _model.desInputTextController ??= TextEditingController();
     _model.desInputFocusNode ??= FocusNode();
 
-    _model.idInputController ??= TextEditingController();
+    _model.idInputTextController ??= TextEditingController();
     _model.idInputFocusNode ??= FocusNode();
 
-    _model.nameInputController ??= TextEditingController();
+    _model.nameInputTextController ??= TextEditingController();
     _model.nameInputFocusNode ??= FocusNode();
 
-    _model.landmarkInputController ??= TextEditingController();
+    _model.landmarkInputTextController ??= TextEditingController();
     _model.landmarkInputFocusNode ??= FocusNode();
 
-    _model.remarkInputController ??= TextEditingController();
+    _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'wrapOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -208,6 +209,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -256,8 +258,12 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: '[Some hint text...]',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -306,6 +312,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                     fontFamily: 'Noto Serif',
                                     color:
                                         FlutterFlowTheme.of(context).black600,
+                                    letterSpacing: 0.0,
                                   ),
                               validator: _model.textController1Validator
                                   .asValidator(context),
@@ -342,6 +349,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -349,12 +357,14 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                     flex: 5,
                                     child: TextFormField(
                                       controller:
-                                          _model.coordinateInputController,
+                                          _model.coordinateInputTextController,
                                       focusNode:
                                           _model.coordinateInputFocusNode,
+                                      autofocus: false,
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
+                                        isDense: false,
                                         hintText: dateTimeFormat(
                                           'd/M H:mm',
                                           getCurrentTimestamp,
@@ -362,7 +372,11 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                               .languageCode,
                                         ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -406,9 +420,13 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       validator: _model
-                                          .coordinateInputControllerValidator
+                                          .coordinateInputTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -447,19 +465,25 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 5,
                                     child: TextFormField(
-                                      controller: _model.desInputController,
+                                      controller: _model.desInputTextController,
                                       focusNode: _model.desInputFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'จุดประสงค์การแจ้ง',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -503,10 +527,14 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       textAlign: TextAlign.start,
                                       validator: _model
-                                          .desInputControllerValidator
+                                          .desInputTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -545,19 +573,25 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 5,
                                     child: TextFormField(
-                                      controller: _model.idInputController,
+                                      controller: _model.idInputTextController,
                                       focusNode: _model.idInputFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'เลขบัตรประชาชนลูกค้า',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -601,10 +635,14 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       textAlign: TextAlign.start,
                                       validator: _model
-                                          .idInputControllerValidator
+                                          .idInputTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -643,19 +681,26 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 5,
                                     child: TextFormField(
-                                      controller: _model.nameInputController,
+                                      controller:
+                                          _model.nameInputTextController,
                                       focusNode: _model.nameInputFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'ชื่อ-นามสกุลลูกค้า',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -699,10 +744,14 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       textAlign: TextAlign.start,
                                       validator: _model
-                                          .nameInputControllerValidator
+                                          .nameInputTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -741,6 +790,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -748,13 +798,18 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                     flex: 5,
                                     child: TextFormField(
                                       controller:
-                                          _model.landmarkInputController,
+                                          _model.landmarkInputTextController,
                                       focusNode: _model.landmarkInputFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'สถานที่ใกล้เคียง',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -798,10 +853,14 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       textAlign: TextAlign.start,
                                       validator: _model
-                                          .landmarkInputControllerValidator
+                                          .landmarkInputTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -840,19 +899,26 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
                                   Expanded(
                                     flex: 5,
                                     child: TextFormField(
-                                      controller: _model.remarkInputController,
+                                      controller:
+                                          _model.remarkInputTextController,
                                       focusNode: _model.remarkInputFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         hintText: 'หมายเหตุ',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -896,10 +962,14 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       textAlign: TextAlign.start,
                                       validator: _model
-                                          .remarkInputControllerValidator
+                                          .remarkInputTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -952,6 +1022,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(
@@ -986,6 +1057,7 @@ class _ReportITSupportWidgetState extends State<ReportITSupportWidget>
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(

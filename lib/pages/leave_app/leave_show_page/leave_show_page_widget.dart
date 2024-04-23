@@ -278,6 +278,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -316,6 +317,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Poppins',
                       color: Colors.black,
+                      letterSpacing: 0.0,
                     ),
                 hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
                 icon: FaIcon(
@@ -342,6 +344,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                             FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Poppins',
                                   fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                 ),
                         unselectedLabelStyle: TextStyle(),
                         indicatorColor: FlutterFlowTheme.of(context).secondary,
@@ -446,7 +449,10 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
-                                                offset: Offset(0.0, 2.0),
+                                                offset: Offset(
+                                                  0.0,
+                                                  2.0,
+                                                ),
                                               )
                                             ],
                                             borderRadius:
@@ -476,18 +482,18 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                           .profileFullName,
                                                       textAlign:
                                                           TextAlign.start,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 16.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     )),
                                                   ),
                                                 ),
@@ -531,6 +537,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -572,6 +580,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -623,6 +633,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -664,6 +676,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -715,6 +729,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -756,6 +772,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -807,6 +825,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -851,6 +871,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -902,6 +924,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -946,6 +970,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -997,6 +1023,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1043,6 +1071,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -1097,6 +1127,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1141,6 +1173,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -1196,6 +1230,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1250,6 +1286,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1299,6 +1337,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         'Poppins',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
@@ -1368,6 +1408,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                             'Poppins',
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1848,6 +1890,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                               Colors.white,
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -1966,6 +2010,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                             .white,
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),

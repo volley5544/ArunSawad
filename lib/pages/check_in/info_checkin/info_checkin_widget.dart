@@ -50,68 +50,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'wrapOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -168,6 +107,68 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
       }
     });
 
+    animationsMap.addAll({
+      'wrapOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -206,6 +207,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -271,6 +273,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -287,6 +290,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -327,6 +331,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -344,6 +349,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -381,6 +387,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -397,6 +404,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -405,8 +413,12 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                   child: SelectionArea(
                                       child: Text(
                                     '-',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   )),
                                 ),
                                 Expanded(
@@ -422,6 +434,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -468,6 +481,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -483,6 +497,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -511,6 +526,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 2.0,
                                         borderSide: BorderSide(
@@ -619,6 +635,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(

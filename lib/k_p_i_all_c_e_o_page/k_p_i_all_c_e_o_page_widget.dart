@@ -41,50 +41,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
   LatLng? currentUserLocationValue;
   var hasContainerTriggered1 = false;
   var hasContainerTriggered2 = false;
-  final animationsMap = {
-    'containerOnActionTriggerAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnActionTriggerAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -164,16 +121,62 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
       length: 3,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
-    _model.expandableController1 = ExpandableController(initialExpanded: true);
-    _model.branchInputController ??= TextEditingController();
+    _model.expandableExpandableController1 =
+        ExpandableController(initialExpanded: true);
+    _model.branchInputTextController ??= TextEditingController();
     _model.branchInputFocusNode ??= FocusNode();
 
-    _model.expandableController2 = ExpandableController(initialExpanded: true);
-    _model.employeeKeywordInputController ??= TextEditingController();
+    _model.expandableExpandableController2 =
+        ExpandableController(initialExpanded: true);
+    _model.employeeKeywordInputTextController ??= TextEditingController();
     _model.employeeKeywordInputFocusNode ??= FocusNode();
 
-    _model.branchInputAreaController ??= TextEditingController();
+    _model.branchInputAreaTextController ??= TextEditingController();
 
+    animationsMap.addAll({
+      'containerOnActionTriggerAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnActionTriggerAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -230,6 +233,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -244,7 +248,11 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                   alignment: Alignment(0.0, 0),
                   child: TabBar(
                     labelColor: FlutterFlowTheme.of(context).primary,
-                    labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    labelStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                     unselectedLabelStyle: TextStyle(),
                     indicatorColor: FlutterFlowTheme.of(context).secondary,
                     tabs: [
@@ -275,7 +283,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                             width: double.infinity,
                             color: Colors.white,
                             child: ExpandableNotifier(
-                              controller: _model.expandableController1,
+                              controller:
+                                  _model.expandableExpandableController1,
                               child: ExpandablePanel(
                                 header: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -287,6 +296,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -301,6 +311,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -340,6 +351,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -347,15 +359,19 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               flex: 6,
                                               child: TextFormField(
                                                 controller: _model
-                                                    .branchInputController,
+                                                    .branchInputTextController,
                                                 focusNode:
                                                     _model.branchInputFocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   hintText:
                                                       'กรอกรหัสสาขา/ชื่อสาขา',
                                                   hintStyle: FlutterFlowTheme
@@ -364,6 +380,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
@@ -433,10 +450,11 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 textAlign: TextAlign.start,
                                                 validator: _model
-                                                    .branchInputControllerValidator
+                                                    .branchInputTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -456,10 +474,10 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 onPressed: () async {
                                                   var _shouldSetState = false;
                                                   HapticFeedback.mediumImpact();
-                                                  if (!(_model.branchInputController
+                                                  if (!(_model.branchInputTextController
                                                               .text !=
                                                           null &&
-                                                      _model.branchInputController
+                                                      _model.branchInputTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -532,7 +550,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     token: FFAppState()
                                                         .accessToken,
                                                     branchCode: _model
-                                                        .branchInputController
+                                                        .branchInputTextController
                                                         .text,
                                                     apiUrl: FFAppState()
                                                         .apiURLLocalState,
@@ -715,6 +733,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -835,6 +854,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   hintText: 'สาขา...',
                                                   fillColor: Colors.white,
@@ -895,6 +915,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -1011,6 +1032,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: 'สาขา...',
                                                 fillColor: Colors.white,
@@ -1081,6 +1103,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 18.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                                 ListView(
@@ -1107,7 +1130,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1140,6 +1165,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1184,6 +1211,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1209,7 +1237,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1242,6 +1272,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1284,6 +1316,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1309,7 +1342,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1342,6 +1377,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1384,6 +1421,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1409,7 +1447,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1442,6 +1482,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1484,6 +1526,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1509,7 +1552,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1542,6 +1587,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1584,6 +1631,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1609,7 +1657,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1642,6 +1692,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1684,6 +1736,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1709,7 +1762,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1742,6 +1797,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1784,6 +1841,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1809,7 +1867,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1842,6 +1902,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1884,6 +1946,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1909,7 +1972,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1942,6 +2007,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1984,6 +2051,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2058,7 +2126,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                             width: double.infinity,
                             color: Colors.white,
                             child: ExpandableNotifier(
-                              controller: _model.expandableController2,
+                              controller:
+                                  _model.expandableExpandableController2,
                               child: ExpandablePanel(
                                 header: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -2070,6 +2139,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2084,6 +2154,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2123,6 +2194,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -2130,21 +2202,28 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               flex: 5,
                                               child: TextFormField(
                                                 controller: _model
-                                                    .employeeKeywordInputController,
+                                                    .employeeKeywordInputTextController,
                                                 focusNode: _model
                                                     .employeeKeywordInputFocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
-                                                  labelStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium,
+                                                  labelStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   hintText:
                                                       'ชื่อเล่น/สังกัด/รหัสพนักงาน',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -2204,10 +2283,14 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 textAlign: TextAlign.start,
                                                 validator: _model
-                                                    .employeeKeywordInputControllerValidator
+                                                    .employeeKeywordInputTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -2227,10 +2310,10 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 onPressed: () async {
                                                   var _shouldSetState = false;
                                                   HapticFeedback.mediumImpact();
-                                                  if (!(_model.employeeKeywordInputController
+                                                  if (!(_model.employeeKeywordInputTextController
                                                               .text !=
                                                           null &&
-                                                      _model.employeeKeywordInputController
+                                                      _model.employeeKeywordInputTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -2303,7 +2386,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     token: FFAppState()
                                                         .accessToken,
                                                     searchName: _model
-                                                        .employeeKeywordInputController
+                                                        .employeeKeywordInputTextController
                                                         .text,
                                                     apiUrl: FFAppState()
                                                         .apiURLLocalState,
@@ -2492,6 +2575,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -2620,6 +2704,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   hintText: 'พนักงาน...',
                                                   fillColor: Colors.white,
@@ -2695,6 +2780,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 18.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                                 ListView(
@@ -2721,7 +2807,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2754,6 +2842,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2798,6 +2888,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2823,7 +2914,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2856,6 +2949,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2898,6 +2993,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2923,7 +3019,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2956,6 +3054,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2998,6 +3098,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3023,7 +3124,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3056,6 +3159,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3098,6 +3203,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3123,7 +3229,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3156,6 +3264,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3198,6 +3308,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3223,7 +3334,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3256,6 +3369,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3298,6 +3413,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3323,7 +3439,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3356,6 +3474,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3398,6 +3518,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3423,7 +3544,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3456,6 +3579,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3498,6 +3623,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3523,7 +3649,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3556,6 +3684,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3598,6 +3728,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3699,6 +3830,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -3725,6 +3857,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
+                                            letterSpacing: 0.0,
                                           ),
                                       hintText: 'สังกัด...',
                                       fillColor: Colors.white,
@@ -3779,6 +3912,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -3827,12 +3961,21 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  letterSpacing: 0.0,
                                                 ),
                                         searchTextStyle:
                                             FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintText: 'เลือกเขต/ภาค...',
                                         searchHintText: 'ค้นหา...',
                                         fillColor: FlutterFlowTheme.of(context)
@@ -3910,12 +4053,16 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               textFieldKey:
                                                   _model.branchInputAreaKey,
                                               textController: _model
-                                                  .branchInputAreaController!,
+                                                  .branchInputAreaTextController!,
                                               options: options.toList(),
                                               onSelected: onSelected,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textHighlightStyle: TextStyle(),
                                               elevation: 4.0,
                                               optionBackgroundColor:
@@ -3942,7 +4089,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                             _model.branchInputAreaFocusNode =
                                                 focusNode;
 
-                                            _model.branchInputAreaController =
+                                            _model.branchInputAreaTextController =
                                                 textEditingController;
                                             return TextFormField(
                                               key: _model.branchInputAreaKey,
@@ -3950,11 +4097,16 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                               focusNode: focusNode,
                                               onEditingComplete:
                                                   onEditingComplete,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 hintText:
                                                     'กรอกรหัสสาขา/ชื่อสาขา',
                                                 hintStyle:
@@ -3963,6 +4115,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
@@ -4031,10 +4184,11 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               textAlign: TextAlign.start,
                                               validator: _model
-                                                  .branchInputAreaControllerValidator
+                                                  .branchInputAreaTextControllerValidator
                                                   .asValidator(context),
                                             );
                                           },
@@ -4082,6 +4236,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 18.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                                 ListView(
@@ -4108,7 +4263,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4141,6 +4298,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4185,6 +4344,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4210,7 +4370,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4243,6 +4405,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4285,6 +4449,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4310,7 +4475,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4343,6 +4510,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4385,6 +4554,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4410,7 +4580,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4443,6 +4615,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4485,6 +4659,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4510,7 +4685,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4543,6 +4720,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4585,6 +4764,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4610,7 +4790,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4643,6 +4825,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4685,6 +4869,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4710,7 +4895,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4743,6 +4930,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4785,6 +4974,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4810,7 +5000,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4843,6 +5035,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4885,6 +5079,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4910,7 +5105,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4943,6 +5140,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4985,6 +5184,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),

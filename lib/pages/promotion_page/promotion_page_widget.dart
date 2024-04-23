@@ -112,6 +112,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],

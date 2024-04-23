@@ -81,6 +81,7 @@ class _CheckInStatusPageCopyWidgetState
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -120,6 +121,7 @@ class _CheckInStatusPageCopyWidgetState
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                   ),
                             )),
                           ),
@@ -129,7 +131,12 @@ class _CheckInStatusPageCopyWidgetState
                                 child: Text(
                               'เวลาเข้างาน',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             )),
                           ),
                           Expanded(
@@ -138,7 +145,12 @@ class _CheckInStatusPageCopyWidgetState
                                 child: Text(
                               'เวลาออกงาน',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             )),
                           ),
                           Expanded(
@@ -147,7 +159,12 @@ class _CheckInStatusPageCopyWidgetState
                                 child: Text(
                               'สถานะ',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             )),
                           ),
                         ],
@@ -206,6 +223,7 @@ class _CheckInStatusPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -228,6 +246,7 @@ class _CheckInStatusPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),

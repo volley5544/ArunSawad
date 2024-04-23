@@ -110,7 +110,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
       Navigator.pop(context);
     });
 
-    _model.branchInputController ??= TextEditingController();
+    _model.branchInputTextController ??= TextEditingController();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -161,6 +161,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -202,6 +203,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 .override(
                                   fontFamily: 'Poppins',
                                   fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -222,6 +224,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: Colors.black,
+                                  letterSpacing: 0.0,
                                 ),
                             hintText: 'สังกัด...',
                             fillColor: Colors.white,
@@ -272,6 +275,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ),
@@ -318,11 +322,16 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                   (context, onSelected, options) {
                                 return AutocompleteOptionsList(
                                   textFieldKey: _model.branchInputKey,
-                                  textController: _model.branchInputController!,
+                                  textController:
+                                      _model.branchInputTextController!,
                                   options: options.toList(),
                                   onSelected: onSelected,
-                                  textStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   textHighlightStyle: TextStyle(),
                                   elevation: 4.0,
                                   optionBackgroundColor:
@@ -347,23 +356,29 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                               ) {
                                 _model.branchInputFocusNode = focusNode;
 
-                                _model.branchInputController =
+                                _model.branchInputTextController =
                                     textEditingController;
                                 return TextFormField(
                                   key: _model.branchInputKey,
                                   controller: textEditingController,
                                   focusNode: focusNode,
                                   onEditingComplete: onEditingComplete,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    labelStyle:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    labelStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     hintText: 'กรอกรหัสสาขา/ชื่อสาขา',
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -414,10 +429,11 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   textAlign: TextAlign.start,
                                   validator: _model
-                                      .branchInputControllerValidator
+                                      .branchInputTextControllerValidator
                                       .asValidator(context),
                                 );
                               },
@@ -439,9 +455,10 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                               onPressed: () async {
                                 var _shouldSetState = false;
                                 HapticFeedback.mediumImpact();
-                                if (!(_model.branchInputController.text !=
+                                if (!(_model.branchInputTextController.text !=
                                         null &&
-                                    _model.branchInputController.text != '')) {
+                                    _model.branchInputTextController.text !=
+                                        '')) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -497,7 +514,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                       await GetBranchAPICall.call(
                                     token: FFAppState().accessToken,
                                     branchCode:
-                                        _model.branchInputController.text,
+                                        _model.branchInputTextController.text,
                                     apiUrl: FFAppState().apiURLLocalState,
                                     type: 'incentive',
                                   );
@@ -631,7 +648,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                                         ''),
                                                   )?.toList()))
                                           .toList(),
-                                      _model.branchInputController.text)) {
+                                      _model.branchInputTextController.text)) {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
@@ -746,7 +763,8 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                                                   ''),
                                                             )?.toList()))
                                                 .toList(),
-                                            _model.branchInputController.text),
+                                            _model.branchInputTextController
+                                                .text),
                                   );
                                   _shouldSetState = true;
                                 }
@@ -796,6 +814,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ),
@@ -862,6 +881,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
+                                    letterSpacing: 0.0,
                                   ),
                               hintText: 'สาขา...',
                               fillColor: Colors.white,
@@ -911,6 +931,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 iconColor: Colors.white,
                                 iconSize: 18.0,
@@ -923,6 +944,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Color(0xFFE3E7ED),
+                                      letterSpacing: 0.0,
                                     ),
                                 iconColor: Color(0xFFE3E7ED),
                                 iconSize: 18.0,
@@ -964,7 +986,12 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                             ).toString()),
                             '[Month_Year]',
                           ),
-                          style: FlutterFlowTheme.of(context).displaySmall,
+                          style: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .override(
+                                fontFamily: 'Poppins',
+                                letterSpacing: 0.0,
+                              ),
                         ),
                       ],
                     ),
@@ -984,7 +1011,12 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                             ).toString()),
                             '[MMYY_Last_Month]',
                           ),
-                          style: FlutterFlowTheme.of(context).displaySmall,
+                          style: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .override(
+                                fontFamily: 'Poppins',
+                                letterSpacing: 0.0,
+                              ),
                         ),
                       ],
                     ),
@@ -1051,8 +1083,12 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           )),
                                       'สังกัด...',
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ],
                               ),
@@ -1146,7 +1182,11 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         child: Text(
                                           'ทำได้',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Text(
@@ -1167,6 +1207,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 22.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -1182,7 +1223,11 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         child: Text(
                                           'เป้า',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Text(
@@ -1203,6 +1248,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 22.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -1218,7 +1264,11 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         child: Text(
                                           'สถานะ',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Text(
@@ -1291,6 +1341,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                                                   ''),
                                                             ))),
                                               fontSize: 22.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -1365,8 +1416,12 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                           )),
                                       'สังกัด...',
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ],
                               ),
@@ -1460,7 +1515,11 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         child: Text(
                                           'ทำได้',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Text(
@@ -1481,6 +1540,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 22.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -1496,7 +1556,11 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         child: Text(
                                           'เป้า',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Text(
@@ -1517,6 +1581,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 22.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -1532,7 +1597,11 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         child: Text(
                                           'สถานะ',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall,
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ),
                                       Text(
@@ -1605,6 +1674,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                                                   ''),
                                                             ))),
                                               fontSize: 22.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -1656,6 +1726,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).grayIcon,
                                 fontSize: 20.0,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ],

@@ -31,48 +31,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'wrapOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -132,9 +91,51 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    _model.coordinateInputController ??= TextEditingController();
+    _model.coordinateInputTextController ??= TextEditingController();
     _model.coordinateInputFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'wrapOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -174,6 +175,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -254,12 +256,17 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                               child: TextFormField(
                                 controller: _model.textController1,
                                 focusNode: _model.textFieldFocusNode,
+                                autofocus: false,
                                 readOnly: true,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -309,6 +316,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                       fontFamily: 'Noto Serif',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBtnText,
+                                      letterSpacing: 0.0,
                                     ),
                                 textAlign: TextAlign.center,
                                 validator: _model.textController1Validator
@@ -347,6 +355,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -354,12 +363,14 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                     flex: 5,
                                     child: TextFormField(
                                       controller:
-                                          _model.coordinateInputController,
+                                          _model.coordinateInputTextController,
                                       focusNode:
                                           _model.coordinateInputFocusNode,
+                                      autofocus: false,
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
+                                        isDense: false,
                                         hintText: dateTimeFormat(
                                           'd/M h:mm a',
                                           getCurrentTimestamp,
@@ -367,7 +378,11 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                               .languageCode,
                                         ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -411,9 +426,13 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       validator: _model
-                                          .coordinateInputControllerValidator
+                                          .coordinateInputTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -459,6 +478,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -473,6 +493,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -520,7 +541,10 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                           _model.ratingBarValue?.toString(),
                           '0',
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                       )),
                     ],
                   ),
@@ -565,6 +589,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(

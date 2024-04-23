@@ -37,14 +37,14 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   FormFieldController<List<String>>? checkboxGroupValueController1;
   // State field(s) for ReasonToLeaveEtcTextField widget.
   FocusNode? reasonToLeaveEtcTextFieldFocusNode;
-  TextEditingController? reasonToLeaveEtcTextFieldController;
+  TextEditingController? reasonToLeaveEtcTextFieldTextController;
   String? Function(BuildContext, String?)?
-      reasonToLeaveEtcTextFieldControllerValidator;
+      reasonToLeaveEtcTextFieldTextControllerValidator;
   // State field(s) for ReasonToLeaveTextField widget.
   FocusNode? reasonToLeaveTextFieldFocusNode;
-  TextEditingController? reasonToLeaveTextFieldController;
+  TextEditingController? reasonToLeaveTextFieldTextController;
   String? Function(BuildContext, String?)?
-      reasonToLeaveTextFieldControllerValidator;
+      reasonToLeaveTextFieldTextControllerValidator;
   // State field(s) for provinceDropDown widget.
   String? provinceDropDownValue;
   FormFieldController<String>? provinceDropDownValueController;
@@ -63,14 +63,14 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   FormFieldController<String>? postCodeDropDownValueController;
   // State field(s) for batchRoadTextField widget.
   FocusNode? batchRoadTextFieldFocusNode;
-  TextEditingController? batchRoadTextFieldController;
+  TextEditingController? batchRoadTextFieldTextController;
   String? Function(BuildContext, String?)?
-      batchRoadTextFieldControllerValidator;
+      batchRoadTextFieldTextControllerValidator;
   // State field(s) for PhoneNumberTextField widget.
   FocusNode? phoneNumberTextFieldFocusNode;
-  TextEditingController? phoneNumberTextFieldController;
+  TextEditingController? phoneNumberTextFieldTextController;
   String? Function(BuildContext, String?)?
-      phoneNumberTextFieldControllerValidator;
+      phoneNumberTextFieldTextControllerValidator;
   // State field(s) for ChanceToWorkTgtDropDown widget.
   String? chanceToWorkTgtDropDownValue;
   FormFieldController<String>? chanceToWorkTgtDropDownValueController;
@@ -79,9 +79,9 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   FormFieldController<List<String>>? checkboxGroupValueController2;
   // State field(s) for ReturnAssetTextField widget.
   FocusNode? returnAssetTextFieldFocusNode;
-  TextEditingController? returnAssetTextFieldController;
+  TextEditingController? returnAssetTextFieldTextController;
   String? Function(BuildContext, String?)?
-      returnAssetTextFieldControllerValidator;
+      returnAssetTextFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (leaveRequestFirstAPI)] action in Button widget.
   ApiCallResponse? resignAPIOutput;
   // Stores action output result for [Backend Call - API (SendFCMNotificationAPI)] action in Button widget.
@@ -97,14 +97,14 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   FormFieldController<List<String>>? checkboxGroupEditValueController;
   // State field(s) for ReasonToLeaveEtcTextField2 widget.
   FocusNode? reasonToLeaveEtcTextField2FocusNode;
-  TextEditingController? reasonToLeaveEtcTextField2Controller;
+  TextEditingController? reasonToLeaveEtcTextField2TextController;
   String? Function(BuildContext, String?)?
-      reasonToLeaveEtcTextField2ControllerValidator;
+      reasonToLeaveEtcTextField2TextControllerValidator;
   // State field(s) for ReasonToLeaveTextField2 widget.
   FocusNode? reasonToLeaveTextField2FocusNode;
-  TextEditingController? reasonToLeaveTextField2Controller;
+  TextEditingController? reasonToLeaveTextField2TextController;
   String? Function(BuildContext, String?)?
-      reasonToLeaveTextField2ControllerValidator;
+      reasonToLeaveTextField2TextControllerValidator;
   // State field(s) for provinceDropDown2 widget.
   String? provinceDropDown2Value;
   FormFieldController<String>? provinceDropDown2ValueController;
@@ -123,14 +123,14 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   FormFieldController<String>? postCodeDropDown2ValueController;
   // State field(s) for batchRoadTextField2 widget.
   FocusNode? batchRoadTextField2FocusNode;
-  TextEditingController? batchRoadTextField2Controller;
+  TextEditingController? batchRoadTextField2TextController;
   String? Function(BuildContext, String?)?
-      batchRoadTextField2ControllerValidator;
+      batchRoadTextField2TextControllerValidator;
   // State field(s) for PhoneNumberTextField2 widget.
   FocusNode? phoneNumberTextField2FocusNode;
-  TextEditingController? phoneNumberTextField2Controller;
+  TextEditingController? phoneNumberTextField2TextController;
   String? Function(BuildContext, String?)?
-      phoneNumberTextField2ControllerValidator;
+      phoneNumberTextField2TextControllerValidator;
   // State field(s) for ChanceToWorkTgtDropDown2 widget.
   String? chanceToWorkTgtDropDown2Value;
   FormFieldController<String>? chanceToWorkTgtDropDown2ValueController;
@@ -139,13 +139,11 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   FormFieldController<List<String>>? checkboxGroupEdit2ValueController;
   // State field(s) for ReturnAssetTextField2 widget.
   FocusNode? returnAssetTextField2FocusNode;
-  TextEditingController? returnAssetTextField2Controller;
+  TextEditingController? returnAssetTextField2TextController;
   String? Function(BuildContext, String?)?
-      returnAssetTextField2ControllerValidator;
+      returnAssetTextField2TextControllerValidator;
   // Stores action output result for [Backend Call - API (leaveEditAPI )] action in Button widget.
   ApiCallResponse? resignEditAPIOutput;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -157,40 +155,36 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
     textController1?.dispose();
 
     reasonToLeaveEtcTextFieldFocusNode?.dispose();
-    reasonToLeaveEtcTextFieldController?.dispose();
+    reasonToLeaveEtcTextFieldTextController?.dispose();
 
     reasonToLeaveTextFieldFocusNode?.dispose();
-    reasonToLeaveTextFieldController?.dispose();
+    reasonToLeaveTextFieldTextController?.dispose();
 
     batchRoadTextFieldFocusNode?.dispose();
-    batchRoadTextFieldController?.dispose();
+    batchRoadTextFieldTextController?.dispose();
 
     phoneNumberTextFieldFocusNode?.dispose();
-    phoneNumberTextFieldController?.dispose();
+    phoneNumberTextFieldTextController?.dispose();
 
     returnAssetTextFieldFocusNode?.dispose();
-    returnAssetTextFieldController?.dispose();
+    returnAssetTextFieldTextController?.dispose();
 
     textFieldFocusNode2?.dispose();
     textController7?.dispose();
 
     reasonToLeaveEtcTextField2FocusNode?.dispose();
-    reasonToLeaveEtcTextField2Controller?.dispose();
+    reasonToLeaveEtcTextField2TextController?.dispose();
 
     reasonToLeaveTextField2FocusNode?.dispose();
-    reasonToLeaveTextField2Controller?.dispose();
+    reasonToLeaveTextField2TextController?.dispose();
 
     batchRoadTextField2FocusNode?.dispose();
-    batchRoadTextField2Controller?.dispose();
+    batchRoadTextField2TextController?.dispose();
 
     phoneNumberTextField2FocusNode?.dispose();
-    phoneNumberTextField2Controller?.dispose();
+    phoneNumberTextField2TextController?.dispose();
 
     returnAssetTextField2FocusNode?.dispose();
-    returnAssetTextField2Controller?.dispose();
+    returnAssetTextField2TextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

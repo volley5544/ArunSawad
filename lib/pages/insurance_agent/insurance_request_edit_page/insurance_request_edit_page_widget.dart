@@ -157,65 +157,67 @@ class _InsuranceRequestEditPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'InsuranceRequestEditPage'});
-    _model.insuranceLicenseNoInputController ??=
+    _model.insuranceLicenseNoInputTextController ??=
         TextEditingController(text: widget.oldVmiPolicyNumber);
     _model.insuranceLicenseNoInputFocusNode ??= FocusNode();
 
-    _model.freezeBoxPriceInputController ??=
+    _model.freezeBoxPriceInputTextController ??=
         TextEditingController(text: widget.carrierPrice);
     _model.freezeBoxPriceInputFocusNode ??= FocusNode();
 
-    _model.brandInputController ??=
+    _model.brandInputTextController ??=
         TextEditingController(text: widget.brandName);
     _model.brandInputFocusNode ??= FocusNode();
 
-    _model.modelInputController ??=
+    _model.modelInputTextController ??=
         TextEditingController(text: widget.modelName);
     _model.modelInputFocusNode ??= FocusNode();
 
-    _model.truckCurrentPriceInputController ??=
+    _model.truckCurrentPriceInputTextController ??=
         TextEditingController(text: widget.truckCurrentPrice);
     _model.truckCurrentPriceInputFocusNode ??= FocusNode();
 
-    _model.plateInputController ??= TextEditingController(text: widget.plateNo);
+    _model.plateInputTextController ??=
+        TextEditingController(text: widget.plateNo);
     _model.plateInputFocusNode ??= FocusNode();
 
-    _model.plateAdditionalInputController ??=
+    _model.plateAdditionalInputTextController ??=
         TextEditingController(text: widget.trailerPlateNo);
     _model.plateAdditionalInputFocusNode ??= FocusNode();
 
-    _model.logistPoposeInputController ??=
+    _model.logistPoposeInputTextController ??=
         TextEditingController(text: widget.carrierPropose);
     _model.logistPoposeInputFocusNode ??= FocusNode();
 
-    _model.accessoryProtectedInputController ??=
+    _model.accessoryProtectedInputTextController ??=
         TextEditingController(text: widget.decorationDetail);
     _model.accessoryProtectedInputFocusNode ??= FocusNode();
 
-    _model.nameInputController ??=
+    _model.nameInputTextController ??=
         TextEditingController(text: widget.firstname);
     _model.nameInputFocusNode ??= FocusNode();
 
-    _model.lastnameInputController ??=
+    _model.lastnameInputTextController ??=
         TextEditingController(text: widget.lastname);
     _model.lastnameInputFocusNode ??= FocusNode();
 
-    _model.phoneInputController ??=
+    _model.phoneInputTextController ??=
         TextEditingController(text: widget.phoneNumber);
     _model.phoneInputFocusNode ??= FocusNode();
 
-    _model.idInputController ??=
+    _model.idInputTextController ??=
         TextEditingController(text: widget.idCardNumber);
     _model.idInputFocusNode ??= FocusNode();
 
-    _model.remarkInputController ??= TextEditingController(text: widget.remark);
+    _model.remarkInputTextController ??=
+        TextEditingController(text: widget.remark);
     _model.remarkInputFocusNode ??= FocusNode();
 
-    _model.sumInsuredInputController ??=
+    _model.sumInsuredInputTextController ??=
         TextEditingController(text: widget.sumInsured);
     _model.sumInsuredInputFocusNode ??= FocusNode();
 
-    _model.trailerSumInsuredInputController ??=
+    _model.trailerSumInsuredInputTextController ??=
         TextEditingController(text: widget.trailerSumInsured);
     _model.trailerSumInsuredInputFocusNode ??= FocusNode();
 
@@ -268,6 +270,7 @@ class _InsuranceRequestEditPageWidgetState
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: [],
@@ -301,6 +304,7 @@ class _InsuranceRequestEditPageWidgetState
                                 .override(
                                   fontFamily: 'Poppins',
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                 ),
                           )),
                         ),
@@ -321,9 +325,16 @@ class _InsuranceRequestEditPageWidgetState
                           controller: _model.radioButtonValueController ??=
                               FormFieldController<String>(null),
                           optionHeight: 32.0,
-                          textStyle: FlutterFlowTheme.of(context).labelMedium,
+                          textStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           selectedTextStyle:
-                              FlutterFlowTheme.of(context).bodyMedium,
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           buttonPosition: RadioButtonPosition.left,
                           direction: Axis.vertical,
                           radioButtonColor:
@@ -368,6 +379,7 @@ class _InsuranceRequestEditPageWidgetState
                                               fontFamily: 'Poppins',
                                               color: Color(0xFFFF0000),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -382,6 +394,7 @@ class _InsuranceRequestEditPageWidgetState
                                               fontFamily: 'Poppins',
                                               color: Color(0xFFFF0000),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -415,6 +428,7 @@ class _InsuranceRequestEditPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -429,6 +443,7 @@ class _InsuranceRequestEditPageWidgetState
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).error,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ),
@@ -1806,7 +1821,11 @@ class _InsuranceRequestEditPageWidgetState
                                       child: Text(
                                         'รูปรถแต่ละตำแหน่ง',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                     Padding(
@@ -1850,6 +1869,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2020,6 +2040,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2190,6 +2211,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2360,6 +2382,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2530,6 +2553,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2700,6 +2724,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2870,6 +2895,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -3040,6 +3066,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -3210,6 +3237,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4578,7 +4606,11 @@ class _InsuranceRequestEditPageWidgetState
                                       child: Text(
                                         'รูปหัวลากแต่ละตำแหน่ง',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                     Padding(
@@ -4622,6 +4654,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4792,6 +4825,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4962,6 +4996,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5132,6 +5167,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5302,6 +5338,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5472,6 +5509,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5642,6 +5680,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5812,6 +5851,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -7182,7 +7222,11 @@ class _InsuranceRequestEditPageWidgetState
                                       child: Text(
                                         'รูปหางพ่วงแต่ละตำแหน่ง',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                     Padding(
@@ -7226,6 +7270,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -7396,6 +7441,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -7566,6 +7612,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -7736,6 +7783,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -7906,6 +7954,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -8076,6 +8125,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -8246,6 +8296,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -8416,6 +8467,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -8563,6 +8615,7 @@ class _InsuranceRequestEditPageWidgetState
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ),
@@ -8615,6 +8668,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -8762,6 +8816,7 @@ class _InsuranceRequestEditPageWidgetState
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -8803,6 +8858,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -8950,6 +9006,7 @@ class _InsuranceRequestEditPageWidgetState
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -8988,6 +9045,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -9135,6 +9193,7 @@ class _InsuranceRequestEditPageWidgetState
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -9158,6 +9217,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 10.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -9319,6 +9379,8 @@ class _InsuranceRequestEditPageWidgetState
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -9338,15 +9400,15 @@ class _InsuranceRequestEditPageWidgetState
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'เอกสารอื่นๆ 2',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 10.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -9507,6 +9569,8 @@ class _InsuranceRequestEditPageWidgetState
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -9526,15 +9590,15 @@ class _InsuranceRequestEditPageWidgetState
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'เอกสารอื่นๆ 3',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 10.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -9695,6 +9759,8 @@ class _InsuranceRequestEditPageWidgetState
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -9714,15 +9780,15 @@ class _InsuranceRequestEditPageWidgetState
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'เอกสารอื่นๆ 4',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 10.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -9883,6 +9949,8 @@ class _InsuranceRequestEditPageWidgetState
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -9902,15 +9970,15 @@ class _InsuranceRequestEditPageWidgetState
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'เอกสารอื่นๆ 5',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 10.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 10.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -9970,6 +10038,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -10134,6 +10203,7 @@ class _InsuranceRequestEditPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -10308,6 +10378,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -10436,6 +10507,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -10494,6 +10566,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -10552,6 +10625,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -10610,6 +10684,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -10668,6 +10743,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -11032,6 +11108,7 @@ class _InsuranceRequestEditPageWidgetState
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         elevation: 2.0,
@@ -11090,6 +11167,7 @@ class _InsuranceRequestEditPageWidgetState
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             iconColor: Colors.white,
                                             iconSize: 18.0,
@@ -11107,6 +11185,7 @@ class _InsuranceRequestEditPageWidgetState
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             iconColor: Colors.white,
                                             iconSize: 18.0,
@@ -11167,6 +11246,7 @@ class _InsuranceRequestEditPageWidgetState
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             iconColor: Colors.white,
                                             iconSize: 18.0,
@@ -11184,6 +11264,7 @@ class _InsuranceRequestEditPageWidgetState
                                                     .override(
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             iconColor: Colors.white,
                                             iconSize: 18.0,
@@ -11240,6 +11321,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -11268,16 +11350,21 @@ class _InsuranceRequestEditPageWidgetState
                                                     0.0, 0.0, 0.0, 5.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .insuranceLicenseNoInputController,
+                                                  .insuranceLicenseNoInputTextController,
                                               focusNode: _model
                                                   .insuranceLicenseNoInputFocusNode,
+                                              autofocus: false,
                                               readOnly: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'กรุณากรอก...',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -11333,10 +11420,11 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         lineHeight: 1.0,
                                                       ),
                                               validator: _model
-                                                  .insuranceLicenseNoInputControllerValidator
+                                                  .insuranceLicenseNoInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -11364,6 +11452,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -11412,6 +11501,7 @@ class _InsuranceRequestEditPageWidgetState
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                       hintText: 'กรุณาเลือก...',
@@ -11464,6 +11554,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               iconColor: Colors.white,
                                               iconSize: 18.0,
@@ -11481,6 +11572,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               iconColor: Colors.white,
                                               iconSize: 18.0,
@@ -11552,6 +11644,7 @@ class _InsuranceRequestEditPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 16.0,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           selectedTextStyle:
                                               FlutterFlowTheme.of(context)
@@ -11559,6 +11652,7 @@ class _InsuranceRequestEditPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     fontSize: 16.0,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           buttonPosition:
                                               RadioButtonPosition.left,
@@ -11603,6 +11697,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -11666,6 +11761,12 @@ class _InsuranceRequestEditPageWidgetState
                                                   });
                                                 }
                                               },
+                                              side: BorderSide(
+                                                width: 2,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
                                               activeColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -11709,6 +11810,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -11768,6 +11870,12 @@ class _InsuranceRequestEditPageWidgetState
                                                   });
                                                 }
                                               },
+                                              side: BorderSide(
+                                                width: 2,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
                                               activeColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -11829,6 +11937,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               iconColor: Colors.white,
                                               iconSize: 18.0,
@@ -11846,6 +11955,7 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               iconColor: Colors.white,
                                               iconSize: 18.0,
@@ -11907,6 +12017,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -11937,16 +12048,21 @@ class _InsuranceRequestEditPageWidgetState
                                                     0.0, 0.0, 0.0, 5.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .freezeBoxPriceInputController,
+                                                  .freezeBoxPriceInputTextController,
                                               focusNode: _model
                                                   .freezeBoxPriceInputFocusNode,
+                                              autofocus: false,
                                               readOnly: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'กรุณากรอก...',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -12002,10 +12118,11 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         lineHeight: 1.0,
                                                       ),
                                               validator: _model
-                                                  .freezeBoxPriceInputControllerValidator
+                                                  .freezeBoxPriceInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -12032,6 +12149,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -12054,12 +12172,12 @@ class _InsuranceRequestEditPageWidgetState
                                                   0.0, 0.0, 0.0, 5.0),
                                           child: TextFormField(
                                             controller:
-                                                _model.brandInputController,
+                                                _model.brandInputTextController,
                                             focusNode:
                                                 _model.brandInputFocusNode,
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
-                                              '_model.brandInputController',
+                                              '_model.brandInputTextController',
                                               Duration(milliseconds: 2000),
                                               () async {
                                                 setState(() {
@@ -12079,20 +12197,25 @@ class _InsuranceRequestEditPageWidgetState
                                                                   .insuranceBasicBrandNameList
                                                                   .toList(),
                                                               _model
-                                                                  .brandInputController
+                                                                  .brandInputTextController
                                                                   .text))
                                                       .toList()
                                                       .cast<String>();
                                                 });
                                               },
                                             ),
+                                            autofocus: false,
                                             readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'กรุณากรอก...',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -12142,10 +12265,11 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   lineHeight: 1.0,
                                                 ),
                                             validator: _model
-                                                .brandInputControllerValidator
+                                                .brandInputTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -12173,6 +12297,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -12193,16 +12318,21 @@ class _InsuranceRequestEditPageWidgetState
                                                   0.0, 0.0, 0.0, 5.0),
                                           child: TextFormField(
                                             controller:
-                                                _model.modelInputController,
+                                                _model.modelInputTextController,
                                             focusNode:
                                                 _model.modelInputFocusNode,
+                                            autofocus: false,
                                             readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'กรุณากรอก...',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -12252,10 +12382,11 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   lineHeight: 1.0,
                                                 ),
                                             validator: _model
-                                                .modelInputControllerValidator
+                                                .modelInputTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -12285,6 +12416,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -12307,16 +12439,21 @@ class _InsuranceRequestEditPageWidgetState
                                                     0.0, 0.0, 0.0, 5.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .truckCurrentPriceInputController,
+                                                  .truckCurrentPriceInputTextController,
                                               focusNode: _model
                                                   .truckCurrentPriceInputFocusNode,
+                                              autofocus: false,
                                               readOnly: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'กรุณากรอก...',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -12372,12 +12509,13 @@ class _InsuranceRequestEditPageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         lineHeight: 1.0,
                                                       ),
                                               keyboardType:
                                                   TextInputType.number,
                                               validator: _model
-                                                  .truckCurrentPriceInputControllerValidator
+                                                  .truckCurrentPriceInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -12411,6 +12549,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                   .of(context)
                                                               .black600,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -12425,7 +12564,11 @@ class _InsuranceRequestEditPageWidgetState
                                               )
                                             ],
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       if (widget.carType ==
@@ -12446,6 +12589,7 @@ class _InsuranceRequestEditPageWidgetState
                                                                   .of(context)
                                                               .black600,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -12460,7 +12604,11 @@ class _InsuranceRequestEditPageWidgetState
                                               )
                                             ],
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                     ],
@@ -12481,16 +12629,17 @@ class _InsuranceRequestEditPageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 5.0),
                                             child: TextFormField(
-                                              controller:
-                                                  _model.plateInputController,
+                                              controller: _model
+                                                  .plateInputTextController,
                                               focusNode:
                                                   _model.plateInputFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.plateInputController',
+                                                '_model.plateInputTextController',
                                                 Duration(milliseconds: 2000),
                                                 () async {},
                                               ),
+                                              autofocus: false,
                                               textCapitalization:
                                                   TextCapitalization.none,
                                               readOnly: true,
@@ -12500,7 +12649,11 @@ class _InsuranceRequestEditPageWidgetState
                                                     'เลขทะเบียนรถ เช่น กก-1234',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -12558,11 +12711,12 @@ class _InsuranceRequestEditPageWidgetState
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               validator: _model
-                                                  .plateInputControllerValidator
+                                                  .plateInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -12599,6 +12753,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -12627,22 +12782,27 @@ class _InsuranceRequestEditPageWidgetState
                                                     0.0, 0.0, 0.0, 5.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .plateAdditionalInputController,
+                                                  .plateAdditionalInputTextController,
                                               focusNode: _model
                                                   .plateAdditionalInputFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.plateAdditionalInputController',
+                                                '_model.plateAdditionalInputTextController',
                                                 Duration(milliseconds: 2000),
                                                 () async {},
                                               ),
+                                              autofocus: false,
                                               readOnly: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'กรุณากรอก...',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -12700,11 +12860,12 @@ class _InsuranceRequestEditPageWidgetState
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               validator: _model
-                                                  .plateAdditionalInputControllerValidator
+                                                  .plateAdditionalInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -12732,6 +12893,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -12771,6 +12933,7 @@ class _InsuranceRequestEditPageWidgetState
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                       hintText: 'กรุณาเลือก...',
@@ -12806,6 +12969,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -12841,7 +13005,11 @@ class _InsuranceRequestEditPageWidgetState
                                           ),
                                           searchTextStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMedium,
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
@@ -12849,6 +13017,7 @@ class _InsuranceRequestEditPageWidgetState
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -12888,6 +13057,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -12948,6 +13118,7 @@ class _InsuranceRequestEditPageWidgetState
                                                     fontFamily: 'Poppins',
                                                     color: Colors.black,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
@@ -12989,6 +13160,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -13009,16 +13181,21 @@ class _InsuranceRequestEditPageWidgetState
                                                     0.0, 0.0, 0.0, 5.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .logistPoposeInputController,
+                                                  .logistPoposeInputTextController,
                                               focusNode: _model
                                                   .logistPoposeInputFocusNode,
+                                              autofocus: false,
                                               readOnly: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'กรุณากรอก...',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -13076,11 +13253,12 @@ class _InsuranceRequestEditPageWidgetState
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               validator: _model
-                                                  .logistPoposeInputControllerValidator
+                                                  .logistPoposeInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -13107,6 +13285,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -13163,6 +13342,11 @@ class _InsuranceRequestEditPageWidgetState
                                               });
                                             }
                                           },
+                                          side: BorderSide(
+                                            width: 2,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                          ),
                                           activeColor:
                                               FlutterFlowTheme.of(context)
                                                   .primary,
@@ -13198,6 +13382,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           )),
                                         ),
@@ -13222,16 +13407,21 @@ class _InsuranceRequestEditPageWidgetState
                                                     0.0, 0.0, 0.0, 5.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .accessoryProtectedInputController,
+                                                  .accessoryProtectedInputTextController,
                                               focusNode: _model
                                                   .accessoryProtectedInputFocusNode,
+                                              autofocus: false,
                                               readOnly: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 hintText: 'กรุณากรอก...',
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall,
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -13289,11 +13479,12 @@ class _InsuranceRequestEditPageWidgetState
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                               validator: _model
-                                                  .accessoryProtectedInputControllerValidator
+                                                  .accessoryProtectedInputTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -13325,6 +13516,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -13344,16 +13536,21 @@ class _InsuranceRequestEditPageWidgetState
                                                   0.0, 0.0, 0.0, 5.0),
                                           child: TextFormField(
                                             controller:
-                                                _model.nameInputController,
+                                                _model.nameInputTextController,
                                             focusNode:
                                                 _model.nameInputFocusNode,
+                                            autofocus: false,
                                             readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'กรุณากรอก...',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -13403,10 +13600,11 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   lineHeight: 1.0,
                                                 ),
                                             validator: _model
-                                                .nameInputControllerValidator
+                                                .nameInputTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -13438,6 +13636,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -13456,17 +13655,22 @@ class _InsuranceRequestEditPageWidgetState
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 5.0),
                                           child: TextFormField(
-                                            controller:
-                                                _model.lastnameInputController,
+                                            controller: _model
+                                                .lastnameInputTextController,
                                             focusNode:
                                                 _model.lastnameInputFocusNode,
+                                            autofocus: false,
                                             readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'กรุณากรอก...',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -13517,10 +13721,11 @@ class _InsuranceRequestEditPageWidgetState
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFF0A0A0A),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             validator: _model
-                                                .lastnameInputControllerValidator
+                                                .lastnameInputTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -13547,6 +13752,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -13566,16 +13772,21 @@ class _InsuranceRequestEditPageWidgetState
                                                   0.0, 0.0, 0.0, 5.0),
                                           child: TextFormField(
                                             controller:
-                                                _model.phoneInputController,
+                                                _model.phoneInputTextController,
                                             focusNode:
                                                 _model.phoneInputFocusNode,
+                                            autofocus: false,
                                             readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'กรุณากรอก...',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -13626,11 +13837,12 @@ class _InsuranceRequestEditPageWidgetState
                                                   fontFamily: 'Poppins',
                                                   color: Color(0xFF0A0A0A),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             keyboardType: TextInputType.phone,
                                             validator: _model
-                                                .phoneInputControllerValidator
+                                                .phoneInputTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -13657,6 +13869,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -13671,15 +13884,21 @@ class _InsuranceRequestEditPageWidgetState
                                     children: [
                                       Expanded(
                                         child: TextFormField(
-                                          controller: _model.idInputController,
+                                          controller:
+                                              _model.idInputTextController,
                                           focusNode: _model.idInputFocusNode,
+                                          autofocus: false,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -13727,11 +13946,12 @@ class _InsuranceRequestEditPageWidgetState
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF0A0A0A),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           keyboardType: TextInputType.phone,
                                           validator: _model
-                                              .idInputControllerValidator
+                                              .idInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -13757,6 +13977,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         )),
                                       ),
@@ -13772,16 +13993,21 @@ class _InsuranceRequestEditPageWidgetState
                                       Expanded(
                                         child: TextFormField(
                                           controller:
-                                              _model.remarkInputController,
+                                              _model.remarkInputTextController,
                                           focusNode:
                                               _model.remarkInputFocusNode,
+                                          autofocus: false,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -13829,10 +14055,11 @@ class _InsuranceRequestEditPageWidgetState
                                                 fontFamily: 'Poppins',
                                                 color: Color(0xFF0A0A0A),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           validator: _model
-                                              .remarkInputControllerValidator
+                                              .remarkInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -13869,6 +14096,7 @@ class _InsuranceRequestEditPageWidgetState
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       )),
                                     ),
@@ -13908,6 +14136,7 @@ class _InsuranceRequestEditPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                       buttonPosition: RadioButtonPosition.left,
@@ -13956,6 +14185,7 @@ class _InsuranceRequestEditPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           iconColor: Colors.white,
                                           iconSize: 18.0,
@@ -13973,6 +14203,7 @@ class _InsuranceRequestEditPageWidgetState
                                                   .override(
                                                     fontFamily: 'Poppins',
                                                     color: Colors.white,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           iconColor: Colors.white,
                                           iconSize: 18.0,
@@ -14017,6 +14248,7 @@ class _InsuranceRequestEditPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                     Theme(
@@ -14065,6 +14297,11 @@ class _InsuranceRequestEditPageWidgetState
                                             });
                                           }
                                         },
+                                        side: BorderSide(
+                                          width: 2,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
                                         activeColor:
                                             FlutterFlowTheme.of(context)
                                                 .primary,
@@ -14092,6 +14329,7 @@ class _InsuranceRequestEditPageWidgetState
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -14110,17 +14348,22 @@ class _InsuranceRequestEditPageWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 5.0),
                                         child: TextFormField(
-                                          controller:
-                                              _model.sumInsuredInputController,
+                                          controller: _model
+                                              .sumInsuredInputTextController,
                                           focusNode:
                                               _model.sumInsuredInputFocusNode,
+                                          autofocus: false,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             hintText: 'กรุณากรอก...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
                                                 color:
@@ -14167,10 +14410,11 @@ class _InsuranceRequestEditPageWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 lineHeight: 1.0,
                                               ),
                                           validator: _model
-                                              .sumInsuredInputControllerValidator
+                                              .sumInsuredInputTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -14196,6 +14440,7 @@ class _InsuranceRequestEditPageWidgetState
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -14219,16 +14464,21 @@ class _InsuranceRequestEditPageWidgetState
                                                   0.0, 0.0, 0.0, 5.0),
                                           child: TextFormField(
                                             controller: _model
-                                                .trailerSumInsuredInputController,
+                                                .trailerSumInsuredInputTextController,
                                             focusNode: _model
                                                 .trailerSumInsuredInputFocusNode,
+                                            autofocus: false,
                                             readOnly: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               hintText: 'กรุณากรอก...',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodySmall,
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               enabledBorder:
                                                   UnderlineInputBorder(
                                                 borderSide: BorderSide(
@@ -14278,10 +14528,11 @@ class _InsuranceRequestEditPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   lineHeight: 1.0,
                                                 ),
                                             validator: _model
-                                                .trailerSumInsuredInputControllerValidator
+                                                .trailerSumInsuredInputTextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),

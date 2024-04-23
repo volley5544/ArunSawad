@@ -43,7 +43,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
       });
     });
 
-    _model.planInsuranceController ??=
+    _model.planInsuranceTextController ??=
         TextEditingController(text: widget.planInsurance);
     _model.planInsuranceFocusNode ??= FocusNode();
 
@@ -138,6 +138,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -180,6 +181,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -192,7 +194,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         0.0, 0.0, 0.0, 5.0),
                                     child: TextFormField(
                                       controller:
-                                          _model.planInsuranceController,
+                                          _model.planInsuranceTextController,
                                       focusNode: _model.planInsuranceFocusNode,
                                       autofocus: true,
                                       readOnly: true,
@@ -200,7 +202,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       decoration: InputDecoration(
                                         hintText: widget.planInsurance,
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -246,11 +252,12 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 13.0,
+                                            letterSpacing: 0.0,
                                             lineHeight: 1.0,
                                           ),
                                       textAlign: TextAlign.center,
                                       validator: _model
-                                          .planInsuranceControllerValidator
+                                          .planInsuranceTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -276,6 +283,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -294,7 +302,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintText:
                                             FFAppState().insurancePlan1[0],
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -340,6 +352,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 13.0,
+                                            letterSpacing: 0.0,
                                             lineHeight: 1.0,
                                           ),
                                       textAlign: TextAlign.center,
@@ -369,6 +382,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -387,7 +401,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintText:
                                             FFAppState().insurancePlan1[1],
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -433,6 +451,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 13.0,
+                                            letterSpacing: 0.0,
                                             lineHeight: 1.0,
                                           ),
                                       textAlign: TextAlign.center,
@@ -462,6 +481,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -480,7 +500,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintText:
                                             FFAppState().insurancePlan1[2],
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -526,6 +550,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 13.0,
+                                            letterSpacing: 0.0,
                                             lineHeight: 1.0,
                                           ),
                                       textAlign: TextAlign.center,
@@ -555,6 +580,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   )),
                                 ),
@@ -573,7 +599,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                         hintText:
                                             FFAppState().insurancePlan1[3],
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: FlutterFlowTheme.of(context)
@@ -619,6 +649,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 13.0,
+                                            letterSpacing: 0.0,
                                             lineHeight: 1.0,
                                           ),
                                       textAlign: TextAlign.center,
@@ -630,9 +661,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                               ],
                             ),
                           ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 10.0, 5.0),
@@ -651,6 +683,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -670,7 +703,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[4],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -717,6 +754,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               lineHeight: 1.0,
                                             ),
                                         textAlign: TextAlign.center,
@@ -729,9 +767,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -750,6 +789,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -769,7 +809,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[5],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -816,6 +860,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -829,9 +874,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -850,6 +896,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -869,7 +916,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[6],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -916,6 +967,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -929,9 +981,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -950,6 +1003,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -969,7 +1023,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[7],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1016,6 +1074,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -1029,9 +1088,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -1051,6 +1111,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1070,7 +1131,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[8],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1117,6 +1182,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -1130,9 +1196,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -1151,6 +1218,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1170,7 +1238,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[9],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1217,6 +1289,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -1230,9 +1303,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -1251,6 +1325,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1270,7 +1345,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[10],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1317,6 +1396,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -1330,9 +1410,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -1351,6 +1432,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1370,7 +1452,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[11],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1417,6 +1503,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -1430,9 +1517,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 5.0),
@@ -1451,6 +1539,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1470,7 +1559,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[12],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1517,6 +1610,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -1530,9 +1624,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 15.0),
@@ -1551,6 +1646,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1570,7 +1666,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[13],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1617,6 +1717,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),
@@ -1630,9 +1731,10 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                 ],
                               ),
                             ),
-                          if ((_model.planInsuranceController.text !=
+                          if ((_model.planInsuranceTextController.text !=
                                   'แผน 1') &&
-                              (_model.planInsuranceController.text != 'แผน 2'))
+                              (_model.planInsuranceTextController.text !=
+                                  'แผน 2'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 10.0, 60.0),
@@ -1651,6 +1753,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1670,7 +1773,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                               FFAppState().insurancePlan1[14],
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1717,6 +1824,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 13.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w100,
                                               lineHeight: 1.0,
                                             ),

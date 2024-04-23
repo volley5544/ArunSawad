@@ -40,9 +40,9 @@ class WelfareKPICEOPageModel extends FlutterFlowModel<WelfareKPICEOPageWidget> {
   // State field(s) for branchInput widget.
   final branchInputKey = GlobalKey();
   FocusNode? branchInputFocusNode;
-  TextEditingController? branchInputController;
+  TextEditingController? branchInputTextController;
   String? branchInputSelectedOption;
-  String? Function(BuildContext, String?)? branchInputControllerValidator;
+  String? Function(BuildContext, String?)? branchInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (getBranchAPI)] action in IconButton widget.
   ApiCallResponse? getBranchSearched;
   // Stores action output result for [Backend Call - API (getWelfareKpiCEOAPI)] action in IconButton widget.
@@ -59,8 +59,6 @@ class WelfareKPICEOPageModel extends FlutterFlowModel<WelfareKPICEOPageWidget> {
   set choiceChipsMonthValue(String? val) =>
       choiceChipsMonthValueController?.value = val != null ? [val] : [];
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -69,8 +67,4 @@ class WelfareKPICEOPageModel extends FlutterFlowModel<WelfareKPICEOPageWidget> {
     unfocusNode.dispose();
     branchInputFocusNode?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

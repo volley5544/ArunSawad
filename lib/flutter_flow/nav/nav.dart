@@ -94,9 +94,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'LoginPage',
               path: 'loginPage',
               builder: (context, params) => LoginPageWidget(
-                apiURL: params.getParam('apiURL', ParamType.DocumentReference,
-                    false, ['Key_Storage']),
-                token: params.getParam('token', ParamType.String),
+                apiURL: params.getParam(
+                  'apiURL',
+                  ParamType.DocumentReference,
+                  false,
+                  ['Key_Storage'],
+                ),
+                token: params.getParam(
+                  'token',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -113,31 +120,70 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Dashboard',
               path: 'dashboard',
               builder: (context, params) => DashboardWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
+                jwtToken: params.getParam(
+                  'jwtToken',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'CheckInPage',
               path: 'checkInPage',
               builder: (context, params) => CheckInPageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
               name: 'SurveyPage',
               path: 'surveyPage',
               builder: (context, params) => SurveyPageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                description: params.getParam('description', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                customerName: params.getParam('customerName', ParamType.String),
-                landmark: params.getParam('landmark', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                description: params.getParam(
+                  'description',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                customerName: params.getParam(
+                  'customerName',
+                  ParamType.String,
+                ),
+                landmark: params.getParam(
+                  'landmark',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
@@ -146,7 +192,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'SuperAppPage')
                   : SuperAppPageWidget(
-                      dailyText: params.getParam('dailyText', ParamType.String),
+                      dailyText: params.getParam(
+                        'dailyText',
+                        ParamType.String,
+                      ),
                     ),
             ),
             FFRoute(
@@ -165,72 +214,177 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'LeadNotiPage',
               path: 'leadNotiPage',
               builder: (context, params) => LeadNotiPageWidget(
-                color: params.getParam<Color>('color', ParamType.Color, true),
+                color: params.getParam<Color>(
+                  'color',
+                  ParamType.Color,
+                  true,
+                ),
               ),
             ),
             FFRoute(
               name: 'CollectionPage',
               path: 'collectionPage',
               builder: (context, params) => CollectionPageWidget(
-                coordinate: params.getParam('coordinate', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                contNo: params.getParam('contNo', ParamType.String),
-                customerName: params.getParam('customerName', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                recordId: params.getParam('recordId', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+                customerName: params.getParam(
+                  'customerName',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
               name: 'MarketingPage',
               path: 'marketingPage',
               builder: (context, params) => MarketingPageWidget(
-                coordinate: params.getParam('coordinate', ParamType.String),
-                branchCode: params.getParam('branchCode', ParamType.String),
-                area: params.getParam('area', ParamType.String),
-                detail: params.getParam('detail', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                recordId: params.getParam('recordId', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                branchCode: params.getParam(
+                  'branchCode',
+                  ParamType.String,
+                ),
+                area: params.getParam(
+                  'area',
+                  ParamType.String,
+                ),
+                detail: params.getParam(
+                  'detail',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
               name: 'OPSpage',
               path: 'oPSpage',
               builder: (context, params) => OPSpageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                branchCode: params.getParam('branchCode', ParamType.String),
-                asset: params.getParam('asset', ParamType.String),
-                assetType: params.getParam('assetType', ParamType.String),
-                carPlateNo: params.getParam('carPlateNo', ParamType.String),
-                signboardStatus:
-                    params.getParam('signboardStatus', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                branchCode: params.getParam(
+                  'branchCode',
+                  ParamType.String,
+                ),
+                asset: params.getParam(
+                  'asset',
+                  ParamType.String,
+                ),
+                assetType: params.getParam(
+                  'assetType',
+                  ParamType.String,
+                ),
+                carPlateNo: params.getParam(
+                  'carPlateNo',
+                  ParamType.String,
+                ),
+                signboardStatus: params.getParam(
+                  'signboardStatus',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'CheckerPage',
               path: 'checkerPage',
               builder: (context, params) => CheckerPageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                contNo: params.getParam('contNo', ParamType.String),
-                customerName: params.getParam('customerName', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+                customerName: params.getParam(
+                  'customerName',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
               name: 'NPApage',
               path: 'nPApage',
               builder: (context, params) => NPApageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                assetId: params.getParam('assetId', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                assetId: params.getParam(
+                  'assetId',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
@@ -252,10 +406,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'FormServicePage',
               path: 'formServicePage',
               builder: (context, params) => FormServicePageWidget(
-                formServiceName:
-                    params.getParam('formServiceName', ParamType.String),
-                formServiceUrl:
-                    params.getParam('formServiceUrl', ParamType.String),
+                formServiceName: params.getParam(
+                  'formServiceName',
+                  ParamType.String,
+                ),
+                formServiceUrl: params.getParam(
+                  'formServiceUrl',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -292,14 +450,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'ReportITSupport',
               path: 'reportITSupport',
               builder: (context, params) => ReportITSupportWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                description: params.getParam('description', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                customerName: params.getParam('customerName', ParamType.String),
-                landmark: params.getParam('landmark', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                description: params.getParam(
+                  'description',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                customerName: params.getParam(
+                  'customerName',
+                  ParamType.String,
+                ),
+                landmark: params.getParam(
+                  'landmark',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
@@ -311,17 +493,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SuccessCheckinPage',
               path: 'successCheckinPage',
               builder: (context, params) => SuccessCheckinPageWidget(
-                checkinPhoto: params.getParam('checkinPhoto', ParamType.String),
+                checkinPhoto: params.getParam(
+                  'checkinPhoto',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'EmpolyeeCheckIn',
               path: 'empolyeeCheckIn',
               builder: (context, params) => EmpolyeeCheckInWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
@@ -333,14 +530,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'AddLeavePage',
               path: 'addLeavePage',
               builder: (context, params) => AddLeavePageWidget(
-                leaveType: params.getParam('leaveType', ParamType.String),
+                leaveType: params.getParam(
+                  'leaveType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'CancelPage',
               path: 'cancelPage',
               builder: (context, params) => CancelPageWidget(
-                leaveId: params.getParam('leaveId', ParamType.String),
+                leaveId: params.getParam(
+                  'leaveId',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -357,12 +560,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Check_1InsurancePage',
               path: 'check1InsurancePage',
               builder: (context, params) => Check1InsurancePageWidget(
-                brandCode: params.getParam('brandCode', ParamType.String),
-                modelCode: params.getParam('modelCode', ParamType.String),
-                year: params.getParam('year', ParamType.String),
-                province: params.getParam('province', ParamType.String),
-                driver: params.getParam('driver', ParamType.String),
-                vehicleUsage: params.getParam('vehicleUsage', ParamType.String),
+                brandCode: params.getParam(
+                  'brandCode',
+                  ParamType.String,
+                ),
+                modelCode: params.getParam(
+                  'modelCode',
+                  ParamType.String,
+                ),
+                year: params.getParam(
+                  'year',
+                  ParamType.String,
+                ),
+                province: params.getParam(
+                  'province',
+                  ParamType.String,
+                ),
+                driver: params.getParam(
+                  'driver',
+                  ParamType.String,
+                ),
+                vehicleUsage: params.getParam(
+                  'vehicleUsage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -374,17 +595,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'InfoCheckin',
               path: 'infoCheckin',
               builder: (context, params) => InfoCheckinWidget(
-                checkinLocation:
-                    params.getParam('checkinLocation', ParamType.LatLng),
-                date: params.getParam('date', ParamType.String),
-                checkinTime: params.getParam('checkinTime', ParamType.String),
-                checkoutTime: params.getParam('checkoutTime', ParamType.String),
-                status: params.getParam('status', ParamType.String),
-                colorStatus: params.getParam('colorStatus', ParamType.Color),
-                checkinLatitude:
-                    params.getParam('checkinLatitude', ParamType.String),
-                checkinLongitude:
-                    params.getParam('checkinLongitude', ParamType.String),
+                checkinLocation: params.getParam(
+                  'checkinLocation',
+                  ParamType.LatLng,
+                ),
+                date: params.getParam(
+                  'date',
+                  ParamType.String,
+                ),
+                checkinTime: params.getParam(
+                  'checkinTime',
+                  ParamType.String,
+                ),
+                checkoutTime: params.getParam(
+                  'checkoutTime',
+                  ParamType.String,
+                ),
+                status: params.getParam(
+                  'status',
+                  ParamType.String,
+                ),
+                colorStatus: params.getParam(
+                  'colorStatus',
+                  ParamType.Color,
+                ),
+                checkinLatitude: params.getParam(
+                  'checkinLatitude',
+                  ParamType.String,
+                ),
+                checkinLongitude: params.getParam(
+                  'checkinLongitude',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -401,51 +643,112 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'DetailInsurancePage',
               path: 'detailInsurancePage',
               builder: (context, params) => DetailInsurancePageWidget(
-                fullName: params.getParam('fullName', ParamType.String),
-                coverType: params.getParam('coverType', ParamType.String),
-                garageType: params.getParam('garageType', ParamType.String),
-                grossTotal: params.getParam('grossTotal', ParamType.String),
-                sumInsured: params.getParam('sumInsured', ParamType.String),
-                tppd: params.getParam('tppd', ParamType.String),
-                pa: params.getParam('pa', ParamType.String),
-                actAmount: params.getParam('actAmount', ParamType.String),
-                expiryDate: params.getParam('expiryDate', ParamType.String),
+                fullName: params.getParam(
+                  'fullName',
+                  ParamType.String,
+                ),
+                coverType: params.getParam(
+                  'coverType',
+                  ParamType.String,
+                ),
+                garageType: params.getParam(
+                  'garageType',
+                  ParamType.String,
+                ),
+                grossTotal: params.getParam(
+                  'grossTotal',
+                  ParamType.String,
+                ),
+                sumInsured: params.getParam(
+                  'sumInsured',
+                  ParamType.String,
+                ),
+                tppd: params.getParam(
+                  'tppd',
+                  ParamType.String,
+                ),
+                pa: params.getParam(
+                  'pa',
+                  ParamType.String,
+                ),
+                actAmount: params.getParam(
+                  'actAmount',
+                  ParamType.String,
+                ),
+                expiryDate: params.getParam(
+                  'expiryDate',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'DashboardITSupport',
               path: 'dashboardITSupport',
               builder: (context, params) => DashboardITSupportWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
+                jwtToken: params.getParam(
+                  'jwtToken',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'CheckInStatusPage',
               path: 'checkInStatusPage',
               builder: (context, params) => CheckInStatusPageWidget(
-                checkinImage: params.getParam('checkinImage', ParamType.String),
-                date: params.getParam<String>('date', ParamType.String, true),
+                checkinImage: params.getParam(
+                  'checkinImage',
+                  ParamType.String,
+                ),
+                date: params.getParam<String>(
+                  'date',
+                  ParamType.String,
+                  true,
+                ),
                 checkinTimeIn: params.getParam<String>(
-                    'checkinTimeIn', ParamType.String, true),
+                  'checkinTimeIn',
+                  ParamType.String,
+                  true,
+                ),
                 checkinTimeOut: params.getParam<String>(
-                    'checkinTimeOut', ParamType.String, true),
+                  'checkinTimeOut',
+                  ParamType.String,
+                  true,
+                ),
                 checkinLastMonthDate: params.getParam<String>(
-                    'checkinLastMonthDate', ParamType.String, true),
+                  'checkinLastMonthDate',
+                  ParamType.String,
+                  true,
+                ),
                 checkinLastMonthTimeIn: params.getParam<String>(
-                    'checkinLastMonthTimeIn', ParamType.String, true),
+                  'checkinLastMonthTimeIn',
+                  ParamType.String,
+                  true,
+                ),
                 checkinLastMonthTimeOut: params.getParam<String>(
-                    'checkinLastMonthTimeOut', ParamType.String, true),
+                  'checkinLastMonthTimeOut',
+                  ParamType.String,
+                  true,
+                ),
                 holidayDate: params.getParam<String>(
-                    'holidayDate', ParamType.String, true),
+                  'holidayDate',
+                  ParamType.String,
+                  true,
+                ),
                 holidayName: params.getParam<String>(
-                    'holidayName', ParamType.String, true),
+                  'holidayName',
+                  ParamType.String,
+                  true,
+                ),
               ),
             ),
             FFRoute(
               name: 'CategorySupport',
               path: 'categorySupport',
               builder: (context, params) => CategorySupportWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
+                jwtToken: params.getParam(
+                  'jwtToken',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -462,14 +765,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'CheckInStatusPageCopy',
               path: 'checkInStatusPageCopy',
               builder: (context, params) => CheckInStatusPageCopyWidget(
-                checkinImage: params.getParam('checkinImage', ParamType.String),
+                checkinImage: params.getParam(
+                  'checkinImage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'DashboardCheckin',
               path: 'dashboardCheckin',
               builder: (context, params) => DashboardCheckinWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
+                jwtToken: params.getParam(
+                  'jwtToken',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -491,31 +800,80 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'AddResignPage',
               path: 'addResignPage',
               builder: (context, params) => AddResignPageWidget(
-                isFromDashboard:
-                    params.getParam('isFromDashboard', ParamType.bool),
-                endDate: params.getParam('endDate', ParamType.String),
-                resignReason: params.getParam('resignReason', ParamType.String),
-                resignReasonEtc:
-                    params.getParam('resignReasonEtc', ParamType.String),
-                leaveReason: params.getParam('leaveReason', ParamType.String),
-                privince: params.getParam('privince', ParamType.String),
-                district: params.getParam('district', ParamType.String),
-                postCode: params.getParam('postCode', ParamType.String),
-                batchRoad: params.getParam('batchRoad', ParamType.String),
-                phone: params.getParam('phone', ParamType.String),
-                willComeBack: params.getParam('willComeBack', ParamType.String),
-                asset: params.getParam('asset', ParamType.String),
-                assetEtc: params.getParam('assetEtc', ParamType.String),
-                subdistrict: params.getParam('subdistrict', ParamType.String),
-                leaveListId: params.getParam('leaveListId', ParamType.String),
+                isFromDashboard: params.getParam(
+                  'isFromDashboard',
+                  ParamType.bool,
+                ),
+                endDate: params.getParam(
+                  'endDate',
+                  ParamType.String,
+                ),
+                resignReason: params.getParam(
+                  'resignReason',
+                  ParamType.String,
+                ),
+                resignReasonEtc: params.getParam(
+                  'resignReasonEtc',
+                  ParamType.String,
+                ),
+                leaveReason: params.getParam(
+                  'leaveReason',
+                  ParamType.String,
+                ),
+                privince: params.getParam(
+                  'privince',
+                  ParamType.String,
+                ),
+                district: params.getParam(
+                  'district',
+                  ParamType.String,
+                ),
+                postCode: params.getParam(
+                  'postCode',
+                  ParamType.String,
+                ),
+                batchRoad: params.getParam(
+                  'batchRoad',
+                  ParamType.String,
+                ),
+                phone: params.getParam(
+                  'phone',
+                  ParamType.String,
+                ),
+                willComeBack: params.getParam(
+                  'willComeBack',
+                  ParamType.String,
+                ),
+                asset: params.getParam(
+                  'asset',
+                  ParamType.String,
+                ),
+                assetEtc: params.getParam(
+                  'assetEtc',
+                  ParamType.String,
+                ),
+                subdistrict: params.getParam(
+                  'subdistrict',
+                  ParamType.String,
+                ),
+                leaveListId: params.getParam(
+                  'leaveListId',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'DashboardLeavePage',
               path: 'dashboardLeavePage',
               builder: (context, params) => DashboardLeavePageWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
-                param1: params.getParam('param1', ParamType.String),
+                jwtToken: params.getParam(
+                  'jwtToken',
+                  ParamType.String,
+                ),
+                param1: params.getParam(
+                  'param1',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -532,23 +890,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'EditLeavePage',
               path: 'editLeavePage',
               builder: (context, params) => EditLeavePageWidget(
-                leaveType: params.getParam('leaveType', ParamType.String),
-                leavePeriod: params.getParam('leavePeriod', ParamType.String),
-                leaveDay: params.getParam('leaveDay', ParamType.String),
-                leaveReason: params.getParam('leaveReason', ParamType.String),
-                leaveListID: params.getParam('leaveListID', ParamType.String),
-                leaveDate: params.getParam('leaveDate', ParamType.String),
-                userPhoneNumber:
-                    params.getParam('userPhoneNumber', ParamType.String),
+                leaveType: params.getParam(
+                  'leaveType',
+                  ParamType.String,
+                ),
+                leavePeriod: params.getParam(
+                  'leavePeriod',
+                  ParamType.String,
+                ),
+                leaveDay: params.getParam(
+                  'leaveDay',
+                  ParamType.String,
+                ),
+                leaveReason: params.getParam(
+                  'leaveReason',
+                  ParamType.String,
+                ),
+                leaveListID: params.getParam(
+                  'leaveListID',
+                  ParamType.String,
+                ),
+                leaveDate: params.getParam(
+                  'leaveDate',
+                  ParamType.String,
+                ),
+                userPhoneNumber: params.getParam(
+                  'userPhoneNumber',
+                  ParamType.String,
+                ),
                 leaveDocumentOld: params.getParam<String>(
-                    'leaveDocumentOld', ParamType.String, true),
+                  'leaveDocumentOld',
+                  ParamType.String,
+                  true,
+                ),
               ),
             ),
             FFRoute(
               name: 'FormItSupport',
               path: 'formItSupport',
               builder: (context, params) => FormItSupportWidget(
-                fixType: params.getParam('fixType', ParamType.String),
+                fixType: params.getParam(
+                  'fixType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -575,8 +959,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'InsurancePlan',
               path: 'insurancePlan',
               builder: (context, params) => InsurancePlanWidget(
-                planInsurance:
-                    params.getParam('planInsurance', ParamType.String),
+                planInsurance: params.getParam(
+                  'planInsurance',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -603,7 +989,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'htmlPage',
               path: 'htmlPage',
               builder: (context, params) => HtmlPageWidget(
-                contentHtml: params.getParam('contentHtml', ParamType.String),
+                contentHtml: params.getParam(
+                  'contentHtml',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -645,7 +1034,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'redeemPointPage',
               path: 'redeemPointPage',
               builder: (context, params) => RedeemPointPageWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
+                jwtToken: params.getParam(
+                  'jwtToken',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -667,18 +1059,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'LifeInsuranceLicenseCardPage',
               path: 'lifeInsuranceLicenseCardPage',
               builder: (context, params) => LifeInsuranceLicenseCardPageWidget(
-                index: params.getParam('index', ParamType.int),
-                insuranceName:
-                    params.getParam('insuranceName', ParamType.String),
-                insuranceType:
-                    params.getParam('insuranceType', ParamType.String),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
+                insuranceName: params.getParam(
+                  'insuranceName',
+                  ParamType.String,
+                ),
+                insuranceType: params.getParam(
+                  'insuranceType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'ChangeLatLngPageWeb',
               path: 'changeLatLngPageWeb',
               builder: (context, params) => ChangeLatLngPageWebWidget(
-                token: params.getParam('token', ParamType.String),
+                token: params.getParam(
+                  'token',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -695,15 +1097,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'ChattingPage',
               path: 'chattingPage',
               builder: (context, params) => ChattingPageWidget(
-                userBProfileImage:
-                    params.getParam('userBProfileImage', ParamType.String),
-                userBDocRef: params.getParam('userBDocRef',
-                    ParamType.DocumentReference, false, ['user_custom']),
-                userBName: params.getParam('userBName', ParamType.String),
-                userBNickname:
-                    params.getParam('userBNickname', ParamType.String),
-                userBEmployeeId:
-                    params.getParam('userBEmployeeId', ParamType.String),
+                userBProfileImage: params.getParam(
+                  'userBProfileImage',
+                  ParamType.String,
+                ),
+                userBDocRef: params.getParam(
+                  'userBDocRef',
+                  ParamType.DocumentReference,
+                  false,
+                  ['user_custom'],
+                ),
+                userBName: params.getParam(
+                  'userBName',
+                  ParamType.String,
+                ),
+                userBNickname: params.getParam(
+                  'userBNickname',
+                  ParamType.String,
+                ),
+                userBEmployeeId: params.getParam(
+                  'userBEmployeeId',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -730,103 +1145,263 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'InsuranceRequestDashboardPage',
               path: 'insuranceRequestDashboardPage',
               builder: (context, params) => InsuranceRequestDashboardPageWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
+                jwtToken: params.getParam(
+                  'jwtToken',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'InsuranceRequestEditPage',
               path: 'InsuranceRequestEditPage',
               builder: (context, params) => InsuranceRequestEditPageWidget(
-                leadId: params.getParam('leadId', ParamType.String),
-                leadNo: params.getParam('leadNo', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                firstname: params.getParam('firstname', ParamType.String),
-                lastname: params.getParam('lastname', ParamType.String),
-                phoneNumber: params.getParam('phoneNumber', ParamType.String),
-                carType: params.getParam('carType', ParamType.String),
-                brandName: params.getParam('brandName', ParamType.String),
-                modelName: params.getParam('modelName', ParamType.String),
-                provinceName: params.getParam('provinceName', ParamType.String),
-                plateNo: params.getParam('plateNo', ParamType.String),
-                year: params.getParam('year', ParamType.String),
-                vehicleTypeCode:
-                    params.getParam('vehicleTypeCode', ParamType.String),
-                flagRenew: params.getParam('flagRenew', ParamType.String),
-                oldVmiPolicyNumber:
-                    params.getParam('oldVmiPolicyNumber', ParamType.String),
-                flagDecoration:
-                    params.getParam('flagDecoration', ParamType.String),
-                decorationDetail:
-                    params.getParam('decorationDetail', ParamType.String),
-                flagCarrier: params.getParam('flagCarrier', ParamType.String),
-                flagCoop: params.getParam('flagCoop', ParamType.String),
-                carrierType: params.getParam('carrierType', ParamType.String),
-                carrierPrice: params.getParam('carrierPrice', ParamType.String),
-                customerType: params.getParam('customerType', ParamType.String),
-                truckPart: params.getParam('truckPart', ParamType.String),
-                customerMemberchip:
-                    params.getParam('customerMemberchip', ParamType.String),
-                trailerPlateNo:
-                    params.getParam('trailerPlateNo', ParamType.String),
-                carrierPropose:
-                    params.getParam('carrierPropose', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                trailerSumInsured:
-                    params.getParam('trailerSumInsured', ParamType.String),
-                flagAct: params.getParam('flagAct', ParamType.String),
-                truckCurrentPrice:
-                    params.getParam('truckCurrentPrice', ParamType.String),
-                sumInsured: params.getParam('sumInsured', ParamType.String),
+                leadId: params.getParam(
+                  'leadId',
+                  ParamType.String,
+                ),
+                leadNo: params.getParam(
+                  'leadNo',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                firstname: params.getParam(
+                  'firstname',
+                  ParamType.String,
+                ),
+                lastname: params.getParam(
+                  'lastname',
+                  ParamType.String,
+                ),
+                phoneNumber: params.getParam(
+                  'phoneNumber',
+                  ParamType.String,
+                ),
+                carType: params.getParam(
+                  'carType',
+                  ParamType.String,
+                ),
+                brandName: params.getParam(
+                  'brandName',
+                  ParamType.String,
+                ),
+                modelName: params.getParam(
+                  'modelName',
+                  ParamType.String,
+                ),
+                provinceName: params.getParam(
+                  'provinceName',
+                  ParamType.String,
+                ),
+                plateNo: params.getParam(
+                  'plateNo',
+                  ParamType.String,
+                ),
+                year: params.getParam(
+                  'year',
+                  ParamType.String,
+                ),
+                vehicleTypeCode: params.getParam(
+                  'vehicleTypeCode',
+                  ParamType.String,
+                ),
+                flagRenew: params.getParam(
+                  'flagRenew',
+                  ParamType.String,
+                ),
+                oldVmiPolicyNumber: params.getParam(
+                  'oldVmiPolicyNumber',
+                  ParamType.String,
+                ),
+                flagDecoration: params.getParam(
+                  'flagDecoration',
+                  ParamType.String,
+                ),
+                decorationDetail: params.getParam(
+                  'decorationDetail',
+                  ParamType.String,
+                ),
+                flagCarrier: params.getParam(
+                  'flagCarrier',
+                  ParamType.String,
+                ),
+                flagCoop: params.getParam(
+                  'flagCoop',
+                  ParamType.String,
+                ),
+                carrierType: params.getParam(
+                  'carrierType',
+                  ParamType.String,
+                ),
+                carrierPrice: params.getParam(
+                  'carrierPrice',
+                  ParamType.String,
+                ),
+                customerType: params.getParam(
+                  'customerType',
+                  ParamType.String,
+                ),
+                truckPart: params.getParam(
+                  'truckPart',
+                  ParamType.String,
+                ),
+                customerMemberchip: params.getParam(
+                  'customerMemberchip',
+                  ParamType.String,
+                ),
+                trailerPlateNo: params.getParam(
+                  'trailerPlateNo',
+                  ParamType.String,
+                ),
+                carrierPropose: params.getParam(
+                  'carrierPropose',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                trailerSumInsured: params.getParam(
+                  'trailerSumInsured',
+                  ParamType.String,
+                ),
+                flagAct: params.getParam(
+                  'flagAct',
+                  ParamType.String,
+                ),
+                truckCurrentPrice: params.getParam(
+                  'truckCurrentPrice',
+                  ParamType.String,
+                ),
+                sumInsured: params.getParam(
+                  'sumInsured',
+                  ParamType.String,
+                ),
                 insurerShortNameList: params.getParam<String>(
-                    'insurerShortNameList', ParamType.String, true),
+                  'insurerShortNameList',
+                  ParamType.String,
+                  true,
+                ),
                 insurerNameList: params.getParam<String>(
-                    'insurerNameList', ParamType.String, true),
-                coverTypeNameList:
-                    params.getParam('coverTypeNameList', ParamType.String),
-                garageTypeName:
-                    params.getParam('garageTypeName', ParamType.String),
+                  'insurerNameList',
+                  ParamType.String,
+                  true,
+                ),
+                coverTypeNameList: params.getParam(
+                  'coverTypeNameList',
+                  ParamType.String,
+                ),
+                garageTypeName: params.getParam(
+                  'garageTypeName',
+                  ParamType.String,
+                ),
                 imageFront: params.getParam<String>(
-                    'imageFront', ParamType.String, true),
+                  'imageFront',
+                  ParamType.String,
+                  true,
+                ),
                 imageRear: params.getParam<String>(
-                    'imageRear', ParamType.String, true),
+                  'imageRear',
+                  ParamType.String,
+                  true,
+                ),
                 imageLeft: params.getParam<String>(
-                    'imageLeft', ParamType.String, true),
+                  'imageLeft',
+                  ParamType.String,
+                  true,
+                ),
                 imageRight: params.getParam<String>(
-                    'imageRight', ParamType.String, true),
+                  'imageRight',
+                  ParamType.String,
+                  true,
+                ),
                 imageRightFront: params.getParam<String>(
-                    'imageRightFront', ParamType.String, true),
+                  'imageRightFront',
+                  ParamType.String,
+                  true,
+                ),
                 imageRightRear: params.getParam<String>(
-                    'imageRightRear', ParamType.String, true),
+                  'imageRightRear',
+                  ParamType.String,
+                  true,
+                ),
                 imageLeftFront: params.getParam<String>(
-                    'imageLeftFront', ParamType.String, true),
+                  'imageLeftFront',
+                  ParamType.String,
+                  true,
+                ),
                 imageLeftRear: params.getParam<String>(
-                    'imageLeftRear', ParamType.String, true),
+                  'imageLeftRear',
+                  ParamType.String,
+                  true,
+                ),
                 imageRoof: params.getParam<String>(
-                    'imageRoof', ParamType.String, true),
+                  'imageRoof',
+                  ParamType.String,
+                  true,
+                ),
                 imageFrontTrailer: params.getParam<String>(
-                    'imageFrontTrailer', ParamType.String, true),
+                  'imageFrontTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageRearTrailer: params.getParam<String>(
-                    'imageRearTrailer', ParamType.String, true),
+                  'imageRearTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageLeftTrailer: params.getParam<String>(
-                    'imageLeftTrailer', ParamType.String, true),
+                  'imageLeftTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageRightTrailer: params.getParam<String>(
-                    'imageRightTrailer', ParamType.String, true),
+                  'imageRightTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageRightFrontTrailer: params.getParam<String>(
-                    'imageRightFrontTrailer', ParamType.String, true),
+                  'imageRightFrontTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageRightRearTrailer: params.getParam<String>(
-                    'imageRightRearTrailer', ParamType.String, true),
+                  'imageRightRearTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageLeftFrontTrailer: params.getParam<String>(
-                    'imageLeftFrontTrailer', ParamType.String, true),
+                  'imageLeftFrontTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageLeftRearTrailer: params.getParam<String>(
-                    'imageLeftRearTrailer', ParamType.String, true),
+                  'imageLeftRearTrailer',
+                  ParamType.String,
+                  true,
+                ),
                 imageBlueBook: params.getParam<String>(
-                    'imageBlueBook', ParamType.String, true),
+                  'imageBlueBook',
+                  ParamType.String,
+                  true,
+                ),
                 imageIdCard: params.getParam<String>(
-                    'imageIdCard', ParamType.String, true),
+                  'imageIdCard',
+                  ParamType.String,
+                  true,
+                ),
                 imageOther: params.getParam<dynamic>(
-                    'imageOther', ParamType.JSON, true),
+                  'imageOther',
+                  ParamType.JSON,
+                  true,
+                ),
                 imageOtherName: params.getParam<String>(
-                    'imageOtherName', ParamType.String, true),
+                  'imageOtherName',
+                  ParamType.String,
+                  true,
+                ),
               ),
             ),
             FFRoute(
@@ -838,49 +1413,124 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SearchInsurancePage',
               path: 'searchInsurancePage',
               builder: (context, params) => SearchInsurancePageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                description: params.getParam('description', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                customerName: params.getParam('customerName', ParamType.String),
-                landmark: params.getParam('landmark', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                description: params.getParam(
+                  'description',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                customerName: params.getParam(
+                  'customerName',
+                  ParamType.String,
+                ),
+                landmark: params.getParam(
+                  'landmark',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
               name: 'AboutUsPage',
               path: 'aboutUsPage',
               builder: (context, params) => AboutUsPageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                description: params.getParam('description', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                customerName: params.getParam('customerName', ParamType.String),
-                landmark: params.getParam('landmark', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                description: params.getParam(
+                  'description',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                customerName: params.getParam(
+                  'customerName',
+                  ParamType.String,
+                ),
+                landmark: params.getParam(
+                  'landmark',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
               name: 'ContactUsPage',
               path: 'contactUsPage',
               builder: (context, params) => ContactUsPageWidget(
-                recordId: params.getParam('recordId', ParamType.String),
-                coordinate: params.getParam('coordinate', ParamType.String),
-                description: params.getParam('description', ParamType.String),
-                idCardNumber: params.getParam('idCardNumber', ParamType.String),
-                customerName: params.getParam('customerName', ParamType.String),
-                landmark: params.getParam('landmark', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                clockIn: params.getParam('clockIn', ParamType.DateTime),
+                recordId: params.getParam(
+                  'recordId',
+                  ParamType.String,
+                ),
+                coordinate: params.getParam(
+                  'coordinate',
+                  ParamType.String,
+                ),
+                description: params.getParam(
+                  'description',
+                  ParamType.String,
+                ),
+                idCardNumber: params.getParam(
+                  'idCardNumber',
+                  ParamType.String,
+                ),
+                customerName: params.getParam(
+                  'customerName',
+                  ParamType.String,
+                ),
+                landmark: params.getParam(
+                  'landmark',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                clockIn: params.getParam(
+                  'clockIn',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
               name: 'IBSReport',
               path: 'iBSReport',
               builder: (context, params) => IBSReportWidget(
-                employeeId: params.getParam('employeeId', ParamType.String),
+                employeeId: params.getParam(
+                  'employeeId',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -897,8 +1547,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'listNameTabFollowUpDebt',
               path: 'listNameTabFollowUpDebt',
               builder: (context, params) => ListNameTabFollowUpDebtWidget(
-                followUpDebtTab:
-                    params.getParam('followUpDebtTab', ParamType.int),
+                followUpDebtTab: params.getParam(
+                  'followUpDebtTab',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
@@ -910,72 +1562,171 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'detailListFollowUpDebt',
               path: 'detailListFollowUpDebt',
               builder: (context, params) => DetailListFollowUpDebtWidget(
-                cusCod: params.getParam('cusCod', ParamType.String),
-                name: params.getParam('name', ParamType.String),
-                lastName: params.getParam('lastName', ParamType.String),
-                followupDebtTab:
-                    params.getParam('followupDebtTab', ParamType.int),
+                cusCod: params.getParam(
+                  'cusCod',
+                  ParamType.String,
+                ),
+                name: params.getParam(
+                  'name',
+                  ParamType.String,
+                ),
+                lastName: params.getParam(
+                  'lastName',
+                  ParamType.String,
+                ),
+                followupDebtTab: params.getParam(
+                  'followupDebtTab',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
               name: 'saveOnSiteFollowUpDebt',
               path: 'saveOnSiteFollowUpDebt',
               builder: (context, params) => SaveOnSiteFollowUpDebtWidget(
-                firstname: params.getParam('firstname', ParamType.String),
-                lastname: params.getParam('lastname', ParamType.String),
-                contNo: params.getParam('contNo', ParamType.String),
-                dateOfExp: params.getParam('dateOfExp', ParamType.String),
-                tragetStat: params.getParam('tragetStat', ParamType.String),
-                contStat: params.getParam('contStat', ParamType.String),
-                expAmt: params.getParam('expAmt', ParamType.String),
-                cusCode: params.getParam('cusCode', ParamType.String),
-                database: params.getParam('database', ParamType.String),
-                expFrm: params.getParam('expFrm', ParamType.String),
-                dateOfDue: params.getParam('dateOfDue', ParamType.String),
-                followupDebtTab:
-                    params.getParam('followupDebtTab', ParamType.int),
-                dateOfData: params.getParam('dateOfData', ParamType.String),
-                sumCurrentDueAmt:
-                    params.getParam('sumCurrentDueAmt', ParamType.String),
-                lastPayDate: params.getParam('lastPayDate', ParamType.String),
+                firstname: params.getParam(
+                  'firstname',
+                  ParamType.String,
+                ),
+                lastname: params.getParam(
+                  'lastname',
+                  ParamType.String,
+                ),
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+                dateOfExp: params.getParam(
+                  'dateOfExp',
+                  ParamType.String,
+                ),
+                tragetStat: params.getParam(
+                  'tragetStat',
+                  ParamType.String,
+                ),
+                contStat: params.getParam(
+                  'contStat',
+                  ParamType.String,
+                ),
+                expAmt: params.getParam(
+                  'expAmt',
+                  ParamType.String,
+                ),
+                cusCode: params.getParam(
+                  'cusCode',
+                  ParamType.String,
+                ),
+                database: params.getParam(
+                  'database',
+                  ParamType.String,
+                ),
+                expFrm: params.getParam(
+                  'expFrm',
+                  ParamType.String,
+                ),
+                dateOfDue: params.getParam(
+                  'dateOfDue',
+                  ParamType.String,
+                ),
+                followupDebtTab: params.getParam(
+                  'followupDebtTab',
+                  ParamType.int,
+                ),
+                dateOfData: params.getParam(
+                  'dateOfData',
+                  ParamType.String,
+                ),
+                sumCurrentDueAmt: params.getParam(
+                  'sumCurrentDueAmt',
+                  ParamType.String,
+                ),
+                lastPayDate: params.getParam(
+                  'lastPayDate',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'saveCallFollowUpDebt',
               path: 'saveCallFollowUpDebt',
               builder: (context, params) => SaveCallFollowUpDebtWidget(
-                name1: params.getParam('name1', ParamType.String),
-                name2: params.getParam('name2', ParamType.String),
-                countNo:
-                    params.getParam<String>('countNo', ParamType.String, true),
+                name1: params.getParam(
+                  'name1',
+                  ParamType.String,
+                ),
+                name2: params.getParam(
+                  'name2',
+                  ParamType.String,
+                ),
+                countNo: params.getParam<String>(
+                  'countNo',
+                  ParamType.String,
+                  true,
+                ),
                 dateOfExp: params.getParam<String>(
-                    'dateOfExp', ParamType.String, true),
+                  'dateOfExp',
+                  ParamType.String,
+                  true,
+                ),
                 targetStat: params.getParam<String>(
-                    'targetStat', ParamType.String, true),
-                contStat:
-                    params.getParam<String>('contStat', ParamType.String, true),
-                expAmt:
-                    params.getParam<String>('expAmt', ParamType.String, true),
-                id: params.getParam<String>('id', ParamType.String, true),
-                expFrm:
-                    params.getParam<String>('expFrm', ParamType.String, true),
+                  'targetStat',
+                  ParamType.String,
+                  true,
+                ),
+                contStat: params.getParam<String>(
+                  'contStat',
+                  ParamType.String,
+                  true,
+                ),
+                expAmt: params.getParam<String>(
+                  'expAmt',
+                  ParamType.String,
+                  true,
+                ),
+                id: params.getParam<String>(
+                  'id',
+                  ParamType.String,
+                  true,
+                ),
+                expFrm: params.getParam<String>(
+                  'expFrm',
+                  ParamType.String,
+                  true,
+                ),
                 dateOfDue: params.getParam<String>(
-                    'dateOfDue', ParamType.String, true),
-                followupDebtTab:
-                    params.getParam('followupDebtTab', ParamType.int),
+                  'dateOfDue',
+                  ParamType.String,
+                  true,
+                ),
+                followupDebtTab: params.getParam(
+                  'followupDebtTab',
+                  ParamType.int,
+                ),
                 dateOfData: params.getParam<String>(
-                    'dateOfData', ParamType.String, true),
+                  'dateOfData',
+                  ParamType.String,
+                  true,
+                ),
                 sumCurrentDueAmt: params.getParam<String>(
-                    'sumCurrentDueAmt', ParamType.String, true),
+                  'sumCurrentDueAmt',
+                  ParamType.String,
+                  true,
+                ),
                 lastPayDate: params.getParam<String>(
-                    'lastPayDate', ParamType.String, true),
+                  'lastPayDate',
+                  ParamType.String,
+                  true,
+                ),
               ),
             ),
             FFRoute(
               name: 'recordFollowUpDebt',
               path: 'recordFollowUpDebt',
               builder: (context, params) => RecordFollowUpDebtWidget(
-                contNo: params.getParam('contNo', ParamType.String),
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -992,16 +1743,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SearchCollectionPage',
               path: 'SearchCollectionPage',
               builder: (context, params) => SearchCollectionPageWidget(
-                followUpDebtTab:
-                    params.getParam('followUpDebtTab', ParamType.int),
+                followUpDebtTab: params.getParam(
+                  'followUpDebtTab',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
               name: 'SearchCollectionPP',
               path: 'SearchCollectionPP',
               builder: (context, params) => SearchCollectionPPWidget(
-                followUpDebtTab:
-                    params.getParam('followUpDebtTab', ParamType.int),
+                followUpDebtTab: params.getParam(
+                  'followUpDebtTab',
+                  ParamType.int,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
@@ -1081,7 +1836,7 @@ extension _GoRouterStateExtensions on GoRouterState {
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
     ..addAll(pathParameters)
-    ..addAll(queryParameters)
+    ..addAll(uri.queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -1124,6 +1879,7 @@ class FFParameters {
     ParamType type, [
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -1137,8 +1893,13 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
+    );
   }
 }
 
@@ -1170,7 +1931,7 @@ class FFRoute {
           }
 
           if (requireAuth && !appStateNotifier.loggedIn) {
-            appStateNotifier.setRedirectLocationIfUnset(state.location);
+            appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
             return '/loginPage';
           }
           return null;
@@ -1245,7 +2006,7 @@ class RootPageContext {
   static bool isInactiveRootPage(BuildContext context) {
     final rootPageContext = context.read<RootPageContext?>();
     final isRootPage = rootPageContext?.isRootPage ?? false;
-    final location = GoRouter.of(context).location;
+    final location = GoRouterState.of(context).uri.toString();
     return isRootPage &&
         location != '/' &&
         location != rootPageContext?.errorRoute;

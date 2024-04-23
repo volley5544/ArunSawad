@@ -71,6 +71,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutput;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageGenEpaQuery;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageImpoundCarQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageZUVQuery;
@@ -86,10 +88,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? getInsurer;
   // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in Container widget.
   ApiCallResponse? getCoverType;
-  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
-  ApiCallResponse? checkLoginSawaddee;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  UserLogRecord? createdUserLogSawaddee;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginKPI;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in ContainerWelfare widget.
@@ -126,6 +124,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? checkLoginLeavePagetab;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutputPad;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageGenEpaQueryTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageImpoundCarTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
@@ -191,8 +191,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in ListTile widget.
   UserLogRecord? createdUserLogLogout;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -200,8 +198,4 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

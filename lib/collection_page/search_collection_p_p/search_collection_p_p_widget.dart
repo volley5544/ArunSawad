@@ -111,6 +111,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                               fontFamily: 'Poppins',
                               color: Colors.white,
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ],
@@ -177,6 +178,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                   fontFamily: 'Poppins',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
+                                  letterSpacing: 0.0,
                                 ),
                             hintText: 'ค้นหาเดือนที่นัด',
                             icon: Icon(
@@ -262,6 +264,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       fontSize: 11.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                                 hintText: 'เรียงข้อมูลโดย',
@@ -319,12 +322,15 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                     Duration(milliseconds: 1000),
                                     () => setState(() {}),
                                   ),
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
+                                    isDense: false,
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     hintText: 'ค้นหา',
@@ -333,6 +339,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     enabledBorder: OutlineInputBorder(
@@ -386,6 +393,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   textAlign: TextAlign.start,
@@ -515,6 +523,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
@@ -600,6 +609,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 3.0,
                                       borderSide: BorderSide(
@@ -641,6 +651,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         ),
@@ -890,6 +901,8 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                               'Poppins',
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -933,6 +946,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           ),
@@ -957,6 +971,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                               .bodyMedium
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                               ),
                                                                         ),
@@ -1014,6 +1029,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),

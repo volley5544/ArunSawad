@@ -145,6 +145,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],

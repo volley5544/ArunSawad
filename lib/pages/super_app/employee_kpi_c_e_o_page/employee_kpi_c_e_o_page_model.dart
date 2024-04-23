@@ -44,12 +44,12 @@ class EmployeeKpiCEOPageModel
       tabBarController != null ? tabBarController!.index : 0;
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController1;
+  late ExpandableController expandableExpandableController1;
 
   // State field(s) for branchInput widget.
   FocusNode? branchInputFocusNode;
-  TextEditingController? branchInputController;
-  String? Function(BuildContext, String?)? branchInputControllerValidator;
+  TextEditingController? branchInputTextController;
+  String? Function(BuildContext, String?)? branchInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (getBranchAPI)] action in IconButton widget.
   ApiCallResponse? getBranchSearched;
   // State field(s) for DropDown widget.
@@ -72,13 +72,13 @@ class EmployeeKpiCEOPageModel
   set choiceChipsMonthValue1(String? val) =>
       choiceChipsMonthValueController1?.value = val != null ? [val] : [];
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController2;
+  late ExpandableController expandableExpandableController2;
 
   // State field(s) for employeeKeywordInput widget.
   FocusNode? employeeKeywordInputFocusNode;
-  TextEditingController? employeeKeywordInputController;
+  TextEditingController? employeeKeywordInputTextController;
   String? Function(BuildContext, String?)?
-      employeeKeywordInputControllerValidator;
+      employeeKeywordInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (getEmployeeIdFromNicknameAPI)] action in IconButton widget.
   ApiCallResponse? getEmployeeSearched;
   // State field(s) for DropDown widget.
@@ -109,11 +109,10 @@ class EmployeeKpiCEOPageModel
   // State field(s) for branchInputArea widget.
   final branchInputAreaKey = GlobalKey();
   FocusNode? branchInputAreaFocusNode;
-  TextEditingController? branchInputAreaController;
+  TextEditingController? branchInputAreaTextController;
   String? branchInputAreaSelectedOption;
-  String? Function(BuildContext, String?)? branchInputAreaControllerValidator;
-
-  /// Initialization and disposal methods.
+  String? Function(BuildContext, String?)?
+      branchInputAreaTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -122,18 +121,14 @@ class EmployeeKpiCEOPageModel
   void dispose() {
     unfocusNode.dispose();
     tabBarController?.dispose();
-    expandableController1.dispose();
+    expandableExpandableController1.dispose();
     branchInputFocusNode?.dispose();
-    branchInputController?.dispose();
+    branchInputTextController?.dispose();
 
-    expandableController2.dispose();
+    expandableExpandableController2.dispose();
     employeeKeywordInputFocusNode?.dispose();
-    employeeKeywordInputController?.dispose();
+    employeeKeywordInputTextController?.dispose();
 
     branchInputAreaFocusNode?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

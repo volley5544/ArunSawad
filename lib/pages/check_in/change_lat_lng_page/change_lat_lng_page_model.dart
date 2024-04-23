@@ -31,16 +31,17 @@ class ChangeLatLngPageModel extends FlutterFlowModel<ChangeLatLngPageWidget> {
   UserLogRecord? createdUserLogBVCheckIn;
   // State field(s) for BranchCodeInput widget.
   FocusNode? branchCodeInputFocusNode;
-  TextEditingController? branchCodeInputController;
-  String? Function(BuildContext, String?)? branchCodeInputControllerValidator;
+  TextEditingController? branchCodeInputTextController;
+  String? Function(BuildContext, String?)?
+      branchCodeInputTextControllerValidator;
   // State field(s) for LatInput widget.
   FocusNode? latInputFocusNode;
-  TextEditingController? latInputController;
-  String? Function(BuildContext, String?)? latInputControllerValidator;
+  TextEditingController? latInputTextController;
+  String? Function(BuildContext, String?)? latInputTextControllerValidator;
   // State field(s) for LngInput widget.
   FocusNode? lngInputFocusNode;
-  TextEditingController? lngInputController;
-  String? Function(BuildContext, String?)? lngInputControllerValidator;
+  TextEditingController? lngInputTextController;
+  String? Function(BuildContext, String?)? lngInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (ChangeLocationAPI)] action in Button widget.
   ApiCallResponse? changeLocationAPIOutput;
   // Stores action output result for [Custom Action - distanceBetween] action in Button widget.
@@ -54,8 +55,6 @@ class ChangeLatLngPageModel extends FlutterFlowModel<ChangeLatLngPageWidget> {
   // Stores action output result for [Backend Call - API (ChangeLocationAPI)] action in Button widget.
   ApiCallResponse? changeLocationAPIOutputEdit;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -63,16 +62,12 @@ class ChangeLatLngPageModel extends FlutterFlowModel<ChangeLatLngPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     branchCodeInputFocusNode?.dispose();
-    branchCodeInputController?.dispose();
+    branchCodeInputTextController?.dispose();
 
     latInputFocusNode?.dispose();
-    latInputController?.dispose();
+    latInputTextController?.dispose();
 
     lngInputFocusNode?.dispose();
-    lngInputController?.dispose();
+    lngInputTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

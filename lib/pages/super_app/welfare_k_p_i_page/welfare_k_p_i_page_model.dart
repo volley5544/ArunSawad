@@ -33,8 +33,6 @@ class WelfareKPIPageModel extends FlutterFlowModel<WelfareKPIPageWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -43,8 +41,4 @@ class WelfareKPIPageModel extends FlutterFlowModel<WelfareKPIPageWidget> {
     unfocusNode.dispose();
     tabBarController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

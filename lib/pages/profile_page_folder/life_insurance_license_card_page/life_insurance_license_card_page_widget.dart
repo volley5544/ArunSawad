@@ -151,6 +151,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                         fontFamily: 'Poppins',
                                         color: Color(0xFF9D50CF),
                                         fontSize: 20.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ],
@@ -194,6 +195,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -242,6 +244,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -265,6 +269,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -298,6 +304,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -321,6 +329,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -359,6 +369,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Poppins',
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -376,6 +388,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Poppins',
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -409,6 +423,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -425,6 +441,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -465,6 +483,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Poppins',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           Text(
@@ -477,6 +497,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Poppins',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ],
@@ -500,6 +522,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Poppins',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           Text(
@@ -512,6 +536,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Poppins',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ],

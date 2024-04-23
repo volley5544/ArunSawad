@@ -37,68 +37,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -107,15 +46,77 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChangeLatLngPageWeb'});
-    _model.branchCodeInputController ??= TextEditingController();
+    _model.branchCodeInputTextController ??= TextEditingController();
     _model.branchCodeInputFocusNode ??= FocusNode();
 
-    _model.latInputController ??= TextEditingController();
+    _model.latInputTextController ??= TextEditingController();
     _model.latInputFocusNode ??= FocusNode();
 
-    _model.lngInputController ??= TextEditingController();
+    _model.lngInputTextController ??= TextEditingController();
     _model.lngInputFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -221,6 +222,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 24.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                       Divider(
@@ -284,6 +286,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -298,25 +301,33 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                       width: 100.0,
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .branchCodeInputController,
+                                                            .branchCodeInputTextController,
                                                         focusNode: _model
                                                             .branchCodeInputFocusNode,
                                                         onChanged: (_) =>
                                                             EasyDebounce
                                                                 .debounce(
-                                                          '_model.branchCodeInputController',
+                                                          '_model.branchCodeInputTextController',
                                                           Duration(
                                                               milliseconds:
                                                                   100),
                                                           () => setState(() {}),
                                                         ),
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
+                                                          isDense: false,
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           enabledBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
@@ -407,11 +418,17 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         textAlign:
                                                             TextAlign.start,
                                                         validator: _model
-                                                            .branchCodeInputControllerValidator
+                                                            .branchCodeInputTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -448,15 +465,15 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                     flex: 1,
                                                     child: Text(
                                                       'Latitude ใหม่:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 16.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Expanded(
@@ -471,16 +488,24 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .latInputController,
+                                                            .latInputTextController,
                                                         focusNode: _model
                                                             .latInputFocusNode,
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
+                                                          isDense: false,
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           enabledBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
@@ -571,14 +596,20 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         keyboardType:
                                                             const TextInputType
                                                                 .numberWithOptions(
                                                                 signed: true,
                                                                 decimal: true),
                                                         validator: _model
-                                                            .latInputControllerValidator
+                                                            .latInputTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -588,15 +619,15 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                     flex: 1,
                                                     child: Text(
                                                       'Longitude ใหม่:',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 16.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Expanded(
@@ -611,29 +642,42 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .lngInputController,
+                                                            .lngInputTextController,
                                                         focusNode: _model
                                                             .lngInputFocusNode,
                                                         onChanged: (_) =>
                                                             EasyDebounce
                                                                 .debounce(
-                                                          '_model.lngInputController',
+                                                          '_model.lngInputTextController',
                                                           Duration(
                                                               milliseconds:
                                                                   100),
                                                           () => setState(() {}),
                                                         ),
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           enabledBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
@@ -724,11 +768,17 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         textAlign:
                                                             TextAlign.start,
                                                         validator: _model
-                                                            .lngInputControllerValidator
+                                                            .lngInputTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -779,6 +829,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -796,6 +848,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                               color: Color(
                                                                   0xFF4C525A),
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -844,6 +898,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -864,6 +920,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                               color: Color(
                                                                   0xFF4C525A),
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -888,9 +946,10 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             var _shouldSetState = false;
-                            if (!(_model.branchCodeInputController.text !=
+                            if (!(_model.branchCodeInputTextController.text !=
                                     null &&
-                                _model.branchCodeInputController.text != '')) {
+                                _model.branchCodeInputTextController.text !=
+                                    '')) {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -911,8 +970,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                               if (_shouldSetState) setState(() {});
                               return;
                             }
-                            if (!(_model.latInputController.text != null &&
-                                _model.latInputController.text != '')) {
+                            if (!(_model.latInputTextController.text != null &&
+                                _model.latInputTextController.text != '')) {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -933,8 +992,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                               if (_shouldSetState) setState(() {});
                               return;
                             }
-                            if (!(_model.lngInputController.text != null &&
-                                _model.lngInputController.text != '')) {
+                            if (!(_model.lngInputTextController.text != null &&
+                                _model.lngInputTextController.text != '')) {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -957,11 +1016,11 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                             }
                             setState(() {
                               FFAppState().changeBranchCode =
-                                  _model.branchCodeInputController.text;
+                                  _model.branchCodeInputTextController.text;
                               FFAppState().changeLat =
-                                  _model.latInputController.text;
+                                  _model.latInputTextController.text;
                               FFAppState().changeLng =
-                                  _model.lngInputController.text;
+                                  _model.lngInputTextController.text;
                             });
                             _model.changeLocationAPIOutput =
                                 await ChangeLocationAPICall.call(
@@ -1050,8 +1109,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                             ''),
                                       )),
                                   functions.stringToLatLng(
-                                      _model.latInputController.text,
-                                      _model.lngInputController.text),
+                                      _model.latInputTextController.text,
+                                      _model.lngInputTextController.text),
                                 );
                                 _shouldSetState = true;
                                 await _model.googleMap3sController.future.then(
@@ -1158,6 +1217,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(
@@ -1203,6 +1263,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -1320,6 +1381,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -1417,10 +1479,10 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                       onPressed: () async {
                                         var _shouldSetState = false;
                                         HapticFeedback.mediumImpact();
-                                        if (!(_model.branchCodeInputController
+                                        if (!(_model.branchCodeInputTextController
                                                     .text !=
                                                 null &&
-                                            _model.branchCodeInputController
+                                            _model.branchCodeInputTextController
                                                     .text !=
                                                 '')) {
                                           await showDialog(
@@ -1445,9 +1507,11 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                           if (_shouldSetState) setState(() {});
                                           return;
                                         }
-                                        if (!(_model.latInputController.text !=
+                                        if (!(_model.latInputTextController
+                                                    .text !=
                                                 null &&
-                                            _model.latInputController.text !=
+                                            _model.latInputTextController
+                                                    .text !=
                                                 '')) {
                                           await showDialog(
                                             context: context,
@@ -1471,9 +1535,11 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                           if (_shouldSetState) setState(() {});
                                           return;
                                         }
-                                        if (!(_model.lngInputController.text !=
+                                        if (!(_model.lngInputTextController
+                                                    .text !=
                                                 null &&
-                                            _model.lngInputController.text !=
+                                            _model.lngInputTextController
+                                                    .text !=
                                                 '')) {
                                           await showDialog(
                                             context: context,
@@ -1535,12 +1601,13 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                         }
                                         _model.changeLocationAPIOutputEdit =
                                             await ChangeLocationAPICall.call(
-                                          latitude:
-                                              _model.latInputController.text,
-                                          longitude:
-                                              _model.lngInputController.text,
+                                          latitude: _model
+                                              .latInputTextController.text,
+                                          longitude: _model
+                                              .lngInputTextController.text,
                                           branchCode: _model
-                                              .branchCodeInputController.text,
+                                              .branchCodeInputTextController
+                                              .text,
                                           apiUrl:
                                               changeLatLngPageWebUrlLinkStorageRecord
                                                   ?.urlLink,
@@ -1680,6 +1747,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 2.0,
                                         borderSide: BorderSide(

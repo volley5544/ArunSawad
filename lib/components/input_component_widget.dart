@@ -82,6 +82,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Poppins',
                       fontSize: 12.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
                     ),
               ),
@@ -91,6 +92,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
                       fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).error,
                       fontSize: 16.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
                     ),
               ),
@@ -110,16 +112,19 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
               child: TextFormField(
                 controller: _model.textController,
                 focusNode: _model.textFieldFocusNode,
+                autofocus: false,
                 obscureText: false,
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Poppins',
                         color: FlutterFlowTheme.of(context).primaryText,
+                        letterSpacing: 0.0,
                       ),
                   hintText: 'จำนวนเงินที่นัดจ่าย',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Poppins',
                         color: Color(0xFF9D9DA2),
+                        letterSpacing: 0.0,
                       ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -156,6 +161,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
                       fontFamily: 'Poppins',
                       color: FlutterFlowTheme.of(context).secondaryText,
                       fontSize: 12.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                     ),
                 maxLines: null,

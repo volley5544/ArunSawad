@@ -1,6 +1,4 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
@@ -11,7 +9,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -49,105 +46,7 @@ class _DetailListFollowUpDebtWidgetState
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'stackOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 100.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, -500.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'iconButtonOnActionTriggerAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 240.ms,
-          duration: 600.ms,
-          begin: Offset(1.0, 1.0),
-          end: Offset(1.2, 1.2),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 300.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 400.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 20.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -247,6 +146,105 @@ class _DetailListFollowUpDebtWidgetState
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 1000.0.ms,
+            begin: Offset(0.0, -500.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'iconButtonOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 240.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(1.0, 1.0),
+            end: Offset(1.2, 1.2),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 300.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 400.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -402,27 +400,17 @@ class _DetailListFollowUpDebtWidgetState
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-
-                                var userLogRecordReference =
-                                    UserLogRecord.collection.doc();
-                                await userLogRecordReference
-                                    .set(createUserLogRecordData(
-                                  employeeId: FFAppState().employeeID,
-                                  action: 'BranchView_Collection_Call',
-                                  actionTime: getCurrentTimestamp,
-                                  userLocation: currentUserLocationValue,
-                                ));
-                                _model.createUserLogCollectionCall =
-                                    UserLogRecord.getDocumentFromData(
-                                        createUserLogRecordData(
-                                          employeeId: FFAppState().employeeID,
-                                          action: 'BranchView_Collection_Call',
-                                          actionTime: getCurrentTimestamp,
-                                          userLocation:
-                                              currentUserLocationValue,
-                                        ),
-                                        userLogRecordReference);
+                                _model.getHashThaiId =
+                                    await actions.sha256Encoder(
+                                  widget.cusCod,
+                                );
                                 _shouldSetState = true;
+                                await actions.addUserLogDocument(
+                                  'BranchView_Collection_Call',
+                                  FFAppState().employeeID,
+                                  currentUserLocationValue,
+                                  _model.getHashThaiId,
+                                );
                                 Navigator.pop(context);
                                 _model.open3CXActionOutput =
                                     await actions.open3CXAction(
@@ -445,6 +433,7 @@ class _DetailListFollowUpDebtWidgetState
                               fontFamily: 'Poppins',
                               color: Colors.white,
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ],
@@ -496,6 +485,7 @@ class _DetailListFollowUpDebtWidgetState
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -523,18 +513,40 @@ class _DetailListFollowUpDebtWidgetState
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                valueOrDefault<String>(
-                                  CollectionApiGetDataPersonCall.dataTab(
-                                    (_model.getListDataPerson?.jsonBody ?? ''),
-                                  )?.first,
-                                  '-',
-                                ),
+                                () {
+                                  if (widget.followupDebtTab == 1) {
+                                    return 'เตือนก่อนดิว';
+                                  } else if (widget.followupDebtTab == 2) {
+                                    return 'ค้าง 1-3 งวด';
+                                  } else if (widget.followupDebtTab == 3) {
+                                    return 'ค้าง 4-5 งวด';
+                                  } else if (widget.followupDebtTab == 4) {
+                                    return 'ค้าง 6 งวดเป็นต้นไป';
+                                  } else if (widget.followupDebtTab == 5) {
+                                    return 'ค้างด้วยยอดน้อยกว่า 250 บาท';
+                                  } else if (widget.followupDebtTab == 6) {
+                                    return 'โทรชวนปิดปรับ';
+                                  } else if (widget.followupDebtTab == 11) {
+                                    return 'OD1';
+                                  } else if (widget.followupDebtTab == 12) {
+                                    return 'OD2';
+                                  } else if (widget.followupDebtTab == 13) {
+                                    return 'OD3';
+                                  } else if (widget.followupDebtTab == 14) {
+                                    return 'OD4 - OD5';
+                                  } else if (widget.followupDebtTab == 15) {
+                                    return 'OD6 เป็นต้นไป';
+                                  } else {
+                                    return ' ';
+                                  }
+                                }(),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -781,6 +793,7 @@ class _DetailListFollowUpDebtWidgetState
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -975,6 +988,7 @@ class _DetailListFollowUpDebtWidgetState
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -1019,12 +1033,15 @@ class _DetailListFollowUpDebtWidgetState
                                   Duration(milliseconds: 100),
                                   () => setState(() {}),
                                 ),
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
+                                  isDense: false,
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   hintText: 'ค้นหาเลขที่สัญญา',
@@ -1033,6 +1050,7 @@ class _DetailListFollowUpDebtWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   enabledBorder: OutlineInputBorder(
@@ -1086,6 +1104,7 @@ class _DetailListFollowUpDebtWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 textAlign: TextAlign.start,
@@ -1232,6 +1251,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
@@ -1253,6 +1273,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                               ),
                                                                         ),
@@ -1304,6 +1325,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           'Poppins',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1331,6 +1354,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'Poppins',
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1352,6 +1377,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1404,6 +1430,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                             'Poppins',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -1428,6 +1456,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1451,6 +1480,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                               ),
                                                                         ),
@@ -1497,6 +1527,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           'Poppins',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1524,6 +1556,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'Poppins',
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1545,6 +1579,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1591,6 +1626,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           'Poppins',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1618,6 +1655,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'Poppins',
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1639,6 +1678,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1685,6 +1725,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           'Poppins',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1712,6 +1754,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'Poppins',
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1733,6 +1777,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1779,6 +1824,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                           'Poppins',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -1806,6 +1853,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'Poppins',
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1838,6 +1887,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             .override(
                                                                               fontFamily: 'Poppins',
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
                                                                             ),
                                                                       ),
@@ -1902,6 +1952,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                                 'Poppins',
                                                                             fontSize:
                                                                                 14.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
                                                                           ),
@@ -1925,6 +1977,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           ),
@@ -1942,6 +1995,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                             ),
@@ -1989,6 +2043,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                               'Poppins',
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -2014,6 +2070,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
                                                                                 fontSize: 12.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                               ),
                                                                         ),
@@ -2037,6 +2094,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           ),
@@ -2108,6 +2166,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                         .white,
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           elevation: 3.0,
                                                           borderSide:
@@ -2210,6 +2270,12 @@ class _DetailListFollowUpDebtWidgetState
                                                                 });
                                                               }
                                                             },
+                                                            side: BorderSide(
+                                                              width: 2,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryBackground,
+                                                            ),
                                                             activeColor: Color(
                                                                 0xFFFB8447),
                                                             checkColor:

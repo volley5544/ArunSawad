@@ -20,8 +20,6 @@ class GuideBookPageModel extends FlutterFlowModel<GuideBookPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in GuideBookPage widget.
   UserLogRecord? createdUserLogEmployeeGuide;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -29,8 +27,4 @@ class GuideBookPageModel extends FlutterFlowModel<GuideBookPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

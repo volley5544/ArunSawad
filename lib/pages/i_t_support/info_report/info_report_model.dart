@@ -30,12 +30,11 @@ class InfoReportModel extends FlutterFlowModel<InfoReportWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode;
-  TextEditingController? coordinateInputController;
-  String? Function(BuildContext, String?)? coordinateInputControllerValidator;
+  TextEditingController? coordinateInputTextController;
+  String? Function(BuildContext, String?)?
+      coordinateInputTextControllerValidator;
   // State field(s) for RatingBar widget.
   double? ratingBarValue;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -47,10 +46,6 @@ class InfoReportModel extends FlutterFlowModel<InfoReportWidget> {
     textController1?.dispose();
 
     coordinateInputFocusNode?.dispose();
-    coordinateInputController?.dispose();
+    coordinateInputTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

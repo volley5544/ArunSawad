@@ -23,8 +23,6 @@ class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
   // Stores action output result for [Custom Action - enoughEmail] action in inboxEmail widget.
   List<String>? fromEmailOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -32,8 +30,4 @@ class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

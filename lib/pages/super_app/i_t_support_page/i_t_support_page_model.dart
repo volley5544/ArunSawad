@@ -20,8 +20,6 @@ class ITSupportPageModel extends FlutterFlowModel<ITSupportPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in ITSupportPage widget.
   UserLogRecord? createdUserLogITSupport;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -29,8 +27,4 @@ class ITSupportPageModel extends FlutterFlowModel<ITSupportPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

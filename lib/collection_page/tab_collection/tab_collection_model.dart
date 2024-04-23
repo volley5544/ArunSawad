@@ -27,8 +27,6 @@ class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     appbarFollowUpDebtModel =
@@ -40,8 +38,4 @@ class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
     unfocusNode.dispose();
     appbarFollowUpDebtModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

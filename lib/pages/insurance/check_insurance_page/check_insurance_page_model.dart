@@ -48,29 +48,27 @@ class CheckInsurancePageModel
   FormFieldController<String>? useTypeDropDownValueController;
   // State field(s) for nameInput widget.
   FocusNode? nameInputFocusNode;
-  TextEditingController? nameInputController;
-  String? Function(BuildContext, String?)? nameInputControllerValidator;
+  TextEditingController? nameInputTextController;
+  String? Function(BuildContext, String?)? nameInputTextControllerValidator;
   // State field(s) for lastnameInput widget.
   FocusNode? lastnameInputFocusNode;
-  TextEditingController? lastnameInputController;
-  String? Function(BuildContext, String?)? lastnameInputControllerValidator;
+  TextEditingController? lastnameInputTextController;
+  String? Function(BuildContext, String?)? lastnameInputTextControllerValidator;
   // State field(s) for idInput widget.
   FocusNode? idInputFocusNode;
-  TextEditingController? idInputController;
-  String? Function(BuildContext, String?)? idInputControllerValidator;
+  TextEditingController? idInputTextController;
+  String? Function(BuildContext, String?)? idInputTextControllerValidator;
   // State field(s) for phoneInput widget.
   FocusNode? phoneInputFocusNode;
-  TextEditingController? phoneInputController;
-  String? Function(BuildContext, String?)? phoneInputControllerValidator;
+  TextEditingController? phoneInputTextController;
+  String? Function(BuildContext, String?)? phoneInputTextControllerValidator;
   // State field(s) for plateInput widget.
   FocusNode? plateInputFocusNode;
-  TextEditingController? plateInputController;
-  String? Function(BuildContext, String?)? plateInputControllerValidator;
+  TextEditingController? plateInputTextController;
+  String? Function(BuildContext, String?)? plateInputTextControllerValidator;
   // State field(s) for driverDropDown widget.
   String? driverDropDownValue;
   FormFieldController<String>? driverDropDownValueController;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -79,22 +77,18 @@ class CheckInsurancePageModel
   void dispose() {
     unfocusNode.dispose();
     nameInputFocusNode?.dispose();
-    nameInputController?.dispose();
+    nameInputTextController?.dispose();
 
     lastnameInputFocusNode?.dispose();
-    lastnameInputController?.dispose();
+    lastnameInputTextController?.dispose();
 
     idInputFocusNode?.dispose();
-    idInputController?.dispose();
+    idInputTextController?.dispose();
 
     phoneInputFocusNode?.dispose();
-    phoneInputController?.dispose();
+    phoneInputTextController?.dispose();
 
     plateInputFocusNode?.dispose();
-    plateInputController?.dispose();
+    plateInputTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

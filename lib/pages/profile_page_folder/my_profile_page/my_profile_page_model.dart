@@ -50,8 +50,6 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in IconButton widget.
   String? uploadFirebaseStorageActionTablet;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -59,8 +57,4 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

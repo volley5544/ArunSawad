@@ -25,8 +25,6 @@ class InsuranceRequestListPageModel
   // Stores action output result for [Backend Call - API (insuranceRequestDetailAPI)] action in Button widget.
   ApiCallResponse? getInsuranceDetailDup;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -34,8 +32,4 @@ class InsuranceRequestListPageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

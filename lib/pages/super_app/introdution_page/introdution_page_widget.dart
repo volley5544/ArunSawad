@@ -177,6 +177,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 2.0,
                                     borderSide: BorderSide(
@@ -225,6 +226,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(

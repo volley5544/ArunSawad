@@ -266,6 +266,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                               color: Color(
                                                                   0xFF002D5E),
                                                               fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ],
@@ -296,6 +298,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                         color:
                                                             Color(0xFF002D5E),
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -321,6 +324,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -345,6 +349,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -369,6 +374,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -400,6 +406,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ],
@@ -442,6 +449,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 19.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w900,
                                                         ),
@@ -487,6 +495,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                     'Poppins',
                                                                 color: Color(
                                                                     0xFFDB771A),
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       elevation: 3.0,
                                                       borderSide: BorderSide(
@@ -528,6 +538,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ],
@@ -550,6 +561,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF646464),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -574,6 +586,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -637,6 +650,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                 color: Color(
                                                                     0xFF002D5E),
                                                                 fontSize: 18.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -723,6 +738,8 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                                                 color: Color(
                                                                     0xFF002D5E),
                                                                 fontSize: 18.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -787,6 +804,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF002D5E),
                                   fontSize: 18.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),

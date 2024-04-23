@@ -149,6 +149,7 @@ class _InsuranceRequestImagePageWidgetState
                           fontFamily: 'Poppins',
                           color: Colors.white,
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                   actions: [],
@@ -185,6 +186,7 @@ class _InsuranceRequestImagePageWidgetState
                                         fontFamily: 'Poppins',
                                         color: Color(0xFFFF0000),
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -199,6 +201,7 @@ class _InsuranceRequestImagePageWidgetState
                                         fontFamily: 'Poppins',
                                         color: Color(0xFFFF0000),
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -256,6 +259,7 @@ class _InsuranceRequestImagePageWidgetState
                                 .override(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -305,6 +309,7 @@ class _InsuranceRequestImagePageWidgetState
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: Colors.black,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -1631,6 +1636,7 @@ class _InsuranceRequestImagePageWidgetState
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1655,6 +1661,7 @@ class _InsuranceRequestImagePageWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .error,
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                   ],
@@ -1702,6 +1709,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -1731,6 +1739,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -1819,6 +1828,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -1848,6 +1858,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -1936,6 +1947,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -1965,6 +1977,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -2053,6 +2066,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2082,6 +2096,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -2170,6 +2185,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2199,6 +2215,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -2287,6 +2304,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2316,6 +2334,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -2404,6 +2423,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2433,6 +2453,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -2521,6 +2542,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2550,6 +2572,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -2638,6 +2661,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -2667,6 +2691,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                   .of(context)
                                                               .error,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                               ],
@@ -3896,7 +3921,11 @@ class _InsuranceRequestImagePageWidgetState
                                       child: Text(
                                         'รูปหัวลากแต่ละตำแหน่ง :',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                     Text(
@@ -3907,6 +3936,7 @@ class _InsuranceRequestImagePageWidgetState
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -3954,6 +3984,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -3969,6 +4000,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -4057,6 +4089,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4072,6 +4105,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -4160,6 +4194,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4175,6 +4210,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -4263,6 +4299,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4278,6 +4315,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -4366,6 +4404,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4381,6 +4420,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -4469,6 +4509,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4484,6 +4525,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -4572,6 +4614,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4587,6 +4630,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -4675,6 +4719,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -4690,6 +4735,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -5923,7 +5969,11 @@ class _InsuranceRequestImagePageWidgetState
                                       child: Text(
                                         'รูปหางพ่วงแต่ละตำแหน่ง :',
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                     Text(
@@ -5935,6 +5985,7 @@ class _InsuranceRequestImagePageWidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .error,
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -5982,6 +6033,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5997,6 +6049,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6085,6 +6138,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -6100,6 +6154,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6188,6 +6243,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -6203,6 +6259,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6291,6 +6348,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -6306,6 +6364,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6394,6 +6453,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -6409,6 +6469,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6497,6 +6558,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -6512,6 +6574,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6600,6 +6663,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -6615,6 +6679,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6703,6 +6768,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -6718,6 +6784,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -6780,6 +6847,7 @@ class _InsuranceRequestImagePageWidgetState
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -6828,6 +6896,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -6843,6 +6912,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ],
@@ -6979,6 +7049,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -7017,6 +7088,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -7032,6 +7104,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ],
@@ -7168,6 +7241,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -7203,6 +7277,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -7340,6 +7415,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -7362,6 +7438,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 10.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -7507,6 +7584,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -7530,6 +7608,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 10.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -7675,6 +7754,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -7698,6 +7778,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 10.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -7843,6 +7924,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -7866,6 +7948,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 10.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -8011,6 +8094,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   elevation: 3.0,
                                                   borderSide: BorderSide(
@@ -8034,6 +8118,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 10.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -8096,6 +8181,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -8109,6 +8195,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           context)
                                                       .error,
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ],
@@ -8194,6 +8281,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -8209,6 +8297,7 @@ class _InsuranceRequestImagePageWidgetState
                                                                     context)
                                                                 .error,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ],
@@ -8287,6 +8376,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -8344,6 +8434,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -8401,6 +8492,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -8458,6 +8550,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -8515,6 +8608,7 @@ class _InsuranceRequestImagePageWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -9289,6 +9383,7 @@ class _InsuranceRequestImagePageWidgetState
                                           fontFamily: 'Poppins',
                                           color: Colors.white,
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 2.0,

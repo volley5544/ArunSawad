@@ -77,14 +77,14 @@ class _InsuranceRequestInsurerPageWidgetState
               : (FFAppState().insuranceBasicActFlag == '0' ? false : true));
         });
         setState(() {
-          _model.sumInsuredInputController?.text =
+          _model.sumInsuredInputTextController?.text =
               (FFAppState().insuranceBasicSumInsured == '-'
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicSumInsured)!);
         });
         setState(() {
-          _model.trailerSumInsuredInputController?.text =
+          _model.trailerSumInsuredInputTextController?.text =
               (FFAppState().insuranceBasicTrailerSumInsured == '-'
                   ? ''
                   : functions.convertDoubleTextToIntText(
@@ -101,10 +101,10 @@ class _InsuranceRequestInsurerPageWidgetState
       Navigator.pop(context);
     });
 
-    _model.sumInsuredInputController ??= TextEditingController();
+    _model.sumInsuredInputTextController ??= TextEditingController();
     _model.sumInsuredInputFocusNode ??= FocusNode();
 
-    _model.trailerSumInsuredInputController ??= TextEditingController();
+    _model.trailerSumInsuredInputTextController ??= TextEditingController();
     _model.trailerSumInsuredInputFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -156,6 +156,7 @@ class _InsuranceRequestInsurerPageWidgetState
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: [],
@@ -193,6 +194,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -207,6 +209,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -234,6 +237,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                               buttonPosition: RadioButtonPosition.left,
@@ -274,6 +278,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   iconColor: Colors.white,
                                   iconSize: 18.0,
@@ -289,6 +294,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                         fontFamily: 'Poppins',
                                         color: FlutterFlowTheme.of(context)
                                             .lineColor,
+                                        letterSpacing: 0.0,
                                       ),
                                   iconColor: Color(0xFFE0E3E7),
                                   iconSize: 18.0,
@@ -326,6 +332,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                             Theme(
@@ -347,6 +354,11 @@ class _InsuranceRequestInsurerPageWidgetState
                                   setState(
                                       () => _model.checkboxValue = newValue!);
                                 },
+                                side: BorderSide(
+                                  width: 2,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                ),
                                 activeColor:
                                     FlutterFlowTheme.of(context).primary,
                                 checkColor: Colors.white,
@@ -373,6 +385,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ],
@@ -391,18 +404,24 @@ class _InsuranceRequestInsurerPageWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 5.0),
                                 child: TextFormField(
-                                  controller: _model.sumInsuredInputController,
+                                  controller:
+                                      _model.sumInsuredInputTextController,
                                   focusNode: _model.sumInsuredInputFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.sumInsuredInputController',
+                                    '_model.sumInsuredInputTextController',
                                     Duration(milliseconds: 2000),
                                     () => setState(() {}),
                                   ),
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: 'กรุณากรอก...',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -438,12 +457,13 @@ class _InsuranceRequestInsurerPageWidgetState
                                         EdgeInsetsDirectional.fromSTEB(
                                             20.0, 24.0, 24.0, 24.0),
                                     suffixIcon: _model
-                                            .sumInsuredInputController!
+                                            .sumInsuredInputTextController!
                                             .text
                                             .isNotEmpty
                                         ? InkWell(
                                             onTap: () async {
-                                              _model.sumInsuredInputController
+                                              _model
+                                                  .sumInsuredInputTextController
                                                   ?.clear();
                                               setState(() {});
                                             },
@@ -460,10 +480,11 @@ class _InsuranceRequestInsurerPageWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         lineHeight: 1.0,
                                       ),
                                   validator: _model
-                                      .sumInsuredInputControllerValidator
+                                      .sumInsuredInputTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -490,6 +511,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ],
@@ -512,20 +534,25 @@ class _InsuranceRequestInsurerPageWidgetState
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 5.0),
                                   child: TextFormField(
-                                    controller:
-                                        _model.trailerSumInsuredInputController,
+                                    controller: _model
+                                        .trailerSumInsuredInputTextController,
                                     focusNode:
                                         _model.trailerSumInsuredInputFocusNode,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.trailerSumInsuredInputController',
+                                      '_model.trailerSumInsuredInputTextController',
                                       Duration(milliseconds: 2000),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       hintText: 'กรุณากรอก...',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
@@ -565,13 +592,13 @@ class _InsuranceRequestInsurerPageWidgetState
                                           EdgeInsetsDirectional.fromSTEB(
                                               20.0, 24.0, 24.0, 24.0),
                                       suffixIcon: _model
-                                              .trailerSumInsuredInputController!
+                                              .trailerSumInsuredInputTextController!
                                               .text
                                               .isNotEmpty
                                           ? InkWell(
                                               onTap: () async {
                                                 _model
-                                                    .trailerSumInsuredInputController
+                                                    .trailerSumInsuredInputTextController
                                                     ?.clear();
                                                 setState(() {});
                                               },
@@ -588,10 +615,11 @@ class _InsuranceRequestInsurerPageWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           lineHeight: 1.0,
                                         ),
                                     validator: _model
-                                        .trailerSumInsuredInputControllerValidator
+                                        .trailerSumInsuredInputTextControllerValidator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -617,6 +645,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -631,6 +660,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context).error,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -676,8 +706,12 @@ class _InsuranceRequestInsurerPageWidgetState
                                 checkColor: Colors.white,
                                 checkboxBorderColor:
                                     FlutterFlowTheme.of(context).secondaryText,
-                                textStyle:
-                                    FlutterFlowTheme.of(context).bodyMedium,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 checkboxBorderRadius:
                                     BorderRadius.circular(4.0),
                                 initialized: _model.checkboxGroupValues != null,
@@ -762,14 +796,15 @@ class _InsuranceRequestInsurerPageWidgetState
                                         return;
                                       }
 
-                                      if (!(_model.sumInsuredInputController
+                                      if (!(_model.sumInsuredInputTextController
                                                   .text ==
                                               null ||
-                                          _model.sumInsuredInputController
+                                          _model.sumInsuredInputTextController
                                                   .text ==
                                               '')) {
                                         if (!functions.checkIsIntValue(_model
-                                            .sumInsuredInputController.text)!) {
+                                            .sumInsuredInputTextController
+                                            .text)!) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
                                             SnackBar(
@@ -791,14 +826,14 @@ class _InsuranceRequestInsurerPageWidgetState
                                           return;
                                         }
                                       }
-                                      if (!(_model.trailerSumInsuredInputController
+                                      if (!(_model.trailerSumInsuredInputTextController
                                                   .text ==
                                               null ||
-                                          _model.trailerSumInsuredInputController
+                                          _model.trailerSumInsuredInputTextController
                                                   .text ==
                                               '')) {
                                         if (!functions.checkIsIntValue(_model
-                                            .trailerSumInsuredInputController
+                                            .trailerSumInsuredInputTextController
                                             .text)!) {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(
@@ -929,29 +964,29 @@ class _InsuranceRequestInsurerPageWidgetState
                                             _model.checkboxValue! ? '1' : '0';
                                       });
                                       setState(() {
-                                        FFAppState()
-                                            .insuranceBasicSumInsured = _model
-                                                        .sumInsuredInputController
-                                                        .text !=
-                                                    null &&
-                                                _model.sumInsuredInputController
-                                                        .text !=
-                                                    ''
-                                            ? _model
-                                                .sumInsuredInputController.text
-                                            : '';
+                                        FFAppState().insuranceBasicSumInsured =
+                                            _model.sumInsuredInputTextController
+                                                            .text !=
+                                                        null &&
+                                                    _model.sumInsuredInputTextController
+                                                            .text !=
+                                                        ''
+                                                ? _model
+                                                    .sumInsuredInputTextController
+                                                    .text
+                                                : '';
                                       });
                                       setState(() {
                                         FFAppState()
                                                 .insuranceBasicTrailerSumInsured =
-                                            _model.trailerSumInsuredInputController
+                                            _model.trailerSumInsuredInputTextController
                                                             .text !=
                                                         null &&
-                                                    _model.trailerSumInsuredInputController
+                                                    _model.trailerSumInsuredInputTextController
                                                             .text !=
                                                         ''
                                                 ? _model
-                                                    .trailerSumInsuredInputController
+                                                    .trailerSumInsuredInputTextController
                                                     .text
                                                 : '';
                                       });
@@ -975,6 +1010,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
                                             fontSize: 18.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       elevation: 2.0,

@@ -592,6 +592,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -606,7 +607,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                   alignment: Alignment(0.0, 0),
                   child: TabBar(
                     labelColor: FlutterFlowTheme.of(context).primary,
-                    labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    labelStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                     unselectedLabelStyle: TextStyle(),
                     indicatorColor: FlutterFlowTheme.of(context).secondary,
                     tabs: [
@@ -650,7 +655,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                       '[Month_Year]',
                                     ),
                                     style: FlutterFlowTheme.of(context)
-                                        .displaySmall,
+                                        .displaySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   Text(
                                     '[${GetDateTimeAPICall.currentDate(
@@ -662,6 +671,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -764,6 +774,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -797,6 +808,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -832,6 +844,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -869,6 +882,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                     FFButtonWidget(
@@ -924,6 +938,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 2.0,
                                         borderSide: BorderSide(
@@ -967,7 +982,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                           child: Text(
                                             'ทำได้',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodySmall,
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Text(
@@ -977,6 +996,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 22.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -993,7 +1013,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                           child: Text(
                                             'เป้า',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodySmall,
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Text(
@@ -1003,6 +1027,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 22.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -1019,7 +1044,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                           child: Text(
                                             'สถานะ',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodySmall,
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Text(
@@ -1037,6 +1066,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 fontSize: 22.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -1184,7 +1214,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             'ทำได้',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Text(
@@ -1201,7 +1237,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           )),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .displaySmall,
+                                                              .displaySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ],
                                                     ),
@@ -1224,7 +1266,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             'เป้า',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Text(
@@ -1241,7 +1289,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           )),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .displaySmall,
+                                                              .displaySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ],
                                                     ),
@@ -1264,7 +1318,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             'สถานะ',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Text(
@@ -1288,6 +1348,8 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ],
@@ -1332,7 +1394,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                       '[MMYY_Last_Month]',
                                     ),
                                     style: FlutterFlowTheme.of(context)
-                                        .displaySmall,
+                                        .displaySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   Text(
                                     '[${GetDateTimeAPICall.currentDate(
@@ -1344,6 +1410,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -1448,6 +1515,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1481,6 +1549,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -1516,6 +1585,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ],
@@ -1553,6 +1623,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                     FFButtonWidget(
@@ -1608,6 +1679,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         elevation: 2.0,
                                         borderSide: BorderSide(
@@ -1651,7 +1723,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                           child: Text(
                                             'ทำได้',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodySmall,
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Text(
@@ -1661,6 +1737,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 22.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -1677,7 +1754,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                           child: Text(
                                             'เป้า',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodySmall,
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Text(
@@ -1687,6 +1768,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 22.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -1703,7 +1785,11 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                           child: Text(
                                             'สถานะ',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodySmall,
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Text(
@@ -1722,6 +1808,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 fontSize: 22.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -1876,7 +1963,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             'ทำได้',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Text(
@@ -1893,7 +1986,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           )),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .displaySmall,
+                                                              .displaySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ],
                                                     ),
@@ -1916,7 +2015,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             'เป้า',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Text(
@@ -1933,7 +2038,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                           )),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .displaySmall,
+                                                              .displaySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
                                                       ],
                                                     ),
@@ -1956,7 +2067,13 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                             'สถานะ',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                         ),
                                                         Text(
@@ -1980,6 +2097,8 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ],

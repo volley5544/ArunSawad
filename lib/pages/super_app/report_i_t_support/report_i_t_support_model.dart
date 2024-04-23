@@ -29,30 +29,29 @@ class ReportITSupportModel extends FlutterFlowModel<ReportITSupportWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode;
-  TextEditingController? coordinateInputController;
-  String? Function(BuildContext, String?)? coordinateInputControllerValidator;
+  TextEditingController? coordinateInputTextController;
+  String? Function(BuildContext, String?)?
+      coordinateInputTextControllerValidator;
   // State field(s) for desInput widget.
   FocusNode? desInputFocusNode;
-  TextEditingController? desInputController;
-  String? Function(BuildContext, String?)? desInputControllerValidator;
+  TextEditingController? desInputTextController;
+  String? Function(BuildContext, String?)? desInputTextControllerValidator;
   // State field(s) for idInput widget.
   FocusNode? idInputFocusNode;
-  TextEditingController? idInputController;
-  String? Function(BuildContext, String?)? idInputControllerValidator;
+  TextEditingController? idInputTextController;
+  String? Function(BuildContext, String?)? idInputTextControllerValidator;
   // State field(s) for nameInput widget.
   FocusNode? nameInputFocusNode;
-  TextEditingController? nameInputController;
-  String? Function(BuildContext, String?)? nameInputControllerValidator;
+  TextEditingController? nameInputTextController;
+  String? Function(BuildContext, String?)? nameInputTextControllerValidator;
   // State field(s) for landmarkInput widget.
   FocusNode? landmarkInputFocusNode;
-  TextEditingController? landmarkInputController;
-  String? Function(BuildContext, String?)? landmarkInputControllerValidator;
+  TextEditingController? landmarkInputTextController;
+  String? Function(BuildContext, String?)? landmarkInputTextControllerValidator;
   // State field(s) for remarkInput widget.
   FocusNode? remarkInputFocusNode;
-  TextEditingController? remarkInputController;
-  String? Function(BuildContext, String?)? remarkInputControllerValidator;
-
-  /// Initialization and disposal methods.
+  TextEditingController? remarkInputTextController;
+  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -64,25 +63,21 @@ class ReportITSupportModel extends FlutterFlowModel<ReportITSupportWidget> {
     textController1?.dispose();
 
     coordinateInputFocusNode?.dispose();
-    coordinateInputController?.dispose();
+    coordinateInputTextController?.dispose();
 
     desInputFocusNode?.dispose();
-    desInputController?.dispose();
+    desInputTextController?.dispose();
 
     idInputFocusNode?.dispose();
-    idInputController?.dispose();
+    idInputTextController?.dispose();
 
     nameInputFocusNode?.dispose();
-    nameInputController?.dispose();
+    nameInputTextController?.dispose();
 
     landmarkInputFocusNode?.dispose();
-    landmarkInputController?.dispose();
+    landmarkInputTextController?.dispose();
 
     remarkInputFocusNode?.dispose();
-    remarkInputController?.dispose();
+    remarkInputTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -50,7 +50,10 @@ class _PlanningSelfKPIWidgetState extends State<PlanningSelfKPIWidget> {
         title: Text(
           'วางแผน KPI รายอาทิต',
           textAlign: TextAlign.start,
-          style: FlutterFlowTheme.of(context).displaySmall,
+          style: FlutterFlowTheme.of(context).displaySmall.override(
+                fontFamily: 'Poppins',
+                letterSpacing: 0.0,
+              ),
         ),
         actions: [],
         centerTitle: true,
@@ -71,6 +74,7 @@ class _PlanningSelfKPIWidgetState extends State<PlanningSelfKPIWidget> {
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Poppins',
                           fontSize: 16.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),

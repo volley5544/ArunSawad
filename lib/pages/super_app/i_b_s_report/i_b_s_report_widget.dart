@@ -150,6 +150,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 20.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -168,6 +169,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           fontSize: 16.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -177,7 +179,10 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                   children: [
                     Text(
                       'วันที่อัพเดทข้อมูล',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
@@ -199,6 +204,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                               .override(
                                 fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -225,6 +231,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                               .override(
                                 fontFamily: 'Poppins',
                                 color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
                               ),
                         ),
                       ),
@@ -282,6 +289,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       unselectedLabelStyle: TextStyle(),
                                       indicatorColor:
@@ -380,7 +388,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -413,6 +423,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -459,6 +471,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -485,7 +498,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -518,6 +533,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -564,6 +581,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -589,7 +607,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -622,6 +642,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -666,6 +688,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -691,7 +714,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -724,6 +749,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -768,6 +795,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -793,7 +821,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -826,6 +856,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -870,6 +902,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -895,7 +928,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -928,6 +963,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -997,6 +1034,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1022,7 +1060,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1055,6 +1095,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1099,6 +1141,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1124,7 +1167,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1157,6 +1202,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1201,6 +1248,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1226,7 +1274,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1264,6 +1314,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1310,6 +1362,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1335,7 +1388,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1373,6 +1428,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1419,6 +1476,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1476,7 +1534,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1509,6 +1569,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1555,6 +1617,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1581,7 +1644,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1614,6 +1679,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1660,6 +1727,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1685,7 +1753,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1718,6 +1788,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1762,6 +1834,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1787,7 +1860,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1820,6 +1895,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1864,6 +1941,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1889,7 +1967,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -1922,6 +2002,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1966,6 +2048,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1991,7 +2074,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2024,6 +2109,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2090,6 +2177,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2115,7 +2203,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2148,6 +2238,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2192,6 +2284,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2217,7 +2310,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2250,6 +2345,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2294,6 +2391,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2319,7 +2417,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2357,6 +2457,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2403,6 +2505,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2428,7 +2531,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2466,6 +2571,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2512,6 +2619,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2569,7 +2677,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2602,6 +2712,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2648,6 +2760,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2674,7 +2787,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2707,6 +2822,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2753,6 +2870,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2778,7 +2896,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2811,6 +2931,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2855,6 +2977,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2880,7 +3003,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -2913,6 +3038,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -2957,6 +3084,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -2982,7 +3110,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3015,6 +3145,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3059,6 +3191,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3084,7 +3217,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3117,6 +3252,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3183,6 +3320,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3208,7 +3346,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3241,6 +3381,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3285,6 +3427,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3310,7 +3453,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3343,6 +3488,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3387,6 +3534,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3412,7 +3560,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3450,6 +3600,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -3496,6 +3648,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3521,7 +3674,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3559,6 +3714,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -3605,6 +3762,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3662,7 +3820,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3695,6 +3855,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3741,6 +3903,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3767,7 +3930,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3800,6 +3965,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3846,6 +4013,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3871,7 +4039,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -3904,6 +4074,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -3948,6 +4120,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -3973,7 +4146,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4006,6 +4181,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4050,6 +4227,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4075,7 +4253,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4108,6 +4288,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4152,6 +4334,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4177,7 +4360,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4210,6 +4395,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4276,6 +4463,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4301,7 +4489,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4334,6 +4524,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4378,6 +4570,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4403,7 +4596,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4436,6 +4631,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4480,6 +4677,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4505,7 +4703,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4543,6 +4743,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -4589,6 +4791,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4614,7 +4817,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4652,6 +4857,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -4698,6 +4905,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4755,7 +4963,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4788,6 +4998,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4834,6 +5046,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4860,7 +5073,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4893,6 +5108,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -4939,6 +5156,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -4964,7 +5182,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -4997,6 +5217,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5041,6 +5263,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5066,7 +5289,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5099,6 +5324,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5143,6 +5370,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5168,7 +5396,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5201,6 +5431,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5245,6 +5477,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5270,7 +5503,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5303,6 +5538,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5369,6 +5606,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5394,7 +5632,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5427,6 +5667,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5471,6 +5713,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5496,7 +5739,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5529,6 +5774,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5573,6 +5820,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5598,7 +5846,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5636,6 +5886,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -5682,6 +5934,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5707,7 +5960,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5745,6 +6000,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -5791,6 +6048,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5848,7 +6106,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5881,6 +6141,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -5927,6 +6189,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -5953,7 +6216,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                     .of(context)
                                                                 .lineColor,
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -5986,6 +6251,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -6032,6 +6299,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6057,7 +6325,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6090,6 +6360,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -6134,6 +6406,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6159,7 +6432,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6192,6 +6467,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -6236,6 +6513,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6261,7 +6539,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6294,6 +6574,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -6338,6 +6620,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6363,7 +6646,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6396,6 +6681,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -6462,6 +6749,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6487,7 +6775,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6520,6 +6810,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -6564,6 +6856,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6589,7 +6882,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6622,6 +6917,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             'Poppins',
                                                                         color: Color(
                                                                             0xFF3C4041),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -6666,6 +6963,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6691,7 +6989,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6729,6 +7029,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -6775,6 +7077,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -6800,7 +7103,9 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                             color: Color(
                                                                 0xFFE0E3E7),
                                                             offset: Offset(
-                                                                0.0, 1.0),
+                                                              0.0,
+                                                              1.0,
+                                                            ),
                                                           )
                                                         ],
                                                       ),
@@ -6838,6 +7143,8 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                                 'Poppins',
                                                                             color:
                                                                                 Color(0xFF3C4041),
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -6884,6 +7191,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                                                             style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   color: Color(0xFFDB771A),
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),

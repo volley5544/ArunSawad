@@ -80,6 +80,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -116,6 +117,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     borderSide: BorderSide(
                       color: Colors.transparent,
@@ -147,6 +149,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 2.0,
                     borderSide: BorderSide(
@@ -175,6 +178,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Poppins',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 2.0,
                     borderSide: BorderSide(
@@ -193,7 +197,10 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     _model.placePickerValue.latLng?.toString(),
                     '[lat,lng]',
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 )),
               ),
               Padding(
@@ -204,7 +211,10 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     _model.placePickerValue.name,
                     '[name]',
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 )),
               ),
               Padding(
@@ -215,7 +225,10 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                     _model.placePickerValue.zipCode,
                     '[zip_code]',
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 )),
               ),
               Padding(

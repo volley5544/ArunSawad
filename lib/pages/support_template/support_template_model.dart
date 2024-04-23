@@ -11,10 +11,8 @@ class SupportTemplateModel extends FlutterFlowModel<SupportTemplateWidget> {
 
   // State field(s) for searchField widget.
   FocusNode? searchFieldFocusNode;
-  TextEditingController? searchFieldController;
-  String? Function(BuildContext, String?)? searchFieldControllerValidator;
-
-  /// Initialization and disposal methods.
+  TextEditingController? searchFieldTextController;
+  String? Function(BuildContext, String?)? searchFieldTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -22,10 +20,6 @@ class SupportTemplateModel extends FlutterFlowModel<SupportTemplateWidget> {
   @override
   void dispose() {
     searchFieldFocusNode?.dispose();
-    searchFieldController?.dispose();
+    searchFieldTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

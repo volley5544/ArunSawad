@@ -29,8 +29,6 @@ class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in SendIcon widget.
   ChatMessagesRecord? createMessageUserB;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -40,8 +38,4 @@ class ChattingPageModel extends FlutterFlowModel<ChattingPageWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -36,14 +36,12 @@ class CheckInStatusPageModel extends FlutterFlowModel<CheckInStatusPageWidget> {
   // Stores action output result for [Backend Call - API (GetLeaveDateCheckinAPI)] action in CheckInStatusPage widget.
   ApiCallResponse? getPersonalLeaveDate;
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
+  late ExpandableController expandableExpandableController;
 
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -51,11 +49,7 @@ class CheckInStatusPageModel extends FlutterFlowModel<CheckInStatusPageWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    expandableController.dispose();
+    expandableExpandableController.dispose();
     tabBarController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

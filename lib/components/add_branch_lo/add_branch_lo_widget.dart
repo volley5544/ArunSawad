@@ -87,7 +87,10 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x25090F13),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.only(
@@ -153,7 +156,12 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                             child: Text(
                               'เพิ่มสาขา',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -197,9 +205,14 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -238,6 +251,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController1Validator
                                       .asValidator(context),
@@ -271,9 +285,14 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -312,6 +331,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController2Validator
                                       .asValidator(context),
@@ -345,9 +365,14 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -386,6 +411,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController3Validator
                                       .asValidator(context),
@@ -418,10 +444,15 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintText: 'กรุณากรอก ชื่อสาขา',
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -460,6 +491,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController4Validator
                                       .asValidator(context),
@@ -492,10 +524,15 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintText: 'กรุณากรอก รหัสเขต',
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -534,6 +571,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController5Validator
                                       .asValidator(context),
@@ -566,10 +604,15 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintText: 'กรุณากรอก รหัสภาค',
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -608,6 +651,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController6Validator
                                       .asValidator(context),
@@ -640,10 +684,15 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 18.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintText: 'กรุณากรอก รัศมีเช็คอิน',
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -682,6 +731,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController7Validator
                                       .asValidator(context),
@@ -866,6 +916,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                             elevation: 2.0,

@@ -56,6 +56,7 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -81,7 +82,12 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                             child: Text(
                               'Employee_ID',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ),
@@ -89,21 +95,36 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                           child: Text(
                             'Action',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                         Expanded(
                           child: Text(
                             'Action_Time',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                         Expanded(
                           child: Text(
                             'LatLng',
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ],
@@ -148,7 +169,11 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                                       child: Text(
                                         columnUserLogRecord.employeeId,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -156,7 +181,11 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                                     child: Text(
                                       columnUserLogRecord.action,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Expanded(
@@ -164,7 +193,11 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                                       columnUserLogRecord.actionTime!
                                           .toString(),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Expanded(
@@ -175,7 +208,11 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                                         '[user_location]',
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                 ],

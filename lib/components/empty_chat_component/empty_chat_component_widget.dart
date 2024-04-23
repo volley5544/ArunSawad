@@ -116,7 +116,10 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
+                          offset: Offset(
+                            0.0,
+                            2.0,
+                          ),
                         )
                       ],
                       borderRadius: BorderRadius.circular(16.0),
@@ -130,6 +133,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                               fontFamily: 'Poppins',
                               color: Colors.white,
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
@@ -160,7 +164,10 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                       BoxShadow(
                         blurRadius: 4.0,
                         color: Color(0x33000000),
-                        offset: Offset(0.0, 2.0),
+                        offset: Offset(
+                          0.0,
+                          2.0,
+                        ),
                       )
                     ],
                     borderRadius: BorderRadius.circular(16.0),
@@ -174,6 +181,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                             fontFamily: 'Poppins',
                             color: FlutterFlowTheme.of(context).black600,
                             fontSize: 18.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
                           ),
                     ),
@@ -202,6 +210,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Poppins',
                   fontSize: 20.0,
+                  letterSpacing: 0.0,
                 ),
           ),
         ),
@@ -212,6 +221,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                 fontFamily: 'Poppins',
                 color: FlutterFlowTheme.of(context).grayIcon,
                 fontSize: 16.0,
+                letterSpacing: 0.0,
                 fontWeight: FontWeight.normal,
               ),
         ),
@@ -222,6 +232,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                 fontFamily: 'Poppins',
                 color: FlutterFlowTheme.of(context).grayIcon,
                 fontSize: 16.0,
+                letterSpacing: 0.0,
                 fontWeight: FontWeight.normal,
               ),
         ),

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'dart:math' as math;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -126,8 +127,12 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                 PageView.builder(
                                   controller: _model.pageViewController ??=
                                       PageController(
-                                          initialPage: min(
-                                              0, splashPageImgList.length - 1)),
+                                          initialPage: max(
+                                              0,
+                                              min(
+                                                  0,
+                                                  splashPageImgList.length -
+                                                      1))),
                                   scrollDirection: Axis.horizontal,
                                   itemCount: splashPageImgList.length,
                                   itemBuilder:
@@ -160,7 +165,8 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Transform.rotate(
-                                                  angle: 6.0214,
+                                                  angle:
+                                                      345.0 * (math.pi / 180),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsets.all(8.0),
@@ -174,6 +180,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                                           fontFamily:
                                                               'FC Home Italic',
                                                           fontSize: 22.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                           fontStyle:
@@ -199,10 +206,12 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                         .SmoothPageIndicator(
                                       controller: _model.pageViewController ??=
                                           PageController(
-                                              initialPage: min(
+                                              initialPage: max(
                                                   0,
-                                                  splashPageImgList.length -
-                                                      1)),
+                                                  min(
+                                                      0,
+                                                      splashPageImgList.length -
+                                                          1))),
                                       count: splashPageImgList.length,
                                       axisDirection: Axis.horizontal,
                                       onDotClicked: (i) async {
@@ -256,6 +265,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                               initialized: _model.checkboxGroupValues != null,
                             ),
@@ -299,6 +309,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(
@@ -380,6 +391,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(

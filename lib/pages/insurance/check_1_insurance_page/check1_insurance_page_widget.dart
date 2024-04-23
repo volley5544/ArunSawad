@@ -181,6 +181,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -222,6 +223,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -247,6 +249,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           initialized: _model.coverTypeNameChooseValues != null,
@@ -270,6 +273,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -317,6 +321,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   hintText: 'กรุณาเลือก...',
@@ -353,6 +358,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -374,7 +380,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                               max: 2000000.0,
                               value: _model.sumInsuredValue ??=
                                   FFAppState().sumInsuredChoosenDouble,
-                              label: _model.sumInsuredValue.toString(),
+                              label: _model.sumInsuredValue?.toString(),
                               divisions: 200,
                               onChanged: (newValue) {
                                 setState(
@@ -436,8 +442,12 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     FFAppState()
                                         .sumInsuredChoosenDouble
                                         .toString(),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -463,6 +473,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -488,6 +499,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           initialized: _model.insurerNameChooseValues != null,
@@ -918,6 +930,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
                                     fontSize: 18.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                               elevation: 2.0,

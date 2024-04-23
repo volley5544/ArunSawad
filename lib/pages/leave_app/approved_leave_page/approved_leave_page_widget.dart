@@ -289,6 +289,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -304,337 +305,25 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
-                child: Visibility(
-                  visible: FFAppState().multiApprove,
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Theme(
-                                  data: ThemeData(
-                                    checkboxTheme: CheckboxThemeData(
-                                      visualDensity: VisualDensity.compact,
-                                      materialTapTargetSize:
-                                          MaterialTapTargetSize.shrinkWrap,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(4.0),
-                                      ),
-                                    ),
-                                    unselectedWidgetColor:
-                                        FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                  ),
-                                  child: Checkbox(
-                                    value: _model.checkboxValue ??= false,
-                                    onChanged: (newValue) async {
-                                      setState(() =>
-                                          _model.checkboxValue = newValue!);
-                                      if (newValue!) {
-                                        setState(() {
-                                          FFAppState().ApproveAllCheck = true;
-                                          FFAppState().selectApproveList =
-                                              functions
-                                                  .createFalseList(
-                                                      true,
-                                                      LeaveListAprroveAPICall
-                                                          .leaveID(
-                                                        (_model.leaveListAprroveAPIOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )?.length)!
-                                                  .toList()
-                                                  .cast<bool>();
-                                        });
-                                      } else {
-                                        setState(() {
-                                          FFAppState().ApproveAllCheck = false;
-                                          FFAppState().selectApproveList =
-                                              functions
-                                                  .createFalseList(
-                                                      false,
-                                                      LeaveListAprroveAPICall
-                                                          .leaveID(
-                                                        (_model.leaveListAprroveAPIOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )?.length)!
-                                                  .toList()
-                                                  .cast<bool>();
-                                        });
-                                      }
-                                    },
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).success,
-                                  ),
-                                ),
-                                Text(
-                                  'เลือกทั้งหมด',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Row(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    if (!FFAppState().multiApprove)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.0, 0.0, 10.0),
+                        child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 10.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    var _shouldSetState = false;
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(functions
-                                                .returnMapListFromBoolList(
-                                                    LeaveListAprroveAPICall
-                                                        .leaveID(
-                                                      (_model.leaveListAprroveAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )?.toList(),
-                                                    FFAppState()
-                                                        .selectApproveList
-                                                        .toList(),
-                                                    true)
-                                                .length
-                                                .toString()),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (functions.countTrueInBoolList(
-                                            FFAppState()
-                                                .selectApproveList
-                                                .toList())! <=
-                                        0) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'กรุณาเลือกรายการที่ต้องการจะอนุมัติอย่างน้อย 1 รายการ'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) setState(() {});
-                                      return;
-                                    }
-                                    showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height: double.infinity,
-                                                child: LoadingSceneWidget(),
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-
-                                    _model.leaveFlagApproveListOutput =
-                                        await LeaveFlagApproveListAPICall.call(
-                                      apiUrl: FFAppState().apiURLLocalState,
-                                      token: FFAppState().accessToken,
-                                      leaveIdList: functions
-                                          .returnMappedListFromBoolList(
-                                              functions
-                                                  .reverseList(
-                                                      LeaveListAprroveAPICall
-                                                          .leaveID(
-                                                    (_model.leaveListAprroveAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?.toList())
-                                                  .toList(),
-                                              FFAppState()
-                                                  .selectApproveList
-                                                  .toList(),
-                                              true),
-                                      flagApprove: 'Y',
-                                    );
-                                    _shouldSetState = true;
-                                    if ((_model.leaveFlagApproveListOutput
-                                                ?.statusCode ??
-                                            200) !=
-                                        200) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาดConnection (${(_model.leaveFlagApproveListOutput?.statusCode ?? 200).toString()})'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) setState(() {});
-                                      return;
-                                    }
-                                    if (LeaveFlagApproveListAPICall
-                                            .statusLayer2(
-                                          (_model.leaveFlagApproveListOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        ) ==
-                                        200) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  LeaveFlagApproveListAPICall
-                                                      .messageLayer2(
-                                                (_model.leaveFlagApproveListOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content: Text(
-                                                  LeaveFlagApproveListAPICall
-                                                      .messageLayer2(
-                                                (_model.leaveFlagApproveListOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) setState(() {});
-                                      return;
-                                    }
-
-                                    Navigator.pop(context);
-                                    context.pop();
-
-                                    context.pushNamed('ApprovedLeavePage');
-
-                                    if (_shouldSetState) setState(() {});
-                                  },
-                                  text: 'อนุมัติที่เลือก',
-                                  icon: Icon(
-                                    Icons.check_circle_outline,
-                                    size: 15.0,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: 110.0,
-                                    height: 40.0,
-                                    padding: EdgeInsets.all(0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFF00968A),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.white,
-                                          fontSize: 1.0,
-                                        ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                              ),
-                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 10.0, 0.0),
+                                  0.0, 0.0, 30.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
+                                  HapticFeedback.mediumImpact();
                                   setState(() {
-                                    FFAppState().multiApprove = false;
+                                    FFAppState().multiApprove = true;
                                     FFAppState().selectApproveList = functions
                                         .createFalseList(
                                             false,
@@ -647,25 +336,26 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                         .cast<bool>();
                                   });
                                 },
-                                text: 'ยกเลิก',
-                                icon: FaIcon(
-                                  FontAwesomeIcons.ban,
+                                text: 'อนุมัติหลายคน',
+                                icon: Icon(
+                                  Icons.check,
                                   size: 18.0,
                                 ),
                                 options: FFButtonOptions(
-                                  width: 105.0,
+                                  width: 120.0,
                                   height: 40.0,
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).error,
+                                  color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   elevation: 2.0,
@@ -679,9 +369,407 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                    if (FFAppState().multiApprove)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.0, 0.0, 10.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Theme(
+                                      data: ThemeData(
+                                        checkboxTheme: CheckboxThemeData(
+                                          visualDensity: VisualDensity.compact,
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                          ),
+                                        ),
+                                        unselectedWidgetColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                      ),
+                                      child: Checkbox(
+                                        value: _model.checkboxValue ??= false,
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              _model.checkboxValue = newValue!);
+                                          if (newValue!) {
+                                            setState(() {
+                                              FFAppState().ApproveAllCheck =
+                                                  true;
+                                              FFAppState().selectApproveList =
+                                                  functions
+                                                      .createFalseList(
+                                                          true,
+                                                          LeaveListAprroveAPICall
+                                                              .leaveID(
+                                                            (_model.leaveListAprroveAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.length)!
+                                                      .toList()
+                                                      .cast<bool>();
+                                            });
+                                          } else {
+                                            setState(() {
+                                              FFAppState().ApproveAllCheck =
+                                                  false;
+                                              FFAppState().selectApproveList =
+                                                  functions
+                                                      .createFalseList(
+                                                          false,
+                                                          LeaveListAprroveAPICall
+                                                              .leaveID(
+                                                            (_model.leaveListAprroveAPIOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.length)!
+                                                      .toList()
+                                                      .cast<bool>();
+                                            });
+                                          }
+                                        },
+                                        side: BorderSide(
+                                          width: 2,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .success,
+                                      ),
+                                    ),
+                                    Text(
+                                      'เลือกทั้งหมด',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        var _shouldSetState = false;
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(functions
+                                                    .returnMapListFromBoolList(
+                                                        LeaveListAprroveAPICall
+                                                            .leaveID(
+                                                          (_model.leaveListAprroveAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )?.toList(),
+                                                        FFAppState()
+                                                            .selectApproveList
+                                                            .toList(),
+                                                        true)
+                                                    .length
+                                                    .toString()),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (functions.countTrueInBoolList(
+                                                FFAppState()
+                                                    .selectApproveList
+                                                    .toList())! <=
+                                            0) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'กรุณาเลือกรายการที่ต้องการจะอนุมัติอย่างน้อย 1 รายการ'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
+                                        showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: double.infinity,
+                                                    child: LoadingSceneWidget(),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+
+                                        _model.leaveFlagApproveListOutput =
+                                            await LeaveFlagApproveListAPICall
+                                                .call(
+                                          apiUrl: FFAppState().apiURLLocalState,
+                                          token: FFAppState().accessToken,
+                                          leaveIdList: functions
+                                              .returnMappedListFromBoolList(
+                                                  functions
+                                                      .reverseList(
+                                                          LeaveListAprroveAPICall
+                                                              .leaveID(
+                                                        (_model.leaveListAprroveAPIOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )?.toList())
+                                                      .toList(),
+                                                  FFAppState()
+                                                      .selectApproveList
+                                                      .toList(),
+                                                  true),
+                                          flagApprove: 'Y',
+                                        );
+                                        _shouldSetState = true;
+                                        if ((_model.leaveFlagApproveListOutput
+                                                    ?.statusCode ??
+                                                200) !=
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาดConnection (${(_model.leaveFlagApproveListOutput?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
+                                        if (LeaveFlagApproveListAPICall
+                                                .statusLayer2(
+                                              (_model.leaveFlagApproveListOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ) ==
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      LeaveFlagApproveListAPICall
+                                                          .messageLayer2(
+                                                    (_model.leaveFlagApproveListOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        } else {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      LeaveFlagApproveListAPICall
+                                                          .messageLayer2(
+                                                    (_model.leaveFlagApproveListOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
+
+                                        Navigator.pop(context);
+                                        context.pop();
+
+                                        context.pushNamed('ApprovedLeavePage');
+
+                                        if (_shouldSetState) setState(() {});
+                                      },
+                                      text: 'อนุมัติที่เลือก',
+                                      icon: Icon(
+                                        Icons.check_circle_outline,
+                                        size: 15.0,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width: 110.0,
+                                        height: 40.0,
+                                        padding: EdgeInsets.all(0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Color(0xFF00968A),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              fontSize: 1.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      setState(() {
+                                        FFAppState().multiApprove = false;
+                                        FFAppState().selectApproveList =
+                                            functions
+                                                .createFalseList(
+                                                    false,
+                                                    LeaveListAprroveAPICall
+                                                        .leaveID(
+                                                      (_model.leaveListAprroveAPIOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )?.length)!
+                                                .toList()
+                                                .cast<bool>();
+                                      });
+                                    },
+                                    text: 'ยกเลิก',
+                                    icon: FaIcon(
+                                      FontAwesomeIcons.ban,
+                                      size: 18.0,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: 105.0,
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: FlutterFlowTheme.of(context).error,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.white,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      elevation: 2.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                  ],
                 ),
               ),
               Expanded(
@@ -1181,6 +1269,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Poppins',
                                                                                               fontSize: 14.0,
+                                                                                              letterSpacing: 0.0,
                                                                                               fontWeight: FontWeight.normal,
                                                                                             ),
                                                                                       )),
@@ -1208,6 +1297,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Poppins',
                                                                                                     fontSize: 12.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                   ),
                                                                                             )),
@@ -1240,6 +1330,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Poppins',
                                                                                                   fontSize: 12.0,
+                                                                                                  letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                 ),
                                                                                           )),
@@ -1270,6 +1361,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Poppins',
                                                                                                     fontSize: 12.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                   ),
                                                                                             )),
@@ -1299,6 +1391,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Poppins',
                                                                                                   fontSize: 12.0,
+                                                                                                  letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                 ),
                                                                                           )),
@@ -1329,6 +1422,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Poppins',
                                                                                                     fontSize: 12.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.normal,
                                                                                                   ),
                                                                                             )),
@@ -1358,6 +1452,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Poppins',
                                                                                                   fontSize: 12.0,
+                                                                                                  letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                 ),
                                                                                           )),
@@ -1413,6 +1508,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                             )),
@@ -1446,6 +1542,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           )),
@@ -1485,6 +1582,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           )),
@@ -1522,6 +1620,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               .override(
                                                                                 fontFamily: 'Poppins',
                                                                                 fontSize: 12.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
                                                                               ),
                                                                         )),
@@ -1568,6 +1667,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                             )),
@@ -1599,6 +1699,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           )),
@@ -1657,6 +1758,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 12.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
                                                                                     ),
                                                                               )),
@@ -1689,6 +1791,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                             )),
@@ -1747,6 +1850,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 12.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
                                                                                     ),
                                                                               )),
@@ -1779,6 +1883,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                             )),
@@ -1838,6 +1943,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                             )),
@@ -1892,6 +1998,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           )),
@@ -1939,6 +2046,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
                                                                                   ),
                                                                             )),
@@ -1972,6 +2080,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
                                                                                 ),
                                                                           )),
@@ -2030,6 +2139,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Poppins',
                                                                                       fontSize: 12.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
                                                                                     ),
                                                                               )),
@@ -2536,6 +2646,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                         fontFamily: 'Poppins',
                                                                                         color: Colors.white,
                                                                                         fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                   elevation: 2.0,
@@ -2847,6 +2958,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                         fontFamily: 'Poppins',
                                                                                         color: Colors.white,
                                                                                         fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.normal,
                                                                                       ),
                                                                                   elevation: 2.0,

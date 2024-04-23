@@ -107,6 +107,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -153,6 +154,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -174,13 +176,18 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController1,
                                         focusNode: _model.textFieldFocusNode1,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.fullName,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -227,6 +234,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               lineHeight: 1.0,
                                             ),
                                         validator: _model
@@ -257,6 +265,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -278,13 +287,18 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController2,
                                         focusNode: _model.textFieldFocusNode2,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.coverType,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -331,6 +345,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               lineHeight: 1.0,
                                             ),
                                         validator: _model
@@ -361,6 +376,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -381,13 +397,18 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController3,
                                         focusNode: _model.textFieldFocusNode3,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.garageType,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -434,6 +455,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               lineHeight: 1.0,
                                             ),
                                         validator: _model
@@ -464,6 +486,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -484,6 +507,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController4,
                                         focusNode: _model.textFieldFocusNode4,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -492,7 +516,11 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                                   widget.grossTotal),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -539,6 +567,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               lineHeight: 1.0,
                                             ),
                                         validator: _model
@@ -569,6 +598,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -589,6 +619,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController5,
                                         focusNode: _model.textFieldFocusNode5,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -597,7 +628,11 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                                   widget.sumInsured),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -644,6 +679,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               lineHeight: 1.0,
                                             ),
                                         validator: _model
@@ -674,6 +710,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -693,6 +730,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController6,
                                         focusNode: _model.textFieldFocusNode6,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -700,7 +738,11 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                               .showNumberWithComma(widget.tppd),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -747,6 +789,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               lineHeight: 1.0,
                                             ),
                                         validator: _model
@@ -777,6 +820,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -796,6 +840,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController7,
                                         focusNode: _model.textFieldFocusNode7,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -803,7 +848,11 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                               .showNumberWithComma(widget.pa),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -851,6 +900,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF0A0A0A),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         keyboardType: TextInputType.phone,
@@ -882,6 +932,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -901,6 +952,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController8,
                                         focusNode: _model.textFieldFocusNode8,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -909,7 +961,11 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                                   widget.grossTotal),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -957,6 +1013,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF0A0A0A),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         keyboardType: TextInputType.phone,
@@ -988,6 +1045,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1007,6 +1065,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController9,
                                         focusNode: _model.textFieldFocusNode9,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1017,7 +1076,11 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                                       widget.actAmount)),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1065,6 +1128,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF0A0A0A),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         keyboardType: TextInputType.phone,
@@ -1096,6 +1160,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -1116,13 +1181,18 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                       child: TextFormField(
                                         controller: _model.textController10,
                                         focusNode: _model.textFieldFocusNode10,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.expiryDate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1170,6 +1240,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF0A0A0A),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         validator: _model

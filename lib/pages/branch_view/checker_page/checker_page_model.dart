@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
+import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -12,7 +12,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -36,11 +35,8 @@ class CheckerPageModel extends FlutterFlowModel<CheckerPageWidget> {
   bool? checkLatLngBVChecker;
   // Stores action output result for [Backend Call - Create Document] action in CheckerPage widget.
   UserLogRecord? createdUserLogBVChecker;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
-
+  // Model for cameraButton component.
+  late CameraButtonModel cameraButtonModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -51,36 +47,38 @@ class CheckerPageModel extends FlutterFlowModel<CheckerPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode1;
-  TextEditingController? coordinateInputController1;
-  String? Function(BuildContext, String?)? coordinateInputController1Validator;
+  TextEditingController? coordinateInputTextController1;
+  String? Function(BuildContext, String?)?
+      coordinateInputTextController1Validator;
   // State field(s) for idInput widget.
   FocusNode? idInputFocusNode1;
-  TextEditingController? idInputController1;
-  String? Function(BuildContext, String?)? idInputController1Validator;
+  TextEditingController? idInputTextController1;
+  String? Function(BuildContext, String?)? idInputTextController1Validator;
   // State field(s) for contnoInput widget.
   FocusNode? contnoInputFocusNode;
-  TextEditingController? contnoInputController;
-  String? Function(BuildContext, String?)? contnoInputControllerValidator;
+  TextEditingController? contnoInputTextController;
+  String? Function(BuildContext, String?)? contnoInputTextControllerValidator;
   // State field(s) for nameInput widget.
   FocusNode? nameInputFocusNode1;
-  TextEditingController? nameInputController1;
-  String? Function(BuildContext, String?)? nameInputController1Validator;
+  TextEditingController? nameInputTextController1;
+  String? Function(BuildContext, String?)? nameInputTextController1Validator;
   // State field(s) for remarkInput widget.
   FocusNode? remarkInputFocusNode;
-  TextEditingController? remarkInputController;
-  String? Function(BuildContext, String?)? remarkInputControllerValidator;
+  TextEditingController? remarkInputTextController;
+  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController8;
   String? Function(BuildContext, String?)? textController8Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode2;
-  TextEditingController? coordinateInputController2;
-  String? Function(BuildContext, String?)? coordinateInputController2Validator;
+  TextEditingController? coordinateInputTextController2;
+  String? Function(BuildContext, String?)?
+      coordinateInputTextController2Validator;
   // State field(s) for idInput widget.
   FocusNode? idInputFocusNode2;
-  TextEditingController? idInputController2;
-  String? Function(BuildContext, String?)? idInputController2Validator;
+  TextEditingController? idInputTextController2;
+  String? Function(BuildContext, String?)? idInputTextController2Validator;
   // Stores action output result for [Backend Call - API (getVloanContractAPI)] action in Button widget.
   ApiCallResponse? getVloanContract;
   // State field(s) for TextField widget.
@@ -92,12 +90,12 @@ class CheckerPageModel extends FlutterFlowModel<CheckerPageWidget> {
   FormFieldController<String>? contNoDropDownValueController;
   // State field(s) for nameInput widget.
   FocusNode? nameInputFocusNode2;
-  TextEditingController? nameInputController2;
-  String? Function(BuildContext, String?)? nameInputController2Validator;
+  TextEditingController? nameInputTextController2;
+  String? Function(BuildContext, String?)? nameInputTextController2Validator;
   // State field(s) for remarkInput33 widget.
   FocusNode? remarkInput33FocusNode;
-  TextEditingController? remarkInput33Controller;
-  String? Function(BuildContext, String?)? remarkInput33ControllerValidator;
+  TextEditingController? remarkInput33TextController;
+  String? Function(BuildContext, String?)? remarkInput33TextControllerValidator;
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -116,14 +114,15 @@ class CheckerPageModel extends FlutterFlowModel<CheckerPageWidget> {
   // Stores action output result for [Backend Call - API (remarkVLoneAPI)] action in Button widget.
   ApiCallResponse? remarkVLoneOutput;
 
-  /// Initialization and disposal methods.
-
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    cameraButtonModel = createModel(context, () => CameraButtonModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    cameraButtonModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
@@ -131,43 +130,39 @@ class CheckerPageModel extends FlutterFlowModel<CheckerPageWidget> {
     textController2?.dispose();
 
     coordinateInputFocusNode1?.dispose();
-    coordinateInputController1?.dispose();
+    coordinateInputTextController1?.dispose();
 
     idInputFocusNode1?.dispose();
-    idInputController1?.dispose();
+    idInputTextController1?.dispose();
 
     contnoInputFocusNode?.dispose();
-    contnoInputController?.dispose();
+    contnoInputTextController?.dispose();
 
     nameInputFocusNode1?.dispose();
-    nameInputController1?.dispose();
+    nameInputTextController1?.dispose();
 
     remarkInputFocusNode?.dispose();
-    remarkInputController?.dispose();
+    remarkInputTextController?.dispose();
 
     textFieldFocusNode3?.dispose();
     textController8?.dispose();
 
     coordinateInputFocusNode2?.dispose();
-    coordinateInputController2?.dispose();
+    coordinateInputTextController2?.dispose();
 
     idInputFocusNode2?.dispose();
-    idInputController2?.dispose();
+    idInputTextController2?.dispose();
 
     textFieldFocusNode4?.dispose();
     textController11?.dispose();
 
     nameInputFocusNode2?.dispose();
-    nameInputController2?.dispose();
+    nameInputTextController2?.dispose();
 
     remarkInput33FocusNode?.dispose();
-    remarkInput33Controller?.dispose();
+    remarkInput33TextController?.dispose();
 
     textFieldFocusNode5?.dispose();
     textController14?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

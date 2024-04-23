@@ -38,13 +38,13 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? iOSidentifierForVendor;
   // State field(s) for usernameInput widget.
   FocusNode? usernameInputFocusNode;
-  TextEditingController? usernameInputController;
-  String? Function(BuildContext, String?)? usernameInputControllerValidator;
+  TextEditingController? usernameInputTextController;
+  String? Function(BuildContext, String?)? usernameInputTextControllerValidator;
   // State field(s) for passwordInput widget.
   FocusNode? passwordInputFocusNode;
-  TextEditingController? passwordInputController;
+  TextEditingController? passwordInputTextController;
   late bool passwordInputVisibility;
-  String? Function(BuildContext, String?)? passwordInputControllerValidator;
+  String? Function(BuildContext, String?)? passwordInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (authenAPI)] action in Button widget.
   ApiCallResponse? authenAPIOutputBtn;
   // Stores action output result for [Backend Call - API (authenAPI)] action in Button widget.
@@ -72,8 +72,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   // Stores action output result for [Backend Call - API (saveCallCollection)] action in Text widget.
   ApiCallResponse? saveCallApi;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     passwordInputVisibility = false;
@@ -83,13 +81,9 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     usernameInputFocusNode?.dispose();
-    usernameInputController?.dispose();
+    usernameInputTextController?.dispose();
 
     passwordInputFocusNode?.dispose();
-    passwordInputController?.dispose();
+    passwordInputTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

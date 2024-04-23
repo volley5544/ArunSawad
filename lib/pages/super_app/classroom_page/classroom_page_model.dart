@@ -20,8 +20,6 @@ class ClassroomPageModel extends FlutterFlowModel<ClassroomPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in ClassroomPage widget.
   UserLogRecord? createdUserLogITSupport;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -29,8 +27,4 @@ class ClassroomPageModel extends FlutterFlowModel<ClassroomPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

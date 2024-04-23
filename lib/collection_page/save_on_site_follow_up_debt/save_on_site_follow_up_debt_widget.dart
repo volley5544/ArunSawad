@@ -1,18 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
+import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -75,80 +73,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'stackOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 100.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, -500.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -217,8 +142,83 @@ class _SaveOnSiteFollowUpDebtWidgetState
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    _model.remarkTextFieldController ??= TextEditingController();
+    _model.remarkTextFieldTextController ??= TextEditingController();
     _model.remarkTextFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 100.0.ms,
+            duration: 1000.0.ms,
+            begin: Offset(0.0, -500.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 200.0.ms,
+            duration: 400.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -277,128 +277,6 @@ class _SaveOnSiteFollowUpDebtWidgetState
                           updateCallback: () => setState(() {}),
                           child: AppbarFollowUpDebtWidget(),
                         ),
-                        Align(
-                          alignment: AlignmentDirectional(0.93, 0.15),
-                          child: FlutterFlowIconButton(
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 50.0,
-                            icon: Icon(
-                              Icons.camera_alt_rounded,
-                              color: Colors.white,
-                              size: 36.0,
-                            ),
-                            onPressed: () async {
-                              HapticFeedback.mediumImpact();
-                              if (FFAppState().imgURL.length >= 5) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        title: Text('ระบบ'),
-                                        content: Text(
-                                            'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                return;
-                              }
-                              final selectedMedia =
-                                  await selectMediaWithSourceBottomSheet(
-                                context: context,
-                                imageQuality: 75,
-                                allowPhoto: true,
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                                textColor: Color(0xFFB71C1C),
-                                pickerFontFamily: 'Raleway',
-                              );
-                              if (selectedMedia != null &&
-                                  selectedMedia.every((m) => validateFileFormat(
-                                      m.storagePath, context))) {
-                                setState(() => _model.isDataUploading = true);
-                                var selectedUploadedFiles = <FFUploadedFile>[];
-
-                                var downloadUrls = <String>[];
-                                try {
-                                  showUploadMessage(
-                                    context,
-                                    'Uploading file...',
-                                    showLoading: true,
-                                  );
-                                  selectedUploadedFiles = selectedMedia
-                                      .map((m) => FFUploadedFile(
-                                            name: m.storagePath.split('/').last,
-                                            bytes: m.bytes,
-                                            height: m.dimensions?.height,
-                                            width: m.dimensions?.width,
-                                            blurHash: m.blurHash,
-                                          ))
-                                      .toList();
-
-                                  downloadUrls = (await Future.wait(
-                                    selectedMedia.map(
-                                      (m) async => await uploadData(
-                                          m.storagePath, m.bytes),
-                                    ),
-                                  ))
-                                      .where((u) => u != null)
-                                      .map((u) => u!)
-                                      .toList();
-                                } finally {
-                                  ScaffoldMessenger.of(context)
-                                      .hideCurrentSnackBar();
-                                  _model.isDataUploading = false;
-                                }
-                                if (selectedUploadedFiles.length ==
-                                        selectedMedia.length &&
-                                    downloadUrls.length ==
-                                        selectedMedia.length) {
-                                  setState(() {
-                                    _model.uploadedLocalFile =
-                                        selectedUploadedFiles.first;
-                                    _model.uploadedFileUrl = downloadUrls.first;
-                                  });
-                                  showUploadMessage(context, 'Success!');
-                                } else {
-                                  setState(() {});
-                                  showUploadMessage(
-                                      context, 'Failed to upload data');
-                                  return;
-                                }
-                              }
-
-                              if (_model.uploadedFileUrl != null &&
-                                  _model.uploadedFileUrl != '') {
-                                if (_model.uploadedFileUrl !=
-                                    FFAppState().imgURLTemp) {
-                                  FFAppState().update(() {
-                                    FFAppState().imgURLTemp =
-                                        _model.uploadedFileUrl;
-                                  });
-                                } else {
-                                  return;
-                                }
-                              } else {
-                                return;
-                              }
-
-                              FFAppState().update(() {
-                                FFAppState()
-                                    .addToImgURL(_model.uploadedFileUrl);
-                              });
-                            },
-                          ),
-                        ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 0.0, 0.0),
@@ -410,7 +288,20 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
                                   fontSize: 18.0,
+                                  letterSpacing: 0.0,
                                 ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                320.0, 0.0, 0.0, 0.0),
+                            child: wrapWithModel(
+                              model: _model.cameraButtonModel,
+                              updateCallback: () => setState(() {}),
+                              child: CameraButtonWidget(),
+                            ),
                           ),
                         ),
                       ],
@@ -460,6 +351,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -514,6 +406,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -530,6 +423,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -566,6 +460,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -587,6 +482,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -602,6 +498,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -636,6 +533,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -657,6 +555,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -677,6 +576,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -715,6 +615,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -737,6 +638,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -753,6 +655,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -788,6 +691,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -809,6 +713,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -825,6 +730,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -860,6 +766,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -881,6 +788,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -897,6 +805,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -932,6 +841,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -953,6 +863,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -972,6 +883,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -1013,6 +925,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -1035,6 +948,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -1046,18 +960,18 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       '${functions.showNumberWithComma(widget.sumCurrentDueAmt)} บาท',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -1092,6 +1006,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -1114,6 +1029,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -1133,18 +1049,18 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         )),
                                                         'date_of_data',
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 12.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -1172,6 +1088,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Poppins',
                             fontSize: 15.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.normal,
                             decoration: TextDecoration.underline,
                           ),
@@ -1201,6 +1118,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -1255,6 +1173,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     hintText: 'กรุณาเลือก',
@@ -1301,6 +1220,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
@@ -1317,14 +1237,17 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         child: TextFormField(
                                           controller: _model.textController1,
                                           focusNode: _model.textFieldFocusNode,
+                                          autofocus: false,
                                           readOnly: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
+                                            isDense: false,
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
                                                       fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
                                                     ),
@@ -1337,6 +1260,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondaryText,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                             enabledBorder: OutlineInputBorder(
@@ -1386,6 +1310,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           textAlign: TextAlign.start,
@@ -1510,6 +1435,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
@@ -1518,18 +1444,25 @@ class _SaveOnSiteFollowUpDebtWidgetState
                               Container(
                                 width: 200.0,
                                 child: TextFormField(
-                                  controller: _model.remarkTextFieldController,
+                                  controller:
+                                      _model.remarkTextFieldTextController,
                                   focusNode: _model.remarkTextFieldFocusNode,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium,
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                         color: FlutterFlowTheme.of(context)
@@ -1566,6 +1499,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   textAlign: TextAlign.start,
@@ -1581,7 +1515,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                   cursorColor:
                                       FlutterFlowTheme.of(context).grayIcon,
                                   validator: _model
-                                      .remarkTextFieldControllerValidator
+                                      .remarkTextFieldTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -1615,6 +1549,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               decoration:
                                                   TextDecoration.underline,
@@ -1824,9 +1759,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.remarkTextFieldController.text !=
+                                  if (!(_model.remarkTextFieldTextController
+                                              .text !=
                                           null &&
-                                      _model.remarkTextFieldController.text !=
+                                      _model.remarkTextFieldTextController
+                                              .text !=
                                           '')) {
                                     await showDialog(
                                       context: context,
@@ -1849,7 +1786,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     return;
                                   }
                                   if (functions.checkStringLength(_model
-                                          .remarkTextFieldController.text) >
+                                          .remarkTextFieldTextController.text) >
                                       275) {
                                     await showDialog(
                                       context: context,
@@ -1968,7 +1905,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       token: FFAppState().accessToken,
                                     );
                                     _shouldSetState = true;
-                                    if (!(((_model.getUserBranchLocation
+                                    if (((_model.getUserBranchLocation
                                                     ?.statusCode ??
                                                 200) ==
                                             200) &&
@@ -1977,47 +1914,34 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       ?.jsonBody ??
                                                   ''),
                                             ) ==
-                                            200))) {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                            child: AlertDialog(
-                                              content:
-                                                  Text('พบข้อผิดพลาดค้นหาสาขา'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ),
-                                          );
-                                        },
-                                      );
-                                      if (_shouldSetState) setState(() {});
-                                      return;
+                                            200)) {
+                                      setState(() {
+                                        FFAppState().branchLocationTemp =
+                                            '${ChangeLocationAPICall.oldLat(
+                                          (_model.getUserBranchLocation
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )},${ChangeLocationAPICall.oldLng(
+                                          (_model.getUserBranchLocation
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )}';
+                                        FFAppState().branchNameTemp =
+                                            ChangeLocationAPICall.branchName(
+                                          (_model.getUserBranchLocation
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        FFAppState().branchLocationTemp =
+                                            functions.getUserLocation(
+                                                currentUserLocationValue);
+                                        FFAppState().branchNameTemp =
+                                            FFAppState().profileUnitCodeName;
+                                      });
                                     }
-                                    setState(() {
-                                      FFAppState().branchLocationTemp =
-                                          '${ChangeLocationAPICall.oldLat(
-                                        (_model.getUserBranchLocation
-                                                ?.jsonBody ??
-                                            ''),
-                                      )},${ChangeLocationAPICall.oldLng(
-                                        (_model.getUserBranchLocation
-                                                ?.jsonBody ??
-                                            ''),
-                                      )}';
-                                      FFAppState().branchNameTemp =
-                                          ChangeLocationAPICall.branchName(
-                                        (_model.getUserBranchLocation
-                                                ?.jsonBody ??
-                                            ''),
-                                      )!;
-                                    });
                                   }
                                   _model.collectionAPISubmit =
                                       await CollectionAPICall.call(
@@ -2027,8 +1951,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     contNo: widget.contNo,
                                     customerName:
                                         '${widget.firstname} ${widget.lastname}',
-                                    remark:
-                                        _model.remarkTextFieldController.text,
+                                    remark: _model
+                                        .remarkTextFieldTextController.text,
                                     uid: FFAppState().imei,
                                     description: 'ติดตามหนี้',
                                     jobType: 'Collection',
@@ -2103,7 +2027,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   (_model.collectionAPISubmit
                                                           ?.jsonBody ??
                                                       ''),
-                                                ))), _model.remarkTextFieldController.text)} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                                ))), _model.remarkTextFieldTextController.text)} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
                                           (_model.collectionAPISubmit
                                                   ?.jsonBody ??
                                               ''),
@@ -2142,7 +2066,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             (_model.collectionAPISubmit
                                                     ?.jsonBody ??
                                                 ''),
-                                          ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                          ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
                                         (_model.collectionAPISubmit?.jsonBody ??
                                             ''),
                                       ))}',
@@ -2271,6 +2195,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(

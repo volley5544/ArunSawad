@@ -104,7 +104,10 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                 automaticallyImplyLeading: false,
                 title: Text(
                   'กรุณาใส่รหัสพินตัวเลข',
-                  style: FlutterFlowTheme.of(context).bodyMedium,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 ),
                 actions: [],
                 centerTitle: true,
@@ -124,7 +127,12 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                         children: [
                           Text(
                             'ตั้งพินของคุณ',
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -132,7 +140,12 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                             child: Text(
                               'รหัสพินนี้จะใช้ในการเข้าสู่ระบบในครั้งถัดไป',
                               textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Padding(
@@ -147,6 +160,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context).primary,
+                                    letterSpacing: 0.0,
                                   ),
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               enableActiveFill: false,
@@ -412,6 +426,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(

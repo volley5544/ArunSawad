@@ -573,7 +573,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
       Navigator.pop(context);
     });
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
     _model.tabBarController = TabController(
       vsync: this,
       length: 2,
@@ -654,6 +655,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                         fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 22.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
                 actions: [
@@ -766,7 +768,12 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                               child: SelectionArea(
                                   child: Text(
                                 'ประกาศวันหยุดตามประเพณี ประจำปี  2567',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                               )),
                             ),
                           ],
@@ -785,7 +792,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                               width: double.infinity,
                               color: Color(0x00000000),
                               child: ExpandableNotifier(
-                                controller: _model.expandableController,
+                                controller:
+                                    _model.expandableExpandableController,
                                 child: ExpandablePanel(
                                   header: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -813,6 +821,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                               fontFamily: 'Poppins',
                                               color: Color(0xFFFF0000),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w900,
                                             ),
                                       ),
@@ -834,6 +843,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
                                                 .grayIcon,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -865,6 +875,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .black600,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -903,6 +914,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .black600,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                     ),
                                                   ),
@@ -936,8 +949,12 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                             alignment: Alignment(0.0, 0),
                             child: TabBar(
                               labelColor: FlutterFlowTheme.of(context).primary,
-                              labelStyle:
-                                  FlutterFlowTheme.of(context).bodyMedium,
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                               unselectedLabelStyle: TextStyle(),
                               indicatorColor:
                                   FlutterFlowTheme.of(context).secondary,
@@ -993,15 +1010,15 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                       'วันที่',
                                                       textAlign:
                                                           TextAlign.start,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 14.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ),
                                                 ),
@@ -1013,7 +1030,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   )),
                                                 ),
                                                 Expanded(
@@ -1024,7 +1045,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   )),
                                                 ),
                                                 Expanded(
@@ -1035,7 +1060,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   )),
                                                 ),
                                               ],
@@ -1108,6 +1137,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         )),
                                                       ),
@@ -1133,6 +1164,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ),
@@ -1157,6 +1190,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ),
@@ -1285,6 +1320,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               )),
                                                             ),
@@ -1336,15 +1373,15 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                       'วันที่',
                                                       textAlign:
                                                           TextAlign.start,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 14.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ),
                                                 ),
@@ -1356,7 +1393,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   )),
                                                 ),
                                                 Expanded(
@@ -1367,7 +1408,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   )),
                                                 ),
                                                 Expanded(
@@ -1378,7 +1423,11 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   )),
                                                 ),
                                               ],
@@ -1455,6 +1504,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         )),
                                                       ),
@@ -1480,6 +1531,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ),
@@ -1504,6 +1557,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ),
@@ -1638,6 +1693,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                           'Poppins',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               )),
                                                             ),

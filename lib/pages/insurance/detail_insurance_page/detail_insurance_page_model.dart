@@ -53,8 +53,6 @@ class DetailInsurancePageModel
   TextEditingController? textController10;
   String? Function(BuildContext, String?)? textController10Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -91,8 +89,4 @@ class DetailInsurancePageModel
     textFieldFocusNode10?.dispose();
     textController10?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

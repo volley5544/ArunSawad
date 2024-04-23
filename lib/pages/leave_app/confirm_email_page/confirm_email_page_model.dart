@@ -15,8 +15,6 @@ class ConfirmEmailPageModel extends FlutterFlowModel<ConfirmEmailPageWidget> {
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -26,8 +24,4 @@ class ConfirmEmailPageModel extends FlutterFlowModel<ConfirmEmailPageWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -32,7 +32,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
     _model = createModel(context, () => CancelPageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'CancelPage'});
-    _model.reasonCancelController ??= TextEditingController();
+    _model.reasonCancelTextController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -84,6 +84,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -176,6 +177,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -204,7 +207,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .reasonCancelController,
+                                                                  .reasonCancelTextController,
                                                               focusNode: _model
                                                                   .reasonCancelFocusNode,
                                                               autofocus: true,
@@ -216,7 +219,13 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                     'ระบุเหตุผล...',
                                                                 hintStyle: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodySmall,
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                                 enabledBorder:
                                                                     UnderlineInputBorder(
                                                                   borderSide:
@@ -289,13 +298,15 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                         'Poppins',
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
                                                                   ),
                                                               maxLines: 4,
                                                               validator: _model
-                                                                  .reasonCancelControllerValidator
+                                                                  .reasonCancelTextControllerValidator
                                                                   .asValidator(
                                                                       context),
                                                             ),
@@ -364,7 +375,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                           widget
                                                                               .leaveId,
                                                                       reasonCancel: _model
-                                                                          .reasonCancelController
+                                                                          .reasonCancelTextController
                                                                           .text,
                                                                     );
                                                                     _shouldSetState =
@@ -492,6 +503,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                             .white,
                                                                         fontSize:
                                                                             15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -555,6 +568,8 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                           .white,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,

@@ -99,14 +99,15 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
       }
     });
 
-    _model.leaveDaysController ??= TextEditingController(text: widget.leaveDay);
+    _model.leaveDaysTextController ??=
+        TextEditingController(text: widget.leaveDay);
     _model.leaveDaysFocusNode ??= FocusNode();
 
-    _model.phoneNumberController ??=
+    _model.phoneNumberTextController ??=
         TextEditingController(text: widget.userPhoneNumber);
     _model.phoneNumberFocusNode ??= FocusNode();
 
-    _model.reasonToLeaveController ??=
+    _model.reasonToLeaveTextController ??=
         TextEditingController(text: widget.leaveReason);
     _model.reasonToLeaveFocusNode ??= FocusNode();
 
@@ -157,6 +158,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -309,6 +311,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ),
@@ -334,7 +337,11 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                   widget.leaveType!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -363,6 +370,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ),
@@ -668,6 +676,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 color: Color(
                                                                     0xFF0A0A0A),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -711,6 +721,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ),
@@ -762,6 +773,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -809,6 +821,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -834,19 +847,19 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 0.0, 5.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .leaveDaysController,
+                                                          .leaveDaysTextController,
                                                       focusNode: _model
                                                           .leaveDaysFocusNode,
                                                       onChanged: (_) =>
                                                           EasyDebounce.debounce(
-                                                        '_model.leaveDaysController',
+                                                        '_model.leaveDaysTextController',
                                                         Duration(
                                                             milliseconds: 2000),
                                                         () async {
                                                           if (functions
                                                               .checkLeaveDayNumber(
                                                                   _model
-                                                                      .leaveDaysController
+                                                                      .leaveDaysTextController
                                                                       .text)!) {
                                                             await showDialog(
                                                               context: context,
@@ -872,7 +885,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             );
                                                             setState(() {
                                                               _model
-                                                                  .leaveDaysController
+                                                                  .leaveDaysTextController
                                                                   ?.clear();
                                                             });
                                                             return;
@@ -882,7 +895,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                               FFAppState()
                                                                       .leaveDaysDouble =
                                                                   double.parse(_model
-                                                                      .leaveDaysController
+                                                                      .leaveDaysTextController
                                                                       .text);
                                                             });
                                                           }
@@ -916,7 +929,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             );
                                                             setState(() {
                                                               _model
-                                                                  .leaveDaysController
+                                                                  .leaveDaysTextController
                                                                   ?.clear();
                                                             });
                                                             return;
@@ -928,7 +941,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         if (functions
                                                             .checkLeaveDayNumber(
                                                                 _model
-                                                                    .leaveDaysController
+                                                                    .leaveDaysTextController
                                                                     .text)!) {
                                                           await showDialog(
                                                             context: context,
@@ -954,7 +967,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           );
                                                           setState(() {
                                                             _model
-                                                                .leaveDaysController
+                                                                .leaveDaysTextController
                                                                 ?.clear();
                                                           });
                                                           return;
@@ -964,7 +977,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             FFAppState()
                                                                     .leaveDaysDouble =
                                                                 double.parse(_model
-                                                                    .leaveDaysController
+                                                                    .leaveDaysTextController
                                                                     .text);
                                                           });
                                                         }
@@ -998,12 +1011,13 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           );
                                                           setState(() {
                                                             _model
-                                                                .leaveDaysController
+                                                                .leaveDaysTextController
                                                                 ?.clear();
                                                           });
                                                           return;
                                                         }
                                                       },
+                                                      autofocus: false,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -1012,7 +1026,13 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         enabledBorder:
                                                             UnderlineInputBorder(
                                                           borderSide:
@@ -1077,20 +1097,20 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                     24.0,
                                                                     24.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 15.0,
-                                                                lineHeight: 1.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            lineHeight: 1.0,
+                                                          ),
                                                       keyboardType:
                                                           TextInputType.number,
                                                       validator: _model
-                                                          .leaveDaysControllerValidator
+                                                          .leaveDaysTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -1121,6 +1141,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ),
@@ -1141,14 +1162,14 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           0.0, 0.0, 0.0, 5.0),
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .phoneNumberController,
+                                                        .phoneNumberTextController,
                                                     focusNode: _model
                                                         .phoneNumberFocusNode,
                                                     onFieldSubmitted:
                                                         (_) async {
                                                       if (!functions
                                                           .checkPhoneNumber10(_model
-                                                              .phoneNumberController
+                                                              .phoneNumberTextController
                                                               .text)!) {
                                                         await showDialog(
                                                           context: context,
@@ -1174,12 +1195,13 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         );
                                                         setState(() {
                                                           _model
-                                                              .phoneNumberController
+                                                              .phoneNumberTextController
                                                               ?.clear();
                                                         });
                                                         return;
                                                       }
                                                     },
+                                                    autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       hintText:
@@ -1187,7 +1209,13 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodySmall,
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -1257,13 +1285,14 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                     keyboardType:
                                                         TextInputType.phone,
                                                     validator: _model
-                                                        .phoneNumberControllerValidator
+                                                        .phoneNumberTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1294,6 +1323,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ),
@@ -1314,9 +1344,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           0.0, 10.0, 0.0, 5.0),
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .reasonToLeaveController,
+                                                        .reasonToLeaveTextController,
                                                     focusNode: _model
                                                         .reasonToLeaveFocusNode,
+                                                    autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       labelStyle:
@@ -1326,6 +1357,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1340,6 +1373,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                     'Poppins',
                                                                 color: Color(
                                                                     0xFF0A0A0A),
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
@@ -1402,13 +1437,14 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                     textAlign: TextAlign.start,
                                                     maxLines: 4,
                                                     validator: _model
-                                                        .reasonToLeaveControllerValidator
+                                                        .reasonToLeaveTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1439,6 +1475,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ),
@@ -1590,6 +1627,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 color: Color(
                                                                     0xFF0A0A0A),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -1643,10 +1682,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 controller: _model
                                                                         .pageViewController1 ??=
                                                                     PageController(
-                                                                        initialPage: min(
+                                                                        initialPage: max(
                                                                             0,
-                                                                            uploadListNum.length -
-                                                                                1)),
+                                                                            min(0,
+                                                                                uploadListNum.length - 1))),
                                                                 scrollDirection:
                                                                     Axis.horizontal,
                                                                 itemCount:
@@ -1688,9 +1727,9 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   controller: _model
                                                                           .pageViewController1 ??=
                                                                       PageController(
-                                                                          initialPage: min(
+                                                                          initialPage: max(
                                                                               0,
-                                                                              uploadListNum.length - 1)),
+                                                                              min(0, uploadListNum.length - 1))),
                                                                   count:
                                                                       uploadListNum
                                                                           .length,
@@ -1778,10 +1817,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 controller: _model
                                                                         .pageViewController2 ??=
                                                                     PageController(
-                                                                        initialPage: min(
+                                                                        initialPage: max(
                                                                             0,
-                                                                            uploadListNumOld.length -
-                                                                                1)),
+                                                                            min(0,
+                                                                                uploadListNumOld.length - 1))),
                                                                 scrollDirection:
                                                                     Axis.horizontal,
                                                                 itemCount:
@@ -1823,9 +1862,9 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   controller: _model
                                                                           .pageViewController2 ??=
                                                                       PageController(
-                                                                          initialPage: min(
+                                                                          initialPage: max(
                                                                               0,
-                                                                              uploadListNumOld.length - 1)),
+                                                                              min(0, uploadListNumOld.length - 1))),
                                                                   count:
                                                                       uploadListNumOld
                                                                           .length,
@@ -2062,7 +2101,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 return;
                                               }
                                               if (!functions.checkPhoneNumber10(
-                                                  _model.phoneNumberController
+                                                  _model
+                                                      .phoneNumberTextController
                                                       .text)!) {
                                                 await showDialog(
                                                   context: context,
@@ -2085,7 +2125,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                   },
                                                 );
                                                 setState(() {
-                                                  _model.phoneNumberController
+                                                  _model
+                                                      .phoneNumberTextController
                                                       ?.clear();
                                                 });
                                                 if (_shouldSetState)
@@ -2179,11 +2220,12 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 'ลาเต็มวัน') {
                                               FFAppState().update(() {
                                                 FFAppState().leaveDaysLocal =
-                                                    _model.leaveDaysController
+                                                    _model
+                                                        .leaveDaysTextController
                                                         .text;
                                                 FFAppState().leaveDaysDouble =
                                                     double.parse(_model
-                                                        .leaveDaysController
+                                                        .leaveDaysTextController
                                                         .text);
                                                 FFAppState()
                                                         .checkAllowLeaveDay =
@@ -2196,7 +2238,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             .leaveDaysDouble)!;
                                                 FFAppState().leaveDayInt =
                                                     int.parse(_model
-                                                        .leaveDaysController
+                                                        .leaveDaysTextController
                                                         .text);
                                               });
                                             } else {
@@ -2305,7 +2347,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         ? functions
                                                             .leaveCountMinusSunday(
                                                                 _model
-                                                                    .leaveDaysController
+                                                                    .leaveDaysTextController
                                                                     .text,
                                                                 functions.checkSundayBetween2Day(
                                                                     _model
@@ -2331,32 +2373,32 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                         .endLeaveDayCalString(
                                                             _model.datePicked,
                                                             int.tryParse(_model
-                                                                .leaveDaysController
+                                                                .leaveDaysTextController
                                                                 .text),
                                                             _model
                                                                 .leaveTimeValue),
                                                     leavePeriod:
                                                         _model.leaveTimeValue,
-                                                    empTel: _model.phoneNumberController
+                                                    empTel: _model.phoneNumberTextController
                                                                     .text ==
                                                                 null ||
-                                                            _model.phoneNumberController
+                                                            _model.phoneNumberTextController
                                                                     .text ==
                                                                 ''
                                                         ? '-'
                                                         : _model
-                                                            .phoneNumberController
+                                                            .phoneNumberTextController
                                                             .text,
                                                     leaveReason: _model
-                                                                    .reasonToLeaveController
+                                                                    .reasonToLeaveTextController
                                                                     .text ==
                                                                 null ||
-                                                            _model.reasonToLeaveController
+                                                            _model.reasonToLeaveTextController
                                                                     .text ==
                                                                 ''
                                                         ? '-'
                                                         : _model
-                                                            .reasonToLeaveController
+                                                            .reasonToLeaveTextController
                                                             .text,
                                                     leaveDocument: _model
                                                                 .uploadedFileUrls
@@ -2723,7 +2765,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       ? functions
                                                           .leaveCountMinusSunday(
                                                               _model
-                                                                  .leaveDaysController
+                                                                  .leaveDaysTextController
                                                                   .text,
                                                               functions.checkSundayBetween2Day(
                                                                   _model
@@ -2749,32 +2791,32 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       .endLeaveDayCalString(
                                                           _model.datePicked,
                                                           int.tryParse(_model
-                                                              .leaveDaysController
+                                                              .leaveDaysTextController
                                                               .text),
                                                           _model
                                                               .leaveTimeValue),
                                                   leavePeriod:
                                                       _model.leaveTimeValue,
-                                                  empTel: _model.phoneNumberController
+                                                  empTel: _model.phoneNumberTextController
                                                                   .text ==
                                                               null ||
-                                                          _model.phoneNumberController
+                                                          _model.phoneNumberTextController
                                                                   .text ==
                                                               ''
                                                       ? '-'
                                                       : _model
-                                                          .phoneNumberController
+                                                          .phoneNumberTextController
                                                           .text,
                                                   leaveReason: _model
-                                                                  .reasonToLeaveController
+                                                                  .reasonToLeaveTextController
                                                                   .text ==
                                                               null ||
-                                                          _model.reasonToLeaveController
+                                                          _model.reasonToLeaveTextController
                                                                   .text ==
                                                               ''
                                                       ? '-'
                                                       : _model
-                                                          .reasonToLeaveController
+                                                          .reasonToLeaveTextController
                                                           .text,
                                                   leaveDocument: () {
                                                     if (_model.uploadedFileUrls
@@ -3117,6 +3159,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white,
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),

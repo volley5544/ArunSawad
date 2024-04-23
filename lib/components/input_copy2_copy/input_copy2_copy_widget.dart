@@ -36,7 +36,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
     super.initState();
     _model = createModel(context, () => InputCopy2CopyModel());
 
-    _model.reasonCancelController ??= TextEditingController();
+    _model.reasonCancelTextController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -86,6 +86,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         )),
@@ -103,14 +104,18 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                           child: Padding(
                             padding: EdgeInsets.all(10.0),
                             child: TextFormField(
-                              controller: _model.reasonCancelController,
+                              controller: _model.reasonCancelTextController,
                               focusNode: _model.reasonCancelFocusNode,
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'กรอกEmail...',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -150,10 +155,12 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                   .override(
                                     fontFamily: 'Poppins',
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                               maxLines: 4,
-                              validator: _model.reasonCancelControllerValidator
+                              validator: _model
+                                  .reasonCancelTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -187,6 +194,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 elevation: 2.0,
@@ -207,9 +215,10 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                             FFButtonWidget(
                               onPressed: () async {
                                 var _shouldSetState = false;
-                                if (!(_model.reasonCancelController.text !=
+                                if (!(_model.reasonCancelTextController.text !=
                                         null &&
-                                    _model.reasonCancelController.text != '')) {
+                                    _model.reasonCancelTextController.text !=
+                                        '')) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -289,7 +298,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                   leaveDocId: widget.leaveID,
-                                  email: _model.reasonCancelController.text,
+                                  email: _model.reasonCancelTextController.text,
                                 );
                                 _shouldSetState = true;
                                 if ((_model.sendEmail?.statusCode ?? 200) !=
@@ -391,6 +400,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 elevation: 2.0,

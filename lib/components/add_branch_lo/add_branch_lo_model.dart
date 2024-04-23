@@ -43,8 +43,6 @@ class AddBranchLoModel extends FlutterFlowModel<AddBranchLoWidget> {
   // Stores action output result for [Backend Call - API (InsertLocationAPI)] action in Button widget.
   ApiCallResponse? insertAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -71,8 +69,4 @@ class AddBranchLoModel extends FlutterFlowModel<AddBranchLoWidget> {
     textFieldFocusNode7?.dispose();
     textController7?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

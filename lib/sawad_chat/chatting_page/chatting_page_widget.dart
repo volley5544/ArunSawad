@@ -47,46 +47,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, -15.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, -15.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -113,6 +74,47 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, -15.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, -15.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -193,6 +195,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: [],
@@ -344,7 +347,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                             color: Color(
                                                                 0x33000000),
                                                             offset: Offset(
-                                                                0.0, 2.0),
+                                                              0.0,
+                                                              2.0,
+                                                            ),
                                                           )
                                                         ],
                                                         borderRadius:
@@ -371,6 +376,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
@@ -412,6 +419,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                         context)
                                                                     .grayIcon,
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
@@ -487,8 +496,10 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                           blurRadius: 4.0,
                                                           color:
                                                               Color(0x33000000),
-                                                          offset:
-                                                              Offset(0.0, 2.0),
+                                                          offset: Offset(
+                                                            0.0,
+                                                            2.0,
+                                                          ),
                                                         )
                                                       ],
                                                       borderRadius:
@@ -518,6 +529,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                       .black600,
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -558,6 +571,8 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                         context)
                                                                     .grayIcon,
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
@@ -695,6 +710,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             controller: _model.textController,
                                             focusNode:
                                                 _model.textFieldFocusNode,
+                                            autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelStyle:
@@ -703,6 +719,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               hintText: 'พิมพ์ข้อความที่นี่',
                                               hintStyle:
@@ -715,6 +732,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                     context)
                                                                 .grayIcon,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               enabledBorder: InputBorder.none,
                                               focusedBorder: InputBorder.none,
@@ -727,6 +745,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                             validator: _model
                                                 .textControllerValidator

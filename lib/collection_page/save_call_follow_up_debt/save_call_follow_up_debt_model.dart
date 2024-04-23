@@ -51,8 +51,6 @@ class SaveCallFollowUpDebtModel
   // Stores action output result for [Backend Call - API (saveCallCollection)] action in Button widget.
   ApiCallResponse? saveCallCollection;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     appbarFollowUpDebtModel =
@@ -72,8 +70,4 @@ class SaveCallFollowUpDebtModel
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

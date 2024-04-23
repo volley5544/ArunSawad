@@ -41,8 +41,6 @@ class ListNameTabFollowUpDebtModel
   PagingController<ApiPagingParams, dynamic>? listViewPagingController;
   Function(ApiPagingParams nextPageMarker)? listViewApiCall;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     appbarFollowUpDebtModel =
@@ -59,10 +57,7 @@ class ListNameTabFollowUpDebtModel
     listViewPagingController?.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForOnePageForListView({
     double minWait = 0,
     double maxWait = double.infinity,

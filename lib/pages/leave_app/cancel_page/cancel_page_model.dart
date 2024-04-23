@@ -14,12 +14,10 @@ class CancelPageModel extends FlutterFlowModel<CancelPageWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for reasonCancel widget.
   FocusNode? reasonCancelFocusNode;
-  TextEditingController? reasonCancelController;
-  String? Function(BuildContext, String?)? reasonCancelControllerValidator;
+  TextEditingController? reasonCancelTextController;
+  String? Function(BuildContext, String?)? reasonCancelTextControllerValidator;
   // Stores action output result for [Backend Call - API (leaveListCancelAPI)] action in Button widget.
   ApiCallResponse? leaveListCancelAPIOutput;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -28,10 +26,6 @@ class CancelPageModel extends FlutterFlowModel<CancelPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     reasonCancelFocusNode?.dispose();
-    reasonCancelController?.dispose();
+    reasonCancelTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

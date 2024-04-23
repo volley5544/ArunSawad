@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
+import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -12,7 +12,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -32,11 +31,8 @@ class OPSpageModel extends FlutterFlowModel<OPSpageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
-
+  // Model for cameraButton component.
+  late CameraButtonModel cameraButtonModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -47,12 +43,13 @@ class OPSpageModel extends FlutterFlowModel<OPSpageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode;
-  TextEditingController? coordinateInputController;
-  String? Function(BuildContext, String?)? coordinateInputControllerValidator;
+  TextEditingController? coordinateInputTextController;
+  String? Function(BuildContext, String?)?
+      coordinateInputTextControllerValidator;
   // State field(s) for branchInput widget.
   FocusNode? branchInputFocusNode;
-  TextEditingController? branchInputController;
-  String? Function(BuildContext, String?)? branchInputControllerValidator;
+  TextEditingController? branchInputTextController;
+  String? Function(BuildContext, String?)? branchInputTextControllerValidator;
   // State field(s) for assetDropDown widget.
   String? assetDropDownValue;
   FormFieldController<String>? assetDropDownValueController;
@@ -61,28 +58,29 @@ class OPSpageModel extends FlutterFlowModel<OPSpageWidget> {
   FormFieldController<String>? assteTypeDropDownValueController;
   // State field(s) for carPlateInput widget.
   FocusNode? carPlateInputFocusNode;
-  TextEditingController? carPlateInputController;
-  String? Function(BuildContext, String?)? carPlateInputControllerValidator;
+  TextEditingController? carPlateInputTextController;
+  String? Function(BuildContext, String?)? carPlateInputTextControllerValidator;
   // State field(s) for signStatusDropDown widget.
   String? signStatusDropDownValue;
   FormFieldController<String>? signStatusDropDownValueController;
   // State field(s) for remarkInput widget.
   FocusNode? remarkInputFocusNode;
-  TextEditingController? remarkInputController;
-  String? Function(BuildContext, String?)? remarkInputControllerValidator;
+  TextEditingController? remarkInputTextController;
+  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController7;
   String? Function(BuildContext, String?)? textController7Validator;
   // State field(s) for coordinateTimesheet widget.
   FocusNode? coordinateTimesheetFocusNode;
-  TextEditingController? coordinateTimesheetController;
+  TextEditingController? coordinateTimesheetTextController;
   String? Function(BuildContext, String?)?
-      coordinateTimesheetControllerValidator;
+      coordinateTimesheetTextControllerValidator;
   // State field(s) for branchTimesheet widget.
   FocusNode? branchTimesheetFocusNode;
-  TextEditingController? branchTimesheetController;
-  String? Function(BuildContext, String?)? branchTimesheetControllerValidator;
+  TextEditingController? branchTimesheetTextController;
+  String? Function(BuildContext, String?)?
+      branchTimesheetTextControllerValidator;
   // State field(s) for assetDropDownTimesheet widget.
   String? assetDropDownTimesheetValue;
   FormFieldController<String>? assetDropDownTimesheetValueController;
@@ -91,15 +89,17 @@ class OPSpageModel extends FlutterFlowModel<OPSpageWidget> {
   FormFieldController<String>? assteTypeDropDownTimesheetValueController;
   // State field(s) for carPlateTimesheet widget.
   FocusNode? carPlateTimesheetFocusNode;
-  TextEditingController? carPlateTimesheetController;
-  String? Function(BuildContext, String?)? carPlateTimesheetControllerValidator;
+  TextEditingController? carPlateTimesheetTextController;
+  String? Function(BuildContext, String?)?
+      carPlateTimesheetTextControllerValidator;
   // State field(s) for signStatusDropDownTimesheet widget.
   String? signStatusDropDownTimesheetValue;
   FormFieldController<String>? signStatusDropDownTimesheetValueController;
   // State field(s) for remarkTimesheet widget.
   FocusNode? remarkTimesheetFocusNode;
-  TextEditingController? remarkTimesheetController;
-  String? Function(BuildContext, String?)? remarkTimesheetControllerValidator;
+  TextEditingController? remarkTimesheetTextController;
+  String? Function(BuildContext, String?)?
+      remarkTimesheetTextControllerValidator;
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -134,14 +134,15 @@ class OPSpageModel extends FlutterFlowModel<OPSpageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FileUploadRecord? saveImgToFirebase3;
 
-  /// Initialization and disposal methods.
-
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    cameraButtonModel = createModel(context, () => CameraButtonModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    cameraButtonModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
@@ -149,37 +150,33 @@ class OPSpageModel extends FlutterFlowModel<OPSpageWidget> {
     textController2?.dispose();
 
     coordinateInputFocusNode?.dispose();
-    coordinateInputController?.dispose();
+    coordinateInputTextController?.dispose();
 
     branchInputFocusNode?.dispose();
-    branchInputController?.dispose();
+    branchInputTextController?.dispose();
 
     carPlateInputFocusNode?.dispose();
-    carPlateInputController?.dispose();
+    carPlateInputTextController?.dispose();
 
     remarkInputFocusNode?.dispose();
-    remarkInputController?.dispose();
+    remarkInputTextController?.dispose();
 
     textFieldFocusNode3?.dispose();
     textController7?.dispose();
 
     coordinateTimesheetFocusNode?.dispose();
-    coordinateTimesheetController?.dispose();
+    coordinateTimesheetTextController?.dispose();
 
     branchTimesheetFocusNode?.dispose();
-    branchTimesheetController?.dispose();
+    branchTimesheetTextController?.dispose();
 
     carPlateTimesheetFocusNode?.dispose();
-    carPlateTimesheetController?.dispose();
+    carPlateTimesheetTextController?.dispose();
 
     remarkTimesheetFocusNode?.dispose();
-    remarkTimesheetController?.dispose();
+    remarkTimesheetTextController?.dispose();
 
     textFieldFocusNode4?.dispose();
     textController12?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -91,6 +91,7 @@ class _LoadingSceneInsuranceWidgetState
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 16.0,
+                      letterSpacing: 0.0,
                     ),
               ),
             ),

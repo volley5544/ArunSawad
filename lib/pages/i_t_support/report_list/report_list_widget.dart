@@ -133,6 +133,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -251,17 +252,17 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                     child: SelectionArea(
                                                         child: Text(
                                                       'หัวข้อที่แจ้ง :',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: Color(
-                                                                    0xFFFF6500),
-                                                                fontSize: 20.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFFFF6500),
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ),
                                                 ),
@@ -276,6 +277,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -316,6 +318,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                               color: Color(
                                                                   0xFFFF6500),
                                                               fontSize: 20.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -332,6 +336,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -394,6 +399,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                               color: Color(
                                                                   0xFFFF6500),
                                                               fontSize: 20.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ),
@@ -409,15 +416,15 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                                     context)
                                                                 .languageCode,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 18.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 18.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],

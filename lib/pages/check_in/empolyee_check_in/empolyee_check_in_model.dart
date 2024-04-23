@@ -52,9 +52,9 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   // State field(s) for branchField widget.
   final branchFieldKey = GlobalKey();
   FocusNode? branchFieldFocusNode;
-  TextEditingController? branchFieldController;
+  TextEditingController? branchFieldTextController;
   String? branchFieldSelectedOption;
-  String? Function(BuildContext, String?)? branchFieldControllerValidator;
+  String? Function(BuildContext, String?)? branchFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in findLocation widget.
   ApiCallResponse? findLocationOutput;
   // State field(s) for DropDown widget.
@@ -62,8 +62,9 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   FormFieldController<String>? dropDownValueController;
   // State field(s) for reasoncheckin1 widget.
   FocusNode? reasoncheckin1FocusNode;
-  TextEditingController? reasoncheckin1Controller;
-  String? Function(BuildContext, String?)? reasoncheckin1ControllerValidator;
+  TextEditingController? reasoncheckin1TextController;
+  String? Function(BuildContext, String?)?
+      reasoncheckin1TextControllerValidator;
   // Stores action output result for [Custom Action - locationCal] action in Button widget.
   bool? inCurrentLocation;
   bool isDataUploading2 = false;
@@ -83,8 +84,6 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in Button widget.
   ApiCallResponse? getLocationOutput2Copy;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -94,10 +93,6 @@ class EmpolyeeCheckInModel extends FlutterFlowModel<EmpolyeeCheckInWidget> {
     branchFieldFocusNode?.dispose();
 
     reasoncheckin1FocusNode?.dispose();
-    reasoncheckin1Controller?.dispose();
+    reasoncheckin1TextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

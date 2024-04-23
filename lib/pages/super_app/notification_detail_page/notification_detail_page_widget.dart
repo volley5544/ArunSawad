@@ -128,6 +128,7 @@ class _NotificationDetailPageWidgetState
                         fontFamily: 'Poppins',
                         color: Colors.white,
                         fontSize: 22.0,
+                        letterSpacing: 0.0,
                       ),
                 ),
                 actions: [],
@@ -330,17 +331,17 @@ class _NotificationDetailPageWidgetState
                                                     child: Text(
                                                       listViewNotificationRecord
                                                           .notiTitle,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: Color(
-                                                                    0xFFFF6500),
-                                                                fontSize: 20.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFFFF6500),
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -357,6 +358,7 @@ class _NotificationDetailPageWidgetState
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -402,6 +404,8 @@ class _NotificationDetailPageWidgetState
                                                                         context)
                                                                     .grayIcon,
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                     ),
                                                   ),
@@ -436,6 +440,8 @@ class _NotificationDetailPageWidgetState
                                                                         context)
                                                                     .grayIcon,
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                     ),
                                                   ),

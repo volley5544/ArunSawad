@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
+import '/components/camera_button_widget.dart';
 import '/components/input/input_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -13,7 +13,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -61,88 +60,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
 
-  final animationsMap = {
-    'wrapOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'wrapOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1500.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1500.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 1500.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -240,35 +158,35 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.coordinateInputController ??= TextEditingController();
+    _model.coordinateInputTextController ??= TextEditingController();
     _model.coordinateInputFocusNode ??= FocusNode();
 
-    _model.branchInputController ??=
+    _model.branchInputTextController ??=
         TextEditingController(text: FFAppState().branchCode);
     _model.branchInputFocusNode ??= FocusNode();
 
-    _model.areaInputController ??= TextEditingController();
+    _model.areaInputTextController ??= TextEditingController();
     _model.areaInputFocusNode ??= FocusNode();
 
-    _model.remarkInputController ??= TextEditingController();
+    _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
 
     _model.textController7 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    _model.coordinateTimesheetController ??= TextEditingController();
+    _model.coordinateTimesheetTextController ??= TextEditingController();
     _model.coordinateTimesheetFocusNode ??= FocusNode();
 
-    _model.branchTimesheetController ??= TextEditingController();
+    _model.branchTimesheetTextController ??= TextEditingController();
     _model.branchTimesheetFocusNode ??= FocusNode();
 
-    _model.areaTimesheetController ??= TextEditingController();
+    _model.areaTimesheetTextController ??= TextEditingController();
     _model.areaTimesheetFocusNode ??= FocusNode();
 
-    _model.detailTimesheetController ??= TextEditingController();
+    _model.detailTimesheetTextController ??= TextEditingController();
     _model.detailTimesheetFocusNode ??= FocusNode();
 
-    _model.remarkTimesheetController ??= TextEditingController();
+    _model.remarkTimesheetTextController ??= TextEditingController();
     _model.remarkTimesheetFocusNode ??= FocusNode();
 
     _model.textController13 ??= TextEditingController();
@@ -280,6 +198,88 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
     _model.textController15 ??= TextEditingController();
     _model.textFieldFocusNode6 ??= FocusNode();
 
+    animationsMap.addAll({
+      'wrapOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'wrapOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1000.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1250.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1500.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1500.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 1500.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -361,130 +361,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [
-            Visibility(
-              visible: !FFAppState().isFromTimesheetPage,
-              child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 15.0, 0.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      HapticFeedback.mediumImpact();
-                      if (FFAppState().imgURL.length >= 5) {
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return WebViewAware(
-                              child: AlertDialog(
-                                title: Text('ระบบ'),
-                                content: Text(
-                                    'ไม่สามารถUploadรูปเพิ่มได้ (สูงสุด5รูป)'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-                        return;
-                      }
-                      final selectedMedia =
-                          await selectMediaWithSourceBottomSheet(
-                        context: context,
-                        imageQuality: 75,
-                        allowPhoto: true,
-                        backgroundColor: FlutterFlowTheme.of(context).secondary,
-                        textColor: Color(0xFFB71C1C),
-                        pickerFontFamily: 'Raleway',
-                      );
-                      if (selectedMedia != null &&
-                          selectedMedia.every((m) =>
-                              validateFileFormat(m.storagePath, context))) {
-                        setState(() => _model.isDataUploading = true);
-                        var selectedUploadedFiles = <FFUploadedFile>[];
-
-                        var downloadUrls = <String>[];
-                        try {
-                          showUploadMessage(
-                            context,
-                            'Uploading file...',
-                            showLoading: true,
-                          );
-                          selectedUploadedFiles = selectedMedia
-                              .map((m) => FFUploadedFile(
-                                    name: m.storagePath.split('/').last,
-                                    bytes: m.bytes,
-                                    height: m.dimensions?.height,
-                                    width: m.dimensions?.width,
-                                    blurHash: m.blurHash,
-                                  ))
-                              .toList();
-
-                          downloadUrls = (await Future.wait(
-                            selectedMedia.map(
-                              (m) async =>
-                                  await uploadData(m.storagePath, m.bytes),
-                            ),
-                          ))
-                              .where((u) => u != null)
-                              .map((u) => u!)
-                              .toList();
-                        } finally {
-                          ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                          _model.isDataUploading = false;
-                        }
-                        if (selectedUploadedFiles.length ==
-                                selectedMedia.length &&
-                            downloadUrls.length == selectedMedia.length) {
-                          setState(() {
-                            _model.uploadedLocalFile =
-                                selectedUploadedFiles.first;
-                            _model.uploadedFileUrl = downloadUrls.first;
-                          });
-                          showUploadMessage(context, 'Success!');
-                        } else {
-                          setState(() {});
-                          showUploadMessage(context, 'Failed to upload data');
-                          return;
-                        }
-                      }
-
-                      if (_model.uploadedFileUrl != null &&
-                          _model.uploadedFileUrl != '') {
-                        if (_model.uploadedFileUrl != FFAppState().imgURLTemp) {
-                          FFAppState().update(() {
-                            FFAppState().imgURLTemp = _model.uploadedFileUrl;
-                          });
-                        } else {
-                          return;
-                        }
-                      } else {
-                        return;
-                      }
-
-                      FFAppState().update(() {
-                        FFAppState().addToImgURL(_model.uploadedFileUrl);
-                      });
-                    },
-                    child: FaIcon(
-                      FontAwesomeIcons.camera,
-                      color: Color(0xFBFFFFFF),
-                      size: 40.0,
-                    ),
-                  ),
-                ),
-              ),
+            wrapWithModel(
+              model: _model.cameraButtonModel,
+              updateCallback: () => setState(() {}),
+              child: CameraButtonWidget(),
             ),
           ],
           centerTitle: true,
@@ -555,6 +439,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -577,6 +462,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         .override(
                                           fontFamily: 'Poppins',
                                           fontSize: 36.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -616,8 +502,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -666,6 +556,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController1Validator
                                       .asValidator(context),
@@ -835,8 +726,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -885,6 +780,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController2Validator
                                     .asValidator(context),
@@ -921,19 +817,22 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.coordinateInputController,
+                                        controller: _model
+                                            .coordinateInputTextController,
                                         focusNode:
                                             _model.coordinateInputFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: valueOrDefault<String>(
                                             functions.getUserLocation(
                                                 currentUserLocationValue),
@@ -941,7 +840,11 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -989,9 +892,13 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .coordinateInputControllerValidator
+                                            .coordinateInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1030,6 +937,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1037,14 +945,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.branchInputController,
+                                            _model.branchInputTextController,
                                         focusNode: _model.branchInputFocusNode,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'รหัสสาขา',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1092,10 +1005,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .branchInputControllerValidator
+                                            .branchInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1134,20 +1051,27 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller: _model.areaInputController,
+                                        controller:
+                                            _model.areaInputTextController,
                                         focusNode: _model.areaInputFocusNode,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'ชื่อชุมชนที่ทำตลาด',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1195,10 +1119,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .areaInputControllerValidator
+                                            .areaInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1237,6 +1165,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1268,6 +1197,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF455A64),
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText: 'กิจกรรมการตลาด',
                                         fillColor: Colors.white,
@@ -1317,6 +1247,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1324,14 +1255,19 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.remarkInputController,
+                                            _model.remarkInputTextController,
                                         focusNode: _model.remarkInputFocusNode,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: 'ชื่อผู้ทำตลาด',
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1379,10 +1315,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .remarkInputControllerValidator
+                                            .remarkInputTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1419,8 +1359,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -1469,6 +1413,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController7Validator
                                     .asValidator(context),
@@ -1505,6 +1450,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1512,16 +1458,22 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller: _model
-                                            .coordinateTimesheetController,
+                                            .coordinateTimesheetTextController,
                                         focusNode:
                                             _model.coordinateTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           hintText: widget.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1569,9 +1521,13 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         validator: _model
-                                            .coordinateTimesheetControllerValidator
+                                            .coordinateTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1610,23 +1566,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.branchTimesheetController,
+                                        controller: _model
+                                            .branchTimesheetTextController,
                                         focusNode:
                                             _model.branchTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.branchCode,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1674,10 +1636,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .branchTimesheetControllerValidator
+                                            .branchTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1716,6 +1682,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -1723,16 +1690,21 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       flex: 5,
                                       child: TextFormField(
                                         controller:
-                                            _model.areaTimesheetController,
+                                            _model.areaTimesheetTextController,
                                         focusNode:
                                             _model.areaTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.area,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1780,10 +1752,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .areaTimesheetControllerValidator
+                                            .areaTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1822,23 +1798,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.detailTimesheetController,
+                                        controller: _model
+                                            .detailTimesheetTextController,
                                         focusNode:
                                             _model.detailTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.detail,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1886,10 +1868,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .detailTimesheetControllerValidator
+                                            .detailTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -1928,23 +1914,29 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 18.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
                                     Expanded(
                                       flex: 5,
                                       child: TextFormField(
-                                        controller:
-                                            _model.remarkTimesheetController,
+                                        controller: _model
+                                            .remarkTimesheetTextController,
                                         focusNode:
                                             _model.remarkTimesheetFocusNode,
+                                        autofocus: false,
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: widget.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodySmall,
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color: Color(0x00000000),
@@ -1992,10 +1984,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           ),
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textAlign: TextAlign.start,
                                         validator: _model
-                                            .remarkTimesheetControllerValidator
+                                            .remarkTimesheetTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -2031,8 +2027,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -2081,6 +2081,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController13Validator
                                     .asValidator(context),
@@ -2125,7 +2126,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                 BoxShadow(
                                                   blurRadius: 4.0,
                                                   color: Color(0x34090F13),
-                                                  offset: Offset(0.0, 2.0),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
                                                 )
                                               ],
                                               borderRadius:
@@ -2165,10 +2169,14 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                               .materialNameList
                                                               .toList(),
                                                           materialDetailIndex)!,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   Container(
@@ -2330,6 +2338,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                       'Poppins',
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -2438,8 +2448,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   hintText: '[Some hint text...]',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -2488,6 +2502,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       fontFamily: 'Noto Serif',
                                       color:
                                           FlutterFlowTheme.of(context).black600,
+                                      letterSpacing: 0.0,
                                     ),
                                 validator: _model.textController14Validator
                                     .asValidator(context),
@@ -2558,7 +2573,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                   BoxShadow(
                                                     blurRadius: 4.0,
                                                     color: Color(0x34090F13),
-                                                    offset: Offset(0.0, 2.0),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
                                                   )
                                                 ],
                                                 borderRadius:
@@ -2602,7 +2620,13 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                     Container(
@@ -2659,6 +2683,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                       'Poppins',
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                           FlutterFlowIconButton(
@@ -2778,8 +2804,12 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText: '[Some hint text...]',
-                                    hintStyle:
-                                        FlutterFlowTheme.of(context).bodySmall,
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          letterSpacing: 0.0,
+                                        ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
                                         color: Color(0x00000000),
@@ -2828,6 +2858,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         fontFamily: 'Noto Serif',
                                         color: FlutterFlowTheme.of(context)
                                             .black600,
+                                        letterSpacing: 0.0,
                                       ),
                                   validator: _model.textController15Validator
                                       .asValidator(context),
@@ -3051,6 +3082,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 2.0,
                                 borderSide: BorderSide(
@@ -3075,9 +3107,9 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           defaultLocation: LatLng(0.0, 0.0));
                                   var _shouldSetState = false;
                                   HapticFeedback.mediumImpact();
-                                  if (!(_model.branchInputController.text !=
+                                  if (!(_model.branchInputTextController.text !=
                                           null &&
-                                      _model.branchInputController.text !=
+                                      _model.branchInputTextController.text !=
                                           '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -3094,9 +3126,10 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.areaInputController.text !=
+                                  if (!(_model.areaInputTextController.text !=
                                           null &&
-                                      _model.areaInputController.text != '')) {
+                                      _model.areaInputTextController.text !=
+                                          '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
                                         content: Text(
@@ -3129,9 +3162,9 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  if (!(_model.remarkInputController.text !=
+                                  if (!(_model.remarkInputTextController.text !=
                                           null &&
-                                      _model.remarkInputController.text !=
+                                      _model.remarkInputTextController.text !=
                                           '')) {
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -3288,16 +3321,17 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   _model.marketingAPISubmit =
                                       await MarketingAPICall.call(
                                     description: 'ทำการตลาด',
-                                    remark: _model.remarkInputController.text,
+                                    remark:
+                                        _model.remarkInputTextController.text,
                                     uid: FFAppState().imei,
                                     jobType: 'Marketing',
                                     username: FFAppState().employeeID,
                                     token: FFAppState().accessToken,
                                     apiUrl: FFAppState().apiURLLocalState,
                                     branchCode: functions.toUpperCase(
-                                        _model.branchInputController.text),
+                                        _model.branchInputTextController.text),
                                     areaDescription:
-                                        _model.areaInputController.text,
+                                        _model.areaInputTextController.text,
                                     detail: _model.dropDownValue,
                                     materialRecordId: functions
                                         .materialListToString(FFAppState()
@@ -3412,6 +3446,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(

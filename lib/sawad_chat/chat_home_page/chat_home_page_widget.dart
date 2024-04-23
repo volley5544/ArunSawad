@@ -59,6 +59,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [
@@ -191,7 +192,10 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                     BoxShadow(
                                       blurRadius: 0.0,
                                       color: Color(0xFFDBE2E7),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                 ),
@@ -284,6 +288,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                               'Poppins',
                                                                           fontSize:
                                                                               13.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
@@ -321,6 +327,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                               Color(0xFF818C95),
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -360,6 +368,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 13.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w300,
@@ -381,6 +391,8 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                 fontFamily:
                                                                     'Poppins',
                                                                 fontSize: 13.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w300,

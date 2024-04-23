@@ -26,128 +26,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'textFieldOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 250.ms),
-        FadeEffect(
-          curve: Curves.bounceOut,
-          delay: 250.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.bounceOut,
-          delay: 250.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 500.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 500.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 500.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 500.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 500.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 300.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -159,18 +38,140 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    _model.usernameInputController ??= TextEditingController();
+    _model.usernameInputTextController ??= TextEditingController();
     _model.usernameInputFocusNode ??= FocusNode();
 
-    _model.id4DigitInputController ??= TextEditingController();
+    _model.id4DigitInputTextController ??= TextEditingController();
     _model.id4DigitInputFocusNode ??= FocusNode();
 
-    _model.newPasswordInputController ??= TextEditingController();
+    _model.newPasswordInputTextController ??= TextEditingController();
     _model.newPasswordInputFocusNode ??= FocusNode();
 
-    _model.confirmPasswordInputController ??= TextEditingController();
+    _model.confirmPasswordInputTextController ??= TextEditingController();
     _model.confirmPasswordInputFocusNode ??= FocusNode();
 
+    animationsMap.addAll({
+      'textFieldOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 250.ms),
+          FadeEffect(
+            curve: Curves.bounceOut,
+            delay: 250.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.bounceOut,
+            delay: 250.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 500.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 500.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 500.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 500.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 500.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 750.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 750.0.ms,
+            duration: 300.0.ms,
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -253,6 +254,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -272,7 +274,10 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                 obscureText: false,
                 decoration: InputDecoration(
                   hintText: '[Some hint text...]',
-                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                  hintStyle: FlutterFlowTheme.of(context).bodySmall.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color(0x00000000),
@@ -318,6 +323,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Noto Serif',
                       color: FlutterFlowTheme.of(context).black600,
+                      letterSpacing: 0.0,
                     ),
                 validator: _model.textController1Validator.asValidator(context),
               ).animateOnPageLoad(
@@ -343,19 +349,26 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: _model.usernameInputController,
+                        controller: _model.usernameInputTextController,
                         focusNode: _model.usernameInputFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
+                          isDense: false,
                           labelText: 'รหัสผนักงาน',
                           hintText: 'รหัสผนักงาน',
-                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodySmall.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
@@ -397,8 +410,11 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator: _model.usernameInputControllerValidator
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
+                        validator: _model.usernameInputTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -426,19 +442,26 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: _model.id4DigitInputController,
+                        controller: _model.id4DigitInputTextController,
                         focusNode: _model.id4DigitInputFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
+                          isDense: false,
                           labelText: 'เลยบัตรปชช. 4ตัวท้าย',
                           hintText: 'เลยบัตรปชช. 4ตัวท้าย',
-                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodySmall.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
@@ -480,8 +503,11 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator: _model.id4DigitInputControllerValidator
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
+                        validator: _model.id4DigitInputTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -509,19 +535,26 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: _model.newPasswordInputController,
+                        controller: _model.newPasswordInputTextController,
                         focusNode: _model.newPasswordInputFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
+                          isDense: false,
                           labelText: 'รหัสผนักงาน',
                           hintText: 'รหัสผ่านใหม่',
-                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodySmall.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
@@ -563,8 +596,12 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator: _model.newPasswordInputControllerValidator
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
+                        validator: _model
+                            .newPasswordInputTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -592,19 +629,25 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ),
                     Expanded(
                       flex: 5,
                       child: TextFormField(
-                        controller: _model.confirmPasswordInputController,
+                        controller: _model.confirmPasswordInputTextController,
                         focusNode: _model.confirmPasswordInputFocusNode,
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'ยืนยันรหัสผ่านใหม่',
                           hintText: 'ยืนยันรหัสผ่านใหม่',
-                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                          hintStyle:
+                              FlutterFlowTheme.of(context).bodySmall.override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                           enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
@@ -646,10 +689,13 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                             ),
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Poppins',
+                              letterSpacing: 0.0,
+                            ),
                         textAlign: TextAlign.start,
                         validator: _model
-                            .confirmPasswordInputControllerValidator
+                            .confirmPasswordInputTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -729,6 +775,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 2.0,
                                       borderSide: BorderSide(
@@ -747,33 +794,35 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                       5.0, 0.0, 0.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      if (_model.usernameInputController.text !=
+                                      if (_model.usernameInputTextController
+                                                  .text !=
                                               null &&
-                                          _model.usernameInputController.text !=
+                                          _model.usernameInputTextController
+                                                  .text !=
                                               '') {
-                                        if (_model.id4DigitInputController
+                                        if (_model.id4DigitInputTextController
                                                     .text !=
                                                 null &&
-                                            _model.id4DigitInputController
+                                            _model.id4DigitInputTextController
                                                     .text !=
                                                 '') {
-                                          if (_model.newPasswordInputController
+                                          if (_model.newPasswordInputTextController
                                                       .text !=
                                                   null &&
-                                              _model.newPasswordInputController
+                                              _model.newPasswordInputTextController
                                                       .text !=
                                                   '') {
-                                            if (_model.confirmPasswordInputController
+                                            if (_model.confirmPasswordInputTextController
                                                         .text !=
                                                     null &&
-                                                _model.confirmPasswordInputController
+                                                _model.confirmPasswordInputTextController
                                                         .text !=
                                                     '') {
                                               if (_model
-                                                      .newPasswordInputController
+                                                      .newPasswordInputTextController
                                                       .text !=
                                                   _model
-                                                      .confirmPasswordInputController
+                                                      .confirmPasswordInputTextController
                                                       .text) {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
@@ -787,6 +836,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                             fontFamily:
                                                                 'Poppins',
                                                             color: Colors.white,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                     ),
                                                     duration: Duration(
@@ -809,6 +859,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   duration: Duration(
@@ -831,6 +882,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                                 duration: Duration(
@@ -853,6 +905,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.white,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                               duration:
@@ -896,6 +949,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                             duration:
@@ -923,6 +977,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: Colors.white,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 2.0,
                                       borderSide: BorderSide(

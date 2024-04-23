@@ -117,41 +117,41 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.reasonToLeaveEtcTextFieldController ??= TextEditingController();
+    _model.reasonToLeaveEtcTextFieldTextController ??= TextEditingController();
     _model.reasonToLeaveEtcTextFieldFocusNode ??= FocusNode();
 
-    _model.reasonToLeaveTextFieldController ??= TextEditingController();
+    _model.reasonToLeaveTextFieldTextController ??= TextEditingController();
     _model.reasonToLeaveTextFieldFocusNode ??= FocusNode();
 
-    _model.batchRoadTextFieldController ??= TextEditingController();
+    _model.batchRoadTextFieldTextController ??= TextEditingController();
     _model.batchRoadTextFieldFocusNode ??= FocusNode();
 
-    _model.phoneNumberTextFieldController ??= TextEditingController();
+    _model.phoneNumberTextFieldTextController ??= TextEditingController();
     _model.phoneNumberTextFieldFocusNode ??= FocusNode();
 
-    _model.returnAssetTextFieldController ??= TextEditingController();
+    _model.returnAssetTextFieldTextController ??= TextEditingController();
     _model.returnAssetTextFieldFocusNode ??= FocusNode();
 
     _model.textController7 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.reasonToLeaveEtcTextField2Controller ??=
+    _model.reasonToLeaveEtcTextField2TextController ??=
         TextEditingController(text: widget.resignReasonEtc);
     _model.reasonToLeaveEtcTextField2FocusNode ??= FocusNode();
 
-    _model.reasonToLeaveTextField2Controller ??=
+    _model.reasonToLeaveTextField2TextController ??=
         TextEditingController(text: widget.leaveReason);
     _model.reasonToLeaveTextField2FocusNode ??= FocusNode();
 
-    _model.batchRoadTextField2Controller ??=
+    _model.batchRoadTextField2TextController ??=
         TextEditingController(text: widget.batchRoad);
     _model.batchRoadTextField2FocusNode ??= FocusNode();
 
-    _model.phoneNumberTextField2Controller ??=
+    _model.phoneNumberTextField2TextController ??=
         TextEditingController(text: widget.phone);
     _model.phoneNumberTextField2FocusNode ??= FocusNode();
 
-    _model.returnAssetTextField2Controller ??=
+    _model.returnAssetTextField2TextController ??=
         TextEditingController(text: widget.assetEtc);
     _model.returnAssetTextField2FocusNode ??= FocusNode();
 
@@ -240,6 +240,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                       fontFamily: 'Poppins',
                       color: Colors.white,
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               actions: [],
@@ -367,7 +368,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         enabledBorder:
                                                             UnderlineInputBorder(
                                                           borderSide:
@@ -424,15 +431,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         fillColor:
                                                             Color(0xFFF5F5F5),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 16.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                       textAlign:
                                                           TextAlign.start,
                                                       validator: _model
@@ -468,6 +475,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -593,6 +601,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 color: Color(
                                                                     0xFF0A0A0A),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
@@ -636,6 +646,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -691,7 +702,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       initialized: _model
                                                               .checkboxGroupValues1 !=
                                                           null,
@@ -744,6 +761,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                       'Poppins',
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           )),
                                                         ),
@@ -765,9 +784,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         Expanded(
                                                           child: TextFormField(
                                                             controller: _model
-                                                                .reasonToLeaveEtcTextFieldController,
+                                                                .reasonToLeaveEtcTextFieldTextController,
                                                             focusNode: _model
                                                                 .reasonToLeaveEtcTextFieldFocusNode,
+                                                            autofocus: false,
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(
@@ -776,7 +796,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               hintStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .bodySmall,
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
                                                               enabledBorder:
                                                                   UnderlineInputBorder(
                                                                 borderSide:
@@ -851,12 +877,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                       0xFF0A0A0A),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
                                                             validator: _model
-                                                                .reasonToLeaveEtcTextFieldControllerValidator
+                                                                .reasonToLeaveEtcTextFieldTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                           ),
@@ -891,6 +919,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -916,9 +945,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 0.0, 0.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .reasonToLeaveTextFieldController,
+                                                          .reasonToLeaveTextFieldTextController,
                                                       focusNode: _model
                                                           .reasonToLeaveTextFieldFocusNode,
+                                                      autofocus: false,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -929,6 +959,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -944,6 +976,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                       'Poppins',
                                                                   color: Color(
                                                                       0xFF0A0A0A),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                         enabledBorder:
                                                             UnderlineInputBorder(
@@ -1008,22 +1042,22 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     24.0,
                                                                     0.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                       textAlign:
                                                           TextAlign.start,
                                                       validator: _model
-                                                          .reasonToLeaveTextFieldControllerValidator
+                                                          .reasonToLeaveTextFieldTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -1055,6 +1089,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -1236,6 +1271,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     hintText:
                                                         'กรุณาเลือกจังหวัด...',
@@ -1400,6 +1436,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     hintText:
                                                         'กรุณาเลือกอำเภอ...',
@@ -1455,6 +1492,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     hintText:
                                                         'กรุณาเลือกตำบล...',
@@ -1510,6 +1548,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     hintText:
                                                         'กรุณาเลือกรหัสไปรษณีย์...',
@@ -1547,9 +1586,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 Expanded(
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .batchRoadTextFieldController,
+                                                        .batchRoadTextFieldTextController,
                                                     focusNode: _model
                                                         .batchRoadTextFieldFocusNode,
+                                                    autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       hintText:
@@ -1557,7 +1597,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodySmall,
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -1622,11 +1668,12 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                     validator: _model
-                                                        .batchRoadTextFieldControllerValidator
+                                                        .batchRoadTextFieldTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1645,16 +1692,23 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 Expanded(
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .phoneNumberTextFieldController,
+                                                        .phoneNumberTextFieldTextController,
                                                     focusNode: _model
                                                         .phoneNumberTextFieldFocusNode,
+                                                    autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       hintText: 'เบอร์ติดต่อ',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodySmall,
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -1719,13 +1773,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                     keyboardType:
                                                         TextInputType.phone,
                                                     validator: _model
-                                                        .phoneNumberTextFieldControllerValidator
+                                                        .phoneNumberTextFieldTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1756,6 +1811,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -1800,6 +1856,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -1844,6 +1901,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   )),
                                                 ),
@@ -1899,7 +1957,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       initialized: _model
                                                               .checkboxGroupValues2 !=
                                                           null,
@@ -1925,15 +1989,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     SelectionArea(
                                                         child: Text(
                                                       'อื่นๆ  :',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 15.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     )),
                                                   ],
                                                 ),
@@ -1953,9 +2017,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   Expanded(
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .returnAssetTextFieldController,
+                                                          .returnAssetTextFieldTextController,
                                                       focusNode: _model
                                                           .returnAssetTextFieldFocusNode,
+                                                      autofocus: false,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -1963,7 +2028,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodySmall,
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         enabledBorder:
                                                             UnderlineInputBorder(
                                                           borderSide:
@@ -2028,22 +2099,22 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                     24.0,
                                                                     24.0),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                color: Color(
-                                                                    0xFF0A0A0A),
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF0A0A0A),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                       validator: _model
-                                                          .returnAssetTextFieldControllerValidator
+                                                          .returnAssetTextFieldTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -2133,10 +2204,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  if (!(_model.reasonToLeaveTextFieldController
+                                                  if (!(_model.reasonToLeaveTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.reasonToLeaveTextFieldController
+                                                      _model.reasonToLeaveTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -2251,10 +2322,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  if (!(_model.batchRoadTextFieldController
+                                                  if (!(_model.batchRoadTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.batchRoadTextFieldController
+                                                      _model.batchRoadTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -2311,16 +2382,16 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  if (!((_model.phoneNumberTextFieldController
+                                                  if (!((_model.phoneNumberTextFieldTextController
                                                                   .text !=
                                                               null &&
-                                                          _model.phoneNumberTextFieldController
+                                                          _model.phoneNumberTextFieldTextController
                                                                   .text !=
                                                               '') &&
                                                       functions
                                                           .checkPhoneNumberChar(
                                                               _model
-                                                                  .phoneNumberTextFieldController
+                                                                  .phoneNumberTextFieldTextController
                                                                   .text))) {
                                                     await showDialog(
                                                       context: context,
@@ -2467,10 +2538,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         functions.getDateFormat(
                                                             _model.datePicked),
                                                     empTel: _model
-                                                        .phoneNumberTextFieldController
+                                                        .phoneNumberTextFieldTextController
                                                         .text,
                                                     leaveReason: _model
-                                                        .reasonToLeaveTextFieldController
+                                                        .reasonToLeaveTextFieldTextController
                                                         .text,
                                                     reasonResign: functions
                                                         .combineStringFromList(
@@ -2478,20 +2549,20 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 .checkboxGroupValues1
                                                                 ?.toList()),
                                                     otherReasonResign: _model
-                                                                    .reasonToLeaveEtcTextFieldController
+                                                                    .reasonToLeaveEtcTextFieldTextController
                                                                     .text !=
                                                                 null &&
-                                                            _model.reasonToLeaveEtcTextFieldController
+                                                            _model.reasonToLeaveEtcTextFieldTextController
                                                                     .text !=
                                                                 ''
                                                         ? _model
-                                                            .reasonToLeaveEtcTextFieldController
+                                                            .reasonToLeaveEtcTextFieldTextController
                                                             .text
                                                         : '-',
                                                     willComeBack: _model
                                                         .chanceToWorkTgtDropDownValue,
                                                     address: _model
-                                                        .batchRoadTextFieldController
+                                                        .batchRoadTextFieldTextController
                                                         .text,
                                                     province: _model
                                                         .provinceDropDownValue,
@@ -2507,14 +2578,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 .checkboxGroupValues2
                                                                 ?.toList()),
                                                     otherAsset: _model
-                                                                    .returnAssetTextFieldController
+                                                                    .returnAssetTextFieldTextController
                                                                     .text !=
                                                                 null &&
-                                                            _model.returnAssetTextFieldController
+                                                            _model.returnAssetTextFieldTextController
                                                                     .text !=
                                                                 ''
                                                         ? _model
-                                                            .returnAssetTextFieldController
+                                                            .returnAssetTextFieldTextController
                                                             .text
                                                         : '-',
                                                   );
@@ -2789,6 +2860,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2852,6 +2924,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -2884,10 +2957,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   decoration: InputDecoration(
                                                     hintText:
                                                         '[Some hint text...]',
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmall,
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
@@ -2967,6 +3043,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   textAlign: TextAlign.start,
                                                   validator: _model
@@ -3000,6 +3077,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -3045,6 +3123,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
@@ -3084,6 +3163,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -3135,10 +3215,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   checkColor: Colors.white,
                                                   checkboxBorderColor:
                                                       Color(0xFF95A1AC),
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   initialized: _model
                                                           .checkboxGroupEditValues !=
                                                       null,
@@ -3185,6 +3268,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               fontFamily:
                                                                   'Poppins',
                                                               fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       )),
                                                     ),
@@ -3204,9 +3289,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     Expanded(
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .reasonToLeaveEtcTextField2Controller,
+                                                            .reasonToLeaveEtcTextField2TextController,
                                                         focusNode: _model
                                                             .reasonToLeaveEtcTextField2FocusNode,
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
@@ -3214,7 +3300,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .bodySmall,
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           enabledBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
@@ -3288,12 +3380,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               color: Color(
                                                                   0xFF0A0A0A),
                                                               fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
                                                             ),
                                                         validator: _model
-                                                            .reasonToLeaveEtcTextField2ControllerValidator
+                                                            .reasonToLeaveEtcTextField2TextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -3326,6 +3420,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -3349,9 +3444,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         2.0, 10.0, 0.0, 0.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .reasonToLeaveTextField2Controller,
+                                                      .reasonToLeaveTextField2TextController,
                                                   focusNode: _model
                                                       .reasonToLeaveTextField2FocusNode,
+                                                  autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelStyle: FlutterFlowTheme
@@ -3359,6 +3455,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -3370,6 +3467,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           fontFamily: 'Poppins',
                                                           color:
                                                               Color(0xFF0A0A0A),
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
@@ -3432,13 +3530,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                                   textAlign: TextAlign.start,
                                                   maxLines: 4,
                                                   validator: _model
-                                                      .reasonToLeaveTextField2ControllerValidator
+                                                      .reasonToLeaveTextField2TextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -3468,6 +3567,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -3640,6 +3740,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: widget.privince,
                                                 fillColor: Colors.white,
@@ -3796,6 +3897,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: widget.district,
                                                 fillColor: Colors.white,
@@ -3848,6 +3950,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: widget.subdistrict,
                                                 fillColor: Colors.white,
@@ -3899,6 +4002,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: widget.postCode,
                                                 fillColor: Colors.white,
@@ -3932,16 +4036,20 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                             Expanded(
                                               child: TextFormField(
                                                 controller: _model
-                                                    .batchRoadTextField2Controller,
+                                                    .batchRoadTextField2TextController,
                                                 focusNode: _model
                                                     .batchRoadTextField2FocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'ระบุหมู่ที่/ถนน',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -4000,11 +4108,12 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                 validator: _model
-                                                    .batchRoadTextField2ControllerValidator
+                                                    .batchRoadTextField2TextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -4022,16 +4131,20 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                             Expanded(
                                               child: TextFormField(
                                                 controller: _model
-                                                    .phoneNumberTextField2Controller,
+                                                    .phoneNumberTextField2TextController,
                                                 focusNode: _model
                                                     .phoneNumberTextField2FocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   hintText: 'เบอร์ติดต่อ',
-                                                  hintStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   enabledBorder:
                                                       UnderlineInputBorder(
                                                     borderSide: BorderSide(
@@ -4090,13 +4203,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color:
                                                               Color(0xFF0A0A0A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
                                                 keyboardType:
                                                     TextInputType.phone,
                                                 validator: _model
-                                                    .phoneNumberTextField2ControllerValidator
+                                                    .phoneNumberTextField2TextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -4125,6 +4239,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -4168,6 +4283,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -4211,6 +4327,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               )),
                                             ),
@@ -4262,10 +4379,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   checkColor: Colors.white,
                                                   checkboxBorderColor:
                                                       Color(0xFF95A1AC),
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium,
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                   initialized: _model
                                                           .checkboxGroupEdit2Values !=
                                                       null,
@@ -4296,6 +4416,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 )),
                                               ],
@@ -4316,16 +4437,20 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               Expanded(
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .returnAssetTextField2Controller,
+                                                      .returnAssetTextField2TextController,
                                                   focusNode: _model
                                                       .returnAssetTextField2FocusNode,
+                                                  autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     hintText: 'ระบุ...',
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmall,
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
@@ -4391,12 +4516,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         color:
                                                             Color(0xFF0A0A0A),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
                                                   maxLines: 5,
                                                   validator: _model
-                                                      .returnAssetTextField2ControllerValidator
+                                                      .returnAssetTextField2TextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -4457,10 +4583,10 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   setState(() {});
                                                 return;
                                               }
-                                              if (!(_model.batchRoadTextField2Controller
+                                              if (!(_model.batchRoadTextField2TextController
                                                           .text !=
                                                       null &&
-                                                  _model.batchRoadTextField2Controller
+                                                  _model.batchRoadTextField2TextController
                                                           .text !=
                                                       '')) {
                                                 await showDialog(
@@ -4487,15 +4613,15 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   setState(() {});
                                                 return;
                                               }
-                                              if (!((_model.phoneNumberTextField2Controller
+                                              if (!((_model.phoneNumberTextField2TextController
                                                               .text !=
                                                           null &&
-                                                      _model.phoneNumberTextField2Controller
+                                                      _model.phoneNumberTextField2TextController
                                                               .text !=
                                                           '') &&
                                                   functions.checkPhoneNumberChar(
                                                       _model
-                                                          .phoneNumberTextField2Controller
+                                                          .phoneNumberTextField2TextController
                                                           .text))) {
                                                 await showDialog(
                                                   context: context,
@@ -4596,18 +4722,18 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     .getDateFormatAPIFromThaiFormat(
                                                         widget.endDate),
                                                 empTel: _model
-                                                    .phoneNumberTextField2Controller
+                                                    .phoneNumberTextField2TextController
                                                     .text,
                                                 leaveListId: widget.leaveListId,
                                                 leaveReason: _model
-                                                                .reasonToLeaveTextField2Controller
+                                                                .reasonToLeaveTextField2TextController
                                                                 .text !=
                                                             null &&
-                                                        _model.reasonToLeaveTextField2Controller
+                                                        _model.reasonToLeaveTextField2TextController
                                                                 .text !=
                                                             ''
                                                     ? _model
-                                                        .reasonToLeaveTextField2Controller
+                                                        .reasonToLeaveTextField2TextController
                                                         .text
                                                     : '-',
                                                 reasonResign: functions
@@ -4615,14 +4741,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .checkboxGroupEditValues
                                                         ?.toList()),
                                                 otherReasonResign: _model
-                                                                .reasonToLeaveEtcTextField2Controller
+                                                                .reasonToLeaveEtcTextField2TextController
                                                                 .text !=
                                                             null &&
-                                                        _model.reasonToLeaveEtcTextField2Controller
+                                                        _model.reasonToLeaveEtcTextField2TextController
                                                                 .text !=
                                                             ''
                                                     ? _model
-                                                        .reasonToLeaveEtcTextField2Controller
+                                                        .reasonToLeaveEtcTextField2TextController
                                                         .text
                                                     : '-',
                                                 willComeBack:
@@ -4633,14 +4759,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         ? _model
                                                             .chanceToWorkTgtDropDown2Value
                                                         : widget.willComeBack,
-                                                address: _model.batchRoadTextField2Controller
+                                                address: _model.batchRoadTextField2TextController
                                                                 .text !=
                                                             null &&
-                                                        _model.batchRoadTextField2Controller
+                                                        _model.batchRoadTextField2TextController
                                                                 .text !=
                                                             ''
                                                     ? _model
-                                                        .batchRoadTextField2Controller
+                                                        .batchRoadTextField2TextController
                                                         .text
                                                     : widget.batchRoad,
                                                 province: _model.provinceDropDown2Value !=
@@ -4677,14 +4803,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .checkboxGroupEdit2Values
                                                         ?.toList()),
                                                 otherAsset: _model
-                                                                .returnAssetTextField2Controller
+                                                                .returnAssetTextField2TextController
                                                                 .text !=
                                                             null &&
-                                                        _model.returnAssetTextField2Controller
+                                                        _model.returnAssetTextField2TextController
                                                                 .text !=
                                                             ''
                                                     ? _model
-                                                        .returnAssetTextField2Controller
+                                                        .returnAssetTextField2TextController
                                                         .text
                                                     : widget.assetEtc,
                                               );
@@ -4815,6 +4941,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         fontFamily: 'Poppins',
                                                         color: Colors.white,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),

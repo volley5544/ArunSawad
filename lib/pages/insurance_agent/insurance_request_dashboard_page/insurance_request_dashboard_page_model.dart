@@ -26,8 +26,6 @@ class InsuranceRequestDashboardPageModel
   // Stores action output result for [Backend Call - Create Document] action in InsuranceRequestDashboardPage widget.
   UserLogRecord? createdUserLogInsurance;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -35,8 +33,4 @@ class InsuranceRequestDashboardPageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

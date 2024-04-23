@@ -99,7 +99,12 @@ class _PlanningKPIComponentWidgetState
                               child: Text(
                                 'ปิดปรับ',
                                 textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                             SizedBox(
@@ -112,7 +117,12 @@ class _PlanningKPIComponentWidgetState
                             Expanded(
                               child: Text(
                                 'ลูกค้าใหม่',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ],
@@ -129,8 +139,12 @@ class _PlanningKPIComponentWidgetState
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'ใส่ยอดปิดปรับ',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -172,7 +186,12 @@ class _PlanningKPIComponentWidgetState
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                               validator: _model.textController1Validator
                                   .asValidator(context),
                             ),
@@ -192,8 +211,12 @@ class _PlanningKPIComponentWidgetState
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'ใส่ยอดลูกค้าใหม่',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -235,7 +258,12 @@ class _PlanningKPIComponentWidgetState
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                               validator: _model.textController2Validator
                                   .asValidator(context),
                             ),

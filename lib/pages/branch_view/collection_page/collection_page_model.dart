@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
+import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -12,7 +12,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -46,12 +45,13 @@ class CollectionPageModel extends FlutterFlowModel<CollectionPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode;
-  TextEditingController? coordinateInputController;
-  String? Function(BuildContext, String?)? coordinateInputControllerValidator;
+  TextEditingController? coordinateInputTextController;
+  String? Function(BuildContext, String?)?
+      coordinateInputTextControllerValidator;
   // State field(s) for idInput widget.
   FocusNode? idInputFocusNode;
-  TextEditingController? idInputController;
-  String? Function(BuildContext, String?)? idInputControllerValidator;
+  TextEditingController? idInputTextController;
+  String? Function(BuildContext, String?)? idInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (getVloanContractAPI)] action in Button widget.
   ApiCallResponse? getVloanContract;
   // State field(s) for TextField widget.
@@ -63,40 +63,42 @@ class CollectionPageModel extends FlutterFlowModel<CollectionPageWidget> {
   FormFieldController<String>? contNoDropDownValueController;
   // State field(s) for nameInput widget.
   FocusNode? nameInputFocusNode;
-  TextEditingController? nameInputController;
-  String? Function(BuildContext, String?)? nameInputControllerValidator;
+  TextEditingController? nameInputTextController;
+  String? Function(BuildContext, String?)? nameInputTextControllerValidator;
   // State field(s) for CollectionResultDropdown widget.
   String? collectionResultDropdownValue;
   FormFieldController<String>? collectionResultDropdownValueController;
   // State field(s) for remarkInput widget.
   FocusNode? remarkInputFocusNode;
-  TextEditingController? remarkInputController;
-  String? Function(BuildContext, String?)? remarkInputControllerValidator;
+  TextEditingController? remarkInputTextController;
+  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode4;
   TextEditingController? textController8;
   String? Function(BuildContext, String?)? textController8Validator;
   // State field(s) for coordinateTimesheet widget.
   FocusNode? coordinateTimesheetFocusNode;
-  TextEditingController? coordinateTimesheetController;
+  TextEditingController? coordinateTimesheetTextController;
   String? Function(BuildContext, String?)?
-      coordinateTimesheetControllerValidator;
+      coordinateTimesheetTextControllerValidator;
   // State field(s) for idTimesheet widget.
   FocusNode? idTimesheetFocusNode;
-  TextEditingController? idTimesheetController;
-  String? Function(BuildContext, String?)? idTimesheetControllerValidator;
+  TextEditingController? idTimesheetTextController;
+  String? Function(BuildContext, String?)? idTimesheetTextControllerValidator;
   // State field(s) for contnoTimesheet widget.
   FocusNode? contnoTimesheetFocusNode;
-  TextEditingController? contnoTimesheetController;
-  String? Function(BuildContext, String?)? contnoTimesheetControllerValidator;
+  TextEditingController? contnoTimesheetTextController;
+  String? Function(BuildContext, String?)?
+      contnoTimesheetTextControllerValidator;
   // State field(s) for nameTimesheet widget.
   FocusNode? nameTimesheetFocusNode;
-  TextEditingController? nameTimesheetController;
-  String? Function(BuildContext, String?)? nameTimesheetControllerValidator;
+  TextEditingController? nameTimesheetTextController;
+  String? Function(BuildContext, String?)? nameTimesheetTextControllerValidator;
   // State field(s) for remarkTimesheet widget.
   FocusNode? remarkTimesheetFocusNode;
-  TextEditingController? remarkTimesheetController;
-  String? Function(BuildContext, String?)? remarkTimesheetControllerValidator;
+  TextEditingController? remarkTimesheetTextController;
+  String? Function(BuildContext, String?)?
+      remarkTimesheetTextControllerValidator;
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -114,15 +116,13 @@ class CollectionPageModel extends FlutterFlowModel<CollectionPageWidget> {
   FileUploadRecord? saveImgToFirebase;
   // Stores action output result for [Backend Call - API (remarkVLoneAPI)] action in Button widget.
   ApiCallResponse? remarkVLoneOutput;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
-
-  /// Initialization and disposal methods.
+  // Model for cameraButton component.
+  late CameraButtonModel cameraButtonModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    cameraButtonModel = createModel(context, () => CameraButtonModel());
+  }
 
   @override
   void dispose() {
@@ -134,43 +134,41 @@ class CollectionPageModel extends FlutterFlowModel<CollectionPageWidget> {
     textController2?.dispose();
 
     coordinateInputFocusNode?.dispose();
-    coordinateInputController?.dispose();
+    coordinateInputTextController?.dispose();
 
     idInputFocusNode?.dispose();
-    idInputController?.dispose();
+    idInputTextController?.dispose();
 
     textFieldFocusNode3?.dispose();
     textController5?.dispose();
 
     nameInputFocusNode?.dispose();
-    nameInputController?.dispose();
+    nameInputTextController?.dispose();
 
     remarkInputFocusNode?.dispose();
-    remarkInputController?.dispose();
+    remarkInputTextController?.dispose();
 
     textFieldFocusNode4?.dispose();
     textController8?.dispose();
 
     coordinateTimesheetFocusNode?.dispose();
-    coordinateTimesheetController?.dispose();
+    coordinateTimesheetTextController?.dispose();
 
     idTimesheetFocusNode?.dispose();
-    idTimesheetController?.dispose();
+    idTimesheetTextController?.dispose();
 
     contnoTimesheetFocusNode?.dispose();
-    contnoTimesheetController?.dispose();
+    contnoTimesheetTextController?.dispose();
 
     nameTimesheetFocusNode?.dispose();
-    nameTimesheetController?.dispose();
+    nameTimesheetTextController?.dispose();
 
     remarkTimesheetFocusNode?.dispose();
-    remarkTimesheetController?.dispose();
+    remarkTimesheetTextController?.dispose();
 
     textFieldFocusNode5?.dispose();
     textController14?.dispose();
+
+    cameraButtonModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -22,8 +22,6 @@ class DashboardLeavePageModel
   // Stores action output result for [Backend Call - Create Document] action in DashboardLeavePage widget.
   UserLogRecord? createdUserLogLeavePage;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -31,8 +29,4 @@ class DashboardLeavePageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -12,19 +12,13 @@ class CallHistoryModel extends FlutterFlowModel<CallHistoryWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
-
-  /// Initialization and disposal methods.
+  late ExpandableController expandableExpandableController;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    expandableController.dispose();
+    expandableExpandableController.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

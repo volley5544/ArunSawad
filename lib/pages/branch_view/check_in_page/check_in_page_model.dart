@@ -1,7 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
+import '/components/camera_button_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -34,11 +33,8 @@ class CheckInPageModel extends FlutterFlowModel<CheckInPageWidget> {
   bool? checkLatLngBVCheckIn;
   // Stores action output result for [Backend Call - Create Document] action in CheckInPage widget.
   UserLogRecord? createdUserLogBVCheckIn;
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
-
+  // Model for cameraButton component.
+  late CameraButtonModel cameraButtonModel;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -49,25 +45,27 @@ class CheckInPageModel extends FlutterFlowModel<CheckInPageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for coordinateInput widget.
   FocusNode? coordinateInputFocusNode;
-  TextEditingController? coordinateInputController;
-  String? Function(BuildContext, String?)? coordinateInputControllerValidator;
+  TextEditingController? coordinateInputTextController;
+  String? Function(BuildContext, String?)?
+      coordinateInputTextControllerValidator;
   // State field(s) for remarkInput widget.
   FocusNode? remarkInputFocusNode;
-  TextEditingController? remarkInputController;
-  String? Function(BuildContext, String?)? remarkInputControllerValidator;
+  TextEditingController? remarkInputTextController;
+  String? Function(BuildContext, String?)? remarkInputTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController5;
   String? Function(BuildContext, String?)? textController5Validator;
   // State field(s) for coordinateTimesheet widget.
   FocusNode? coordinateTimesheetFocusNode;
-  TextEditingController? coordinateTimesheetController;
+  TextEditingController? coordinateTimesheetTextController;
   String? Function(BuildContext, String?)?
-      coordinateTimesheetControllerValidator;
+      coordinateTimesheetTextControllerValidator;
   // State field(s) for remarkTimesheet widget.
   FocusNode? remarkTimesheetFocusNode;
-  TextEditingController? remarkTimesheetController;
-  String? Function(BuildContext, String?)? remarkTimesheetControllerValidator;
+  TextEditingController? remarkTimesheetTextController;
+  String? Function(BuildContext, String?)?
+      remarkTimesheetTextControllerValidator;
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();
@@ -84,14 +82,15 @@ class CheckInPageModel extends FlutterFlowModel<CheckInPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FileUploadRecord? saveImgToFirebase;
 
-  /// Initialization and disposal methods.
-
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    cameraButtonModel = createModel(context, () => CameraButtonModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    cameraButtonModel.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
@@ -99,25 +98,21 @@ class CheckInPageModel extends FlutterFlowModel<CheckInPageWidget> {
     textController2?.dispose();
 
     coordinateInputFocusNode?.dispose();
-    coordinateInputController?.dispose();
+    coordinateInputTextController?.dispose();
 
     remarkInputFocusNode?.dispose();
-    remarkInputController?.dispose();
+    remarkInputTextController?.dispose();
 
     textFieldFocusNode3?.dispose();
     textController5?.dispose();
 
     coordinateTimesheetFocusNode?.dispose();
-    coordinateTimesheetController?.dispose();
+    coordinateTimesheetTextController?.dispose();
 
     remarkTimesheetFocusNode?.dispose();
-    remarkTimesheetController?.dispose();
+    remarkTimesheetTextController?.dispose();
 
     textFieldFocusNode4?.dispose();
     textController8?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -59,7 +59,10 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'สถานะทั้งหมด',
-                    style: FlutterFlowTheme.of(context).headlineSmall,
+                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                          fontFamily: 'Poppins',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Padding(
@@ -69,6 +72,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                     style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Poppins',
                           fontSize: 16.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -79,6 +83,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           fontSize: 16.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -113,6 +118,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(
@@ -146,6 +152,7 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
                                 .override(
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

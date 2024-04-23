@@ -33,18 +33,17 @@ class InsuranceRequestInsurerPageModel
   bool? checkboxValue;
   // State field(s) for SumInsuredInput widget.
   FocusNode? sumInsuredInputFocusNode;
-  TextEditingController? sumInsuredInputController;
-  String? Function(BuildContext, String?)? sumInsuredInputControllerValidator;
+  TextEditingController? sumInsuredInputTextController;
+  String? Function(BuildContext, String?)?
+      sumInsuredInputTextControllerValidator;
   // State field(s) for TrailerSumInsuredInput widget.
   FocusNode? trailerSumInsuredInputFocusNode;
-  TextEditingController? trailerSumInsuredInputController;
+  TextEditingController? trailerSumInsuredInputTextController;
   String? Function(BuildContext, String?)?
-      trailerSumInsuredInputControllerValidator;
+      trailerSumInsuredInputTextControllerValidator;
   // State field(s) for CheckboxGroup widget.
   List<String>? checkboxGroupValues;
   FormFieldController<List<String>>? checkboxGroupValueController;
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -53,15 +52,12 @@ class InsuranceRequestInsurerPageModel
   void dispose() {
     unfocusNode.dispose();
     sumInsuredInputFocusNode?.dispose();
-    sumInsuredInputController?.dispose();
+    sumInsuredInputTextController?.dispose();
 
     trailerSumInsuredInputFocusNode?.dispose();
-    trailerSumInsuredInputController?.dispose();
+    trailerSumInsuredInputTextController?.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   String? get radioButtonValue => radioButtonValueController?.value;
 }

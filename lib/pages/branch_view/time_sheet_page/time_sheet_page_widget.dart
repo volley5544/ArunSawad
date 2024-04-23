@@ -145,6 +145,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                     fontFamily: 'Poppins',
                     color: Colors.white,
                     fontSize: 22.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -845,6 +846,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                               color: Color(
                                                                   0xFFFF6500),
                                                               fontSize: 20.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -880,6 +883,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                                         context)
                                                                     .grayIcon,
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                     ),
                                                   ),
@@ -938,15 +943,15 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                                                 r'''$.Longitude''',
                                                               ),
                                                               false),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 14.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],

@@ -78,6 +78,7 @@ class _HtmlPageWidgetState extends State<HtmlPageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],

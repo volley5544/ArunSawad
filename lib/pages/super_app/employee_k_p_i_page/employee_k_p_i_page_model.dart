@@ -36,8 +36,6 @@ class EmployeeKPIPageModel extends FlutterFlowModel<EmployeeKPIPageWidget> {
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -46,8 +44,4 @@ class EmployeeKPIPageModel extends FlutterFlowModel<EmployeeKPIPageWidget> {
     unfocusNode.dispose();
     tabBarController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

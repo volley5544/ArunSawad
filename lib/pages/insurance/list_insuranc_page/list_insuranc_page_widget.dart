@@ -57,6 +57,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                   fontFamily: 'Poppins',
                   color: Colors.white,
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -98,6 +99,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 )),
@@ -114,6 +116,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -128,6 +131,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -142,6 +146,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               )),
                             ),
@@ -158,6 +163,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 )),
                               ),
@@ -217,6 +223,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       )),
@@ -241,6 +248,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -263,6 +271,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),
@@ -285,6 +294,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                                           .override(
                                             fontFamily: 'Poppins',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     )),
                                   ),

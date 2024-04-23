@@ -112,8 +112,8 @@ class _ShowImageListComponentWidgetState
                             child: PageView.builder(
                               controller: _model.pageViewController ??=
                                   PageController(
-                                      initialPage:
-                                          min(0, imageListItem.length - 1)),
+                                      initialPage: max(
+                                          0, min(0, imageListItem.length - 1))),
                               scrollDirection: Axis.horizontal,
                               itemCount: imageListItem.length,
                               itemBuilder: (context, imageListItemIndex) {
@@ -170,8 +170,8 @@ class _ShowImageListComponentWidgetState
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(
-                                        initialPage:
-                                            min(0, imageListItem.length - 1)),
+                                        initialPage: max(0,
+                                            min(0, imageListItem.length - 1))),
                                 count: imageListItem.length,
                                 axisDirection: Axis.horizontal,
                                 onDotClicked: (i) async {

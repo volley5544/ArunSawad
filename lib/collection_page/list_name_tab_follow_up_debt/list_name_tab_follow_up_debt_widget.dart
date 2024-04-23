@@ -118,6 +118,16 @@ class _ListNameTabFollowUpDebtWidgetState
                             return 'ค้างด้วยยอดน้อยกว่า 250 บาท';
                           } else if (widget.followUpDebtTab == 6) {
                             return 'โทรชวนปิดปรับ';
+                          } else if (widget.followUpDebtTab == 11) {
+                            return 'OD1';
+                          } else if (widget.followUpDebtTab == 12) {
+                            return 'OD2';
+                          } else if (widget.followUpDebtTab == 13) {
+                            return 'OD3';
+                          } else if (widget.followUpDebtTab == 14) {
+                            return 'OD4 - OD5';
+                          } else if (widget.followUpDebtTab == 15) {
+                            return 'OD6 เป็นต้นไป';
                           } else {
                             return '-';
                           }
@@ -127,6 +137,7 @@ class _ListNameTabFollowUpDebtWidgetState
                               fontFamily: 'Poppins',
                               color: Colors.white,
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ],
@@ -167,13 +178,13 @@ class _ListNameTabFollowUpDebtWidgetState
                               onChanged: (val) =>
                                   setState(() => _model.dropDownValue = val),
                               width: 150.0,
-                              height: 40.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
+                                    letterSpacing: 0.0,
                                   ),
                               hintText: 'ค้นหาโดย',
                               icon: Icon(
@@ -250,7 +261,6 @@ class _ListNameTabFollowUpDebtWidgetState
                                 Navigator.pop(context);
                               },
                               width: 170.0,
-                              height: 40.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -258,6 +268,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     fontSize: 11.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                               hintText: 'เรียงข้อมูลโดย',
@@ -313,12 +324,15 @@ class _ListNameTabFollowUpDebtWidgetState
                                   Duration(milliseconds: 1000),
                                   () => setState(() {}),
                                 ),
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
+                                  isDense: false,
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Poppins',
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   hintText: 'ค้นหา',
@@ -327,6 +341,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                   enabledBorder: OutlineInputBorder(
@@ -380,6 +395,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 textAlign: TextAlign.start,
@@ -502,6 +518,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -584,6 +601,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                         fontFamily: 'Poppins',
                                         color: Colors.white,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -625,6 +643,7 @@ class _ListNameTabFollowUpDebtWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         ),
@@ -833,6 +852,8 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                       'Poppins',
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -881,6 +902,8 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                               'Poppins',
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
@@ -907,6 +930,8 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                       .override(
                                                                         fontFamily:
                                                                             'Poppins',
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -965,6 +990,7 @@ class _ListNameTabFollowUpDebtWidgetState
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Poppins',
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                             ),
                       ),

@@ -22,23 +22,22 @@ class ForgotPasswordPageModel
   String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for usernameInput widget.
   FocusNode? usernameInputFocusNode;
-  TextEditingController? usernameInputController;
-  String? Function(BuildContext, String?)? usernameInputControllerValidator;
+  TextEditingController? usernameInputTextController;
+  String? Function(BuildContext, String?)? usernameInputTextControllerValidator;
   // State field(s) for id4DigitInput widget.
   FocusNode? id4DigitInputFocusNode;
-  TextEditingController? id4DigitInputController;
-  String? Function(BuildContext, String?)? id4DigitInputControllerValidator;
+  TextEditingController? id4DigitInputTextController;
+  String? Function(BuildContext, String?)? id4DigitInputTextControllerValidator;
   // State field(s) for newPasswordInput widget.
   FocusNode? newPasswordInputFocusNode;
-  TextEditingController? newPasswordInputController;
-  String? Function(BuildContext, String?)? newPasswordInputControllerValidator;
+  TextEditingController? newPasswordInputTextController;
+  String? Function(BuildContext, String?)?
+      newPasswordInputTextControllerValidator;
   // State field(s) for confirmPasswordInput widget.
   FocusNode? confirmPasswordInputFocusNode;
-  TextEditingController? confirmPasswordInputController;
+  TextEditingController? confirmPasswordInputTextController;
   String? Function(BuildContext, String?)?
-      confirmPasswordInputControllerValidator;
-
-  /// Initialization and disposal methods.
+      confirmPasswordInputTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -50,19 +49,15 @@ class ForgotPasswordPageModel
     textController1?.dispose();
 
     usernameInputFocusNode?.dispose();
-    usernameInputController?.dispose();
+    usernameInputTextController?.dispose();
 
     id4DigitInputFocusNode?.dispose();
-    id4DigitInputController?.dispose();
+    id4DigitInputTextController?.dispose();
 
     newPasswordInputFocusNode?.dispose();
-    newPasswordInputController?.dispose();
+    newPasswordInputTextController?.dispose();
 
     confirmPasswordInputFocusNode?.dispose();
-    confirmPasswordInputController?.dispose();
+    confirmPasswordInputTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

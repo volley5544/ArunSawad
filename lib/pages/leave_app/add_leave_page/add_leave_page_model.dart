@@ -38,13 +38,14 @@ class AddLeavePageModel extends FlutterFlowModel<AddLeavePageWidget> {
   FormFieldController<String>? leaveTimeValueController;
   // State field(s) for leaveDays widget.
   FocusNode? leaveDaysFocusNode;
-  TextEditingController? leaveDaysController;
-  String? Function(BuildContext, String?)? leaveDaysControllerValidator;
+  TextEditingController? leaveDaysTextController;
+  String? Function(BuildContext, String?)? leaveDaysTextControllerValidator;
   // State field(s) for phoneNumber widget.
   FocusNode? phoneNumberFocusNode;
-  TextEditingController? phoneNumberController;
-  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
-  String? _phoneNumberControllerValidator(BuildContext context, String? val) {
+  TextEditingController? phoneNumberTextController;
+  String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
+  String? _phoneNumberTextControllerValidator(
+      BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -58,8 +59,8 @@ class AddLeavePageModel extends FlutterFlowModel<AddLeavePageWidget> {
 
   // State field(s) for reasonToLeave widget.
   FocusNode? reasonToLeaveFocusNode;
-  TextEditingController? reasonToLeaveController;
-  String? Function(BuildContext, String?)? reasonToLeaveControllerValidator;
+  TextEditingController? reasonToLeaveTextController;
+  String? Function(BuildContext, String?)? reasonToLeaveTextControllerValidator;
   bool isDataUploading = false;
   List<FFUploadedFile> uploadedLocalFiles = [];
   List<String> uploadedFileUrls = [];
@@ -85,27 +86,21 @@ class AddLeavePageModel extends FlutterFlowModel<AddLeavePageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   NotificationRecord? createLeavePageNotification;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
-    phoneNumberControllerValidator = _phoneNumberControllerValidator;
+    phoneNumberTextControllerValidator = _phoneNumberTextControllerValidator;
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     leaveDaysFocusNode?.dispose();
-    leaveDaysController?.dispose();
+    leaveDaysTextController?.dispose();
 
     phoneNumberFocusNode?.dispose();
-    phoneNumberController?.dispose();
+    phoneNumberTextController?.dispose();
 
     reasonToLeaveFocusNode?.dispose();
-    reasonToLeaveController?.dispose();
+    reasonToLeaveTextController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

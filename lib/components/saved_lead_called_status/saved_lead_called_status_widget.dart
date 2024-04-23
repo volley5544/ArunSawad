@@ -52,7 +52,7 @@ class _SavedLeadCalledStatusWidgetState
     super.initState();
     _model = createModel(context, () => SavedLeadCalledStatusModel());
 
-    _model.calledRemarkTextFieldController ??= TextEditingController();
+    _model.calledRemarkTextFieldTextController ??= TextEditingController();
     _model.calledRemarkTextFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -79,7 +79,10 @@ class _SavedLeadCalledStatusWidgetState
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x25090F13),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.only(
@@ -139,7 +142,12 @@ class _SavedLeadCalledStatusWidgetState
                         children: [
                           Text(
                             'บันทึกการโทร',
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -149,7 +157,12 @@ class _SavedLeadCalledStatusWidgetState
                                 'กรุณากรอกสถานะการโทรของ ${widget.leadChannel} Lead ID ${widget.leadId}',
                                 'กรุณากรอกสถานะการโทรของ',
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -228,6 +241,7 @@ class _SavedLeadCalledStatusWidgetState
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
+                                      letterSpacing: 0.0,
                                     ),
                                 hintText: 'สถานะการโทร...',
                                 fillColor: Colors.white,
@@ -285,6 +299,7 @@ class _SavedLeadCalledStatusWidgetState
                                       .override(
                                         fontFamily: 'Poppins',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintText: 'เหตุผล...',
                                   fillColor: Colors.white,
@@ -314,13 +329,18 @@ class _SavedLeadCalledStatusWidgetState
                             width: double.infinity,
                             child: TextFormField(
                               controller:
-                                  _model.calledRemarkTextFieldController,
+                                  _model.calledRemarkTextFieldTextController,
                               focusNode: _model.calledRemarkTextFieldFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'จดบันทึกการโทร...',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -362,10 +382,15 @@ class _SavedLeadCalledStatusWidgetState
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    letterSpacing: 0.0,
+                                  ),
                               textAlign: TextAlign.start,
                               validator: _model
-                                  .calledRemarkTextFieldControllerValidator
+                                  .calledRemarkTextFieldTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -431,7 +456,7 @@ class _SavedLeadCalledStatusWidgetState
                           statusCallID: _model.callStatusDropDownValue,
                           reasonID: _model.reasonDropDownValue,
                           reasonDetail:
-                              _model.calledRemarkTextFieldController.text,
+                              _model.calledRemarkTextFieldTextController.text,
                         );
                         _shouldSetState = true;
                         if ((_model.saveCallOutput?.statusCode ?? 200) != 200) {
@@ -540,6 +565,7 @@ class _SavedLeadCalledStatusWidgetState
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                         elevation: 2.0,
