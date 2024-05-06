@@ -92,7 +92,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
           ),
           userLogRecordReference);
       _model.getDateTimeAPIOutput = await GetDateTimeAPICall.call(
-        token: FFAppState().accessToken,
+        token: valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000
+            ? 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMC4xLjI3LjI0OjgwOTBcL3Nzd19hcnVuc2F3YWRfYXBpXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjY4MDcyOTA4LCJuYmYiOjE2NjgwNzI5MDgsImp0aSI6Ildlc0xUOEhBd0x3b0ZlVngiLCJzdWIiOjUwMSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.VUyLGW6rHPHShsRdyWCUF5euUWkbizCADv8yMIsotfY'
+            : FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
       );
       if ((_model.getDateTimeAPIOutput?.statusCode ?? 200) != 200) {
@@ -723,111 +725,135 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),
-                                child: Text(
-                                  FFAppState().profileFullName,
-                                  textAlign: TextAlign.center,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    valueOrDefault(
+                                                currentUserDocument?.employeeId,
+                                                0) >=
+                                            100000
+                                        ? currentUserEmail
+                                        : FFAppState().profileFullName,
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Color(0xFF0039E3),
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            if (valueOrDefault(
+                                    currentUserDocument?.employeeId, 0) <=
+                                100000)
+                              AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  functions.profileShowNickName(
+                                      FFAppState().userNickname),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Montserrat',
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF0039E3),
-                                        fontSize: 24.0,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              functions.profileShowNickName(
-                                  FFAppState().userNickname),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF0039E3),
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.birthdayCake,
-                                    color: Color(0xFF0039E3),
-                                    size: 30.0,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      FFAppState().profileBirthDate != 'null'
-                                          ? dateTimeFormat(
-                                              'd/M/y',
-                                              functions.showClockIn(FFAppState()
-                                                  .profileBirthDate),
-                                              locale:
-                                                  FFLocalizations.of(context)
+                            if (valueOrDefault(
+                                    currentUserDocument?.employeeId, 0) <=
+                                100000)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.birthdayCake,
+                                        color: Color(0xFF0039E3),
+                                        size: 30.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          FFAppState().profileBirthDate !=
+                                                  'null'
+                                              ? dateTimeFormat(
+                                                  'd/M/y',
+                                                  functions.showClockIn(
+                                                      FFAppState()
+                                                          .profileBirthDate),
+                                                  locale: FFLocalizations.of(
+                                                          context)
                                                       .languageCode,
-                                            )
-                                          : '-',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Color(0xFF0039E3),
-                                            fontSize: 16.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: 300.0,
-                                height: 45.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFFD57C),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x33000000),
-                                      offset: Offset(
-                                        0.0,
-                                        2.0,
+                                                )
+                                              : '-',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF0039E3),
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
                                       ),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(18.0),
+                                    ],
+                                  ),
                                 ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Text(
-                                      FFAppState().profilePositionName,
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.0,
+                              ),
+                            if (valueOrDefault(
+                                    currentUserDocument?.employeeId, 0) <=
+                                100000)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Container(
+                                    width: 300.0,
+                                    height: 45.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFFFD57C),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 4.0,
+                                          color: Color(0x33000000),
+                                          offset: Offset(
+                                            0.0,
+                                            2.0,
                                           ),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(18.0),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
+                                        child: Text(
+                                          FFAppState().profilePositionName,
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
                           ],
                         ),
                       ),
@@ -1221,512 +1247,303 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),
-                                child: Text(
-                                  FFAppState().profileFullName,
-                                  textAlign: TextAlign.center,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    valueOrDefault(
+                                                currentUserDocument?.employeeId,
+                                                0) >=
+                                            100000
+                                        ? currentUserEmail
+                                        : FFAppState().profileFullName,
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: Color(0xFF0039E3),
+                                          fontSize: 28.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            if (valueOrDefault(
+                                    currentUserDocument?.employeeId, 0) <=
+                                100000)
+                              AuthUserStreamWidget(
+                                builder: (context) => Text(
+                                  functions.profileShowNickName(
+                                      FFAppState().userNickname),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Montserrat',
+                                        fontFamily: 'Poppins',
                                         color: Color(0xFF0039E3),
-                                        fontSize: 28.0,
+                                        fontSize: 20.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
                                       ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              functions.profileShowNickName(
-                                  FFAppState().userNickname),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF0039E3),
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  FaIcon(
-                                    FontAwesomeIcons.birthdayCake,
-                                    color: Color(0xFF0039E3),
-                                    size: 35.0,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      dateTimeFormat(
-                                        'd/M/y',
-                                        functions.showClockIn(
-                                            FFAppState().profileBirthDate),
-                                        locale: FFLocalizations.of(context)
-                                            .languageCode,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Color(0xFF0039E3),
-                                            fontSize: 20.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: 500.0,
-                                height: 60.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFFD57C),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      blurRadius: 4.0,
-                                      color: Color(0x33000000),
-                                      offset: Offset(
-                                        0.0,
-                                        2.0,
-                                      ),
-                                    )
-                                  ],
-                                  borderRadius: BorderRadius.circular(18.0),
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Text(
-                                      FFAppState().profilePositionName,
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    Divider(
-                      height: 10.0,
-                      thickness: 2.0,
-                      color: Color(0x98FFFFFF),
-                    ),
-                    if (responsiveVisibility(
-                      context: context,
-                      tabletLandscape: false,
-                      desktop: false,
-                    ))
-                      Container(
-                        width: double.infinity,
-                        height: 250.0,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 160.0,
-                                      height: 160.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: BarcodeWidget(
-                                          data: FFAppState().QRCodeLink,
-                                          barcode: Barcode.qrCode(),
-                                          width: 100.0,
-                                          height: 180.0,
-                                          color: Colors.black,
-                                          backgroundColor: Colors.transparent,
-                                          errorBuilder: (_context, _error) =>
-                                              SizedBox(
-                                            width: 100.0,
-                                            height: 180.0,
-                                          ),
-                                          drawText: false,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Expanded(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'รหัสพนักงาน: ${FFAppState().employeeID}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Text(
-                                    'สาขา: (${FFAppState().branchCode}) ${FFAppState().profileUnitCodeName}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  if (FFAppState().branchCode != 'HO')
-                                    Text(
-                                      'เขต: ${FFAppState().profileParentUnit}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  if (FFAppState().branchCode != 'HO')
-                                    Text(
-                                      'ภาค: ${FFAppState().profileRegion}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  if (FFAppState().profileHiredDate != 'null')
-                                    Text(
-                                      'วันเริ่มงาน: ${FFAppState().profileHiredDate != 'null' ? dateTimeFormat(
-                                          'd/M/y',
-                                          functions.showClockIn(
-                                              FFAppState().profileHiredDate),
-                                          locale: FFLocalizations.of(context)
-                                              .languageCode,
-                                        ) : '-'}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  Text(
-                                    'อายุงาน: ${FFAppState().profileServiceDuration}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  if (FFAppState().profilePositionAgeCheck !=
-                                      '-')
-                                    Text(
-                                      'อายุตำแหน่ง: ${FFAppState().profilePositionAge}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  Row(
+                            if (valueOrDefault(
+                                    currentUserDocument?.employeeId, 0) <=
+                                100000)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Row(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text(
-                                        'แผนประกัน: ${functions.insurancePlanToThai(FFAppState().insurancePlanNumber)}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              letterSpacing: 0.0,
-                                            ),
+                                      FaIcon(
+                                        FontAwesomeIcons.birthdayCake,
+                                        color: Color(0xFF0039E3),
+                                        size: 35.0,
                                       ),
-                                      if (functions.insurancePlanToThai(
-                                              FFAppState()
-                                                  .insurancePlanNumber) !=
-                                          '-')
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.goNamed(
-                                              'InsurancePlan',
-                                              queryParameters: {
-                                                'planInsurance': serializeParam(
-                                                  functions.insurancePlanToThai(
-                                                      FFAppState()
-                                                          .insurancePlanNumber),
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-                                          },
-                                          child: FaIcon(
-                                            FontAwesomeIcons
-                                                .exclamationTriangle,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            size: 24.0,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          dateTimeFormat(
+                                            'd/M/y',
+                                            functions.showClockIn(
+                                                FFAppState().profileBirthDate),
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
                                           ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF0039E3),
+                                                fontSize: 20.0,
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
+                                      ),
                                     ],
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        40.0, 0.0, 40.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 0.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                context
-                                                    .goNamed('GuideBookPage');
-                                              },
-                                              text: 'คู่มือพนักงาน',
-                                              options: FFButtonOptions(
-                                                width: 130.0,
-                                                height: 35.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: Color(0xFF0039E3),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                          fontSize: 12.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 2.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                            ),
+                                ),
+                              ),
+                            if (valueOrDefault(
+                                    currentUserDocument?.employeeId, 0) <=
+                                100000)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Container(
+                                    width: 500.0,
+                                    height: 60.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFFFD57C),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 4.0,
+                                          color: Color(0x33000000),
+                                          offset: Offset(
+                                            0.0,
+                                            2.0,
                                           ),
-                                        ),
+                                        )
                                       ],
+                                      borderRadius: BorderRadius.circular(18.0),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
+                                        child: Text(
+                                          FFAppState().profilePositionName,
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ],
+                                ),
                               ),
-                            ),
                           ],
                         ),
                       ),
-                    if (responsiveVisibility(
-                      context: context,
-                      phone: false,
-                      tablet: false,
-                    ))
-                      Container(
-                        width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * 0.3,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
+                    if (valueOrDefault(currentUserDocument?.employeeId, 0) <=
+                        100000)
+                      AuthUserStreamWidget(
+                        builder: (context) => Divider(
+                          height: 10.0,
+                          thickness: 2.0,
+                          color: Color(0x98FFFFFF),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Column(
+                      ),
+                    if ((valueOrDefault(currentUserDocument?.employeeId, 0) <=
+                            100000) &&
+                        responsiveVisibility(
+                          context: context,
+                          tabletLandscape: false,
+                          desktop: false,
+                        ))
+                      AuthUserStreamWidget(
+                        builder: (context) => Container(
+                          width: double.infinity,
+                          height: 250.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Container(
-                                    width: 300.0,
-                                    height: 300.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                    ),
-                                    child: BarcodeWidget(
-                                      data: FFAppState().QRCodeLink,
-                                      barcode: Barcode.qrCode(),
-                                      width: 100.0,
-                                      height: 50.0,
-                                      color: Colors.black,
-                                      backgroundColor: Colors.transparent,
-                                      errorBuilder: (_context, _error) =>
-                                          SizedBox(
-                                        width: 100.0,
-                                        height: 50.0,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: 160.0,
+                                        height: 160.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 10.0, 0.0),
+                                          child: BarcodeWidget(
+                                            data: FFAppState().QRCodeLink,
+                                            barcode: Barcode.qrCode(),
+                                            width: 100.0,
+                                            height: 180.0,
+                                            color: Colors.black,
+                                            backgroundColor: Colors.transparent,
+                                            errorBuilder: (_context, _error) =>
+                                                SizedBox(
+                                              width: 100.0,
+                                              height: 180.0,
+                                            ),
+                                            drawText: false,
+                                          ),
+                                        ),
                                       ),
-                                      drawText: false,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            Expanded(
-                              flex: 3,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'รหัสพนักงาน: ${FFAppState().employeeID}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Text(
-                                    'สาขา: (${FFAppState().branchCode}) ${FFAppState().profileUnitCodeName}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  if (FFAppState().branchCode != 'HO')
+                              Expanded(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
                                     Text(
-                                      'เขต: ${FFAppState().profileParentUnit}',
+                                      'รหัสพนักงาน: ${FFAppState().employeeID}',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                  if (FFAppState().branchCode != 'HO')
                                     Text(
-                                      'ภาค: ${FFAppState().profileRegion}',
+                                      'สาขา: (${FFAppState().branchCode}) ${FFAppState().profileUnitCodeName}',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            fontSize: 18.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
-                                  Text(
-                                    'วันเริ่มงาน: ${dateTimeFormat(
-                                      'd/M/y',
-                                      functions.showClockIn(
-                                          FFAppState().profileHiredDate),
-                                      locale: FFLocalizations.of(context)
-                                          .languageCode,
-                                    )}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Text(
-                                    'อายุงาน: ${FFAppState().profileServiceDuration}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  if (FFAppState().profilePositionAgeCheck !=
-                                      '-')
-                                    Text(
-                                      'อายุตำแหน่ง: ${FFAppState().profilePositionAge}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 19.0,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
+                                    if (FFAppState().branchCode != 'HO')
                                       Text(
-                                        'แผนประกัน: ${functions.insurancePlanToThai(FFAppState().insurancePlanNumber)}',
+                                        'เขต: ${FFAppState().profileParentUnit}',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              fontSize: 18.0,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                      if (functions.insurancePlanToThai(
-                                              FFAppState()
-                                                  .insurancePlanNumber) !=
-                                          '-')
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: InkWell(
+                                    if (FFAppState().branchCode != 'HO')
+                                      Text(
+                                        'ภาค: ${FFAppState().profileRegion}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    if (FFAppState().profileHiredDate != 'null')
+                                      Text(
+                                        'วันเริ่มงาน: ${FFAppState().profileHiredDate != 'null' ? dateTimeFormat(
+                                            'd/M/y',
+                                            functions.showClockIn(
+                                                FFAppState().profileHiredDate),
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ) : '-'}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    Text(
+                                      'อายุงาน: ${FFAppState().profileServiceDuration}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    if (FFAppState().profilePositionAgeCheck !=
+                                        '-')
+                                      Text(
+                                        'อายุตำแหน่ง: ${FFAppState().profilePositionAge}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'แผนประกัน: ${functions.insurancePlanToThai(FFAppState().insurancePlanNumber)}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                        if (functions.insurancePlanToThai(
+                                                FFAppState()
+                                                    .insurancePlanNumber) !=
+                                            '-')
+                                          InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              context.pushNamed(
+                                              context.goNamed(
                                                 'InsurancePlan',
                                                 queryParameters: {
                                                   'planInsurance':
@@ -1745,74 +1562,325 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              size: 35.0,
+                                              size: 24.0,
                                             ),
                                           ),
-                                        ),
-                                    ],
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 0.0, 12.0, 0.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 5.0, 0.0, 0.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                context
-                                                    .goNamed('GuideBookPage');
-                                              },
-                                              text: 'คู่มือพนักงาน',
-                                              options: FFButtonOptions(
-                                                width: 130.0,
-                                                height: 50.0,
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 0.0, 0.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: Color(0xFF0039E3),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.white,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 2.0,
-                                                borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 1.0,
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          40.0, 0.0, 40.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  context
+                                                      .goNamed('GuideBookPage');
+                                                },
+                                                text: 'คู่มือพนักงาน',
+                                                options: FFButtonOptions(
+                                                  width: 130.0,
+                                                  height: 35.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: Color(0xFF0039E3),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  elevation: 2.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    Divider(
-                      height: 10.0,
-                      thickness: 2.0,
-                      color: Color(0x98FFFFFF),
-                    ),
+                    if ((valueOrDefault(currentUserDocument?.employeeId, 0) <=
+                            100000) &&
+                        responsiveVisibility(
+                          context: context,
+                          phone: false,
+                          tablet: false,
+                        ))
+                      AuthUserStreamWidget(
+                        builder: (context) => Container(
+                          width: double.infinity,
+                          height: MediaQuery.sizeOf(context).height * 0.3,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 300.0,
+                                      height: 300.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: BarcodeWidget(
+                                        data: FFAppState().QRCodeLink,
+                                        barcode: Barcode.qrCode(),
+                                        width: 100.0,
+                                        height: 50.0,
+                                        color: Colors.black,
+                                        backgroundColor: Colors.transparent,
+                                        errorBuilder: (_context, _error) =>
+                                            SizedBox(
+                                          width: 100.0,
+                                          height: 50.0,
+                                        ),
+                                        drawText: false,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'รหัสพนักงาน: ${FFAppState().employeeID}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    Text(
+                                      'สาขา: (${FFAppState().branchCode}) ${FFAppState().profileUnitCodeName}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    if (FFAppState().branchCode != 'HO')
+                                      Text(
+                                        'เขต: ${FFAppState().profileParentUnit}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 18.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    if (FFAppState().branchCode != 'HO')
+                                      Text(
+                                        'ภาค: ${FFAppState().profileRegion}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 18.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    Text(
+                                      'วันเริ่มงาน: ${dateTimeFormat(
+                                        'd/M/y',
+                                        functions.showClockIn(
+                                            FFAppState().profileHiredDate),
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      )}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    Text(
+                                      'อายุงาน: ${FFAppState().profileServiceDuration}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                    if (FFAppState().profilePositionAgeCheck !=
+                                        '-')
+                                      Text(
+                                        'อายุตำแหน่ง: ${FFAppState().profilePositionAge}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 19.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'แผนประกัน: ${functions.insurancePlanToThai(FFAppState().insurancePlanNumber)}',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                        if (functions.insurancePlanToThai(
+                                                FFAppState()
+                                                    .insurancePlanNumber) !=
+                                            '-')
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'InsurancePlan',
+                                                  queryParameters: {
+                                                    'planInsurance':
+                                                        serializeParam(
+                                                      functions.insurancePlanToThai(
+                                                          FFAppState()
+                                                              .insurancePlanNumber),
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: FaIcon(
+                                                FontAwesomeIcons
+                                                    .exclamationTriangle,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 35.0,
+                                              ),
+                                            ),
+                                          ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 12.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  context
+                                                      .goNamed('GuideBookPage');
+                                                },
+                                                text: 'คู่มือพนักงาน',
+                                                options: FFButtonOptions(
+                                                  width: 130.0,
+                                                  height: 50.0,
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: Color(0xFF0039E3),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 20.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  elevation: 2.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    if (valueOrDefault(currentUserDocument?.employeeId, 0) <=
+                        100000)
+                      AuthUserStreamWidget(
+                        builder: (context) => Divider(
+                          height: 10.0,
+                          thickness: 2.0,
+                          color: Color(0x98FFFFFF),
+                        ),
+                      ),
                     if (false)
                       Container(
                         width: double.infinity,
@@ -2089,100 +2157,110 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                           ),
                         ),
                       ),
-                    Container(
-                      width: double.infinity,
-                      height: 190.0,
-                      decoration: BoxDecoration(),
-                      child: FutureBuilder<List<InsuranceLicenseDataRecord>>(
-                        future: queryInsuranceLicenseDataRecordOnce(
-                          singleRecord: true,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).tertiary,
+                    if (valueOrDefault(currentUserDocument?.employeeId, 0) <=
+                        100000)
+                      AuthUserStreamWidget(
+                        builder: (context) => Container(
+                          width: double.infinity,
+                          height: 190.0,
+                          decoration: BoxDecoration(),
+                          child:
+                              FutureBuilder<List<InsuranceLicenseDataRecord>>(
+                            future: queryInsuranceLicenseDataRecordOnce(
+                              singleRecord: true,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).tertiary,
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            );
-                          }
-                          List<InsuranceLicenseDataRecord>
-                              listViewInsuranceLicenseDataRecordList =
-                              snapshot.data!;
-                          // Return an empty Container when the item does not exist.
-                          if (snapshot.data!.isEmpty) {
-                            return Container();
-                          }
-                          final listViewInsuranceLicenseDataRecord =
-                              listViewInsuranceLicenseDataRecordList.isNotEmpty
-                                  ? listViewInsuranceLicenseDataRecordList.first
-                                  : null;
-                          return Builder(
-                            builder: (context) {
-                              final licenseList =
-                                  listViewInsuranceLicenseDataRecord
-                                          ?.licenseName
-                                          ?.toList() ??
-                                      [];
-                              return ListView.builder(
-                                padding: EdgeInsets.zero,
-                                scrollDirection: Axis.horizontal,
-                                itemCount: licenseList.length,
-                                itemBuilder: (context, licenseListIndex) {
-                                  final licenseListItem =
-                                      licenseList[licenseListIndex];
-                                  return Visibility(
-                                    visible:
-                                        FFAppState().insuranceLicenseStatusCode[
+                                );
+                              }
+                              List<InsuranceLicenseDataRecord>
+                                  listViewInsuranceLicenseDataRecordList =
+                                  snapshot.data!;
+                              // Return an empty Container when the item does not exist.
+                              if (snapshot.data!.isEmpty) {
+                                return Container();
+                              }
+                              final listViewInsuranceLicenseDataRecord =
+                                  listViewInsuranceLicenseDataRecordList
+                                          .isNotEmpty
+                                      ? listViewInsuranceLicenseDataRecordList
+                                          .first
+                                      : null;
+                              return Builder(
+                                builder: (context) {
+                                  final licenseList =
+                                      listViewInsuranceLicenseDataRecord
+                                              ?.licenseName
+                                              ?.toList() ??
+                                          [];
+                                  return ListView.builder(
+                                    padding: EdgeInsets.zero,
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: licenseList.length,
+                                    itemBuilder: (context, licenseListIndex) {
+                                      final licenseListItem =
+                                          licenseList[licenseListIndex];
+                                      return Visibility(
+                                        visible: FFAppState()
+                                                    .insuranceLicenseStatusCode[
                                                 licenseListIndex] ==
                                             200,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 0.0, 5.0, 20.0),
-                                      child: Container(
-                                        width: 235.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 4.0,
-                                              color: Color(0x33000000),
-                                              offset: Offset(
-                                                2.0,
-                                                3.0,
-                                              ),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                          ),
-                                        ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(12.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                listViewInsuranceLicenseDataRecord!
-                                                        .licenseName[
-                                                    licenseListIndex],
-                                                textAlign: TextAlign.start,
-                                                style:
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 0.0, 5.0, 20.0),
+                                          child: Container(
+                                            width: 235.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    2.0,
+                                                    3.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color:
                                                     FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(12.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceAround,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    listViewInsuranceLicenseDataRecord!
+                                                            .licenseName[
+                                                        licenseListIndex],
+                                                    textAlign: TextAlign.start,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodySmall
                                                         .override(
                                                           fontFamily: 'Poppins',
@@ -2192,152 +2270,161 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                         ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Row(
+                                                  ),
+                                                  Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Expanded(
-                                                        flex: 3,
-                                                        child: Text(
-                                                          'เลขที่ใบอนุญาต:',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 11.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        flex: 3,
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            functions.censorString(
-                                                                FFAppState()
-                                                                        .profileInsuLicenseNumLicense[
-                                                                    licenseListIndex],
-                                                                4),
-                                                            'เลขที่ใบอนุญาต',
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 3,
+                                                            child: Text(
+                                                              'เลขที่ใบอนุญาต:',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontSize:
+                                                                        11.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
                                                           ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 11.0,
-                                                                letterSpacing:
-                                                                    0.0,
+                                                          Expanded(
+                                                            flex: 3,
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                functions.censorString(
+                                                                    FFAppState()
+                                                                            .profileInsuLicenseNumLicense[
+                                                                        licenseListIndex],
+                                                                    4),
+                                                                'เลขที่ใบอนุญาต',
                                                               ),
-                                                        ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontSize:
+                                                                        11.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 3,
+                                                            child: Text(
+                                                              'วันหมดอายุ       :',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontSize:
+                                                                        11.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            flex: 3,
+                                                            child: Text(
+                                                              FFAppState()
+                                                                      .profileInsuLicenseExpireDate[
+                                                                  licenseListIndex],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    fontSize:
+                                                                        11.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Expanded(
-                                                        flex: 3,
-                                                        child: Text(
-                                                          'วันหมดอายุ       :',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 11.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.goNamed(
+                                                        'LifeInsuranceLicenseCardPage',
+                                                        queryParameters: {
+                                                          'index':
+                                                              serializeParam(
+                                                            licenseListIndex,
+                                                            ParamType.int,
+                                                          ),
+                                                          'insuranceName':
+                                                              serializeParam(
+                                                            listViewInsuranceLicenseDataRecord
+                                                                    ?.licenseName?[
+                                                                licenseListIndex],
+                                                            ParamType.String,
+                                                          ),
+                                                          'insuranceType':
+                                                              serializeParam(
+                                                            listViewInsuranceLicenseDataRecord
+                                                                    ?.licenseType?[
+                                                                licenseListIndex],
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                      );
+                                                    },
+                                                    child: Container(
+                                                      width: 90.0,
+                                                      height: 28.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFF0039E3),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
                                                       ),
-                                                      Expanded(
-                                                        flex: 3,
-                                                        child: Text(
-                                                          FFAppState()
-                                                                  .profileInsuLicenseExpireDate[
-                                                              licenseListIndex],
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 11.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                              InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.goNamed(
-                                                    'LifeInsuranceLicenseCardPage',
-                                                    queryParameters: {
-                                                      'index': serializeParam(
-                                                        licenseListIndex,
-                                                        ParamType.int,
-                                                      ),
-                                                      'insuranceName':
-                                                          serializeParam(
-                                                        listViewInsuranceLicenseDataRecord
-                                                                ?.licenseName?[
-                                                            licenseListIndex],
-                                                        ParamType.String,
-                                                      ),
-                                                      'insuranceType':
-                                                          serializeParam(
-                                                        listViewInsuranceLicenseDataRecord
-                                                                ?.licenseType?[
-                                                            licenseListIndex],
-                                                        ParamType.String,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                },
-                                                child: Container(
-                                                  width: 90.0,
-                                                  height: 28.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFF0039E3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Text(
-                                                        'ดูบัตร',
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            'ดูบัตร',
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -2353,25 +2440,26 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       FontWeight
                                                                           .normal,
                                                                 ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
+                                                    ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'containerOnPageLoadAnimation3']!),
                                         ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'containerOnPageLoadAnimation3']!),
-                                    ),
+                                      );
+                                    },
                                   );
                                 },
                               );
                             },
-                          );
-                        },
+                          ),
+                        ),
                       ),
-                    ),
                   ],
                 ),
               ),

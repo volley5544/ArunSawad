@@ -2176,6 +2176,22 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   FFAppState().update(() {
                                     FFAppState().isFromTimesheetPage = false;
                                   });
+                                  _model.getVloanRemarkApiUrl =
+                                      await queryUrlLinkStorageRecordOnce(
+                                    queryBuilder: (urlLinkStorageRecord) =>
+                                        urlLinkStorageRecord.where(
+                                      'url_name',
+                                      isEqualTo: 'vloan_remark',
+                                    ),
+                                    singleRecord: true,
+                                  ).then((s) => s.firstOrNull);
+                                  _shouldSetState = true;
+                                  setState(() {
+                                    FFAppState().apiUrlVloanRemark =
+                                        _model.getVloanRemarkApiUrl!.urlLink;
+                                    FFAppState().tokenVloanRemark =
+                                        _model.getVloanRemarkApiUrl!.urlToken;
+                                  });
                                 } else {
                                   await showDialog(
                                     context: context,

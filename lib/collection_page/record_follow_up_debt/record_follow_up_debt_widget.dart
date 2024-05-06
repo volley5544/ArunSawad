@@ -306,16 +306,30 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            GetCalledHistoryCollectionApiCall
-                                                                .calledTime(
-                                                              (_model.getCalledHistory
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?[calledStatusListItemIndex],
-                                                            '-',
-                                                          ),
+                                                          true
+                                                              ? valueOrDefault<
+                                                                  String>(
+                                                                  GetCalledHistoryCollectionApiCall
+                                                                      .calledTime(
+                                                                    (_model.getCalledHistory
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?[calledStatusListItemIndex],
+                                                                  '-',
+                                                                )
+                                                              : ((String
+                                                                  callTime) {
+                                                                  return '${callTime!.split(' ')[0].split('/')[0]}/${callTime!.split(' ')[0].split('/')[1]}/${int.parse(callTime!.split(' ')[0].split('/')[2]) + 543} ${callTime!.split(' ')[1]}';
+                                                                }(valueOrDefault<
+                                                                  String>(
+                                                                  GetCalledHistoryCollectionApiCall
+                                                                      .calledTime(
+                                                                    (_model.getCalledHistory
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?[calledStatusListItemIndex],
+                                                                  '-',
+                                                                ))),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

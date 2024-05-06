@@ -41,6 +41,20 @@
           "order": "DESCENDING"
         }
       ]
+    },
+    {
+      "collectionGroup": "user_log",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "hash_thai_id",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "action_time",
+          "order": "DESCENDING"
+        }
+      ]
     }
   ],
   "fieldOverrides": [

@@ -67,6 +67,8 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   bool? checkerLocationService;
   // Stores action output result for [Custom Action - a2] action in Container widget.
   bool? checkerLocationPermission;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  UrlLinkStorageRecord? getVloanRemarkApiUrl;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginTimesheetPage;
 

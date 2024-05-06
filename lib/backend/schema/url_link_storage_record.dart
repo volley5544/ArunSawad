@@ -26,9 +26,15 @@ class UrlLinkStorageRecord extends FirestoreRecord {
   String get urlLink => _urlLink ?? '';
   bool hasUrlLink() => _urlLink != null;
 
+  // "url_token" field.
+  String? _urlToken;
+  String get urlToken => _urlToken ?? '';
+  bool hasUrlToken() => _urlToken != null;
+
   void _initializeFields() {
     _urlName = snapshotData['url_name'] as String?;
     _urlLink = snapshotData['url_link'] as String?;
+    _urlToken = snapshotData['url_token'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -68,11 +74,13 @@ class UrlLinkStorageRecord extends FirestoreRecord {
 Map<String, dynamic> createUrlLinkStorageRecordData({
   String? urlName,
   String? urlLink,
+  String? urlToken,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'url_name': urlName,
       'url_link': urlLink,
+      'url_token': urlToken,
     }.withoutNulls,
   );
 
@@ -85,12 +93,14 @@ class UrlLinkStorageRecordDocumentEquality
 
   @override
   bool equals(UrlLinkStorageRecord? e1, UrlLinkStorageRecord? e2) {
-    return e1?.urlName == e2?.urlName && e1?.urlLink == e2?.urlLink;
+    return e1?.urlName == e2?.urlName &&
+        e1?.urlLink == e2?.urlLink &&
+        e1?.urlToken == e2?.urlToken;
   }
 
   @override
   int hash(UrlLinkStorageRecord? e) =>
-      const ListEquality().hash([e?.urlName, e?.urlLink]);
+      const ListEquality().hash([e?.urlName, e?.urlLink, e?.urlToken]);
 
   @override
   bool isValidKey(Object? o) => o is UrlLinkStorageRecord;

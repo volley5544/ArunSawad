@@ -97,8 +97,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 apiURL: params.getParam(
                   'apiURL',
                   ParamType.DocumentReference,
-                  false,
-                  ['Key_Storage'],
+                  isList: false,
+                  collectionNamePath: ['Key_Storage'],
                 ),
                 token: params.getParam(
                   'token',
@@ -217,7 +217,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 color: params.getParam<Color>(
                   'color',
                   ParamType.Color,
-                  true,
+                  isList: true,
                 ),
               ),
             ),
@@ -702,42 +702,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 date: params.getParam<String>(
                   'date',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 checkinTimeIn: params.getParam<String>(
                   'checkinTimeIn',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 checkinTimeOut: params.getParam<String>(
                   'checkinTimeOut',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 checkinLastMonthDate: params.getParam<String>(
                   'checkinLastMonthDate',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 checkinLastMonthTimeIn: params.getParam<String>(
                   'checkinLastMonthTimeIn',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 checkinLastMonthTimeOut: params.getParam<String>(
                   'checkinLastMonthTimeOut',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 holidayDate: params.getParam<String>(
                   'holidayDate',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 holidayName: params.getParam<String>(
                   'holidayName',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
               ),
             ),
@@ -921,7 +921,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 leaveDocumentOld: params.getParam<String>(
                   'leaveDocumentOld',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
               ),
             ),
@@ -1104,8 +1104,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 userBDocRef: params.getParam(
                   'userBDocRef',
                   ParamType.DocumentReference,
-                  false,
-                  ['user_custom'],
+                  isList: false,
+                  collectionNamePath: ['user_custom'],
                 ),
                 userBName: params.getParam(
                   'userBName',
@@ -1282,12 +1282,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 insurerShortNameList: params.getParam<String>(
                   'insurerShortNameList',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 insurerNameList: params.getParam<String>(
                   'insurerNameList',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 coverTypeNameList: params.getParam(
                   'coverTypeNameList',
@@ -1300,107 +1300,107 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 imageFront: params.getParam<String>(
                   'imageFront',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRear: params.getParam<String>(
                   'imageRear',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageLeft: params.getParam<String>(
                   'imageLeft',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRight: params.getParam<String>(
                   'imageRight',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRightFront: params.getParam<String>(
                   'imageRightFront',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRightRear: params.getParam<String>(
                   'imageRightRear',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageLeftFront: params.getParam<String>(
                   'imageLeftFront',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageLeftRear: params.getParam<String>(
                   'imageLeftRear',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRoof: params.getParam<String>(
                   'imageRoof',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageFrontTrailer: params.getParam<String>(
                   'imageFrontTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRearTrailer: params.getParam<String>(
                   'imageRearTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageLeftTrailer: params.getParam<String>(
                   'imageLeftTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRightTrailer: params.getParam<String>(
                   'imageRightTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRightFrontTrailer: params.getParam<String>(
                   'imageRightFrontTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageRightRearTrailer: params.getParam<String>(
                   'imageRightRearTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageLeftFrontTrailer: params.getParam<String>(
                   'imageLeftFrontTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageLeftRearTrailer: params.getParam<String>(
                   'imageLeftRearTrailer',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageBlueBook: params.getParam<String>(
                   'imageBlueBook',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageIdCard: params.getParam<String>(
                   'imageIdCard',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 imageOther: params.getParam<dynamic>(
                   'imageOther',
                   ParamType.JSON,
-                  true,
+                  isList: true,
                 ),
                 imageOtherName: params.getParam<String>(
                   'imageOtherName',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
               ),
             ),
@@ -1644,6 +1644,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'lastPayDate',
                   ParamType.String,
                 ),
+                historyCount: params.getParam(
+                  'historyCount',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1661,42 +1665,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 countNo: params.getParam<String>(
                   'countNo',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 dateOfExp: params.getParam<String>(
                   'dateOfExp',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 targetStat: params.getParam<String>(
                   'targetStat',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 contStat: params.getParam<String>(
                   'contStat',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 expAmt: params.getParam<String>(
                   'expAmt',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 id: params.getParam<String>(
                   'id',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 expFrm: params.getParam<String>(
                   'expFrm',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 dateOfDue: params.getParam<String>(
                   'dateOfDue',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 followupDebtTab: params.getParam(
                   'followupDebtTab',
@@ -1705,17 +1709,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 dateOfData: params.getParam<String>(
                   'dateOfData',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 sumCurrentDueAmt: params.getParam<String>(
                   'sumCurrentDueAmt',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 lastPayDate: params.getParam<String>(
                   'lastPayDate',
                   ParamType.String,
-                  true,
+                  isList: true,
+                ),
+                historyCount: params.getParam<String>(
+                  'historyCount',
+                  ParamType.String,
+                  isList: true,
                 ),
               ),
             ),
@@ -1758,6 +1767,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.int,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'register',
+              path: 'register',
+              builder: (context, params) => RegisterWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -1855,7 +1869,7 @@ class FFParameters {
   // present is the special extra parameter reserved for the transition info.
   bool get isEmpty =>
       state.allParams.isEmpty ||
-      (state.extraMap.length == 1 &&
+      (state.allParams.length == 1 &&
           state.extraMap.containsKey(kTransitionInfoKey));
   bool isAsyncParam(MapEntry<String, dynamic> param) =>
       asyncParams.containsKey(param.key) && param.value is String;
@@ -1876,11 +1890,11 @@ class FFParameters {
 
   dynamic getParam<T>(
     String paramName,
-    ParamType type, [
+    ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
     StructBuilder<T>? structBuilder,
-  ]) {
+  }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
     }

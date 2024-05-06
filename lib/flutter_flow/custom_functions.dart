@@ -4017,3 +4017,23 @@ List<bool>? createFalseList(
 
   return output;
 }
+
+DateTimeRange? getFirstAndLastDayOfMonth(DateTime? currentDateTime) {
+  DateTime now = currentDateTime!;
+  DateTime firstDayOfMonth = DateTime(now.year, now.month, 1);
+  DateTime lastDayOfMonth = DateTime(now.year, now.month + 1, 0);
+
+  DateTimeRange dateTimeRange =
+      DateTimeRange(start: firstDayOfMonth, end: lastDayOfMonth);
+
+  return dateTimeRange;
+}
+
+List<DateTime>? generateDateTimeList(DateTimeRange? timeStampRange) {
+  List<DateTime> dateTimeList = [timeStampRange!.start, timeStampRange.end];
+  return dateTimeList;
+}
+
+bool? lengthOfString(String? input) {
+  return input!.length >= 8;
+}

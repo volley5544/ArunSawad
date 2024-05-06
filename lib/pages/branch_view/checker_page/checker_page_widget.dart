@@ -1724,6 +1724,8 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         await GetVloanContractAPICall.call(
                                       cuscod:
                                           _model.idInputTextController2.text,
+                                      token: FFAppState().tokenVloanRemark,
+                                      apiUrl: FFAppState().apiUrlVloanRemark,
                                     );
                                     _shouldSetState = true;
                                     if (GetVloanContractAPICall.result(
@@ -2955,6 +2957,8 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           currentUserLocationValue),
                                       long: functions.userLongitude(
                                           currentUserLocationValue),
+                                      apiUrl: FFAppState().apiUrlVloanRemark,
+                                      token: FFAppState().tokenVloanRemark,
                                     );
                                     _shouldSetState = true;
                                     FFAppState().update(() {

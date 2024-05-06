@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
@@ -9,6 +11,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -565,6 +569,7 @@ class _DetailListFollowUpDebtWidgetState
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
+                          var _shouldSetState = false;
                           if (functions.countTrueInBoolList(
                                   FFAppState().selectCardList.toList())! <=
                               0) {
@@ -586,6 +591,7 @@ class _DetailListFollowUpDebtWidgetState
                                 );
                               },
                             );
+                            if (_shouldSetState) setState(() {});
                             return;
                           }
                           if (functions.countTrueInBoolList(
@@ -609,8 +615,25 @@ class _DetailListFollowUpDebtWidgetState
                                 );
                               },
                             );
+                            if (_shouldSetState) setState(() {});
                             return;
                           }
+                          _model.getVloanRemarkApiUrl =
+                              await queryUrlLinkStorageRecordOnce(
+                            queryBuilder: (urlLinkStorageRecord) =>
+                                urlLinkStorageRecord.where(
+                              'url_name',
+                              isEqualTo: 'vloan_remark',
+                            ),
+                            singleRecord: true,
+                          ).then((s) => s.firstOrNull);
+                          _shouldSetState = true;
+                          setState(() {
+                            FFAppState().apiUrlVloanRemark =
+                                _model.getVloanRemarkApiUrl!.urlLink;
+                            FFAppState().tokenVloanRemark =
+                                _model.getVloanRemarkApiUrl!.urlToken;
+                          });
 
                           context.pushNamed(
                             'saveOnSiteFollowUpDebt',
@@ -777,8 +800,23 @@ class _DetailListFollowUpDebtWidgetState
                                     ?.first,
                                 ParamType.String,
                               ),
+                              'historyCount': serializeParam(
+                                functions
+                                    .returnMappedListFromBoolList(
+                                        CollectionApiGetDataPersonCall
+                                            .historyCount(
+                                          (_model.getListDataPerson?.jsonBody ??
+                                              ''),
+                                        )?.toList(),
+                                        FFAppState().selectCardList.toList(),
+                                        true)
+                                    ?.first,
+                                ParamType.String,
+                              ),
                             }.withoutNulls,
                           );
+
+                          if (_shouldSetState) setState(() {});
                         },
                         text: 'ลงพื้นที่',
                         options: FFButtonOptions(
@@ -964,6 +1002,17 @@ class _DetailListFollowUpDebtWidgetState
                               'lastPayDate': serializeParam(
                                 functions.returnMapListFromBoolList(
                                     CollectionApiGetDataPersonCall.lastPayDate(
+                                      (_model.getListDataPerson?.jsonBody ??
+                                          ''),
+                                    )?.toList(),
+                                    FFAppState().selectCardList.toList(),
+                                    true),
+                                ParamType.String,
+                                true,
+                              ),
+                              'historyCount': serializeParam(
+                                functions.returnMapListFromBoolList(
+                                    CollectionApiGetDataPersonCall.historyCount(
                                       (_model.getListDataPerson?.jsonBody ??
                                           ''),
                                     )?.toList(),
@@ -2019,7 +2068,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                         15.0,
                                                                         10.0,
                                                                         0.0,
-                                                                        10.0),
+                                                                        0.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -2109,6 +2158,109 @@ class _DetailListFollowUpDebtWidgetState
                                                         ),
                                                       ],
                                                     ),
+                                                    if (true)
+                                                      Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      10.0,
+                                                                      0.0,
+                                                                      10.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Text(
+                                                                  'จำนวนครั้งที่บันทึกการโทร',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child:
+                                                                    Container(
+                                                                  width: 100.0,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Text(
+                                                                        ':',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Poppins',
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          '${'${getJsonField(
+                                                                            listCardItem,
+                                                                            r'''$.historyCount''',
+                                                                          ).toString()}'} ครั้ง',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Poppins',
+                                                                                color: int.parse(getJsonField(
+                                                                                          listCardItem,
+                                                                                          r'''$.historyCount''',
+                                                                                        ).toString()) ==
+                                                                                        0
+                                                                                    ? Color(0xFFFF0000)
+                                                                                    : FlutterFlowTheme.of(context).primaryText,
+                                                                                fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional

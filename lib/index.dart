@@ -201,3 +201,4 @@ export '/collection_page/search_collection_page/search_collection_page_widget.da
     show SearchCollectionPageWidget;
 export '/collection_page/search_collection_p_p/search_collection_p_p_widget.dart'
     show SearchCollectionPPWidget;
+export '/pages/register/register_widget.dart' show RegisterWidget;

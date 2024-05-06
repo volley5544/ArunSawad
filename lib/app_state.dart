@@ -7985,6 +7985,18 @@ class FFAppState extends ChangeNotifier {
   set apiUrlBranchViewCollection(String _value) {
     _apiUrlBranchViewCollection = _value;
   }
+
+  String _apiUrlVloanRemark = '';
+  String get apiUrlVloanRemark => _apiUrlVloanRemark;
+  set apiUrlVloanRemark(String _value) {
+    _apiUrlVloanRemark = _value;
+  }
+
+  String _tokenVloanRemark = '';
+  String get tokenVloanRemark => _tokenVloanRemark;
+  set tokenVloanRemark(String _value) {
+    _tokenVloanRemark = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

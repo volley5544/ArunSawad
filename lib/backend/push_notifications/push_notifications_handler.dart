@@ -549,6 +549,7 @@ final parametersBuilderMap =
           'dateOfData': getParameter<String>(data, 'dateOfData'),
           'sumCurrentDueAmt': getParameter<String>(data, 'sumCurrentDueAmt'),
           'lastPayDate': getParameter<String>(data, 'lastPayDate'),
+          'historyCount': getParameter<String>(data, 'historyCount'),
         },
       ),
   'saveCallFollowUpDebt': (data) async => ParameterData(
@@ -575,6 +576,7 @@ final parametersBuilderMap =
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
         },
       ),
+  'register': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

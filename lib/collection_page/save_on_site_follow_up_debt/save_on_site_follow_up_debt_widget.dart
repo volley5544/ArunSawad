@@ -43,6 +43,7 @@ class SaveOnSiteFollowUpDebtWidget extends StatefulWidget {
     required this.dateOfData,
     required this.sumCurrentDueAmt,
     required this.lastPayDate,
+    this.historyCount,
   });
 
   final String? firstname;
@@ -60,6 +61,7 @@ class SaveOnSiteFollowUpDebtWidget extends StatefulWidget {
   final String? dateOfData;
   final String? sumCurrentDueAmt;
   final String? lastPayDate;
+  final String? historyCount;
 
   @override
   State<SaveOnSiteFollowUpDebtWidget> createState() =>
@@ -292,17 +294,19 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                 ),
                           ),
                         ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                320.0, 0.0, 0.0, 0.0),
-                            child: wrapWithModel(
-                              model: _model.cameraButtonModel,
-                              updateCallback: () => setState(() {}),
-                              child: CameraButtonWidget(),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: wrapWithModel(
+                                model: _model.cameraButtonModel,
+                                updateCallback: () => setState(() {}),
+                                child: CameraButtonWidget(),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ).animateOnPageLoad(
@@ -1049,6 +1053,91 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         )),
                                                         'date_of_data',
                                                       ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                'จำนวนครั้งที่บันทึกการโทร',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              width: 100.0,
+                                              decoration: BoxDecoration(),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    ':',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '${valueOrDefault<String>(
+                                                        widget.historyCount,
+                                                        '-',
+                                                      )} ครั้ง',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -2056,6 +2145,138 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(widget.cusCode!),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(widget.contNo!),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(widget.database!),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                                      (_model.collectionAPISubmit
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ))), '${_model.dropDownFollowupValue}_[ผู้ติดตามหนี้: ${FFAppState().employeeID}]_${_model.remarkTextFieldTextController.text} ดูข้อมูลเพิ่มเติม ')} ${functions.generateBranchViewMapLink(CollectionAPICall.recordID(
+                                              (_model.collectionAPISubmit
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ))}'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                functions.userLatitude(
+                                                    currentUserLocationValue)),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                functions.userLongitude(
+                                                    currentUserLocationValue)),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(widget.cusCode!),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
                                     _model.remarkVLoneOutput =
                                         await RemarkVLoneAPICall.call(
                                       func: 'dsi',
@@ -2074,6 +2295,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           currentUserLocationValue),
                                       long: functions.userLongitude(
                                           currentUserLocationValue),
+                                      apiUrl: FFAppState().apiUrlVloanRemark,
+                                      token: FFAppState().tokenVloanRemark,
                                     );
                                     _shouldSetState = true;
                                     FFAppState().update(() {
@@ -2084,11 +2307,12 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     if ((_model.remarkVLoneOutput?.statusCode ??
                                             200) ==
                                         200) {
-                                      if (RemarkVLoneAPICall.result(
+                                      if (functions.toUpperCase(
+                                              '${RemarkVLoneAPICall.result(
                                             (_model.remarkVLoneOutput
                                                     ?.jsonBody ??
                                                 ''),
-                                          ) !=
+                                          )}') !=
                                           'SUCCESS') {
                                         Navigator.pop(context);
                                         await showDialog(
@@ -2208,7 +2432,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                             ),
                           ],
                         ),
-                      ],
+                      ].addToEnd(SizedBox(height: 50.0)),
                     ),
                   ).animateOnPageLoad(
                       animationsMap['containerOnPageLoadAnimation3']!),

@@ -811,7 +811,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                               animationsMap['rowOnActionTriggerAnimation1']!,
                               hasBeenTriggered: hasRowTriggered1),
                     ),
-                    if (false)
+                    if (true)
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1877,7 +1877,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                           ),
                         ],
                       ),
-                    if (true)
+                    if (false)
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [

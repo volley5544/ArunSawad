@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -1459,6 +1458,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           0.0, 0.0, 0.0, 5.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
+                                                      var _shouldSetState =
+                                                          false;
                                                       final selectedMedia =
                                                           await selectMedia(
                                                         imageQuality: 70,
@@ -1478,8 +1479,6 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                         var selectedUploadedFiles =
                                                             <FFUploadedFile>[];
 
-                                                        var downloadUrls =
-                                                            <String>[];
                                                         try {
                                                           showUploadMessage(
                                                             context,
@@ -1506,22 +1505,6 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                             m.blurHash,
                                                                       ))
                                                                   .toList();
-
-                                                          downloadUrls =
-                                                              (await Future
-                                                                      .wait(
-                                                            selectedMedia.map(
-                                                              (m) async =>
-                                                                  await uploadData(
-                                                                      m.storagePath,
-                                                                      m.bytes),
-                                                            ),
-                                                          ))
-                                                                  .where((u) =>
-                                                                      u != null)
-                                                                  .map(
-                                                                      (u) => u!)
-                                                                  .toList();
                                                         } finally {
                                                           ScaffoldMessenger.of(
                                                                   context)
@@ -1530,18 +1513,12 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               false;
                                                         }
                                                         if (selectedUploadedFiles
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length &&
-                                                            downloadUrls
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length) {
+                                                                .length ==
+                                                            selectedMedia
+                                                                .length) {
                                                           setState(() {
                                                             _model.uploadedLocalFiles =
                                                                 selectedUploadedFiles;
-                                                            _model.uploadedFileUrls =
-                                                                downloadUrls;
                                                           });
                                                           showUploadMessage(
                                                               context,
@@ -1554,6 +1531,48 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           return;
                                                         }
                                                       }
+
+                                                      _model.firebaseuploadoutput =
+                                                          await actions
+                                                              .uploadMultipleFileFirebaseStorage(
+                                                        'leave',
+                                                        _model
+                                                            .uploadedLocalFiles
+                                                            .toList(),
+                                                      );
+                                                      _shouldSetState = true;
+                                                      if (!(_model.firebaseuploadoutput !=
+                                                              null &&
+                                                          (_model.firebaseuploadoutput)!
+                                                              .isNotEmpty)) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    'อัพโหลดรูปไม่สำเร็จ'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        if (_shouldSetState)
+                                                          setState(() {});
+                                                        return;
+                                                      }
+                                                      if (_shouldSetState)
+                                                        setState(() {});
                                                     },
                                                     text: '[เเนบไฟล์ภาพ]',
                                                     icon: Icon(
@@ -1608,7 +1627,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                             ],
                                           ),
                                         ),
-                                        if (_model.uploadedFileUrls.length > 0)
+                                        if (_model.uploadedLocalFiles.length >
+                                            0)
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1619,10 +1639,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                 Expanded(
                                                   child: Builder(
                                                     builder: (context) {
-                                                      final uploadListNum =
-                                                          _model
-                                                              .uploadedFileUrls
-                                                              .toList();
+                                                      final uploadListNum = _model
+                                                              .firebaseuploadoutput
+                                                              ?.toList() ??
+                                                          [];
                                                       return Container(
                                                         width: double.infinity,
                                                         height: 500.0,
@@ -1845,7 +1865,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               (widget.leaveType ==
                                                                   'ลาเพื่อรับราชการทหาร')) {
                                                             if (_model
-                                                                    .uploadedFileUrls
+                                                                    .uploadedLocalFiles
                                                                     .length <=
                                                                 0) {
                                                               await showDialog(
@@ -1981,10 +2001,15 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               setState(() {});
                                                             return;
                                                           }
-                                                          if (_model
-                                                                  .uploadedFileUrls
-                                                                  .length >
-                                                              5) {
+                                                          if (!(false
+                                                              ? (_model
+                                                                      .firebaseuploadoutput!
+                                                                      .length <=
+                                                                  5)
+                                                              : (_model
+                                                                      .uploadedLocalFiles
+                                                                      .length <=
+                                                                  5))) {
                                                             await showDialog(
                                                               context: context,
                                                               builder:
@@ -2265,16 +2290,17 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               (widget.leaveType ==
                                                                   'ลาเพื่อรับราชการทหาร')) {
                                                             if (_model
-                                                                    .uploadedFileUrls
+                                                                    .uploadedLocalFiles
                                                                     .length >
                                                                 0) {
                                                               _model.leaveRequestAPIOutput2 =
                                                                   await LeaveRequestFirstAPICall
                                                                       .call(
-                                                                leaveDocument: functions
-                                                                    .imgPathListToString(_model
-                                                                        .uploadedFileUrls
-                                                                        .toList()),
+                                                                leaveDocument: functions.imgPathListToString(functions
+                                                                    .imgPathListToStringList(_model
+                                                                        .firebaseuploadoutput
+                                                                        ?.toList())
+                                                                    ?.toList()),
                                                                 apiUrl: FFAppState()
                                                                     .apiURLLocalState,
                                                                 token: FFAppState()
@@ -2685,12 +2711,14 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 await LeaveRequestFirstAPICall
                                                                     .call(
                                                               leaveDocument: _model
-                                                                          .uploadedFileUrls
+                                                                          .uploadedLocalFiles
                                                                           .length >
                                                                       0
-                                                                  ? functions.imgPathListToString(_model
-                                                                      .uploadedFileUrls
-                                                                      .toList())
+                                                                  ? functions.imgPathListToString(functions
+                                                                      .imgPathListToStringList(_model
+                                                                          .firebaseuploadoutput
+                                                                          ?.toList())
+                                                                      ?.toList())
                                                                   : functions
                                                                       .imgPathtoString(
                                                                           '-'),

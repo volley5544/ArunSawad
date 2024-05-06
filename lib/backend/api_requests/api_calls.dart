@@ -2233,13 +2233,15 @@ class ListAPITestCall {
 class GetVloanContractAPICall {
   static Future<ApiCallResponse> call({
     String? cuscod = '',
+    String? token = '',
+    String? apiUrl = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getVloanContractAPI',
-      apiUrl: 'http://115.31.145.26:8888/api/v1/branchview/contract',
+      apiUrl: '${apiUrl}/api/v1/branchview/contract',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Basic YnJhbmNodmlldzpidjEyMzQq',
+        'Authorization': 'Basic ${token}',
       },
       params: {
         'func': "get_contract",
@@ -2296,13 +2298,15 @@ class RemarkVLoneAPICall {
     String? server = '',
     String? msg = '',
     String? func = '',
+    String? apiUrl = '',
+    String? token = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'remarkVLoneAPI',
-      apiUrl: 'http://115.31.145.26/api/v1/branchview/remark',
+      apiUrl: '${apiUrl}/api/v1/branchview/remark',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Basic YnJhbmNodmlldzpidjEyMzQq',
+        'Authorization': 'Basic ${token}',
       },
       params: {
         'func': func,
@@ -7098,6 +7102,33 @@ class GetKPIAllCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? targetbranch(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..target_branch''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? countpolicynoepa(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..countpolicyno_epa''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalpremiumepa(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..total_premium_epa''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLeadCalledStatusDropdownAPICall {
@@ -9402,6 +9433,15 @@ class CollectionApiGetDataPersonCall {
   static List<String>? dataTab(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].dataTab''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? historyCount(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].historyCount''',
         true,
       ) as List?)
           ?.withoutNulls

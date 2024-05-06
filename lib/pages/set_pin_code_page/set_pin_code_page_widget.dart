@@ -220,223 +220,262 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 44.0),
-                      child: FutureBuilder<List<UserCustomRecord>>(
-                        future: queryUserCustomRecordOnce(
-                          queryBuilder: (userCustomRecord) =>
-                              userCustomRecord.where(
-                            'employee_id',
-                            isEqualTo: FFAppState().employeeID != ''
-                                ? FFAppState().employeeID
-                                : null,
+                      child: AuthUserStreamWidget(
+                        builder: (context) =>
+                            FutureBuilder<List<UserCustomRecord>>(
+                          future: queryUserCustomRecordOnce(
+                            queryBuilder: (userCustomRecord) =>
+                                userCustomRecord.where(
+                              'employee_id',
+                              isEqualTo: valueOrDefault(
+                                          currentUserDocument?.employeeId, 0) >=
+                                      100000
+                                  ? valueOrDefault(
+                                          currentUserDocument?.employeeId, 0)
+                                      .toString()
+                                  : FFAppState().employeeID != ''
+                                      ? valueOrDefault(
+                                                  currentUserDocument
+                                                      ?.employeeId,
+                                                  0) >=
+                                              100000
+                                          ? valueOrDefault(
+                                                  currentUserDocument
+                                                      ?.employeeId,
+                                                  0)
+                                              .toString()
+                                          : FFAppState().employeeID
+                                      : null,
+                            ),
+                            singleRecord: true,
                           ),
-                          singleRecord: true,
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).tertiary,
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).tertiary,
+                                    ),
                                   ),
                                 ),
+                              );
+                            }
+                            List<UserCustomRecord> buttonUserCustomRecordList =
+                                snapshot.data!;
+                            final buttonUserCustomRecord =
+                                buttonUserCustomRecordList.isNotEmpty
+                                    ? buttonUserCustomRecordList.first
+                                    : null;
+                            return FFButtonWidget(
+                              onPressed: () async {
+                                currentUserLocationValue =
+                                    await getCurrentUserLocation(
+                                        defaultLocation: LatLng(0.0, 0.0));
+                                var _shouldSetState = false;
+                                HapticFeedback.mediumImpact();
+                                if (!(_model.pinCodeController!.text != null &&
+                                    _model.pinCodeController!.text != '')) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'กรุณาใส่พิน',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 3000),
+                                      backgroundColor: Color(0xCC000000),
+                                    ),
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                if (!functions.checkPinCodeInput(
+                                    _model.pinCodeController!.text)) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณาใส่รหัสพิน6หลัก (ตัวเลข)'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                _model.checkDeviceLocationBeforeSetPin =
+                                    await actions.a1();
+                                _shouldSetState = true;
+                                if (!_model.checkDeviceLocationBeforeSetPin!) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content:
+                                              Text('กรุณาเปิดGPS ก่อนทำรายการ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                _model.checkDeviceLocPerBeforeSetPin =
+                                    await actions.a2();
+                                _shouldSetState = true;
+                                if (!_model.checkDeviceLocPerBeforeSetPin!) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณาอณุญาตให้อรุณสวัสดิ์เข้าถึงGPSของคุณ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                _model.checkLatLngBeforeSetPin =
+                                    await actions.a8(
+                                  currentUserLocationValue,
+                                );
+                                _shouldSetState = true;
+                                if (!_model.checkLatLngBeforeSetPin!) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณาเปิดGPSและทำรายการอีกครั้ง'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                FFAppState().update(() {
+                                  FFAppState().pinCodeAuthen =
+                                      _model.pinCodeController!.text;
+                                  FFAppState().isFromSetPinPage = true;
+                                });
+                                setState(() {
+                                  FFAppState().userRef =
+                                      buttonUserCustomRecord?.reference;
+                                  FFAppState().profileImage =
+                                      buttonUserCustomRecord!.imgProfile;
+                                });
+
+                                var userLogRecordReference =
+                                    UserLogRecord.collection.doc();
+                                await userLogRecordReference
+                                    .set(createUserLogRecordData(
+                                  employeeId: valueOrDefault(
+                                              currentUserDocument?.employeeId,
+                                              0) >=
+                                          100000
+                                      ? valueOrDefault(
+                                              currentUserDocument?.employeeId,
+                                              0)
+                                          .toString()
+                                      : FFAppState().employeeID,
+                                  action: 'Set_Pin_Code',
+                                  actionTime: getCurrentTimestamp,
+                                  userLocation: currentUserLocationValue,
+                                ));
+                                _model.createdUserLogSetPin =
+                                    UserLogRecord.getDocumentFromData(
+                                        createUserLogRecordData(
+                                          employeeId: valueOrDefault(
+                                                      currentUserDocument
+                                                          ?.employeeId,
+                                                      0) >=
+                                                  100000
+                                              ? valueOrDefault(
+                                                      currentUserDocument
+                                                          ?.employeeId,
+                                                      0)
+                                                  .toString()
+                                              : FFAppState().employeeID,
+                                          action: 'Set_Pin_Code',
+                                          actionTime: getCurrentTimestamp,
+                                          userLocation:
+                                              currentUserLocationValue,
+                                        ),
+                                        userLogRecordReference);
+                                _shouldSetState = true;
+
+                                context.goNamed('SuperAppPage');
+
+                                if (_shouldSetState) setState(() {});
+                              },
+                              text: 'ยืนยัน',
+                              options: FFButtonOptions(
+                                width: 270.0,
+                                height: 50.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 2.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
                               ),
                             );
-                          }
-                          List<UserCustomRecord> buttonUserCustomRecordList =
-                              snapshot.data!;
-                          final buttonUserCustomRecord =
-                              buttonUserCustomRecordList.isNotEmpty
-                                  ? buttonUserCustomRecordList.first
-                                  : null;
-                          return FFButtonWidget(
-                            onPressed: () async {
-                              currentUserLocationValue =
-                                  await getCurrentUserLocation(
-                                      defaultLocation: LatLng(0.0, 0.0));
-                              var _shouldSetState = false;
-                              HapticFeedback.mediumImpact();
-                              if (!(_model.pinCodeController!.text != null &&
-                                  _model.pinCodeController!.text != '')) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text(
-                                      'กรุณาใส่พิน',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    duration: Duration(milliseconds: 3000),
-                                    backgroundColor: Color(0xCC000000),
-                                  ),
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-                              if (!functions.checkPinCodeInput(
-                                  _model.pinCodeController!.text)) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(
-                                            'กรุณาใส่รหัสพิน6หลัก (ตัวเลข)'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-                              _model.checkDeviceLocationBeforeSetPin =
-                                  await actions.a1();
-                              _shouldSetState = true;
-                              if (!_model.checkDeviceLocationBeforeSetPin!) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content:
-                                            Text('กรุณาเปิดGPS ก่อนทำรายการ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-                              _model.checkDeviceLocPerBeforeSetPin =
-                                  await actions.a2();
-                              _shouldSetState = true;
-                              if (!_model.checkDeviceLocPerBeforeSetPin!) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(
-                                            'กรุณาอณุญาตให้อรุณสวัสดิ์เข้าถึงGPSของคุณ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-                              _model.checkLatLngBeforeSetPin = await actions.a8(
-                                currentUserLocationValue,
-                              );
-                              _shouldSetState = true;
-                              if (!_model.checkLatLngBeforeSetPin!) {
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(
-                                            'กรุณาเปิดGPSและทำรายการอีกครั้ง'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                if (_shouldSetState) setState(() {});
-                                return;
-                              }
-                              FFAppState().update(() {
-                                FFAppState().pinCodeAuthen =
-                                    _model.pinCodeController!.text;
-                                FFAppState().isFromSetPinPage = true;
-                              });
-                              setState(() {
-                                FFAppState().userRef =
-                                    buttonUserCustomRecord?.reference;
-                                FFAppState().profileImage =
-                                    buttonUserCustomRecord!.imgProfile;
-                              });
-
-                              var userLogRecordReference =
-                                  UserLogRecord.collection.doc();
-                              await userLogRecordReference
-                                  .set(createUserLogRecordData(
-                                employeeId: FFAppState().employeeID,
-                                action: 'Set_Pin_Code',
-                                actionTime: getCurrentTimestamp,
-                                userLocation: currentUserLocationValue,
-                              ));
-                              _model.createdUserLogSetPin =
-                                  UserLogRecord.getDocumentFromData(
-                                      createUserLogRecordData(
-                                        employeeId: FFAppState().employeeID,
-                                        action: 'Set_Pin_Code',
-                                        actionTime: getCurrentTimestamp,
-                                        userLocation: currentUserLocationValue,
-                                      ),
-                                      userLogRecordReference);
-                              _shouldSetState = true;
-
-                              context.goNamed('SuperAppPage');
-
-                              if (_shouldSetState) setState(() {});
-                            },
-                            text: 'ยืนยัน',
-                            options: FFButtonOptions(
-                              width: 270.0,
-                              height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                  ),
-                              elevation: 2.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                          );
-                        },
+                          },
+                        ),
                       ),
                     ),
                   ],

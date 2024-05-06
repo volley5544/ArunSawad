@@ -513,13 +513,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               20.0, 0.0, 20.0, 10.0),
                           child: Container(
                             width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.17,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -734,6 +734,89 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ).animateOnPageLoad(animationsMap[
                                         'textFieldOnPageLoadAnimation2']!),
                                   ],
+                                ),
+                                Align(
+                                  alignment: AlignmentDirectional(0.7, 0.0),
+                                  child: FutureBuilder<
+                                      List<HideInAppContentRecord>>(
+                                    future: queryHideInAppContentRecordOnce(
+                                      queryBuilder: (hideInAppContentRecord) =>
+                                          hideInAppContentRecord.where(
+                                        'content_name',
+                                        isEqualTo: 'register',
+                                      ),
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .tertiary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<HideInAppContentRecord>
+                                          containerHideInAppContentRecordList =
+                                          snapshot.data!;
+                                      // Return an empty Container when the item does not exist.
+                                      if (snapshot.data!.isEmpty) {
+                                        return Container();
+                                      }
+                                      final containerHideInAppContentRecord =
+                                          containerHideInAppContentRecordList
+                                                  .isNotEmpty
+                                              ? containerHideInAppContentRecordList
+                                                  .first
+                                              : null;
+                                      return Container(
+                                        decoration: BoxDecoration(),
+                                        child: Visibility(
+                                          visible:
+                                              containerHideInAppContentRecord
+                                                      ?.isShowContent ??
+                                                  true,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 10.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed('register');
+                                              },
+                                              child: Text(
+                                                'sign up account',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  ),
                                 ),
                               ],
                             ),
@@ -1102,6 +1185,77 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         FFAppState().brachListNew =
                                                                             [];
                                                                       });
+                                                                      if (functions.containWordinStringUrl(
+                                                                          '@',
+                                                                          _model
+                                                                              .usernameInputTextController
+                                                                              .text)!) {
+                                                                        GoRouter.of(context)
+                                                                            .prepareAuthEvent();
+
+                                                                        final user =
+                                                                            await authManager.signInWithEmail(
+                                                                          context,
+                                                                          _model
+                                                                              .usernameInputTextController
+                                                                              .text,
+                                                                          _model
+                                                                              .passwordInputTextController
+                                                                              .text,
+                                                                        );
+                                                                        if (user ==
+                                                                            null) {
+                                                                          return;
+                                                                        }
+
+                                                                        FFAppState()
+                                                                            .update(() {
+                                                                          FFAppState().isFromLoginPage =
+                                                                              true;
+                                                                        });
+                                                                        _model.userUIDguest =
+                                                                            await actions.a21();
+                                                                        _shouldSetState =
+                                                                            true;
+
+                                                                        var userCustomRecordReference1 = UserCustomRecord
+                                                                            .collection
+                                                                            .doc();
+                                                                        await userCustomRecordReference1
+                                                                            .set(createUserCustomRecordData(
+                                                                          createdTime:
+                                                                              getCurrentTimestamp,
+                                                                          email: _model
+                                                                              .usernameInputTextController
+                                                                              .text,
+                                                                          uid: _model
+                                                                              .userUIDguest,
+                                                                          employeeId:
+                                                                              valueOrDefault(currentUserDocument?.employeeId, 0).toString(),
+                                                                          imgProfile:
+                                                                              'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
+                                                                        ));
+                                                                        _model.createdUserCustomguest = UserCustomRecord.getDocumentFromData(
+                                                                            createUserCustomRecordData(
+                                                                              createdTime: getCurrentTimestamp,
+                                                                              email: _model.usernameInputTextController.text,
+                                                                              uid: _model.userUIDguest,
+                                                                              employeeId: valueOrDefault(currentUserDocument?.employeeId, 0).toString(),
+                                                                              imgProfile: 'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
+                                                                            ),
+                                                                            userCustomRecordReference1);
+                                                                        _shouldSetState =
+                                                                            true;
+
+                                                                        context.goNamedAuth(
+                                                                            'SetPinCodePage',
+                                                                            context.mounted);
+
+                                                                        if (_shouldSetState)
+                                                                          setState(
+                                                                              () {});
+                                                                        return;
+                                                                      }
                                                                       if (_model.usernameInputTextController.text !=
                                                                               null &&
                                                                           _model.usernameInputTextController.text !=
@@ -1595,10 +1749,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         _shouldSetState =
                                                                             true;
 
-                                                                        var userCustomRecordReference = UserCustomRecord
+                                                                        var userCustomRecordReference2 = UserCustomRecord
                                                                             .collection
                                                                             .doc();
-                                                                        await userCustomRecordReference
+                                                                        await userCustomRecordReference2
                                                                             .set(createUserCustomRecordData(
                                                                           createdTime:
                                                                               getCurrentTimestamp,
@@ -1619,7 +1773,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               employeeId: FFAppState().employeeID,
                                                                               imgProfile: 'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
                                                                             ),
-                                                                            userCustomRecordReference);
+                                                                            userCustomRecordReference2);
                                                                         _shouldSetState =
                                                                             true;
 
@@ -1684,8 +1838,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             ?.toList());
                                                                       });
 
-                                                                      context.goNamed(
-                                                                          'SetPinCodePage');
+                                                                      context.goNamedAuth(
+                                                                          'SetPinCodePage',
+                                                                          context
+                                                                              .mounted);
 
                                                                       if (isAndroid) {
                                                                         var fCMTokenRecordReference1 = FCMTokenRecord

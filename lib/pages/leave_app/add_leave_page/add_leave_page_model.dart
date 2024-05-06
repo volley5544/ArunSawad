@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -63,8 +62,9 @@ class AddLeavePageModel extends FlutterFlowModel<AddLeavePageWidget> {
   String? Function(BuildContext, String?)? reasonToLeaveTextControllerValidator;
   bool isDataUploading = false;
   List<FFUploadedFile> uploadedLocalFiles = [];
-  List<String> uploadedFileUrls = [];
 
+  // Stores action output result for [Custom Action - uploadMultipleFileFirebaseStorage] action in leaveFile widget.
+  List<String>? firebaseuploadoutput;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 

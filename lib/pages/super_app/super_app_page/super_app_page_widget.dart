@@ -299,7 +299,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
       _model.datetimeAPIOutput = await GetDateTimeAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
-        token: FFAppState().accessToken,
+        token: valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000
+            ? 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMC4xLjI3LjI0OjgwOTBcL3Nzd19hcnVuc2F3YWRfYXBpXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjY4MDcyOTA4LCJuYmYiOjE2NjgwNzI5MDgsImp0aSI6Ildlc0xUOEhBd0x3b0ZlVngiLCJzdWIiOjUwMSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.VUyLGW6rHPHShsRdyWCUF5euUWkbizCADv8yMIsotfY'
+            : FFAppState().accessToken,
       );
       setState(() {
         FFAppState().profileInsuExpdateAD = functions
@@ -308,16 +310,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
             .toList()
             .cast<DateTime>();
       });
-      setState(() {
-        FFAppState().expInsuLessthen30 = functions
-            .compareDate30(
-                FFAppState().profileInsuExpdateAD.toList(),
-                GetDateTimeAPICall.currentDateYMD(
-                  (_model.datetimeAPIOutput?.jsonBody ?? ''),
-                ).toString())!
-            .toList()
-            .cast<bool>();
-      });
+      if (valueOrDefault(currentUserDocument?.employeeId, 0) < 100000) {
+        setState(() {
+          FFAppState().expInsuLessthen30 = functions
+              .compareDate30(
+                  FFAppState().profileInsuExpdateAD.toList(),
+                  GetDateTimeAPICall.currentDateYMD(
+                    (_model.datetimeAPIOutput?.jsonBody ?? ''),
+                  ).toString())!
+              .toList()
+              .cast<bool>();
+        });
+      }
       FFAppState().update(() {
         FFAppState().isInApp = true;
       });
@@ -463,16 +467,22 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(),
-                        child: Text(
-                          'คุณ${FFAppState().userNickname}',
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .override(
-                                fontFamily: 'Poppins',
-                                color: Colors.white,
-                                letterSpacing: 0.0,
-                              ),
+                        child: AuthUserStreamWidget(
+                          builder: (context) => Text(
+                            valueOrDefault(
+                                        currentUserDocument?.employeeId, 0) >=
+                                    100000
+                                ? ''
+                                : 'คุณ${FFAppState().userNickname}',
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
                         ),
                       ),
                       Container(
@@ -493,6 +503,187 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                         ),
                       ),
                       Spacer(flex: 2),
+                      if (valueOrDefault(currentUserDocument?.employeeId, 0) >=
+                          100000)
+                        Expanded(
+                          flex: 1,
+                          child: AuthUserStreamWidget(
+                            builder: (context) => Container(
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.06,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        var confirmDialogResponse =
+                                            await showDialog<bool>(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'คุณต้องการลบแอคเคาร์ใช่หรือไม่'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    false),
+                                                            child:
+                                                                Text('ยกเลิก'),
+                                                          ),
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    true),
+                                                            child:
+                                                                Text('ยืนยัน'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                ) ??
+                                                false;
+                                        if (!confirmDialogResponse) {
+                                          return;
+                                        }
+                                        await authManager.deleteUser(context);
+                                        FFAppState().update(() {
+                                          FFAppState().loginStateFirebase =
+                                              '[loginStateFirebase]';
+                                          FFAppState().deleteAccessToken();
+                                          FFAppState().accessToken =
+                                              'access_token';
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().deleteEmployeeID();
+                                          FFAppState().employeeID =
+                                              'employee_id';
+
+                                          FFAppState().QRCodeLink =
+                                              'qrcode_link';
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().deleteApiURLLocalState();
+                                          FFAppState().apiURLLocalState =
+                                              'api_url_local_state';
+
+                                          FFAppState().deleteBranchCode();
+                                          FFAppState().branchCode =
+                                              'branch_code';
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().isFromSetPinPage = false;
+                                          FFAppState().leadChannelColor = [];
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadChannelList = [];
+                                          FFAppState().isFromLoginPage = false;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().deletePinCodeAuthen();
+                                          FFAppState().pinCodeAuthen = '013972';
+
+                                          FFAppState().isFromAuthenPage = false;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState()
+                                              .deleteDateDoNotShowAgain();
+                                          FFAppState().dateDoNotShowAgain =
+                                              null;
+
+                                          FFAppState().deleteDoNotShowAgain();
+                                          FFAppState().doNotShowAgain = false;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().inAppViaNotification =
+                                              true;
+                                          FFAppState().isInApp = false;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().fcmToken = 'fcm_token';
+                                          FFAppState().isPassLoginSection =
+                                              false;
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadID = [];
+                                          FFAppState().leadCreatedTimeList = [];
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadCustomerNameList =
+                                              [];
+                                          FFAppState().leadChannelList = [];
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadChannelColor = [];
+                                          FFAppState().leadCallStatus = [];
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadPhoneNumberList = [];
+                                          FFAppState().leadEmployeeID = [];
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadChannelLabelColor =
+                                              [];
+                                          FFAppState()
+                                              .deleteLeadIdCalledInApp();
+                                          FFAppState().leadIdCalledInApp = [];
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadBranchCode = [];
+                                          FFAppState().leadUserLevel =
+                                              'lead_user_level';
+                                        });
+                                        FFAppState().update(() {
+                                          FFAppState().leadChannelAmountList =
+                                              [];
+                                        });
+
+                                        context.goNamed('LoginPage');
+                                      },
+                                      child: ListTile(
+                                        title: Text(
+                                          'DELETE ACCOUNT',
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.delete,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        dense: false,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                       Expanded(
                         flex: 1,
                         child: Container(

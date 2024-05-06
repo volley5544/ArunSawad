@@ -41,12 +41,18 @@ class UserLogRecord extends FirestoreRecord {
   LatLng? get userLocation => _userLocation;
   bool hasUserLocation() => _userLocation != null;
 
+  // "hash_thai_id" field.
+  String? _hashThaiId;
+  String get hashThaiId => _hashThaiId ?? '';
+  bool hasHashThaiId() => _hashThaiId != null;
+
   void _initializeFields() {
     _employeeId = snapshotData['employee_id'] as String?;
     _action = snapshotData['action'] as String?;
     _actionTime = snapshotData['action_time'] as DateTime?;
     _userRef = snapshotData['user_ref'] as DocumentReference?;
     _userLocation = snapshotData['user_location'] as LatLng?;
+    _hashThaiId = snapshotData['hash_thai_id'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -89,6 +95,7 @@ Map<String, dynamic> createUserLogRecordData({
   DateTime? actionTime,
   DocumentReference? userRef,
   LatLng? userLocation,
+  String? hashThaiId,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -97,6 +104,7 @@ Map<String, dynamic> createUserLogRecordData({
       'action_time': actionTime,
       'user_ref': userRef,
       'user_location': userLocation,
+      'hash_thai_id': hashThaiId,
     }.withoutNulls,
   );
 
@@ -112,12 +120,19 @@ class UserLogRecordDocumentEquality implements Equality<UserLogRecord> {
         e1?.action == e2?.action &&
         e1?.actionTime == e2?.actionTime &&
         e1?.userRef == e2?.userRef &&
-        e1?.userLocation == e2?.userLocation;
+        e1?.userLocation == e2?.userLocation &&
+        e1?.hashThaiId == e2?.hashThaiId;
   }
 
   @override
-  int hash(UserLogRecord? e) => const ListEquality().hash(
-      [e?.employeeId, e?.action, e?.actionTime, e?.userRef, e?.userLocation]);
+  int hash(UserLogRecord? e) => const ListEquality().hash([
+        e?.employeeId,
+        e?.action,
+        e?.actionTime,
+        e?.userRef,
+        e?.userLocation,
+        e?.hashThaiId
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is UserLogRecord;
