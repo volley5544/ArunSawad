@@ -1747,6 +1747,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                       curve: Curves
                                                                           .ease,
                                                                     );
+                                                                    setState(
+                                                                        () {});
                                                                   },
                                                                   effect: smooth_page_indicator
                                                                       .ExpandingDotsEffect(
@@ -1882,6 +1884,8 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                       curve: Curves
                                                                           .ease,
                                                                     );
+                                                                    setState(
+                                                                        () {});
                                                                   },
                                                                   effect: smooth_page_indicator
                                                                       .ExpandingDotsEffect(

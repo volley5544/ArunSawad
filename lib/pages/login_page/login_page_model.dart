@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -24,8 +25,10 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - getBuildNumber] action in LoginPage widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Custom Action - getBuildVersion] action in LoginPage widget.
-  String? deviceBuildVersion;
+  String? deviceVersion;
   // Stores action output result for [Custom Action - a11] action in LoginPage widget.
   String? getFCMToken;
   // Stores action output result for [Custom Action - a3] action in LoginPage widget.

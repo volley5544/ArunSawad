@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -55,7 +56,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       if (!(await getPermissionStatus(notificationsPermission))) {
         await requestPermission(notificationsPermission);
       }
-      _model.deviceBuildVersion = await actions.getBuildVersion();
+      _model.deviceBuildNumber = await actions.getBuildNumber();
+      _model.deviceVersion = await actions.getBuildVersion();
       setState(() {
         FFAppState().firstLogin = false;
       });
@@ -1095,14 +1097,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             columnAuthorizationRecord?.employeeIdList?.toList(),
                                                                             _model.usernameInputTextController.text)!) {
                                                                           if (isiOS) {
-                                                                            if (signinButtonBuildVersionRecord?.appVersionIos !=
-                                                                                _model.deviceBuildVersion) {
+                                                                            if (signinButtonBuildVersionRecord!.buildNumberIos >
+                                                                                _model.deviceBuildNumber!) {
                                                                               await showDialog(
                                                                                 context: context,
                                                                                 builder: (alertDialogContext) {
                                                                                   return WebViewAware(
                                                                                     child: AlertDialog(
-                                                                                      content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${signinButtonBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceBuildVersion}'),
+                                                                                      content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${signinButtonBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
                                                                                       actions: [
                                                                                         TextButton(
                                                                                           onPressed: () => Navigator.pop(alertDialogContext),
@@ -1120,14 +1122,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               return;
                                                                             }
                                                                           } else {
-                                                                            if (signinButtonBuildVersionRecord?.appVersion !=
-                                                                                _model.deviceBuildVersion) {
+                                                                            if (signinButtonBuildVersionRecord!.buildNumberAndroid >
+                                                                                _model.deviceBuildNumber!) {
                                                                               await showDialog(
                                                                                 context: context,
                                                                                 builder: (alertDialogContext) {
                                                                                   return WebViewAware(
                                                                                     child: AlertDialog(
-                                                                                      content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${signinButtonBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceBuildVersion}'),
+                                                                                      content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${signinButtonBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
                                                                                       actions: [
                                                                                         TextButton(
                                                                                           onPressed: () => Navigator.pop(alertDialogContext),

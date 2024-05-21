@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -34,8 +35,10 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   bool? checkDeviceLocSer;
   // Stores action output result for [Custom Action - a2] action in PinCodePage widget.
   bool? checkDeviceLocPer;
+  // Stores action output result for [Custom Action - getBuildNumber] action in PinCodePage widget.
+  int? getDeviceBuildNumber;
   // Stores action output result for [Custom Action - getBuildVersion] action in PinCodePage widget.
-  String? getDeviceVersion;
+  String? deviceVersion;
   // Stores action output result for [Custom Action - checkStatusFirebase] action in PinCodePage widget.
   bool? checkFirebaseOutput;
   // Stores action output result for [Custom Action - a1] action in IconButton widget.

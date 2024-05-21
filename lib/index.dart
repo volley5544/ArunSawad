@@ -202,3 +202,6 @@ export '/collection_page/search_collection_page/search_collection_page_widget.da
 export '/collection_page/search_collection_p_p/search_collection_p_p_widget.dart'
     show SearchCollectionPPWidget;
 export '/pages/register/register_widget.dart' show RegisterWidget;
+export '/collection_page/interest_page/interest_page_widget.dart'
+    show InterestPageWidget;
+export '/collection_page/q_r_code/q_r_code_widget.dart' show QRCodeWidget;

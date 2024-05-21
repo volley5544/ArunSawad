@@ -4037,3 +4037,20 @@ List<DateTime>? generateDateTimeList(DateTimeRange? timeStampRange) {
 bool? lengthOfString(String? input) {
   return input!.length >= 8;
 }
+
+int? sumPaidAmount(
+  int? overDue,
+  int? remain624,
+  int? remain401,
+) {
+  return (overDue! + remain624! + remain401!);
+}
+
+String? birthCheck(String? dateStr) {
+  DateTime date = DateTime.parse(dateStr!);
+  String day = date.day.toString().padLeft(2, '0');
+  String month = date.month.toString().padLeft(2, '0');
+  String year = (date.year + 543).toString();
+
+  return '$day$month$year';
+}

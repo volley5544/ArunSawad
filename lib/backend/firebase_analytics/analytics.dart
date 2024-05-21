@@ -12,7 +12,7 @@ void logFirebaseEvent(String eventName, {Map<String?, dynamic>? parameters}) {
 
   parameters ??= {};
   parameters.putIfAbsent(
-      'user', () => currentUserUid.isEmpty ? currentUserUid : 'unset');
+      'user', () => currentUserUid.isEmpty ? 'unset' : currentUserUid);
   parameters.removeWhere((k, v) => k == null || v == null);
   final params = parameters.map((k, v) => MapEntry(k!, v));
 

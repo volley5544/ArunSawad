@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -2095,6 +2096,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
+                                          setState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(
@@ -3772,6 +3774,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
+                                          setState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(
@@ -5228,6 +5231,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
+                                          setState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(

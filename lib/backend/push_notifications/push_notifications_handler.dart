@@ -577,6 +577,16 @@ final parametersBuilderMap =
         },
       ),
   'register': ParameterData.none(),
+  'InterestPage': (data) async => ParameterData(
+        allParams: {
+          'contno': getParameter<String>(data, 'contno'),
+        },
+      ),
+  'QRCode': (data) async => ParameterData(
+        allParams: {
+          'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

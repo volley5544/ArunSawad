@@ -275,6 +275,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                           duration: Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
+                                        setState(() {});
                                       },
                                       effect: smooth_page_indicator.SlideEffect(
                                         spacing: 8.0,

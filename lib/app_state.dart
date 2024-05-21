@@ -7997,6 +7997,12 @@ class FFAppState extends ChangeNotifier {
   set tokenVloanRemark(String _value) {
     _tokenVloanRemark = _value;
   }
+
+  String _paidDateCollection = '';
+  String get paidDateCollection => _paidDateCollection;
+  set paidDateCollection(String _value) {
+    _paidDateCollection = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

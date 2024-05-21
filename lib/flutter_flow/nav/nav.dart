@@ -1772,6 +1772,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'register',
               path: 'register',
               builder: (context, params) => RegisterWidget(),
+            ),
+            FFRoute(
+              name: 'InterestPage',
+              path: 'InterestPage',
+              builder: (context, params) => InterestPageWidget(
+                contno: params.getParam(
+                  'contno',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'QRCode',
+              path: 'QRCode',
+              builder: (context, params) => QRCodeWidget(
+                followUpDebtTab: params.getParam(
+                  'followUpDebtTab',
+                  ParamType.int,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -2030,4 +2050,14 @@ class RootPageContext {
         value: RootPageContext(true, errorRoute),
         child: child,
       );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

@@ -26,9 +26,21 @@ class BuildVersionRecord extends FirestoreRecord {
   String get appVersionIos => _appVersionIos ?? '';
   bool hasAppVersionIos() => _appVersionIos != null;
 
+  // "build_number_android" field.
+  int? _buildNumberAndroid;
+  int get buildNumberAndroid => _buildNumberAndroid ?? 0;
+  bool hasBuildNumberAndroid() => _buildNumberAndroid != null;
+
+  // "build_number_ios" field.
+  int? _buildNumberIos;
+  int get buildNumberIos => _buildNumberIos ?? 0;
+  bool hasBuildNumberIos() => _buildNumberIos != null;
+
   void _initializeFields() {
     _appVersion = snapshotData['app_version'] as String?;
     _appVersionIos = snapshotData['app_version_ios'] as String?;
+    _buildNumberAndroid = castToType<int>(snapshotData['build_number_android']);
+    _buildNumberIos = castToType<int>(snapshotData['build_number_ios']);
   }
 
   static CollectionReference get collection =>
@@ -68,11 +80,15 @@ class BuildVersionRecord extends FirestoreRecord {
 Map<String, dynamic> createBuildVersionRecordData({
   String? appVersion,
   String? appVersionIos,
+  int? buildNumberAndroid,
+  int? buildNumberIos,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'app_version': appVersion,
       'app_version_ios': appVersionIos,
+      'build_number_android': buildNumberAndroid,
+      'build_number_ios': buildNumberIos,
     }.withoutNulls,
   );
 
@@ -86,12 +102,18 @@ class BuildVersionRecordDocumentEquality
   @override
   bool equals(BuildVersionRecord? e1, BuildVersionRecord? e2) {
     return e1?.appVersion == e2?.appVersion &&
-        e1?.appVersionIos == e2?.appVersionIos;
+        e1?.appVersionIos == e2?.appVersionIos &&
+        e1?.buildNumberAndroid == e2?.buildNumberAndroid &&
+        e1?.buildNumberIos == e2?.buildNumberIos;
   }
 
   @override
-  int hash(BuildVersionRecord? e) =>
-      const ListEquality().hash([e?.appVersion, e?.appVersionIos]);
+  int hash(BuildVersionRecord? e) => const ListEquality().hash([
+        e?.appVersion,
+        e?.appVersionIos,
+        e?.buildNumberAndroid,
+        e?.buildNumberIos
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is BuildVersionRecord;

@@ -56,9 +56,6 @@ post_install do |installer|
 
         # dart: PermissionGroup.notification
         'PERMISSION_NOTIFICATIONS=1',
-
-         # dart: PermissionGroup.contacts
-        'PERMISSION_CONTACTS=1',
       ]
     end
   end

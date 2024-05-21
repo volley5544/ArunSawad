@@ -899,6 +899,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                                   curve: Curves
                                                                       .ease,
                                                                 );
+                                                                setState(() {});
                                                               },
                                                               effect: smooth_page_indicator
                                                                   .ExpandingDotsEffect(

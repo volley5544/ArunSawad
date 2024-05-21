@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 import '../schema/structs/index.dart';
 
+import 'package:flutter/foundation.dart';
+
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
@@ -12,7 +14,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start Spring Firebase Api Group Group Code
 
 class SpringFirebaseApiGroupGroup {
-  static String baseUrl = 'https://4d69-223-27-201-20.ngrok-free.app';
+  static String getBaseUrl() => 'https://4d69-223-27-201-20.ngrok-free.app';
   static Map<String, String> headers = {};
   static UploadFileFirebaseStorageApiCall uploadFileFirebaseStorageApiCall =
       UploadFileFirebaseStorageApiCall();
@@ -24,9 +26,11 @@ class UploadFileFirebaseStorageApiCall {
     String? uploadedFolderName = '',
     String? appName = '',
   }) async {
+    final baseUrl = SpringFirebaseApiGroupGroup.getBaseUrl();
+
     return ApiManager.instance.makeApiCall(
       callName: 'uploadFileFirebaseStorageApi',
-      apiUrl: '${SpringFirebaseApiGroupGroup.baseUrl}/firebase-storage/upload',
+      apiUrl: '${baseUrl}/firebase-storage/upload',
       callType: ApiCallType.POST,
       headers: {},
       params: {
@@ -7129,6 +7133,24 @@ class GetKPIAllCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? countPolicyNoCMI(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..CountPolicyNo_CMI''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalPremiumCMI(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..Total_Premium_CMI''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLeadCalledStatusDropdownAPICall {
@@ -9914,6 +9936,85 @@ class GetCalledHistoryCollectionApiCall {
           .toList();
 }
 
+class ApiRepaymentListCall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? paiddate = '',
+    String? contno = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "paiddate": "${paiddate}",
+  "contno": "${contno}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'apiRepaymentList',
+      apiUrl: '${apiUrl}/api/repayment/list',
+      callType: ApiCallType.POST,
+      headers: {
+        'X-API-KEY': 'xs6PekOU2GPChNTgeHVmlvgs7QNImu9OqEksBQ01/Yg=',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? overdueamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.over_due_amount''',
+      ));
+  static int? remain401(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.remain_401''',
+      ));
+  static int? remain624(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.remain_624''',
+      ));
+  static String? customername(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.customer_name''',
+      ));
+  static String? duedateshow(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.due_date_show''',
+      ));
+  static int? nextdueamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.next_due_amount''',
+      ));
+  static int? totaldueamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.total_due_amount''',
+      ));
+  static int? statuslayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messagelayer2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? currentdueamount(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.current_due_amount''',
+      ));
+  static String? birthday(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.birth_day''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
@@ -9935,6 +10036,9 @@ String _serializeList(List? list) {
   try {
     return json.encode(list);
   } catch (_) {
+    if (kDebugMode) {
+      print("List serialization failed. Returning empty list.");
+    }
     return '[]';
   }
 }
@@ -9944,6 +10048,9 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   try {
     return json.encode(jsonVar);
   } catch (_) {
+    if (kDebugMode) {
+      print("Json serialization failed. Returning empty json.");
+    }
     return isList ? '[]' : '{}';
   }
 }

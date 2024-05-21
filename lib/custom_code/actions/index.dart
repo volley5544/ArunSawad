@@ -38,6 +38,7 @@ export 'get_build_version.dart' show getBuildVersion;
 export 'terminate_app_action.dart' show terminateAppAction;
 export 'clear_all_app_data.dart' show clearAllAppData;
 export 'batch_update2.dart' show batchUpdate2;
+export 'get_build_number.dart' show getBuildNumber;
 export 'open_tableau_browser.dart' show openTableauBrowser;
 export 'open3_c_x_action.dart' show open3CXAction;
 export 'get_device_contract_phone_number.dart'

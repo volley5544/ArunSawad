@@ -181,6 +181,7 @@ class _ShowImageListComponentWidgetState
                                     duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
+                                  setState(() {});
                                 },
                                 effect:
                                     smooth_page_indicator.ExpandingDotsEffect(

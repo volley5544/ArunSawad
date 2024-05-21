@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -67,7 +68,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
       FFAppState().update(() {
         FFAppState().isLoadedInsuranceData = false;
       });
-      _model.getDeviceVersion = await actions.getBuildVersion();
+      _model.getDeviceBuildNumber = await actions.getBuildNumber();
+      _model.deviceVersion = await actions.getBuildVersion();
       if (valueOrDefault(currentUserDocument?.employeeId, 0) < 100000) {
         _model.checkFirebaseOutput = await actions.checkStatusFirebase(
           FFAppState().employeeID,
@@ -1219,13 +1221,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             if (FFAppState().isProduction) {
                                                                                                               if (!functions.checkIsHaveThisValueInList(columnfifthAuthorizationRecord?.employeeIdList?.toList(), valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000 ? currentUserEmail : FFAppState().employeeID)!) {
                                                                                                                 if (isiOS) {
-                                                                                                                  if (columnsecBuildVersionRecord?.appVersionIos != _model.getDeviceVersion) {
+                                                                                                                  if (columnsecBuildVersionRecord!.buildNumberIos > _model.getDeviceBuildNumber!) {
                                                                                                                     await showDialog(
                                                                                                                       context: context,
                                                                                                                       builder: (alertDialogContext) {
                                                                                                                         return WebViewAware(
                                                                                                                           child: AlertDialog(
-                                                                                                                            content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${columnsecBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.getDeviceVersion}'),
+                                                                                                                            content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${columnsecBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
                                                                                                                             actions: [
                                                                                                                               TextButton(
                                                                                                                                 onPressed: () => Navigator.pop(alertDialogContext),
@@ -1242,13 +1244,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     return;
                                                                                                                   }
                                                                                                                 } else {
-                                                                                                                  if (columnsecBuildVersionRecord?.appVersion != _model.getDeviceVersion) {
+                                                                                                                  if (columnsecBuildVersionRecord!.buildNumberAndroid > _model.getDeviceBuildNumber!) {
                                                                                                                     await showDialog(
                                                                                                                       context: context,
                                                                                                                       builder: (alertDialogContext) {
                                                                                                                         return WebViewAware(
                                                                                                                           child: AlertDialog(
-                                                                                                                            content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${columnsecBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.getDeviceVersion}'),
+                                                                                                                            content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${columnsecBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
                                                                                                                             actions: [
                                                                                                                               TextButton(
                                                                                                                                 onPressed: () => Navigator.pop(alertDialogContext),
@@ -1840,13 +1842,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           if (FFAppState().isProduction) {
                                                                                                             if (!functions.checkIsHaveThisValueInList(columnfifthAuthorizationRecord?.employeeIdList?.toList(), FFAppState().employeeID)!) {
                                                                                                               if (isiOS) {
-                                                                                                                if (columnsecBuildVersionRecord?.appVersionIos != _model.getDeviceVersion) {
+                                                                                                                if (columnsecBuildVersionRecord!.buildNumberIos > _model.getDeviceBuildNumber!) {
                                                                                                                   await showDialog(
                                                                                                                     context: context,
                                                                                                                     builder: (alertDialogContext) {
                                                                                                                       return WebViewAware(
                                                                                                                         child: AlertDialog(
-                                                                                                                          content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${columnsecBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.getDeviceVersion}'),
+                                                                                                                          content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในTestFlight: ${columnsecBuildVersionRecord?.appVersionIos}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
                                                                                                                           actions: [
                                                                                                                             TextButton(
                                                                                                                               onPressed: () => Navigator.pop(alertDialogContext),
@@ -1863,13 +1865,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   return;
                                                                                                                 }
                                                                                                               } else {
-                                                                                                                if (columnsecBuildVersionRecord?.appVersion != _model.getDeviceVersion) {
+                                                                                                                if (columnsecBuildVersionRecord!.buildNumberAndroid > _model.getDeviceBuildNumber!) {
                                                                                                                   await showDialog(
                                                                                                                     context: context,
                                                                                                                     builder: (alertDialogContext) {
                                                                                                                       return WebViewAware(
                                                                                                                         child: AlertDialog(
-                                                                                                                          content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${columnsecBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.getDeviceVersion}'),
+                                                                                                                          content: Text('แอพอรุณสวัสดิ์ได้มีการอัพเดทเวอร์ชั่นใหม่ในสโตร์แล้ว กรุณาอัพเดทอรุณสวัสดิ์ก่อนใช้งาน เวอร์ชั่นในสโตร์: ${columnsecBuildVersionRecord?.appVersion}เวอร์ชั่นปัจจุบันของคุณ: ${_model.deviceVersion}'),
                                                                                                                           actions: [
                                                                                                                             TextButton(
                                                                                                                               onPressed: () => Navigator.pop(alertDialogContext),

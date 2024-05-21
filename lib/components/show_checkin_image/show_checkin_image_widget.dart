@@ -136,6 +136,7 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                         duration: Duration(milliseconds: 500),
                         curve: Curves.ease,
                       );
+                      setState(() {});
                     },
                     effect: smooth_page_indicator.ExpandingDotsEffect(
                       expansionFactor: 2.0,
