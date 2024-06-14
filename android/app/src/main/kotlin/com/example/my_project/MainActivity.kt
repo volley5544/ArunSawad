@@ -1,4 +1,4 @@
-package com.srisawad.publicarunsawad
+package com.myconpany.publicarunsawad
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

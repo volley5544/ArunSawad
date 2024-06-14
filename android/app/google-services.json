@@ -52,6 +52,42 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:379132035355:android:01ba5633fcc445b52153be",
+        "android_client_info": {
+          "package_name": "com.myconpany.publicarunsawad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOACtWXC1vzqk2EikhCN0rEdhn_FMQRbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379132035355-4eicne9hpnh4giu3l5fdvkrmkscqel85.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "379132035355-2uo70ppnb9o25v7dlp4qsqcesuebdd7o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.publicarunsawad"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:379132035355:android:73aa0a486e4a37ac2153be",
         "android_client_info": {
           "package_name": "com.srisawad.publicarunsawad"
