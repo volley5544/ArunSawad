@@ -19,13 +19,14 @@ import 'package:http/http.dart' as http;
 //flutter_web_browser: ^0.17.1
 //flutter_inappwebview: 5.4.0
 
-Future openTableauBrowser(String? token, String? tableauURL) async {
+Future openTableauBrowser(
+    String? token, String? tableauURL, bool? isOpenAndroidBrowser) async {
   // Add your function code here!
   String browserUrl = '${tableauURL}/${token}';
   String encodedUrl = Uri.encodeFull('${tableauURL}/${token}');
   Map<String, String> headers = {'X-Application': 'ArunSawad'};
 
-  if (Platform.isAndroid) {
+  if (Platform.isAndroid && isOpenAndroidBrowser!) {
     WidgetsFlutterBinding.ensureInitialized();
 
     final MyInAppBrowser browser = new MyInAppBrowser();
@@ -138,18 +139,21 @@ Future openTableauBrowser(String? token, String? tableauURL) async {
 //response.request!.url.toString(),
 
     await webBrowser.FlutterWebBrowser.openWebPage(
-      url: encodedUrl,
-      safariVCOptions: webBrowser.SafariViewControllerOptions(
-        barCollapsingEnabled: true,
-        preferredBarTintColor: Colors.black,
-        preferredControlTintColor: Colors.yellow,
-        dismissButtonStyle:
-            webBrowser.SafariViewControllerDismissButtonStyle.close,
-        modalPresentationCapturesStatusBarAppearance: true,
-        modalPresentationStyle:
-            webBrowser.UIModalPresentationStyle.currentContext,
-      ),
-    );
+        url: encodedUrl,
+        safariVCOptions: webBrowser.SafariViewControllerOptions(
+          barCollapsingEnabled: true,
+          preferredBarTintColor: Colors.black,
+          preferredControlTintColor: Colors.yellow,
+          dismissButtonStyle:
+              webBrowser.SafariViewControllerDismissButtonStyle.close,
+          modalPresentationCapturesStatusBarAppearance: true,
+          modalPresentationStyle:
+              webBrowser.UIModalPresentationStyle.currentContext,
+        ),
+        customTabsOptions: const webBrowser.CustomTabsOptions(
+          showTitle: false,
+          urlBarHidingEnabled: true,
+        ));
   }
 }
 

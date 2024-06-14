@@ -81,9 +81,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
             userLocation: currentUserLocationValue,
           ),
           userLogRecordReference);
-      FFAppState().update(() {
-        FFAppState().isFromTimesheetPage = true;
-      });
+      FFAppState().isFromTimesheetPage = true;
+      FFAppState().update(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

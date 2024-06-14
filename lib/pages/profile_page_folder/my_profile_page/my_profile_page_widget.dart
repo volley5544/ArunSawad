@@ -264,72 +264,71 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                   token: FFAppState().accessToken,
                   apiUrl: FFAppState().apiURLLocalState,
                 );
-                FFAppState().update(() {
-                  FFAppState().userNickname =
-                      GetUserProfileAPICall.profileNickName(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profileFullName =
-                      GetUserProfileAPICall.profileFullName(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profileBirthDate =
-                      GetUserProfileAPICall.profileBirthDate(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profileHiredDate =
-                      GetUserProfileAPICall.profileHiredDate(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profileServiceDuration =
-                      functions.profileServiceDuration(
-                          GetUserProfileAPICall.profileServiceDurationYY(
-                            (_model.getUserProfile?.jsonBody ?? ''),
-                          ),
-                          GetUserProfileAPICall.profileServiceDurationMM(
-                            (_model.getUserProfile?.jsonBody ?? ''),
-                          ),
-                          GetUserProfileAPICall.profileServiceDurationDD(
-                            (_model.getUserProfile?.jsonBody ?? ''),
-                          ));
-                  FFAppState().profilePositionAge = functions.positionAgeText(
-                      GetUserProfileAPICall.profilePositionAgeYY(
-                        (_model.getUserProfile?.jsonBody ?? ''),
-                      ),
-                      GetUserProfileAPICall.profilePositionAgeMM(
-                        (_model.getUserProfile?.jsonBody ?? ''),
-                      ),
-                      GetUserProfileAPICall.profilePositionAgeDD(
-                        (_model.getUserProfile?.jsonBody ?? ''),
-                      ));
-                  FFAppState().profilePositionAgeCheck =
-                      GetUserProfileAPICall.profilePositionAgeCheck(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profilePositionName =
-                      GetUserProfileAPICall.profliePositionName(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profileUnitCodeName =
-                      GetUserProfileAPICall.profileBranchName(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profileParentUnit =
-                      GetUserProfileAPICall.profileArea(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().profileRegion =
-                      GetUserProfileAPICall.profileRegion(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().branchCode = GetUserProfileAPICall.branchCode(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                  FFAppState().insurancePlanNumber =
-                      GetUserProfileAPICall.insurancePlan(
-                    (_model.getUserProfile?.jsonBody ?? ''),
-                  )!;
-                });
+                FFAppState().userNickname =
+                    GetUserProfileAPICall.profileNickName(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profileFullName =
+                    GetUserProfileAPICall.profileFullName(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profileBirthDate =
+                    GetUserProfileAPICall.profileBirthDate(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profileHiredDate =
+                    GetUserProfileAPICall.profileHiredDate(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profileServiceDuration =
+                    functions.profileServiceDuration(
+                        GetUserProfileAPICall.profileServiceDurationYY(
+                          (_model.getUserProfile?.jsonBody ?? ''),
+                        ),
+                        GetUserProfileAPICall.profileServiceDurationMM(
+                          (_model.getUserProfile?.jsonBody ?? ''),
+                        ),
+                        GetUserProfileAPICall.profileServiceDurationDD(
+                          (_model.getUserProfile?.jsonBody ?? ''),
+                        ));
+                FFAppState().profilePositionAge = functions.positionAgeText(
+                    GetUserProfileAPICall.profilePositionAgeYY(
+                      (_model.getUserProfile?.jsonBody ?? ''),
+                    ),
+                    GetUserProfileAPICall.profilePositionAgeMM(
+                      (_model.getUserProfile?.jsonBody ?? ''),
+                    ),
+                    GetUserProfileAPICall.profilePositionAgeDD(
+                      (_model.getUserProfile?.jsonBody ?? ''),
+                    ));
+                FFAppState().profilePositionAgeCheck =
+                    GetUserProfileAPICall.profilePositionAgeCheck(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profilePositionName =
+                    GetUserProfileAPICall.profliePositionName(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profileUnitCodeName =
+                    GetUserProfileAPICall.profileBranchName(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profileParentUnit =
+                    GetUserProfileAPICall.profileArea(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().profileRegion =
+                    GetUserProfileAPICall.profileRegion(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().branchCode = GetUserProfileAPICall.branchCode(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().insurancePlanNumber =
+                    GetUserProfileAPICall.insurancePlan(
+                  (_model.getUserProfile?.jsonBody ?? ''),
+                )!;
+                FFAppState().update(() {});
                 Navigator.pop(context);
               },
               child: SingleChildScrollView(

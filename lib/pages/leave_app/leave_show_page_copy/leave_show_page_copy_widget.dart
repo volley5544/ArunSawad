@@ -1316,24 +1316,25 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                 onTap:
                                                                     () async {
                                                                   FFAppState()
+                                                                          .leaveDocImgPathList =
+                                                                      functions
+                                                                          .leaveStringImgToImgPathList(valueOrDefault<
+                                                                              String>(
+                                                                            functions.showMatNameInList(
+                                                                                functions
+                                                                                    .reverseList(LeaveListAPICall.leaveDocument(
+                                                                                      (_model.leaveListAPIOutput?.jsonBody ?? ''),
+                                                                                    )?.toList())
+                                                                                    .toList(),
+                                                                                leaveIdItemIndex),
+                                                                            '[leave_name]',
+                                                                          ))!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              String>();
+                                                                  FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .leaveDocImgPathList =
-                                                                        functions
-                                                                            .leaveStringImgToImgPathList(valueOrDefault<String>(
-                                                                              functions.showMatNameInList(
-                                                                                  functions
-                                                                                      .reverseList(LeaveListAPICall.leaveDocument(
-                                                                                        (_model.leaveListAPIOutput?.jsonBody ?? ''),
-                                                                                      )?.toList())
-                                                                                      .toList(),
-                                                                                  leaveIdItemIndex),
-                                                                              '[leave_name]',
-                                                                            ))!
-                                                                            .toList()
-                                                                            .cast<String>();
-                                                                  });
+                                                                          () {});
                                                                   if (FFAppState()
                                                                           .leaveDocImgPathList
                                                                           .length <=
@@ -1471,22 +1472,23 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                     HapticFeedback
                                                                         .mediumImpact();
                                                                     FFAppState()
+                                                                            .leaveDocImgPathList =
+                                                                        functions
+                                                                            .leaveStringImgToImgPathList(valueOrDefault<String>(
+                                                                              functions.showMatNameInList(
+                                                                                  functions
+                                                                                      .reverseList(LeaveListAPICall.leaveDocument(
+                                                                                        (_model.leaveListAPIOutput?.jsonBody ?? ''),
+                                                                                      )?.toList())
+                                                                                      .toList(),
+                                                                                  leaveIdItemIndex),
+                                                                              '[leave_name]',
+                                                                            ))!
+                                                                            .toList()
+                                                                            .cast<String>();
+                                                                    FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState().leaveDocImgPathList = functions
-                                                                          .leaveStringImgToImgPathList(valueOrDefault<String>(
-                                                                            functions.showMatNameInList(
-                                                                                functions
-                                                                                    .reverseList(LeaveListAPICall.leaveDocument(
-                                                                                      (_model.leaveListAPIOutput?.jsonBody ?? ''),
-                                                                                    )?.toList())
-                                                                                    .toList(),
-                                                                                leaveIdItemIndex),
-                                                                            '[leave_name]',
-                                                                          ))!
-                                                                          .toList()
-                                                                          .cast<String>();
-                                                                    });
+                                                                            () {});
                                                                     if (functions.showMatNameInList(
                                                                             functions
                                                                                 .reverseList(LeaveListAPICall.leaveName(
@@ -1678,7 +1680,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               .leaveDocImgPathList,
                                                                           ParamType
                                                                               .String,
-                                                                          true,
+                                                                          isList:
+                                                                              true,
                                                                         ),
                                                                       }.withoutNulls,
                                                                     );

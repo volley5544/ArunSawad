@@ -182,12 +182,12 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                                     'holidayDate': serializeParam(
                                       buttonHolidayDateRecord?.holidayDate,
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'holidayName': serializeParam(
                                       buttonHolidayDateRecord?.holidayName,
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                   }.withoutNulls,
                                 );

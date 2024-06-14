@@ -75,31 +75,25 @@ class _DashboardWidgetState extends State<DashboardWidget>
         }
       }
 
-      FFAppState().update(() {
-        FFAppState().counterNum = 0;
-        FFAppState().isFromTimesheetPage = false;
-      });
-      FFAppState().update(() {
-        FFAppState().imgURL = [];
-        FFAppState().imgURLTemp =
-            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-      });
-      FFAppState().update(() {
-        FFAppState().materialRecordId = [];
-        FFAppState().materialsAmount = [];
-      });
-      FFAppState().update(() {
-        FFAppState().isGetVloanContract = false;
-        FFAppState().vloanCustomerNameListTemp = [];
-      });
-      FFAppState().update(() {
-        FFAppState().vloanContNoListTemp = [];
-        FFAppState().vloanServerListTemp = [];
-      });
-      FFAppState().update(() {
-        FFAppState().materialImgList = [];
-        FFAppState().materialNameList = [];
-      });
+      FFAppState().counterNum = 0;
+      FFAppState().isFromTimesheetPage = false;
+      FFAppState().update(() {});
+      FFAppState().imgURL = [];
+      FFAppState().imgURLTemp =
+          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+      FFAppState().update(() {});
+      FFAppState().materialRecordId = [];
+      FFAppState().materialsAmount = [];
+      FFAppState().update(() {});
+      FFAppState().isGetVloanContract = false;
+      FFAppState().vloanCustomerNameListTemp = [];
+      FFAppState().update(() {});
+      FFAppState().vloanContNoListTemp = [];
+      FFAppState().vloanServerListTemp = [];
+      FFAppState().update(() {});
+      FFAppState().materialImgList = [];
+      FFAppState().materialNameList = [];
+      FFAppState().update(() {});
     });
 
     animationsMap.addAll({
@@ -486,55 +480,49 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  FFAppState().update(() {
-                                    FFAppState().loginStateFirebase =
-                                        '[loginStateFirebase]';
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
+                                  FFAppState().loginStateFirebase =
+                                      '[loginStateFirebase]';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteApiURLLocalState();
-                                    FFAppState().apiURLLocalState =
-                                        'api_url_local_state';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().isFromSetPinPage = false;
-                                    FFAppState().leadChannelColor = [];
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().leadChannelList = [];
-                                    FFAppState().isFromLoginPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deletePinCodeAuthen();
-                                    FFAppState().pinCodeAuthen = '013972';
+                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteApiURLLocalState();
+                                  FFAppState().apiURLLocalState =
+                                      'api_url_local_state';
 
-                                    FFAppState().isFromAuthenPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteDateDoNotShowAgain();
-                                    FFAppState().dateDoNotShowAgain = null;
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().deleteDoNotShowAgain();
-                                    FFAppState().doNotShowAgain = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().inAppViaNotification = true;
-                                    FFAppState().isInApp = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().fcmToken = 'fcm_token';
-                                    FFAppState().isPassLoginSection = false;
-                                  });
+                                  FFAppState().update(() {});
+                                  FFAppState().isFromSetPinPage = false;
+                                  FFAppState().leadChannelColor = [];
+                                  FFAppState().update(() {});
+                                  FFAppState().leadChannelList = [];
+                                  FFAppState().isFromLoginPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deletePinCodeAuthen();
+                                  FFAppState().pinCodeAuthen = '013972';
+
+                                  FFAppState().isFromAuthenPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteDateDoNotShowAgain();
+                                  FFAppState().dateDoNotShowAgain = null;
+
+                                  FFAppState().deleteDoNotShowAgain();
+                                  FFAppState().doNotShowAgain = false;
+
+                                  FFAppState().update(() {});
+                                  FFAppState().inAppViaNotification = true;
+                                  FFAppState().isInApp = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().fcmToken = 'fcm_token';
+                                  FFAppState().isPassLoginSection = false;
+                                  FFAppState().update(() {});
                                   Navigator.pop(context);
                                   await actions.a22();
 
@@ -572,9 +560,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  FFAppState().update(() {
-                                    FFAppState().isFromTimesheetPage = false;
-                                  });
+                                  FFAppState().isFromTimesheetPage = false;
+                                  FFAppState().update(() {});
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -756,55 +743,49 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  FFAppState().update(() {
-                                    FFAppState().loginStateFirebase =
-                                        '[loginStateFirebase]';
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
+                                  FFAppState().loginStateFirebase =
+                                      '[loginStateFirebase]';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteApiURLLocalState();
-                                    FFAppState().apiURLLocalState =
-                                        'api_url_local_state';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().isFromSetPinPage = false;
-                                    FFAppState().leadChannelColor = [];
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().leadChannelList = [];
-                                    FFAppState().isFromLoginPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deletePinCodeAuthen();
-                                    FFAppState().pinCodeAuthen = '013972';
+                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteApiURLLocalState();
+                                  FFAppState().apiURLLocalState =
+                                      'api_url_local_state';
 
-                                    FFAppState().isFromAuthenPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteDateDoNotShowAgain();
-                                    FFAppState().dateDoNotShowAgain = null;
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().deleteDoNotShowAgain();
-                                    FFAppState().doNotShowAgain = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().inAppViaNotification = true;
-                                    FFAppState().isInApp = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().fcmToken = 'fcm_token';
-                                    FFAppState().isPassLoginSection = false;
-                                  });
+                                  FFAppState().update(() {});
+                                  FFAppState().isFromSetPinPage = false;
+                                  FFAppState().leadChannelColor = [];
+                                  FFAppState().update(() {});
+                                  FFAppState().leadChannelList = [];
+                                  FFAppState().isFromLoginPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deletePinCodeAuthen();
+                                  FFAppState().pinCodeAuthen = '013972';
+
+                                  FFAppState().isFromAuthenPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteDateDoNotShowAgain();
+                                  FFAppState().dateDoNotShowAgain = null;
+
+                                  FFAppState().deleteDoNotShowAgain();
+                                  FFAppState().doNotShowAgain = false;
+
+                                  FFAppState().update(() {});
+                                  FFAppState().inAppViaNotification = true;
+                                  FFAppState().isInApp = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().fcmToken = 'fcm_token';
+                                  FFAppState().isPassLoginSection = false;
+                                  FFAppState().update(() {});
                                   Navigator.pop(context);
                                   await actions.a22();
 
@@ -842,9 +823,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  FFAppState().update(() {
-                                    FFAppState().isFromTimesheetPage = false;
-                                  });
+                                  FFAppState().isFromTimesheetPage = false;
+                                  FFAppState().update(() {});
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -1027,55 +1007,49 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  FFAppState().update(() {
-                                    FFAppState().loginStateFirebase =
-                                        '[loginStateFirebase]';
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
+                                  FFAppState().loginStateFirebase =
+                                      '[loginStateFirebase]';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteApiURLLocalState();
-                                    FFAppState().apiURLLocalState =
-                                        'api_url_local_state';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().isFromSetPinPage = false;
-                                    FFAppState().leadChannelColor = [];
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().leadChannelList = [];
-                                    FFAppState().isFromLoginPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deletePinCodeAuthen();
-                                    FFAppState().pinCodeAuthen = '013972';
+                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteApiURLLocalState();
+                                  FFAppState().apiURLLocalState =
+                                      'api_url_local_state';
 
-                                    FFAppState().isFromAuthenPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteDateDoNotShowAgain();
-                                    FFAppState().dateDoNotShowAgain = null;
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().deleteDoNotShowAgain();
-                                    FFAppState().doNotShowAgain = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().inAppViaNotification = true;
-                                    FFAppState().isInApp = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().fcmToken = 'fcm_token';
-                                    FFAppState().isPassLoginSection = false;
-                                  });
+                                  FFAppState().update(() {});
+                                  FFAppState().isFromSetPinPage = false;
+                                  FFAppState().leadChannelColor = [];
+                                  FFAppState().update(() {});
+                                  FFAppState().leadChannelList = [];
+                                  FFAppState().isFromLoginPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deletePinCodeAuthen();
+                                  FFAppState().pinCodeAuthen = '013972';
+
+                                  FFAppState().isFromAuthenPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteDateDoNotShowAgain();
+                                  FFAppState().dateDoNotShowAgain = null;
+
+                                  FFAppState().deleteDoNotShowAgain();
+                                  FFAppState().doNotShowAgain = false;
+
+                                  FFAppState().update(() {});
+                                  FFAppState().inAppViaNotification = true;
+                                  FFAppState().isInApp = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().fcmToken = 'fcm_token';
+                                  FFAppState().isPassLoginSection = false;
+                                  FFAppState().update(() {});
                                   Navigator.pop(context);
                                   await actions.a22();
 
@@ -1124,23 +1098,20 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     singleRecord: true,
                                   ).then((s) => s.firstOrNull);
                                   _shouldSetState = true;
-                                  FFAppState().update(() {
-                                    FFAppState().isFromTimesheetPage = false;
-                                  });
-                                  setState(() {
-                                    FFAppState().collectionSortBy = '';
-                                    FFAppState().collectionSearch = '';
-                                    FFAppState().collectionSearchBy = '';
-                                    FFAppState().selectCardList = [];
-                                    FFAppState().collectionListBoolean = [];
-                                    FFAppState().saveCalled = SaveCallStruct
-                                        .fromSerializableMap(jsonDecode(
-                                            '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                  });
-                                  setState(() {
-                                    FFAppState().apiUrlBranchViewCollection =
-                                        _model.getCollectionApiUrl!.urlLink;
-                                  });
+                                  FFAppState().isFromTimesheetPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().collectionSortBy = '';
+                                  FFAppState().collectionSearch = '';
+                                  FFAppState().collectionSearchBy = '';
+                                  FFAppState().selectCardList = [];
+                                  FFAppState().collectionListBoolean = [];
+                                  FFAppState().saveCalled = SaveCallStruct
+                                      .fromSerializableMap(jsonDecode(
+                                          '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                  setState(() {});
+                                  FFAppState().apiUrlBranchViewCollection =
+                                      _model.getCollectionApiUrl!.urlLink;
+                                  setState(() {});
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -1323,55 +1294,49 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  FFAppState().update(() {
-                                    FFAppState().loginStateFirebase =
-                                        '[loginStateFirebase]';
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
+                                  FFAppState().loginStateFirebase =
+                                      '[loginStateFirebase]';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteApiURLLocalState();
-                                    FFAppState().apiURLLocalState =
-                                        'api_url_local_state';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().isFromSetPinPage = false;
-                                    FFAppState().leadChannelColor = [];
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().leadChannelList = [];
-                                    FFAppState().isFromLoginPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deletePinCodeAuthen();
-                                    FFAppState().pinCodeAuthen = '013972';
+                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteApiURLLocalState();
+                                  FFAppState().apiURLLocalState =
+                                      'api_url_local_state';
 
-                                    FFAppState().isFromAuthenPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteDateDoNotShowAgain();
-                                    FFAppState().dateDoNotShowAgain = null;
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().deleteDoNotShowAgain();
-                                    FFAppState().doNotShowAgain = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().inAppViaNotification = true;
-                                    FFAppState().isInApp = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().fcmToken = 'fcm_token';
-                                    FFAppState().isPassLoginSection = false;
-                                  });
+                                  FFAppState().update(() {});
+                                  FFAppState().isFromSetPinPage = false;
+                                  FFAppState().leadChannelColor = [];
+                                  FFAppState().update(() {});
+                                  FFAppState().leadChannelList = [];
+                                  FFAppState().isFromLoginPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deletePinCodeAuthen();
+                                  FFAppState().pinCodeAuthen = '013972';
+
+                                  FFAppState().isFromAuthenPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteDateDoNotShowAgain();
+                                  FFAppState().dateDoNotShowAgain = null;
+
+                                  FFAppState().deleteDoNotShowAgain();
+                                  FFAppState().doNotShowAgain = false;
+
+                                  FFAppState().update(() {});
+                                  FFAppState().inAppViaNotification = true;
+                                  FFAppState().isInApp = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().fcmToken = 'fcm_token';
+                                  FFAppState().isPassLoginSection = false;
+                                  FFAppState().update(() {});
                                   Navigator.pop(context);
                                   await actions.a22();
 
@@ -1409,9 +1374,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  FFAppState().update(() {
-                                    FFAppState().isFromTimesheetPage = false;
-                                  });
+                                  FFAppState().isFromTimesheetPage = false;
+                                  FFAppState().update(() {});
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -1593,55 +1557,49 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  FFAppState().update(() {
-                                    FFAppState().loginStateFirebase =
-                                        '[loginStateFirebase]';
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
+                                  FFAppState().loginStateFirebase =
+                                      '[loginStateFirebase]';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteApiURLLocalState();
-                                    FFAppState().apiURLLocalState =
-                                        'api_url_local_state';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().isFromSetPinPage = false;
-                                    FFAppState().leadChannelColor = [];
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().leadChannelList = [];
-                                    FFAppState().isFromLoginPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deletePinCodeAuthen();
-                                    FFAppState().pinCodeAuthen = '013972';
+                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteApiURLLocalState();
+                                  FFAppState().apiURLLocalState =
+                                      'api_url_local_state';
 
-                                    FFAppState().isFromAuthenPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteDateDoNotShowAgain();
-                                    FFAppState().dateDoNotShowAgain = null;
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().deleteDoNotShowAgain();
-                                    FFAppState().doNotShowAgain = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().inAppViaNotification = true;
-                                    FFAppState().isInApp = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().fcmToken = 'fcm_token';
-                                    FFAppState().isPassLoginSection = false;
-                                  });
+                                  FFAppState().update(() {});
+                                  FFAppState().isFromSetPinPage = false;
+                                  FFAppState().leadChannelColor = [];
+                                  FFAppState().update(() {});
+                                  FFAppState().leadChannelList = [];
+                                  FFAppState().isFromLoginPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deletePinCodeAuthen();
+                                  FFAppState().pinCodeAuthen = '013972';
+
+                                  FFAppState().isFromAuthenPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteDateDoNotShowAgain();
+                                  FFAppState().dateDoNotShowAgain = null;
+
+                                  FFAppState().deleteDoNotShowAgain();
+                                  FFAppState().doNotShowAgain = false;
+
+                                  FFAppState().update(() {});
+                                  FFAppState().inAppViaNotification = true;
+                                  FFAppState().isInApp = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().fcmToken = 'fcm_token';
+                                  FFAppState().isPassLoginSection = false;
+                                  FFAppState().update(() {});
                                   Navigator.pop(context);
                                   await actions.a22();
 
@@ -1678,9 +1636,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  FFAppState().update(() {
-                                    FFAppState().isFromTimesheetPage = false;
-                                  });
+                                  FFAppState().isFromTimesheetPage = false;
+                                  FFAppState().update(() {});
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -1834,25 +1791,24 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         );
                                       },
                                     );
-                                    FFAppState().update(() {
-                                      FFAppState().imei = '123456789012345';
-                                      FFAppState().deleteAccessToken();
-                                      FFAppState().accessToken = 'access_token';
-                                    });
-                                    FFAppState().update(() {
-                                      FFAppState().deleteEmployeeID();
-                                      FFAppState().employeeID = 'employee_id';
+                                    FFAppState().imei = '123456789012345';
+                                    FFAppState().deleteAccessToken();
+                                    FFAppState().accessToken = 'access_token';
 
-                                      FFAppState().QRCodeLink = 'qrcode_link';
-                                    });
-                                    FFAppState().update(() {
-                                      FFAppState().deleteApiURLLocalState();
-                                      FFAppState().apiURLLocalState =
-                                          'api_url_local_state';
+                                    FFAppState().update(() {});
+                                    FFAppState().deleteEmployeeID();
+                                    FFAppState().employeeID = 'employee_id';
 
-                                      FFAppState().deleteBranchCode();
-                                      FFAppState().branchCode = 'branch_code';
-                                    });
+                                    FFAppState().QRCodeLink = 'qrcode_link';
+                                    FFAppState().update(() {});
+                                    FFAppState().deleteApiURLLocalState();
+                                    FFAppState().apiURLLocalState =
+                                        'api_url_local_state';
+
+                                    FFAppState().deleteBranchCode();
+                                    FFAppState().branchCode = 'branch_code';
+
+                                    FFAppState().update(() {});
                                     GoRouter.of(context).prepareAuthEvent();
                                     await authManager.signOut();
                                     GoRouter.of(context)
@@ -1896,9 +1852,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    FFAppState().update(() {
-                                      FFAppState().isFromTimesheetPage = false;
-                                    });
+                                    FFAppState().isFromTimesheetPage = false;
+                                    FFAppState().update(() {});
                                   } else {
                                     await showDialog(
                                       context: context,
@@ -2088,55 +2043,49 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  FFAppState().update(() {
-                                    FFAppState().loginStateFirebase =
-                                        '[loginStateFirebase]';
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
+                                  FFAppState().loginStateFirebase =
+                                      '[loginStateFirebase]';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteApiURLLocalState();
-                                    FFAppState().apiURLLocalState =
-                                        'api_url_local_state';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().isFromSetPinPage = false;
-                                    FFAppState().leadChannelColor = [];
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().leadChannelList = [];
-                                    FFAppState().isFromLoginPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deletePinCodeAuthen();
-                                    FFAppState().pinCodeAuthen = '013972';
+                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteApiURLLocalState();
+                                  FFAppState().apiURLLocalState =
+                                      'api_url_local_state';
 
-                                    FFAppState().isFromAuthenPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteDateDoNotShowAgain();
-                                    FFAppState().dateDoNotShowAgain = null;
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().deleteDoNotShowAgain();
-                                    FFAppState().doNotShowAgain = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().inAppViaNotification = true;
-                                    FFAppState().isInApp = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().fcmToken = 'fcm_token';
-                                    FFAppState().isPassLoginSection = false;
-                                  });
+                                  FFAppState().update(() {});
+                                  FFAppState().isFromSetPinPage = false;
+                                  FFAppState().leadChannelColor = [];
+                                  FFAppState().update(() {});
+                                  FFAppState().leadChannelList = [];
+                                  FFAppState().isFromLoginPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deletePinCodeAuthen();
+                                  FFAppState().pinCodeAuthen = '013972';
+
+                                  FFAppState().isFromAuthenPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteDateDoNotShowAgain();
+                                  FFAppState().dateDoNotShowAgain = null;
+
+                                  FFAppState().deleteDoNotShowAgain();
+                                  FFAppState().doNotShowAgain = false;
+
+                                  FFAppState().update(() {});
+                                  FFAppState().inAppViaNotification = true;
+                                  FFAppState().isInApp = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().fcmToken = 'fcm_token';
+                                  FFAppState().isPassLoginSection = false;
+                                  FFAppState().update(() {});
                                   Navigator.pop(context);
                                   await actions.a22();
 
@@ -2174,9 +2123,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
-                                  FFAppState().update(() {
-                                    FFAppState().isFromTimesheetPage = false;
-                                  });
+                                  FFAppState().isFromTimesheetPage = false;
+                                  FFAppState().update(() {});
                                   _model.getVloanRemarkApiUrl =
                                       await queryUrlLinkStorageRecordOnce(
                                     queryBuilder: (urlLinkStorageRecord) =>
@@ -2187,12 +2135,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     singleRecord: true,
                                   ).then((s) => s.firstOrNull);
                                   _shouldSetState = true;
-                                  setState(() {
-                                    FFAppState().apiUrlVloanRemark =
-                                        _model.getVloanRemarkApiUrl!.urlLink;
-                                    FFAppState().tokenVloanRemark =
-                                        _model.getVloanRemarkApiUrl!.urlToken;
-                                  });
+                                  FFAppState().apiUrlVloanRemark =
+                                      _model.getVloanRemarkApiUrl!.urlLink;
+                                  FFAppState().tokenVloanRemark =
+                                      _model.getVloanRemarkApiUrl!.urlToken;
+                                  setState(() {});
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -2375,55 +2322,49 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                       );
                                     },
                                   );
-                                  FFAppState().update(() {
-                                    FFAppState().loginStateFirebase =
-                                        '[loginStateFirebase]';
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
+                                  FFAppState().loginStateFirebase =
+                                      '[loginStateFirebase]';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().QRCodeLink = 'qrcode_link';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteApiURLLocalState();
-                                    FFAppState().apiURLLocalState =
-                                        'api_url_local_state';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().isFromSetPinPage = false;
-                                    FFAppState().leadChannelColor = [];
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().leadChannelList = [];
-                                    FFAppState().isFromLoginPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deletePinCodeAuthen();
-                                    FFAppState().pinCodeAuthen = '013972';
+                                  FFAppState().QRCodeLink = 'qrcode_link';
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteApiURLLocalState();
+                                  FFAppState().apiURLLocalState =
+                                      'api_url_local_state';
 
-                                    FFAppState().isFromAuthenPage = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().deleteDateDoNotShowAgain();
-                                    FFAppState().dateDoNotShowAgain = null;
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().deleteDoNotShowAgain();
-                                    FFAppState().doNotShowAgain = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().inAppViaNotification = true;
-                                    FFAppState().isInApp = false;
-                                  });
-                                  FFAppState().update(() {
-                                    FFAppState().fcmToken = 'fcm_token';
-                                    FFAppState().isPassLoginSection = false;
-                                  });
+                                  FFAppState().update(() {});
+                                  FFAppState().isFromSetPinPage = false;
+                                  FFAppState().leadChannelColor = [];
+                                  FFAppState().update(() {});
+                                  FFAppState().leadChannelList = [];
+                                  FFAppState().isFromLoginPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deletePinCodeAuthen();
+                                  FFAppState().pinCodeAuthen = '013972';
+
+                                  FFAppState().isFromAuthenPage = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().deleteDateDoNotShowAgain();
+                                  FFAppState().dateDoNotShowAgain = null;
+
+                                  FFAppState().deleteDoNotShowAgain();
+                                  FFAppState().doNotShowAgain = false;
+
+                                  FFAppState().update(() {});
+                                  FFAppState().inAppViaNotification = true;
+                                  FFAppState().isInApp = false;
+                                  FFAppState().update(() {});
+                                  FFAppState().fcmToken = 'fcm_token';
+                                  FFAppState().isPassLoginSection = false;
+                                  FFAppState().update(() {});
                                   Navigator.pop(context);
                                   await actions.a22();
 
@@ -2432,9 +2373,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-                                FFAppState().update(() {
-                                  FFAppState().isFromTimesheetPage = true;
-                                });
+                                FFAppState().isFromTimesheetPage = true;
+                                FFAppState().update(() {});
 
                                 context.goNamed('TimeSheetPage');
 

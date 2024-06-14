@@ -89,15 +89,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      FFAppState().update(() {
-        FFAppState().branchLoString = '';
-        FFAppState().imgURLTemp =
-            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-      });
+      FFAppState().branchLoString = '';
+      FFAppState().imgURLTemp =
+          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+      FFAppState().update(() {});
       if (true) {
-        FFAppState().update(() {
-          FFAppState().branchLo = currentUserLocationValue;
-        });
+        FFAppState().branchLo = currentUserLocationValue;
+        FFAppState().update(() {});
         if (true) {
           if (!FFAppState().firstLogin) {
             _model.getLocationOutput1 = await GetlocationAPICall.call(
@@ -114,92 +112,85 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       (_model.getLocationOutput1?.jsonBody ?? ''),
                     ) ==
                     'ทั่วไป') {
-                  FFAppState().update(() {
-                    FFAppState().branchGroup = 'ทั่วไป';
-                    FFAppState().branchList = GetlocationAPICall.branchName(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                    FFAppState().brachGroupNew = 'ทั่วไป';
-                    FFAppState().brachListNew = GetlocationAPICall.branchName(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                  });
-                  FFAppState().update(() {
-                    FFAppState().branchLat = GetlocationAPICall.branchLat(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                    FFAppState().branchLng = GetlocationAPICall.branchLong(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                    FFAppState().brachLatNew = GetlocationAPICall.branchLat(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                    FFAppState().brachLngNew = GetlocationAPICall.branchLong(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                  });
-                  FFAppState().update(() {
-                    FFAppState().branchRad = GetlocationAPICall.branchRadius(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                    FFAppState().BrachRadNew = GetlocationAPICall.branchRadius(
-                      (_model.getLocationOutput1?.jsonBody ?? ''),
-                    )!
-                        .toList()
-                        .cast<String>();
-                  });
+                  FFAppState().branchGroup = 'ทั่วไป';
+                  FFAppState().branchList = GetlocationAPICall.branchName(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().brachGroupNew = 'ทั่วไป';
+                  FFAppState().brachListNew = GetlocationAPICall.branchName(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().update(() {});
+                  FFAppState().branchLat = GetlocationAPICall.branchLat(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().branchLng = GetlocationAPICall.branchLong(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().brachLatNew = GetlocationAPICall.branchLat(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().brachLngNew = GetlocationAPICall.branchLong(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().update(() {});
+                  FFAppState().branchRad = GetlocationAPICall.branchRadius(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().BrachRadNew = GetlocationAPICall.branchRadius(
+                    (_model.getLocationOutput1?.jsonBody ?? ''),
+                  )!
+                      .toList()
+                      .cast<String>();
+                  FFAppState().update(() {});
                   if (FFAppState().brachListNew.length == 1) {
-                    FFAppState().update(() {
-                      FFAppState().branchLo = functions.getLatLngBranch(
-                          FFAppState().brachListNew.first,
-                          FFAppState().brachLatNew.toList(),
-                          FFAppState().brachLngNew.toList(),
-                          FFAppState().brachListNew.toList());
-                      FFAppState().currentRadius = functions.getCurrentRadius(
-                          FFAppState().brachListNew.first,
-                          FFAppState().brachListNew.toList(),
-                          FFAppState().BrachRadNew.toList());
-                      FFAppState().branchLatDouble =
-                          functions.getLatLngBranchDouble(
-                              FFAppState().brachListNew.first,
-                              FFAppState().brachLatNew.toList(),
-                              FFAppState().brachListNew.toList());
-                      FFAppState().branchLngDouble =
-                          functions.getLatLngBranchDouble(
-                              FFAppState().brachListNew.first,
-                              FFAppState().brachLngNew.toList(),
-                              FFAppState().brachListNew.toList());
-                    });
-                    FFAppState().update(() {
-                      FFAppState().branchLoString =
-                          FFAppState().brachListNew.first;
-                    });
+                    FFAppState().branchLo = functions.getLatLngBranch(
+                        FFAppState().brachListNew.first,
+                        FFAppState().brachLatNew.toList(),
+                        FFAppState().brachLngNew.toList(),
+                        FFAppState().brachListNew.toList());
+                    FFAppState().currentRadius = functions.getCurrentRadius(
+                        FFAppState().brachListNew.first,
+                        FFAppState().brachListNew.toList(),
+                        FFAppState().BrachRadNew.toList());
+                    FFAppState().branchLatDouble =
+                        functions.getLatLngBranchDouble(
+                            FFAppState().brachListNew.first,
+                            FFAppState().brachLatNew.toList(),
+                            FFAppState().brachListNew.toList());
+                    FFAppState().branchLngDouble =
+                        functions.getLatLngBranchDouble(
+                            FFAppState().brachListNew.first,
+                            FFAppState().brachLngNew.toList(),
+                            FFAppState().brachListNew.toList());
+                    FFAppState().update(() {});
+                    FFAppState().branchLoString =
+                        FFAppState().brachListNew.first;
+                    FFAppState().update(() {});
                   }
                 } else {
-                  FFAppState().update(() {
-                    FFAppState().branchGroup = 'กลุ่มภาคเขต';
-                    FFAppState().brachGroupNew = 'กลุ่มภาคเขต';
-                  });
+                  FFAppState().branchGroup = 'กลุ่มภาคเขต';
+                  FFAppState().brachGroupNew = 'กลุ่มภาคเขต';
+                  FFAppState().update(() {});
                 }
 
-                setState(() {
-                  FFAppState().firstLogin = true;
-                  FFAppState().firstUseApp = true;
-                });
+                FFAppState().firstLogin = true;
+                FFAppState().firstUseApp = true;
+                setState(() {});
                 Navigator.pop(context);
               } else {
                 if (GetlocationAPICall.statusLayer2(
@@ -280,81 +271,69 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                           userLocation: currentUserLocationValue,
                         ),
                         userLogRecordReference1);
-                FFAppState().update(() {
-                  FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                  FFAppState().deleteAccessToken();
-                  FFAppState().accessToken = 'access_token';
-                });
-                FFAppState().update(() {
-                  FFAppState().deleteEmployeeID();
-                  FFAppState().employeeID = 'employee_id';
+                FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                FFAppState().deleteAccessToken();
+                FFAppState().accessToken = 'access_token';
 
-                  FFAppState().QRCodeLink = 'qrcode_link';
-                });
-                FFAppState().update(() {
-                  FFAppState().deleteApiURLLocalState();
-                  FFAppState().apiURLLocalState = 'api_url_local_state';
+                FFAppState().update(() {});
+                FFAppState().deleteEmployeeID();
+                FFAppState().employeeID = 'employee_id';
 
-                  FFAppState().deleteBranchCode();
-                  FFAppState().branchCode = 'branch_code';
-                });
-                FFAppState().update(() {
-                  FFAppState().isFromSetPinPage = false;
-                  FFAppState().leadChannelColor = [];
-                });
-                FFAppState().update(() {
-                  FFAppState().leadChannelList = [];
-                  FFAppState().isFromLoginPage = false;
-                });
-                FFAppState().update(() {
-                  FFAppState().deletePinCodeAuthen();
-                  FFAppState().pinCodeAuthen = '013972';
+                FFAppState().QRCodeLink = 'qrcode_link';
+                FFAppState().update(() {});
+                FFAppState().deleteApiURLLocalState();
+                FFAppState().apiURLLocalState = 'api_url_local_state';
 
-                  FFAppState().isFromAuthenPage = false;
-                });
-                FFAppState().update(() {
-                  FFAppState().deleteDateDoNotShowAgain();
-                  FFAppState().dateDoNotShowAgain = null;
+                FFAppState().deleteBranchCode();
+                FFAppState().branchCode = 'branch_code';
 
-                  FFAppState().deleteDoNotShowAgain();
-                  FFAppState().doNotShowAgain = false;
-                });
-                FFAppState().update(() {
-                  FFAppState().inAppViaNotification = true;
-                  FFAppState().isInApp = false;
-                });
-                FFAppState().update(() {
-                  FFAppState().fcmToken = 'fcm_token';
-                  FFAppState().isPassLoginSection = false;
-                });
-                FFAppState().update(() {
-                  FFAppState().leadID = [];
-                  FFAppState().leadCreatedTimeList = [];
-                });
-                FFAppState().update(() {
-                  FFAppState().leadCustomerNameList = [];
-                  FFAppState().leadChannelList = [];
-                });
-                FFAppState().update(() {
-                  FFAppState().leadChannelColor = [];
-                  FFAppState().leadCallStatus = [];
-                });
-                FFAppState().update(() {
-                  FFAppState().leadPhoneNumberList = [];
-                  FFAppState().leadEmployeeID = [];
-                });
-                FFAppState().update(() {
-                  FFAppState().leadChannelLabelColor = [];
-                  FFAppState().deleteLeadIdCalledInApp();
-                  FFAppState().leadIdCalledInApp = [];
-                });
-                FFAppState().update(() {
-                  FFAppState().leadBranchCode = [];
-                  FFAppState().leadUserLevel = 'lead_user_level';
-                });
-                FFAppState().update(() {
-                  FFAppState().leadChannelAmountList = [];
-                });
+                FFAppState().update(() {});
+                FFAppState().isFromSetPinPage = false;
+                FFAppState().leadChannelColor = [];
+                FFAppState().update(() {});
+                FFAppState().leadChannelList = [];
+                FFAppState().isFromLoginPage = false;
+                FFAppState().update(() {});
+                FFAppState().deletePinCodeAuthen();
+                FFAppState().pinCodeAuthen = '013972';
+
+                FFAppState().isFromAuthenPage = false;
+                FFAppState().update(() {});
+                FFAppState().deleteDateDoNotShowAgain();
+                FFAppState().dateDoNotShowAgain = null;
+
+                FFAppState().deleteDoNotShowAgain();
+                FFAppState().doNotShowAgain = false;
+
+                FFAppState().update(() {});
+                FFAppState().inAppViaNotification = true;
+                FFAppState().isInApp = false;
+                FFAppState().update(() {});
+                FFAppState().fcmToken = 'fcm_token';
+                FFAppState().isPassLoginSection = false;
+                FFAppState().update(() {});
+                FFAppState().leadID = [];
+                FFAppState().leadCreatedTimeList = [];
+                FFAppState().update(() {});
+                FFAppState().leadCustomerNameList = [];
+                FFAppState().leadChannelList = [];
+                FFAppState().update(() {});
+                FFAppState().leadChannelColor = [];
+                FFAppState().leadCallStatus = [];
+                FFAppState().update(() {});
+                FFAppState().leadPhoneNumberList = [];
+                FFAppState().leadEmployeeID = [];
+                FFAppState().update(() {});
+                FFAppState().leadChannelLabelColor = [];
+                FFAppState().deleteLeadIdCalledInApp();
+                FFAppState().leadIdCalledInApp = [];
+
+                FFAppState().update(() {});
+                FFAppState().leadBranchCode = [];
+                FFAppState().leadUserLevel = 'lead_user_level';
+                FFAppState().update(() {});
+                FFAppState().leadChannelAmountList = [];
+                FFAppState().update(() {});
                 Navigator.pop(context);
                 await actions.a22();
 
@@ -386,30 +365,26 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
           } else {
             if (FFAppState().brachGroupNew == 'ทั่วไป') {
               if (FFAppState().brachListNew.length == 1) {
-                FFAppState().update(() {
-                  FFAppState().branchLo = functions.getLatLngBranch(
-                      FFAppState().brachListNew.first,
-                      FFAppState().brachLatNew.toList(),
-                      FFAppState().brachLngNew.toList(),
-                      FFAppState().brachListNew.toList());
-                  FFAppState().currentRadius = functions.getCurrentRadius(
-                      FFAppState().brachListNew.first,
-                      FFAppState().brachListNew.toList(),
-                      FFAppState().BrachRadNew.toList());
-                  FFAppState().branchLatDouble =
-                      functions.getLatLngBranchDouble(
-                          FFAppState().brachListNew.first,
-                          FFAppState().brachLatNew.toList(),
-                          FFAppState().brachListNew.toList());
-                  FFAppState().branchLngDouble =
-                      functions.getLatLngBranchDouble(
-                          FFAppState().brachListNew.first,
-                          FFAppState().brachLngNew.toList(),
-                          FFAppState().brachListNew.toList());
-                });
-                FFAppState().update(() {
-                  FFAppState().branchLoString = FFAppState().brachListNew.first;
-                });
+                FFAppState().branchLo = functions.getLatLngBranch(
+                    FFAppState().brachListNew.first,
+                    FFAppState().brachLatNew.toList(),
+                    FFAppState().brachLngNew.toList(),
+                    FFAppState().brachListNew.toList());
+                FFAppState().currentRadius = functions.getCurrentRadius(
+                    FFAppState().brachListNew.first,
+                    FFAppState().brachListNew.toList(),
+                    FFAppState().BrachRadNew.toList());
+                FFAppState().branchLatDouble = functions.getLatLngBranchDouble(
+                    FFAppState().brachListNew.first,
+                    FFAppState().brachLatNew.toList(),
+                    FFAppState().brachListNew.toList());
+                FFAppState().branchLngDouble = functions.getLatLngBranchDouble(
+                    FFAppState().brachListNew.first,
+                    FFAppState().brachLngNew.toList(),
+                    FFAppState().brachListNew.toList());
+                FFAppState().update(() {});
+                FFAppState().branchLoString = FFAppState().brachListNew.first;
+                FFAppState().update(() {});
               }
               Navigator.pop(context);
             } else {
@@ -450,81 +425,69 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                   userLocation: currentUserLocationValue,
                 ),
                 userLogRecordReference2);
-            FFAppState().update(() {
-              FFAppState().loginStateFirebase = '[loginStateFirebase]';
-              FFAppState().deleteAccessToken();
-              FFAppState().accessToken = 'access_token';
-            });
-            FFAppState().update(() {
-              FFAppState().deleteEmployeeID();
-              FFAppState().employeeID = 'employee_id';
+            FFAppState().loginStateFirebase = '[loginStateFirebase]';
+            FFAppState().deleteAccessToken();
+            FFAppState().accessToken = 'access_token';
 
-              FFAppState().QRCodeLink = 'qrcode_link';
-            });
-            FFAppState().update(() {
-              FFAppState().deleteApiURLLocalState();
-              FFAppState().apiURLLocalState = 'api_url_local_state';
+            FFAppState().update(() {});
+            FFAppState().deleteEmployeeID();
+            FFAppState().employeeID = 'employee_id';
 
-              FFAppState().deleteBranchCode();
-              FFAppState().branchCode = 'branch_code';
-            });
-            FFAppState().update(() {
-              FFAppState().isFromSetPinPage = false;
-              FFAppState().leadChannelColor = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelList = [];
-              FFAppState().isFromLoginPage = false;
-            });
-            FFAppState().update(() {
-              FFAppState().deletePinCodeAuthen();
-              FFAppState().pinCodeAuthen = '013972';
+            FFAppState().QRCodeLink = 'qrcode_link';
+            FFAppState().update(() {});
+            FFAppState().deleteApiURLLocalState();
+            FFAppState().apiURLLocalState = 'api_url_local_state';
 
-              FFAppState().isFromAuthenPage = false;
-            });
-            FFAppState().update(() {
-              FFAppState().deleteDateDoNotShowAgain();
-              FFAppState().dateDoNotShowAgain = null;
+            FFAppState().deleteBranchCode();
+            FFAppState().branchCode = 'branch_code';
 
-              FFAppState().deleteDoNotShowAgain();
-              FFAppState().doNotShowAgain = false;
-            });
-            FFAppState().update(() {
-              FFAppState().inAppViaNotification = true;
-              FFAppState().isInApp = false;
-            });
-            FFAppState().update(() {
-              FFAppState().fcmToken = 'fcm_token';
-              FFAppState().isPassLoginSection = false;
-            });
-            FFAppState().update(() {
-              FFAppState().leadID = [];
-              FFAppState().leadCreatedTimeList = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadCustomerNameList = [];
-              FFAppState().leadChannelList = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelColor = [];
-              FFAppState().leadCallStatus = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadPhoneNumberList = [];
-              FFAppState().leadEmployeeID = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelLabelColor = [];
-              FFAppState().deleteLeadIdCalledInApp();
-              FFAppState().leadIdCalledInApp = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadBranchCode = [];
-              FFAppState().leadUserLevel = 'lead_user_level';
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelAmountList = [];
-            });
+            FFAppState().update(() {});
+            FFAppState().isFromSetPinPage = false;
+            FFAppState().leadChannelColor = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelList = [];
+            FFAppState().isFromLoginPage = false;
+            FFAppState().update(() {});
+            FFAppState().deletePinCodeAuthen();
+            FFAppState().pinCodeAuthen = '013972';
+
+            FFAppState().isFromAuthenPage = false;
+            FFAppState().update(() {});
+            FFAppState().deleteDateDoNotShowAgain();
+            FFAppState().dateDoNotShowAgain = null;
+
+            FFAppState().deleteDoNotShowAgain();
+            FFAppState().doNotShowAgain = false;
+
+            FFAppState().update(() {});
+            FFAppState().inAppViaNotification = true;
+            FFAppState().isInApp = false;
+            FFAppState().update(() {});
+            FFAppState().fcmToken = 'fcm_token';
+            FFAppState().isPassLoginSection = false;
+            FFAppState().update(() {});
+            FFAppState().leadID = [];
+            FFAppState().leadCreatedTimeList = [];
+            FFAppState().update(() {});
+            FFAppState().leadCustomerNameList = [];
+            FFAppState().leadChannelList = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelColor = [];
+            FFAppState().leadCallStatus = [];
+            FFAppState().update(() {});
+            FFAppState().leadPhoneNumberList = [];
+            FFAppState().leadEmployeeID = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelLabelColor = [];
+            FFAppState().deleteLeadIdCalledInApp();
+            FFAppState().leadIdCalledInApp = [];
+
+            FFAppState().update(() {});
+            FFAppState().leadBranchCode = [];
+            FFAppState().leadUserLevel = 'lead_user_level';
+            FFAppState().update(() {});
+            FFAppState().leadChannelAmountList = [];
+            FFAppState().update(() {});
             Navigator.pop(context);
             await actions.a22();
 
@@ -566,64 +529,59 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
               (_model.getLocationOutput?.jsonBody ?? ''),
             ) ==
             'ทั่วไป') {
-          FFAppState().update(() {
-            FFAppState().branchGroup = 'ทั่วไป';
-            FFAppState().branchList = GetlocationAPICall.branchName(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-            FFAppState().brachGroupNew = 'ทั่วไป';
-            FFAppState().brachListNew = GetlocationAPICall.branchName(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-          });
-          FFAppState().update(() {
-            FFAppState().branchLat = GetlocationAPICall.branchLat(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-            FFAppState().branchLng = GetlocationAPICall.branchLong(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-            FFAppState().brachLatNew = GetlocationAPICall.branchLat(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-            FFAppState().brachLngNew = GetlocationAPICall.branchLong(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-          });
-          FFAppState().update(() {
-            FFAppState().branchRad = GetlocationAPICall.branchRadius(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-            FFAppState().BrachRadNew = GetlocationAPICall.branchRadius(
-              (_model.getLocationOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-          });
+          FFAppState().branchGroup = 'ทั่วไป';
+          FFAppState().branchList = GetlocationAPICall.branchName(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().brachGroupNew = 'ทั่วไป';
+          FFAppState().brachListNew = GetlocationAPICall.branchName(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().update(() {});
+          FFAppState().branchLat = GetlocationAPICall.branchLat(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().branchLng = GetlocationAPICall.branchLong(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().brachLatNew = GetlocationAPICall.branchLat(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().brachLngNew = GetlocationAPICall.branchLong(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().update(() {});
+          FFAppState().branchRad = GetlocationAPICall.branchRadius(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().BrachRadNew = GetlocationAPICall.branchRadius(
+            (_model.getLocationOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().update(() {});
         } else {
-          FFAppState().update(() {
-            FFAppState().branchGroup = 'กลุ่มภาคเขต';
-            FFAppState().brachGroupNew = 'กลุ่มภาคเขต';
-          });
+          FFAppState().branchGroup = 'กลุ่มภาคเขต';
+          FFAppState().brachGroupNew = 'กลุ่มภาคเขต';
+          FFAppState().update(() {});
         }
 
-        setState(() {
-          FFAppState().firstLogin = true;
-        });
+        FFAppState().firstLogin = true;
+        setState(() {});
         Navigator.pop(context);
       } else {
         if (GetlocationAPICall.statusLayer2(
@@ -974,10 +932,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       if (_shouldSetState) setState(() {});
                       return;
                     }
-                    FFAppState().update(() {
-                      FFAppState().imgURLTemp = functions
-                          .stringToImgPath(_model.uploadFirebaseStorageAction)!;
-                    });
+                    FFAppState().imgURLTemp = functions
+                        .stringToImgPath(_model.uploadFirebaseStorageAction)!;
+                    FFAppState().update(() {});
                     Navigator.pop(context);
                     if (_shouldSetState) setState(() {});
                   },
@@ -1224,10 +1181,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                     if (!confirmDialogResponse) {
                                                       return;
                                                     }
-                                                    FFAppState().update(() {
-                                                      FFAppState().imgURLTemp =
-                                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-                                                    });
+                                                    FFAppState().imgURLTemp =
+                                                        'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                                    FFAppState().update(() {});
                                                   },
                                                   child: FaIcon(
                                                     FontAwesomeIcons.times,
@@ -1396,10 +1352,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                     if (!confirmDialogResponse) {
                                                       return;
                                                     }
-                                                    FFAppState().update(() {
-                                                      FFAppState().imgURLTemp =
-                                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-                                                    });
+                                                    FFAppState().imgURLTemp =
+                                                        'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                                    FFAppState().update(() {});
                                                   },
                                                   child: FaIcon(
                                                     FontAwesomeIcons.times,
@@ -1488,67 +1443,64 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   setState(() => _model
                                                           .branchDropDownValue =
                                                       val);
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .checkBranchDropdown =
-                                                        false;
-                                                  });
-                                                  FFAppState().update(() {
-                                                    FFAppState().branchLo =
-                                                        functions.getLatLngBranch(
-                                                            _model
-                                                                .branchDropDownValue,
-                                                            FFAppState()
-                                                                .brachLatNew
-                                                                .toList(),
-                                                            FFAppState()
-                                                                .brachLngNew
-                                                                .toList(),
-                                                            FFAppState()
-                                                                .brachListNew
-                                                                .toList());
-                                                    FFAppState().currentRadius =
-                                                        functions.getCurrentRadius(
-                                                            _model
-                                                                .branchDropDownValue,
-                                                            FFAppState()
-                                                                .brachListNew
-                                                                .toList(),
-                                                            FFAppState()
-                                                                .BrachRadNew
-                                                                .toList());
-                                                    FFAppState().branchLatDouble =
-                                                        functions.getLatLngBranchDouble(
-                                                            _model
-                                                                .branchDropDownValue,
-                                                            FFAppState()
-                                                                .brachLatNew
-                                                                .toList(),
-                                                            FFAppState()
-                                                                .brachListNew
-                                                                .toList());
-                                                    FFAppState().branchLngDouble =
-                                                        functions.getLatLngBranchDouble(
-                                                            _model
-                                                                .branchDropDownValue,
-                                                            FFAppState()
-                                                                .brachLngNew
-                                                                .toList(),
-                                                            FFAppState()
-                                                                .brachListNew
-                                                                .toList());
-                                                  });
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                            .branchLoString =
-                                                        _model
-                                                            .branchDropDownValue!;
-                                                  });
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .checkBranchDropdown =
-                                                        true;
-                                                  });
+                                                  FFAppState()
+                                                          .checkBranchDropdown =
+                                                      false;
+                                                  setState(() {});
+                                                  FFAppState().branchLo =
+                                                      functions.getLatLngBranch(
+                                                          _model
+                                                              .branchDropDownValue,
+                                                          FFAppState()
+                                                              .brachLatNew
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .brachLngNew
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .brachListNew
+                                                              .toList());
+                                                  FFAppState().currentRadius =
+                                                      functions.getCurrentRadius(
+                                                          _model
+                                                              .branchDropDownValue,
+                                                          FFAppState()
+                                                              .brachListNew
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .BrachRadNew
+                                                              .toList());
+                                                  FFAppState().branchLatDouble =
+                                                      functions
+                                                          .getLatLngBranchDouble(
+                                                              _model
+                                                                  .branchDropDownValue,
+                                                              FFAppState()
+                                                                  .brachLatNew
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .brachListNew
+                                                                  .toList());
+                                                  FFAppState().branchLngDouble =
+                                                      functions
+                                                          .getLatLngBranchDouble(
+                                                              _model
+                                                                  .branchDropDownValue,
+                                                              FFAppState()
+                                                                  .brachLngNew
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .brachListNew
+                                                                  .toList());
+                                                  FFAppState().update(() {});
+                                                  FFAppState().branchLoString =
+                                                      _model
+                                                          .branchDropDownValue!;
+                                                  FFAppState().update(() {});
+                                                  FFAppState()
+                                                          .checkBranchDropdown =
+                                                      true;
+                                                  setState(() {});
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
@@ -1966,83 +1918,80 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                       setState(() {});
                                                     return;
                                                   } else {
-                                                    FFAppState().update(() {
-                                                      FFAppState().branchList =
-                                                          GetlocationAPICall
-                                                                  .branchName(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState().branchLat =
-                                                          GetlocationAPICall
-                                                                  .branchLat(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState()
-                                                              .brachListNew =
-                                                          GetlocationAPICall
-                                                                  .branchName(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState().brachLatNew =
-                                                          GetlocationAPICall
-                                                                  .branchLat(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState().branchLng =
-                                                          GetlocationAPICall
-                                                                  .branchLong(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState().branchRad =
-                                                          GetlocationAPICall
-                                                                  .branchRadius(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState().brachLngNew =
-                                                          GetlocationAPICall
-                                                                  .branchLong(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState().BrachRadNew =
-                                                          GetlocationAPICall
-                                                                  .branchRadius(
-                                                        (_model.findLocationOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                    });
+                                                    FFAppState().branchList =
+                                                        GetlocationAPICall
+                                                                .branchName(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().branchLat =
+                                                        GetlocationAPICall
+                                                                .branchLat(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().brachListNew =
+                                                        GetlocationAPICall
+                                                                .branchName(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().brachLatNew =
+                                                        GetlocationAPICall
+                                                                .branchLat(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().update(() {});
+                                                    FFAppState().branchLng =
+                                                        GetlocationAPICall
+                                                                .branchLong(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().branchRad =
+                                                        GetlocationAPICall
+                                                                .branchRadius(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().brachLngNew =
+                                                        GetlocationAPICall
+                                                                .branchLong(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().BrachRadNew =
+                                                        GetlocationAPICall
+                                                                .branchRadius(
+                                                      (_model.findLocationOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().update(() {});
                                                   }
                                                 }
 
@@ -2113,55 +2062,53 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               onChanged: (val) async {
                                                 setState(() =>
                                                     _model.dropDownValue = val);
-                                                FFAppState().update(() {
-                                                  FFAppState().branchLo =
-                                                      functions.getLatLngBranch(
-                                                          _model.dropDownValue,
-                                                          FFAppState()
-                                                              .branchLat
-                                                              .toList(),
-                                                          FFAppState()
-                                                              .branchLng
-                                                              .toList(),
-                                                          FFAppState()
-                                                              .branchList
-                                                              .toList());
-                                                  FFAppState().currentRadius =
-                                                      functions.getCurrentRadius(
-                                                          _model.dropDownValue,
-                                                          FFAppState()
-                                                              .branchList
-                                                              .toList(),
-                                                          FFAppState()
-                                                              .branchRad
-                                                              .toList());
-                                                  FFAppState().branchLatDouble =
-                                                      functions
-                                                          .getLatLngBranchDouble(
-                                                              _model
-                                                                  .dropDownValue,
-                                                              FFAppState()
-                                                                  .branchLat
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .branchList
-                                                                  .toList());
-                                                  FFAppState().branchLngDouble =
-                                                      functions
-                                                          .getLatLngBranchDouble(
-                                                              _model
-                                                                  .dropDownValue,
-                                                              FFAppState()
-                                                                  .branchLng
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .branchList
-                                                                  .toList());
-                                                });
-                                                FFAppState().update(() {
-                                                  FFAppState().branchLoString =
-                                                      _model.dropDownValue!;
-                                                });
+                                                FFAppState().branchLo =
+                                                    functions.getLatLngBranch(
+                                                        _model.dropDownValue,
+                                                        FFAppState()
+                                                            .branchLat
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .branchLng
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .branchList
+                                                            .toList());
+                                                FFAppState().currentRadius =
+                                                    functions.getCurrentRadius(
+                                                        _model.dropDownValue,
+                                                        FFAppState()
+                                                            .branchList
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .branchRad
+                                                            .toList());
+                                                FFAppState().branchLatDouble =
+                                                    functions
+                                                        .getLatLngBranchDouble(
+                                                            _model
+                                                                .dropDownValue,
+                                                            FFAppState()
+                                                                .branchLat
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .branchList
+                                                                .toList());
+                                                FFAppState().branchLngDouble =
+                                                    functions
+                                                        .getLatLngBranchDouble(
+                                                            _model
+                                                                .dropDownValue,
+                                                            FFAppState()
+                                                                .branchLng
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .branchList
+                                                                .toList());
+                                                FFAppState().update(() {});
+                                                FFAppState().branchLoString =
+                                                    _model.dropDownValue!;
+                                                FFAppState().update(() {});
                                               },
                                               width: 180.0,
                                               height: 50.0,
@@ -2614,11 +2561,10 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           if (_shouldSetState) setState(() {});
                                           return;
                                         }
-                                        FFAppState().update(() {
-                                          FFAppState().imgURLTemp =
-                                              functions.stringToImgPath(_model
-                                                  .uploadFirebaseStorageCheckinBtn)!;
-                                        });
+                                        FFAppState().imgURLTemp =
+                                            functions.stringToImgPath(_model
+                                                .uploadFirebaseStorageCheckinBtn)!;
+                                        FFAppState().update(() {});
                                         if (!((FFAppState().imgURLTemp !=
                                                     null &&
                                                 FFAppState().imgURLTemp !=
@@ -2800,110 +2746,91 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                         ),
                                                         userLogRecordReference);
                                             _shouldSetState = true;
-                                            FFAppState().update(() {
-                                              FFAppState().loginStateFirebase =
-                                                  '[loginStateFirebase]';
-                                              FFAppState().deleteAccessToken();
-                                              FFAppState().accessToken =
-                                                  'access_token';
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().deleteEmployeeID();
-                                              FFAppState().employeeID =
-                                                  'employee_id';
+                                            FFAppState().loginStateFirebase =
+                                                '[loginStateFirebase]';
+                                            FFAppState().deleteAccessToken();
+                                            FFAppState().accessToken =
+                                                'access_token';
 
-                                              FFAppState().QRCodeLink =
-                                                  'qrcode_link';
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState()
-                                                  .deleteApiURLLocalState();
-                                              FFAppState().apiURLLocalState =
-                                                  'api_url_local_state';
+                                            FFAppState().update(() {});
+                                            FFAppState().deleteEmployeeID();
+                                            FFAppState().employeeID =
+                                                'employee_id';
 
-                                              FFAppState().deleteBranchCode();
-                                              FFAppState().branchCode =
-                                                  'branch_code';
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().isFromSetPinPage =
-                                                  false;
-                                              FFAppState().leadChannelColor =
-                                                  [];
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().leadChannelList = [];
-                                              FFAppState().isFromLoginPage =
-                                                  false;
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState()
-                                                  .deletePinCodeAuthen();
-                                              FFAppState().pinCodeAuthen =
-                                                  '013972';
+                                            FFAppState().QRCodeLink =
+                                                'qrcode_link';
+                                            FFAppState().update(() {});
+                                            FFAppState()
+                                                .deleteApiURLLocalState();
+                                            FFAppState().apiURLLocalState =
+                                                'api_url_local_state';
 
-                                              FFAppState().isFromAuthenPage =
-                                                  false;
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState()
-                                                  .deleteDateDoNotShowAgain();
-                                              FFAppState().dateDoNotShowAgain =
-                                                  null;
+                                            FFAppState().deleteBranchCode();
+                                            FFAppState().branchCode =
+                                                'branch_code';
 
-                                              FFAppState()
-                                                  .deleteDoNotShowAgain();
-                                              FFAppState().doNotShowAgain =
-                                                  false;
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState()
-                                                  .inAppViaNotification = true;
-                                              FFAppState().isInApp = false;
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().fcmToken =
-                                                  'fcm_token';
-                                              FFAppState().isPassLoginSection =
-                                                  false;
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().leadID = [];
-                                              FFAppState().leadCreatedTimeList =
-                                                  [];
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState()
-                                                  .leadCustomerNameList = [];
-                                              FFAppState().leadChannelList = [];
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().leadChannelColor =
-                                                  [];
-                                              FFAppState().leadCallStatus = [];
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().leadPhoneNumberList =
-                                                  [];
-                                              FFAppState().leadEmployeeID = [];
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState()
-                                                  .leadChannelLabelColor = [];
-                                              FFAppState()
-                                                  .deleteLeadIdCalledInApp();
-                                              FFAppState().leadIdCalledInApp =
-                                                  [];
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState().leadBranchCode = [];
-                                              FFAppState().leadUserLevel =
-                                                  'lead_user_level';
-                                            });
-                                            FFAppState().update(() {
-                                              FFAppState()
-                                                  .leadChannelAmountList = [];
-                                            });
+                                            FFAppState().update(() {});
+                                            FFAppState().isFromSetPinPage =
+                                                false;
+                                            FFAppState().leadChannelColor = [];
+                                            FFAppState().update(() {});
+                                            FFAppState().leadChannelList = [];
+                                            FFAppState().isFromLoginPage =
+                                                false;
+                                            FFAppState().update(() {});
+                                            FFAppState().deletePinCodeAuthen();
+                                            FFAppState().pinCodeAuthen =
+                                                '013972';
+
+                                            FFAppState().isFromAuthenPage =
+                                                false;
+                                            FFAppState().update(() {});
+                                            FFAppState()
+                                                .deleteDateDoNotShowAgain();
+                                            FFAppState().dateDoNotShowAgain =
+                                                null;
+
+                                            FFAppState().deleteDoNotShowAgain();
+                                            FFAppState().doNotShowAgain = false;
+
+                                            FFAppState().update(() {});
+                                            FFAppState().inAppViaNotification =
+                                                true;
+                                            FFAppState().isInApp = false;
+                                            FFAppState().update(() {});
+                                            FFAppState().fcmToken = 'fcm_token';
+                                            FFAppState().isPassLoginSection =
+                                                false;
+                                            FFAppState().update(() {});
+                                            FFAppState().leadID = [];
+                                            FFAppState().leadCreatedTimeList =
+                                                [];
+                                            FFAppState().update(() {});
+                                            FFAppState().leadCustomerNameList =
+                                                [];
+                                            FFAppState().leadChannelList = [];
+                                            FFAppState().update(() {});
+                                            FFAppState().leadChannelColor = [];
+                                            FFAppState().leadCallStatus = [];
+                                            FFAppState().update(() {});
+                                            FFAppState().leadPhoneNumberList =
+                                                [];
+                                            FFAppState().leadEmployeeID = [];
+                                            FFAppState().update(() {});
+                                            FFAppState().leadChannelLabelColor =
+                                                [];
+                                            FFAppState()
+                                                .deleteLeadIdCalledInApp();
+                                            FFAppState().leadIdCalledInApp = [];
+
+                                            FFAppState().update(() {});
+                                            FFAppState().leadBranchCode = [];
+                                            FFAppState().leadUserLevel =
+                                                'lead_user_level';
+                                            FFAppState().update(() {});
+                                            FFAppState().leadChannelAmountList =
+                                                [];
+                                            FFAppState().update(() {});
                                             Navigator.pop(context);
                                             await actions.a22();
 
@@ -3012,10 +2939,9 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         return;
                                       }
 
-                                      FFAppState().update(() {
-                                        FFAppState().imgURLTemp =
-                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-                                      });
+                                      FFAppState().imgURLTemp =
+                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                      FFAppState().update(() {});
 
                                       context.goNamed(
                                         'SuccessCheckinPage',
@@ -3091,9 +3017,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         },
                                       ).then((value) => safeSetState(() {}));
 
-                                      setState(() {
-                                        FFAppState().firstLogin = false;
-                                      });
+                                      FFAppState().firstLogin = false;
+                                      setState(() {});
                                       if (!FFAppState().firstLogin) {
                                         _model.getLocationOutput2Copy =
                                             await GetlocationAPICall.call(
@@ -3147,64 +3072,58 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   ''),
                                             ) ==
                                             'ทั่วไป') {
-                                          FFAppState().update(() {
-                                            FFAppState().brachGroupNew =
-                                                'ทั่วไป';
-                                            FFAppState().brachListNew =
-                                                GetlocationAPICall.branchName(
-                                              (_model.getLocationOutput2Copy
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                          });
-                                          FFAppState().update(() {
-                                            FFAppState().brachLatNew =
-                                                GetlocationAPICall.branchLat(
-                                              (_model.getLocationOutput2Copy
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState().brachLngNew =
-                                                GetlocationAPICall.branchLong(
-                                              (_model.getLocationOutput2Copy
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                          });
-                                          FFAppState().update(() {
-                                            FFAppState().branchRad =
-                                                GetlocationAPICall.branchRadius(
-                                              (_model.getLocationOutput2Copy
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState().BrachRadNew =
-                                                GetlocationAPICall.branchRadius(
-                                              (_model.getLocationOutput2Copy
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                          });
+                                          FFAppState().brachGroupNew = 'ทั่วไป';
+                                          FFAppState().brachListNew =
+                                              GetlocationAPICall.branchName(
+                                            (_model.getLocationOutput2Copy
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState().update(() {});
+                                          FFAppState().brachLatNew =
+                                              GetlocationAPICall.branchLat(
+                                            (_model.getLocationOutput2Copy
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState().brachLngNew =
+                                              GetlocationAPICall.branchLong(
+                                            (_model.getLocationOutput2Copy
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState().update(() {});
+                                          FFAppState().branchRad =
+                                              GetlocationAPICall.branchRadius(
+                                            (_model.getLocationOutput2Copy
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState().BrachRadNew =
+                                              GetlocationAPICall.branchRadius(
+                                            (_model.getLocationOutput2Copy
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState().update(() {});
                                         } else {
-                                          FFAppState().update(() {
-                                            FFAppState().brachGroupNew =
-                                                'กลุ่มภาคเขต';
-                                          });
+                                          FFAppState().brachGroupNew =
+                                              'กลุ่มภาคเขต';
+                                          FFAppState().update(() {});
                                         }
 
-                                        setState(() {
-                                          FFAppState().firstLogin = true;
-                                        });
+                                        FFAppState().firstLogin = true;
+                                        setState(() {});
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {

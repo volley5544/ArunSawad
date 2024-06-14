@@ -9356,11 +9356,9 @@ class _InsuranceRequestImagePageWidgetState
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    setState(() {
-                                      FFAppState()
-                                              .insuranceVehicleTypeDropDown =
-                                          'กรุณาเลือก';
-                                    });
+                                    FFAppState().insuranceVehicleTypeDropDown =
+                                        'กรุณาเลือก';
+                                    setState(() {});
 
                                     context
                                         .goNamed('InsuranceRequestBasicPage');

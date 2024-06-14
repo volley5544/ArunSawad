@@ -6,3 +6,4 @@ export 'show_time_old_type.dart' show ShowTimeOldType;
 export 'radial_gauge.dart' show RadialGauge;
 export 'linear_gauge.dart' show LinearGauge;
 export 'draw_circle_map.dart' show DrawCircleMap;
+export 'video_record_web_widget.dart' show VideoRecordWebWidget;

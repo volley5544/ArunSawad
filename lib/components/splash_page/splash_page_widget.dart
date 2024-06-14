@@ -298,11 +298,10 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (_model.checkboxGroupValues?.length == 1) {
-                                    FFAppState().update(() {
-                                      FFAppState().dateDoNotShowAgain =
-                                          functions.addDoNotShowAgainDate(
-                                              getCurrentTimestamp);
-                                    });
+                                    FFAppState().dateDoNotShowAgain =
+                                        functions.addDoNotShowAgainDate(
+                                            getCurrentTimestamp);
+                                    FFAppState().update(() {});
                                   }
                                   Navigator.pop(context);
                                 },

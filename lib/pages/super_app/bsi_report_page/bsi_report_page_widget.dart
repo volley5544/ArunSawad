@@ -82,9 +82,8 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().isSearchedBranch = false;
-      });
+      FFAppState().isSearchedBranch = false;
+      setState(() {});
 
       var userLogRecordReference = UserLogRecord.collection.doc();
       await userLogRecordReference.set(createUserLogRecordData(
@@ -633,11 +632,10 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                         200)) {
                                                   if (!FFAppState()
                                                       .isSearchedBranch) {
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .isSearchedBranch =
-                                                          true;
-                                                    });
+                                                    FFAppState()
+                                                            .isSearchedBranch =
+                                                        true;
+                                                    FFAppState().update(() {});
                                                   }
                                                 } else {
                                                   if ((_model.getBranchSearched
@@ -1031,35 +1029,31 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                   singleRecord: true,
                                                 ).then((s) => s.firstOrNull);
                                                 _shouldSetState = true;
-                                                FFAppState().update(() {
-                                                  FFAppState()
-                                                          .isFromTimesheetPage =
-                                                      false;
-                                                });
-                                                setState(() {
-                                                  FFAppState()
-                                                      .collectionSortBy = '';
-                                                  FFAppState()
-                                                      .collectionSearch = '';
-                                                  FFAppState()
-                                                      .collectionSearchBy = '';
-                                                  FFAppState().selectCardList =
-                                                      [];
-                                                  FFAppState()
-                                                      .collectionListBoolean = [];
-                                                  FFAppState().saveCalled =
-                                                      SaveCallStruct
-                                                          .fromSerializableMap(
-                                                              jsonDecode(
-                                                                  '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                                });
-                                                setState(() {
-                                                  FFAppState()
-                                                          .apiUrlBranchViewCollection =
-                                                      _model
-                                                          .getCollectionApiUrl!
-                                                          .urlLink;
-                                                });
+                                                FFAppState()
+                                                        .isFromTimesheetPage =
+                                                    false;
+                                                FFAppState().update(() {});
+                                                FFAppState().collectionSortBy =
+                                                    '';
+                                                FFAppState().collectionSearch =
+                                                    '';
+                                                FFAppState()
+                                                    .collectionSearchBy = '';
+                                                FFAppState().selectCardList =
+                                                    [];
+                                                FFAppState()
+                                                    .collectionListBoolean = [];
+                                                FFAppState().saveCalled =
+                                                    SaveCallStruct
+                                                        .fromSerializableMap(
+                                                            jsonDecode(
+                                                                '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                                setState(() {});
+                                                FFAppState()
+                                                        .apiUrlBranchViewCollection =
+                                                    _model.getCollectionApiUrl!
+                                                        .urlLink;
+                                                setState(() {});
 
                                                 context
                                                     .pushNamed('tabCollection');
@@ -1071,6 +1065,8 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                               await actions.openTableauBrowser(
                                                 '${FFAppState().accessToken}/${FFAppState().profileLevel == 'สาขา' ? FFAppState().profileBranch : _model.branchDropDownValue}',
                                                 '${bsiReportPageUrlLinkStorageRecord?.urlLink}/${_model.reportDropDownValue}',
+                                                FFAppState()
+                                                    .isOpenAndroidTableauBrowser,
                                               );
                                               if (_shouldSetState)
                                                 setState(() {});

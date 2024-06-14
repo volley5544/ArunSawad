@@ -650,11 +650,9 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                                   if (!confirmDialogResponse) {
                                                     return;
                                                   }
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                        .removeFromImgURL(
-                                                            uploadedImgItem);
-                                                  });
+                                                  FFAppState().removeFromImgURL(
+                                                      uploadedImgItem);
+                                                  FFAppState().update(() {});
                                                 },
                                               ),
                                             ],
@@ -1024,15 +1022,13 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       setState(() {
                                         _model.idInputTextController?.clear();
                                       });
-                                      FFAppState().update(() {
-                                        FFAppState().vloanContNoListTemp = [];
-                                        FFAppState().vloanCustomerNameListTemp =
-                                            [];
-                                      });
-                                      FFAppState().update(() {
-                                        FFAppState().vloanServerListTemp = [];
-                                        FFAppState().isGetVloanContract = false;
-                                      });
+                                      FFAppState().vloanContNoListTemp = [];
+                                      FFAppState().vloanCustomerNameListTemp =
+                                          [];
+                                      FFAppState().update(() {});
+                                      FFAppState().vloanServerListTemp = [];
+                                      FFAppState().isGetVloanContract = false;
+                                      FFAppState().update(() {});
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
@@ -1093,32 +1089,27 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    FFAppState().update(() {
-                                      FFAppState().vloanContNoListTemp =
-                                          GetVloanContractAPICall.contNo(
-                                        (_model.getVloanContract?.jsonBody ??
-                                            ''),
-                                      )!
-                                              .toList()
-                                              .cast<String>();
-                                      FFAppState().vloanCustomerNameListTemp =
-                                          GetVloanContractAPICall.customerName(
-                                        (_model.getVloanContract?.jsonBody ??
-                                            ''),
-                                      )!
-                                              .toList()
-                                              .cast<String>();
-                                    });
-                                    FFAppState().update(() {
-                                      FFAppState().vloanServerListTemp =
-                                          GetVloanContractAPICall.vloanServer(
-                                        (_model.getVloanContract?.jsonBody ??
-                                            ''),
-                                      )!
-                                              .toList()
-                                              .cast<String>();
-                                      FFAppState().isGetVloanContract = true;
-                                    });
+                                    FFAppState().vloanContNoListTemp =
+                                        GetVloanContractAPICall.contNo(
+                                      (_model.getVloanContract?.jsonBody ?? ''),
+                                    )!
+                                            .toList()
+                                            .cast<String>();
+                                    FFAppState().vloanCustomerNameListTemp =
+                                        GetVloanContractAPICall.customerName(
+                                      (_model.getVloanContract?.jsonBody ?? ''),
+                                    )!
+                                            .toList()
+                                            .cast<String>();
+                                    FFAppState().update(() {});
+                                    FFAppState().vloanServerListTemp =
+                                        GetVloanContractAPICall.vloanServer(
+                                      (_model.getVloanContract?.jsonBody ?? ''),
+                                    )!
+                                            .toList()
+                                            .cast<String>();
+                                    FFAppState().isGetVloanContract = true;
+                                    FFAppState().update(() {});
                                     if (_shouldSetState) setState(() {});
                                   },
                                   text: functions.buttonTextVloanGetContract(
@@ -2938,24 +2929,20 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    setState(() {
-                                      FFAppState().branchLocationTemp =
-                                          '${ChangeLocationAPICall.oldLat(
-                                        (_model.getUserBranchLocation
-                                                ?.jsonBody ??
-                                            ''),
-                                      )},${ChangeLocationAPICall.oldLng(
-                                        (_model.getUserBranchLocation
-                                                ?.jsonBody ??
-                                            ''),
-                                      )}';
-                                      FFAppState().branchNameTemp =
-                                          ChangeLocationAPICall.branchName(
-                                        (_model.getUserBranchLocation
-                                                ?.jsonBody ??
-                                            ''),
-                                      )!;
-                                    });
+                                    FFAppState().branchLocationTemp =
+                                        '${ChangeLocationAPICall.oldLat(
+                                      (_model.getUserBranchLocation?.jsonBody ??
+                                          ''),
+                                    )},${ChangeLocationAPICall.oldLng(
+                                      (_model.getUserBranchLocation?.jsonBody ??
+                                          ''),
+                                    )}';
+                                    FFAppState().branchNameTemp =
+                                        ChangeLocationAPICall.branchName(
+                                      (_model.getUserBranchLocation?.jsonBody ??
+                                          ''),
+                                    )!;
+                                    setState(() {});
                                   }
                                   _model.collectionAPISubmit =
                                       await CollectionAPICall.call(
@@ -3109,11 +3096,10 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           currentUserLocationValue),
                                     );
                                     _shouldSetState = true;
-                                    FFAppState().update(() {
-                                      FFAppState().imgURL = [];
-                                      FFAppState().imgURLTemp =
-                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-                                    });
+                                    FFAppState().imgURL = [];
+                                    FFAppState().imgURLTemp =
+                                        'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                    FFAppState().update(() {});
                                     if ((_model.remarkVLoneOutput?.statusCode ??
                                             200) ==
                                         200) {
@@ -3175,14 +3161,11 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       return;
                                     }
 
-                                    FFAppState().update(() {
-                                      FFAppState().isGetVloanContract = false;
-                                      FFAppState().vloanCustomerNameListTemp =
-                                          [];
-                                    });
-                                    FFAppState().update(() {
-                                      FFAppState().vloanContNoListTemp = [];
-                                    });
+                                    FFAppState().isGetVloanContract = false;
+                                    FFAppState().vloanCustomerNameListTemp = [];
+                                    FFAppState().update(() {});
+                                    FFAppState().vloanContNoListTemp = [];
+                                    FFAppState().update(() {});
                                   } else {
                                     Navigator.pop(context);
                                     await showDialog(

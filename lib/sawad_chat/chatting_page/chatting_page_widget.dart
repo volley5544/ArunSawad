@@ -59,18 +59,15 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
         parameters: {'screen_name': 'ChattingPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().timeChatIsVisibleList = functions
-            .generateTimeIsVisibleInChatPageList(100)
-            .toList()
-            .cast<bool>();
-      });
-      setState(() {
-        FFAppState().isSendMessageSuccess = true;
-      });
-      setState(() {
-        FFAppState().chatMessagesTemp = '';
-      });
+      FFAppState().timeChatIsVisibleList = functions
+          .generateTimeIsVisibleInChatPageList(100)
+          .toList()
+          .cast<bool>();
+      setState(() {});
+      FFAppState().isSendMessageSuccess = true;
+      setState(() {});
+      FFAppState().chatMessagesTemp = '';
+      setState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -312,21 +309,19 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                       if (FFAppState()
                                                               .timeChatIsVisibleList[
                                                           0]) {
-                                                        setState(() {
-                                                          FFAppState()
-                                                              .updateTimeChatIsVisibleListAtIndex(
-                                                            0,
-                                                            (_) => false,
-                                                          );
-                                                        });
+                                                        FFAppState()
+                                                            .updateTimeChatIsVisibleListAtIndex(
+                                                          0,
+                                                          (_) => false,
+                                                        );
+                                                        setState(() {});
                                                       } else {
-                                                        setState(() {
-                                                          FFAppState()
-                                                              .updateTimeChatIsVisibleListAtIndex(
-                                                            0,
-                                                            (_) => true,
-                                                          );
-                                                        });
+                                                        FFAppState()
+                                                            .updateTimeChatIsVisibleListAtIndex(
+                                                          0,
+                                                          (_) => true,
+                                                        );
+                                                        setState(() {});
                                                       }
                                                     },
                                                     child: Container(
@@ -464,21 +459,19 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                     if (FFAppState()
                                                             .timeChatIsVisibleList[
                                                         listViewIndex]) {
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .updateTimeChatIsVisibleListAtIndex(
-                                                          0,
-                                                          (_) => false,
-                                                        );
-                                                      });
+                                                      FFAppState()
+                                                          .updateTimeChatIsVisibleListAtIndex(
+                                                        0,
+                                                        (_) => false,
+                                                      );
+                                                      setState(() {});
                                                     } else {
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .updateTimeChatIsVisibleListAtIndex(
-                                                          0,
-                                                          (_) => true,
-                                                        );
-                                                      });
+                                                      FFAppState()
+                                                          .updateTimeChatIsVisibleListAtIndex(
+                                                        0,
+                                                        (_) => true,
+                                                      );
+                                                      setState(() {});
                                                     }
                                                   },
                                                   child: Container(
@@ -787,12 +780,11 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 setState(() {});
                                               return;
                                             }
-                                            setState(() {
-                                              FFAppState()
-                                                  .isSendMessageSuccess = false;
-                                              FFAppState().chatMessagesTemp =
-                                                  _model.textController.text;
-                                            });
+                                            FFAppState().isSendMessageSuccess =
+                                                false;
+                                            FFAppState().chatMessagesTemp =
+                                                _model.textController.text;
+                                            setState(() {});
                                             setState(() {
                                               _model.textController?.clear();
                                             });
@@ -920,12 +912,10 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 },
                                               ),
                                             });
-                                            setState(() {
-                                              FFAppState()
-                                                  .isSendMessageSuccess = true;
-                                              FFAppState().chatMessagesTemp =
-                                                  '';
-                                            });
+                                            FFAppState().isSendMessageSuccess =
+                                                true;
+                                            FFAppState().chatMessagesTemp = '';
+                                            setState(() {});
                                             if (_shouldSetState)
                                               setState(() {});
                                           },

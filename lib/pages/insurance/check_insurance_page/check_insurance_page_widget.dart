@@ -133,25 +133,23 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
         );
         return;
       }
-      FFAppState().update(() {
-        FFAppState().teleBrandID = TeleGetBrandAPICall.brandID(
-          (_model.gerBrand?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().teleBrandName = TeleGetBrandAPICall.brandName(
-          (_model.gerBrand?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
-      FFAppState().update(() {
-        FFAppState().teleBrandType = TeleGetBrandAPICall.brandType(
-          (_model.gerBrand?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().teleBrandID = TeleGetBrandAPICall.brandID(
+        (_model.gerBrand?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().teleBrandName = TeleGetBrandAPICall.brandName(
+        (_model.gerBrand?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
+      FFAppState().teleBrandType = TeleGetBrandAPICall.brandType(
+        (_model.gerBrand?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
       _model.getModel = await TeleGetModelAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
@@ -199,25 +197,23 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
         );
         return;
       }
-      FFAppState().update(() {
-        FFAppState().modelName = TeleGetModelAPICall.modelName(
-          (_model.getModel?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().teleModelBrandID = TeleGetModelAPICall.brandID(
-          (_model.getModel?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
-      FFAppState().update(() {
-        FFAppState().teleModelCode = TeleGetModelAPICall.modelCode(
-          (_model.getModel?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().modelName = TeleGetModelAPICall.modelName(
+        (_model.getModel?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().teleModelBrandID = TeleGetModelAPICall.brandID(
+        (_model.getModel?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
+      FFAppState().teleModelCode = TeleGetModelAPICall.modelCode(
+        (_model.getModel?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
       _model.getProvince = await TeleGetProvinceAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
@@ -266,14 +262,13 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
         );
         return;
       }
-      FFAppState().update(() {
-        FFAppState().teleGetProvince = TeleGetProvinceAPICall.provinceNameTH(
-          (_model.getProvince?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().isLoadedInsuranceData = true;
-      });
+      FFAppState().teleGetProvince = TeleGetProvinceAPICall.provinceNameTH(
+        (_model.getProvince?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().isLoadedInsuranceData = true;
+      FFAppState().update(() {});
       Navigator.pop(context);
     });
 
@@ -412,29 +407,27 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                           setState(() =>
                                               _model.brandDropDownValue = val);
                                           HapticFeedback.mediumImpact();
-                                          FFAppState().update(() {
-                                            FFAppState().teleModelName = functions
-                                                .teleSearchCarModel(
-                                                    functions.getTeleBrandID(
-                                                        _model
-                                                            .brandDropDownValue,
-                                                        FFAppState()
-                                                            .teleBrandID
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .teleBrandName
-                                                            .toList()),
-                                                    FFAppState()
-                                                        .teleModelBrandID
-                                                        .toList(),
-                                                    FFAppState()
-                                                        .modelName
-                                                        .toList())
-                                                .toList()
-                                                .cast<String>();
-                                            FFAppState().teleSearchModelState =
-                                                true;
-                                          });
+                                          FFAppState().teleModelName = functions
+                                              .teleSearchCarModel(
+                                                  functions.getTeleBrandID(
+                                                      _model.brandDropDownValue,
+                                                      FFAppState()
+                                                          .teleBrandID
+                                                          .toList(),
+                                                      FFAppState()
+                                                          .teleBrandName
+                                                          .toList()),
+                                                  FFAppState()
+                                                      .teleModelBrandID
+                                                      .toList(),
+                                                  FFAppState()
+                                                      .modelName
+                                                      .toList())
+                                              .toList()
+                                              .cast<String>();
+                                          FFAppState().teleSearchModelState =
+                                              true;
+                                          FFAppState().update(() {});
                                         },
                                         width: 180.0,
                                         height: 60.0,

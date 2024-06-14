@@ -23,19 +23,23 @@ class LeadDetailStruct extends FFFirebaseStruct {
   int? _sdf;
   int get sdf => _sdf ?? 0;
   set sdf(int? val) => _sdf = val;
-  void incrementSdf(int amount) => _sdf = sdf + amount;
+
+  void incrementSdf(int amount) => sdf = sdf + amount;
+
   bool hasSdf() => _sdf != null;
 
   // "wwww" field.
   String? _wwww;
   String get wwww => _wwww ?? '';
   set wwww(String? val) => _wwww = val;
+
   bool hasWwww() => _wwww != null;
 
   // "wwffddd" field.
   String? _wwffddd;
   String get wwffddd => _wwffddd ?? '';
   set wwffddd(String? val) => _wwffddd = val;
+
   bool hasWwffddd() => _wwffddd != null;
 
   static LeadDetailStruct fromMap(Map<String, dynamic> data) =>

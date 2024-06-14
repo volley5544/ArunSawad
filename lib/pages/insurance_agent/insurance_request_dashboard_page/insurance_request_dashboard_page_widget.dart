@@ -96,10 +96,9 @@ class _InsuranceRequestDashboardPageWidgetState
             userLocation: currentUserLocationValue,
           ),
           userLogRecordReference);
-      FFAppState().update(() {
-        FFAppState().imgURLTemp =
-            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-      });
+      FFAppState().imgURLTemp =
+          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+      FFAppState().update(() {});
     });
 
     animationsMap.addAll({
@@ -319,9 +318,8 @@ class _InsuranceRequestDashboardPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   HapticFeedback.mediumImpact();
-                                  setState(() {
-                                    FFAppState().fromPage = 'Dashboard';
-                                  });
+                                  FFAppState().fromPage = 'Dashboard';
+                                  setState(() {});
 
                                   context.goNamed('InsuranceRequestBasicPage');
                                 },
@@ -395,11 +393,10 @@ class _InsuranceRequestDashboardPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   HapticFeedback.mediumImpact();
-                                  setState(() {
-                                    FFAppState().apiUrlInsurance =
-                                        insuranceRequestDashboardPageUrlLinkStorageRecord!
-                                            .urlLink;
-                                  });
+                                  FFAppState().apiUrlInsurance =
+                                      insuranceRequestDashboardPageUrlLinkStorageRecord!
+                                          .urlLink;
+                                  setState(() {});
 
                                   context.goNamed('InsuranceRequestListPage');
                                 },

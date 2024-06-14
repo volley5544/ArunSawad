@@ -111,16 +111,15 @@ class _DetailListFollowUpDebtWidgetState
             (_model.getListDataPerson?.jsonBody ?? ''),
           ) ==
           200) {
-        setState(() {
-          FFAppState().selectCardList = functions
-              .createFalseListByItemNumber(
-                  false,
-                  CollectionApiGetDataPersonCall.contno(
-                    (_model.getListDataPerson?.jsonBody ?? ''),
-                  )?.length)!
-              .toList()
-              .cast<bool>();
-        });
+        FFAppState().selectCardList = functions
+            .createFalseListByItemNumber(
+                false,
+                CollectionApiGetDataPersonCall.contno(
+                  (_model.getListDataPerson?.jsonBody ?? ''),
+                )?.length)!
+            .toList()
+            .cast<bool>();
+        setState(() {});
       } else {
         Navigator.pop(context);
         await showDialog(
@@ -629,12 +628,11 @@ class _DetailListFollowUpDebtWidgetState
                             singleRecord: true,
                           ).then((s) => s.firstOrNull);
                           _shouldSetState = true;
-                          setState(() {
-                            FFAppState().apiUrlVloanRemark =
-                                _model.getVloanRemarkApiUrl!.urlLink;
-                            FFAppState().tokenVloanRemark =
-                                _model.getVloanRemarkApiUrl!.urlToken;
-                          });
+                          FFAppState().apiUrlVloanRemark =
+                              _model.getVloanRemarkApiUrl!.urlLink;
+                          FFAppState().tokenVloanRemark =
+                              _model.getVloanRemarkApiUrl!.urlToken;
+                          setState(() {});
 
                           context.pushNamed(
                             'saveOnSiteFollowUpDebt',
@@ -868,11 +866,10 @@ class _DetailListFollowUpDebtWidgetState
                             );
                             return;
                           }
-                          setState(() {
-                            FFAppState().saveCalled =
-                                SaveCallStruct.fromSerializableMap(jsonDecode(
-                                    '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                          });
+                          FFAppState().saveCalled =
+                              SaveCallStruct.fromSerializableMap(jsonDecode(
+                                  '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                          setState(() {});
 
                           context.pushNamed(
                             'saveCallFollowUpDebt',
@@ -886,7 +883,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'dateOfExp': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -897,7 +894,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'targetStat': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -908,7 +905,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'contStat': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -919,7 +916,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'expAmt': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -930,7 +927,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'name1': serializeParam(
                                 widget.name,
@@ -949,7 +946,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'expFrm': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -960,7 +957,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'dateOfDue': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -971,7 +968,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'followupDebtTab': serializeParam(
                                 widget.followupDebtTab,
@@ -986,7 +983,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'sumCurrentDueAmt': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -998,7 +995,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'lastPayDate': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -1009,7 +1006,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'historyCount': serializeParam(
                                 functions.returnMapListFromBoolList(
@@ -1020,7 +1017,7 @@ class _DetailListFollowUpDebtWidgetState
                                     FFAppState().selectCardList.toList(),
                                     true),
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                             }.withoutNulls,
                           );
@@ -1072,7 +1069,7 @@ class _DetailListFollowUpDebtWidgetState
                                 (_model.getListDataPerson?.jsonBody ?? ''),
                               )!
                                   .length >
-                              5)
+                              2)
                             Expanded(
                               flex: 5,
                               child: TextFormField(
@@ -1444,7 +1441,7 @@ class _DetailListFollowUpDebtWidgetState
                                                         getJsonField(
                                                           listCardItem,
                                                           r'''$.EXP_FRM''',
-                                                        ))
+                                                        ).toString())
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
@@ -1921,12 +1918,12 @@ class _DetailListFollowUpDebtWidgetState
                                                                                     getJsonField(
                                                                                       listCardItem,
                                                                                       r'''$.EXP_AMT''',
-                                                                                    )) ||
+                                                                                    ).toString()) ||
                                                                                 ('0' ==
                                                                                     getJsonField(
                                                                                       listCardItem,
                                                                                       r'''$.EXP_AMT''',
-                                                                                    ))
+                                                                                    ).toString())
                                                                             ? '-'
                                                                             : '${functions.showNumberWithComma(getJsonField(
                                                                                 listCardItem,
@@ -2300,8 +2297,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                 'ประวัติการโทร',
                                                             options:
                                                                 FFButtonOptions(
-                                                              width: 150.0,
-                                                              height: 30.0,
+                                                              width: 160.0,
+                                                              height: 40.0,
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -2348,7 +2345,7 @@ class _DetailListFollowUpDebtWidgetState
                                                               animationsMap[
                                                                   'buttonOnPageLoadAnimation3']!),
                                                         ),
-                                                        if (false)
+                                                        if (true)
                                                           FFButtonWidget(
                                                             onPressed:
                                                                 () async {
@@ -2368,12 +2365,11 @@ class _DetailListFollowUpDebtWidgetState
                                                                 }.withoutNulls,
                                                               );
                                                             },
-                                                            text:
-                                                                'QR Code ชำระเงิน',
+                                                            text: 'QR ชำระเงิน',
                                                             options:
                                                                 FFButtonOptions(
-                                                              width: 150.0,
-                                                              height: 30.0,
+                                                              width: 160.0,
+                                                              height: 40.0,
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -2484,24 +2480,21 @@ class _DetailListFollowUpDebtWidgetState
                                                               if (newValue!) {
                                                                 HapticFeedback
                                                                     .mediumImpact();
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                      .updateSelectCardListAtIndex(
-                                                                    listCardIndex,
-                                                                    (_) => true,
-                                                                  );
-                                                                });
+                                                                FFAppState()
+                                                                    .updateSelectCardListAtIndex(
+                                                                  listCardIndex,
+                                                                  (_) => true,
+                                                                );
+                                                                setState(() {});
                                                               } else {
                                                                 HapticFeedback
                                                                     .mediumImpact();
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                      .updateSelectCardListAtIndex(
-                                                                    listCardIndex,
-                                                                    (_) =>
-                                                                        false,
-                                                                  );
-                                                                });
+                                                                FFAppState()
+                                                                    .updateSelectCardListAtIndex(
+                                                                  listCardIndex,
+                                                                  (_) => false,
+                                                                );
+                                                                setState(() {});
                                                               }
                                                             },
                                                             side: BorderSide(

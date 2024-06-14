@@ -153,12 +153,11 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
         );
         return;
       }
-      setState(() {
-        FFAppState().ppAmountList = functions
-            .generateListFromString('', widget.countNo?.length)!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().ppAmountList = functions
+          .generateListFromString('', widget.countNo?.length)!
+          .toList()
+          .cast<String>();
+      setState(() {});
       Navigator.pop(context);
     });
 
@@ -173,6 +172,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
           setState(() {
             _model.textController1?.text =
                 functions.removeCommaFromNumText(_model.textController1.text);
+            _model.textController1?.selection = TextSelection.collapsed(
+                offset: _model.textController1!.text.length);
           });
         } else {
           if (_model.textController1.text == '') {
@@ -181,6 +182,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
           setState(() {
             _model.textController1?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController1.text)!;
+            _model.textController1?.selection = TextSelection.collapsed(
+                offset: _model.textController1!.text.length);
           });
         }
       },
@@ -1677,184 +1680,183 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                             onChanged: (val) async {
                                               setState(() => _model
                                                   .dropDownSaveCallValue = val);
-                                              setState(() {
-                                                FFAppState().outputRemarkCode = functions
-                                                    .getValueWithMappedList(
-                                                        functions
-                                                            .generateStringListFromMappedValue(
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        functions
-                                                            .createdCallReasonCollectionDropdown(
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetdesc(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        _model
-                                                            .dropDownSaveCallValue)!;
-                                                FFAppState().outputRemarkDesc = functions
-                                                    .getValueWithMappedList(
-                                                        functions
-                                                            .generateStringListFromMappedValue(
-                                                                CollectionApiVloanDataCall
-                                                                    .remdesc(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        functions
-                                                            .createdCallReasonCollectionDropdown(
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetdesc(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        _model
-                                                            .dropDownSaveCallValue)!;
-                                                FFAppState().outputRemarkDetCode = functions
-                                                    .getValueWithMappedList(
-                                                        functions
-                                                            .generateStringListFromMappedValue(
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        functions
-                                                            .createdCallReasonCollectionDropdown(
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetdesc(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        _model
-                                                            .dropDownSaveCallValue)!;
-                                                FFAppState().outputRemarkDetDesc = functions
-                                                    .getValueWithMappedList(
-                                                        functions
-                                                            .generateStringListFromMappedValue(
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetdesc(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        functions
-                                                            .createdCallReasonCollectionDropdown(
-                                                                CollectionApiVloanDataCall
-                                                                    .remgcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetcode(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                CollectionApiVloanDataCall
-                                                                    .remdetdesc(
-                                                                  (_model.collectionApiVloneData
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.toList(),
-                                                                _model
-                                                                    .dropDownValue)
-                                                            ?.toList(),
-                                                        _model
-                                                            .dropDownSaveCallValue)!;
-                                              });
+                                              FFAppState().outputRemarkCode = functions
+                                                  .getValueWithMappedList(
+                                                      functions
+                                                          .generateStringListFromMappedValue(
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      functions
+                                                          .createdCallReasonCollectionDropdown(
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetdesc(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      _model
+                                                          .dropDownSaveCallValue)!;
+                                              FFAppState().outputRemarkDesc = functions
+                                                  .getValueWithMappedList(
+                                                      functions
+                                                          .generateStringListFromMappedValue(
+                                                              CollectionApiVloanDataCall
+                                                                  .remdesc(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      functions
+                                                          .createdCallReasonCollectionDropdown(
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetdesc(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      _model
+                                                          .dropDownSaveCallValue)!;
+                                              FFAppState().outputRemarkDetCode = functions
+                                                  .getValueWithMappedList(
+                                                      functions
+                                                          .generateStringListFromMappedValue(
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      functions
+                                                          .createdCallReasonCollectionDropdown(
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetdesc(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      _model
+                                                          .dropDownSaveCallValue)!;
+                                              FFAppState().outputRemarkDetDesc = functions
+                                                  .getValueWithMappedList(
+                                                      functions
+                                                          .generateStringListFromMappedValue(
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetdesc(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      functions
+                                                          .createdCallReasonCollectionDropdown(
+                                                              CollectionApiVloanDataCall
+                                                                  .remgcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetcode(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              CollectionApiVloanDataCall
+                                                                  .remdetdesc(
+                                                                (_model.collectionApiVloneData
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toList(),
+                                                              _model
+                                                                  .dropDownValue)
+                                                          ?.toList(),
+                                                      _model
+                                                          .dropDownSaveCallValue)!;
+                                              setState(() {});
                                             },
                                             width: 250.0,
                                             height: 50.0,
@@ -2625,10 +2627,9 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           var _shouldSetState = false;
-                                          setState(() {
-                                            FFAppState().loopStatusTemp =
-                                                'normal';
-                                          });
+                                          FFAppState().loopStatusTemp =
+                                              'normal';
+                                          setState(() {});
                                           var confirmDialogResponse =
                                               await showDialog<bool>(
                                                     context: context,
@@ -2811,26 +2812,23 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                   .text,
                                                             ) !=
                                                             '')) {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .loopStatusTemp =
-                                                            'validate';
-                                                      });
-                                                    }
-                                                    setState(() {
                                                       FFAppState()
-                                                              .loopCountNumber =
-                                                          FFAppState()
-                                                                  .loopCountNumber +
-                                                              1;
-                                                    });
+                                                              .loopStatusTemp =
+                                                          'validate';
+                                                      setState(() {});
+                                                    }
+                                                    FFAppState()
+                                                            .loopCountNumber =
+                                                        FFAppState()
+                                                                .loopCountNumber +
+                                                            1;
+                                                    setState(() {});
                                                   }
                                                 }
 
-                                                setState(() {
-                                                  FFAppState().loopCountNumber =
-                                                      0;
-                                                });
+                                                FFAppState().loopCountNumber =
+                                                    0;
+                                                setState(() {});
                                                 if (FFAppState()
                                                         .loopStatusTemp !=
                                                     'normal') {
@@ -2923,122 +2921,118 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 while (FFAppState()
                                                         .loopCountNumber <
                                                     widget.countNo!.length) {
-                                                  setState(() {
+                                                  FFAppState()
+                                                      .updatePpAmountListAtIndex(
                                                     FFAppState()
-                                                        .updatePpAmountListAtIndex(
+                                                        .loopCountNumber,
+                                                    (_) => functions
+                                                        .removeCommaFromNumText(
+                                                            _model
+                                                                .inputComponentModels
+                                                                .getValueForKey(
                                                       FFAppState()
-                                                          .loopCountNumber,
-                                                      (_) => functions
-                                                          .removeCommaFromNumText(_model
-                                                              .inputComponentModels
-                                                              .getValueForKey(
-                                                        FFAppState()
-                                                            .loopCountNumber
-                                                            .toString(),
-                                                        (m) => m.textController
-                                                            .text,
-                                                      )),
-                                                    );
-                                                  });
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .loopCountNumber =
-                                                        FFAppState()
-                                                                .loopCountNumber +
-                                                            1;
-                                                  });
-                                                }
-                                                setState(() {
+                                                          .loopCountNumber
+                                                          .toString(),
+                                                      (m) =>
+                                                          m.textController.text,
+                                                    )),
+                                                  );
+                                                  setState(() {});
                                                   FFAppState().loopCountNumber =
-                                                      0;
-                                                });
+                                                      FFAppState()
+                                                              .loopCountNumber +
+                                                          1;
+                                                  setState(() {});
+                                                }
+                                                FFAppState().loopCountNumber =
+                                                    0;
+                                                setState(() {});
                                               }
                                             }
-                                            setState(() {
-                                              FFAppState().saveCalled =
-                                                  SaveCallStruct(
-                                                contnoId: widget.id,
-                                                contno: widget.countNo,
-                                                historyLeadStatus: functions
-                                                    .generateListFromString(
-                                                        FFAppState()
-                                                            .outputRemarkDesc,
-                                                        widget.countNo?.length),
-                                                historyReasonName: functions
-                                                    .generateListFromString(
-                                                        FFAppState()
-                                                            .outputRemarkDetDesc,
-                                                        widget.countNo?.length),
-                                                createdUserid: functions
-                                                    .generateListFromString(
-                                                        FFAppState().employeeID,
-                                                        widget.id?.length),
-                                                updatedUserid: functions
-                                                    .generateListFromString(
-                                                        FFAppState().employeeID,
-                                                        widget.id?.length),
-                                                arappdate: FFAppState()
-                                                            .outputRemarkDetCode ==
-                                                        'PP'
-                                                    ? functions
-                                                        .generateListFromString(
-                                                            dateTimeFormat(
-                                                              'y-MM-dd',
-                                                              _model.datePicked,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ),
-                                                            widget.countNo
-                                                                ?.length)
-                                                    : functions
-                                                        .generateListFromString(
-                                                            dateTimeFormat(
-                                                              'y-MM-dd',
-                                                              _model.datePicked,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ),
-                                                            widget.countNo
-                                                                ?.length),
-                                                ardesc: functions
-                                                    .generateListFromString(
-                                                        _model.textController2
-                                                            .text,
-                                                        widget.countNo?.length),
-                                                userid: functions
-                                                    .generateListFromString(
-                                                        FFAppState().employeeID,
-                                                        widget.id?.length),
-                                                remgcode: functions
-                                                    .generateListFromString(
-                                                        FFAppState()
-                                                            .outputRemarkCode,
-                                                        widget.countNo?.length),
-                                                remdetcode: functions
-                                                    .generateListFromString(
-                                                        FFAppState()
-                                                            .outputRemarkDetCode,
-                                                        widget.countNo?.length),
-                                                amount: FFAppState()
-                                                            .outputRemarkDetCode !=
-                                                        'PP'
-                                                    ? functions
-                                                        .generateListFromString(
-                                                            '0',
-                                                            widget.countNo
-                                                                ?.length)
-                                                    : (_model.checkboxValue!
-                                                        ? functions
-                                                            .generateListFromString(
-                                                                '0',
-                                                                widget.countNo
-                                                                    ?.length)
-                                                        : FFAppState()
-                                                            .ppAmountList),
-                                              );
-                                            });
+                                            FFAppState().saveCalled =
+                                                SaveCallStruct(
+                                              contnoId: widget.id,
+                                              contno: widget.countNo,
+                                              historyLeadStatus: functions
+                                                  .generateListFromString(
+                                                      FFAppState()
+                                                          .outputRemarkDesc,
+                                                      widget.countNo?.length),
+                                              historyReasonName: functions
+                                                  .generateListFromString(
+                                                      FFAppState()
+                                                          .outputRemarkDetDesc,
+                                                      widget.countNo?.length),
+                                              createdUserid: functions
+                                                  .generateListFromString(
+                                                      FFAppState().employeeID,
+                                                      widget.id?.length),
+                                              updatedUserid: functions
+                                                  .generateListFromString(
+                                                      FFAppState().employeeID,
+                                                      widget.id?.length),
+                                              arappdate: FFAppState()
+                                                          .outputRemarkDetCode ==
+                                                      'PP'
+                                                  ? functions
+                                                      .generateListFromString(
+                                                          dateTimeFormat(
+                                                            'y-MM-dd',
+                                                            _model.datePicked,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
+                                                          widget
+                                                              .countNo?.length)
+                                                  : functions
+                                                      .generateListFromString(
+                                                          dateTimeFormat(
+                                                            'y-MM-dd',
+                                                            _model.datePicked,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
+                                                                .languageCode,
+                                                          ),
+                                                          widget
+                                                              .countNo?.length),
+                                              ardesc: functions
+                                                  .generateListFromString(
+                                                      _model
+                                                          .textController2.text,
+                                                      widget.countNo?.length),
+                                              userid: functions
+                                                  .generateListFromString(
+                                                      FFAppState().employeeID,
+                                                      widget.id?.length),
+                                              remgcode: functions
+                                                  .generateListFromString(
+                                                      FFAppState()
+                                                          .outputRemarkCode,
+                                                      widget.countNo?.length),
+                                              remdetcode: functions
+                                                  .generateListFromString(
+                                                      FFAppState()
+                                                          .outputRemarkDetCode,
+                                                      widget.countNo?.length),
+                                              amount: FFAppState()
+                                                          .outputRemarkDetCode !=
+                                                      'PP'
+                                                  ? functions
+                                                      .generateListFromString(
+                                                          '0',
+                                                          widget
+                                                              .countNo?.length)
+                                                  : (_model.checkboxValue!
+                                                      ? functions
+                                                          .generateListFromString(
+                                                              '0',
+                                                              widget.countNo
+                                                                  ?.length)
+                                                      : FFAppState()
+                                                          .ppAmountList),
+                                            );
+                                            setState(() {});
                                             if (_model.dropDownSaveCallValue !=
                                                         null &&
                                                     _model.dropDownSaveCallValue !=

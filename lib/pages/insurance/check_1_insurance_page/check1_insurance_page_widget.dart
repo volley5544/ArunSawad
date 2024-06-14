@@ -77,18 +77,17 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
         apiUrl: FFAppState().apiURLLocalState,
       );
       if ((_model.coverTypeAPIOutput?.statusCode ?? 200) == 200) {
-        FFAppState().update(() {
-          FFAppState().coverTypeName = TeleGetCoverTypeAPICall.coverTypeName(
-            (_model.coverTypeAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().coverTypeCode = TeleGetCoverTypeAPICall.coverTypeCode(
-            (_model.coverTypeAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-        });
+        FFAppState().coverTypeName = TeleGetCoverTypeAPICall.coverTypeName(
+          (_model.coverTypeAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().coverTypeCode = TeleGetCoverTypeAPICall.coverTypeCode(
+          (_model.coverTypeAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().update(() {});
       } else {
         await showDialog(
           context: context,
@@ -114,19 +113,18 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
         apiUrl: FFAppState().apiURLLocalState,
       );
       if ((_model.getInsurersAPIOutput?.statusCode ?? 200) == 200) {
-        FFAppState().update(() {
-          FFAppState().insurerFullNameList =
-              TeleGetInsurersAPICall.companyFullName(
-            (_model.getInsurersAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().companyId = TeleGetInsurersAPICall.companyID(
-            (_model.getInsurersAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-        });
+        FFAppState().insurerFullNameList =
+            TeleGetInsurersAPICall.companyFullName(
+          (_model.getInsurersAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().companyId = TeleGetInsurersAPICall.companyID(
+          (_model.getInsurersAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().update(() {});
       } else {
         await showDialog(
           context: context,
@@ -307,11 +305,10 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                   onChanged: (val) async {
                                     setState(
                                         () => _model.garageChooseValue = val);
-                                    FFAppState().update(() {
-                                      FFAppState().garageTypeEng =
-                                          functions.garageTypeToEng(
-                                              _model.garageChooseValue);
-                                    });
+                                    FFAppState().garageTypeEng =
+                                        functions.garageTypeToEng(
+                                            _model.garageChooseValue);
+                                    FFAppState().update(() {});
                                   },
                                   width: 90.0,
                                   height: 60.0,
@@ -389,10 +386,9 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                               onChangeEnd: (newValue) async {
                                 setState(
                                     () => _model.sumInsuredValue = newValue);
-                                FFAppState().update(() {
-                                  FFAppState().sumInsuredChoosenDouble =
-                                      _model.sumInsuredValue!;
-                                });
+                                FFAppState().sumInsuredChoosenDouble =
+                                    _model.sumInsuredValue!;
+                                FFAppState().update(() {});
                               },
                             ),
                             InkWell(
@@ -527,24 +523,20 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               var _shouldSetState = false;
-                              FFAppState().update(() {
-                                FFAppState().coverTypeNameChosen = functions
-                                    .coverTypeToCode(_model
-                                        .coverTypeNameChooseValues
-                                        ?.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().insurerNameChosen = functions
-                                    .companyNameToID(
-                                        FFAppState().companyId.toList(),
-                                        FFAppState()
-                                            .insurerFullNameList
-                                            .toList(),
-                                        _model.insurerNameChooseValues
-                                            ?.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
+                              FFAppState().coverTypeNameChosen = functions
+                                  .coverTypeToCode(_model
+                                      .coverTypeNameChooseValues
+                                      ?.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().insurerNameChosen = functions
+                                  .companyNameToID(
+                                      FFAppState().companyId.toList(),
+                                      FFAppState().insurerFullNameList.toList(),
+                                      _model.insurerNameChooseValues?.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
                               _model.packageSearchAPIOutput =
                                   await TelePackageSearchAPICall.call(
                                 brandCode: widget.brandCode,
@@ -623,86 +615,81 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-                                FFAppState().update(() {
-                                  FFAppState().searchFullName =
-                                      TelePackageSearchAPICall.fullName(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                  FFAppState().searchCoverType =
-                                      TelePackageSearchAPICall.coverType(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                });
-                                FFAppState().update(() {
-                                  FFAppState().searchGarageType =
-                                      TelePackageSearchAPICall.garageType(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                  FFAppState().searchGrossTotal =
-                                      TelePackageSearchAPICall.grossTotal(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                });
-                                FFAppState().update(() {
-                                  FFAppState().searchSumInsured =
-                                      TelePackageSearchAPICall.sumInsured(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                  FFAppState().searchTppd =
-                                      TelePackageSearchAPICall.tppd(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                });
-                                FFAppState().update(() {
-                                  FFAppState().searchPa =
-                                      TelePackageSearchAPICall.pa(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                  FFAppState().searchExpDate =
-                                      TelePackageSearchAPICall.expiryDate(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                });
-                                FFAppState().update(() {
-                                  FFAppState().searchActAmount =
-                                      TelePackageSearchAPICall.actAmount(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                  FFAppState().searchSerialName =
-                                      TelePackageSearchAPICall.serialName(
-                                    (_model.packageSearchAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                });
+                                FFAppState().searchFullName =
+                                    TelePackageSearchAPICall.fullName(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().searchCoverType =
+                                    TelePackageSearchAPICall.coverType(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().update(() {});
+                                FFAppState().searchGarageType =
+                                    TelePackageSearchAPICall.garageType(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().searchGrossTotal =
+                                    TelePackageSearchAPICall.grossTotal(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().update(() {});
+                                FFAppState().searchSumInsured =
+                                    TelePackageSearchAPICall.sumInsured(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().searchTppd =
+                                    TelePackageSearchAPICall.tppd(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().update(() {});
+                                FFAppState().searchPa =
+                                    TelePackageSearchAPICall.pa(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().searchExpDate =
+                                    TelePackageSearchAPICall.expiryDate(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().update(() {});
+                                FFAppState().searchActAmount =
+                                    TelePackageSearchAPICall.actAmount(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().searchSerialName =
+                                    TelePackageSearchAPICall.serialName(
+                                  (_model.packageSearchAPIOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                FFAppState().update(() {});
                               } else {
                                 await showDialog(
                                   context: context,
@@ -726,166 +713,156 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                 return;
                               }
 
-                              FFAppState().update(() {
-                                FFAppState().searchFullName = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchFullName.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchCoverType = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchCoverType.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchGarageType = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchGarageType.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchGrossTotal = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchGrossTotal.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchSumInsured = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchSumInsured.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchTppd = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchTppd.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchPa = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchPa.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchExpDate = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchExpDate.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchActAmount = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchActAmount.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchSerialName = functions
-                                    .filterInsurer(
-                                        FFAppState().garageTypeEng,
-                                        FFAppState().searchGarageType.toList(),
-                                        FFAppState().searchSerialName.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchFullName = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchFullName.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchCoverType = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchCoverType.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchGarageType = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchGarageType.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchGrossTotal = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchGrossTotal.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchSumInsured = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchSumInsured.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchTppd = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchTppd.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchPa = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchPa.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchExpDate = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchExpDate.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
-                              FFAppState().update(() {
-                                FFAppState().searchActAmount = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchActAmount.toList())
-                                    .toList()
-                                    .cast<String>();
-                                FFAppState().searchSerialName = functions
-                                    .filterSumInsured(
-                                        FFAppState().sumInsuredChoosenDouble,
-                                        FFAppState().searchSumInsured.toList(),
-                                        FFAppState().searchSerialName.toList())
-                                    .toList()
-                                    .cast<String>();
-                              });
+                              FFAppState().searchFullName = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchFullName.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchCoverType = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchCoverType.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchGarageType = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchGarageType.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchGrossTotal = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchGrossTotal.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchSumInsured = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchSumInsured.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchTppd = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchTppd.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchPa = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchPa.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchExpDate = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchExpDate.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchActAmount = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchActAmount.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchSerialName = functions
+                                  .filterInsurer(
+                                      FFAppState().garageTypeEng,
+                                      FFAppState().searchGarageType.toList(),
+                                      FFAppState().searchSerialName.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchFullName = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchFullName.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchCoverType = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchCoverType.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchGarageType = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchGarageType.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchGrossTotal = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchGrossTotal.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchSumInsured = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchSumInsured.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchTppd = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchTppd.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchPa = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchPa.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchExpDate = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchExpDate.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
+                              FFAppState().searchActAmount = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchActAmount.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().searchSerialName = functions
+                                  .filterSumInsured(
+                                      FFAppState().sumInsuredChoosenDouble,
+                                      FFAppState().searchSumInsured.toList(),
+                                      FFAppState().searchSerialName.toList())
+                                  .toList()
+                                  .cast<String>();
+                              FFAppState().update(() {});
                               if (FFAppState().searchFullName.length == 0) {
                                 await showDialog(
                                   context: context,

@@ -126,29 +126,27 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
       _model.getMaterialAPIOutput = await GetMaterialAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
-      FFAppState().update(() {
-        FFAppState().materialRecordId = GetMaterialAPICall.recordID(
-          (_model.getMaterialAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().materialsAmount = functions
-            .createMatAmountList(FFAppState().materialRecordId.length)!
-            .toList()
-            .cast<int>();
-      });
-      FFAppState().update(() {
-        FFAppState().materialNameList = GetMaterialAPICall.materialName(
-          (_model.getMaterialAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().materialImgList = GetMaterialAPICall.imgUrl(
-          (_model.getMaterialAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().materialRecordId = GetMaterialAPICall.recordID(
+        (_model.getMaterialAPIOutput?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().materialsAmount = functions
+          .createMatAmountList(FFAppState().materialRecordId.length)!
+          .toList()
+          .cast<int>();
+      FFAppState().update(() {});
+      FFAppState().materialNameList = GetMaterialAPICall.materialName(
+        (_model.getMaterialAPIOutput?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().materialImgList = GetMaterialAPICall.imgUrl(
+        (_model.getMaterialAPIOutput?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
@@ -683,11 +681,9 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                   if (!confirmDialogResponse) {
                                                     return;
                                                   }
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                        .removeFromImgURL(
-                                                            uploadedImgItem);
-                                                  });
+                                                  FFAppState().removeFromImgURL(
+                                                      uploadedImgItem);
+                                                  FFAppState().update(() {});
                                                 },
                                               ),
                                             ],
@@ -2228,19 +2224,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                 () async {
                                                               HapticFeedback
                                                                   .mediumImpact();
+                                                              FFAppState().materialsAmount = functions
+                                                                  .matAmountListCounterValue(
+                                                                      FFAppState()
+                                                                          .materialsAmount
+                                                                          .toList(),
+                                                                      materialDetailIndex,
+                                                                      false)!
+                                                                  .toList()
+                                                                  .cast<int>();
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState().materialsAmount = functions
-                                                                    .matAmountListCounterValue(
-                                                                        FFAppState()
-                                                                            .materialsAmount
-                                                                            .toList(),
-                                                                        materialDetailIndex,
-                                                                        false)!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        int>();
-                                                              });
+                                                                  .update(
+                                                                      () {});
                                                             },
                                                           ),
                                                         if (functions
@@ -2367,19 +2362,18 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                                 () async {
                                                               HapticFeedback
                                                                   .mediumImpact();
+                                                              FFAppState().materialsAmount = functions
+                                                                  .matAmountListCounterValue(
+                                                                      FFAppState()
+                                                                          .materialsAmount
+                                                                          .toList(),
+                                                                      materialDetailIndex,
+                                                                      true)!
+                                                                  .toList()
+                                                                  .cast<int>();
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState().materialsAmount = functions
-                                                                    .matAmountListCounterValue(
-                                                                        FFAppState()
-                                                                            .materialsAmount
-                                                                            .toList(),
-                                                                        materialDetailIndex,
-                                                                        true)!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        int>();
-                                                              });
+                                                                  .update(
+                                                                      () {});
                                                             },
                                                           ),
                                                         if (functions
@@ -3214,17 +3208,16 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             ) ??
                                             false;
                                     if (confirmDialogResponse) {
-                                      FFAppState().update(() {
-                                        FFAppState().materialsAmount = functions
-                                            .updateMatAmountList(
-                                                FFAppState()
-                                                    .materialsAmount
-                                                    .toList(),
-                                                0,
-                                                1)!
-                                            .toList()
-                                            .cast<int>();
-                                      });
+                                      FFAppState().materialsAmount = functions
+                                          .updateMatAmountList(
+                                              FFAppState()
+                                                  .materialsAmount
+                                                  .toList(),
+                                              0,
+                                              1)!
+                                          .toList()
+                                          .cast<int>();
+                                      FFAppState().update(() {});
                                     } else {
                                       if (_shouldSetState) setState(() {});
                                       return;
@@ -3392,15 +3385,13 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         ),
                                       }, fileUploadRecordReference);
                                       _shouldSetState = true;
-                                      FFAppState().update(() {
-                                        FFAppState().imgURLTemp =
-                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-                                        FFAppState().imgURL = [];
-                                      });
+                                      FFAppState().imgURLTemp =
+                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                      FFAppState().imgURL = [];
+                                      FFAppState().update(() {});
                                     }
-                                    FFAppState().update(() {
-                                      FFAppState().locationTemp = '';
-                                    });
+                                    FFAppState().locationTemp = '';
+                                    FFAppState().update(() {});
                                   } else {
                                     Navigator.pop(context);
                                     await showDialog(

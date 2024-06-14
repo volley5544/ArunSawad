@@ -97,81 +97,69 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                 userLocation: currentUserLocationValue,
               ),
               userLogRecordReference);
-          FFAppState().update(() {
-            FFAppState().loginStateFirebase = '[loginStateFirebase]';
-            FFAppState().deleteAccessToken();
-            FFAppState().accessToken = 'access_token';
-          });
-          FFAppState().update(() {
-            FFAppState().deleteEmployeeID();
-            FFAppState().employeeID = 'employee_id';
+          FFAppState().loginStateFirebase = '[loginStateFirebase]';
+          FFAppState().deleteAccessToken();
+          FFAppState().accessToken = 'access_token';
 
-            FFAppState().QRCodeLink = 'qrcode_link';
-          });
-          FFAppState().update(() {
-            FFAppState().deleteApiURLLocalState();
-            FFAppState().apiURLLocalState = 'api_url_local_state';
+          FFAppState().update(() {});
+          FFAppState().deleteEmployeeID();
+          FFAppState().employeeID = 'employee_id';
 
-            FFAppState().deleteBranchCode();
-            FFAppState().branchCode = 'branch_code';
-          });
-          FFAppState().update(() {
-            FFAppState().isFromSetPinPage = false;
-            FFAppState().leadChannelColor = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelList = [];
-            FFAppState().isFromLoginPage = false;
-          });
-          FFAppState().update(() {
-            FFAppState().deletePinCodeAuthen();
-            FFAppState().pinCodeAuthen = '013972';
+          FFAppState().QRCodeLink = 'qrcode_link';
+          FFAppState().update(() {});
+          FFAppState().deleteApiURLLocalState();
+          FFAppState().apiURLLocalState = 'api_url_local_state';
 
-            FFAppState().isFromAuthenPage = false;
-          });
-          FFAppState().update(() {
-            FFAppState().deleteDateDoNotShowAgain();
-            FFAppState().dateDoNotShowAgain = null;
+          FFAppState().deleteBranchCode();
+          FFAppState().branchCode = 'branch_code';
 
-            FFAppState().deleteDoNotShowAgain();
-            FFAppState().doNotShowAgain = false;
-          });
-          FFAppState().update(() {
-            FFAppState().inAppViaNotification = true;
-            FFAppState().isInApp = false;
-          });
-          FFAppState().update(() {
-            FFAppState().fcmToken = 'fcm_token';
-            FFAppState().isPassLoginSection = false;
-          });
-          FFAppState().update(() {
-            FFAppState().leadID = [];
-            FFAppState().leadCreatedTimeList = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadCustomerNameList = [];
-            FFAppState().leadChannelList = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelColor = [];
-            FFAppState().leadCallStatus = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadPhoneNumberList = [];
-            FFAppState().leadEmployeeID = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelLabelColor = [];
-            FFAppState().deleteLeadIdCalledInApp();
-            FFAppState().leadIdCalledInApp = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadBranchCode = [];
-            FFAppState().leadUserLevel = 'lead_user_level';
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelAmountList = [];
-          });
+          FFAppState().update(() {});
+          FFAppState().isFromSetPinPage = false;
+          FFAppState().leadChannelColor = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelList = [];
+          FFAppState().isFromLoginPage = false;
+          FFAppState().update(() {});
+          FFAppState().deletePinCodeAuthen();
+          FFAppState().pinCodeAuthen = '013972';
+
+          FFAppState().isFromAuthenPage = false;
+          FFAppState().update(() {});
+          FFAppState().deleteDateDoNotShowAgain();
+          FFAppState().dateDoNotShowAgain = null;
+
+          FFAppState().deleteDoNotShowAgain();
+          FFAppState().doNotShowAgain = false;
+
+          FFAppState().update(() {});
+          FFAppState().inAppViaNotification = true;
+          FFAppState().isInApp = false;
+          FFAppState().update(() {});
+          FFAppState().fcmToken = 'fcm_token';
+          FFAppState().isPassLoginSection = false;
+          FFAppState().update(() {});
+          FFAppState().leadID = [];
+          FFAppState().leadCreatedTimeList = [];
+          FFAppState().update(() {});
+          FFAppState().leadCustomerNameList = [];
+          FFAppState().leadChannelList = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelColor = [];
+          FFAppState().leadCallStatus = [];
+          FFAppState().update(() {});
+          FFAppState().leadPhoneNumberList = [];
+          FFAppState().leadEmployeeID = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelLabelColor = [];
+          FFAppState().deleteLeadIdCalledInApp();
+          FFAppState().leadIdCalledInApp = [];
+
+          FFAppState().update(() {});
+          FFAppState().leadBranchCode = [];
+          FFAppState().leadUserLevel = 'lead_user_level';
+          FFAppState().update(() {});
+          FFAppState().leadChannelAmountList = [];
+          FFAppState().update(() {});
           Navigator.pop(context);
           await actions.a22();
 
@@ -1441,24 +1429,25 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                 onTap:
                                                                     () async {
                                                                   FFAppState()
+                                                                          .leaveDocImgPathList =
+                                                                      functions
+                                                                          .leaveStringImgToImgPathList(valueOrDefault<
+                                                                              String>(
+                                                                            functions.showMatNameInList(
+                                                                                functions
+                                                                                    .reverseList(LeaveListAPICall.leaveDocument(
+                                                                                      (_model.leaveListAPIOutput?.jsonBody ?? ''),
+                                                                                    )?.toList())
+                                                                                    .toList(),
+                                                                                leaveIdItemIndex),
+                                                                            '[leave_name]',
+                                                                          ))!
+                                                                          .toList()
+                                                                          .cast<
+                                                                              String>();
+                                                                  FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .leaveDocImgPathList =
-                                                                        functions
-                                                                            .leaveStringImgToImgPathList(valueOrDefault<String>(
-                                                                              functions.showMatNameInList(
-                                                                                  functions
-                                                                                      .reverseList(LeaveListAPICall.leaveDocument(
-                                                                                        (_model.leaveListAPIOutput?.jsonBody ?? ''),
-                                                                                      )?.toList())
-                                                                                      .toList(),
-                                                                                  leaveIdItemIndex),
-                                                                              '[leave_name]',
-                                                                            ))!
-                                                                            .toList()
-                                                                            .cast<String>();
-                                                                  });
+                                                                          () {});
                                                                   if (FFAppState()
                                                                           .leaveDocImgPathList
                                                                           .length <=
@@ -1642,22 +1631,23 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                     HapticFeedback
                                                                         .mediumImpact();
                                                                     FFAppState()
+                                                                            .leaveDocImgPathList =
+                                                                        functions
+                                                                            .leaveStringImgToImgPathList(valueOrDefault<String>(
+                                                                              functions.showMatNameInList(
+                                                                                  functions
+                                                                                      .reverseList(LeaveListAPICall.leaveDocument(
+                                                                                        (_model.leaveListAPIOutput?.jsonBody ?? ''),
+                                                                                      )?.toList())
+                                                                                      .toList(),
+                                                                                  leaveIdItemIndex),
+                                                                              '[leave_name]',
+                                                                            ))!
+                                                                            .toList()
+                                                                            .cast<String>();
+                                                                    FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState().leaveDocImgPathList = functions
-                                                                          .leaveStringImgToImgPathList(valueOrDefault<String>(
-                                                                            functions.showMatNameInList(
-                                                                                functions
-                                                                                    .reverseList(LeaveListAPICall.leaveDocument(
-                                                                                      (_model.leaveListAPIOutput?.jsonBody ?? ''),
-                                                                                    )?.toList())
-                                                                                    .toList(),
-                                                                                leaveIdItemIndex),
-                                                                            '[leave_name]',
-                                                                          ))!
-                                                                          .toList()
-                                                                          .cast<String>();
-                                                                    });
+                                                                            () {});
                                                                     if (functions.showMatNameInList(
                                                                             functions
                                                                                 .reverseList(LeaveListAPICall.leaveName(
@@ -1849,7 +1839,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                               .leaveDocImgPathList,
                                                                           ParamType
                                                                               .String,
-                                                                          true,
+                                                                          isList:
+                                                                              true,
                                                                         ),
                                                                       }.withoutNulls,
                                                                     );

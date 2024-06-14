@@ -45,7 +45,6 @@ class DetailListFollowUpDebtModel
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for Checkbox widget.
-
   Map<dynamic, bool> checkboxValueMap = {};
   List<dynamic> get checkboxCheckedItems =>
       checkboxValueMap.entries.where((e) => e.value).map((e) => e.key).toList();

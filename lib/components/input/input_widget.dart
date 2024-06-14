@@ -147,10 +147,8 @@ class _InputWidgetState extends State<InputWidget> {
             onPressed: () async {
               if (_model.textController.text != null &&
                   _model.textController.text != '') {
-                FFAppState().update(() {
-                  FFAppState().counterNum =
-                      int.parse(_model.textController.text);
-                });
+                FFAppState().counterNum = int.parse(_model.textController.text);
+                FFAppState().update(() {});
                 if (FFAppState().counterNum >= 0) {
                   if (widget.index == 0) {
                     if (FFAppState().counterNum > 1) {
@@ -172,9 +170,8 @@ class _InputWidgetState extends State<InputWidget> {
                           );
                         },
                       );
-                      FFAppState().update(() {
-                        FFAppState().counterNum = 0;
-                      });
+                      FFAppState().counterNum = 0;
+                      FFAppState().update(() {});
                       return;
                     }
                   } else {
@@ -198,9 +195,8 @@ class _InputWidgetState extends State<InputWidget> {
                           );
                         },
                       );
-                      FFAppState().update(() {
-                        FFAppState().counterNum = 0;
-                      });
+                      FFAppState().counterNum = 0;
+                      FFAppState().update(() {});
                       return;
                     }
                   }
@@ -223,15 +219,13 @@ class _InputWidgetState extends State<InputWidget> {
                       );
                     },
                   );
-                  FFAppState().update(() {
-                    FFAppState().counterNum = 0;
-                  });
+                  FFAppState().counterNum = 0;
+                  FFAppState().update(() {});
                   return;
                 }
 
-                FFAppState().update(() {
-                  FFAppState().counterNum = 0;
-                });
+                FFAppState().counterNum = 0;
+                FFAppState().update(() {});
               } else {
                 await showDialog(
                   context: context,
@@ -253,13 +247,12 @@ class _InputWidgetState extends State<InputWidget> {
                 return;
               }
 
-              FFAppState().update(() {
-                FFAppState().materialsAmount = functions
-                    .updateMatAmountList(FFAppState().materialsAmount.toList(),
-                        widget.index, int.tryParse(_model.textController.text))!
-                    .toList()
-                    .cast<int>();
-              });
+              FFAppState().materialsAmount = functions
+                  .updateMatAmountList(FFAppState().materialsAmount.toList(),
+                      widget.index, int.tryParse(_model.textController.text))!
+                  .toList()
+                  .cast<int>();
+              FFAppState().update(() {});
               Navigator.pop(context);
             },
             text: 'ตกลง',

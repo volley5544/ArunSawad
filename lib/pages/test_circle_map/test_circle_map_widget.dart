@@ -92,14 +92,13 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                       onPressed: () async {
                         _model.getCheckinImgUrl1 =
                             await GetCheckinImgUrlApiCall.call();
-                        setState(() {
-                          FFAppState().idNumberTemp = functions
-                              .convertDynamicListToFirstIntValue(getJsonField(
-                            (_model.getCheckinImgUrl1?.jsonBody ?? ''),
-                            r'''$[:].id''',
-                            true,
-                          ));
-                        });
+                        FFAppState().idNumberTemp = functions
+                            .convertDynamicListToFirstIntValue(getJsonField(
+                          (_model.getCheckinImgUrl1?.jsonBody ?? ''),
+                          r'''$[:].id''',
+                          true,
+                        ));
+                        setState(() {});
                         await actions.deleteFileByUrlBatch(
                           GetCheckinImgUrlApiCall.imageUrl(
                             (_model.getCheckinImgUrl1?.jsonBody ?? ''),
@@ -134,12 +133,11 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                       onPressed: () async {
                         _model.getCheckinImgUrl2 =
                             await GetCheckinImgUrlUrlApiCall.call();
-                        setState(() {
-                          FFAppState().idNumberTemp = getJsonField(
-                            (_model.getCheckinImgUrl2?.jsonBody ?? ''),
-                            r'''$[:].id''',
-                          );
-                        });
+                        FFAppState().idNumberTemp = getJsonField(
+                          (_model.getCheckinImgUrl2?.jsonBody ?? ''),
+                          r'''$[:].id''',
+                        );
+                        setState(() {});
                         await actions.deleteFileByUrlBatch(
                           GetCheckinImgUrlUrlApiCall.imageUrl(
                             (_model.getCheckinImgUrl2?.jsonBody ?? ''),

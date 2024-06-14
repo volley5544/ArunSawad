@@ -1647,10 +1647,11 @@ class LeaveDayAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static dynamic messageLayer2(dynamic response) => getJsonField(
+  static String? messageLayer2(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.Detail.message''',
-      );
+      ));
 }
 
 class LogoutAPICall {
@@ -7151,6 +7152,24 @@ class GetKPIAllCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? countPolicyNoMOTOR(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..CountPolicyNo_MOTOR''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? totalPremiumMOTOR(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[*]..Total_Premium_MOTOR''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetLeadCalledStatusDropdownAPICall {
@@ -10031,10 +10050,17 @@ class ApiPagingParams {
       'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
+String _toEncodable(dynamic item) {
+  if (item is DocumentReference) {
+    return item.path;
+  }
+  return item;
+}
+
 String _serializeList(List? list) {
   list ??= <String>[];
   try {
-    return json.encode(list);
+    return json.encode(list, toEncodable: _toEncodable);
   } catch (_) {
     if (kDebugMode) {
       print("List serialization failed. Returning empty list.");
@@ -10046,7 +10072,7 @@ String _serializeList(List? list) {
 String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   jsonVar ??= (isList ? [] : {});
   try {
-    return json.encode(jsonVar);
+    return json.encode(jsonVar, toEncodable: _toEncodable);
   } catch (_) {
     if (kDebugMode) {
       print("Json serialization failed. Returning empty json.");

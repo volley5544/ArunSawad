@@ -66,14 +66,10 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
         parameters: {'screen_name': 'EditLeavePage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().update(() {
-        FFAppState().leaveTypeEdit = functions
-            .leaveTypeToList1(widget.leaveType)!
-            .toList()
-            .cast<String>();
-        FFAppState().leaveDaysDouble =
-            functions.stringToDouble(widget.leaveDay);
-      });
+      FFAppState().leaveTypeEdit =
+          functions.leaveTypeToList1(widget.leaveType)!.toList().cast<String>();
+      FFAppState().leaveDaysDouble = functions.stringToDouble(widget.leaveDay);
+      FFAppState().update(() {});
       _model.getHolidayAPIOutput = await GetHolidayAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
@@ -891,13 +887,12 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                             return;
                                                           } else {
                                                             FFAppState()
-                                                                .update(() {
-                                                              FFAppState()
-                                                                      .leaveDaysDouble =
-                                                                  double.parse(_model
-                                                                      .leaveDaysTextController
-                                                                      .text);
-                                                            });
+                                                                    .leaveDaysDouble =
+                                                                double.parse(_model
+                                                                    .leaveDaysTextController
+                                                                    .text);
+                                                            FFAppState()
+                                                                .update(() {});
                                                           }
 
                                                           if ((widget.leaveType ==
@@ -973,13 +968,12 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                           return;
                                                         } else {
                                                           FFAppState()
-                                                              .update(() {
-                                                            FFAppState()
-                                                                    .leaveDaysDouble =
-                                                                double.parse(_model
-                                                                    .leaveDaysTextController
-                                                                    .text);
-                                                          });
+                                                                  .leaveDaysDouble =
+                                                              double.parse(_model
+                                                                  .leaveDaysTextController
+                                                                  .text);
+                                                          FFAppState()
+                                                              .update(() {});
                                                         }
 
                                                         if ((widget.leaveType ==
@@ -2222,46 +2216,41 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
 
                                             if (_model.leaveTimeValue ==
                                                 'ลาเต็มวัน') {
-                                              FFAppState().update(() {
-                                                FFAppState().leaveDaysLocal =
-                                                    _model
-                                                        .leaveDaysTextController
-                                                        .text;
-                                                FFAppState().leaveDaysDouble =
-                                                    double.parse(_model
-                                                        .leaveDaysTextController
-                                                        .text);
-                                                FFAppState()
-                                                        .checkAllowLeaveDay =
-                                                    functions.allowLeaveDay(
-                                                        widget.leaveType,
-                                                        FFAppState()
-                                                            .totalLeave
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .leaveDaysDouble)!;
-                                                FFAppState().leaveDayInt =
-                                                    int.parse(_model
-                                                        .leaveDaysTextController
-                                                        .text);
-                                              });
+                                              FFAppState().leaveDaysLocal =
+                                                  _model.leaveDaysTextController
+                                                      .text;
+                                              FFAppState().leaveDaysDouble =
+                                                  double.parse(_model
+                                                      .leaveDaysTextController
+                                                      .text);
+                                              FFAppState().checkAllowLeaveDay =
+                                                  functions.allowLeaveDay(
+                                                      widget.leaveType,
+                                                      FFAppState()
+                                                          .totalLeave
+                                                          .toList(),
+                                                      FFAppState()
+                                                          .leaveDaysDouble)!;
+                                              FFAppState().leaveDayInt =
+                                                  int.parse(_model
+                                                      .leaveDaysTextController
+                                                      .text);
+                                              FFAppState().update(() {});
                                             } else {
-                                              FFAppState().update(() {
-                                                FFAppState().leaveDaysLocal =
-                                                    '0.5';
-                                                FFAppState().leaveDaysDouble =
-                                                    0.5;
-                                                FFAppState()
-                                                        .checkAllowLeaveDay =
-                                                    functions.allowLeaveDay(
-                                                        widget.leaveType,
-                                                        FFAppState()
-                                                            .totalLeave
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .leaveDaysDouble)!;
-                                                FFAppState().leaveDayInt = 0;
-                                              });
+                                              FFAppState().leaveDaysLocal =
+                                                  '0.5';
+                                              FFAppState().leaveDaysDouble =
+                                                  0.5;
+                                              FFAppState().checkAllowLeaveDay =
+                                                  functions.allowLeaveDay(
+                                                      widget.leaveType,
+                                                      FFAppState()
+                                                          .totalLeave
+                                                          .toList(),
+                                                      FFAppState()
+                                                          .leaveDaysDouble)!;
+                                              FFAppState().leaveDayInt = 0;
+                                              FFAppState().update(() {});
                                             }
 
                                             var confirmDialogResponse =
@@ -2508,135 +2497,134 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                   ),
                                                                   userLogRecordReference1);
                                                       _shouldSetState = true;
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .loginStateFirebase =
-                                                            '[loginStateFirebase]';
-                                                        FFAppState()
-                                                            .deleteAccessToken();
-                                                        FFAppState()
-                                                                .accessToken =
-                                                            'access_token';
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .deleteEmployeeID();
-                                                        FFAppState()
-                                                                .employeeID =
-                                                            'employee_id';
+                                                      FFAppState()
+                                                              .loginStateFirebase =
+                                                          '[loginStateFirebase]';
+                                                      FFAppState()
+                                                          .deleteAccessToken();
+                                                      FFAppState().accessToken =
+                                                          'access_token';
 
-                                                        FFAppState()
-                                                                .QRCodeLink =
-                                                            'qrcode_link';
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .deleteApiURLLocalState();
-                                                        FFAppState()
-                                                                .apiURLLocalState =
-                                                            'api_url_local_state';
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .deleteEmployeeID();
+                                                      FFAppState().employeeID =
+                                                          'employee_id';
 
-                                                        FFAppState()
-                                                            .deleteBranchCode();
-                                                        FFAppState()
-                                                                .branchCode =
-                                                            'branch_code';
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isFromSetPinPage =
-                                                            false;
-                                                        FFAppState()
-                                                            .leadChannelColor = [];
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .leadChannelList = [];
-                                                        FFAppState()
-                                                                .isFromLoginPage =
-                                                            false;
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .deletePinCodeAuthen();
-                                                        FFAppState()
-                                                                .pinCodeAuthen =
-                                                            '013972';
+                                                      FFAppState().QRCodeLink =
+                                                          'qrcode_link';
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .deleteApiURLLocalState();
+                                                      FFAppState()
+                                                              .apiURLLocalState =
+                                                          'api_url_local_state';
 
-                                                        FFAppState()
-                                                                .isFromAuthenPage =
-                                                            false;
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .deleteDateDoNotShowAgain();
-                                                        FFAppState()
-                                                                .dateDoNotShowAgain =
-                                                            null;
+                                                      FFAppState()
+                                                          .deleteBranchCode();
+                                                      FFAppState().branchCode =
+                                                          'branch_code';
 
-                                                        FFAppState()
-                                                            .deleteDoNotShowAgain();
-                                                        FFAppState()
-                                                                .doNotShowAgain =
-                                                            false;
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .inAppViaNotification =
-                                                            true;
-                                                        FFAppState().isInApp =
-                                                            false;
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState().fcmToken =
-                                                            'fcm_token';
-                                                        FFAppState()
-                                                                .isPassLoginSection =
-                                                            false;
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState().leadID =
-                                                            [];
-                                                        FFAppState()
-                                                            .leadCreatedTimeList = [];
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .leadCustomerNameList = [];
-                                                        FFAppState()
-                                                            .leadChannelList = [];
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .leadChannelColor = [];
-                                                        FFAppState()
-                                                            .leadCallStatus = [];
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .leadPhoneNumberList = [];
-                                                        FFAppState()
-                                                            .leadEmployeeID = [];
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .leadChannelLabelColor = [];
-                                                        FFAppState()
-                                                            .deleteLeadIdCalledInApp();
-                                                        FFAppState()
-                                                            .leadIdCalledInApp = [];
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .leadBranchCode = [];
-                                                        FFAppState()
-                                                                .leadUserLevel =
-                                                            'lead_user_level';
-                                                      });
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                            .leadChannelAmountList = [];
-                                                      });
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                              .isFromSetPinPage =
+                                                          false;
+                                                      FFAppState()
+                                                          .leadChannelColor = [];
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .leadChannelList = [];
+                                                      FFAppState()
+                                                              .isFromLoginPage =
+                                                          false;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .deletePinCodeAuthen();
+                                                      FFAppState()
+                                                              .pinCodeAuthen =
+                                                          '013972';
+
+                                                      FFAppState()
+                                                              .isFromAuthenPage =
+                                                          false;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .deleteDateDoNotShowAgain();
+                                                      FFAppState()
+                                                              .dateDoNotShowAgain =
+                                                          null;
+
+                                                      FFAppState()
+                                                          .deleteDoNotShowAgain();
+                                                      FFAppState()
+                                                              .doNotShowAgain =
+                                                          false;
+
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                              .inAppViaNotification =
+                                                          true;
+                                                      FFAppState().isInApp =
+                                                          false;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState().fcmToken =
+                                                          'fcm_token';
+                                                      FFAppState()
+                                                              .isPassLoginSection =
+                                                          false;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState().leadID = [];
+                                                      FFAppState()
+                                                          .leadCreatedTimeList = [];
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .leadCustomerNameList = [];
+                                                      FFAppState()
+                                                          .leadChannelList = [];
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .leadChannelColor = [];
+                                                      FFAppState()
+                                                          .leadCallStatus = [];
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .leadPhoneNumberList = [];
+                                                      FFAppState()
+                                                          .leadEmployeeID = [];
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .leadChannelLabelColor = [];
+                                                      FFAppState()
+                                                          .deleteLeadIdCalledInApp();
+                                                      FFAppState()
+                                                          .leadIdCalledInApp = [];
+
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .leadBranchCode = [];
+                                                      FFAppState()
+                                                              .leadUserLevel =
+                                                          'lead_user_level';
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      FFAppState()
+                                                          .leadChannelAmountList = [];
+                                                      FFAppState()
+                                                          .update(() {});
                                                       Navigator.pop(context);
                                                       await actions.a22();
 
@@ -2937,130 +2925,115 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                                 ),
                                                                 userLogRecordReference2);
                                                     _shouldSetState = true;
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .loginStateFirebase =
-                                                          '[loginStateFirebase]';
-                                                      FFAppState()
-                                                          .deleteAccessToken();
-                                                      FFAppState().accessToken =
-                                                          'access_token';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deleteEmployeeID();
-                                                      FFAppState().employeeID =
-                                                          'employee_id';
+                                                    FFAppState()
+                                                            .loginStateFirebase =
+                                                        '[loginStateFirebase]';
+                                                    FFAppState()
+                                                        .deleteAccessToken();
+                                                    FFAppState().accessToken =
+                                                        'access_token';
 
-                                                      FFAppState().QRCodeLink =
-                                                          'qrcode_link';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deleteApiURLLocalState();
-                                                      FFAppState()
-                                                              .apiURLLocalState =
-                                                          'api_url_local_state';
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deleteEmployeeID();
+                                                    FFAppState().employeeID =
+                                                        'employee_id';
 
-                                                      FFAppState()
-                                                          .deleteBranchCode();
-                                                      FFAppState().branchCode =
-                                                          'branch_code';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .isFromSetPinPage =
-                                                          false;
-                                                      FFAppState()
-                                                          .leadChannelColor = [];
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .leadChannelList = [];
-                                                      FFAppState()
-                                                              .isFromLoginPage =
-                                                          false;
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deletePinCodeAuthen();
-                                                      FFAppState()
-                                                              .pinCodeAuthen =
-                                                          '013972';
+                                                    FFAppState().QRCodeLink =
+                                                        'qrcode_link';
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deleteApiURLLocalState();
+                                                    FFAppState()
+                                                            .apiURLLocalState =
+                                                        'api_url_local_state';
 
-                                                      FFAppState()
-                                                              .isFromAuthenPage =
-                                                          false;
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deleteDateDoNotShowAgain();
-                                                      FFAppState()
-                                                              .dateDoNotShowAgain =
-                                                          null;
+                                                    FFAppState()
+                                                        .deleteBranchCode();
+                                                    FFAppState().branchCode =
+                                                        'branch_code';
 
-                                                      FFAppState()
-                                                          .deleteDoNotShowAgain();
-                                                      FFAppState()
-                                                              .doNotShowAgain =
-                                                          false;
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .inAppViaNotification =
-                                                          true;
-                                                      FFAppState().isInApp =
-                                                          false;
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState().fcmToken =
-                                                          'fcm_token';
-                                                      FFAppState()
-                                                              .isPassLoginSection =
-                                                          false;
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState().leadID = [];
-                                                      FFAppState()
-                                                          .leadCreatedTimeList = [];
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .leadCustomerNameList = [];
-                                                      FFAppState()
-                                                          .leadChannelList = [];
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .leadChannelColor = [];
-                                                      FFAppState()
-                                                          .leadCallStatus = [];
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .leadPhoneNumberList = [];
-                                                      FFAppState()
-                                                          .leadEmployeeID = [];
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .leadChannelLabelColor = [];
-                                                      FFAppState()
-                                                          .deleteLeadIdCalledInApp();
-                                                      FFAppState()
-                                                          .leadIdCalledInApp = [];
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .leadBranchCode = [];
-                                                      FFAppState()
-                                                              .leadUserLevel =
-                                                          'lead_user_level';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .leadChannelAmountList = [];
-                                                    });
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                            .isFromSetPinPage =
+                                                        false;
+                                                    FFAppState()
+                                                        .leadChannelColor = [];
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .leadChannelList = [];
+                                                    FFAppState()
+                                                            .isFromLoginPage =
+                                                        false;
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deletePinCodeAuthen();
+                                                    FFAppState().pinCodeAuthen =
+                                                        '013972';
+
+                                                    FFAppState()
+                                                            .isFromAuthenPage =
+                                                        false;
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deleteDateDoNotShowAgain();
+                                                    FFAppState()
+                                                            .dateDoNotShowAgain =
+                                                        null;
+
+                                                    FFAppState()
+                                                        .deleteDoNotShowAgain();
+                                                    FFAppState()
+                                                        .doNotShowAgain = false;
+
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                            .inAppViaNotification =
+                                                        true;
+                                                    FFAppState().isInApp =
+                                                        false;
+                                                    FFAppState().update(() {});
+                                                    FFAppState().fcmToken =
+                                                        'fcm_token';
+                                                    FFAppState()
+                                                            .isPassLoginSection =
+                                                        false;
+                                                    FFAppState().update(() {});
+                                                    FFAppState().leadID = [];
+                                                    FFAppState()
+                                                        .leadCreatedTimeList = [];
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .leadCustomerNameList = [];
+                                                    FFAppState()
+                                                        .leadChannelList = [];
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .leadChannelColor = [];
+                                                    FFAppState()
+                                                        .leadCallStatus = [];
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .leadPhoneNumberList = [];
+                                                    FFAppState()
+                                                        .leadEmployeeID = [];
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .leadChannelLabelColor = [];
+                                                    FFAppState()
+                                                        .deleteLeadIdCalledInApp();
+                                                    FFAppState()
+                                                        .leadIdCalledInApp = [];
+
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .leadBranchCode = [];
+                                                    FFAppState().leadUserLevel =
+                                                        'lead_user_level';
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .leadChannelAmountList = [];
+                                                    FFAppState().update(() {});
                                                     Navigator.pop(context);
                                                     await actions.a22();
 
@@ -3130,10 +3103,9 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                 );
                                               }
 
-                                              FFAppState().update(() {
-                                                FFAppState().leaveDaysDouble =
-                                                    0.5;
-                                              });
+                                              FFAppState().leaveDaysDouble =
+                                                  0.5;
+                                              FFAppState().update(() {});
                                             } else {
                                               if (_shouldSetState)
                                                 setState(() {});

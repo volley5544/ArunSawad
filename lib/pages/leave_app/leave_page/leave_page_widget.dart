@@ -71,7 +71,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                 child: AlertDialog(
                   content: Text('พบข้อผิดพลาด (${LeaveDayAPICall.messageLayer2(
                     (_model.leaveDayAPIOutput?.jsonBody ?? ''),
-                  ).toString()})'),
+                  )})'),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(alertDialogContext),
@@ -87,55 +87,53 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
 
           return;
         }
-        FFAppState().update(() {
-          FFAppState().leaveWorkId = LeaveDayAPICall.leaveTypeId(
-            (_model.leaveDayAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().leaveWorkDay = LeaveDayAPICall.leaveTypeDay(
-            (_model.leaveDayAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().leaveTypeName = LeaveDayAPICall.leaveTypeName(
-            (_model.leaveDayAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().countLeave = LeaveDayAPICall.countLeave(
-            (_model.leaveDayAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().totalLeave = LeaveDayAPICall.totalLeave(
-            (_model.leaveDayAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().statusCheckCount = LeaveDayAPICall.statusCheckCount(
-            (_model.leaveDayAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-        });
-        FFAppState().update(() {
-          FFAppState().leaveWorkDay = functions
-              .leaveWorkCheck(FFAppState().leaveWorkId.toList(),
-                  FFAppState().leaveWorkDay.toList())
-              .toList()
-              .cast<String>();
-          FFAppState().countLeave = functions
-              .leaveWorkCheck(FFAppState().leaveWorkId.toList(),
-                  FFAppState().countLeave.toList())
-              .toList()
-              .cast<String>();
-          FFAppState().totalLeave = functions
-              .leaveWorkCheck(FFAppState().leaveWorkId.toList(),
-                  FFAppState().totalLeave.toList())
-              .toList()
-              .cast<String>();
-        });
+        FFAppState().leaveWorkId = LeaveDayAPICall.leaveTypeId(
+          (_model.leaveDayAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().leaveWorkDay = LeaveDayAPICall.leaveTypeDay(
+          (_model.leaveDayAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().leaveTypeName = LeaveDayAPICall.leaveTypeName(
+          (_model.leaveDayAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().countLeave = LeaveDayAPICall.countLeave(
+          (_model.leaveDayAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().totalLeave = LeaveDayAPICall.totalLeave(
+          (_model.leaveDayAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().statusCheckCount = LeaveDayAPICall.statusCheckCount(
+          (_model.leaveDayAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().update(() {});
+        FFAppState().leaveWorkDay = functions
+            .leaveWorkCheck(FFAppState().leaveWorkId.toList(),
+                FFAppState().leaveWorkDay.toList())
+            .toList()
+            .cast<String>();
+        FFAppState().countLeave = functions
+            .leaveWorkCheck(FFAppState().leaveWorkId.toList(),
+                FFAppState().countLeave.toList())
+            .toList()
+            .cast<String>();
+        FFAppState().totalLeave = functions
+            .leaveWorkCheck(FFAppState().leaveWorkId.toList(),
+                FFAppState().totalLeave.toList())
+            .toList()
+            .cast<String>();
+        FFAppState().update(() {});
       } else {
         await showDialog(
           context: context,

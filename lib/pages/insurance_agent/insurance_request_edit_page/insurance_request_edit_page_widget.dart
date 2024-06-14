@@ -11488,10 +11488,9 @@ class _InsuranceRequestEditPageWidgetState
                                       onChanged: (val) async {
                                         setState(() => _model
                                             .vehicleTypeDropDownValue = val);
-                                        setState(() {
-                                          FFAppState().vehicleTypeDropdown =
-                                              _model.vehicleTypeDropDownValue!;
-                                        });
+                                        FFAppState().vehicleTypeDropdown =
+                                            _model.vehicleTypeDropDownValue!;
+                                        setState(() {});
                                       },
                                       width: 90.0,
                                       height: double.infinity,
@@ -11918,14 +11917,13 @@ class _InsuranceRequestEditPageWidgetState
                                                     setState(() => _model
                                                             .boxTypeChoiceChipValue =
                                                         val?.firstOrNull);
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .boxTypeChoiceChips =
-                                                          functions
-                                                              .returnStringWithNoSpace(
-                                                                  _model
-                                                                      .boxTypeChoiceChipValue);
-                                                    });
+                                                    FFAppState()
+                                                            .boxTypeChoiceChips =
+                                                        functions
+                                                            .returnStringWithNoSpace(
+                                                                _model
+                                                                    .boxTypeChoiceChipValue);
+                                                    setState(() {});
                                                   },
                                             selectedChipStyle: ChipStyle(
                                               backgroundColor:
@@ -12180,28 +12178,27 @@ class _InsuranceRequestEditPageWidgetState
                                               '_model.brandInputTextController',
                                               Duration(milliseconds: 2000),
                                               () async {
-                                                setState(() {
-                                                  FFAppState().insuranceBasicModelNameList = functions
-                                                      .returnMappedListFrom2List(
-                                                          FFAppState()
-                                                              .insuranceBasicModelNameListOriginal
-                                                              .toList(),
-                                                          FFAppState()
-                                                              .insuranceBasicModelBrandIdListOriginal
-                                                              .toList(),
-                                                          functions.searchMapValueFrom2List(
-                                                              FFAppState()
-                                                                  .insuranceBasicBrandIdList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicBrandNameList
-                                                                  .toList(),
-                                                              _model
-                                                                  .brandInputTextController
-                                                                  .text))
-                                                      .toList()
-                                                      .cast<String>();
-                                                });
+                                                FFAppState().insuranceBasicModelNameList = functions
+                                                    .returnMappedListFrom2List(
+                                                        FFAppState()
+                                                            .insuranceBasicModelNameListOriginal
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .insuranceBasicModelBrandIdListOriginal
+                                                            .toList(),
+                                                        functions.searchMapValueFrom2List(
+                                                            FFAppState()
+                                                                .insuranceBasicBrandIdList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicBrandNameList
+                                                                .toList(),
+                                                            _model
+                                                                .brandInputTextController
+                                                                .text))
+                                                    .toList()
+                                                    .cast<String>();
+                                                setState(() {});
                                               },
                                             ),
                                             autofocus: false,

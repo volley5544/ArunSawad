@@ -90,19 +90,17 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     if (FFAppState().timeChatIsVisibleList[0]) {
-                      setState(() {
-                        FFAppState().updateTimeChatIsVisibleListAtIndex(
-                          0,
-                          (_) => false,
-                        );
-                      });
+                      FFAppState().updateTimeChatIsVisibleListAtIndex(
+                        0,
+                        (_) => false,
+                      );
+                      setState(() {});
                     } else {
-                      setState(() {
-                        FFAppState().updateTimeChatIsVisibleListAtIndex(
-                          0,
-                          (_) => true,
-                        );
-                      });
+                      FFAppState().updateTimeChatIsVisibleListAtIndex(
+                        0,
+                        (_) => true,
+                      );
+                      setState(() {});
                     }
                   },
                   child: Container(

@@ -38,9 +38,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
         parameters: {'screen_name': 'SetPinCodePage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().update(() {
-        FFAppState().isLoadedInsuranceData = false;
-      });
+      FFAppState().isLoadedInsuranceData = false;
+      FFAppState().update(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -199,14 +198,13 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                               controller: _model.pinCodeController,
                               onChanged: (_) {},
                               onCompleted: (_) async {
-                                FFAppState().update(() {
-                                  FFAppState().DateHoliday =
-                                      setPinCodePageSplashPageHolidayImgRecord
-                                          ?.date;
-                                  FFAppState().DateExpHoliday =
-                                      setPinCodePageSplashPageHolidayImgRecord
-                                          ?.dateExp;
-                                });
+                                FFAppState().DateHoliday =
+                                    setPinCodePageSplashPageHolidayImgRecord
+                                        ?.date;
+                                FFAppState().DateExpHoliday =
+                                    setPinCodePageSplashPageHolidayImgRecord
+                                        ?.dateExp;
+                                FFAppState().update(() {});
                               },
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -394,17 +392,15 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-                                FFAppState().update(() {
-                                  FFAppState().pinCodeAuthen =
-                                      _model.pinCodeController!.text;
-                                  FFAppState().isFromSetPinPage = true;
-                                });
-                                setState(() {
-                                  FFAppState().userRef =
-                                      buttonUserCustomRecord?.reference;
-                                  FFAppState().profileImage =
-                                      buttonUserCustomRecord!.imgProfile;
-                                });
+                                FFAppState().pinCodeAuthen =
+                                    _model.pinCodeController!.text;
+                                FFAppState().isFromSetPinPage = true;
+                                FFAppState().update(() {});
+                                FFAppState().userRef =
+                                    buttonUserCustomRecord?.reference;
+                                FFAppState().profileImage =
+                                    buttonUserCustomRecord!.imgProfile;
+                                setState(() {});
 
                                 var userLogRecordReference =
                                     UserLogRecord.collection.doc();

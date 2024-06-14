@@ -592,6 +592,7 @@ class _SearchEmployeeComponentWidgetState
                           await actions.openTableauBrowser(
                             FFAppState().accessToken,
                             '${widget.tableauUrlLink}${_model.dropDownValue}/EmployeeInsurancePerformance/Emp_Sales',
+                            FFAppState().isOpenAndroidTableauBrowser,
                           );
                         },
                         text: widget.fromPage == 'เป้า/ผลงาน'

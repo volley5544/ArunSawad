@@ -539,11 +539,9 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   if (!confirmDialogResponse) {
                                                     return;
                                                   }
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                        .removeFromImgURL(
-                                                            uploadedImgItem);
-                                                  });
+                                                  FFAppState().removeFromImgURL(
+                                                      uploadedImgItem);
+                                                  FFAppState().update(() {});
                                                 },
                                               ),
                                             ],
@@ -2579,37 +2577,34 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   );
                                                 },
                                               );
-                                              FFAppState().update(() {
-                                                FFAppState().imei =
-                                                    '123456789012345';
-                                                FFAppState()
-                                                    .deleteAccessToken();
-                                                FFAppState().accessToken =
-                                                    'access_token';
-                                              });
-                                              FFAppState().update(() {
-                                                FFAppState().deleteEmployeeID();
-                                                FFAppState().employeeID =
-                                                    'employee_id';
+                                              FFAppState().imei =
+                                                  '123456789012345';
+                                              FFAppState().deleteAccessToken();
+                                              FFAppState().accessToken =
+                                                  'access_token';
 
-                                                FFAppState().QRCodeLink =
-                                                    'qrcode_link';
-                                              });
-                                              FFAppState().update(() {
-                                                FFAppState()
-                                                    .deleteApiURLLocalState();
-                                                FFAppState().apiURLLocalState =
-                                                    'api_url_local_state';
+                                              FFAppState().update(() {});
+                                              FFAppState().deleteEmployeeID();
+                                              FFAppState().employeeID =
+                                                  'employee_id';
 
-                                                FFAppState().imgURL = [];
-                                              });
-                                              FFAppState().update(() {
-                                                FFAppState().imgURLTemp =
-                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-                                                FFAppState().deleteBranchCode();
-                                                FFAppState().branchCode =
-                                                    'branch_code';
-                                              });
+                                              FFAppState().QRCodeLink =
+                                                  'qrcode_link';
+                                              FFAppState().update(() {});
+                                              FFAppState()
+                                                  .deleteApiURLLocalState();
+                                              FFAppState().apiURLLocalState =
+                                                  'api_url_local_state';
+
+                                              FFAppState().imgURL = [];
+                                              FFAppState().update(() {});
+                                              FFAppState().imgURLTemp =
+                                                  'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                              FFAppState().deleteBranchCode();
+                                              FFAppState().branchCode =
+                                                  'branch_code';
+
+                                              FFAppState().update(() {});
                                               GoRouter.of(context)
                                                   .prepareAuthEvent();
                                               await authManager.signOut();
@@ -2985,10 +2980,10 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                           ),
                                                         }, fileUploadRecordReference1);
                                                         _shouldSetState = true;
-                                                        FFAppState().update(() {
-                                                          FFAppState().imgURL =
-                                                              [];
-                                                        });
+                                                        FFAppState().imgURL =
+                                                            [];
+                                                        FFAppState()
+                                                            .update(() {});
                                                       }
                                                     } else {
                                                       Navigator.pop(context);
@@ -3043,35 +3038,34 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         );
                                                       },
                                                     );
-                                                    FFAppState().update(() {
-                                                      FFAppState().imei =
-                                                          '123456789012345';
-                                                      FFAppState()
-                                                          .deleteAccessToken();
-                                                      FFAppState().accessToken =
-                                                          'access_token';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deleteEmployeeID();
-                                                      FFAppState().employeeID =
-                                                          'employee_id';
+                                                    FFAppState().imei =
+                                                        '123456789012345';
+                                                    FFAppState()
+                                                        .deleteAccessToken();
+                                                    FFAppState().accessToken =
+                                                        'access_token';
 
-                                                      FFAppState().QRCodeLink =
-                                                          'qrcode_link';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deleteApiURLLocalState();
-                                                      FFAppState()
-                                                              .apiURLLocalState =
-                                                          'api_url_local_state';
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deleteEmployeeID();
+                                                    FFAppState().employeeID =
+                                                        'employee_id';
 
-                                                      FFAppState()
-                                                          .deleteBranchCode();
-                                                      FFAppState().branchCode =
-                                                          'branch_code';
-                                                    });
+                                                    FFAppState().QRCodeLink =
+                                                        'qrcode_link';
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deleteApiURLLocalState();
+                                                    FFAppState()
+                                                            .apiURLLocalState =
+                                                        'api_url_local_state';
+
+                                                    FFAppState()
+                                                        .deleteBranchCode();
+                                                    FFAppState().branchCode =
+                                                        'branch_code';
+
+                                                    FFAppState().update(() {});
                                                     GoRouter.of(context)
                                                         .prepareAuthEvent();
                                                     await authManager.signOut();
@@ -3326,10 +3320,10 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                           ),
                                                         }, fileUploadRecordReference2);
                                                         _shouldSetState = true;
-                                                        FFAppState().update(() {
-                                                          FFAppState().imgURL =
-                                                              [];
-                                                        });
+                                                        FFAppState().imgURL =
+                                                            [];
+                                                        FFAppState()
+                                                            .update(() {});
                                                       }
                                                     } else {
                                                       Navigator.pop(context);
@@ -3384,35 +3378,34 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         );
                                                       },
                                                     );
-                                                    FFAppState().update(() {
-                                                      FFAppState().imei =
-                                                          '123456789012345';
-                                                      FFAppState()
-                                                          .deleteAccessToken();
-                                                      FFAppState().accessToken =
-                                                          'access_token';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deleteEmployeeID();
-                                                      FFAppState().employeeID =
-                                                          'employee_id';
+                                                    FFAppState().imei =
+                                                        '123456789012345';
+                                                    FFAppState()
+                                                        .deleteAccessToken();
+                                                    FFAppState().accessToken =
+                                                        'access_token';
 
-                                                      FFAppState().QRCodeLink =
-                                                          'qrcode_link';
-                                                    });
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                          .deleteApiURLLocalState();
-                                                      FFAppState()
-                                                              .apiURLLocalState =
-                                                          'api_url_local_state';
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deleteEmployeeID();
+                                                    FFAppState().employeeID =
+                                                        'employee_id';
 
-                                                      FFAppState()
-                                                          .deleteBranchCode();
-                                                      FFAppState().branchCode =
-                                                          'branch_code';
-                                                    });
+                                                    FFAppState().QRCodeLink =
+                                                        'qrcode_link';
+                                                    FFAppState().update(() {});
+                                                    FFAppState()
+                                                        .deleteApiURLLocalState();
+                                                    FFAppState()
+                                                            .apiURLLocalState =
+                                                        'api_url_local_state';
+
+                                                    FFAppState()
+                                                        .deleteBranchCode();
+                                                    FFAppState().branchCode =
+                                                        'branch_code';
+
+                                                    FFAppState().update(() {});
                                                     GoRouter.of(context)
                                                         .prepareAuthEvent();
                                                     await authManager.signOut();
@@ -3666,10 +3659,9 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         ),
                                                       }, fileUploadRecordReference3);
                                                       _shouldSetState = true;
-                                                      FFAppState().update(() {
-                                                        FFAppState().imgURL =
-                                                            [];
-                                                      });
+                                                      FFAppState().imgURL = [];
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                   } else {
                                                     Navigator.pop(context);
@@ -3722,35 +3714,34 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       );
                                                     },
                                                   );
-                                                  FFAppState().update(() {
-                                                    FFAppState().imei =
-                                                        '123456789012345';
-                                                    FFAppState()
-                                                        .deleteAccessToken();
-                                                    FFAppState().accessToken =
-                                                        'access_token';
-                                                  });
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                        .deleteEmployeeID();
-                                                    FFAppState().employeeID =
-                                                        'employee_id';
+                                                  FFAppState().imei =
+                                                      '123456789012345';
+                                                  FFAppState()
+                                                      .deleteAccessToken();
+                                                  FFAppState().accessToken =
+                                                      'access_token';
 
-                                                    FFAppState().QRCodeLink =
-                                                        'qrcode_link';
-                                                  });
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                        .deleteApiURLLocalState();
-                                                    FFAppState()
-                                                            .apiURLLocalState =
-                                                        'api_url_local_state';
+                                                  FFAppState().update(() {});
+                                                  FFAppState()
+                                                      .deleteEmployeeID();
+                                                  FFAppState().employeeID =
+                                                      'employee_id';
 
-                                                    FFAppState()
-                                                        .deleteBranchCode();
-                                                    FFAppState().branchCode =
-                                                        'branch_code';
-                                                  });
+                                                  FFAppState().QRCodeLink =
+                                                      'qrcode_link';
+                                                  FFAppState().update(() {});
+                                                  FFAppState()
+                                                      .deleteApiURLLocalState();
+                                                  FFAppState()
+                                                          .apiURLLocalState =
+                                                      'api_url_local_state';
+
+                                                  FFAppState()
+                                                      .deleteBranchCode();
+                                                  FFAppState().branchCode =
+                                                      'branch_code';
+
+                                                  FFAppState().update(() {});
                                                   GoRouter.of(context)
                                                       .prepareAuthEvent();
                                                   await authManager.signOut();

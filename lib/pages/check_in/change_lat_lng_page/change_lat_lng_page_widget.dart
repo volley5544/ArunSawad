@@ -818,14 +818,13 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         },
                                       ).then((value) => safeSetState(() {}));
 
-                                      setState(() {
-                                        FFAppState().changeBranchCode = _model
-                                            .branchCodeInputTextController.text;
-                                        FFAppState().changeLat =
-                                            _model.latInputTextController.text;
-                                        FFAppState().changeLng =
-                                            _model.lngInputTextController.text;
-                                      });
+                                      FFAppState().changeBranchCode = _model
+                                          .branchCodeInputTextController.text;
+                                      FFAppState().changeLat =
+                                          _model.latInputTextController.text;
+                                      FFAppState().changeLng =
+                                          _model.lngInputTextController.text;
+                                      setState(() {});
                                       _model.changeLocationAPIOutput =
                                           await ChangeLocationAPICall.call(
                                         branchCode:

@@ -153,95 +153,89 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
         Navigator.pop(context);
         return;
       }
-      FFAppState().update(() {
-        FFAppState().leadID = GetLeadDetailAPICall.dataLeadID(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadCustomerNameList = GetLeadDetailAPICall.dataFirstName(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
-      FFAppState().update(() {
-        FFAppState().leadCreatedTimeList = GetLeadDetailAPICall.dataCreatedAt(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadCallStatus = GetLeadDetailAPICall.dataCallStatus(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
-      FFAppState().update(() {
-        FFAppState().leadPhoneNumberList = functions
-            .checkLeadPhoneNumber(GetLeadDetailAPICall.dataPhoneNum(
-              (_model.getLeadDetail?.jsonBody ?? ''),
-            )?.toList())!
-            .toList()
-            .cast<String>();
-        FFAppState().leadEmployeeID = GetLeadDetailAPICall.dataEmployeeID(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
-      FFAppState().update(() {
-        FFAppState().leadChannelList = GetLeadDetailAPICall.dataLeadChannel(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadIdCalledInApp = functions
-            .checkLeadIDInAppAndLeadID(
-                FFAppState().leadIdCalledInApp.toList(),
-                FFAppState().leadID.toList(),
-                FFAppState().leadCallStatus.toList())
-            .toList()
-            .cast<String>();
-      });
-      FFAppState().update(() {
-        FFAppState().leadBranchCode = GetLeadDetailAPICall.dataBranchCode(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadUserLevel = '${GetLeadDetailAPICall.dataLevel(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )}';
-      });
-      FFAppState().update(() {
-        FFAppState().leadChannelAmountList = functions
-            .setLeadChannelAmount(FFAppState().leadChannelList.toList())
-            .toList()
-            .cast<int>();
-        FFAppState().leadCountCalled = GetLeadDetailAPICall.countCalled(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadCarVehicleName = GetLeadDetailAPICall.carVehicleName(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadAmountRequest = GetLeadDetailAPICall.amountRequest(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().amountRequestJson = getJsonField(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-          r'''$.DataLeadInfo.DataInfo[:].amount_request''',
-          true,
-        )!
-            .toList()
-            .cast<dynamic>();
-      });
+      FFAppState().leadID = GetLeadDetailAPICall.dataLeadID(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadCustomerNameList = GetLeadDetailAPICall.dataFirstName(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
+      FFAppState().leadCreatedTimeList = GetLeadDetailAPICall.dataCreatedAt(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadCallStatus = GetLeadDetailAPICall.dataCallStatus(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
+      FFAppState().leadPhoneNumberList = functions
+          .checkLeadPhoneNumber(GetLeadDetailAPICall.dataPhoneNum(
+            (_model.getLeadDetail?.jsonBody ?? ''),
+          )?.toList())!
+          .toList()
+          .cast<String>();
+      FFAppState().leadEmployeeID = GetLeadDetailAPICall.dataEmployeeID(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
+      FFAppState().leadChannelList = GetLeadDetailAPICall.dataLeadChannel(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadIdCalledInApp = functions
+          .checkLeadIDInAppAndLeadID(
+              FFAppState().leadIdCalledInApp.toList(),
+              FFAppState().leadID.toList(),
+              FFAppState().leadCallStatus.toList())
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
+      FFAppState().leadBranchCode = GetLeadDetailAPICall.dataBranchCode(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadUserLevel = '${GetLeadDetailAPICall.dataLevel(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )}';
+      FFAppState().update(() {});
+      FFAppState().leadChannelAmountList = functions
+          .setLeadChannelAmount(FFAppState().leadChannelList.toList())
+          .toList()
+          .cast<int>();
+      FFAppState().leadCountCalled = GetLeadDetailAPICall.countCalled(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadCarVehicleName = GetLeadDetailAPICall.carVehicleName(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadAmountRequest = GetLeadDetailAPICall.amountRequest(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().amountRequestJson = getJsonField(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+        r'''$.DataLeadInfo.DataInfo[:].amount_request''',
+        true,
+      )!
+          .toList()
+          .cast<dynamic>();
+      FFAppState().update(() {});
       await showDialog(
         context: context,
         builder: (alertDialogContext) {
@@ -258,23 +252,22 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
           );
         },
       );
-      setState(() {
-        FFAppState().leadCalledStatusReason = GetLeadDetailAPICall.statusReason(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadContractStatus = GetLeadDetailAPICall.contractStatus(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().leadContractDate = GetLeadDetailAPICall.contractDate(
-          (_model.getLeadDetail?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().leadCalledStatusReason = GetLeadDetailAPICall.statusReason(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadContractStatus = GetLeadDetailAPICall.contractStatus(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().leadContractDate = GetLeadDetailAPICall.contractDate(
+        (_model.getLeadDetail?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      setState(() {});
       if (valueOrDefault<String>(
             functions
                 .showMatAmountInList(
@@ -293,24 +286,23 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                   (_model.getLeadDetail?.jsonBody ?? ''),
                 )?.toList(),
                 'Lead_Telesale')) {
-          setState(() {
-            FFAppState().leadName2 = functions
-                .createLeadName2List(
-                    FFAppState().leadChannelList.toList(),
-                    GetLeadDetailAPICall.firstName2(
-                      (_model.getLeadDetail?.jsonBody ?? ''),
-                    )?.toList())
-                .toList()
-                .cast<String>();
-            FFAppState().leadPhone2 = functions
-                .createLeadPhone2List(
-                    FFAppState().leadChannelList.toList(),
-                    GetLeadDetailAPICall.phoneNumber2(
-                      (_model.getLeadDetail?.jsonBody ?? ''),
-                    )?.toList())
-                .toList()
-                .cast<String>();
-          });
+          FFAppState().leadName2 = functions
+              .createLeadName2List(
+                  FFAppState().leadChannelList.toList(),
+                  GetLeadDetailAPICall.firstName2(
+                    (_model.getLeadDetail?.jsonBody ?? ''),
+                  )?.toList())
+              .toList()
+              .cast<String>();
+          FFAppState().leadPhone2 = functions
+              .createLeadPhone2List(
+                  FFAppState().leadChannelList.toList(),
+                  GetLeadDetailAPICall.phoneNumber2(
+                    (_model.getLeadDetail?.jsonBody ?? ''),
+                  )?.toList())
+              .toList()
+              .cast<String>();
+          setState(() {});
         }
       }
       Navigator.pop(context);
@@ -438,104 +430,94 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                         highlightColor: Colors.transparent,
                         onTap: () async {
                           HapticFeedback.mediumImpact();
-                          FFAppState().update(() {
-                            FFAppState().leadID = functions
-                                .reverseList(FFAppState().leadID.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadCustomerNameList = functions
-                                .reverseList(
-                                    FFAppState().leadCustomerNameList.toList())
-                                .toList()
-                                .cast<String>();
-                          });
-                          FFAppState().update(() {
-                            FFAppState().leadChannelList = functions
-                                .reverseList(
-                                    FFAppState().leadChannelList.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadCreatedTimeList = functions
-                                .reverseList(
-                                    FFAppState().leadCreatedTimeList.toList())
-                                .toList()
-                                .cast<String>();
-                          });
-                          FFAppState().update(() {
-                            FFAppState().leadCallStatus = functions
-                                .reverseList(
-                                    FFAppState().leadCallStatus.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadPhoneNumberList = functions
-                                .reverseList(
-                                    FFAppState().leadPhoneNumberList.toList())
-                                .toList()
-                                .cast<String>();
-                          });
-                          FFAppState().update(() {
-                            FFAppState().leadEmployeeID = functions
-                                .reverseList(
-                                    FFAppState().leadEmployeeID.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadBranchCode = functions
-                                .reverseList(
-                                    FFAppState().leadBranchCode.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadCountCalled = functions
-                                .reverseList(
-                                    FFAppState().leadCountCalled.toList())
-                                .toList()
-                                .cast<String>();
-                          });
-                          setState(() {
-                            FFAppState().leadName2 = functions
-                                .reverseList(FFAppState().leadName2.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadPhone2 = functions
-                                .reverseList(FFAppState().leadPhone2.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadCarVehicleName = functions
-                                .reverseList(
-                                    FFAppState().leadCarVehicleName.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadAmountRequest = functions
-                                .reverseList(
-                                    FFAppState().leadAmountRequest.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().amountRequestJson = functions
-                                .reverseListJson(
-                                    FFAppState().amountRequestJson.toList())
-                                .toList()
-                                .cast<dynamic>();
-                          });
-                          setState(() {
-                            FFAppState().leadCalledStatusReason = functions
-                                .reverseList(GetLeadDetailAPICall.statusReason(
-                                  (_model.getLeadDetail?.jsonBody ?? ''),
-                                )?.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadContractStatus = functions
-                                .reverseList(
-                                    GetLeadDetailAPICall.contractStatus(
-                                  (_model.getLeadDetail?.jsonBody ?? ''),
-                                )?.toList())
-                                .toList()
-                                .cast<String>();
-                            FFAppState().leadContractDate = functions
-                                .reverseList(GetLeadDetailAPICall.contractDate(
-                                  (_model.getLeadDetail?.jsonBody ?? ''),
-                                )?.toList())
-                                .toList()
-                                .cast<String>();
-                          });
+                          FFAppState().leadID = functions
+                              .reverseList(FFAppState().leadID.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadCustomerNameList = functions
+                              .reverseList(
+                                  FFAppState().leadCustomerNameList.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().update(() {});
+                          FFAppState().leadChannelList = functions
+                              .reverseList(
+                                  FFAppState().leadChannelList.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadCreatedTimeList = functions
+                              .reverseList(
+                                  FFAppState().leadCreatedTimeList.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().update(() {});
+                          FFAppState().leadCallStatus = functions
+                              .reverseList(FFAppState().leadCallStatus.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadPhoneNumberList = functions
+                              .reverseList(
+                                  FFAppState().leadPhoneNumberList.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().update(() {});
+                          FFAppState().leadEmployeeID = functions
+                              .reverseList(FFAppState().leadEmployeeID.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadBranchCode = functions
+                              .reverseList(FFAppState().leadBranchCode.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadCountCalled = functions
+                              .reverseList(
+                                  FFAppState().leadCountCalled.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().update(() {});
+                          FFAppState().leadName2 = functions
+                              .reverseList(FFAppState().leadName2.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadPhone2 = functions
+                              .reverseList(FFAppState().leadPhone2.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadCarVehicleName = functions
+                              .reverseList(
+                                  FFAppState().leadCarVehicleName.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadAmountRequest = functions
+                              .reverseList(
+                                  FFAppState().leadAmountRequest.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().amountRequestJson = functions
+                              .reverseListJson(
+                                  FFAppState().amountRequestJson.toList())
+                              .toList()
+                              .cast<dynamic>();
+                          setState(() {});
+                          FFAppState().leadCalledStatusReason = functions
+                              .reverseList(GetLeadDetailAPICall.statusReason(
+                                (_model.getLeadDetail?.jsonBody ?? ''),
+                              )?.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadContractStatus = functions
+                              .reverseList(GetLeadDetailAPICall.contractStatus(
+                                (_model.getLeadDetail?.jsonBody ?? ''),
+                              )?.toList())
+                              .toList()
+                              .cast<String>();
+                          FFAppState().leadContractDate = functions
+                              .reverseList(GetLeadDetailAPICall.contractDate(
+                                (_model.getLeadDetail?.jsonBody ?? ''),
+                              )?.toList())
+                              .toList()
+                              .cast<String>();
+                          setState(() {});
                         },
                         child: FaIcon(
                           FontAwesomeIcons.sortAmountDown,
@@ -619,11 +601,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                     onTap: () async {
                                                       HapticFeedback
                                                           .mediumImpact();
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead Survey';
-                                                      });
+                                                      FFAppState()
+                                                              .leadChannelSelected =
+                                                          'Lead Survey';
+                                                      FFAppState()
+                                                          .update(() {});
                                                     },
                                                     child: Container(
                                                       width: double.infinity,
@@ -735,11 +717,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                     onTap: () async {
                                                       HapticFeedback
                                                           .mediumImpact();
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead Telesale';
-                                                      });
+                                                      FFAppState()
+                                                              .leadChannelSelected =
+                                                          'Lead Telesale';
+                                                      FFAppState()
+                                                          .update(() {});
                                                     },
                                                     child: Container(
                                                       width: double.infinity,
@@ -856,11 +838,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                     onTap: () async {
                                                       HapticFeedback
                                                           .mediumImpact();
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead Agent';
-                                                      });
+                                                      FFAppState()
+                                                              .leadChannelSelected =
+                                                          'Lead Agent';
+                                                      FFAppState()
+                                                          .update(() {});
                                                     },
                                                     child: Container(
                                                       width: double.infinity,
@@ -972,11 +954,11 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                     onTap: () async {
                                                       HapticFeedback
                                                           .mediumImpact();
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .leadChannelSelected =
-                                                            'Lead GSB';
-                                                      });
+                                                      FFAppState()
+                                                              .leadChannelSelected =
+                                                          'Lead GSB';
+                                                      FFAppState()
+                                                          .update(() {});
                                                     },
                                                     child: Container(
                                                       width: double.infinity,
@@ -1095,10 +1077,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         HapticFeedback.mediumImpact();
-                                        FFAppState().update(() {
-                                          FFAppState().leadChannelSelected =
-                                              'All';
-                                        });
+                                        FFAppState().leadChannelSelected =
+                                            'All';
+                                        FFAppState().update(() {});
                                       },
                                       child: Container(
                                         width:
@@ -1125,11 +1106,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   HapticFeedback.mediumImpact();
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                            .leadChannelSelected =
-                                                        FFAppState().employeeID;
-                                                  });
+                                                  FFAppState()
+                                                          .leadChannelSelected =
+                                                      FFAppState().employeeID;
+                                                  FFAppState().update(() {});
                                                 },
                                                 child: Column(
                                                   mainAxisSize:
@@ -1235,11 +1215,10 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   HapticFeedback.mediumImpact();
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                            .leadChannelSelected =
-                                                        'All';
-                                                  });
+                                                  FFAppState()
+                                                          .leadChannelSelected =
+                                                      'All';
+                                                  FFAppState().update(() {});
                                                 },
                                                 child: Column(
                                                   mainAxisSize:
@@ -1741,15 +1720,14 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                               .leadID
                                                                               .toList(),
                                                                           leadListIndex))) {
+                                                                    FFAppState().addToLeadIdCalledInApp(functions.showMatNameInList(
+                                                                        FFAppState()
+                                                                            .leadID
+                                                                            .toList(),
+                                                                        leadListIndex)!);
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState().addToLeadIdCalledInApp(functions.showMatNameInList(
-                                                                          FFAppState()
-                                                                              .leadID
-                                                                              .toList(),
-                                                                          leadListIndex)!);
-                                                                    });
+                                                                            () {});
                                                                   }
                                                                 }
                                                                 _model.addCalledLead =
@@ -1767,19 +1745,19 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 );
                                                                 _shouldSetState =
                                                                     true;
+                                                                FFAppState().leadCountCalled = functions
+                                                                    .increasedValueIntStringInList(
+                                                                        FFAppState().leadCountCalled.toList(),
+                                                                        leadListIndex,
+                                                                        AddPhoneCalledLeadAPICall.countCalled(
+                                                                          (_model.addCalledLead?.jsonBody ??
+                                                                              ''),
+                                                                        ).toString())!
+                                                                    .toList()
+                                                                    .cast<String>();
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState().leadCountCalled = functions
-                                                                      .increasedValueIntStringInList(
-                                                                          FFAppState().leadCountCalled.toList(),
-                                                                          leadListIndex,
-                                                                          AddPhoneCalledLeadAPICall.countCalled(
-                                                                            (_model.addCalledLead?.jsonBody ??
-                                                                                ''),
-                                                                          ).toString())!
-                                                                      .toList()
-                                                                      .cast<String>();
-                                                                });
+                                                                    .update(
+                                                                        () {});
                                                                 await actions
                                                                     .open3CXAction(
                                                                   functions.showMatNameInList(

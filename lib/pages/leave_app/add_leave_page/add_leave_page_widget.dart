@@ -52,13 +52,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
         parameters: {'screen_name': 'AddLeavePage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().update(() {
-        FFAppState().leaveDaysDouble = 0.5;
-        FFAppState().leaveTypeEdit = functions
-            .leaveTypeToList1(widget.leaveType)!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().leaveDaysDouble = 0.5;
+      FFAppState().leaveTypeEdit =
+          functions.leaveTypeToList1(widget.leaveType)!.toList().cast<String>();
+      FFAppState().update(() {});
       _model.getHolidayAPIOutput = await GetHolidayAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
@@ -857,13 +854,12 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                             return;
                                                           } else {
                                                             FFAppState()
-                                                                .update(() {
-                                                              FFAppState()
-                                                                      .leaveDaysDouble =
-                                                                  double.parse(_model
-                                                                      .leaveDaysTextController
-                                                                      .text);
-                                                            });
+                                                                    .leaveDaysDouble =
+                                                                double.parse(_model
+                                                                    .leaveDaysTextController
+                                                                    .text);
+                                                            FFAppState()
+                                                                .update(() {});
                                                           }
 
                                                           if ((widget.leaveType ==
@@ -938,16 +934,17 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                       ),
                                                       onFieldSubmitted:
                                                           (_) async {
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                                  .allowFileUpload =
-                                                              functions.allowFileInput(
-                                                                  widget
-                                                                      .leaveType,
-                                                                  double.tryParse(_model
-                                                                      .leaveDaysTextController
-                                                                      .text))!;
-                                                        });
+                                                        FFAppState()
+                                                                .allowFileUpload =
+                                                            functions.allowFileInput(
+                                                                widget
+                                                                    .leaveType,
+                                                                double.tryParse(
+                                                                    _model
+                                                                        .leaveDaysTextController
+                                                                        .text))!;
+                                                        FFAppState()
+                                                            .update(() {});
                                                         if (functions
                                                             .checkLeaveDayNumber(
                                                                 _model
@@ -2170,55 +2167,53 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           }
 
                                                           FFAppState()
-                                                              .update(() {
-                                                            FFAppState()
-                                                                    .leaveDaysLocal =
-                                                                _model
-                                                                    .leaveDaysTextController
-                                                                    .text;
-                                                            FFAppState()
-                                                                    .leaveDaysDouble =
-                                                                double.parse(_model
-                                                                    .leaveDaysTextController
-                                                                    .text);
-                                                            FFAppState()
-                                                                    .checkAllowLeaveDay =
-                                                                functions.allowLeaveDay(
-                                                                    widget
-                                                                        .leaveType,
-                                                                    FFAppState()
-                                                                        .totalLeave
-                                                                        .toList(),
-                                                                    FFAppState()
-                                                                        .leaveDaysDouble)!;
-                                                            FFAppState()
-                                                                    .leaveDayInt =
-                                                                int.parse(_model
-                                                                    .leaveDaysTextController
-                                                                    .text);
-                                                          });
+                                                                  .leaveDaysLocal =
+                                                              _model
+                                                                  .leaveDaysTextController
+                                                                  .text;
+                                                          FFAppState()
+                                                                  .leaveDaysDouble =
+                                                              double.parse(_model
+                                                                  .leaveDaysTextController
+                                                                  .text);
+                                                          FFAppState()
+                                                                  .checkAllowLeaveDay =
+                                                              functions.allowLeaveDay(
+                                                                  widget
+                                                                      .leaveType,
+                                                                  FFAppState()
+                                                                      .totalLeave
+                                                                      .toList(),
+                                                                  FFAppState()
+                                                                      .leaveDaysDouble)!;
+                                                          FFAppState()
+                                                                  .leaveDayInt =
+                                                              int.parse(_model
+                                                                  .leaveDaysTextController
+                                                                  .text);
+                                                          FFAppState()
+                                                              .update(() {});
                                                         } else {
                                                           FFAppState()
-                                                              .update(() {
-                                                            FFAppState()
-                                                                    .leaveDaysLocal =
-                                                                '0.5';
-                                                            FFAppState()
-                                                                    .leaveDaysDouble =
-                                                                0.5;
-                                                            FFAppState()
-                                                                    .checkAllowLeaveDay =
-                                                                functions.allowLeaveDay(
-                                                                    widget
-                                                                        .leaveType,
-                                                                    FFAppState()
-                                                                        .totalLeave
-                                                                        .toList(),
-                                                                    FFAppState()
-                                                                        .leaveDaysDouble)!;
-                                                            FFAppState()
-                                                                .leaveDayInt = 0;
-                                                          });
+                                                                  .leaveDaysLocal =
+                                                              '0.5';
+                                                          FFAppState()
+                                                                  .leaveDaysDouble =
+                                                              0.5;
+                                                          FFAppState()
+                                                                  .checkAllowLeaveDay =
+                                                              functions.allowLeaveDay(
+                                                                  widget
+                                                                      .leaveType,
+                                                                  FFAppState()
+                                                                      .totalLeave
+                                                                      .toList(),
+                                                                  FFAppState()
+                                                                      .leaveDaysDouble)!;
+                                                          FFAppState()
+                                                              .leaveDayInt = 0;
+                                                          FFAppState()
+                                                              .update(() {});
                                                         }
 
                                                         var confirmDialogResponse =
@@ -2390,7 +2385,9 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                           child:
                                                                               AlertDialog(
                                                                             content:
-                                                                                Text('ไม่พบข้อมูลผู้บังคับบัญชา กรุณาติดต่อ HR'),
+                                                                                Text('${LeaveRequestFirstAPICall.infoInfo(
+                                                                              (_model.leaveRequestAPIOutput2?.jsonBody ?? ''),
+                                                                            )}'),
                                                                             actions: [
                                                                               TextButton(
                                                                                 onPressed: () => Navigator.pop(alertDialogContext),
@@ -2415,7 +2412,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                         child:
                                                                             AlertDialog(
                                                                           content:
-                                                                              Text('ไม่พบข้อมูลกรุณาติดต่อ HR'),
+                                                                              Text('${LeaveRequestFirstAPICall.infoInfo(
+                                                                            (_model.leaveRequestAPIOutput2?.jsonBody ??
+                                                                                ''),
+                                                                          )}'),
                                                                           actions: [
                                                                             TextButton(
                                                                               onPressed: () => Navigator.pop(alertDialogContext),
@@ -2477,168 +2477,156 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                   _shouldSetState =
                                                                       true;
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .loginStateFirebase =
-                                                                        '[loginStateFirebase]';
-                                                                    FFAppState()
-                                                                        .deleteAccessToken();
-                                                                    FFAppState()
-                                                                            .accessToken =
-                                                                        'access_token';
-                                                                  });
+                                                                          .loginStateFirebase =
+                                                                      '[loginStateFirebase]';
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .deleteEmployeeID();
-                                                                    FFAppState()
-                                                                            .employeeID =
-                                                                        'employee_id';
+                                                                      .deleteAccessToken();
+                                                                  FFAppState()
+                                                                          .accessToken =
+                                                                      'access_token';
 
-                                                                    FFAppState()
-                                                                            .QRCodeLink =
-                                                                        'qrcode_link';
-                                                                  });
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .deleteApiURLLocalState();
-                                                                    FFAppState()
-                                                                            .apiURLLocalState =
-                                                                        'api_url_local_state';
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .deleteEmployeeID();
+                                                                  FFAppState()
+                                                                          .employeeID =
+                                                                      'employee_id';
 
-                                                                    FFAppState()
-                                                                        .deleteBranchCode();
-                                                                    FFAppState()
-                                                                            .branchCode =
-                                                                        'branch_code';
-                                                                  });
+                                                                  FFAppState()
+                                                                          .QRCodeLink =
+                                                                      'qrcode_link';
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .isFromSetPinPage =
-                                                                        false;
-                                                                    FFAppState()
-                                                                        .leadChannelColor = [];
-                                                                  });
+                                                                          () {});
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadChannelList = [];
-                                                                    FFAppState()
-                                                                            .isFromLoginPage =
-                                                                        false;
-                                                                  });
+                                                                      .deleteApiURLLocalState();
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .deletePinCodeAuthen();
-                                                                    FFAppState()
-                                                                            .pinCodeAuthen =
-                                                                        '013972';
+                                                                          .apiURLLocalState =
+                                                                      'api_url_local_state';
 
-                                                                    FFAppState()
-                                                                            .isFromAuthenPage =
-                                                                        false;
-                                                                  });
                                                                   FFAppState()
-                                                                      .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .deleteDateDoNotShowAgain();
-                                                                    FFAppState()
-                                                                            .dateDoNotShowAgain =
-                                                                        null;
+                                                                      .deleteBranchCode();
+                                                                  FFAppState()
+                                                                          .branchCode =
+                                                                      'branch_code';
 
-                                                                    FFAppState()
-                                                                        .deleteDoNotShowAgain();
-                                                                    FFAppState()
-                                                                            .doNotShowAgain =
-                                                                        false;
-                                                                  });
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .inAppViaNotification =
-                                                                        true;
-                                                                    FFAppState()
-                                                                            .isInApp =
-                                                                        false;
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                          .isFromSetPinPage =
+                                                                      false;
+                                                                  FFAppState()
+                                                                      .leadChannelColor = [];
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .fcmToken =
-                                                                        'fcm_token';
-                                                                    FFAppState()
-                                                                            .isPassLoginSection =
-                                                                        false;
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelList = [];
+                                                                  FFAppState()
+                                                                          .isFromLoginPage =
+                                                                      false;
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadID = [];
-                                                                    FFAppState()
-                                                                        .leadCreatedTimeList = [];
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .deletePinCodeAuthen();
+                                                                  FFAppState()
+                                                                          .pinCodeAuthen =
+                                                                      '013972';
+
+                                                                  FFAppState()
+                                                                          .isFromAuthenPage =
+                                                                      false;
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadCustomerNameList = [];
-                                                                    FFAppState()
-                                                                        .leadChannelList = [];
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .deleteDateDoNotShowAgain();
+                                                                  FFAppState()
+                                                                          .dateDoNotShowAgain =
+                                                                      null;
+
+                                                                  FFAppState()
+                                                                      .deleteDoNotShowAgain();
+                                                                  FFAppState()
+                                                                          .doNotShowAgain =
+                                                                      false;
+
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadChannelColor = [];
-                                                                    FFAppState()
-                                                                        .leadCallStatus = [];
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                          .inAppViaNotification =
+                                                                      true;
+                                                                  FFAppState()
+                                                                          .isInApp =
+                                                                      false;
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadPhoneNumberList = [];
-                                                                    FFAppState()
-                                                                        .leadEmployeeID = [];
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                          .fcmToken =
+                                                                      'fcm_token';
+                                                                  FFAppState()
+                                                                          .isPassLoginSection =
+                                                                      false;
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadChannelLabelColor = [];
-                                                                    FFAppState()
-                                                                        .deleteLeadIdCalledInApp();
-                                                                    FFAppState()
-                                                                        .leadIdCalledInApp = [];
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadID = [];
+                                                                  FFAppState()
+                                                                      .leadCreatedTimeList = [];
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadBranchCode = [];
-                                                                    FFAppState()
-                                                                            .leadUserLevel =
-                                                                        'lead_user_level';
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadCustomerNameList = [];
+                                                                  FFAppState()
+                                                                      .leadChannelList = [];
                                                                   FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                        .leadChannelAmountList = [];
-                                                                  });
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelColor = [];
+                                                                  FFAppState()
+                                                                      .leadCallStatus = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadPhoneNumberList = [];
+                                                                  FFAppState()
+                                                                      .leadEmployeeID = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelLabelColor = [];
+                                                                  FFAppState()
+                                                                      .deleteLeadIdCalledInApp();
+                                                                  FFAppState()
+                                                                      .leadIdCalledInApp = [];
+
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadBranchCode = [];
+                                                                  FFAppState()
+                                                                          .leadUserLevel =
+                                                                      'lead_user_level';
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
+                                                                  FFAppState()
+                                                                      .leadChannelAmountList = [];
+                                                                  FFAppState()
+                                                                      .update(
+                                                                          () {});
                                                                   Navigator.pop(
                                                                       context);
                                                                   await actions
@@ -2818,7 +2806,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                         child:
                                                                             AlertDialog(
                                                                           content:
-                                                                              Text('ไม่พบข้อมูลผู้บังคับบัญชา กรุณาติดต่อ HR'),
+                                                                              Text('${LeaveRequestFirstAPICall.infoInfo(
+                                                                            (_model.leaveRequestAPIOutput?.jsonBody ??
+                                                                                ''),
+                                                                          )}'),
                                                                           actions: [
                                                                             TextButton(
                                                                               onPressed: () => Navigator.pop(alertDialogContext),
@@ -2843,7 +2834,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                       child:
                                                                           AlertDialog(
                                                                         content:
-                                                                            Text('ไม่พบข้อมูลกรุณาติดต่อ HR'),
+                                                                            Text('${LeaveRequestFirstAPICall.infoInfo(
+                                                                          (_model.leaveRequestAPIOutput?.jsonBody ??
+                                                                              ''),
+                                                                        )}'),
                                                                         actions: [
                                                                           TextButton(
                                                                             onPressed: () =>
@@ -2904,152 +2898,156 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 _shouldSetState =
                                                                     true;
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                          .loginStateFirebase =
-                                                                      '[loginStateFirebase]';
-                                                                  FFAppState()
-                                                                      .deleteAccessToken();
-                                                                  FFAppState()
-                                                                          .accessToken =
-                                                                      'access_token';
-                                                                });
+                                                                        .loginStateFirebase =
+                                                                    '[loginStateFirebase]';
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .deleteEmployeeID();
-                                                                  FFAppState()
-                                                                          .employeeID =
-                                                                      'employee_id';
+                                                                    .deleteAccessToken();
+                                                                FFAppState()
+                                                                        .accessToken =
+                                                                    'access_token';
 
-                                                                  FFAppState()
-                                                                          .QRCodeLink =
-                                                                      'qrcode_link';
-                                                                });
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .deleteApiURLLocalState();
-                                                                  FFAppState()
-                                                                          .apiURLLocalState =
-                                                                      'api_url_local_state';
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .deleteEmployeeID();
+                                                                FFAppState()
+                                                                        .employeeID =
+                                                                    'employee_id';
 
-                                                                  FFAppState()
-                                                                      .deleteBranchCode();
-                                                                  FFAppState()
-                                                                          .branchCode =
-                                                                      'branch_code';
-                                                                });
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                          .isFromSetPinPage =
-                                                                      false;
-                                                                  FFAppState()
-                                                                      .leadChannelColor = [];
-                                                                });
+                                                                        .QRCodeLink =
+                                                                    'qrcode_link';
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadChannelList = [];
-                                                                  FFAppState()
-                                                                          .isFromLoginPage =
-                                                                      false;
-                                                                });
+                                                                    .update(
+                                                                        () {});
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .deletePinCodeAuthen();
-                                                                  FFAppState()
-                                                                          .pinCodeAuthen =
-                                                                      '013972';
+                                                                    .deleteApiURLLocalState();
+                                                                FFAppState()
+                                                                        .apiURLLocalState =
+                                                                    'api_url_local_state';
 
-                                                                  FFAppState()
-                                                                          .isFromAuthenPage =
-                                                                      false;
-                                                                });
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .deleteDateDoNotShowAgain();
-                                                                  FFAppState()
-                                                                          .dateDoNotShowAgain =
-                                                                      null;
+                                                                    .deleteBranchCode();
+                                                                FFAppState()
+                                                                        .branchCode =
+                                                                    'branch_code';
 
-                                                                  FFAppState()
-                                                                      .deleteDoNotShowAgain();
-                                                                  FFAppState()
-                                                                          .doNotShowAgain =
-                                                                      false;
-                                                                });
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                          .inAppViaNotification =
-                                                                      true;
-                                                                  FFAppState()
-                                                                          .isInApp =
-                                                                      false;
-                                                                });
+                                                                    .update(
+                                                                        () {});
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                          .fcmToken =
-                                                                      'fcm_token';
-                                                                  FFAppState()
-                                                                          .isPassLoginSection =
-                                                                      false;
-                                                                });
+                                                                        .isFromSetPinPage =
+                                                                    false;
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadID = [];
-                                                                  FFAppState()
-                                                                      .leadCreatedTimeList = [];
-                                                                });
+                                                                    .leadChannelColor = [];
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadCustomerNameList = [];
-                                                                  FFAppState()
-                                                                      .leadChannelList = [];
-                                                                });
+                                                                    .update(
+                                                                        () {});
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadChannelColor = [];
-                                                                  FFAppState()
-                                                                      .leadCallStatus = [];
-                                                                });
+                                                                    .leadChannelList = [];
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadPhoneNumberList = [];
-                                                                  FFAppState()
-                                                                      .leadEmployeeID = [];
-                                                                });
+                                                                        .isFromLoginPage =
+                                                                    false;
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadChannelLabelColor = [];
-                                                                  FFAppState()
-                                                                      .deleteLeadIdCalledInApp();
-                                                                  FFAppState()
-                                                                      .leadIdCalledInApp = [];
-                                                                });
+                                                                    .update(
+                                                                        () {});
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadBranchCode = [];
-                                                                  FFAppState()
-                                                                          .leadUserLevel =
-                                                                      'lead_user_level';
-                                                                });
+                                                                    .deletePinCodeAuthen();
                                                                 FFAppState()
-                                                                    .update(() {
-                                                                  FFAppState()
-                                                                      .leadChannelAmountList = [];
-                                                                });
+                                                                        .pinCodeAuthen =
+                                                                    '013972';
+
+                                                                FFAppState()
+                                                                        .isFromAuthenPage =
+                                                                    false;
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .deleteDateDoNotShowAgain();
+                                                                FFAppState()
+                                                                        .dateDoNotShowAgain =
+                                                                    null;
+
+                                                                FFAppState()
+                                                                    .deleteDoNotShowAgain();
+                                                                FFAppState()
+                                                                        .doNotShowAgain =
+                                                                    false;
+
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                        .inAppViaNotification =
+                                                                    true;
+                                                                FFAppState()
+                                                                        .isInApp =
+                                                                    false;
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                        .fcmToken =
+                                                                    'fcm_token';
+                                                                FFAppState()
+                                                                        .isPassLoginSection =
+                                                                    false;
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .leadID = [];
+                                                                FFAppState()
+                                                                    .leadCreatedTimeList = [];
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .leadCustomerNameList = [];
+                                                                FFAppState()
+                                                                    .leadChannelList = [];
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .leadChannelColor = [];
+                                                                FFAppState()
+                                                                    .leadCallStatus = [];
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .leadPhoneNumberList = [];
+                                                                FFAppState()
+                                                                    .leadEmployeeID = [];
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .leadChannelLabelColor = [];
+                                                                FFAppState()
+                                                                    .deleteLeadIdCalledInApp();
+                                                                FFAppState()
+                                                                    .leadIdCalledInApp = [];
+
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .leadBranchCode = [];
+                                                                FFAppState()
+                                                                        .leadUserLevel =
+                                                                    'lead_user_level';
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
+                                                                FFAppState()
+                                                                    .leadChannelAmountList = [];
+                                                                FFAppState()
+                                                                    .update(
+                                                                        () {});
                                                                 Navigator.pop(
                                                                     context);
                                                                 await actions
@@ -3241,11 +3239,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           }
 
                                                           FFAppState()
-                                                              .update(() {
-                                                            FFAppState()
-                                                                    .leaveDaysDouble =
-                                                                0.5;
-                                                          });
+                                                                  .leaveDaysDouble =
+                                                              0.5;
+                                                          FFAppState()
+                                                              .update(() {});
                                                         } else {
                                                           if (_shouldSetState)
                                                             setState(() {});

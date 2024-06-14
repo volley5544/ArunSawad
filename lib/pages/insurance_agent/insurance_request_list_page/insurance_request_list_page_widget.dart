@@ -110,13 +110,12 @@ class _InsuranceRequestListPageWidgetState
           },
         );
       }
-      setState(() {
-        FFAppState().insuranceOperationChoiceChips = 'งานใหม่          ';
-        FFAppState().insuranceCustomerTypeChoiceChips = 'บุคคลธรรมดา';
-        FFAppState().insuranceBoxCheckbokValue = false;
-        FFAppState().insuranceBoxTypeChoiceChip = 'ตู้แห้ง';
-        FFAppState().insuranceVehicleTypeDropDown = 'กรุณาเลือก';
-      });
+      FFAppState().insuranceOperationChoiceChips = 'งานใหม่          ';
+      FFAppState().insuranceCustomerTypeChoiceChips = 'บุคคลธรรมดา';
+      FFAppState().insuranceBoxCheckbokValue = false;
+      FFAppState().insuranceBoxTypeChoiceChip = 'ตู้แห้ง';
+      FFAppState().insuranceVehicleTypeDropDown = 'กรุณาเลือก';
+      setState(() {});
       Navigator.pop(context);
     });
 
@@ -857,7 +856,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'insurerNameList':
                                                         serializeParam(
@@ -868,7 +867,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'coverTypeNameList':
                                                         serializeParam(
@@ -901,7 +900,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRear': serializeParam(
                                                       InsuranceRequestDetailAPICall
@@ -911,7 +910,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageLeft': serializeParam(
                                                       InsuranceRequestDetailAPICall
@@ -921,7 +920,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRight':
                                                         serializeParam(
@@ -932,7 +931,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRightFront':
                                                         serializeParam(
@@ -943,7 +942,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRightRear':
                                                         serializeParam(
@@ -954,7 +953,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageLeftFront':
                                                         serializeParam(
@@ -965,7 +964,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageLeftRear':
                                                         serializeParam(
@@ -976,7 +975,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRoof': serializeParam(
                                                       InsuranceRequestDetailAPICall
@@ -986,7 +985,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageFrontTrailer':
                                                         serializeParam(
@@ -997,7 +996,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRearTrailer':
                                                         serializeParam(
@@ -1008,7 +1007,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageLeftTrailer':
                                                         serializeParam(
@@ -1019,7 +1018,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRightTrailer':
                                                         serializeParam(
@@ -1030,7 +1029,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRightFrontTrailer':
                                                         serializeParam(
@@ -1041,7 +1040,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageRightRearTrailer':
                                                         serializeParam(
@@ -1052,7 +1051,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageLeftFrontTrailer':
                                                         serializeParam(
@@ -1063,7 +1062,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageLeftRearTrailer':
                                                         serializeParam(
@@ -1074,7 +1073,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageBlueBook':
                                                         serializeParam(
@@ -1085,7 +1084,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageIdCard':
                                                         serializeParam(
@@ -1096,7 +1095,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageOther':
                                                         serializeParam(
@@ -1108,7 +1107,7 @@ class _InsuranceRequestListPageWidgetState
                                                         true,
                                                       ),
                                                       ParamType.JSON,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'imageOtherName':
                                                         serializeParam(
@@ -1119,7 +1118,7 @@ class _InsuranceRequestListPageWidgetState
                                                             ''),
                                                       ),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                   }.withoutNulls,
                                                 );
@@ -1239,347 +1238,347 @@ class _InsuranceRequestListPageWidgetState
                                                   )?[requestListItemIndex])
                                                           ?.toString(),
                                                 );
-                                                setState(() {
-                                                  FFAppState().fromPage =
-                                                      'ListPage';
-                                                });
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceBasicIdCardNo =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .idCardNumber(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicCusName =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .firstname(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicCusLastname =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .lastname(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicCusPhone =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .phoneNumber(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .vehicleTypeDropdown =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .carType(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicBrandName =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .brandName(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicModelName =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .modelName(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicProvinceName =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .province(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicPlateNo =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .plateNo(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicYear =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .year(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicVehicleUsedTypeCode =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .vehicleCode(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .operationChoiceChips =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .flagRenew(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicOldLicenseNo =
-                                                      functions.checkNullValueAndReturn(
-                                                          InsuranceRequestDetailAPICall
-                                                              .oldVmiPolicyNumber(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                      .insuranceBasicCarModify = functions
-                                                              .checkNullValueAndReturn(
-                                                                  InsuranceRequestDetailAPICall
-                                                                      .flagDecoration(
-                                                            (_model.getInsuranceDetailDup
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )) ==
-                                                          '-'
-                                                      ? false
-                                                      : (functions.checkNullValueAndReturn(
-                                                                  InsuranceRequestDetailAPICall
-                                                                      .flagDecoration(
-                                                                (_model.getInsuranceDetailDup
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )) ==
-                                                              '0'
-                                                          ? false
-                                                          : true);
-                                                  FFAppState()
-                                                          .insuranceBasicAccessoryProtected =
-                                                      functions.checkNullValueAndReturn(
-                                                          InsuranceRequestDetailAPICall
-                                                              .decorationDetail(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                      .isEquipedMetalBox = functions
-                                                              .checkNullValueAndReturn(
-                                                                  InsuranceRequestDetailAPICall
-                                                                      .flagCarrier(
-                                                            (_model.getInsuranceDetailDup
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )) ==
-                                                          '-'
-                                                      ? false
-                                                      : (functions.checkNullValueAndReturn(
-                                                                  InsuranceRequestDetailAPICall
-                                                                      .flagCarrier(
-                                                                (_model.getInsuranceDetailDup
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )) ==
-                                                              '0'
-                                                          ? false
-                                                          : true);
-                                                  FFAppState()
-                                                      .insuranceBasicCoop = functions
-                                                              .checkNullValueAndReturn(
-                                                                  InsuranceRequestDetailAPICall
-                                                                      .flagCoop(
-                                                            (_model.getInsuranceDetailDup
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )) ==
-                                                          '-'
-                                                      ? false
-                                                      : (functions.checkNullValueAndReturn(
-                                                                  InsuranceRequestDetailAPICall
-                                                                      .flagCoop(
-                                                                (_model.getInsuranceDetailDup
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )) ==
-                                                              '0'
-                                                          ? false
-                                                          : true);
-                                                  FFAppState()
-                                                          .insuranceBasicPickupBoxType =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .carrierType(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicPickupBoxPrice =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .carrierPrice(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .customerTypeChoiceChips =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .customerType(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicTruckPart =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .truckPart(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicMemberType =
-                                                      functions.checkNullValueAndReturn(
-                                                          InsuranceRequestDetailAPICall
-                                                              .customerMemberchip(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicPlateAdditional =
-                                                      functions.checkNullValueAndReturn(
-                                                          InsuranceRequestDetailAPICall
-                                                              .trailerPlateNo(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ).toString());
-                                                  FFAppState()
-                                                          .insuranceBasicCarryPurpose =
-                                                      functions.checkNullValueAndReturn(
-                                                          InsuranceRequestDetailAPICall
-                                                              .carrierPropose(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicRemark =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .remark(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicTrailerSumInsured =
-                                                      functions.checkNullValueAndReturn(
-                                                          InsuranceRequestDetailAPICall
-                                                              .trailerSumInsured(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ).toString());
-                                                  FFAppState()
-                                                          .insuranceBasicActFlag =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .flagAct(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicTruckCurrentPrice =
-                                                      functions.checkNullValueAndReturn(
-                                                          InsuranceRequestDetailAPICall
-                                                              .truckCurrentPrice(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicSumInsured =
-                                                      functions
-                                                          .checkNullValueAndReturn(
-                                                              InsuranceRequestDetailAPICall
-                                                                  .sumInsured(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ));
-                                                  FFAppState()
-                                                          .insuranceBasicInsurerFullNameOutput =
-                                                      InsuranceRequestDetailAPICall
-                                                              .insurerNameList(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                          .toList()
-                                                          .cast<String>();
-                                                  FFAppState()
-                                                          .insuranceBasicCoverTypeName =
-                                                      InsuranceRequestDetailAPICall
-                                                              .coverTypeNameList(
-                                                    (_model.getInsuranceDetailDup
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                          .first;
-                                                });
+                                                FFAppState().fromPage =
+                                                    'ListPage';
+                                                setState(() {});
+                                                FFAppState()
+                                                        .insuranceBasicIdCardNo =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .idCardNumber(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicCusName =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .firstname(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicCusLastname =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .lastname(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicCusPhone =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .phoneNumber(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .vehicleTypeDropdown =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .carType(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicBrandName =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .brandName(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicModelName =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .modelName(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicProvinceName =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .province(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicPlateNo =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .plateNo(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicYear =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .year(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeCode =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .vehicleCode(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .operationChoiceChips =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .flagRenew(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicOldLicenseNo =
+                                                    functions.checkNullValueAndReturn(
+                                                        InsuranceRequestDetailAPICall
+                                                            .oldVmiPolicyNumber(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                    .insuranceBasicCarModify = functions
+                                                            .checkNullValueAndReturn(
+                                                                InsuranceRequestDetailAPICall
+                                                                    .flagDecoration(
+                                                          (_model.getInsuranceDetailDup
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )) ==
+                                                        '-'
+                                                    ? false
+                                                    : (functions.checkNullValueAndReturn(
+                                                                InsuranceRequestDetailAPICall
+                                                                    .flagDecoration(
+                                                              (_model.getInsuranceDetailDup
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )) ==
+                                                            '0'
+                                                        ? false
+                                                        : true);
+                                                FFAppState()
+                                                        .insuranceBasicAccessoryProtected =
+                                                    functions.checkNullValueAndReturn(
+                                                        InsuranceRequestDetailAPICall
+                                                            .decorationDetail(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                    .isEquipedMetalBox = functions
+                                                            .checkNullValueAndReturn(
+                                                                InsuranceRequestDetailAPICall
+                                                                    .flagCarrier(
+                                                          (_model.getInsuranceDetailDup
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )) ==
+                                                        '-'
+                                                    ? false
+                                                    : (functions.checkNullValueAndReturn(
+                                                                InsuranceRequestDetailAPICall
+                                                                    .flagCarrier(
+                                                              (_model.getInsuranceDetailDup
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )) ==
+                                                            '0'
+                                                        ? false
+                                                        : true);
+                                                FFAppState()
+                                                    .insuranceBasicCoop = functions
+                                                            .checkNullValueAndReturn(
+                                                                InsuranceRequestDetailAPICall
+                                                                    .flagCoop(
+                                                          (_model.getInsuranceDetailDup
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )) ==
+                                                        '-'
+                                                    ? false
+                                                    : (functions.checkNullValueAndReturn(
+                                                                InsuranceRequestDetailAPICall
+                                                                    .flagCoop(
+                                                              (_model.getInsuranceDetailDup
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )) ==
+                                                            '0'
+                                                        ? false
+                                                        : true);
+                                                FFAppState()
+                                                        .insuranceBasicPickupBoxType =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .carrierType(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicPickupBoxPrice =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .carrierPrice(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .customerTypeChoiceChips =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .customerType(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicTruckPart =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .truckPart(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicMemberType =
+                                                    functions.checkNullValueAndReturn(
+                                                        InsuranceRequestDetailAPICall
+                                                            .customerMemberchip(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicPlateAdditional =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .trailerPlateNo(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ).toString());
+                                                FFAppState()
+                                                        .insuranceBasicCarryPurpose =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .carrierPropose(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicRemark =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .remark(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicTrailerSumInsured =
+                                                    functions.checkNullValueAndReturn(
+                                                        InsuranceRequestDetailAPICall
+                                                            .trailerSumInsured(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ).toString());
+                                                FFAppState()
+                                                        .insuranceBasicActFlag =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .flagAct(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicTruckCurrentPrice =
+                                                    functions.checkNullValueAndReturn(
+                                                        InsuranceRequestDetailAPICall
+                                                            .truckCurrentPrice(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicSumInsured =
+                                                    functions
+                                                        .checkNullValueAndReturn(
+                                                            InsuranceRequestDetailAPICall
+                                                                .sumInsured(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ));
+                                                FFAppState()
+                                                        .insuranceBasicInsurerFullNameOutput =
+                                                    InsuranceRequestDetailAPICall
+                                                            .insurerNameList(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                        .toList()
+                                                        .cast<String>();
+                                                FFAppState()
+                                                        .insuranceBasicCoverTypeName =
+                                                    InsuranceRequestDetailAPICall
+                                                            .coverTypeNameList(
+                                                  (_model.getInsuranceDetailDup
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                        .first;
+                                                setState(() {});
                                                 Navigator.pop(context);
 
                                                 context.goNamed(

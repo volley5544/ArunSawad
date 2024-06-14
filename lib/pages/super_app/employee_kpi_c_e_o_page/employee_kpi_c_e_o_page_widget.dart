@@ -630,11 +630,11 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         from:
                                                                             0.0));
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isSearchedBranch =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isSearchedBranch =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                   } else {
                                                     if ((_model.getBranchSearched
@@ -880,11 +880,11 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isSelectedBranch =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isSelectedBranch =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                     Navigator.pop(context);
 
@@ -3444,11 +3444,11 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                         from:
                                                                             0.0));
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isEmployeeSearched =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isEmployeeSearched =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                   } else {
                                                     if ((_model.getEmployeeSearched
@@ -3709,11 +3709,11 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isEmployeeSelected =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isEmployeeSelected =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                     Navigator.pop(context);
 
@@ -6228,6 +6228,8 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                   (_model.getRegion?.jsonBody ??
                                                       ''),
                                                 )?.toList())).toList(), _model.areaRegionSelectedDropDownValue)}${_model.areaRegionDropDownValue == 'เขต' ? '/KPIareamanager/HomePage' : '/KPI_16727986561710/HomePage'}',
+                                            FFAppState()
+                                                .isOpenAndroidTableauBrowser,
                                           );
                                         } else {
                                           await showDialog(

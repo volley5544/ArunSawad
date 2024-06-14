@@ -91,9 +91,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
             userLocation: currentUserLocationValue,
           ),
           userLogRecordReference);
-      FFAppState().update(() {
-        FFAppState().isFromTimesheetPage = true;
-      });
+      FFAppState().isFromTimesheetPage = true;
+      FFAppState().update(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

@@ -157,10 +157,9 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                 if (_shouldSetState) setState(() {});
                 return;
               }
-              FFAppState().update(() {
-                FFAppState().addToImgURL(functions
-                    .stringToImgPath(_model.uploadFirebaseStorageAction)!);
-              });
+              FFAppState().addToImgURL(functions
+                  .stringToImgPath(_model.uploadFirebaseStorageAction)!);
+              FFAppState().update(() {});
               if (_shouldSetState) setState(() {});
             },
             child: FaIcon(

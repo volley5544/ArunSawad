@@ -49,20 +49,18 @@ class _ListNameTabFollowUpDebtWidgetState
         parameters: {'screen_name': 'listNameTabFollowUpDebt'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().collectionSearchBy = '';
-        FFAppState().collectionSearch = '';
-        FFAppState().collectionSortBy = '';
-      });
-      setState(() {
-        FFAppState().collectionSortBy = '';
-        FFAppState().collectionSearch = '';
-        FFAppState().collectionSearchBy = '';
-        FFAppState().selectCardList = [];
-        FFAppState().collectionListBoolean = [];
-        FFAppState().saveCalled = SaveCallStruct.fromSerializableMap(jsonDecode(
-            '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-      });
+      FFAppState().collectionSearchBy = '';
+      FFAppState().collectionSearch = '';
+      FFAppState().collectionSortBy = '';
+      setState(() {});
+      FFAppState().collectionSortBy = '';
+      FFAppState().collectionSearch = '';
+      FFAppState().collectionSearchBy = '';
+      FFAppState().selectCardList = [];
+      FFAppState().collectionListBoolean = [];
+      FFAppState().saveCalled = SaveCallStruct.fromSerializableMap(jsonDecode(
+          '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+      setState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -253,10 +251,9 @@ class _ListNameTabFollowUpDebtWidgetState
                                   },
                                 ).then((value) => safeSetState(() {}));
 
-                                setState(() {
-                                  FFAppState().collectionSortBy =
-                                      _model.sortbyDropdownValue!;
-                                });
+                                FFAppState().collectionSortBy =
+                                    _model.sortbyDropdownValue!;
+                                setState(() {});
                                 setState(() =>
                                     _model.listViewPagingController?.refresh());
                                 await _model.waitForOnePageForListView();
@@ -496,12 +493,11 @@ class _ListNameTabFollowUpDebtWidgetState
                                     },
                                   ).then((value) => safeSetState(() {}));
 
-                                  setState(() {
-                                    FFAppState().collectionSearchBy =
-                                        _model.dropDownValue!;
-                                    FFAppState().collectionSearch =
-                                        _model.textController.text;
-                                  });
+                                  FFAppState().collectionSearchBy =
+                                      _model.dropDownValue!;
+                                  FFAppState().collectionSearch =
+                                      _model.textController.text;
+                                  setState(() {});
                                   setState(() => _model.listViewPagingController
                                       ?.refresh());
                                   Navigator.pop(context);
@@ -567,21 +563,19 @@ class _ListNameTabFollowUpDebtWidgetState
                                     },
                                   ).then((value) => safeSetState(() {}));
 
-                                  setState(() {
-                                    FFAppState().collectionSearchBy = '';
-                                    FFAppState().collectionSearch = '';
-                                    FFAppState().collectionSortBy = '';
-                                  });
-                                  setState(() {
-                                    FFAppState().collectionSortBy = '';
-                                    FFAppState().collectionSearch = '';
-                                    FFAppState().collectionSearchBy = '';
-                                    FFAppState().selectCardList = [];
-                                    FFAppState().collectionListBoolean = [];
-                                    FFAppState().saveCalled = SaveCallStruct
-                                        .fromSerializableMap(jsonDecode(
-                                            '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                  });
+                                  FFAppState().collectionSearchBy = '';
+                                  FFAppState().collectionSearch = '';
+                                  FFAppState().collectionSortBy = '';
+                                  setState(() {});
+                                  FFAppState().collectionSortBy = '';
+                                  FFAppState().collectionSearch = '';
+                                  FFAppState().collectionSearchBy = '';
+                                  FFAppState().selectCardList = [];
+                                  FFAppState().collectionListBoolean = [];
+                                  FFAppState().saveCalled = SaveCallStruct
+                                      .fromSerializableMap(jsonDecode(
+                                          '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                  setState(() {});
                                   setState(() => _model.listViewPagingController
                                       ?.refresh());
                                   setState(() {

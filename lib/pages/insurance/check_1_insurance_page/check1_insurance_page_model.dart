@@ -25,16 +25,24 @@ class Check1InsurancePageModel
   // Stores action output result for [Backend Call - API (teleGetInsurersAPI)] action in Check_1InsurancePage widget.
   ApiCallResponse? getInsurersAPIOutput;
   // State field(s) for coverTypeNameChoose widget.
-  List<String>? coverTypeNameChooseValues;
   FormFieldController<List<String>>? coverTypeNameChooseValueController;
+  List<String>? get coverTypeNameChooseValues =>
+      coverTypeNameChooseValueController?.value;
+  set coverTypeNameChooseValues(List<String>? v) =>
+      coverTypeNameChooseValueController?.value = v;
+
   // State field(s) for garageChoose widget.
   String? garageChooseValue;
   FormFieldController<String>? garageChooseValueController;
   // State field(s) for sum_insured widget.
   double? sumInsuredValue;
   // State field(s) for insurerNameChoose widget.
-  List<String>? insurerNameChooseValues;
   FormFieldController<List<String>>? insurerNameChooseValueController;
+  List<String>? get insurerNameChooseValues =>
+      insurerNameChooseValueController?.value;
+  set insurerNameChooseValues(List<String>? v) =>
+      insurerNameChooseValueController?.value = v;
+
   // Stores action output result for [Backend Call - API (telePackageSearchAPI)] action in Button widget.
   ApiCallResponse? packageSearchAPIOutput;
 

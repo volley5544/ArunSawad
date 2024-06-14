@@ -16,7 +16,7 @@ class FindPlacePageModel extends FlutterFlowModel<FindPlacePageWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for PlacePicker widget.
-  var placePickerValue = FFPlace();
+  FFPlace placePickerValue = FFPlace();
   // State field(s) for GoogleMap widget.
   LatLng? googleMapsCenter;
   final googleMapsController = Completer<GoogleMapController>();

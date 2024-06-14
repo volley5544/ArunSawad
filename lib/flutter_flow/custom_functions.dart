@@ -18,6 +18,44 @@ String getUserLocation(LatLng? userLocation) {
   return userLatLng;
 }
 
+String showNumberWithCommaWithDot(String? number) {
+  // Add your function code here!
+  List<String> numberSplit = number!.split('.');
+  // Check if the input is null or empty
+
+  double? parsedNumber = 0.00;
+  if (number.contains('.')) {
+    if (numberSplit[1].length > 1) {
+      parsedNumber = double.tryParse(
+          '${numberSplit[0]}.${numberSplit[1][0]}${numberSplit[1][1]}');
+    } else {
+      parsedNumber = double.tryParse('${numberSplit[0]}.${numberSplit[1]}0');
+    }
+  } else {
+    parsedNumber = double.tryParse(number + '.00');
+  }
+
+  // Parse the input string to a double
+
+  // Check if parsing was successful
+
+  // Format the double as a string with two decimal places
+  if (parsedNumber != null) {
+    // Format the number with two decimal places
+    String formattedNumber = parsedNumber.toStringAsFixed(2);
+
+    // Use regular expression to add commas
+    RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+    String Function(Match) mathFunc = (Match match) => '${match[1]},';
+
+    // Format the number with commas and print
+    String result = formattedNumber.replaceAllMapped(reg, mathFunc);
+    return (result!);
+  } else {
+    return ("0.00");
+  }
+}
+
 List<String>? combine2List(
   List<String>? list1,
   List<String>? list2,
@@ -4038,12 +4076,21 @@ bool? lengthOfString(String? input) {
   return input!.length >= 8;
 }
 
-int? sumPaidAmount(
-  int? overDue,
-  int? remain624,
-  int? remain401,
+String? sumPaidAmount(
+  String? overDue,
+  String? remain624,
+  String? remain401,
 ) {
-  return (overDue! + remain624! + remain401!);
+  double overDueDouble = double.parse(overDue!); // Convert string to double
+  double remain624Double = double.parse(remain624!);
+  double remain401Double = double.parse(remain401!);
+
+  double sum =
+      overDueDouble + remain624Double + remain401Double; // Add the doubles
+
+  String result = sum.toString(); // Convert the result back to string
+
+  return result;
 }
 
 String? birthCheck(String? dateStr) {
@@ -4053,4 +4100,25 @@ String? birthCheck(String? dateStr) {
   String year = (date.year + 543).toString();
 
   return '$day$month$year';
+}
+
+String? formatDateToSlash(String? inputDate) {
+  if (inputDate == null || inputDate.isEmpty || inputDate == '-') {
+    return '-';
+  }
+
+  // Parse the original date string to a DateTime object
+  DateTime? dateTime;
+  try {
+    dateTime = DateTime.parse(inputDate);
+  } catch (e) {
+    // If parsing fails, return '-'
+    return '-';
+  }
+
+  // Format the DateTime object to the desired format
+  String formattedDateString = DateFormat('dd/MM/yyyy').format(dateTime!);
+
+  // Return the formatted date string
+  return formattedDateString;
 }

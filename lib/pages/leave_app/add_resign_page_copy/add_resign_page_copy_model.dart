@@ -31,8 +31,12 @@ class AddResignPageCopyModel extends FlutterFlowModel<AddResignPageCopyWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   DateTime? datePicked;
   // State field(s) for CheckboxGroup widget.
-  List<String>? checkboxGroupValues1;
   FormFieldController<List<String>>? checkboxGroupValueController1;
+  List<String>? get checkboxGroupValues1 =>
+      checkboxGroupValueController1?.value;
+  set checkboxGroupValues1(List<String>? v) =>
+      checkboxGroupValueController1?.value = v;
+
   // State field(s) for ReasonToLeaveEtcTextField widget.
   FocusNode? reasonToLeaveEtcTextFieldFocusNode;
   TextEditingController? reasonToLeaveEtcTextFieldTextController;
@@ -87,8 +91,12 @@ class AddResignPageCopyModel extends FlutterFlowModel<AddResignPageCopyWidget> {
   String? chanceToWorkTgtDropDownValue;
   FormFieldController<String>? chanceToWorkTgtDropDownValueController;
   // State field(s) for CheckboxGroup widget.
-  List<String>? checkboxGroupValues2;
   FormFieldController<List<String>>? checkboxGroupValueController2;
+  List<String>? get checkboxGroupValues2 =>
+      checkboxGroupValueController2?.value;
+  set checkboxGroupValues2(List<String>? v) =>
+      checkboxGroupValueController2?.value = v;
+
   // State field(s) for ReturnAssetTextField widget.
   FocusNode? returnAssetTextFieldFocusNode;
   TextEditingController? returnAssetTextFieldTextController;

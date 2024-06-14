@@ -132,12 +132,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
             ),
             userLogRecordReference);
       }
-      setState(() {
-        FFAppState().locationTemp = valueOrDefault<String>(
-          functions.getUserLocation(currentUserLocationValue),
-          'Latitude,Longitude',
-        );
-      });
+      FFAppState().locationTemp = valueOrDefault<String>(
+        functions.getUserLocation(currentUserLocationValue),
+        'Latitude,Longitude',
+      );
+      setState(() {});
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
@@ -1460,14 +1459,13 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             ).then(
                                                 (value) => safeSetState(() {}));
 
-                                            setState(() {
-                                              FFAppState().locationTemp =
-                                                  valueOrDefault<String>(
-                                                functions.getUserLocation(
-                                                    currentUserLocationValue),
-                                                'Latitude,Longitude',
-                                              );
-                                            });
+                                            FFAppState().locationTemp =
+                                                valueOrDefault<String>(
+                                              functions.getUserLocation(
+                                                  currentUserLocationValue),
+                                              'Latitude,Longitude',
+                                            );
+                                            setState(() {});
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
@@ -1757,11 +1755,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                                     .imgURL[
                                                                 uploadedImgIndex])
                                                             .delete();
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                              .removeAtIndexFromImgURL(
-                                                                  uploadedImgIndex);
-                                                        });
+                                                        FFAppState()
+                                                            .removeAtIndexFromImgURL(
+                                                                uploadedImgIndex);
+                                                        FFAppState()
+                                                            .update(() {});
                                                       },
                                                       child: Icon(
                                                         Icons.clear_sharp,
@@ -2005,32 +2003,30 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   ''),
                                             ) ==
                                             200)) {
-                                      setState(() {
-                                        FFAppState().branchLocationTemp =
-                                            '${ChangeLocationAPICall.oldLat(
-                                          (_model.getUserBranchLocation
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )},${ChangeLocationAPICall.oldLng(
-                                          (_model.getUserBranchLocation
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )}';
-                                        FFAppState().branchNameTemp =
-                                            ChangeLocationAPICall.branchName(
-                                          (_model.getUserBranchLocation
-                                                  ?.jsonBody ??
-                                              ''),
-                                        )!;
-                                      });
+                                      FFAppState().branchLocationTemp =
+                                          '${ChangeLocationAPICall.oldLat(
+                                        (_model.getUserBranchLocation
+                                                ?.jsonBody ??
+                                            ''),
+                                      )},${ChangeLocationAPICall.oldLng(
+                                        (_model.getUserBranchLocation
+                                                ?.jsonBody ??
+                                            ''),
+                                      )}';
+                                      FFAppState().branchNameTemp =
+                                          ChangeLocationAPICall.branchName(
+                                        (_model.getUserBranchLocation
+                                                ?.jsonBody ??
+                                            ''),
+                                      )!;
+                                      setState(() {});
                                     } else {
-                                      setState(() {
-                                        FFAppState().branchLocationTemp =
-                                            functions.getUserLocation(
-                                                currentUserLocationValue);
-                                        FFAppState().branchNameTemp =
-                                            FFAppState().profileUnitCodeName;
-                                      });
+                                      FFAppState().branchLocationTemp =
+                                          functions.getUserLocation(
+                                              currentUserLocationValue);
+                                      FFAppState().branchNameTemp =
+                                          FFAppState().profileUnitCodeName;
+                                      setState(() {});
                                     }
                                   }
                                   _model.collectionAPISubmit =
@@ -2300,11 +2296,10 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       token: FFAppState().tokenVloanRemark,
                                     );
                                     _shouldSetState = true;
-                                    FFAppState().update(() {
-                                      FFAppState().imgURL = [];
-                                      FFAppState().imgURLTemp =
-                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-                                    });
+                                    FFAppState().imgURL = [];
+                                    FFAppState().imgURLTemp =
+                                        'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+                                    FFAppState().update(() {});
                                     if ((_model.remarkVLoneOutput?.statusCode ??
                                             200) ==
                                         200) {
@@ -2367,14 +2362,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       return;
                                     }
 
-                                    FFAppState().update(() {
-                                      FFAppState().isGetVloanContract = false;
-                                      FFAppState().vloanCustomerNameListTemp =
-                                          [];
-                                    });
-                                    FFAppState().update(() {
-                                      FFAppState().vloanContNoListTemp = [];
-                                    });
+                                    FFAppState().isGetVloanContract = false;
+                                    FFAppState().vloanCustomerNameListTemp = [];
+                                    FFAppState().update(() {});
+                                    FFAppState().vloanContNoListTemp = [];
+                                    FFAppState().update(() {});
                                   } else {
                                     Navigator.pop(context);
                                     await showDialog(

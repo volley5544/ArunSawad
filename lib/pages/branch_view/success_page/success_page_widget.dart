@@ -138,9 +138,8 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            FFAppState().update(() {
-                              FFAppState().isFromTimesheetPage = true;
-                            });
+                            FFAppState().isFromTimesheetPage = true;
+                            FFAppState().update(() {});
 
                             context.goNamed('TimeSheetPage');
                           },

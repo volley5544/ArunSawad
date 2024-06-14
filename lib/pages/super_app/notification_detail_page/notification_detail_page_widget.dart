@@ -255,14 +255,13 @@ class _NotificationDetailPageWidgetState
                                           token: FFAppState().accessToken,
                                         );
                                         _shouldSetState = true;
-                                        setState(() {
-                                          FFAppState().bossCheckFlag =
-                                              GetBossAPICall.bossCheck(
-                                            (_model.bossCheckOutputNotipage
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )!;
-                                        });
+                                        FFAppState().bossCheckFlag =
+                                            GetBossAPICall.bossCheck(
+                                          (_model.bossCheckOutputNotipage
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        setState(() {});
                                         Navigator.pop(context);
 
                                         context.goNamed('DashboardLeavePage');

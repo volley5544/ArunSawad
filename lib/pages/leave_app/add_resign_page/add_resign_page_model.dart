@@ -33,8 +33,12 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   String? Function(BuildContext, String?)? textController1Validator;
   DateTime? datePicked;
   // State field(s) for CheckboxGroup widget.
-  List<String>? checkboxGroupValues1;
   FormFieldController<List<String>>? checkboxGroupValueController1;
+  List<String>? get checkboxGroupValues1 =>
+      checkboxGroupValueController1?.value;
+  set checkboxGroupValues1(List<String>? v) =>
+      checkboxGroupValueController1?.value = v;
+
   // State field(s) for ReasonToLeaveEtcTextField widget.
   FocusNode? reasonToLeaveEtcTextFieldFocusNode;
   TextEditingController? reasonToLeaveEtcTextFieldTextController;
@@ -75,8 +79,12 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   String? chanceToWorkTgtDropDownValue;
   FormFieldController<String>? chanceToWorkTgtDropDownValueController;
   // State field(s) for CheckboxGroup widget.
-  List<String>? checkboxGroupValues2;
   FormFieldController<List<String>>? checkboxGroupValueController2;
+  List<String>? get checkboxGroupValues2 =>
+      checkboxGroupValueController2?.value;
+  set checkboxGroupValues2(List<String>? v) =>
+      checkboxGroupValueController2?.value = v;
+
   // State field(s) for ReturnAssetTextField widget.
   FocusNode? returnAssetTextFieldFocusNode;
   TextEditingController? returnAssetTextFieldTextController;
@@ -93,8 +101,12 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   TextEditingController? textController7;
   String? Function(BuildContext, String?)? textController7Validator;
   // State field(s) for CheckboxGroupEdit widget.
-  List<String>? checkboxGroupEditValues;
   FormFieldController<List<String>>? checkboxGroupEditValueController;
+  List<String>? get checkboxGroupEditValues =>
+      checkboxGroupEditValueController?.value;
+  set checkboxGroupEditValues(List<String>? v) =>
+      checkboxGroupEditValueController?.value = v;
+
   // State field(s) for ReasonToLeaveEtcTextField2 widget.
   FocusNode? reasonToLeaveEtcTextField2FocusNode;
   TextEditingController? reasonToLeaveEtcTextField2TextController;
@@ -135,8 +147,12 @@ class AddResignPageModel extends FlutterFlowModel<AddResignPageWidget> {
   String? chanceToWorkTgtDropDown2Value;
   FormFieldController<String>? chanceToWorkTgtDropDown2ValueController;
   // State field(s) for CheckboxGroupEdit2 widget.
-  List<String>? checkboxGroupEdit2Values;
   FormFieldController<List<String>>? checkboxGroupEdit2ValueController;
+  List<String>? get checkboxGroupEdit2Values =>
+      checkboxGroupEdit2ValueController?.value;
+  set checkboxGroupEdit2Values(List<String>? v) =>
+      checkboxGroupEdit2ValueController?.value = v;
+
   // State field(s) for ReturnAssetTextField2 widget.
   FocusNode? returnAssetTextField2FocusNode;
   TextEditingController? returnAssetTextField2TextController;

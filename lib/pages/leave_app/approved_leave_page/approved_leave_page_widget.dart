@@ -65,9 +65,8 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().multiApprove = false;
-      });
+      FFAppState().multiApprove = false;
+      setState(() {});
       _model.leaveListAprroveAPIOutput = await LeaveListAprroveAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
@@ -77,20 +76,18 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
               (_model.leaveListAprroveAPIOutput?.jsonBody ?? ''),
             ) ==
             200) {
-          FFAppState().update(() {
-            FFAppState().positionApprove = '1';
-          });
-          setState(() {
-            FFAppState().selectApproveList = functions
-                .createFalseList(
-                    false,
-                    LeaveListAprroveAPICall.leaveID(
-                      (_model.leaveListAprroveAPIOutput?.jsonBody ?? ''),
-                    )?.length)!
-                .toList()
-                .cast<bool>();
-            FFAppState().multiApprove = false;
-          });
+          FFAppState().positionApprove = '1';
+          FFAppState().update(() {});
+          FFAppState().selectApproveList = functions
+              .createFalseList(
+                  false,
+                  LeaveListAprroveAPICall.leaveID(
+                    (_model.leaveListAprroveAPIOutput?.jsonBody ?? ''),
+                  )?.length)!
+              .toList()
+              .cast<bool>();
+          FFAppState().multiApprove = false;
+          setState(() {});
           Navigator.pop(context);
         } else {
           await showDialog(
@@ -137,81 +134,69 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                 userLocation: currentUserLocationValue,
               ),
               userLogRecordReference);
-          FFAppState().update(() {
-            FFAppState().loginStateFirebase = '[loginStateFirebase]';
-            FFAppState().deleteAccessToken();
-            FFAppState().accessToken = 'access_token';
-          });
-          FFAppState().update(() {
-            FFAppState().deleteEmployeeID();
-            FFAppState().employeeID = 'employee_id';
+          FFAppState().loginStateFirebase = '[loginStateFirebase]';
+          FFAppState().deleteAccessToken();
+          FFAppState().accessToken = 'access_token';
 
-            FFAppState().QRCodeLink = 'qrcode_link';
-          });
-          FFAppState().update(() {
-            FFAppState().deleteApiURLLocalState();
-            FFAppState().apiURLLocalState = 'api_url_local_state';
+          FFAppState().update(() {});
+          FFAppState().deleteEmployeeID();
+          FFAppState().employeeID = 'employee_id';
 
-            FFAppState().deleteBranchCode();
-            FFAppState().branchCode = 'branch_code';
-          });
-          FFAppState().update(() {
-            FFAppState().isFromSetPinPage = false;
-            FFAppState().leadChannelColor = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelList = [];
-            FFAppState().isFromLoginPage = false;
-          });
-          FFAppState().update(() {
-            FFAppState().deletePinCodeAuthen();
-            FFAppState().pinCodeAuthen = '013972';
+          FFAppState().QRCodeLink = 'qrcode_link';
+          FFAppState().update(() {});
+          FFAppState().deleteApiURLLocalState();
+          FFAppState().apiURLLocalState = 'api_url_local_state';
 
-            FFAppState().isFromAuthenPage = false;
-          });
-          FFAppState().update(() {
-            FFAppState().deleteDateDoNotShowAgain();
-            FFAppState().dateDoNotShowAgain = null;
+          FFAppState().deleteBranchCode();
+          FFAppState().branchCode = 'branch_code';
 
-            FFAppState().deleteDoNotShowAgain();
-            FFAppState().doNotShowAgain = false;
-          });
-          FFAppState().update(() {
-            FFAppState().inAppViaNotification = true;
-            FFAppState().isInApp = false;
-          });
-          FFAppState().update(() {
-            FFAppState().fcmToken = 'fcm_token';
-            FFAppState().isPassLoginSection = false;
-          });
-          FFAppState().update(() {
-            FFAppState().leadID = [];
-            FFAppState().leadCreatedTimeList = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadCustomerNameList = [];
-            FFAppState().leadChannelList = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelColor = [];
-            FFAppState().leadCallStatus = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadPhoneNumberList = [];
-            FFAppState().leadEmployeeID = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelLabelColor = [];
-            FFAppState().deleteLeadIdCalledInApp();
-            FFAppState().leadIdCalledInApp = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadBranchCode = [];
-            FFAppState().leadUserLevel = 'lead_user_level';
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelAmountList = [];
-          });
+          FFAppState().update(() {});
+          FFAppState().isFromSetPinPage = false;
+          FFAppState().leadChannelColor = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelList = [];
+          FFAppState().isFromLoginPage = false;
+          FFAppState().update(() {});
+          FFAppState().deletePinCodeAuthen();
+          FFAppState().pinCodeAuthen = '013972';
+
+          FFAppState().isFromAuthenPage = false;
+          FFAppState().update(() {});
+          FFAppState().deleteDateDoNotShowAgain();
+          FFAppState().dateDoNotShowAgain = null;
+
+          FFAppState().deleteDoNotShowAgain();
+          FFAppState().doNotShowAgain = false;
+
+          FFAppState().update(() {});
+          FFAppState().inAppViaNotification = true;
+          FFAppState().isInApp = false;
+          FFAppState().update(() {});
+          FFAppState().fcmToken = 'fcm_token';
+          FFAppState().isPassLoginSection = false;
+          FFAppState().update(() {});
+          FFAppState().leadID = [];
+          FFAppState().leadCreatedTimeList = [];
+          FFAppState().update(() {});
+          FFAppState().leadCustomerNameList = [];
+          FFAppState().leadChannelList = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelColor = [];
+          FFAppState().leadCallStatus = [];
+          FFAppState().update(() {});
+          FFAppState().leadPhoneNumberList = [];
+          FFAppState().leadEmployeeID = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelLabelColor = [];
+          FFAppState().deleteLeadIdCalledInApp();
+          FFAppState().leadIdCalledInApp = [];
+
+          FFAppState().update(() {});
+          FFAppState().leadBranchCode = [];
+          FFAppState().leadUserLevel = 'lead_user_level';
+          FFAppState().update(() {});
+          FFAppState().leadChannelAmountList = [];
+          FFAppState().update(() {});
           Navigator.pop(context);
           await actions.a22();
 
@@ -322,19 +307,18 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   HapticFeedback.mediumImpact();
-                                  setState(() {
-                                    FFAppState().multiApprove = true;
-                                    FFAppState().selectApproveList = functions
-                                        .createFalseList(
-                                            false,
-                                            LeaveListAprroveAPICall.leaveID(
-                                              (_model.leaveListAprroveAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?.length)!
-                                        .toList()
-                                        .cast<bool>();
-                                  });
+                                  FFAppState().multiApprove = true;
+                                  FFAppState().selectApproveList = functions
+                                      .createFalseList(
+                                          false,
+                                          LeaveListAprroveAPICall.leaveID(
+                                            (_model.leaveListAprroveAPIOutput
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )?.length)!
+                                      .toList()
+                                      .cast<bool>();
+                                  setState(() {});
                                 },
                                 text: 'อนุมัติหลายคน',
                                 icon: Icon(
@@ -407,39 +391,36 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                           setState(() =>
                                               _model.checkboxValue = newValue!);
                                           if (newValue!) {
-                                            setState(() {
-                                              FFAppState().ApproveAllCheck =
-                                                  true;
-                                              FFAppState().selectApproveList =
-                                                  functions
-                                                      .createFalseList(
-                                                          true,
-                                                          LeaveListAprroveAPICall
-                                                              .leaveID(
-                                                            (_model.leaveListAprroveAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?.length)!
-                                                      .toList()
-                                                      .cast<bool>();
-                                            });
+                                            FFAppState().ApproveAllCheck = true;
+                                            FFAppState().selectApproveList =
+                                                functions
+                                                    .createFalseList(
+                                                        true,
+                                                        LeaveListAprroveAPICall
+                                                            .leaveID(
+                                                          (_model.leaveListAprroveAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )?.length)!
+                                                    .toList()
+                                                    .cast<bool>();
+                                            setState(() {});
                                           } else {
-                                            setState(() {
-                                              FFAppState().ApproveAllCheck =
-                                                  false;
-                                              FFAppState().selectApproveList =
-                                                  functions
-                                                      .createFalseList(
-                                                          false,
-                                                          LeaveListAprroveAPICall
-                                                              .leaveID(
-                                                            (_model.leaveListAprroveAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )?.length)!
-                                                      .toList()
-                                                      .cast<bool>();
-                                            });
+                                            FFAppState().ApproveAllCheck =
+                                                false;
+                                            FFAppState().selectApproveList =
+                                                functions
+                                                    .createFalseList(
+                                                        false,
+                                                        LeaveListAprroveAPICall
+                                                            .leaveID(
+                                                          (_model.leaveListAprroveAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )?.length)!
+                                                    .toList()
+                                                    .cast<bool>();
+                                            setState(() {});
                                           }
                                         },
                                         side: BorderSide(
@@ -716,21 +697,18 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                       0.0, 0.0, 10.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      setState(() {
-                                        FFAppState().multiApprove = false;
-                                        FFAppState().selectApproveList =
-                                            functions
-                                                .createFalseList(
-                                                    false,
-                                                    LeaveListAprroveAPICall
-                                                        .leaveID(
-                                                      (_model.leaveListAprroveAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )?.length)!
-                                                .toList()
-                                                .cast<bool>();
-                                      });
+                                      FFAppState().multiApprove = false;
+                                      FFAppState().selectApproveList = functions
+                                          .createFalseList(
+                                              false,
+                                              LeaveListAprroveAPICall.leaveID(
+                                                (_model.leaveListAprroveAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )?.length)!
+                                          .toList()
+                                          .cast<bool>();
+                                      setState(() {});
                                     },
                                     text: 'ยกเลิก',
                                     icon: FaIcon(
@@ -835,16 +813,15 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 if (FFAppState().multiApprove) {
-                                  setState(() {
-                                    FFAppState().updateSelectApproveListAtIndex(
-                                      leaveIdItemIndex,
-                                      (_) => FFAppState().selectApproveList[
-                                                  leaveIdItemIndex] ==
-                                              true
-                                          ? false
-                                          : true,
-                                    );
-                                  });
+                                  FFAppState().updateSelectApproveListAtIndex(
+                                    leaveIdItemIndex,
+                                    (_) => FFAppState().selectApproveList[
+                                                leaveIdItemIndex] ==
+                                            true
+                                        ? false
+                                        : true,
+                                  );
+                                  setState(() {});
                                 }
                               },
                               child: Container(
@@ -881,21 +858,19 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                 if (FFAppState()
                                                         .selectApproveList[
                                                     leaveIdItemIndex]) {
-                                                  setState(() {
-                                                    FFAppState()
-                                                        .updateSelectApproveListAtIndex(
-                                                      leaveIdItemIndex,
-                                                      (_) => false,
-                                                    );
-                                                  });
+                                                  FFAppState()
+                                                      .updateSelectApproveListAtIndex(
+                                                    leaveIdItemIndex,
+                                                    (_) => false,
+                                                  );
+                                                  setState(() {});
                                                 } else {
-                                                  setState(() {
-                                                    FFAppState()
-                                                        .updateSelectApproveListAtIndex(
-                                                      leaveIdItemIndex,
-                                                      (_) => true,
-                                                    );
-                                                  });
+                                                  FFAppState()
+                                                      .updateSelectApproveListAtIndex(
+                                                    leaveIdItemIndex,
+                                                    (_) => true,
+                                                  );
+                                                  setState(() {});
                                                 }
                                               },
                                               child: Container(
@@ -997,23 +972,22 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                     Colors.transparent,
                                                 onLongPress: () async {
                                                   HapticFeedback.mediumImpact();
-                                                  setState(() {
-                                                    FFAppState().multiApprove =
-                                                        true;
-                                                    FFAppState()
-                                                            .selectApproveList =
-                                                        functions
-                                                            .createFalseList(
-                                                                false,
-                                                                LeaveListAprroveAPICall
-                                                                    .leaveID(
-                                                                  (_model.leaveListAprroveAPIOutput
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?.length)!
-                                                            .toList()
-                                                            .cast<bool>();
-                                                  });
+                                                  FFAppState().multiApprove =
+                                                      true;
+                                                  FFAppState()
+                                                          .selectApproveList =
+                                                      functions
+                                                          .createFalseList(
+                                                              false,
+                                                              LeaveListAprroveAPICall
+                                                                  .leaveID(
+                                                                (_model.leaveListAprroveAPIOutput
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.length)!
+                                                          .toList()
+                                                          .cast<bool>();
+                                                  setState(() {});
                                                 },
                                                 child: Container(
                                                   width:
@@ -1223,12 +1197,11 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               Colors.transparent,
                                                                           onTap:
                                                                               () async {
-                                                                            setState(() {
-                                                                              FFAppState().updateSelectApproveListAtIndex(
-                                                                                leaveIdItemIndex,
-                                                                                (_) => FFAppState().selectApproveList[leaveIdItemIndex] == true ? false : true,
-                                                                              );
-                                                                            });
+                                                                            FFAppState().updateSelectApproveListAtIndex(
+                                                                              leaveIdItemIndex,
+                                                                              (_) => FFAppState().selectApproveList[leaveIdItemIndex] == true ? false : true,
+                                                                            );
+                                                                            setState(() {});
                                                                           },
                                                                           child:
                                                                               Column(
@@ -2162,21 +2135,20 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               hoverColor: Colors.transparent,
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().leaveDocImgPathList = functions
-                                                                                      .leaveStringImgToImgPathList(valueOrDefault<String>(
-                                                                                        functions.showMatNameInList(
-                                                                                            functions
-                                                                                                .reverseList(LeaveListAprroveAPICall.leaveDocument(
-                                                                                                  (_model.leaveListAprroveAPIOutput?.jsonBody ?? ''),
-                                                                                                )?.toList())
-                                                                                                .toList(),
-                                                                                            leaveIdItemIndex),
-                                                                                        '[leave_name]',
-                                                                                      ))!
-                                                                                      .toList()
-                                                                                      .cast<String>();
-                                                                                });
+                                                                                FFAppState().leaveDocImgPathList = functions
+                                                                                    .leaveStringImgToImgPathList(valueOrDefault<String>(
+                                                                                      functions.showMatNameInList(
+                                                                                          functions
+                                                                                              .reverseList(LeaveListAprroveAPICall.leaveDocument(
+                                                                                                (_model.leaveListAprroveAPIOutput?.jsonBody ?? ''),
+                                                                                              )?.toList())
+                                                                                              .toList(),
+                                                                                          leaveIdItemIndex),
+                                                                                      '[leave_name]',
+                                                                                    ))!
+                                                                                    .toList()
+                                                                                    .cast<String>();
+                                                                                FFAppState().update(() {});
                                                                                 if (FFAppState().leaveDocImgPathList.length <= 0) {
                                                                                   await showDialog(
                                                                                     context: context,
@@ -2521,81 +2493,69 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                           ),
                                                                                           userLogRecordReference);
                                                                                       _shouldSetState = true;
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                        FFAppState().deleteAccessToken();
-                                                                                        FFAppState().accessToken = 'access_token';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deleteEmployeeID();
-                                                                                        FFAppState().employeeID = 'employee_id';
+                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                      FFAppState().deleteAccessToken();
+                                                                                      FFAppState().accessToken = 'access_token';
 
-                                                                                        FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deleteApiURLLocalState();
-                                                                                        FFAppState().apiURLLocalState = 'api_url_local_state';
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteEmployeeID();
+                                                                                      FFAppState().employeeID = 'employee_id';
 
-                                                                                        FFAppState().deleteBranchCode();
-                                                                                        FFAppState().branchCode = 'branch_code';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().isFromSetPinPage = false;
-                                                                                        FFAppState().leadChannelColor = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelList = [];
-                                                                                        FFAppState().isFromLoginPage = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deletePinCodeAuthen();
-                                                                                        FFAppState().pinCodeAuthen = '013972';
+                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteApiURLLocalState();
+                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
 
-                                                                                        FFAppState().isFromAuthenPage = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deleteDateDoNotShowAgain();
-                                                                                        FFAppState().dateDoNotShowAgain = null;
+                                                                                      FFAppState().deleteBranchCode();
+                                                                                      FFAppState().branchCode = 'branch_code';
 
-                                                                                        FFAppState().deleteDoNotShowAgain();
-                                                                                        FFAppState().doNotShowAgain = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().inAppViaNotification = true;
-                                                                                        FFAppState().isInApp = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().fcmToken = 'fcm_token';
-                                                                                        FFAppState().isPassLoginSection = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadID = [];
-                                                                                        FFAppState().leadCreatedTimeList = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadCustomerNameList = [];
-                                                                                        FFAppState().leadChannelList = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelColor = [];
-                                                                                        FFAppState().leadCallStatus = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadPhoneNumberList = [];
-                                                                                        FFAppState().leadEmployeeID = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelLabelColor = [];
-                                                                                        FFAppState().deleteLeadIdCalledInApp();
-                                                                                        FFAppState().leadIdCalledInApp = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadBranchCode = [];
-                                                                                        FFAppState().leadUserLevel = 'lead_user_level';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelAmountList = [];
-                                                                                      });
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().isFromSetPinPage = false;
+                                                                                      FFAppState().leadChannelColor = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelList = [];
+                                                                                      FFAppState().isFromLoginPage = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deletePinCodeAuthen();
+                                                                                      FFAppState().pinCodeAuthen = '013972';
+
+                                                                                      FFAppState().isFromAuthenPage = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteDateDoNotShowAgain();
+                                                                                      FFAppState().dateDoNotShowAgain = null;
+
+                                                                                      FFAppState().deleteDoNotShowAgain();
+                                                                                      FFAppState().doNotShowAgain = false;
+
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().inAppViaNotification = true;
+                                                                                      FFAppState().isInApp = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().fcmToken = 'fcm_token';
+                                                                                      FFAppState().isPassLoginSection = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadID = [];
+                                                                                      FFAppState().leadCreatedTimeList = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadCustomerNameList = [];
+                                                                                      FFAppState().leadChannelList = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelColor = [];
+                                                                                      FFAppState().leadCallStatus = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadPhoneNumberList = [];
+                                                                                      FFAppState().leadEmployeeID = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelLabelColor = [];
+                                                                                      FFAppState().deleteLeadIdCalledInApp();
+                                                                                      FFAppState().leadIdCalledInApp = [];
+
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadBranchCode = [];
+                                                                                      FFAppState().leadUserLevel = 'lead_user_level';
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelAmountList = [];
+                                                                                      FFAppState().update(() {});
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 
@@ -2835,81 +2795,69 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                           ),
                                                                                           userLogRecordReference);
                                                                                       _shouldSetState = true;
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                        FFAppState().deleteAccessToken();
-                                                                                        FFAppState().accessToken = 'access_token';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deleteEmployeeID();
-                                                                                        FFAppState().employeeID = 'employee_id';
+                                                                                      FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                      FFAppState().deleteAccessToken();
+                                                                                      FFAppState().accessToken = 'access_token';
 
-                                                                                        FFAppState().QRCodeLink = 'qrcode_link';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deleteApiURLLocalState();
-                                                                                        FFAppState().apiURLLocalState = 'api_url_local_state';
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteEmployeeID();
+                                                                                      FFAppState().employeeID = 'employee_id';
 
-                                                                                        FFAppState().deleteBranchCode();
-                                                                                        FFAppState().branchCode = 'branch_code';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().isFromSetPinPage = false;
-                                                                                        FFAppState().leadChannelColor = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelList = [];
-                                                                                        FFAppState().isFromLoginPage = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deletePinCodeAuthen();
-                                                                                        FFAppState().pinCodeAuthen = '013972';
+                                                                                      FFAppState().QRCodeLink = 'qrcode_link';
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteApiURLLocalState();
+                                                                                      FFAppState().apiURLLocalState = 'api_url_local_state';
 
-                                                                                        FFAppState().isFromAuthenPage = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().deleteDateDoNotShowAgain();
-                                                                                        FFAppState().dateDoNotShowAgain = null;
+                                                                                      FFAppState().deleteBranchCode();
+                                                                                      FFAppState().branchCode = 'branch_code';
 
-                                                                                        FFAppState().deleteDoNotShowAgain();
-                                                                                        FFAppState().doNotShowAgain = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().inAppViaNotification = true;
-                                                                                        FFAppState().isInApp = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().fcmToken = 'fcm_token';
-                                                                                        FFAppState().isPassLoginSection = false;
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadID = [];
-                                                                                        FFAppState().leadCreatedTimeList = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadCustomerNameList = [];
-                                                                                        FFAppState().leadChannelList = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelColor = [];
-                                                                                        FFAppState().leadCallStatus = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadPhoneNumberList = [];
-                                                                                        FFAppState().leadEmployeeID = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelLabelColor = [];
-                                                                                        FFAppState().deleteLeadIdCalledInApp();
-                                                                                        FFAppState().leadIdCalledInApp = [];
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadBranchCode = [];
-                                                                                        FFAppState().leadUserLevel = 'lead_user_level';
-                                                                                      });
-                                                                                      FFAppState().update(() {
-                                                                                        FFAppState().leadChannelAmountList = [];
-                                                                                      });
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().isFromSetPinPage = false;
+                                                                                      FFAppState().leadChannelColor = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelList = [];
+                                                                                      FFAppState().isFromLoginPage = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deletePinCodeAuthen();
+                                                                                      FFAppState().pinCodeAuthen = '013972';
+
+                                                                                      FFAppState().isFromAuthenPage = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().deleteDateDoNotShowAgain();
+                                                                                      FFAppState().dateDoNotShowAgain = null;
+
+                                                                                      FFAppState().deleteDoNotShowAgain();
+                                                                                      FFAppState().doNotShowAgain = false;
+
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().inAppViaNotification = true;
+                                                                                      FFAppState().isInApp = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().fcmToken = 'fcm_token';
+                                                                                      FFAppState().isPassLoginSection = false;
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadID = [];
+                                                                                      FFAppState().leadCreatedTimeList = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadCustomerNameList = [];
+                                                                                      FFAppState().leadChannelList = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelColor = [];
+                                                                                      FFAppState().leadCallStatus = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadPhoneNumberList = [];
+                                                                                      FFAppState().leadEmployeeID = [];
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelLabelColor = [];
+                                                                                      FFAppState().deleteLeadIdCalledInApp();
+                                                                                      FFAppState().leadIdCalledInApp = [];
+
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadBranchCode = [];
+                                                                                      FFAppState().leadUserLevel = 'lead_user_level';
+                                                                                      FFAppState().update(() {});
+                                                                                      FFAppState().leadChannelAmountList = [];
+                                                                                      FFAppState().update(() {});
                                                                                       Navigator.pop(context);
                                                                                       await actions.a22();
 

@@ -44,6 +44,8 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
           setState(() {
             _model.textController?.text =
                 functions.removeCommaFromNumText(_model.textController.text);
+            _model.textController?.selection = TextSelection.collapsed(
+                offset: _model.textController!.text.length);
           });
         } else {
           if (_model.textController.text == '') {
@@ -52,6 +54,8 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
           setState(() {
             _model.textController?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController.text)!;
+            _model.textController?.selection = TextSelection.collapsed(
+                offset: _model.textController!.text.length);
           });
         }
       },

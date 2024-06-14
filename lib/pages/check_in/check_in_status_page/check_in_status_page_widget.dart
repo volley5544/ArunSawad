@@ -94,28 +94,26 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
       ).then((value) => safeSetState(() {}));
 
       if (FFAppState().isGetDataViaFirebase) {
-        setState(() {
-          FFAppState().checkinStatusDate = functions
-              .reverseList(widget.date?.toList())
-              .toList()
-              .cast<String>();
-          FFAppState().checkinStatusTimeIn = functions
-              .reverseList(widget.checkinTimeIn?.toList())
-              .toList()
-              .cast<String>();
-          FFAppState().checkinStatusTimeOut = functions
-              .reverseList(widget.checkinTimeOut?.toList())
-              .toList()
-              .cast<String>();
-        });
-        setState(() {
-          FFAppState().checkinLastMonthDate =
-              widget.checkinLastMonthDate!.toList().cast<String>();
-          FFAppState().checkinLastMonthTimeIn =
-              widget.checkinLastMonthTimeIn!.toList().cast<String>();
-          FFAppState().checkinLastMonthTimeOut =
-              widget.checkinLastMonthTimeOut!.toList().cast<String>();
-        });
+        FFAppState().checkinStatusDate = functions
+            .reverseList(widget.date?.toList())
+            .toList()
+            .cast<String>();
+        FFAppState().checkinStatusTimeIn = functions
+            .reverseList(widget.checkinTimeIn?.toList())
+            .toList()
+            .cast<String>();
+        FFAppState().checkinStatusTimeOut = functions
+            .reverseList(widget.checkinTimeOut?.toList())
+            .toList()
+            .cast<String>();
+        setState(() {});
+        FFAppState().checkinLastMonthDate =
+            widget.checkinLastMonthDate!.toList().cast<String>();
+        FFAppState().checkinLastMonthTimeIn =
+            widget.checkinLastMonthTimeIn!.toList().cast<String>();
+        FFAppState().checkinLastMonthTimeOut =
+            widget.checkinLastMonthTimeOut!.toList().cast<String>();
+        setState(() {});
       } else {
         _model.checkinThisMonthOutput = await CheckinoutThisMonthAPICall.call(
           apiUrl: FFAppState().apiURLLocalState,
@@ -145,81 +143,69 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                   userLocation: currentUserLocationValue,
                 ),
                 userLogRecordReference1);
-            FFAppState().update(() {
-              FFAppState().loginStateFirebase = '[loginStateFirebase]';
-              FFAppState().deleteAccessToken();
-              FFAppState().accessToken = 'access_token';
-            });
-            FFAppState().update(() {
-              FFAppState().deleteEmployeeID();
-              FFAppState().employeeID = 'employee_id';
+            FFAppState().loginStateFirebase = '[loginStateFirebase]';
+            FFAppState().deleteAccessToken();
+            FFAppState().accessToken = 'access_token';
 
-              FFAppState().QRCodeLink = 'qrcode_link';
-            });
-            FFAppState().update(() {
-              FFAppState().deleteApiURLLocalState();
-              FFAppState().apiURLLocalState = 'api_url_local_state';
+            FFAppState().update(() {});
+            FFAppState().deleteEmployeeID();
+            FFAppState().employeeID = 'employee_id';
 
-              FFAppState().deleteBranchCode();
-              FFAppState().branchCode = 'branch_code';
-            });
-            FFAppState().update(() {
-              FFAppState().isFromSetPinPage = false;
-              FFAppState().leadChannelColor = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelList = [];
-              FFAppState().isFromLoginPage = false;
-            });
-            FFAppState().update(() {
-              FFAppState().deletePinCodeAuthen();
-              FFAppState().pinCodeAuthen = '013972';
+            FFAppState().QRCodeLink = 'qrcode_link';
+            FFAppState().update(() {});
+            FFAppState().deleteApiURLLocalState();
+            FFAppState().apiURLLocalState = 'api_url_local_state';
 
-              FFAppState().isFromAuthenPage = false;
-            });
-            FFAppState().update(() {
-              FFAppState().deleteDateDoNotShowAgain();
-              FFAppState().dateDoNotShowAgain = null;
+            FFAppState().deleteBranchCode();
+            FFAppState().branchCode = 'branch_code';
 
-              FFAppState().deleteDoNotShowAgain();
-              FFAppState().doNotShowAgain = false;
-            });
-            FFAppState().update(() {
-              FFAppState().inAppViaNotification = true;
-              FFAppState().isInApp = false;
-            });
-            FFAppState().update(() {
-              FFAppState().fcmToken = 'fcm_token';
-              FFAppState().isPassLoginSection = false;
-            });
-            FFAppState().update(() {
-              FFAppState().leadID = [];
-              FFAppState().leadCreatedTimeList = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadCustomerNameList = [];
-              FFAppState().leadChannelList = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelColor = [];
-              FFAppState().leadCallStatus = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadPhoneNumberList = [];
-              FFAppState().leadEmployeeID = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelLabelColor = [];
-              FFAppState().deleteLeadIdCalledInApp();
-              FFAppState().leadIdCalledInApp = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadBranchCode = [];
-              FFAppState().leadUserLevel = 'lead_user_level';
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelAmountList = [];
-            });
+            FFAppState().update(() {});
+            FFAppState().isFromSetPinPage = false;
+            FFAppState().leadChannelColor = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelList = [];
+            FFAppState().isFromLoginPage = false;
+            FFAppState().update(() {});
+            FFAppState().deletePinCodeAuthen();
+            FFAppState().pinCodeAuthen = '013972';
+
+            FFAppState().isFromAuthenPage = false;
+            FFAppState().update(() {});
+            FFAppState().deleteDateDoNotShowAgain();
+            FFAppState().dateDoNotShowAgain = null;
+
+            FFAppState().deleteDoNotShowAgain();
+            FFAppState().doNotShowAgain = false;
+
+            FFAppState().update(() {});
+            FFAppState().inAppViaNotification = true;
+            FFAppState().isInApp = false;
+            FFAppState().update(() {});
+            FFAppState().fcmToken = 'fcm_token';
+            FFAppState().isPassLoginSection = false;
+            FFAppState().update(() {});
+            FFAppState().leadID = [];
+            FFAppState().leadCreatedTimeList = [];
+            FFAppState().update(() {});
+            FFAppState().leadCustomerNameList = [];
+            FFAppState().leadChannelList = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelColor = [];
+            FFAppState().leadCallStatus = [];
+            FFAppState().update(() {});
+            FFAppState().leadPhoneNumberList = [];
+            FFAppState().leadEmployeeID = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelLabelColor = [];
+            FFAppState().deleteLeadIdCalledInApp();
+            FFAppState().leadIdCalledInApp = [];
+
+            FFAppState().update(() {});
+            FFAppState().leadBranchCode = [];
+            FFAppState().leadUserLevel = 'lead_user_level';
+            FFAppState().update(() {});
+            FFAppState().leadChannelAmountList = [];
+            FFAppState().update(() {});
             Navigator.pop(context);
             await actions.a22();
 
@@ -318,81 +304,69 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                   userLocation: currentUserLocationValue,
                 ),
                 userLogRecordReference2);
-            FFAppState().update(() {
-              FFAppState().loginStateFirebase = '[loginStateFirebase]';
-              FFAppState().deleteAccessToken();
-              FFAppState().accessToken = 'access_token';
-            });
-            FFAppState().update(() {
-              FFAppState().deleteEmployeeID();
-              FFAppState().employeeID = 'employee_id';
+            FFAppState().loginStateFirebase = '[loginStateFirebase]';
+            FFAppState().deleteAccessToken();
+            FFAppState().accessToken = 'access_token';
 
-              FFAppState().QRCodeLink = 'qrcode_link';
-            });
-            FFAppState().update(() {
-              FFAppState().deleteApiURLLocalState();
-              FFAppState().apiURLLocalState = 'api_url_local_state';
+            FFAppState().update(() {});
+            FFAppState().deleteEmployeeID();
+            FFAppState().employeeID = 'employee_id';
 
-              FFAppState().deleteBranchCode();
-              FFAppState().branchCode = 'branch_code';
-            });
-            FFAppState().update(() {
-              FFAppState().isFromSetPinPage = false;
-              FFAppState().leadChannelColor = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelList = [];
-              FFAppState().isFromLoginPage = false;
-            });
-            FFAppState().update(() {
-              FFAppState().deletePinCodeAuthen();
-              FFAppState().pinCodeAuthen = '013972';
+            FFAppState().QRCodeLink = 'qrcode_link';
+            FFAppState().update(() {});
+            FFAppState().deleteApiURLLocalState();
+            FFAppState().apiURLLocalState = 'api_url_local_state';
 
-              FFAppState().isFromAuthenPage = false;
-            });
-            FFAppState().update(() {
-              FFAppState().deleteDateDoNotShowAgain();
-              FFAppState().dateDoNotShowAgain = null;
+            FFAppState().deleteBranchCode();
+            FFAppState().branchCode = 'branch_code';
 
-              FFAppState().deleteDoNotShowAgain();
-              FFAppState().doNotShowAgain = false;
-            });
-            FFAppState().update(() {
-              FFAppState().inAppViaNotification = true;
-              FFAppState().isInApp = false;
-            });
-            FFAppState().update(() {
-              FFAppState().fcmToken = 'fcm_token';
-              FFAppState().isPassLoginSection = false;
-            });
-            FFAppState().update(() {
-              FFAppState().leadID = [];
-              FFAppState().leadCreatedTimeList = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadCustomerNameList = [];
-              FFAppState().leadChannelList = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelColor = [];
-              FFAppState().leadCallStatus = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadPhoneNumberList = [];
-              FFAppState().leadEmployeeID = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelLabelColor = [];
-              FFAppState().deleteLeadIdCalledInApp();
-              FFAppState().leadIdCalledInApp = [];
-            });
-            FFAppState().update(() {
-              FFAppState().leadBranchCode = [];
-              FFAppState().leadUserLevel = 'lead_user_level';
-            });
-            FFAppState().update(() {
-              FFAppState().leadChannelAmountList = [];
-            });
+            FFAppState().update(() {});
+            FFAppState().isFromSetPinPage = false;
+            FFAppState().leadChannelColor = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelList = [];
+            FFAppState().isFromLoginPage = false;
+            FFAppState().update(() {});
+            FFAppState().deletePinCodeAuthen();
+            FFAppState().pinCodeAuthen = '013972';
+
+            FFAppState().isFromAuthenPage = false;
+            FFAppState().update(() {});
+            FFAppState().deleteDateDoNotShowAgain();
+            FFAppState().dateDoNotShowAgain = null;
+
+            FFAppState().deleteDoNotShowAgain();
+            FFAppState().doNotShowAgain = false;
+
+            FFAppState().update(() {});
+            FFAppState().inAppViaNotification = true;
+            FFAppState().isInApp = false;
+            FFAppState().update(() {});
+            FFAppState().fcmToken = 'fcm_token';
+            FFAppState().isPassLoginSection = false;
+            FFAppState().update(() {});
+            FFAppState().leadID = [];
+            FFAppState().leadCreatedTimeList = [];
+            FFAppState().update(() {});
+            FFAppState().leadCustomerNameList = [];
+            FFAppState().leadChannelList = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelColor = [];
+            FFAppState().leadCallStatus = [];
+            FFAppState().update(() {});
+            FFAppState().leadPhoneNumberList = [];
+            FFAppState().leadEmployeeID = [];
+            FFAppState().update(() {});
+            FFAppState().leadChannelLabelColor = [];
+            FFAppState().deleteLeadIdCalledInApp();
+            FFAppState().leadIdCalledInApp = [];
+
+            FFAppState().update(() {});
+            FFAppState().leadBranchCode = [];
+            FFAppState().leadUserLevel = 'lead_user_level';
+            FFAppState().update(() {});
+            FFAppState().leadChannelAmountList = [];
+            FFAppState().update(() {});
             Navigator.pop(context);
             await actions.a22();
 
@@ -433,45 +407,43 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                   (_model.checkinLastMonthOutput?.jsonBody ?? ''),
                 ) ==
                 202)) {
-          setState(() {
-            FFAppState().checkinStatusDate = functions
-                .reverseList(CheckinoutThisMonthAPICall.date(
-                  (_model.checkinThisMonthOutput?.jsonBody ?? ''),
-                )?.toList())
-                .toList()
-                .cast<String>();
-            FFAppState().checkinStatusTimeIn = functions
-                .reverseList(CheckinoutThisMonthAPICall.workInTime(
-                  (_model.checkinThisMonthOutput?.jsonBody ?? ''),
-                )?.toList())
-                .toList()
-                .cast<String>();
-            FFAppState().checkinStatusTimeOut = functions
-                .reverseList(CheckinoutThisMonthAPICall.workOutTime(
-                  (_model.checkinThisMonthOutput?.jsonBody ?? ''),
-                )?.toList())
-                .toList()
-                .cast<String>();
-          });
-          setState(() {
-            FFAppState().checkinLastMonthDate = CheckinoutLastMonthAPICall.date(
-              (_model.checkinLastMonthOutput?.jsonBody ?? ''),
-            )!
-                .toList()
-                .cast<String>();
-            FFAppState().checkinLastMonthTimeIn =
-                CheckinoutLastMonthAPICall.workInTime(
-              (_model.checkinLastMonthOutput?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().checkinLastMonthTimeOut =
-                CheckinoutLastMonthAPICall.workOutTime(
-              (_model.checkinLastMonthOutput?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().checkinStatusDate = functions
+              .reverseList(CheckinoutThisMonthAPICall.date(
+                (_model.checkinThisMonthOutput?.jsonBody ?? ''),
+              )?.toList())
+              .toList()
+              .cast<String>();
+          FFAppState().checkinStatusTimeIn = functions
+              .reverseList(CheckinoutThisMonthAPICall.workInTime(
+                (_model.checkinThisMonthOutput?.jsonBody ?? ''),
+              )?.toList())
+              .toList()
+              .cast<String>();
+          FFAppState().checkinStatusTimeOut = functions
+              .reverseList(CheckinoutThisMonthAPICall.workOutTime(
+                (_model.checkinThisMonthOutput?.jsonBody ?? ''),
+              )?.toList())
+              .toList()
+              .cast<String>();
+          setState(() {});
+          FFAppState().checkinLastMonthDate = CheckinoutLastMonthAPICall.date(
+            (_model.checkinLastMonthOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().checkinLastMonthTimeIn =
+              CheckinoutLastMonthAPICall.workInTime(
+            (_model.checkinLastMonthOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().checkinLastMonthTimeOut =
+              CheckinoutLastMonthAPICall.workOutTime(
+            (_model.checkinLastMonthOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          setState(() {});
         } else {
           if (CheckinoutLastMonthAPICall.statusLayer2(
                 (_model.checkinLastMonthOutput?.jsonBody ?? ''),

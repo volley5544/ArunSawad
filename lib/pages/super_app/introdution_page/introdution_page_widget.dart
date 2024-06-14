@@ -32,9 +32,8 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
         parameters: {'screen_name': 'IntrodutionPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().update(() {
-        FFAppState().introPageIndex = 1;
-      });
+      FFAppState().introPageIndex = 1;
+      FFAppState().update(() {});
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -154,10 +153,9 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                     if (FFAppState().introPageIndex <= 1) {
                                       return;
                                     }
-                                    FFAppState().update(() {
-                                      FFAppState().introPageIndex =
-                                          FFAppState().introPageIndex + -1;
-                                    });
+                                    FFAppState().introPageIndex =
+                                        FFAppState().introPageIndex + -1;
+                                    FFAppState().update(() {});
                                     await _model.pageViewController
                                         ?.previousPage(
                                       duration: Duration(milliseconds: 300),
@@ -196,19 +194,17 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   if (FFAppState().introPageIndex != 3) {
-                                    FFAppState().update(() {
-                                      FFAppState().introPageIndex =
-                                          FFAppState().introPageIndex + 1;
-                                    });
+                                    FFAppState().introPageIndex =
+                                        FFAppState().introPageIndex + 1;
+                                    FFAppState().update(() {});
                                     await _model.pageViewController?.nextPage(
                                       duration: Duration(milliseconds: 300),
                                       curve: Curves.ease,
                                     );
                                     return;
                                   }
-                                  FFAppState().update(() {
-                                    FFAppState().firstUseApp = true;
-                                  });
+                                  FFAppState().firstUseApp = true;
+                                  FFAppState().update(() {});
 
                                   context.goNamed('LoginPage');
                                 },

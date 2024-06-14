@@ -587,11 +587,11 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                         from:
                                                                             0.0));
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isSearchedBranch =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isSearchedBranch =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                   } else {
                                                     if ((_model.getBranchSearched
@@ -837,11 +837,11 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isSelectedBranch =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isSelectedBranch =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                     Navigator.pop(context);
 
@@ -1015,11 +1015,10 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                           .controller
                                                           .forward(from: 0.0);
                                                     }
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .isSelectedBranch =
-                                                          true;
-                                                    });
+                                                    FFAppState()
+                                                            .isSelectedBranch =
+                                                        true;
+                                                    FFAppState().update(() {});
                                                   }
                                                   Navigator.pop(context);
 
@@ -2423,11 +2422,11 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                         from:
                                                                             0.0));
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isEmployeeSearched =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isEmployeeSearched =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                   } else {
                                                     if ((_model.getEmployeeSearched
@@ -2688,11 +2687,11 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                             .controller
                                                             .forward(from: 0.0);
                                                       }
-                                                      FFAppState().update(() {
-                                                        FFAppState()
-                                                                .isEmployeeSelected =
-                                                            true;
-                                                      });
+                                                      FFAppState()
+                                                              .isEmployeeSelected =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
                                                     }
                                                     Navigator.pop(context);
 

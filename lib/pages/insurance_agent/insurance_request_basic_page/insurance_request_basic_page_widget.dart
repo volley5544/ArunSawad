@@ -86,6 +86,10 @@ class _InsuranceRequestBasicPageWidgetState
         setState(() {
           _model.insuranceLicenseNoInputTextController?.text =
               FFAppState().insuranceBasicOldLicenseNo;
+          _model.insuranceLicenseNoInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model
+                      .insuranceLicenseNoInputTextController!.text.length);
         });
         setState(() {
           _model.vehicleTypeDropDownValueController?.value =
@@ -127,6 +131,10 @@ class _InsuranceRequestBasicPageWidgetState
           _model.freezeBoxPriceInputTextController?.text =
               functions.convertDoubleTextToIntText(
                   FFAppState().insuranceBasicPickupBoxPrice)!;
+          _model.freezeBoxPriceInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset:
+                      _model.freezeBoxPriceInputTextController!.text.length);
         });
         await Future.delayed(const Duration(milliseconds: 600));
         await showDialog(
@@ -149,10 +157,14 @@ class _InsuranceRequestBasicPageWidgetState
         setState(() {
           _model.brandInputTextController?.text =
               FFAppState().insuranceBasicBrandName;
+          _model.brandInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.brandInputTextController!.text.length);
         });
         setState(() {
           _model.modelInputTextController?.text =
               FFAppState().insuranceBasicModelName;
+          _model.modelInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.modelInputTextController!.text.length);
         });
         setState(() {
           _model.truckCurrentPriceInputTextController?.text =
@@ -160,16 +172,26 @@ class _InsuranceRequestBasicPageWidgetState
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicTruckCurrentPrice)!);
+          _model.truckCurrentPriceInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset:
+                      _model.truckCurrentPriceInputTextController!.text.length);
         });
         setState(() {
           _model.plateInputTextController?.text =
               FFAppState().insuranceBasicPlateNo;
+          _model.plateInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.plateInputTextController!.text.length);
         });
         setState(() {
           _model.plateAdditionalInputTextController?.text =
               (FFAppState().insuranceBasicPlateAdditional == '-'
                   ? ''
                   : FFAppState().insuranceBasicPlateAdditional);
+          _model.plateAdditionalInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset:
+                      _model.plateAdditionalInputTextController!.text.length);
         });
         setState(() {
           _model.yearDropDownValueController?.value =
@@ -188,6 +210,9 @@ class _InsuranceRequestBasicPageWidgetState
               (FFAppState().insuranceBasicCarryPurpose == '-'
                   ? ''
                   : FFAppState().insuranceBasicCarryPurpose);
+          _model.logistPoposeInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.logistPoposeInputTextController!.text.length);
         });
         setState(() {
           _model.carModifyCheckboxValue = FFAppState().insuranceBasicCarModify;
@@ -197,30 +222,45 @@ class _InsuranceRequestBasicPageWidgetState
               (FFAppState().insuranceBasicAccessoryProtected == '-'
                   ? ''
                   : FFAppState().insuranceBasicAccessoryProtected);
+          _model.accessoryProtectedInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model
+                      .accessoryProtectedInputTextController!.text.length);
         });
         setState(() {
           _model.nameInputTextController?.text =
               FFAppState().insuranceBasicCusName;
+          _model.nameInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.nameInputTextController!.text.length);
         });
         setState(() {
           _model.lastnameInputTextController?.text =
               FFAppState().insuranceBasicCusLastname;
+          _model.lastnameInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.lastnameInputTextController!.text.length);
         });
         setState(() {
           _model.phoneInputTextController?.text =
               FFAppState().insuranceBasicCusPhone;
+          _model.phoneInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.phoneInputTextController!.text.length);
         });
         setState(() {
           _model.idInputTextController?.text =
               (FFAppState().insuranceBasicIdCardNo == '-'
                   ? ''
                   : FFAppState().insuranceBasicIdCardNo);
+          _model.idInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.idInputTextController!.text.length);
         });
         setState(() {
           _model.remarkInputTextController?.text =
               (FFAppState().insuranceBasicRemark == '-'
                   ? ''
                   : FFAppState().insuranceBasicRemark);
+          _model.remarkInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.remarkInputTextController!.text.length);
         });
       }
       Navigator.pop(context);
@@ -364,11 +404,10 @@ class _InsuranceRequestBasicPageWidgetState
                                   setState(() =>
                                       _model.operationChoiceChipsValue =
                                           val?.firstOrNull);
-                                  setState(() {
-                                    FFAppState().insuranceOperationChoiceChips =
-                                        functions.returnStringWithNoSpace(
-                                            _model.operationChoiceChipsValue);
-                                  });
+                                  FFAppState().insuranceOperationChoiceChips =
+                                      functions.returnStringWithNoSpace(
+                                          _model.operationChoiceChipsValue);
+                                  setState(() {});
                                 },
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
@@ -437,12 +476,11 @@ class _InsuranceRequestBasicPageWidgetState
                                   setState(() =>
                                       _model.customerTypeChoiceChipsValue =
                                           val?.firstOrNull);
-                                  setState(() {
-                                    FFAppState()
-                                            .insuranceCustomerTypeChoiceChips =
-                                        functions.returnStringWithNoSpace(_model
-                                            .customerTypeChoiceChipsValue);
-                                  });
+                                  FFAppState()
+                                          .insuranceCustomerTypeChoiceChips =
+                                      functions.returnStringWithNoSpace(
+                                          _model.customerTypeChoiceChipsValue);
+                                  setState(() {});
                                 },
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
@@ -861,10 +899,9 @@ class _InsuranceRequestBasicPageWidgetState
                             onChanged: (val) async {
                               setState(
                                   () => _model.vehicleTypeDropDownValue = val);
-                              setState(() {
-                                FFAppState().insuranceVehicleTypeDropDown =
-                                    _model.vehicleTypeDropDownValue!;
-                              });
+                              FFAppState().insuranceVehicleTypeDropDown =
+                                  _model.vehicleTypeDropDownValue!;
+                              setState(() {});
                             },
                             width: 90.0,
                             height: double.infinity,
@@ -1058,16 +1095,13 @@ class _InsuranceRequestBasicPageWidgetState
                                       setState(() =>
                                           _model.boxCheckboxValue = newValue!);
                                       if (newValue!) {
-                                        setState(() {
-                                          FFAppState()
-                                              .insuranceBoxCheckbokValue = true;
-                                        });
+                                        FFAppState().insuranceBoxCheckbokValue =
+                                            true;
+                                        setState(() {});
                                       } else {
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceBoxCheckbokValue =
-                                              false;
-                                        });
+                                        FFAppState().insuranceBoxCheckbokValue =
+                                            false;
+                                        setState(() {});
                                       }
                                     },
                                     side: BorderSide(
@@ -1176,11 +1210,10 @@ class _InsuranceRequestBasicPageWidgetState
                                     setState(() =>
                                         _model.boxTypeChoiceChipValue =
                                             val?.firstOrNull);
-                                    setState(() {
-                                      FFAppState().insuranceBoxTypeChoiceChip =
-                                          functions.returnStringWithNoSpace(
-                                              _model.boxTypeChoiceChipValue);
-                                    });
+                                    FFAppState().insuranceBoxTypeChoiceChip =
+                                        functions.returnStringWithNoSpace(
+                                            _model.boxTypeChoiceChipValue);
+                                    setState(() {});
                                   },
                                   selectedChipStyle: ChipStyle(
                                     backgroundColor:
@@ -1503,28 +1536,27 @@ class _InsuranceRequestBasicPageWidgetState
                                         '_model.brandInputTextController',
                                         Duration(milliseconds: 1000),
                                         () async {
-                                          setState(() {
-                                            FFAppState().insuranceBasicModelNameList = functions
-                                                .returnMappedListFrom2List(
-                                                    FFAppState()
-                                                        .insuranceBasicModelNameListOriginal
-                                                        .toList(),
-                                                    FFAppState()
-                                                        .insuranceBasicModelBrandIdListOriginal
-                                                        .toList(),
-                                                    functions.searchMapValueFrom2List(
-                                                        FFAppState()
-                                                            .insuranceBasicBrandIdList
-                                                            .toList(),
-                                                        FFAppState()
-                                                            .insuranceBasicBrandNameList
-                                                            .toList(),
-                                                        _model
-                                                            .brandInputTextController
-                                                            .text))
-                                                .toList()
-                                                .cast<String>();
-                                          });
+                                          FFAppState().insuranceBasicModelNameList = functions
+                                              .returnMappedListFrom2List(
+                                                  FFAppState()
+                                                      .insuranceBasicModelNameListOriginal
+                                                      .toList(),
+                                                  FFAppState()
+                                                      .insuranceBasicModelBrandIdListOriginal
+                                                      .toList(),
+                                                  functions.searchMapValueFrom2List(
+                                                      FFAppState()
+                                                          .insuranceBasicBrandIdList
+                                                          .toList(),
+                                                      FFAppState()
+                                                          .insuranceBasicBrandNameList
+                                                          .toList(),
+                                                      _model
+                                                          .brandInputTextController
+                                                          .text))
+                                              .toList()
+                                              .cast<String>();
+                                          setState(() {});
                                         },
                                       ),
                                       autofocus: false,
@@ -1585,28 +1617,27 @@ class _InsuranceRequestBasicPageWidgetState
                                                   _model
                                                       .brandInputTextController
                                                       ?.clear();
-                                                  setState(() {
-                                                    FFAppState().insuranceBasicModelNameList = functions
-                                                        .returnMappedListFrom2List(
-                                                            FFAppState()
-                                                                .insuranceBasicModelNameListOriginal
-                                                                .toList(),
-                                                            FFAppState()
-                                                                .insuranceBasicModelBrandIdListOriginal
-                                                                .toList(),
-                                                            functions.searchMapValueFrom2List(
-                                                                FFAppState()
-                                                                    .insuranceBasicBrandIdList
-                                                                    .toList(),
-                                                                FFAppState()
-                                                                    .insuranceBasicBrandNameList
-                                                                    .toList(),
-                                                                _model
-                                                                    .brandInputTextController
-                                                                    .text))
-                                                        .toList()
-                                                        .cast<String>();
-                                                  });
+                                                  FFAppState().insuranceBasicModelNameList = functions
+                                                      .returnMappedListFrom2List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelNameListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.searchMapValueFrom2List(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              _model
+                                                                  .brandInputTextController
+                                                                  .text))
+                                                      .toList()
+                                                      .cast<String>();
+                                                  setState(() {});
                                                   setState(() {});
                                                 },
                                                 child: Icon(
@@ -4244,28 +4275,26 @@ class _InsuranceRequestBasicPageWidgetState
                                           }
                                         }
                                       }
-                                      setState(() {
-                                        FFAppState().insuranceBasicMetalBox =
-                                            _model.boxCheckboxValue!;
-                                        FFAppState().insuranceBasicCoop =
-                                            _model.boxCheckboxValue!
-                                                ? _model.coopCheckboxValue!
-                                                : false;
-                                        FFAppState()
-                                                .insuranceBasicPickupBoxType =
-                                            _model.boxCheckboxValue!
-                                                ? _model.boxTypeChoiceChipValue!
-                                                : '';
-                                        FFAppState()
-                                            .insuranceBasicPickupBoxPrice = _model
-                                                    .boxCheckboxValue! &&
-                                                (_model.boxTypeChoiceChipValue ==
-                                                    'ตู้เย็น')
-                                            ? _model
-                                                .freezeBoxPriceInputTextController
-                                                .text
-                                            : '';
-                                      });
+                                      FFAppState().insuranceBasicMetalBox =
+                                          _model.boxCheckboxValue!;
+                                      FFAppState().insuranceBasicCoop =
+                                          _model.boxCheckboxValue!
+                                              ? _model.coopCheckboxValue!
+                                              : false;
+                                      FFAppState().insuranceBasicPickupBoxType =
+                                          _model.boxCheckboxValue!
+                                              ? _model.boxTypeChoiceChipValue!
+                                              : '';
+                                      FFAppState()
+                                          .insuranceBasicPickupBoxPrice = _model
+                                                  .boxCheckboxValue! &&
+                                              (_model.boxTypeChoiceChipValue ==
+                                                  'ตู้เย็น')
+                                          ? _model
+                                              .freezeBoxPriceInputTextController
+                                              .text
+                                          : '';
+                                      setState(() {});
                                     } else {
                                       if (!((_model.brandInputTextController
                                                       .text !=
@@ -4604,210 +4633,197 @@ class _InsuranceRequestBasicPageWidgetState
                                           return;
                                         }
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                            .insuranceBasicMemberType = _model
-                                                    .vehicleTypeDropDownValue ==
-                                                'รถบรรทุก หัวลาก หางพ่วง'
-                                            ? (functions.returnStringWithNoSpace(
-                                                        _model
-                                                            .customerMemberchipChoiceChipsValue) ==
-                                                    'ลูกค้าสินเชื่อ'
-                                                ? '1'
-                                                : '0')
-                                            : '';
-                                        FFAppState()
-                                            .insuranceBasicTruckCurrentPrice = _model
-                                                    .vehicleTypeDropDownValue ==
-                                                'รถบรรทุก หัวลาก หางพ่วง'
-                                            ? (_model.truckCurrentPriceInputTextController
-                                                            .text !=
-                                                        null &&
-                                                    _model.truckCurrentPriceInputTextController
-                                                            .text !=
-                                                        ''
-                                                ? _model
-                                                    .truckCurrentPriceInputTextController
-                                                    .text
-                                                : '')
-                                            : '';
-                                        FFAppState()
-                                            .insuranceBasicCarryPurpose = _model
-                                                    .vehicleTypeDropDownValue ==
-                                                'รถบรรทุก หัวลาก หางพ่วง'
-                                            ? _model
-                                                .logistPoposeInputTextController
-                                                .text
-                                            : '';
-                                        FFAppState()
-                                            .insuranceBasicPlateAdditional = (_model
-                                                        .vehicleTypeDropDownValue ==
-                                                    'รถบรรทุก หัวลาก หางพ่วง') &&
-                                                (_model.truckPartRadioButtonValue ==
-                                                    'หัวลาก + หางพ่วง')
-                                            ? _model
-                                                .plateAdditionalInputTextController
-                                                .text
-                                            : '';
-                                        FFAppState().insuranceBasicTruckPart =
-                                            _model.truckPartRadioButtonValue!;
-                                      });
-                                    }
-
-                                    setState(() {
-                                      FFAppState().operationChoiceChips =
-                                          functions.returnStringWithNoSpace(
-                                              _model.operationChoiceChipsValue);
-                                      FFAppState().customerTypeChoiceChips =
-                                          functions.returnStringWithNoSpace(
-                                              _model
-                                                  .customerTypeChoiceChipsValue);
-                                      FFAppState().vehicleTypeDropdown =
-                                          _model.vehicleTypeDropDownValue!;
-                                      FFAppState().insuranceBasicCusName =
-                                          functions.replaceUnderscrollToDat(
-                                              _model.nameInputTextController
-                                                  .text)!;
-                                      FFAppState().insuranceBasicCusLastname =
-                                          functions.replaceUnderscrollToDat(
-                                              _model.lastnameInputTextController
-                                                  .text)!;
-                                      FFAppState().insuranceBasicPlateNo =
-                                          functions.replaceUnderscrollToDat(
-                                              _model.plateInputTextController
-                                                  .text)!;
-                                      FFAppState().insuranceBasicBrandName =
-                                          _model.brandInputTextController.text;
-                                      FFAppState().insuranceBasicBrandId =
-                                          functions.searchMapValueFrom2List(
-                                              FFAppState()
-                                                  .insuranceBasicBrandIdList
-                                                  .toList(),
-                                              FFAppState()
-                                                  .insuranceBasicBrandNameList
-                                                  .toList(),
-                                              _model.brandInputTextController
-                                                  .text);
-                                      FFAppState().insuranceBasicModelName =
-                                          _model.modelInputTextController.text;
-                                      FFAppState().insuranceBasicModelId =
-                                          functions.searchMapValueFrom2List(
-                                              FFAppState()
-                                                  .insuranceBasicModelIdListOriginal
-                                                  .toList(),
-                                              FFAppState()
-                                                  .insuranceBasicModelNameListOriginal
-                                                  .toList(),
-                                              _model.modelInputTextController
-                                                  .text);
-                                      FFAppState().insuranceBasicYear =
-                                          _model.yearDropDownValue!;
-                                      FFAppState().insuranceBasicProvinceName =
-                                          _model.provinceDropDownValue!;
-                                      FFAppState().insuranceBasicProvinceId =
-                                          functions.searchMapValueFrom2List(
-                                              FFAppState()
-                                                  .insuranceBasicProvinceIdList
-                                                  .toList(),
-                                              FFAppState()
-                                                  .insuranceBasicProvinceNameList
-                                                  .toList(),
-                                              _model.provinceDropDownValue);
-                                      FFAppState().insuranceBasicCarModify =
-                                          _model.carModifyCheckboxValue!;
                                       FFAppState()
-                                          .insuranceBasicAccessoryProtected = _model
-                                              .carModifyCheckboxValue!
-                                          ? _model
-                                              .accessoryProtectedInputTextController
-                                              .text
+                                          .insuranceBasicMemberType = _model
+                                                  .vehicleTypeDropDownValue ==
+                                              'รถบรรทุก หัวลาก หางพ่วง'
+                                          ? (functions.returnStringWithNoSpace(
+                                                      _model
+                                                          .customerMemberchipChoiceChipsValue) ==
+                                                  'ลูกค้าสินเชื่อ'
+                                              ? '1'
+                                              : '0')
                                           : '';
-                                      FFAppState().insuranceBasicCusPhone =
-                                          _model.phoneInputTextController.text;
-                                      FFAppState().insuranceBasicIdCardNo =
-                                          _model.idInputTextController.text !=
+                                      FFAppState()
+                                          .insuranceBasicTruckCurrentPrice = _model
+                                                  .vehicleTypeDropDownValue ==
+                                              'รถบรรทุก หัวลาก หางพ่วง'
+                                          ? (_model.truckCurrentPriceInputTextController
+                                                          .text !=
                                                       null &&
-                                                  _model.idInputTextController
+                                                  _model.truckCurrentPriceInputTextController
                                                           .text !=
                                                       ''
                                               ? _model
-                                                  .idInputTextController.text
-                                              : '';
-                                      FFAppState()
-                                          .insuranceBasicOldLicenseNo = functions
-                                                  .returnStringWithNoSpace(_model
-                                                      .operationChoiceChipsValue) ==
-                                              'งานใหม่'
-                                          ? ''
-                                          : _model
-                                              .insuranceLicenseNoInputTextController
-                                              .text;
-                                      FFAppState().insuranceBasicRemark = _model
-                                                      .remarkInputTextController
-                                                      .text !=
-                                                  null &&
-                                              _model.remarkInputTextController
-                                                      .text !=
-                                                  ''
-                                          ? _model
-                                              .remarkInputTextController.text
+                                                  .truckCurrentPriceInputTextController
+                                                  .text
+                                              : '')
                                           : '';
                                       FFAppState()
-                                              .insuranceBasicVehicleUsedTypeId =
-                                          functions.searchMapValueFrom2List(
-                                              FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeIdList
-                                                  .toList(),
-                                              FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeCodeList
-                                                  .toList(),
-                                              _model.useTypeDropDownValue);
+                                          .insuranceBasicCarryPurpose = _model
+                                                  .vehicleTypeDropDownValue ==
+                                              'รถบรรทุก หัวลาก หางพ่วง'
+                                          ? _model
+                                              .logistPoposeInputTextController
+                                              .text
+                                          : '';
                                       FFAppState()
-                                              .insuranceBasicVehicleUsedTypeCode =
-                                          _model.useTypeDropDownValue!;
-                                      FFAppState()
-                                              .insuranceBasicVehicleUsedTypeName =
-                                          functions.getValueWithMappedList(
-                                              FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeNameList
-                                                  .toList(),
-                                              FFAppState()
-                                                  .insuranceBasicVehicleUsedTypeCodeList
-                                                  .toList(),
-                                              _model.useTypeDropDownValue)!;
-                                      FFAppState()
-                                              .insuranceBasicExpireDateOldPolicy =
-                                          functions.returnStringWithNoSpace(_model
-                                                      .operationChoiceChipsValue) ==
-                                                  'งานใหม่'
-                                              ? random_data.randomDate()
-                                              : _model.datePicked;
-                                    });
-                                    setState(() {
-                                      FFAppState()
-                                              .insuranceBasicInsurerListNameRandomList =
-                                          functions
-                                              .randomItemList(FFAppState()
-                                                  .insuranceBasicInsurerListNameList
-                                                  .toList())!
-                                              .toList()
-                                              .cast<String>();
-                                    });
-                                    setState(() {
-                                      FFAppState().operationChoiceChips =
-                                          functions.returnStringWithNoSpace(
-                                              _model.operationChoiceChipsValue);
-                                    });
-                                    setState(() {
-                                      FFAppState().customerTypeChoiceChips =
-                                          functions.returnStringWithNoSpace(
-                                              _model
-                                                  .customerTypeChoiceChipsValue);
-                                    });
-                                    setState(() {
-                                      FFAppState().vehicleTypeDropdown =
-                                          _model.vehicleTypeDropDownValue!;
-                                    });
+                                          .insuranceBasicPlateAdditional = (_model
+                                                      .vehicleTypeDropDownValue ==
+                                                  'รถบรรทุก หัวลาก หางพ่วง') &&
+                                              (_model.truckPartRadioButtonValue ==
+                                                  'หัวลาก + หางพ่วง')
+                                          ? _model
+                                              .plateAdditionalInputTextController
+                                              .text
+                                          : '';
+                                      FFAppState().insuranceBasicTruckPart =
+                                          _model.truckPartRadioButtonValue!;
+                                      setState(() {});
+                                    }
+
+                                    FFAppState().operationChoiceChips =
+                                        functions.returnStringWithNoSpace(
+                                            _model.operationChoiceChipsValue);
+                                    FFAppState().customerTypeChoiceChips =
+                                        functions.returnStringWithNoSpace(_model
+                                            .customerTypeChoiceChipsValue);
+                                    FFAppState().vehicleTypeDropdown =
+                                        _model.vehicleTypeDropDownValue!;
+                                    FFAppState().insuranceBasicCusName =
+                                        functions.replaceUnderscrollToDat(_model
+                                            .nameInputTextController.text)!;
+                                    FFAppState().insuranceBasicCusLastname =
+                                        functions.replaceUnderscrollToDat(_model
+                                            .lastnameInputTextController.text)!;
+                                    FFAppState().insuranceBasicPlateNo =
+                                        functions.replaceUnderscrollToDat(_model
+                                            .plateInputTextController.text)!;
+                                    FFAppState().insuranceBasicBrandName =
+                                        _model.brandInputTextController.text;
+                                    FFAppState().insuranceBasicBrandId =
+                                        functions.searchMapValueFrom2List(
+                                            FFAppState()
+                                                .insuranceBasicBrandIdList
+                                                .toList(),
+                                            FFAppState()
+                                                .insuranceBasicBrandNameList
+                                                .toList(),
+                                            _model
+                                                .brandInputTextController.text);
+                                    FFAppState().insuranceBasicModelName =
+                                        _model.modelInputTextController.text;
+                                    FFAppState().insuranceBasicModelId =
+                                        functions.searchMapValueFrom2List(
+                                            FFAppState()
+                                                .insuranceBasicModelIdListOriginal
+                                                .toList(),
+                                            FFAppState()
+                                                .insuranceBasicModelNameListOriginal
+                                                .toList(),
+                                            _model
+                                                .modelInputTextController.text);
+                                    FFAppState().insuranceBasicYear =
+                                        _model.yearDropDownValue!;
+                                    FFAppState().insuranceBasicProvinceName =
+                                        _model.provinceDropDownValue!;
+                                    FFAppState().insuranceBasicProvinceId =
+                                        functions.searchMapValueFrom2List(
+                                            FFAppState()
+                                                .insuranceBasicProvinceIdList
+                                                .toList(),
+                                            FFAppState()
+                                                .insuranceBasicProvinceNameList
+                                                .toList(),
+                                            _model.provinceDropDownValue);
+                                    FFAppState().insuranceBasicCarModify =
+                                        _model.carModifyCheckboxValue!;
+                                    FFAppState()
+                                        .insuranceBasicAccessoryProtected = _model
+                                            .carModifyCheckboxValue!
+                                        ? _model
+                                            .accessoryProtectedInputTextController
+                                            .text
+                                        : '';
+                                    FFAppState().insuranceBasicCusPhone =
+                                        _model.phoneInputTextController.text;
+                                    FFAppState().insuranceBasicIdCardNo = _model
+                                                    .idInputTextController
+                                                    .text !=
+                                                null &&
+                                            _model.idInputTextController.text !=
+                                                ''
+                                        ? _model.idInputTextController.text
+                                        : '';
+                                    FFAppState()
+                                        .insuranceBasicOldLicenseNo = functions
+                                                .returnStringWithNoSpace(_model
+                                                    .operationChoiceChipsValue) ==
+                                            'งานใหม่'
+                                        ? ''
+                                        : _model
+                                            .insuranceLicenseNoInputTextController
+                                            .text;
+                                    FFAppState().insuranceBasicRemark = _model
+                                                    .remarkInputTextController
+                                                    .text !=
+                                                null &&
+                                            _model.remarkInputTextController
+                                                    .text !=
+                                                ''
+                                        ? _model.remarkInputTextController.text
+                                        : '';
+                                    FFAppState()
+                                            .insuranceBasicVehicleUsedTypeId =
+                                        functions.searchMapValueFrom2List(
+                                            FFAppState()
+                                                .insuranceBasicVehicleUsedTypeIdList
+                                                .toList(),
+                                            FFAppState()
+                                                .insuranceBasicVehicleUsedTypeCodeList
+                                                .toList(),
+                                            _model.useTypeDropDownValue);
+                                    FFAppState()
+                                            .insuranceBasicVehicleUsedTypeCode =
+                                        _model.useTypeDropDownValue!;
+                                    FFAppState()
+                                            .insuranceBasicVehicleUsedTypeName =
+                                        functions.getValueWithMappedList(
+                                            FFAppState()
+                                                .insuranceBasicVehicleUsedTypeNameList
+                                                .toList(),
+                                            FFAppState()
+                                                .insuranceBasicVehicleUsedTypeCodeList
+                                                .toList(),
+                                            _model.useTypeDropDownValue)!;
+                                    FFAppState()
+                                            .insuranceBasicExpireDateOldPolicy =
+                                        functions.returnStringWithNoSpace(_model
+                                                    .operationChoiceChipsValue) ==
+                                                'งานใหม่'
+                                            ? random_data.randomDate()
+                                            : _model.datePicked;
+                                    setState(() {});
+                                    FFAppState()
+                                            .insuranceBasicInsurerListNameRandomList =
+                                        functions
+                                            .randomItemList(FFAppState()
+                                                .insuranceBasicInsurerListNameList
+                                                .toList())!
+                                            .toList()
+                                            .cast<String>();
+                                    setState(() {});
+                                    FFAppState().operationChoiceChips =
+                                        functions.returnStringWithNoSpace(
+                                            _model.operationChoiceChipsValue);
+                                    setState(() {});
+                                    FFAppState().customerTypeChoiceChips =
+                                        functions.returnStringWithNoSpace(_model
+                                            .customerTypeChoiceChipsValue);
+                                    setState(() {});
+                                    FFAppState().vehicleTypeDropdown =
+                                        _model.vehicleTypeDropDownValue!;
+                                    setState(() {});
 
                                     context.pushNamed(
                                         'InsuranceRequestInsurerPage');

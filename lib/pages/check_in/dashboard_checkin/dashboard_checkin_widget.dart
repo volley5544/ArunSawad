@@ -79,10 +79,9 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
         await actions.allowScreenRecordIOS();
       }
 
-      FFAppState().update(() {
-        FFAppState().imgURLTemp =
-            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
-      });
+      FFAppState().imgURLTemp =
+          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
+      FFAppState().update(() {});
       Navigator.pop(context);
     });
 
@@ -435,12 +434,12 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                           'holidayDate': serializeParam(
                                             wrapHolidayDateRecord?.holidayDate,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'holidayName': serializeParam(
                                             wrapHolidayDateRecord?.holidayName,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                         }.withoutNulls,
                                       );

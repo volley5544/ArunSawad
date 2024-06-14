@@ -80,18 +80,17 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
         apiUrl: FFAppState().apiURLLocalState,
       );
       if ((_model.provinceAPIOutput?.statusCode ?? 200) == 200) {
-        FFAppState().update(() {
-          FFAppState().provName = GetProvinceAPICall.provName(
-            (_model.provinceAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().provCode = GetProvinceAPICall.provCode(
-            (_model.provinceAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-        });
+        FFAppState().provName = GetProvinceAPICall.provName(
+          (_model.provinceAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().provCode = GetProvinceAPICall.provCode(
+          (_model.provinceAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().update(() {});
       } else {
         await showDialog(
           context: context,
@@ -678,13 +677,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         setState(() => _model
                                                                 .checkboxGroupValues1 =
                                                             val);
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                                  .leaveReasonEtcVisible =
-                                                              functions.checkEtcInCheckbox(_model
-                                                                  .checkboxGroupValues1
-                                                                  ?.toList())!;
-                                                        });
+                                                        FFAppState()
+                                                                .leaveReasonEtcVisible =
+                                                            functions.checkEtcInCheckbox(
+                                                                _model
+                                                                    .checkboxGroupValues1
+                                                                    ?.toList())!;
+                                                        FFAppState()
+                                                            .update(() {});
                                                       },
                                                       controller: _model
                                                               .checkboxGroupValueController1 ??=
@@ -1186,47 +1186,43 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                   ?.statusCode ??
                                                               200) ==
                                                           200) {
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                                  .postCode =
-                                                              GetDistrictAPICall
-                                                                      .postCode(
-                                                            (_model.districtAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!
-                                                                  .map((e) => e
-                                                                      .toString())
-                                                                  .toList()
-                                                                  .cast<
-                                                                      String>();
-                                                          FFAppState()
-                                                                  .districtName =
-                                                              GetDistrictAPICall
-                                                                      .districtName(
-                                                            (_model.districtAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!
-                                                                  .map((e) => e
-                                                                      .toString())
-                                                                  .toList()
-                                                                  .cast<
-                                                                      String>();
-                                                          FFAppState()
-                                                                  .districtCode =
-                                                              GetDistrictAPICall
-                                                                      .districtCode(
-                                                            (_model.districtAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!
-                                                                  .map((e) => e
-                                                                      .toString())
-                                                                  .toList()
-                                                                  .cast<
-                                                                      String>();
-                                                        });
+                                                        FFAppState().postCode =
+                                                            GetDistrictAPICall
+                                                                    .postCode(
+                                                          (_model.districtAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                                .map((e) => e
+                                                                    .toString())
+                                                                .toList()
+                                                                .cast<String>();
+                                                        FFAppState()
+                                                                .districtName =
+                                                            GetDistrictAPICall
+                                                                    .districtName(
+                                                          (_model.districtAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                                .map((e) => e
+                                                                    .toString())
+                                                                .toList()
+                                                                .cast<String>();
+                                                        FFAppState()
+                                                                .districtCode =
+                                                            GetDistrictAPICall
+                                                                    .districtCode(
+                                                          (_model.districtAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                                .map((e) => e
+                                                                    .toString())
+                                                                .toList()
+                                                                .cast<String>();
+                                                        FFAppState()
+                                                            .update(() {});
                                                       } else {
                                                         Navigator.pop(context);
                                                         await showDialog(
@@ -1379,19 +1375,18 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                   ?.statusCode ??
                                                               200) ==
                                                           200) {
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                                  .subDistrictName =
-                                                              GetSubDistrictAPICall
-                                                                      .subName(
-                                                            (_model.subDistrictAPIOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )!
-                                                                  .toList()
-                                                                  .cast<
-                                                                      String>();
-                                                        });
+                                                        FFAppState()
+                                                                .subDistrictName =
+                                                            GetSubDistrictAPICall
+                                                                    .subName(
+                                                          (_model.subDistrictAPIOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!
+                                                                .toList()
+                                                                .cast<String>();
+                                                        FFAppState()
+                                                            .update(() {});
                                                       } else {
                                                         Navigator.pop(context);
                                                         await showDialog(
@@ -1933,13 +1928,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         setState(() => _model
                                                                 .checkboxGroupValues2 =
                                                             val);
-                                                        FFAppState().update(() {
-                                                          FFAppState()
-                                                                  .companyAssetReturnEtcVisible =
-                                                              functions.checkEtcInCheckbox(_model
-                                                                  .checkboxGroupValues2
-                                                                  ?.toList())!;
-                                                        });
+                                                        FFAppState()
+                                                                .companyAssetReturnEtcVisible =
+                                                            functions.checkEtcInCheckbox(
+                                                                _model
+                                                                    .checkboxGroupValues2
+                                                                    ?.toList())!;
+                                                        FFAppState()
+                                                            .update(() {});
                                                       },
                                                       controller: _model
                                                               .checkboxGroupValueController2 ??=
@@ -2512,20 +2508,18 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  FFAppState().update(() {
-                                                    FFAppState()
-                                                            .reasonToLeaveList =
-                                                        _model
-                                                            .checkboxGroupValues1!
-                                                            .toList()
-                                                            .cast<String>();
-                                                    FFAppState()
-                                                            .assetReturnList =
-                                                        _model
-                                                            .checkboxGroupValues2!
-                                                            .toList()
-                                                            .cast<String>();
-                                                  });
+                                                  FFAppState()
+                                                          .reasonToLeaveList =
+                                                      _model
+                                                          .checkboxGroupValues1!
+                                                          .toList()
+                                                          .cast<String>();
+                                                  FFAppState().assetReturnList =
+                                                      _model
+                                                          .checkboxGroupValues2!
+                                                          .toList()
+                                                          .cast<String>();
+                                                  FFAppState().update(() {});
                                                   _model.resignAPIOutput =
                                                       await LeaveRequestFirstAPICall
                                                           .call(
@@ -3192,21 +3186,23 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     setState(() => _model
                                                             .checkboxGroupEditValues =
                                                         val);
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .leaveReasonEtcVisible =
-                                                          functions.checkEtcInCheckbox(
-                                                              _model
-                                                                  .checkboxGroupEditValues
-                                                                  ?.toList())!;
-                                                    });
+                                                    FFAppState()
+                                                            .leaveReasonEtcVisible =
+                                                        functions.checkEtcInCheckbox(
+                                                            _model
+                                                                .checkboxGroupEditValues
+                                                                ?.toList())!;
+                                                    FFAppState().update(() {});
                                                   },
                                                   controller: _model
                                                           .checkboxGroupEditValueController ??=
                                                       FormFieldController<
                                                           List<String>>(
-                                                    functions.splitStringToList(
-                                                        widget.resignReason),
+                                                    List.from(functions
+                                                            .splitStringToList(
+                                                                widget
+                                                                    .resignReason) ??
+                                                        []),
                                                   ),
                                                   activeColor:
                                                       FlutterFlowTheme.of(
@@ -3660,43 +3656,40 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               ?.statusCode ??
                                                           200) ==
                                                       200) {
-                                                    FFAppState().update(() {
-                                                      FFAppState().postCode =
-                                                          GetDistrictAPICall
-                                                                  .postCode(
-                                                        (_model.districtAPIOutput2
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .map((e) =>
-                                                                  e.toString())
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState()
-                                                              .districtName =
-                                                          GetDistrictAPICall
-                                                                  .districtName(
-                                                        (_model.districtAPIOutput2
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .map((e) =>
-                                                                  e.toString())
-                                                              .toList()
-                                                              .cast<String>();
-                                                      FFAppState()
-                                                              .districtCode =
-                                                          GetDistrictAPICall
-                                                                  .districtCode(
-                                                        (_model.districtAPIOutput2
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .map((e) =>
-                                                                  e.toString())
-                                                              .toList()
-                                                              .cast<String>();
-                                                    });
+                                                    FFAppState().postCode =
+                                                        GetDistrictAPICall
+                                                                .postCode(
+                                                      (_model.districtAPIOutput2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .map((e) =>
+                                                                e.toString())
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().districtName =
+                                                        GetDistrictAPICall
+                                                                .districtName(
+                                                      (_model.districtAPIOutput2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .map((e) =>
+                                                                e.toString())
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().districtCode =
+                                                        GetDistrictAPICall
+                                                                .districtCode(
+                                                      (_model.districtAPIOutput2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .map((e) =>
+                                                                e.toString())
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().update(() {});
                                                   } else {
                                                     Navigator.pop(context);
                                                     await showDialog(
@@ -3842,18 +3835,17 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               ?.statusCode ??
                                                           200) ==
                                                       200) {
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .subDistrictName =
-                                                          GetSubDistrictAPICall
-                                                                  .subName(
-                                                        (_model.subDistrictAPIOutput2
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )!
-                                                              .toList()
-                                                              .cast<String>();
-                                                    });
+                                                    FFAppState()
+                                                            .subDistrictName =
+                                                        GetSubDistrictAPICall
+                                                                .subName(
+                                                      (_model.subDistrictAPIOutput2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!
+                                                            .toList()
+                                                            .cast<String>();
+                                                    FFAppState().update(() {});
                                                   } else {
                                                     Navigator.pop(context);
                                                     await showDialog(
@@ -4356,21 +4348,22 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     setState(() => _model
                                                             .checkboxGroupEdit2Values =
                                                         val);
-                                                    FFAppState().update(() {
-                                                      FFAppState()
-                                                              .companyAssetReturnEtcVisible =
-                                                          functions.checkEtcInCheckbox(
-                                                              _model
-                                                                  .checkboxGroupEdit2Values
-                                                                  ?.toList())!;
-                                                    });
+                                                    FFAppState()
+                                                            .companyAssetReturnEtcVisible =
+                                                        functions.checkEtcInCheckbox(
+                                                            _model
+                                                                .checkboxGroupEdit2Values
+                                                                ?.toList())!;
+                                                    FFAppState().update(() {});
                                                   },
                                                   controller: _model
                                                           .checkboxGroupEdit2ValueController ??=
                                                       FormFieldController<
                                                           List<String>>(
-                                                    functions.splitStringToList(
-                                                        widget.asset),
+                                                    List.from(functions
+                                                            .splitStringToList(
+                                                                widget.asset) ??
+                                                        []),
                                                   ),
                                                   activeColor:
                                                       FlutterFlowTheme.of(

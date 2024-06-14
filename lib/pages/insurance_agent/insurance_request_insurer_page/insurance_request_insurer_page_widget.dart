@@ -82,6 +82,9 @@ class _InsuranceRequestInsurerPageWidgetState
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicSumInsured)!);
+          _model.sumInsuredInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.sumInsuredInputTextController!.text.length);
         });
         setState(() {
           _model.trailerSumInsuredInputTextController?.text =
@@ -89,6 +92,10 @@ class _InsuranceRequestInsurerPageWidgetState
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicTrailerSumInsured)!);
+          _model.trailerSumInsuredInputTextController?.selection =
+              TextSelection.collapsed(
+                  offset:
+                      _model.trailerSumInsuredInputTextController!.text.length);
         });
         setState(() {
           _model.checkboxGroupValueController?.value =
@@ -683,9 +690,8 @@ class _InsuranceRequestInsurerPageWidgetState
                                 onChanged: (val) async {
                                   setState(
                                       () => _model.checkboxGroupValues = val);
-                                  setState(() {
-                                    FFAppState().insurancePackageInsurer = true;
-                                  });
+                                  FFAppState().insurancePackageInsurer = true;
+                                  setState(() {});
                                   if (_model.checkboxGroupValues!.length > 5) {
                                     setState(() {
                                       _model.checkboxGroupValueController
@@ -853,143 +859,129 @@ class _InsuranceRequestInsurerPageWidgetState
                                           return;
                                         }
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicCoverTypeCode =
-                                            functions.searchMapValueFrom2List(
-                                                FFAppState()
-                                                    .insuranceBasicCoverTypeCodeList
-                                                    .toList(),
-                                                FFAppState()
-                                                    .insuranceBasicCoverTypeNameList
-                                                    .toList(),
-                                                _model.radioButtonValue);
-                                      });
-                                      setState(() {
-                                        FFAppState().insuranceBasicCoverTypeId =
-                                            functions.searchMapValueFrom2List(
-                                                FFAppState()
-                                                    .insuranceBasicCoverTypeIdList
-                                                    .toList(),
-                                                FFAppState()
-                                                    .insuranceBasicCoverTypeNameList
-                                                    .toList(),
-                                                _model.radioButtonValue);
-                                      });
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicCoverTypeName =
-                                            _model.radioButtonValue!;
-                                      });
-                                      setState(() {
-                                        FFAppState().insuranceBasicGarageId =
-                                            functions.returnStringWithNoSpace(
-                                                        _model
-                                                            .choiceChipsValue) ==
-                                                    'ซ่อมห้าง'
-                                                ? '1'
-                                                : '2';
-                                      });
-                                      setState(() {
-                                        FFAppState().insuranceBasicGarageName =
-                                            functions.returnStringWithNoSpace(
-                                                _model.choiceChipsValue);
-                                      });
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicInsurerIdOutput =
-                                            functions
-                                                .returnInsuranceBasicInsurerList(
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerIdList
-                                                        .toList(),
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerListNameList
-                                                        .toList(),
-                                                    _model.checkboxGroupValues
-                                                        ?.toList())!
-                                                .toList()
-                                                .cast<String>();
-                                      });
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicInsurerCodeOutput =
-                                            functions
-                                                .returnInsuranceBasicInsurerList(
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerCodeList
-                                                        .toList(),
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerListNameList
-                                                        .toList(),
-                                                    _model.checkboxGroupValues
-                                                        ?.toList())!
-                                                .toList()
-                                                .cast<String>();
-                                      });
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicInsurerShortNameOutput =
-                                            functions
-                                                .returnInsuranceBasicInsurerList(
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerShortNameList
-                                                        .toList(),
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerListNameList
-                                                        .toList(),
-                                                    _model.checkboxGroupValues
-                                                        ?.toList())!
-                                                .toList()
-                                                .cast<String>();
-                                      });
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicInsurerFullNameOutput =
-                                            functions
-                                                .returnInsuranceBasicInsurerList(
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerFullNameList
-                                                        .toList(),
-                                                    FFAppState()
-                                                        .insuranceBasicInsurerListNameList
-                                                        .toList(),
-                                                    _model.checkboxGroupValues
-                                                        ?.toList())!
-                                                .toList()
-                                                .cast<String>();
-                                      });
-                                      setState(() {
-                                        FFAppState().insuranceBasicActFlag =
-                                            _model.checkboxValue! ? '1' : '0';
-                                      });
-                                      setState(() {
-                                        FFAppState().insuranceBasicSumInsured =
-                                            _model.sumInsuredInputTextController
-                                                            .text !=
-                                                        null &&
-                                                    _model.sumInsuredInputTextController
-                                                            .text !=
-                                                        ''
-                                                ? _model
-                                                    .sumInsuredInputTextController
-                                                    .text
-                                                : '';
-                                      });
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicTrailerSumInsured =
-                                            _model.trailerSumInsuredInputTextController
-                                                            .text !=
-                                                        null &&
-                                                    _model.trailerSumInsuredInputTextController
-                                                            .text !=
-                                                        ''
-                                                ? _model
-                                                    .trailerSumInsuredInputTextController
-                                                    .text
-                                                : '';
-                                      });
+                                      FFAppState().insuranceBasicCoverTypeCode =
+                                          functions.searchMapValueFrom2List(
+                                              FFAppState()
+                                                  .insuranceBasicCoverTypeCodeList
+                                                  .toList(),
+                                              FFAppState()
+                                                  .insuranceBasicCoverTypeNameList
+                                                  .toList(),
+                                              _model.radioButtonValue);
+                                      setState(() {});
+                                      FFAppState().insuranceBasicCoverTypeId =
+                                          functions.searchMapValueFrom2List(
+                                              FFAppState()
+                                                  .insuranceBasicCoverTypeIdList
+                                                  .toList(),
+                                              FFAppState()
+                                                  .insuranceBasicCoverTypeNameList
+                                                  .toList(),
+                                              _model.radioButtonValue);
+                                      setState(() {});
+                                      FFAppState().insuranceBasicCoverTypeName =
+                                          _model.radioButtonValue!;
+                                      setState(() {});
+                                      FFAppState().insuranceBasicGarageId =
+                                          functions.returnStringWithNoSpace(
+                                                      _model
+                                                          .choiceChipsValue) ==
+                                                  'ซ่อมห้าง'
+                                              ? '1'
+                                              : '2';
+                                      setState(() {});
+                                      FFAppState().insuranceBasicGarageName =
+                                          functions.returnStringWithNoSpace(
+                                              _model.choiceChipsValue);
+                                      setState(() {});
+                                      FFAppState()
+                                              .insuranceBasicInsurerIdOutput =
+                                          functions
+                                              .returnInsuranceBasicInsurerList(
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerIdList
+                                                      .toList(),
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerListNameList
+                                                      .toList(),
+                                                  _model.checkboxGroupValues
+                                                      ?.toList())!
+                                              .toList()
+                                              .cast<String>();
+                                      setState(() {});
+                                      FFAppState()
+                                              .insuranceBasicInsurerCodeOutput =
+                                          functions
+                                              .returnInsuranceBasicInsurerList(
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerCodeList
+                                                      .toList(),
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerListNameList
+                                                      .toList(),
+                                                  _model.checkboxGroupValues
+                                                      ?.toList())!
+                                              .toList()
+                                              .cast<String>();
+                                      setState(() {});
+                                      FFAppState()
+                                              .insuranceBasicInsurerShortNameOutput =
+                                          functions
+                                              .returnInsuranceBasicInsurerList(
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerShortNameList
+                                                      .toList(),
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerListNameList
+                                                      .toList(),
+                                                  _model.checkboxGroupValues
+                                                      ?.toList())!
+                                              .toList()
+                                              .cast<String>();
+                                      setState(() {});
+                                      FFAppState()
+                                              .insuranceBasicInsurerFullNameOutput =
+                                          functions
+                                              .returnInsuranceBasicInsurerList(
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerFullNameList
+                                                      .toList(),
+                                                  FFAppState()
+                                                      .insuranceBasicInsurerListNameList
+                                                      .toList(),
+                                                  _model.checkboxGroupValues
+                                                      ?.toList())!
+                                              .toList()
+                                              .cast<String>();
+                                      setState(() {});
+                                      FFAppState().insuranceBasicActFlag =
+                                          _model.checkboxValue! ? '1' : '0';
+                                      setState(() {});
+                                      FFAppState().insuranceBasicSumInsured =
+                                          _model.sumInsuredInputTextController
+                                                          .text !=
+                                                      null &&
+                                                  _model.sumInsuredInputTextController
+                                                          .text !=
+                                                      ''
+                                              ? _model
+                                                  .sumInsuredInputTextController
+                                                  .text
+                                              : '';
+                                      setState(() {});
+                                      FFAppState()
+                                              .insuranceBasicTrailerSumInsured =
+                                          _model.trailerSumInsuredInputTextController
+                                                          .text !=
+                                                      null &&
+                                                  _model.trailerSumInsuredInputTextController
+                                                          .text !=
+                                                      ''
+                                              ? _model
+                                                  .trailerSumInsuredInputTextController
+                                                  .text
+                                              : '';
+                                      setState(() {});
 
                                       context.pushNamed(
                                           'InsuranceRequestImagePage');

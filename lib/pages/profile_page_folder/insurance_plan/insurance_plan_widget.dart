@@ -35,12 +35,11 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
         parameters: {'screen_name': 'InsurancePlan'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().update(() {
-        FFAppState().insurancePlan1 = functions
-            .insurancePlan(widget.planInsurance)!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().insurancePlan1 = functions
+          .insurancePlan(widget.planInsurance)!
+          .toList()
+          .cast<String>();
+      FFAppState().update(() {});
     });
 
     _model.planInsuranceTextController ??=

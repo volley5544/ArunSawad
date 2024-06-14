@@ -146,10 +146,8 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
             onPressed: () async {
               if (_model.textController.text != null &&
                   _model.textController.text != '') {
-                FFAppState().update(() {
-                  FFAppState().counterNum =
-                      int.parse(_model.textController.text);
-                });
+                FFAppState().counterNum = int.parse(_model.textController.text);
+                FFAppState().update(() {});
                 if (FFAppState().counterNum < 0) {
                   await showDialog(
                     context: context,
@@ -168,9 +166,8 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                       );
                     },
                   );
-                  FFAppState().update(() {
-                    FFAppState().counterNum = 0;
-                  });
+                  FFAppState().counterNum = 0;
+                  FFAppState().update(() {});
                   return;
                 }
                 if (FFAppState().counterNum > 2000000) {
@@ -192,14 +189,12 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                       );
                     },
                   );
-                  FFAppState().update(() {
-                    FFAppState().counterNum = 0;
-                  });
+                  FFAppState().counterNum = 0;
+                  FFAppState().update(() {});
                   return;
                 }
-                FFAppState().update(() {
-                  FFAppState().counterNum = 0;
-                });
+                FFAppState().counterNum = 0;
+                FFAppState().update(() {});
               } else {
                 await showDialog(
                   context: context,
@@ -221,10 +216,9 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                 return;
               }
 
-              FFAppState().update(() {
-                FFAppState().sumInsuredChoosenDouble =
-                    double.parse(_model.textController.text);
-              });
+              FFAppState().sumInsuredChoosenDouble =
+                  double.parse(_model.textController.text);
+              FFAppState().update(() {});
               Navigator.pop(context);
             },
             text: 'ตกลง',

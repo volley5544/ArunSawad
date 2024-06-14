@@ -1534,7 +1534,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'OD4 - OD5',
+                                                          'OD4 – OD5',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -1607,7 +1607,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                                                                             (_model.collectionApiGetdataCount?.jsonBody ??
                                                                                 ''),
                                                                           )?.toList(),
-                                                                          'OD4 – OD5'),
+                                                                          'OD4 - OD5'),
                                                                       '0',
                                                                     ))
                                                                   : '0',

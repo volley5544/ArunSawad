@@ -23,22 +23,29 @@ class AdminRoleGroupStruct extends FFFirebaseStruct {
   String? _groupName;
   String get groupName => _groupName ?? '';
   set groupName(String? val) => _groupName = val;
+
   bool hasGroupName() => _groupName != null;
 
   // "employee_id" field.
   List<String>? _employeeId;
   List<String> get employeeId => _employeeId ?? const [];
   set employeeId(List<String>? val) => _employeeId = val;
-  void updateEmployeeId(Function(List<String>) updateFn) =>
-      updateFn(_employeeId ??= []);
+
+  void updateEmployeeId(Function(List<String>) updateFn) {
+    updateFn(employeeId ??= []);
+  }
+
   bool hasEmployeeId() => _employeeId != null;
 
   // "visible_menu_name" field.
   List<String>? _visibleMenuName;
   List<String> get visibleMenuName => _visibleMenuName ?? const [];
   set visibleMenuName(List<String>? val) => _visibleMenuName = val;
-  void updateVisibleMenuName(Function(List<String>) updateFn) =>
-      updateFn(_visibleMenuName ??= []);
+
+  void updateVisibleMenuName(Function(List<String>) updateFn) {
+    updateFn(visibleMenuName ??= []);
+  }
+
   bool hasVisibleMenuName() => _visibleMenuName != null;
 
   static AdminRoleGroupStruct fromMap(Map<String, dynamic> data) =>
@@ -67,12 +74,12 @@ class AdminRoleGroupStruct extends FFFirebaseStruct {
         'employee_id': serializeParam(
           _employeeId,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'visible_menu_name': serializeParam(
           _visibleMenuName,
           ParamType.String,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

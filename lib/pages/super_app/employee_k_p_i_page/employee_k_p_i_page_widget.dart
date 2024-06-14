@@ -116,81 +116,69 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                 userLocation: currentUserLocationValue,
               ),
               userLogRecordReference2);
-          FFAppState().update(() {
-            FFAppState().loginStateFirebase = '[loginStateFirebase]';
-            FFAppState().deleteAccessToken();
-            FFAppState().accessToken = 'access_token';
-          });
-          FFAppState().update(() {
-            FFAppState().deleteEmployeeID();
-            FFAppState().employeeID = 'employee_id';
+          FFAppState().loginStateFirebase = '[loginStateFirebase]';
+          FFAppState().deleteAccessToken();
+          FFAppState().accessToken = 'access_token';
 
-            FFAppState().QRCodeLink = 'qrcode_link';
-          });
-          FFAppState().update(() {
-            FFAppState().deleteApiURLLocalState();
-            FFAppState().apiURLLocalState = 'api_url_local_state';
+          FFAppState().update(() {});
+          FFAppState().deleteEmployeeID();
+          FFAppState().employeeID = 'employee_id';
 
-            FFAppState().deleteBranchCode();
-            FFAppState().branchCode = 'branch_code';
-          });
-          FFAppState().update(() {
-            FFAppState().isFromSetPinPage = false;
-            FFAppState().leadChannelColor = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelList = [];
-            FFAppState().isFromLoginPage = false;
-          });
-          FFAppState().update(() {
-            FFAppState().deletePinCodeAuthen();
-            FFAppState().pinCodeAuthen = '013972';
+          FFAppState().QRCodeLink = 'qrcode_link';
+          FFAppState().update(() {});
+          FFAppState().deleteApiURLLocalState();
+          FFAppState().apiURLLocalState = 'api_url_local_state';
 
-            FFAppState().isFromAuthenPage = false;
-          });
-          FFAppState().update(() {
-            FFAppState().deleteDateDoNotShowAgain();
-            FFAppState().dateDoNotShowAgain = null;
+          FFAppState().deleteBranchCode();
+          FFAppState().branchCode = 'branch_code';
 
-            FFAppState().deleteDoNotShowAgain();
-            FFAppState().doNotShowAgain = false;
-          });
-          FFAppState().update(() {
-            FFAppState().inAppViaNotification = true;
-            FFAppState().isInApp = false;
-          });
-          FFAppState().update(() {
-            FFAppState().fcmToken = 'fcm_token';
-            FFAppState().isPassLoginSection = false;
-          });
-          FFAppState().update(() {
-            FFAppState().leadID = [];
-            FFAppState().leadCreatedTimeList = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadCustomerNameList = [];
-            FFAppState().leadChannelList = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelColor = [];
-            FFAppState().leadCallStatus = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadPhoneNumberList = [];
-            FFAppState().leadEmployeeID = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelLabelColor = [];
-            FFAppState().deleteLeadIdCalledInApp();
-            FFAppState().leadIdCalledInApp = [];
-          });
-          FFAppState().update(() {
-            FFAppState().leadBranchCode = [];
-            FFAppState().leadUserLevel = 'lead_user_level';
-          });
-          FFAppState().update(() {
-            FFAppState().leadChannelAmountList = [];
-          });
+          FFAppState().update(() {});
+          FFAppState().isFromSetPinPage = false;
+          FFAppState().leadChannelColor = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelList = [];
+          FFAppState().isFromLoginPage = false;
+          FFAppState().update(() {});
+          FFAppState().deletePinCodeAuthen();
+          FFAppState().pinCodeAuthen = '013972';
+
+          FFAppState().isFromAuthenPage = false;
+          FFAppState().update(() {});
+          FFAppState().deleteDateDoNotShowAgain();
+          FFAppState().dateDoNotShowAgain = null;
+
+          FFAppState().deleteDoNotShowAgain();
+          FFAppState().doNotShowAgain = false;
+
+          FFAppState().update(() {});
+          FFAppState().inAppViaNotification = true;
+          FFAppState().isInApp = false;
+          FFAppState().update(() {});
+          FFAppState().fcmToken = 'fcm_token';
+          FFAppState().isPassLoginSection = false;
+          FFAppState().update(() {});
+          FFAppState().leadID = [];
+          FFAppState().leadCreatedTimeList = [];
+          FFAppState().update(() {});
+          FFAppState().leadCustomerNameList = [];
+          FFAppState().leadChannelList = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelColor = [];
+          FFAppState().leadCallStatus = [];
+          FFAppState().update(() {});
+          FFAppState().leadPhoneNumberList = [];
+          FFAppState().leadEmployeeID = [];
+          FFAppState().update(() {});
+          FFAppState().leadChannelLabelColor = [];
+          FFAppState().deleteLeadIdCalledInApp();
+          FFAppState().leadIdCalledInApp = [];
+
+          FFAppState().update(() {});
+          FFAppState().leadBranchCode = [];
+          FFAppState().leadUserLevel = 'lead_user_level';
+          FFAppState().update(() {});
+          FFAppState().leadChannelAmountList = [];
+          FFAppState().update(() {});
           Navigator.pop(context);
           await actions.a22();
 
@@ -249,46 +237,41 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
             (_model.getTargetContractKPI?.jsonBody ?? ''),
           ) ==
           200) {
-        FFAppState().update(() {
-          FFAppState().kpiProductType = GetTargetContractKPIAPICall.productType(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().kpiTargetQuantity =
-              GetTargetContractKPIAPICall.targetQuantity(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-        });
-        FFAppState().update(() {
-          FFAppState().kpiActual = GetTargetContractKPIAPICall.actual(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().kpiYearMonth = GetTargetContractKPIAPICall.month(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-        });
-        FFAppState().update(() {
-          FFAppState().kpiEmployeePosition =
-              GetTargetContractKPIAPICall.position(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-        });
-        FFAppState().update(() {
-          FFAppState().areaResponsKPI = functions.showMatNameInList(
-              GetTargetContractKPIAPICall.areaRespons(
-                (_model.getTargetContractKPI?.jsonBody ?? ''),
-              )?.toList(),
-              0)!;
-        });
+        FFAppState().kpiProductType = GetTargetContractKPIAPICall.productType(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().kpiTargetQuantity =
+            GetTargetContractKPIAPICall.targetQuantity(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().update(() {});
+        FFAppState().kpiActual = GetTargetContractKPIAPICall.actual(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().kpiYearMonth = GetTargetContractKPIAPICall.month(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().update(() {});
+        FFAppState().kpiEmployeePosition = GetTargetContractKPIAPICall.position(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().update(() {});
+        FFAppState().areaResponsKPI = functions.showMatNameInList(
+            GetTargetContractKPIAPICall.areaRespons(
+              (_model.getTargetContractKPI?.jsonBody ?? ''),
+            )?.toList(),
+            0)!;
+        FFAppState().update(() {});
       } else {
         if (GetTargetContractKPIAPICall.statusLayer3TM(
               (_model.getTargetContractKPI?.jsonBody ?? ''),
@@ -320,41 +303,40 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
             (_model.getTargetContractKPI?.jsonBody ?? ''),
           ) ==
           200) {
-        FFAppState().update(() {
-          FFAppState().kpiProductTypeLM =
-              GetTargetContractKPIAPICall.productTypeLM(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().kpiEmployeePositionLM =
-              GetTargetContractKPIAPICall.positionLM(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().kpiActualLM = GetTargetContractKPIAPICall.actualLM(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().kpiTargetQuantityLM =
-              GetTargetContractKPIAPICall.targetQuantityLM(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().kpiYearMonthLM = GetTargetContractKPIAPICall.monthLM(
-            (_model.getTargetContractKPI?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().kpiAreaResponsLM = functions.showMatNameInList(
-              GetTargetContractKPIAPICall.areaResponsLM(
-                (_model.getTargetContractKPI?.jsonBody ?? ''),
-              )?.toList(),
-              0)!;
-        });
+        FFAppState().kpiProductTypeLM =
+            GetTargetContractKPIAPICall.productTypeLM(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().kpiEmployeePositionLM =
+            GetTargetContractKPIAPICall.positionLM(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().kpiActualLM = GetTargetContractKPIAPICall.actualLM(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().kpiTargetQuantityLM =
+            GetTargetContractKPIAPICall.targetQuantityLM(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().kpiYearMonthLM = GetTargetContractKPIAPICall.monthLM(
+          (_model.getTargetContractKPI?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().kpiAreaResponsLM = functions.showMatNameInList(
+            GetTargetContractKPIAPICall.areaResponsLM(
+              (_model.getTargetContractKPI?.jsonBody ?? ''),
+            )?.toList(),
+            0)!;
+        FFAppState().update(() {});
       } else {
         if (GetTargetContractKPIAPICall.statusLayer3LM(
               (_model.getTargetContractKPI?.jsonBody ?? ''),
@@ -437,28 +419,26 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
             (_model.getTargetBudget?.jsonBody ?? ''),
           ) ==
           200) {
-        FFAppState().update(() {
-          FFAppState().kpiTargetBudget = valueOrDefault<String>(
-            GetTargetBudgetKPIAPICall.targetBudget(
-              (_model.getTargetBudget?.jsonBody ?? ''),
-            ),
-            '100.0',
-          );
-          FFAppState().kpiActualBudget = valueOrDefault<String>(
-            GetTargetBudgetKPIAPICall.actual(
-              (_model.getTargetBudget?.jsonBody ?? ''),
-            ),
-            '0.0',
-          );
-        });
-        FFAppState().update(() {
-          FFAppState().areaResponsKPI = valueOrDefault<String>(
-            GetTargetBudgetKPIAPICall.areaRespons(
-              (_model.getTargetBudget?.jsonBody ?? ''),
-            ),
-            '[area]',
-          );
-        });
+        FFAppState().kpiTargetBudget = valueOrDefault<String>(
+          GetTargetBudgetKPIAPICall.targetBudget(
+            (_model.getTargetBudget?.jsonBody ?? ''),
+          ),
+          '100.0',
+        );
+        FFAppState().kpiActualBudget = valueOrDefault<String>(
+          GetTargetBudgetKPIAPICall.actual(
+            (_model.getTargetBudget?.jsonBody ?? ''),
+          ),
+          '0.0',
+        );
+        FFAppState().update(() {});
+        FFAppState().areaResponsKPI = valueOrDefault<String>(
+          GetTargetBudgetKPIAPICall.areaRespons(
+            (_model.getTargetBudget?.jsonBody ?? ''),
+          ),
+          '[area]',
+        );
+        FFAppState().update(() {});
       } else {
         if (GetTargetBudgetKPIAPICall.statusLayer3TM(
               (_model.getTargetBudget?.jsonBody ?? ''),
@@ -490,20 +470,18 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
             (_model.getTargetBudget?.jsonBody ?? ''),
           ) ==
           200) {
-        FFAppState().update(() {
-          FFAppState().kpiTargetBudgetLM =
-              GetTargetBudgetKPIAPICall.targetBudgetLM(
-            (_model.getTargetBudget?.jsonBody ?? ''),
-          )!;
-          FFAppState().kpiActualBudgetLM =
-              GetTargetBudgetKPIAPICall.actualBudgetLM(
-            (_model.getTargetBudget?.jsonBody ?? ''),
-          )!;
-          FFAppState().kpiAreaResponsLM =
-              GetTargetBudgetKPIAPICall.areaResponsLM(
-            (_model.getTargetBudget?.jsonBody ?? ''),
-          )!;
-        });
+        FFAppState().kpiTargetBudgetLM =
+            GetTargetBudgetKPIAPICall.targetBudgetLM(
+          (_model.getTargetBudget?.jsonBody ?? ''),
+        )!;
+        FFAppState().kpiActualBudgetLM =
+            GetTargetBudgetKPIAPICall.actualBudgetLM(
+          (_model.getTargetBudget?.jsonBody ?? ''),
+        )!;
+        FFAppState().kpiAreaResponsLM = GetTargetBudgetKPIAPICall.areaResponsLM(
+          (_model.getTargetBudget?.jsonBody ?? ''),
+        )!;
+        FFAppState().update(() {});
       } else {
         if (GetTargetBudgetKPIAPICall.statusLayer3LM(
               (_model.getTargetBudget?.jsonBody ?? ''),

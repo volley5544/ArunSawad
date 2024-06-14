@@ -47,21 +47,19 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
         parameters: {'screen_name': 'SearchCollectionPP'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().collectionSearchBy = '';
-        FFAppState().collectionSearch = '';
-        FFAppState().collectionSortBy = '';
-      });
-      setState(() {
-        FFAppState().collectionSortBy = '';
-        FFAppState().collectionSearch = '';
-        FFAppState().collectionSearchBy = '';
-        FFAppState().selectCardList = [];
-        FFAppState().collectionListBoolean = [];
-        FFAppState().saveCalled = SaveCallStruct.fromSerializableMap(jsonDecode(
-            '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-        FFAppState().searchMonthPP = '';
-      });
+      FFAppState().collectionSearchBy = '';
+      FFAppState().collectionSearch = '';
+      FFAppState().collectionSortBy = '';
+      setState(() {});
+      FFAppState().collectionSortBy = '';
+      FFAppState().collectionSearch = '';
+      FFAppState().collectionSearchBy = '';
+      FFAppState().selectCardList = [];
+      FFAppState().collectionListBoolean = [];
+      FFAppState().saveCalled = SaveCallStruct.fromSerializableMap(jsonDecode(
+          '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+      FFAppState().searchMonthPP = '';
+      setState(() {});
       setState(() => _model.apiRequestCompleter = null);
     });
 
@@ -166,10 +164,9 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                             ],
                             onChanged: (val) async {
                               setState(() => _model.dropDownValue = val);
-                              setState(() {
-                                FFAppState().searchMonthPP =
-                                    _model.dropDownValue!;
-                              });
+                              FFAppState().searchMonthPP =
+                                  _model.dropDownValue!;
+                              setState(() {});
                               setState(() => _model.apiRequestCompleter = null);
                             },
                             width: 180.0,
@@ -248,10 +245,9 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                     },
                                   ).then((value) => safeSetState(() {}));
 
-                                  setState(() {
-                                    FFAppState().collectionSortBy =
-                                        _model.sortbyDropdownValue!;
-                                  });
+                                  FFAppState().collectionSortBy =
+                                      _model.sortbyDropdownValue!;
+                                  setState(() {});
                                   setState(
                                       () => _model.apiRequestCompleter = null);
                                   await _model.waitForApiRequestCompleted();
@@ -497,16 +493,14 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                       },
                                     ).then((value) => safeSetState(() {}));
 
-                                    setState(() {
-                                      FFAppState().collectionSearchBy =
-                                          _model.dropDownValue!;
-                                      FFAppState().collectionSearch =
-                                          _model.textController.text;
-                                    });
-                                    setState(() {
-                                      FFAppState().isLoadedSearchCollection =
-                                          true;
-                                    });
+                                    FFAppState().collectionSearchBy =
+                                        _model.dropDownValue!;
+                                    FFAppState().collectionSearch =
+                                        _model.textController.text;
+                                    setState(() {});
+                                    FFAppState().isLoadedSearchCollection =
+                                        true;
+                                    setState(() {});
                                     setState(() =>
                                         _model.apiRequestCompleter = null);
                                     Navigator.pop(context);
@@ -574,21 +568,19 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                         },
                                       ).then((value) => safeSetState(() {}));
 
-                                      setState(() {
-                                        FFAppState().collectionSearchBy = '';
-                                        FFAppState().collectionSearch = '';
-                                        FFAppState().collectionSortBy = '';
-                                      });
-                                      setState(() {
-                                        FFAppState().collectionSortBy = '';
-                                        FFAppState().collectionSearch = '';
-                                        FFAppState().collectionSearchBy = '';
-                                        FFAppState().selectCardList = [];
-                                        FFAppState().collectionListBoolean = [];
-                                        FFAppState().saveCalled = SaveCallStruct
-                                            .fromSerializableMap(jsonDecode(
-                                                '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                      });
+                                      FFAppState().collectionSearchBy = '';
+                                      FFAppState().collectionSearch = '';
+                                      FFAppState().collectionSortBy = '';
+                                      setState(() {});
+                                      FFAppState().collectionSortBy = '';
+                                      FFAppState().collectionSearch = '';
+                                      FFAppState().collectionSearchBy = '';
+                                      FFAppState().selectCardList = [];
+                                      FFAppState().collectionListBoolean = [];
+                                      FFAppState().saveCalled = SaveCallStruct
+                                          .fromSerializableMap(jsonDecode(
+                                              '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
+                                      setState(() {});
                                       setState(() =>
                                           _model.apiRequestCompleter = null);
                                       setState(() {

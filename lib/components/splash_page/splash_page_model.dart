@@ -29,8 +29,10 @@ class SplashPageModel extends FlutterFlowModel<SplashPageWidget> {
       ? pageViewController!.page!.round()
       : 0;
   // State field(s) for CheckboxGroup widget.
-  List<String>? checkboxGroupValues;
   FormFieldController<List<String>>? checkboxGroupValueController;
+  List<String>? get checkboxGroupValues => checkboxGroupValueController?.value;
+  set checkboxGroupValues(List<String>? v) =>
+      checkboxGroupValueController?.value = v;
 
   @override
   void initState(BuildContext context) {}

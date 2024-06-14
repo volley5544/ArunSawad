@@ -527,26 +527,25 @@ class _SavedLeadCalledStatusWidgetState
                             );
                           },
                         );
-                        setState(() {
-                          FFAppState().leadCalledStatusReason = functions
-                              .changeValueAtIndexSomethingList(
-                                  FFAppState().leadCalledStatusReason.toList(),
-                                  widget.leadIndex,
-                                  '${SaveCallStatusAPICall.callStatusReason(
-                                    (_model.saveCallOutput?.jsonBody ?? ''),
-                                  )}')!
-                              .toList()
-                              .cast<String>();
-                          FFAppState().leadCallStatus = functions
-                              .changeValueAtIndexSomethingList(
-                                  FFAppState().leadCallStatus.toList(),
-                                  widget.leadIndex,
-                                  '${SaveCallStatusAPICall.callStatus(
-                                    (_model.saveCallOutput?.jsonBody ?? ''),
-                                  )}')!
-                              .toList()
-                              .cast<String>();
-                        });
+                        FFAppState().leadCalledStatusReason = functions
+                            .changeValueAtIndexSomethingList(
+                                FFAppState().leadCalledStatusReason.toList(),
+                                widget.leadIndex,
+                                '${SaveCallStatusAPICall.callStatusReason(
+                                  (_model.saveCallOutput?.jsonBody ?? ''),
+                                )}')!
+                            .toList()
+                            .cast<String>();
+                        FFAppState().leadCallStatus = functions
+                            .changeValueAtIndexSomethingList(
+                                FFAppState().leadCallStatus.toList(),
+                                widget.leadIndex,
+                                '${SaveCallStatusAPICall.callStatus(
+                                  (_model.saveCallOutput?.jsonBody ?? ''),
+                                )}')!
+                            .toList()
+                            .cast<String>();
+                        setState(() {});
                         Navigator.pop(context);
                         if (_shouldSetState) setState(() {});
                       },

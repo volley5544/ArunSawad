@@ -41,96 +41,132 @@ class SaveCallStruct extends FFFirebaseStruct {
   List<String>? _contnoId;
   List<String> get contnoId => _contnoId ?? const [];
   set contnoId(List<String>? val) => _contnoId = val;
-  void updateContnoId(Function(List<String>) updateFn) =>
-      updateFn(_contnoId ??= []);
+
+  void updateContnoId(Function(List<String>) updateFn) {
+    updateFn(contnoId ??= []);
+  }
+
   bool hasContnoId() => _contnoId != null;
 
   // "CONTNO" field.
   List<String>? _contno;
   List<String> get contno => _contno ?? const [];
   set contno(List<String>? val) => _contno = val;
-  void updateContno(Function(List<String>) updateFn) =>
-      updateFn(_contno ??= []);
+
+  void updateContno(Function(List<String>) updateFn) {
+    updateFn(contno ??= []);
+  }
+
   bool hasContno() => _contno != null;
 
   // "HISTORY_LEAD_STATUS" field.
   List<String>? _historyLeadStatus;
   List<String> get historyLeadStatus => _historyLeadStatus ?? const [];
   set historyLeadStatus(List<String>? val) => _historyLeadStatus = val;
-  void updateHistoryLeadStatus(Function(List<String>) updateFn) =>
-      updateFn(_historyLeadStatus ??= []);
+
+  void updateHistoryLeadStatus(Function(List<String>) updateFn) {
+    updateFn(historyLeadStatus ??= []);
+  }
+
   bool hasHistoryLeadStatus() => _historyLeadStatus != null;
 
   // "HISTORY_REASON_NAME" field.
   List<String>? _historyReasonName;
   List<String> get historyReasonName => _historyReasonName ?? const [];
   set historyReasonName(List<String>? val) => _historyReasonName = val;
-  void updateHistoryReasonName(Function(List<String>) updateFn) =>
-      updateFn(_historyReasonName ??= []);
+
+  void updateHistoryReasonName(Function(List<String>) updateFn) {
+    updateFn(historyReasonName ??= []);
+  }
+
   bool hasHistoryReasonName() => _historyReasonName != null;
 
   // "CREATED_USERID" field.
   List<String>? _createdUserid;
   List<String> get createdUserid => _createdUserid ?? const [];
   set createdUserid(List<String>? val) => _createdUserid = val;
-  void updateCreatedUserid(Function(List<String>) updateFn) =>
-      updateFn(_createdUserid ??= []);
+
+  void updateCreatedUserid(Function(List<String>) updateFn) {
+    updateFn(createdUserid ??= []);
+  }
+
   bool hasCreatedUserid() => _createdUserid != null;
 
   // "UPDATED_USERID" field.
   List<String>? _updatedUserid;
   List<String> get updatedUserid => _updatedUserid ?? const [];
   set updatedUserid(List<String>? val) => _updatedUserid = val;
-  void updateUpdatedUserid(Function(List<String>) updateFn) =>
-      updateFn(_updatedUserid ??= []);
+
+  void updateUpdatedUserid(Function(List<String>) updateFn) {
+    updateFn(updatedUserid ??= []);
+  }
+
   bool hasUpdatedUserid() => _updatedUserid != null;
 
   // "ARAPPDATE" field.
   List<String>? _arappdate;
   List<String> get arappdate => _arappdate ?? const [];
   set arappdate(List<String>? val) => _arappdate = val;
-  void updateArappdate(Function(List<String>) updateFn) =>
-      updateFn(_arappdate ??= []);
+
+  void updateArappdate(Function(List<String>) updateFn) {
+    updateFn(arappdate ??= []);
+  }
+
   bool hasArappdate() => _arappdate != null;
 
   // "ARDESC" field.
   List<String>? _ardesc;
   List<String> get ardesc => _ardesc ?? const [];
   set ardesc(List<String>? val) => _ardesc = val;
-  void updateArdesc(Function(List<String>) updateFn) =>
-      updateFn(_ardesc ??= []);
+
+  void updateArdesc(Function(List<String>) updateFn) {
+    updateFn(ardesc ??= []);
+  }
+
   bool hasArdesc() => _ardesc != null;
 
   // "USERID" field.
   List<String>? _userid;
   List<String> get userid => _userid ?? const [];
   set userid(List<String>? val) => _userid = val;
-  void updateUserid(Function(List<String>) updateFn) =>
-      updateFn(_userid ??= []);
+
+  void updateUserid(Function(List<String>) updateFn) {
+    updateFn(userid ??= []);
+  }
+
   bool hasUserid() => _userid != null;
 
   // "REMGCODE" field.
   List<String>? _remgcode;
   List<String> get remgcode => _remgcode ?? const [];
   set remgcode(List<String>? val) => _remgcode = val;
-  void updateRemgcode(Function(List<String>) updateFn) =>
-      updateFn(_remgcode ??= []);
+
+  void updateRemgcode(Function(List<String>) updateFn) {
+    updateFn(remgcode ??= []);
+  }
+
   bool hasRemgcode() => _remgcode != null;
 
   // "REMDETCODE" field.
   List<String>? _remdetcode;
   List<String> get remdetcode => _remdetcode ?? const [];
   set remdetcode(List<String>? val) => _remdetcode = val;
-  void updateRemdetcode(Function(List<String>) updateFn) =>
-      updateFn(_remdetcode ??= []);
+
+  void updateRemdetcode(Function(List<String>) updateFn) {
+    updateFn(remdetcode ??= []);
+  }
+
   bool hasRemdetcode() => _remdetcode != null;
 
   // "AMOUNT" field.
   List<String>? _amount;
   List<String> get amount => _amount ?? const [];
   set amount(List<String>? val) => _amount = val;
-  void updateAmount(Function(List<String>) updateFn) =>
-      updateFn(_amount ??= []);
+
+  void updateAmount(Function(List<String>) updateFn) {
+    updateFn(amount ??= []);
+  }
+
   bool hasAmount() => _amount != null;
 
   static SaveCallStruct fromMap(Map<String, dynamic> data) => SaveCallStruct(
@@ -171,62 +207,62 @@ class SaveCallStruct extends FFFirebaseStruct {
         'CONTNO_ID': serializeParam(
           _contnoId,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'CONTNO': serializeParam(
           _contno,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'HISTORY_LEAD_STATUS': serializeParam(
           _historyLeadStatus,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'HISTORY_REASON_NAME': serializeParam(
           _historyReasonName,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'CREATED_USERID': serializeParam(
           _createdUserid,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'UPDATED_USERID': serializeParam(
           _updatedUserid,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'ARAPPDATE': serializeParam(
           _arappdate,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'ARDESC': serializeParam(
           _ardesc,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'USERID': serializeParam(
           _userid,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'REMGCODE': serializeParam(
           _remgcode,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'REMDETCODE': serializeParam(
           _remdetcode,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'AMOUNT': serializeParam(
           _amount,
           ParamType.String,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

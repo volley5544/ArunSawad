@@ -1015,14 +1015,13 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                               if (_shouldSetState) setState(() {});
                               return;
                             }
-                            setState(() {
-                              FFAppState().changeBranchCode =
-                                  _model.branchCodeInputTextController.text;
-                              FFAppState().changeLat =
-                                  _model.latInputTextController.text;
-                              FFAppState().changeLng =
-                                  _model.lngInputTextController.text;
-                            });
+                            FFAppState().changeBranchCode =
+                                _model.branchCodeInputTextController.text;
+                            FFAppState().changeLat =
+                                _model.latInputTextController.text;
+                            FFAppState().changeLng =
+                                _model.lngInputTextController.text;
+                            setState(() {});
                             _model.changeLocationAPIOutput =
                                 await ChangeLocationAPICall.call(
                               latitude: FFAppState().changeLat,
@@ -1072,13 +1071,12 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                         ''),
                                   ) ==
                                   200) {
-                                setState(() {
-                                  FFAppState().changeBranchName =
-                                      ChangeLocationAPICall.branchName(
-                                    (_model.changeLocationAPIOutput?.jsonBody ??
-                                        ''),
-                                  )!;
-                                });
+                                FFAppState().changeBranchName =
+                                    ChangeLocationAPICall.branchName(
+                                  (_model.changeLocationAPIOutput?.jsonBody ??
+                                      ''),
+                                )!;
+                                setState(() {});
                                 await _model.googleMap1sController.future.then(
                                   (c) => c.animateCamera(
                                     CameraUpdate.newLatLng(functions

@@ -70,18 +70,17 @@ class _PageControllerComponentWidgetState
                     setState(() {
                       _model.choiceChipsValueController?.value = ['1'];
                     });
-                    setState(() {
-                      FFAppState().previousButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'previous_button',
-                              FFAppState().maxPage)!;
-                      FFAppState().nextButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'next_button',
-                              FFAppState().maxPage)!;
-                    });
+                    FFAppState().previousButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'previous_button',
+                            FFAppState().maxPage)!;
+                    FFAppState().nextButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'next_button',
+                            FFAppState().maxPage)!;
+                    setState(() {});
                   },
                   child: FaIcon(
                     FontAwesomeIcons.fastBackward,
@@ -109,18 +108,17 @@ class _PageControllerComponentWidgetState
                         }(functions.stringToInteger(_model.choiceChipsValue)))
                       ];
                     });
-                    setState(() {
-                      FFAppState().previousButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'previous_button',
-                              FFAppState().maxPage)!;
-                      FFAppState().nextButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'next_button',
-                              FFAppState().maxPage)!;
-                    });
+                    FFAppState().previousButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'previous_button',
+                            FFAppState().maxPage)!;
+                    FFAppState().nextButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'next_button',
+                            FFAppState().maxPage)!;
+                    setState(() {});
                   },
                   child: Icon(
                     Icons.arrow_back_ios_rounded,
@@ -142,31 +140,28 @@ class _PageControllerComponentWidgetState
                       .toList(),
                   onChanged: (val) async {
                     setState(() => _model.choiceChipsValue = val?.firstOrNull);
-                    setState(() {
-                      FFAppState().reportItemIndexList = functions
-                          .setReportItemIndexList(_model.choiceChipsValue)!
-                          .toList()
-                          .cast<int>();
-                    });
-                    setState(() {
-                      FFAppState().pageSelectionList = functions
-                          .generate5CurrentPageNumber(
-                              _model.choiceChipsValue, FFAppState().maxPage)!
-                          .toList()
-                          .cast<String>();
-                    });
-                    setState(() {
-                      FFAppState().previousButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'previous_button',
-                              FFAppState().maxPage)!;
-                      FFAppState().nextButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'next_button',
-                              FFAppState().maxPage)!;
-                    });
+                    FFAppState().reportItemIndexList = functions
+                        .setReportItemIndexList(_model.choiceChipsValue)!
+                        .toList()
+                        .cast<int>();
+                    setState(() {});
+                    FFAppState().pageSelectionList = functions
+                        .generate5CurrentPageNumber(
+                            _model.choiceChipsValue, FFAppState().maxPage)!
+                        .toList()
+                        .cast<String>();
+                    setState(() {});
+                    FFAppState().previousButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'previous_button',
+                            FFAppState().maxPage)!;
+                    FFAppState().nextButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'next_button',
+                            FFAppState().maxPage)!;
+                    setState(() {});
                   },
                   selectedChipStyle: ChipStyle(
                     backgroundColor: Color(0xFF0039E3),
@@ -223,18 +218,17 @@ class _PageControllerComponentWidgetState
                         }(functions.stringToInteger(_model.choiceChipsValue)))
                       ];
                     });
-                    setState(() {
-                      FFAppState().previousButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'previous_button',
-                              FFAppState().maxPage)!;
-                      FFAppState().nextButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'next_button',
-                              FFAppState().maxPage)!;
-                    });
+                    FFAppState().previousButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'previous_button',
+                            FFAppState().maxPage)!;
+                    FFAppState().nextButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'next_button',
+                            FFAppState().maxPage)!;
+                    setState(() {});
                   },
                   child: Icon(
                     Icons.arrow_forward_ios_rounded,
@@ -260,18 +254,17 @@ class _PageControllerComponentWidgetState
                         FFAppState().maxPage.toString()
                       ];
                     });
-                    setState(() {
-                      FFAppState().previousButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'previous_button',
-                              FFAppState().maxPage)!;
-                      FFAppState().nextButtonVisible =
-                          functions.checkVisiblePreviousForwordButton(
-                              _model.choiceChipsValue,
-                              'next_button',
-                              FFAppState().maxPage)!;
-                    });
+                    FFAppState().previousButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'previous_button',
+                            FFAppState().maxPage)!;
+                    FFAppState().nextButtonVisible =
+                        functions.checkVisiblePreviousForwordButton(
+                            _model.choiceChipsValue,
+                            'next_button',
+                            FFAppState().maxPage)!;
+                    setState(() {});
                   },
                   child: FaIcon(
                     FontAwesomeIcons.fastForward,
