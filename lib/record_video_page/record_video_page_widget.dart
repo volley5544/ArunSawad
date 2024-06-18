@@ -1,3 +1,5 @@
+import 'package:arun_sawad/custom_code/widgets/camera_record.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -79,7 +81,10 @@ class _RecordVideoPageWidgetState extends State<RecordVideoPageWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              CameraRecord(width: 300,
+              height: 500,)
+            ],
           ),
         ),
       ),
