@@ -523,7 +523,11 @@ final parametersBuilderMap =
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
         },
       ),
-  'List10OrderHistory': ParameterData.none(),
+  'RecordVideoWebviewPage': (data) async => ParameterData(
+        allParams: {
+          'webUrl': getParameter<String>(data, 'webUrl'),
+        },
+      ),
   'detailListFollowUpDebt': (data) async => ParameterData(
         allParams: {
           'cusCod': getParameter<String>(data, 'cusCod'),
@@ -587,6 +591,7 @@ final parametersBuilderMap =
           'followUpDebtTab': getParameter<int>(data, 'followUpDebtTab'),
         },
       ),
+  'RecordVideoPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

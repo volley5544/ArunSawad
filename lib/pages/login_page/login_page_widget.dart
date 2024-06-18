@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -395,7 +394,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     await requestPermission(
                                         microphonePermission);
 
-                                    context.goNamed('List10OrderHistory');
+                                    context.goNamed('RecordVideoPage');
                                   },
                                   child: Container(
                                     width:
@@ -1993,78 +1992,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 1.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return WebViewAware(
-                                      child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: double.infinity,
-                                            child: LoadingSceneWidget(),
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
-
-                                _model.saveCallApi =
-                                    await SaveCallCollectionCall.call(
-                                  saveCallJson: FFAppState().saveCalled.toMap(),
-                                );
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text(
-                                            (_model.saveCallApi?.jsonBody ?? '')
-                                                .toString()),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                Navigator.pop(context);
-
-                                setState(() {});
-                              },
-                              child: Text(
-                                'Copyright ©2022.  Srisawad Corporation Plc.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF607D8B),
-                                      fontSize: 13.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
+                            child: Text(
+                              'Copyright ©2022.  Srisawad Corporation Plc.',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF607D8B),
+                                    fontSize: 13.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
                           ),

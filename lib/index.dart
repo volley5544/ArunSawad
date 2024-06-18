@@ -183,8 +183,8 @@ export '/pages/super_app/bsi_report_page/bsi_report_page_widget.dart'
     show BsiReportPageWidget;
 export '/collection_page/list_name_tab_follow_up_debt/list_name_tab_follow_up_debt_widget.dart'
     show ListNameTabFollowUpDebtWidget;
-export '/list10_order_history/list10_order_history_widget.dart'
-    show List10OrderHistoryWidget;
+export '/record_video_webview_page/record_video_webview_page_widget.dart'
+    show RecordVideoWebviewPageWidget;
 export '/collection_page/detail_list_follow_up_debt/detail_list_follow_up_debt_widget.dart'
     show DetailListFollowUpDebtWidget;
 export '/collection_page/save_on_site_follow_up_debt/save_on_site_follow_up_debt_widget.dart'
@@ -205,3 +205,5 @@ export '/pages/register/register_widget.dart' show RegisterWidget;
 export '/collection_page/interest_page/interest_page_widget.dart'
     show InterestPageWidget;
 export '/collection_page/q_r_code/q_r_code_widget.dart' show QRCodeWidget;
+export '/record_video_page/record_video_page_widget.dart'
+    show RecordVideoPageWidget;

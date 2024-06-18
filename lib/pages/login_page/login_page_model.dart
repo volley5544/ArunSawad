@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -76,8 +75,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   FCMTokenRecord? androidCreateFMCTokenDoc;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FCMTokenRecord? iosCreateFMCTokenDoc;
-  // Stores action output result for [Backend Call - API (saveCallCollection)] action in Text widget.
-  ApiCallResponse? saveCallApi;
 
   @override
   void initState(BuildContext context) {

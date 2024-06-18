@@ -15,14 +15,11 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class VideoRecordWebWidget extends StatefulWidget {
-  const VideoRecordWebWidget({
-    super.key,
-    this.width,
-    this.height,
-  });
+  const VideoRecordWebWidget({super.key, this.width, this.height, this.webUrl});
 
   final double? width;
   final double? height;
+  final String? webUrl;
 
   @override
   State<VideoRecordWebWidget> createState() => _VideoRecordWebWidgetState();
@@ -38,7 +35,8 @@ class _VideoRecordWebWidgetState extends State<VideoRecordWebWidget> {
         child: Container(
           child: InAppWebView(
               initialUrlRequest: URLRequest(
-                url: Uri.parse("https://vcall.swpfin.com:8888/self-room"),
+                url: Uri.parse(
+                    widget.webUrl!), // https://vcall.swpfin.com:8888/self-room
               ),
               initialOptions: InAppWebViewGroupOptions(
                 crossPlatform: InAppWebViewOptions(

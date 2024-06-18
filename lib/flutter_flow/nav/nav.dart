@@ -1554,9 +1554,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'List10OrderHistory',
-              path: 'list10OrderHistory',
-              builder: (context, params) => List10OrderHistoryWidget(),
+              name: 'RecordVideoWebviewPage',
+              path: 'RecordVideoWebviewPage',
+              builder: (context, params) => RecordVideoWebviewPageWidget(
+                webUrl: params.getParam(
+                  'webUrl',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: 'detailListFollowUpDebt',
@@ -1792,6 +1797,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.int,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'RecordVideoPage',
+              path: 'recordVideoPage',
+              builder: (context, params) => RecordVideoPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

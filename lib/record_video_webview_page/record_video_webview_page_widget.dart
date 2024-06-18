@@ -1,4 +1,3 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -6,29 +5,35 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'list10_order_history_model.dart';
-export 'list10_order_history_model.dart';
+import 'record_video_webview_page_model.dart';
+export 'record_video_webview_page_model.dart';
 
-class List10OrderHistoryWidget extends StatefulWidget {
-  const List10OrderHistoryWidget({super.key});
+class RecordVideoWebviewPageWidget extends StatefulWidget {
+  const RecordVideoWebviewPageWidget({
+    super.key,
+    required this.webUrl,
+  });
+
+  final String? webUrl;
 
   @override
-  State<List10OrderHistoryWidget> createState() =>
-      _List10OrderHistoryWidgetState();
+  State<RecordVideoWebviewPageWidget> createState() =>
+      _RecordVideoWebviewPageWidgetState();
 }
 
-class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
-  late List10OrderHistoryModel _model;
+class _RecordVideoWebviewPageWidgetState
+    extends State<RecordVideoWebviewPageWidget> {
+  late RecordVideoWebviewPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => List10OrderHistoryModel());
+    _model = createModel(context, () => RecordVideoWebviewPageModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'List10OrderHistory'});
+        parameters: {'screen_name': 'RecordVideoWebviewPage'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -49,25 +54,34 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: Color(0xFFFF6500),
           automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.of(context).secondaryText,
+          leading: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              context.goNamed('SuperAppPage');
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Color(0xFBFFFFFF),
               size: 30.0,
             ),
-            onPressed: () async {
-              context.pop();
-            },
+          ),
+          title: Text(
+            'บันทึกวีดิโอ (ลูกค้า)',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                  letterSpacing: 0.0,
+                ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 0.0,
+          elevation: 10.0,
         ),
         body: SafeArea(
           top: true,
@@ -81,6 +95,7 @@ class _List10OrderHistoryWidgetState extends State<List10OrderHistoryWidget> {
               child: custom_widgets.VideoRecordWebWidget(
                 width: 300.0,
                 height: 500.0,
+                webUrl: widget.webUrl,
               ),
             ),
           ),

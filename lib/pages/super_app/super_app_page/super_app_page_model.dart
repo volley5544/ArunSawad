@@ -17,6 +17,7 @@ import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/permissions_util.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -76,6 +77,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageGenEpaQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  HideInAppContentRecord? queryRecordVideoIsOnWebview;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  UrlLinkStorageRecord? getWebRecodeVideoUrl;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageImpoundCarQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageZUVQuery;
@@ -129,6 +134,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? bossCheckOutputPad;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageGenEpaQueryTab;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  HideInAppContentRecord? queryRecordVideoIsOnWebviewTab;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  UrlLinkStorageRecord? getWebRecodeVideoUrlTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageImpoundCarTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.

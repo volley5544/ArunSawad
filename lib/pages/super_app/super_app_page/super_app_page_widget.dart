@@ -17,6 +17,7 @@ import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/permissions_util.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -2594,21 +2595,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             'HO') {
                                                                           return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
                                                                           return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
                                                                           return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else {
                                                                           return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -2630,8 +2631,110 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        await launchURL(
-                                                                            'https://vcall.swpfin.com:8888/self-room');
+                                                                        var _shouldSetState =
+                                                                            false;
+                                                                        _model.queryRecordVideoIsOnWebview =
+                                                                            await queryHideInAppContentRecordOnce(
+                                                                          queryBuilder: (hideInAppContentRecord) =>
+                                                                              hideInAppContentRecord.where(
+                                                                            'content_name',
+                                                                            isEqualTo:
+                                                                                'record_video_is_on_webview',
+                                                                          ),
+                                                                          singleRecord:
+                                                                              true,
+                                                                        ).then((s) =>
+                                                                                s.firstOrNull);
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        _model.getWebRecodeVideoUrl =
+                                                                            await queryUrlLinkStorageRecordOnce(
+                                                                          queryBuilder: (urlLinkStorageRecord) =>
+                                                                              urlLinkStorageRecord.where(
+                                                                            'url_name',
+                                                                            isEqualTo:
+                                                                                'web_record_video_url',
+                                                                          ),
+                                                                          singleRecord:
+                                                                              true,
+                                                                        ).then((s) =>
+                                                                                s.firstOrNull);
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        if (_model
+                                                                            .queryRecordVideoIsOnWebview!
+                                                                            .isShowContent) {
+                                                                          await requestPermission(
+                                                                              cameraPermission);
+                                                                          if (!(await getPermissionStatus(
+                                                                              cameraPermission))) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('กรุณาอนุญาตให้อรุณสวัสดิ์ใช้งานกล้อง จึงจะสามารถใช้เมนูบันทึกวิดีโอได้'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
+                                                                          await requestPermission(
+                                                                              microphonePermission);
+                                                                          if (!(await getPermissionStatus(
+                                                                              microphonePermission))) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('กรุณาอนุญาตให้อรุณสวัสดิ์ใช้งานไมโครโฟน จึงจะสามารถใช้เมนูบันทึกวิดีโอได้'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
+
+                                                                          context
+                                                                              .goNamed(
+                                                                            'RecordVideoWebviewPage',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'webUrl': serializeParam(
+                                                                                _model.getWebRecodeVideoUrl?.urlLink,
+                                                                                ParamType.String,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+
+                                                                          if (_shouldSetState)
+                                                                            setState(() {});
+                                                                          return;
+                                                                        }
+                                                                        await launchURL(_model
+                                                                            .getWebRecodeVideoUrl!
+                                                                            .urlLink);
+                                                                        if (_shouldSetState)
+                                                                          setState(
+                                                                              () {});
                                                                       },
                                                                       child:
                                                                           Container(
@@ -2667,7 +2770,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ),
                                                                             ),
                                                                             Text(
-                                                                              'บันทึกวีดิโอ\n   (ลูกค้า)',
+                                                                              'บันทึกวีดิโอ (ลูกค้า)',
+                                                                              textAlign: TextAlign.center,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 12.0,
@@ -8968,21 +9072,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             'HO') {
                                                                           return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
                                                                           return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
                                                                           return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else {
                                                                           return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ')];
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
@@ -9004,8 +9108,66 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        await launchURL(
-                                                                            'https://vcall.swpfin.com:8888/self-room ');
+                                                                        var _shouldSetState =
+                                                                            false;
+                                                                        _model.queryRecordVideoIsOnWebviewTab =
+                                                                            await queryHideInAppContentRecordOnce(
+                                                                          queryBuilder: (hideInAppContentRecord) =>
+                                                                              hideInAppContentRecord.where(
+                                                                            'content_name',
+                                                                            isEqualTo:
+                                                                                'record_video_is_on_webview',
+                                                                          ),
+                                                                          singleRecord:
+                                                                              true,
+                                                                        ).then((s) =>
+                                                                                s.firstOrNull);
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        _model.getWebRecodeVideoUrlTab =
+                                                                            await queryUrlLinkStorageRecordOnce(
+                                                                          queryBuilder: (urlLinkStorageRecord) =>
+                                                                              urlLinkStorageRecord.where(
+                                                                            'url_name',
+                                                                            isEqualTo:
+                                                                                'web_record_video_url',
+                                                                          ),
+                                                                          singleRecord:
+                                                                              true,
+                                                                        ).then((s) =>
+                                                                                s.firstOrNull);
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        if (_model
+                                                                            .queryRecordVideoIsOnWebviewTab!
+                                                                            .isShowContent) {
+                                                                          await requestPermission(
+                                                                              cameraPermission);
+                                                                          await requestPermission(
+                                                                              microphonePermission);
+
+                                                                          context
+                                                                              .goNamed(
+                                                                            'RecordVideoWebviewPage',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'webUrl': serializeParam(
+                                                                                _model.getWebRecodeVideoUrlTab?.urlLink,
+                                                                                ParamType.String,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+
+                                                                          if (_shouldSetState)
+                                                                            setState(() {});
+                                                                          return;
+                                                                        }
+                                                                        await launchURL(_model
+                                                                            .getWebRecodeVideoUrlTab!
+                                                                            .urlLink);
+                                                                        if (_shouldSetState)
+                                                                          setState(
+                                                                              () {});
                                                                       },
                                                                       child:
                                                                           Container(
