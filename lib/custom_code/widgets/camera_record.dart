@@ -1,15 +1,5 @@
-// YouTube channel - https://www.youtube.com/@flutterflowexpert
-// paid video - https://www.youtube.com/watch?v=0_TIH7xT5_Y
-// Join the Klaturov army - https://www.youtube.com/@flutterflowexpert/join
-// Support my work - https://github.com/sponsors/bulgariamitko
-// Website - https://bulgariamitko.github.io/flutterflowtutorials/
-// You can book me as FF mentor - https://calendly.com/bulgaria_mitko
-// GitHub repo - https://github.com/bulgariamitko/flutterflowtutorials
-// Discord channel - https://discord.gg/G69hSUqEeU
-
-// Automatic FlutterFlow imports
 import 'package:arun_sawad/custom_code/widgets/video_page.dart';
-
+import 'dart:io';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -43,6 +33,8 @@ class _CameraRecordState extends State<CameraRecord> {
   bool _isLoading = true;
   late CameraController _cameraController;
   bool _isRecording = false;
+  bool _isPaused = false;
+  bool _isFrontCamera = false;
 
   @override
   void initState() {
@@ -58,28 +50,83 @@ class _CameraRecordState extends State<CameraRecord> {
 
   _initCamera() async {
     final cameras = await availableCameras();
-    final front = cameras.firstWhere((camera) => camera.lensDirection == CameraLensDirection.front);
-    _cameraController = CameraController(front, ResolutionPreset.max);
+    final back = cameras.firstWhere((camera) => camera.lensDirection == CameraLensDirection.back);
+    _cameraController = CameraController(back, ResolutionPreset.high);
     await _cameraController.initialize();
     setState(() => _isLoading = false);
   }
 
   _recordVideo() async {
     if (_isRecording) {
-      final file = await _cameraController.stopVideoRecording();
-      setState(() => _isRecording = false);
-      final route = MaterialPageRoute(
-        fullscreenDialog: true,
-        builder: (_) => VideoPage(width: 300,
+      if (_isPaused) {
+        await _cameraController.resumeVideoRecording();
+        setState(() => _isPaused = false);
+      } else {
+        final file = await _cameraController.stopVideoRecording();
+        setState((){
+          _isRecording = false;
+        });
+
+        // Ensure file is ready before navigation
+        await _ensureFileIsReady(file);
+
+        final route = MaterialPageRoute(
+          fullscreenDialog: true,
+          builder: (_) => VideoPage(
+            width: 300,
             height: 500,
             filePath: file.path,
-        ),
-      );
-      Navigator.push(context, route);
+          ),
+        );
+        Navigator.push(context, route);
+      }
     } else {
       await _cameraController.prepareForVideoRecording();
       await _cameraController.startVideoRecording();
       setState(() => _isRecording = true);
+    }
+  }
+
+  Future<void> _ensureFileIsReady(XFile file) async {
+    try {
+      //await Future.delayed(Duration(milliseconds: 500));
+      final fileSize = await File(file.path).length();
+      if (fileSize > 0) {
+        print('File is ready with size: $fileSize bytes');
+      } else {
+        print('File is not ready or empty');
+      }
+    } catch (e) {
+      print('Error processing file: $e');
+    }
+  }
+
+  _pauseVideo() async {
+    if (_isRecording && !_isPaused) {
+      await _cameraController.pauseVideoRecording();
+      setState(() => _isPaused = true);
+    }
+  }
+  _switchCameraDirection() async {
+    final cameras = await availableCameras();
+    if(_isFrontCamera){
+      final back = cameras.firstWhere((camera) => camera.lensDirection == CameraLensDirection.back);
+      _cameraController = CameraController(back, ResolutionPreset.high);
+      await _cameraController.initialize();
+      setState(() {
+        _isLoading = false;
+        _isFrontCamera = false;
+      });
+    }
+    else {
+      final front = cameras.firstWhere((camera) =>
+      camera.lensDirection == CameraLensDirection.front);
+      _cameraController = CameraController(front, ResolutionPreset.high,);
+      await _cameraController.initialize();
+      setState(() {
+        _isLoading = false;
+        _isFrontCamera = true;
+      });
     }
   }
 
@@ -89,17 +136,44 @@ class _CameraRecordState extends State<CameraRecord> {
       child: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          CameraPreview(_cameraController),
+          if (!_isLoading) CameraPreview(_cameraController),
           Padding(
             padding: const EdgeInsets.all(25),
-            child: FloatingActionButton(
-              backgroundColor: Colors.red,
-              child: Icon(_isRecording ? Icons.stop : Icons.circle),
-              onPressed: () => _recordVideo(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (_isRecording)
+                  FloatingActionButton(
+                    backgroundColor: Colors.blue,
+                    child: Icon(Icons.pause),
+                    onPressed: () => _pauseVideo(),
+                  ),
+                SizedBox(width: 10),
+                FloatingActionButton(
+                  backgroundColor: Colors.red,
+                  child: Icon(_isRecording ? (_isPaused ? Icons.play_arrow : Icons.stop) : Icons.circle),
+                  onPressed: () async {
+                    await _recordVideo();
+                  }
+                ),
+              ],
+            ),
+          ),
+          Visibility(
+            visible: !_isRecording,
+            child: Positioned(
+              top: 30, // Adjust this value as needed
+              right: 20, // Adjust this value as needed
+              child: FloatingActionButton(
+                backgroundColor: Colors.grey,
+                child: Icon(Icons.switch_camera),
+                onPressed: () => _switchCameraDirection(),
+              ),
             ),
           ),
         ],
       ),
     );
   }
+
 }
