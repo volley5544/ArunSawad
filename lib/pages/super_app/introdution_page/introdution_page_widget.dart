@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/permissions_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -139,30 +140,89 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          if (FFAppState().introPageIndex == 1) Spacer(),
-                          if (FFAppState().introPageIndex != 1)
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await requestPermission(cameraPermission);
+                          await requestPermission(microphonePermission);
+
+                          context.goNamed('RecordVideoPage');
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            if (FFAppState().introPageIndex == 1) Spacer(),
+                            if (FFAppState().introPageIndex != 1)
+                              Expanded(
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.9),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      if (FFAppState().introPageIndex <= 1) {
+                                        return;
+                                      }
+                                      FFAppState().introPageIndex =
+                                          FFAppState().introPageIndex + -1;
+                                      FFAppState().update(() {});
+                                      await _model.pageViewController
+                                          ?.previousPage(
+                                        duration: Duration(milliseconds: 300),
+                                        curve: Curves.ease,
+                                      );
+                                    },
+                                    text: 'ย้อนกลับ',
+                                    options: FFButtonOptions(
+                                      width: 130.0,
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: Colors.white,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.black,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 2.0,
+                                      borderSide: BorderSide(
+                                        color: Color(0xFFFF8D38),
+                                        width: 2.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.9),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if (FFAppState().introPageIndex <= 1) {
+                                    if (FFAppState().introPageIndex != 3) {
+                                      FFAppState().introPageIndex =
+                                          FFAppState().introPageIndex + 1;
+                                      FFAppState().update(() {});
+                                      await _model.pageViewController?.nextPage(
+                                        duration: Duration(milliseconds: 300),
+                                        curve: Curves.ease,
+                                      );
                                       return;
                                     }
-                                    FFAppState().introPageIndex =
-                                        FFAppState().introPageIndex + -1;
+                                    FFAppState().firstUseApp = true;
                                     FFAppState().update(() {});
-                                    await _model.pageViewController
-                                        ?.previousPage(
-                                      duration: Duration(milliseconds: 300),
-                                      curve: Curves.ease,
-                                    );
+
+                                    context.goNamed('LoginPage');
                                   },
-                                  text: 'ย้อนกลับ',
+                                  text: functions.introPageTextButton(
+                                      FFAppState().introPageIndex),
                                   options: FFButtonOptions(
                                     width: 130.0,
                                     height: 40.0,
@@ -188,54 +248,8 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                 ),
                               ),
                             ),
-                          Expanded(
-                            child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.9),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  if (FFAppState().introPageIndex != 3) {
-                                    FFAppState().introPageIndex =
-                                        FFAppState().introPageIndex + 1;
-                                    FFAppState().update(() {});
-                                    await _model.pageViewController?.nextPage(
-                                      duration: Duration(milliseconds: 300),
-                                      curve: Curves.ease,
-                                    );
-                                    return;
-                                  }
-                                  FFAppState().firstUseApp = true;
-                                  FFAppState().update(() {});
-
-                                  context.goNamed('LoginPage');
-                                },
-                                text: functions.introPageTextButton(
-                                    FFAppState().introPageIndex),
-                                options: FFButtonOptions(
-                                  width: 130.0,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Colors.white,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  elevation: 2.0,
-                                  borderSide: BorderSide(
-                                    color: Color(0xFFFF8D38),
-                                    width: 2.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
