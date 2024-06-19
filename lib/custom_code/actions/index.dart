@@ -21,6 +21,7 @@ export 'a17.dart' show a17;
 export 'a18.dart' show a18;
 export 'a20.dart' show a20;
 export 'a21.dart' show a21;
+export 'save_video_file.dart' show saveVideoFile;
 export 'a22.dart' show a22;
 export 'prevent_screen_record_android.dart' show preventScreenRecordAndroid;
 export 'prevent_screen_record_i_o_s.dart' show preventScreenRecordIOS;

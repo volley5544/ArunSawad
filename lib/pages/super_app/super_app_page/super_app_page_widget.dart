@@ -11,9 +11,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
@@ -1848,72 +1846,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             unawaited(
                                                               () async {}(),
                                                             );
-                                                            await requestPermission(
-                                                                cameraPermission);
-                                                            await requestPermission(
-                                                                microphonePermission);
-                                                            final selectedMedia =
-                                                                await selectMedia(
-                                                              isVideo: true,
-                                                              multiImage: false,
-                                                            );
-                                                            if (selectedMedia !=
-                                                                    null &&
-                                                                selectedMedia.every((m) =>
-                                                                    validateFileFormat(
-                                                                        m.storagePath,
-                                                                        context))) {
-                                                              setState(() =>
-                                                                  _model.isDataUploading =
-                                                                      true);
-                                                              var selectedUploadedFiles =
-                                                                  <FFUploadedFile>[];
-
-                                                              try {
-                                                                showUploadMessage(
-                                                                  context,
-                                                                  'Uploading file...',
-                                                                  showLoading:
-                                                                      true,
-                                                                );
-                                                                selectedUploadedFiles =
-                                                                    selectedMedia
-                                                                        .map((m) =>
-                                                                            FFUploadedFile(
-                                                                              name: m.storagePath.split('/').last,
-                                                                              bytes: m.bytes,
-                                                                              height: m.dimensions?.height,
-                                                                              width: m.dimensions?.width,
-                                                                              blurHash: m.blurHash,
-                                                                            ))
-                                                                        .toList();
-                                                              } finally {
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .hideCurrentSnackBar();
-                                                                _model.isDataUploading =
-                                                                    false;
-                                                              }
-                                                              if (selectedUploadedFiles
-                                                                      .length ==
-                                                                  selectedMedia
-                                                                      .length) {
-                                                                setState(() {
-                                                                  _model.uploadedLocalFile =
-                                                                      selectedUploadedFiles
-                                                                          .first;
-                                                                });
-                                                                showUploadMessage(
-                                                                    context,
-                                                                    'Success!');
-                                                              } else {
-                                                                setState(() {});
-                                                                showUploadMessage(
-                                                                    context,
-                                                                    'Failed to upload data');
-                                                                return;
-                                                              }
-                                                            }
                                                           },
                                                           child: Text(
                                                             'บริการ',
@@ -1931,31 +1863,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                           ),
                                                         ),
                                                       ),
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          _model.uploadVideoOutput =
-                                                              await actions
-                                                                  .uploadFileFirebaseStorage(
-                                                            'VideoRecordFolder',
-                                                            _model
-                                                                .uploadedLocalFile,
-                                                          );
-
-                                                          setState(() {});
-                                                        },
-                                                        child: Divider(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .grayIcon,
-                                                        ),
+                                                      Divider(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .grayIcon,
                                                       ),
                                                       Expanded(
                                                         child: Padding(
@@ -2724,105 +2636,101 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           () async {
                                                                         var _shouldSetState =
                                                                             false;
-                                                                        _model.queryRecordVideoIsOnWebview =
-                                                                            await queryHideInAppContentRecordOnce(
-                                                                          queryBuilder: (hideInAppContentRecord) =>
-                                                                              hideInAppContentRecord.where(
-                                                                            'content_name',
-                                                                            isEqualTo:
-                                                                                'record_video_is_on_webview',
-                                                                          ),
-                                                                          singleRecord:
-                                                                              true,
-                                                                        ).then((s) =>
-                                                                                s.firstOrNull);
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                        _model.getWebRecodeVideoUrl =
-                                                                            await queryUrlLinkStorageRecordOnce(
-                                                                          queryBuilder: (urlLinkStorageRecord) =>
-                                                                              urlLinkStorageRecord.where(
-                                                                            'url_name',
-                                                                            isEqualTo:
-                                                                                'web_record_video_url',
-                                                                          ),
-                                                                          singleRecord:
-                                                                              true,
-                                                                        ).then((s) =>
-                                                                                s.firstOrNull);
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                        if (_model
-                                                                            .queryRecordVideoIsOnWebview!
-                                                                            .isShowContent) {
-                                                                          await requestPermission(
-                                                                              cameraPermission);
-                                                                          if (!(await getPermissionStatus(
-                                                                              cameraPermission))) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                    content: Text('กรุณาอนุญาตให้อรุณสวัสดิ์ใช้งานกล้อง จึงจะสามารถใช้เมนูบันทึกวิดีโอได้'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-                                                                            if (_shouldSetState)
-                                                                              setState(() {});
-                                                                            return;
-                                                                          }
-                                                                          await requestPermission(
-                                                                              microphonePermission);
-                                                                          if (!(await getPermissionStatus(
-                                                                              microphonePermission))) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                    content: Text('กรุณาอนุญาตให้อรุณสวัสดิ์ใช้งานไมโครโฟน จึงจะสามารถใช้เมนูบันทึกวิดีโอได้'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-                                                                            if (_shouldSetState)
-                                                                              setState(() {});
-                                                                            return;
-                                                                          }
-
+                                                                        if (true) {
                                                                           context
-                                                                              .goNamed(
-                                                                            'RecordVideoWebviewPage',
-                                                                            queryParameters:
-                                                                                {
-                                                                              'webUrl': serializeParam(
-                                                                                _model.getWebRecodeVideoUrl?.urlLink,
-                                                                                ParamType.String,
-                                                                              ),
-                                                                            }.withoutNulls,
-                                                                          );
+                                                                              .goNamed('RecordVideoCustomer');
+                                                                        } else {
+                                                                          _model.queryRecordVideoIsOnWebview =
+                                                                              await queryHideInAppContentRecordOnce(
+                                                                            queryBuilder: (hideInAppContentRecord) =>
+                                                                                hideInAppContentRecord.where(
+                                                                              'content_name',
+                                                                              isEqualTo: 'record_video_is_on_webview',
+                                                                            ),
+                                                                            singleRecord:
+                                                                                true,
+                                                                          ).then((s) => s.firstOrNull);
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          _model.getWebRecodeVideoUrl =
+                                                                              await queryUrlLinkStorageRecordOnce(
+                                                                            queryBuilder: (urlLinkStorageRecord) =>
+                                                                                urlLinkStorageRecord.where(
+                                                                              'url_name',
+                                                                              isEqualTo: 'web_record_video_url',
+                                                                            ),
+                                                                            singleRecord:
+                                                                                true,
+                                                                          ).then((s) => s.firstOrNull);
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          if (_model
+                                                                              .queryRecordVideoIsOnWebview!
+                                                                              .isShowContent) {
+                                                                            await requestPermission(cameraPermission);
+                                                                            if (!(await getPermissionStatus(cameraPermission))) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('กรุณาอนุญาตให้อรุณสวัสดิ์ใช้งานกล้อง จึงจะสามารถใช้เมนูบันทึกวิดีโอได้'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            await requestPermission(microphonePermission);
+                                                                            if (!(await getPermissionStatus(microphonePermission))) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('กรุณาอนุญาตให้อรุณสวัสดิ์ใช้งานไมโครโฟน จึงจะสามารถใช้เมนูบันทึกวิดีโอได้'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
 
-                                                                          if (_shouldSetState)
-                                                                            setState(() {});
-                                                                          return;
+                                                                            context.goNamed(
+                                                                              'RecordVideoWebviewPage',
+                                                                              queryParameters: {
+                                                                                'webUrl': serializeParam(
+                                                                                  _model.getWebRecodeVideoUrl?.urlLink,
+                                                                                  ParamType.String,
+                                                                                ),
+                                                                              }.withoutNulls,
+                                                                            );
+
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
+                                                                          await launchURL(_model
+                                                                              .getWebRecodeVideoUrl!
+                                                                              .urlLink);
                                                                         }
-                                                                        await launchURL(_model
-                                                                            .getWebRecodeVideoUrl!
-                                                                            .urlLink);
+
                                                                         if (_shouldSetState)
                                                                           setState(
                                                                               () {});
@@ -16224,19 +16132,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                 },
                                               ),
                                             ),
-                                          ),
-                                        if (_model.uploadVideoOutput != null &&
-                                            _model.uploadVideoOutput != '')
-                                          FlutterFlowVideoPlayer(
-                                            path: functions.stringToVideoPath(
-                                                _model.uploadVideoOutput)!,
-                                            videoType: VideoType.network,
-                                            autoPlay: true,
-                                            looping: true,
-                                            showControls: true,
-                                            allowFullScreen: true,
-                                            allowPlaybackSpeedMenu: false,
-                                            lazyLoad: false,
                                           ),
                                       ],
                                     ),

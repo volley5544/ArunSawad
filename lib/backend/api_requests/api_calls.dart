@@ -10129,6 +10129,85 @@ class ApiRepaymentListCall {
       ));
 }
 
+class SaveRecordVideoApiCall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? contno = '',
+    String? checkType = '',
+    String? employeeId = '',
+    FFUploadedFile? filesVdo,
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'saveRecordVideoApi',
+      apiUrl: '${apiUrl}/upload_save.php',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'contno': contno,
+        'check_type': checkType,
+        'employee_id': employeeId,
+        'files_vdo': filesVdo,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? overdueamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.over_due_amount''',
+      ));
+  static int? remain401(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.remain_401''',
+      ));
+  static int? remain624(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.remain_624''',
+      ));
+  static String? customername(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.customer_name''',
+      ));
+  static String? duedateshow(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.due_date_show''',
+      ));
+  static int? nextdueamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.next_due_amount''',
+      ));
+  static int? totaldueamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.total_due_amount''',
+      ));
+  static int? statuslayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messagelayer2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? currentdueamount(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.current_due_amount''',
+      ));
+  static String? birthday(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.birth_day''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
