@@ -272,6 +272,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                             r'''$.RecordId''',
                                           ).toString(),
                                         );
+
                                         _shouldSetState = true;
 
                                         context.pushNamed(
@@ -336,6 +337,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                             r'''$.RecordId''',
                                           ).toString(),
                                         );
+
                                         _shouldSetState = true;
 
                                         context.pushNamed(
@@ -434,6 +436,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                             r'''$.RecordId''',
                                           ).toString(),
                                         );
+
                                         _shouldSetState = true;
 
                                         context.pushNamed(
@@ -523,6 +526,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                             r'''$.RecordId''',
                                           ).toString(),
                                         );
+
                                         _shouldSetState = true;
 
                                         context.pushNamed(
@@ -614,6 +618,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                             r'''$.RecordId''',
                                           ).toString(),
                                         );
+
                                         _shouldSetState = true;
 
                                         context.pushNamed(
@@ -697,6 +702,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                             r'''$.RecordId''',
                                           ).toString(),
                                         );
+
                                         _shouldSetState = true;
 
                                         context.pushNamed(

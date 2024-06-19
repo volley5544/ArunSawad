@@ -72,6 +72,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
         contNo: widget.contNo,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
       );
+
       if ((_model.getCalledHistory?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(

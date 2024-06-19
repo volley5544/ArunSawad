@@ -1032,6 +1032,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                   ?.urlLink,
                               token: widget.token,
                             );
+
                             _shouldSetState = true;
                             if ((_model.changeLocationAPIOutput?.statusCode ??
                                     200) ==
@@ -1613,6 +1614,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                           flag: 'Y',
                                           token: widget.token,
                                         );
+
                                         _shouldSetState = true;
                                         if ((_model.changeLocationAPIOutputEdit
                                                     ?.statusCode ??

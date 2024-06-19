@@ -98,6 +98,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
             : FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.getDateTimeAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -264,6 +265,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                   token: FFAppState().accessToken,
                   apiUrl: FFAppState().apiURLLocalState,
                 );
+
                 FFAppState().userNickname =
                     GetUserProfileAPICall.profileNickName(
                   (_model.getUserProfile?.jsonBody ?? ''),

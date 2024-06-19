@@ -71,6 +71,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.leaveListAprroveAPIOutput?.statusCode ?? 200) == 200) {
         if (LeaveListAprroveAPICall.infoStatus(
               (_model.leaveListAprroveAPIOutput?.jsonBody ?? ''),
@@ -566,6 +567,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                   true),
                                           flagApprove: 'Y',
                                         );
+
                                         _shouldSetState = true;
                                         if ((_model.leaveFlagApproveListOutput
                                                     ?.statusCode ??
@@ -2327,6 +2329,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     ),
                                                                                     flagApprove: 'Y',
                                                                                   );
+
                                                                                   _shouldSetState = true;
                                                                                   if ((_model.leaveFlagApproveAPIOutput?.statusCode ?? 200) == 200) {
                                                                                     if (LeaveFlagApproveAPICall.infoStatus(
@@ -2693,6 +2696,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     ),
                                                                                     flagApprove: 'N',
                                                                                   );
+
                                                                                   _shouldSetState = true;
                                                                                   if ((_model.leaveFlagApproveAPIOutput2?.statusCode ?? 200) == 200) {
                                                                                     if (LeaveFlagApproveAPICall.infoStatus(

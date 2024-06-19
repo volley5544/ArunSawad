@@ -108,6 +108,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.tpbAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,

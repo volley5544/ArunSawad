@@ -119,6 +119,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
           apiUrl: FFAppState().apiURLLocalState,
           token: FFAppState().accessToken,
         );
+
         if ((_model.checkinThisMonthOutput?.statusCode ?? 200) != 200) {
           if ((CheckinoutThisMonthAPICall.messageLayer1(
                     (_model.checkinThisMonthOutput?.jsonBody ?? ''),
@@ -280,6 +281,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
           apiUrl: FFAppState().apiURLLocalState,
           token: FFAppState().accessToken,
         );
+
         if ((_model.checkinLastMonthOutput?.statusCode ?? 200) != 200) {
           if ((CheckinoutLastMonthAPICall.messageLayer1(
                     (_model.checkinLastMonthOutput?.jsonBody ?? ''),
@@ -481,6 +483,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.getPersonalLeaveDate?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,

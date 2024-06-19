@@ -73,6 +73,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
       _model.getHolidayAPIOutput = await GetHolidayAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.getHolidayAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -2410,6 +2411,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                     leaveListId:
                                                         widget.leaveListID,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.leaveEditAPIOutput2
                                                               ?.statusCode ??
@@ -2839,6 +2841,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                   leaveListId:
                                                       widget.leaveListID,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.leaveEditAPIOutput
                                                             ?.statusCode ??

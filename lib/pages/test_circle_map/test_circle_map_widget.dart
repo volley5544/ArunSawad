@@ -92,6 +92,7 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                       onPressed: () async {
                         _model.getCheckinImgUrl1 =
                             await GetCheckinImgUrlApiCall.call();
+
                         FFAppState().idNumberTemp = functions
                             .convertDynamicListToFirstIntValue(getJsonField(
                           (_model.getCheckinImgUrl1?.jsonBody ?? ''),
@@ -133,6 +134,7 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                       onPressed: () async {
                         _model.getCheckinImgUrl2 =
                             await GetCheckinImgUrlUrlApiCall.call();
+
                         FFAppState().idNumberTemp = getJsonField(
                           (_model.getCheckinImgUrl2?.jsonBody ?? ''),
                           r'''$[:].id''',

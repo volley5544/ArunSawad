@@ -92,6 +92,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.getTargetContractKPI?.statusCode ?? 200) != 200) {
         if ((GetTargetContractKPIAPICall.messageLayer1(
                   (_model.getTargetContractKPI?.jsonBody ?? ''),
@@ -368,6 +369,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.getTargetBudget?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
@@ -513,6 +515,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       Navigator.pop(context);
     });
 

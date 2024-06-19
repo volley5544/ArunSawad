@@ -333,6 +333,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                       ),
                                       contno: widget.contno,
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.repayAPIOutput?.statusCode ??
                                             200) !=

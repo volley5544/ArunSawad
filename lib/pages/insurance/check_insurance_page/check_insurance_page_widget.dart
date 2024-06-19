@@ -89,6 +89,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
       _model.gerBrand = await TeleGetBrandAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.gerBrand?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -153,6 +154,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
       _model.getModel = await TeleGetModelAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.getModel?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -217,6 +219,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
       _model.getProvince = await TeleGetProvinceAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.getProvince?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,

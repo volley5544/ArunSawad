@@ -65,6 +65,7 @@ class _InsuranceRequestImagePageWidgetState
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       Navigator.pop(context);
     });
 
@@ -9262,6 +9263,7 @@ class _InsuranceRequestImagePageWidgetState
                                           : '',
                                       token: FFAppState().accessToken,
                                     );
+
                                     _shouldSetState = true;
                                     if (InsuranceRequestSendEmailAPICall
                                             .statusLayer2(

@@ -73,6 +73,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.leaveListAPIOutput?.statusCode ?? 200) != 200) {
         if ((LeaveListAPICall.messageLayer1(
                   (_model.leaveListAPIOutput?.jsonBody ?? ''),
@@ -192,6 +193,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.resignListAPIOutput?.statusCode ?? 200) == 200) {
         Navigator.pop(context);
       } else {

@@ -2838,6 +2838,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     token: FFAppState().accessToken,
                                     apiUrl: FFAppState().apiURLLocalState,
                                   );
+
                                   _shouldSetState = true;
                                   if (SurveyAPICall.status(
                                         (_model.surveyAPISubmit?.jsonBody ??

@@ -378,6 +378,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                           .reasonCancelTextController
                                                                           .text,
                                                                     );
+
                                                                     _shouldSetState =
                                                                         true;
                                                                     if ((_model.leaveListCancelAPIOutput?.statusCode ??

@@ -59,6 +59,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
       _model.getHolidayAPIOutput = await GetHolidayAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.getHolidayAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -2357,6 +2358,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                         .phoneNumberTextController
                                                                         .text,
                                                               );
+
                                                               _shouldSetState =
                                                                   true;
                                                               if ((_model.leaveRequestAPIOutput2
@@ -2777,6 +2779,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                       .phoneNumberTextController
                                                                       .text,
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.leaveRequestAPIOutput
@@ -3113,6 +3116,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                   .createNotificationDataBody(
                                                                       'Leave_Request'),
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.fcmSendNotiFication

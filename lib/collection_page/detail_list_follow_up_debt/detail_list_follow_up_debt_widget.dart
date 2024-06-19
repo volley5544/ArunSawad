@@ -87,6 +87,7 @@ class _DetailListFollowUpDebtWidgetState
         idCard: widget.cusCod,
         dataFilter: widget.followupDebtTab,
       );
+
       if ((_model.getListDataPerson?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(

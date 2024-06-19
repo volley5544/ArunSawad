@@ -84,6 +84,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         role: FFAppState().profileRoleName,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
       );
+
       if ((_model.collectionApiGetdataCount?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
@@ -147,6 +148,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         role: FFAppState().profileRoleName,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
       );
+
       if ((_model.apiOutputCountPP?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,

@@ -45,6 +45,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
       _model.provinceAPIOutput = await GetProvinceAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.provinceAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -986,6 +987,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                                   .provinceInputTextController
                                                                   .text),
                                                     );
+
                                                     _shouldSetState = true;
                                                     if ((_model.getDistrictAPIOutput
                                                                 ?.statusCode ??
@@ -1229,6 +1231,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                                   .subdistrictInputTextController
                                                                   .text),
                                                     );
+
                                                     _shouldSetState = true;
                                                     if ((_model.getSubDistrictAPIOutput
                                                                 ?.statusCode ??

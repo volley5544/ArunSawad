@@ -11,7 +11,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
@@ -70,6 +72,12 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  // Stores action output result for [Custom Action - uploadFileFirebaseStorage] action in Divider widget.
+  String? uploadVideoOutput;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginLeavePage;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.

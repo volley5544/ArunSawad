@@ -126,6 +126,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
       _model.getMaterialAPIOutput = await GetMaterialAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       FFAppState().materialRecordId = GetMaterialAPICall.recordID(
         (_model.getMaterialAPIOutput?.jsonBody ?? ''),
       )!
@@ -3338,6 +3339,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     location: functions.getUserLocation(
                                         currentUserLocationValue),
                                   );
+
                                   _shouldSetState = true;
                                   if (MarketingAPICall.status(
                                         (_model.marketingAPISubmit?.jsonBody ??

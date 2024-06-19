@@ -1,10 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -393,8 +395,55 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     await requestPermission(cameraPermission);
                                     await requestPermission(
                                         microphonePermission);
+                                    final selectedMedia = await selectMedia(
+                                      isVideo: true,
+                                      multiImage: false,
+                                    );
+                                    if (selectedMedia != null &&
+                                        selectedMedia.every((m) =>
+                                            validateFileFormat(
+                                                m.storagePath, context))) {
+                                      setState(
+                                          () => _model.isDataUploading1 = true);
+                                      var selectedUploadedFiles =
+                                          <FFUploadedFile>[];
 
-                                    context.goNamed('RecordVideoPage');
+                                      try {
+                                        showUploadMessage(
+                                          context,
+                                          'Uploading file...',
+                                          showLoading: true,
+                                        );
+                                        selectedUploadedFiles = selectedMedia
+                                            .map((m) => FFUploadedFile(
+                                                  name: m.storagePath
+                                                      .split('/')
+                                                      .last,
+                                                  bytes: m.bytes,
+                                                  height: m.dimensions?.height,
+                                                  width: m.dimensions?.width,
+                                                  blurHash: m.blurHash,
+                                                ))
+                                            .toList();
+                                      } finally {
+                                        ScaffoldMessenger.of(context)
+                                            .hideCurrentSnackBar();
+                                        _model.isDataUploading1 = false;
+                                      }
+                                      if (selectedUploadedFiles.length ==
+                                          selectedMedia.length) {
+                                        setState(() {
+                                          _model.uploadedLocalFile1 =
+                                              selectedUploadedFiles.first;
+                                        });
+                                        showUploadMessage(context, 'Success!');
+                                      } else {
+                                        setState(() {});
+                                        showUploadMessage(
+                                            context, 'Failed to upload data');
+                                        return;
+                                      }
+                                    }
                                   },
                                   child: Container(
                                     width:
@@ -1283,6 +1332,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             check:
                                                                                 'N',
                                                                           );
+
                                                                           _shouldSetState =
                                                                               true;
                                                                         } else {
@@ -1345,6 +1395,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 uid: FFAppState().imei,
                                                                                 check: 'Y',
                                                                               );
+
                                                                               _shouldSetState = true;
                                                                               if ((_model.confirmAuthen?.succeeded ?? true)) {
                                                                                 FFAppState().accessToken = AuthenAPICall.token(
@@ -1470,6 +1521,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           projectName:
                                                                               'SSW_ARUNSAWAD_API',
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         FFAppState().userNickname =
@@ -1602,6 +1654,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.getUserInsuranceLicense?.statusCode ??
@@ -1992,17 +2045,80 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.0, 1.0),
-                            child: Text(
-                              'Copyright ©2022.  Srisawad Corporation Plc.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF607D8B),
-                                    fontSize: 13.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                {
+                                  setState(
+                                      () => _model.isDataUploading2 = true);
+                                  var selectedUploadedFiles =
+                                      <FFUploadedFile>[];
+                                  var selectedMedia = <SelectedFile>[];
+                                  var downloadUrls = <String>[];
+                                  try {
+                                    showUploadMessage(
+                                      context,
+                                      'Uploading file...',
+                                      showLoading: true,
+                                    );
+                                    selectedUploadedFiles = _model
+                                            .uploadedLocalFile1
+                                            .bytes!
+                                            .isNotEmpty
+                                        ? [_model.uploadedLocalFile1]
+                                        : <FFUploadedFile>[];
+                                    selectedMedia =
+                                        selectedFilesFromUploadedFiles(
+                                      selectedUploadedFiles,
+                                    );
+                                    downloadUrls = (await Future.wait(
+                                      selectedMedia.map(
+                                        (m) async => await uploadData(
+                                            m.storagePath, m.bytes),
+                                      ),
+                                    ))
+                                        .where((u) => u != null)
+                                        .map((u) => u!)
+                                        .toList();
+                                  } finally {
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    _model.isDataUploading2 = false;
+                                  }
+                                  if (selectedUploadedFiles.length ==
+                                          selectedMedia.length &&
+                                      downloadUrls.length ==
+                                          selectedMedia.length) {
+                                    setState(() {
+                                      _model.uploadedLocalFile2 =
+                                          selectedUploadedFiles.first;
+                                      _model.uploadedFileUrl2 =
+                                          downloadUrls.first;
+                                    });
+                                    showUploadMessage(context, 'Success!');
+                                  } else {
+                                    setState(() {});
+                                    showUploadMessage(
+                                        context, 'Failed to upload data');
+                                    return;
+                                  }
+                                }
+                              },
+                              child: Text(
+                                'Copyright ©2022.  Srisawad Corporation Plc.',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF607D8B),
+                                      fontSize: 13.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
                           ),

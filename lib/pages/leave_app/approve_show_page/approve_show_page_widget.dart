@@ -70,11 +70,13 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       _model.getDisapprove = await GetApprovedAPICall.call(
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
         approvedTypes: 'disapprove',
       );
+
       if ((_model.getDisapprove?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
@@ -129,6 +131,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         approvedTypes: 'cancelapprove',
       );
+
       if ((_model.getCancelApprove?.statusCode ?? 200) != 200) {
         if ((GetApprovedAPICall.messageLayer1(
                   (_model.getCancelApprove?.jsonBody ?? ''),
@@ -277,6 +280,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         approvedTypes: 'approve-leave',
       );
+
       if ((_model.getApproved?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(

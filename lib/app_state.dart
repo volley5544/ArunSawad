@@ -7630,7 +7630,7 @@ class FFAppState extends ChangeNotifier {
   }
 
   void updateSaveCalledStruct(Function(SaveCallStruct) updateFn) {
-    updateFn(saveCalled);
+    updateFn(_saveCalled);
   }
 
   List<String> _outPutRemgCode = [];

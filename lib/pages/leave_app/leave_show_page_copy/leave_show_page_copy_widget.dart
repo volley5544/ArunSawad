@@ -68,6 +68,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.leaveListAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -93,6 +94,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.resignListAPIOutput?.statusCode ?? 200) == 200) {
         Navigator.pop(context);
       } else {

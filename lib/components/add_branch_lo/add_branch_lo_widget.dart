@@ -813,6 +813,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                 regionCode: _model.textController6.text,
                                 radius: _model.textController7.text,
                               );
+
                               _shouldSetState = true;
                               if ((_model.insertAPIOutput?.statusCode ?? 200) ==
                                   200) {

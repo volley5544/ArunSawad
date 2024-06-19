@@ -1701,6 +1701,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                       remark: _model
                                           .remarkTimesheetTextController.text,
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.updateCheckin?.statusCode ??
                                             200) !=
@@ -1925,6 +1926,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if (CheckInAPICall.mainStatus(
                                       (_model.checkInAPISubmit?.jsonBody ?? ''),

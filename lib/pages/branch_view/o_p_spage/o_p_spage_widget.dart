@@ -2552,6 +2552,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               apiUrl:
                                                   FFAppState().apiURLLocalState,
                                             );
+
                                             _shouldSetState = true;
                                             if (!(_model.checkLoginBeforeBack
                                                     ?.succeeded ??
@@ -2890,6 +2891,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     apiUrl: FFAppState()
                                                         .apiURLLocalState,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model
                                                           .checkLoginBeforeSave1
@@ -2916,6 +2918,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                           .remarkInputTextController
                                                           .text,
                                                     );
+
                                                     _shouldSetState = true;
                                                     if ((_model.opsAPI
                                                             ?.succeeded ??
@@ -3230,6 +3233,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     apiUrl: FFAppState()
                                                         .apiURLLocalState,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model
                                                           .checkLoginBeforeSave3
@@ -3256,6 +3260,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                           .remarkInputTextController
                                                           .text,
                                                     );
+
                                                     _shouldSetState = true;
                                                     if ((_model.opsAPIFarmCar
                                                             ?.succeeded ??
@@ -3569,6 +3574,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   apiUrl: FFAppState()
                                                       .apiURLLocalState,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model
                                                         .checkLoginBeforeSave2
@@ -3595,6 +3601,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         .remarkInputTextController
                                                         .text,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.opsAPISignboard
                                                           ?.succeeded ??

@@ -105,6 +105,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
           token: FFAppState().accessToken,
           apiUrl: FFAppState().apiURLLocalState,
         );
+
         if ((_model.getMyselfBranch?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -618,6 +619,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                       .apiURLLocalState,
                                                   type: 'actual',
                                                 );
+
                                                 _shouldSetState = true;
                                                 if (((_model.getBranchSearched
                                                                 ?.statusCode ??

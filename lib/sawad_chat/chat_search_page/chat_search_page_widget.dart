@@ -212,6 +212,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                           apiUrl: FFAppState().apiURLLocalState,
                           searchKeyname: _model.searchBoxTextController.text,
                         );
+
                         _shouldSetState = true;
                         if ((_model.getEmployee?.statusCode ?? 200) != 200) {
                           await showDialog(

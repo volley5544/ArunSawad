@@ -4122,3 +4122,7 @@ String? formatDateToSlash(String? inputDate) {
   // Return the formatted date string
   return formattedDateString;
 }
+
+String? stringToVideoPath(String? inputUrl) {
+  return inputUrl!;
+}

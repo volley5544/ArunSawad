@@ -1992,6 +1992,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       apiUrl: FFAppState().apiURLLocalState,
                                       token: FFAppState().accessToken,
                                     );
+
                                     _shouldSetState = true;
                                     if (((_model.getUserBranchLocation
                                                     ?.statusCode ??
@@ -2060,6 +2061,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             ? FFAppState().branchNameTemp
                                             : FFAppState().profileLevel,
                                   );
+
                                   _shouldSetState = true;
                                   if (CollectionAPICall.status(
                                         (_model.collectionAPISubmit?.jsonBody ??
@@ -2295,6 +2297,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       apiUrl: FFAppState().apiUrlVloanRemark,
                                       token: FFAppState().tokenVloanRemark,
                                     );
+
                                     _shouldSetState = true;
                                     FFAppState().imgURL = [];
                                     FFAppState().imgURLTemp =

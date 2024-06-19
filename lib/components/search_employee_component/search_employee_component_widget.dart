@@ -353,6 +353,7 @@ class _SearchEmployeeComponentWidgetState
                                         .text,
                                     apiUrl: FFAppState().apiURLLocalState,
                                   );
+
                                   _shouldSetState = true;
                                   if (!(((_model.getEmployeeSearched
                                                   ?.statusCode ??

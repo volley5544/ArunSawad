@@ -105,16 +105,19 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       _model.getArea = await GetRegionAreaAPICall.call(
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
         branchType: 'เขต',
       );
+
       _model.getRegion = await GetRegionAreaAPICall.call(
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
         branchType: 'ภาค',
       );
+
       Navigator.pop(context);
     });
 
@@ -600,6 +603,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                         .apiURLLocalState,
                                                     type: 'actual',
                                                   );
+
                                                   _shouldSetState = true;
                                                   if (((_model.getBranchSearched
                                                                   ?.statusCode ??
@@ -860,6 +864,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       token: FFAppState()
                                                           .accessToken,
                                                     );
+
                                                     _model.getContract =
                                                         await GetTargetContractKpiCEOAPICall
                                                             .call(
@@ -870,6 +875,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       token: FFAppState()
                                                           .accessToken,
                                                     );
+
                                                     if (!FFAppState()
                                                         .isSelectedBranch) {
                                                       if (animationsMap[
@@ -3414,6 +3420,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                     apiUrl: FFAppState()
                                                         .apiURLLocalState,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if (((_model.getEmployeeSearched
                                                                   ?.statusCode ??
@@ -3689,6 +3696,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       empCode:
                                                           _model.dropDownValue2,
                                                     );
+
                                                     _model.getEmployeeContract =
                                                         await GetEmpTargetContractKPIAPICall
                                                             .call(
@@ -3699,6 +3707,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       empCode:
                                                           _model.dropDownValue2,
                                                     );
+
                                                     if (!FFAppState()
                                                         .isEmployeeSelected) {
                                                       if (animationsMap[

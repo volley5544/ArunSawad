@@ -835,6 +835,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         apiUrl: FFAppState().apiURLLocalState,
                                         token: FFAppState().accessToken,
                                       );
+
                                       _shouldSetState = true;
                                       if ((_model.changeLocationAPIOutput
                                                   ?.statusCode ??
@@ -1447,6 +1448,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                       flag: 'Y',
                                       token: FFAppState().accessToken,
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.changeLocationAPIOutputEdit
                                                 ?.statusCode ??

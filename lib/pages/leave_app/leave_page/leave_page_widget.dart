@@ -59,6 +59,7 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.leaveDayAPIOutput?.statusCode ?? 200) == 200) {
         if (LeaveDayAPICall.statusLayer2(
               (_model.leaveDayAPIOutput?.jsonBody ?? ''),

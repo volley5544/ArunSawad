@@ -426,6 +426,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.checkLoginCheckInPage?.statusCode ??
                                         200) !=
@@ -689,6 +690,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.checkLoginSurveyPage?.statusCode ??
                                         200) !=
@@ -952,6 +954,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.checkLoginCollectionPage
                                             ?.statusCode ??
@@ -1239,6 +1242,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.checkLoginMarketingPage
                                             ?.statusCode ??
@@ -1503,6 +1507,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.checkLoginNPAPage?.statusCode ??
                                         200) !=
@@ -1766,6 +1771,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                     token: FFAppState().accessToken,
                                     apiUrl: FFAppState().apiURLLocalState,
                                   );
+
                                   _shouldSetState = true;
                                   if ((_model.checkLoginOPSPage?.succeeded ??
                                       true)) {
@@ -1989,6 +1995,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.checkLoginCheckerPage?.statusCode ??
                                         200) !=
@@ -2267,6 +2274,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.checkLoginTimesheetPage
                                             ?.statusCode ??

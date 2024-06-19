@@ -79,6 +79,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
       _model.provinceAPIOutput = await GetProvinceAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.provinceAPIOutput?.statusCode ?? 200) == 200) {
         FFAppState().provName = GetProvinceAPICall.provName(
           (_model.provinceAPIOutput?.jsonBody ?? ''),
@@ -1181,6 +1182,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 _model
                                                                     .provinceDropDownValue),
                                                       );
+
                                                       _shouldSetState = true;
                                                       if ((_model.districtAPIOutput
                                                                   ?.statusCode ??
@@ -1370,6 +1372,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 _model
                                                                     .districtDropDownValue),
                                                       );
+
                                                       _shouldSetState = true;
                                                       if ((_model.subDistrictAPIOutput
                                                                   ?.statusCode ??
@@ -2583,6 +2586,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             .text
                                                         : '-',
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.resignAPIOutput
                                                               ?.statusCode ??
@@ -2718,6 +2722,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           .createNotificationDataBody(
                                                               'Leave_Request'),
                                                     );
+
                                                     _shouldSetState = true;
                                                     if ((_model.fcmSendNotiFication
                                                                 ?.statusCode ??
@@ -3651,6 +3656,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             _model
                                                                 .provinceDropDown2Value),
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.districtAPIOutput2
                                                               ?.statusCode ??
@@ -3830,6 +3836,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             _model
                                                                 .districtDropDown2Value),
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.subDistrictAPIOutput2
                                                               ?.statusCode ??
@@ -4807,6 +4814,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .text
                                                     : widget.assetEtc,
                                               );
+
                                               _shouldSetState = true;
                                               if ((_model.resignEditAPIOutput
                                                           ?.statusCode ??

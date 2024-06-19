@@ -103,6 +103,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
               branch: '',
               apiUrl: FFAppState().apiURLLocalState,
             );
+
             if ((_model.getLocationOutput1?.statusCode ?? 200) == 200) {
               if (GetlocationAPICall.statusLayer2(
                     (_model.getLocationOutput1?.jsonBody ?? ''),
@@ -1856,6 +1857,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   apiUrl: FFAppState()
                                                       .apiURLLocalState,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if (GetlocationAPICall
                                                         .statusLayer3(
@@ -2703,6 +2705,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               .reasoncheckin1TextController
                                               .text,
                                         );
+
                                         _shouldSetState = true;
                                         if ((_model.checkinAPIOutput
                                                     ?.statusCode ??
@@ -3026,6 +3029,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           branch: '',
                                           apiUrl: FFAppState().apiURLLocalState,
                                         );
+
                                         _shouldSetState = true;
                                       } else {
                                         Navigator.pop(context);

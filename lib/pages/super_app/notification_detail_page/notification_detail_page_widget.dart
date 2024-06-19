@@ -254,6 +254,7 @@ class _NotificationDetailPageWidgetState
                                           apiUrl: FFAppState().apiURLLocalState,
                                           token: FFAppState().accessToken,
                                         );
+
                                         _shouldSetState = true;
                                         FFAppState().bossCheckFlag =
                                             GetBossAPICall.bossCheck(

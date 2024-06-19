@@ -1802,10 +1802,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'RecordVideoPage',
               path: 'recordVideoPage',
               builder: (context, params) => RecordVideoPageWidget(),
+            ),
+            FFRoute(
+              name: 'RecordVideoCustomer',
+              path: 'recordVideoCustomer',
+              builder: (context, params) => RecordVideoCustomerWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {

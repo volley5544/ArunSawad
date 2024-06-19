@@ -1343,6 +1343,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 apiUrl: FFAppState().apiURLLocalState,
                                                                                                                 projectName: 'SSW_ARUNSAWAD_API',
                                                                                                               );
+
                                                                                                               _shouldSetState = true;
                                                                                                               if ((_model.getUserProfilePin?.statusCode ?? 200) == 200) {
                                                                                                                 FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
@@ -1431,6 +1432,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   token: FFAppState().accessToken,
                                                                                                                   apiUrl: FFAppState().apiURLLocalState,
                                                                                                                 );
+
                                                                                                                 _shouldSetState = true;
                                                                                                                 if ((_model.getUserInsuranceLicense?.statusCode ?? 200) == 200) {
                                                                                                                   FFAppState().insuranceLicenseStatusCode = functions
@@ -1956,6 +1958,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                                                               projectName: 'SSW_ARUNSAWAD_API',
                                                                                                             );
+
                                                                                                             _shouldSetState = true;
                                                                                                             if ((_model.getUserProfileBio?.statusCode ?? 200) == 200) {
                                                                                                               FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
@@ -2044,6 +2047,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 token: FFAppState().accessToken,
                                                                                                                 apiUrl: FFAppState().apiURLLocalState,
                                                                                                               );
+
                                                                                                               _shouldSetState = true;
                                                                                                               if ((_model.getUserInsuranceLicenseBio?.statusCode ?? 200) == 200) {
                                                                                                                 FFAppState().insuranceLicenseStatusCode = functions

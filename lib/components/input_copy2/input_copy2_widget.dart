@@ -368,6 +368,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                               '[cancel_reason]',
                                             ),
                                           );
+
                                           _shouldSetState = true;
                                           if ((_model.leaveListCancelAPIOutput
                                                       ?.statusCode ??
@@ -454,6 +455,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                                       .createNotificationDataBody(
                                                           'Leave_Request'),
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.fcmSendNotificationCancelApprove
                                                             ?.statusCode ??

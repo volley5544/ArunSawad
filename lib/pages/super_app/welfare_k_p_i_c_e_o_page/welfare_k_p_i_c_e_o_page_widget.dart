@@ -97,16 +97,19 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       _model.getArea = await GetRegionAreaAPICall.call(
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
         branchType: 'เขต',
       );
+
       _model.getRegion = await GetRegionAreaAPICall.call(
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
         branchType: 'ภาค',
       );
+
       Navigator.pop(context);
     });
 
@@ -518,6 +521,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                     apiUrl: FFAppState().apiURLLocalState,
                                     type: 'incentive',
                                   );
+
                                   _shouldSetState = true;
                                   if (!(((_model.getBranchSearched
                                                   ?.statusCode ??
@@ -766,6 +770,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                             _model.branchInputTextController
                                                 .text),
                                   );
+
                                   _shouldSetState = true;
                                 }
 
@@ -870,6 +875,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                   branchCode: _model.dropDownValue2,
                                   branchType: 'branch',
                                 );
+
                                 Navigator.pop(context);
 
                                 setState(() {});

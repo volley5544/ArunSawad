@@ -76,6 +76,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
       _model.coverTypeAPIOutput = await TeleGetCoverTypeAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.coverTypeAPIOutput?.statusCode ?? 200) == 200) {
         FFAppState().coverTypeName = TeleGetCoverTypeAPICall.coverTypeName(
           (_model.coverTypeAPIOutput?.jsonBody ?? ''),
@@ -112,6 +113,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
       _model.getInsurersAPIOutput = await TeleGetInsurersAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if ((_model.getInsurersAPIOutput?.statusCode ?? 200) == 200) {
         FFAppState().insurerFullNameList =
             TeleGetInsurersAPICall.companyFullName(
@@ -550,6 +552,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                 coverTypeList: FFAppState().coverTypeNameChosen,
                                 apiUrl: FFAppState().apiURLLocalState,
                               );
+
                               _shouldSetState = true;
                               if ((_model.packageSearchAPIOutput?.statusCode ??
                                       200) ==

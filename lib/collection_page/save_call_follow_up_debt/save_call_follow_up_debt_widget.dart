@@ -107,6 +107,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
       _model.collectionApiVloneData = await CollectionApiVloanDataCall.call(
         apiUrl: FFAppState().apiUrlBranchViewCollection,
       );
+
       if ((_model.collectionApiVloneData?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
@@ -3050,6 +3051,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                               apiUrl: FFAppState()
                                                   .apiUrlBranchViewCollection,
                                             );
+
                                             _shouldSetState = true;
                                             if ((_model.saveCallCollection
                                                         ?.statusCode ??

@@ -99,6 +99,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if (!(_model.getLeadDetail?.succeeded ?? true)) {
         Navigator.pop(context);
         await showDialog(
@@ -1743,6 +1744,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                   token: FFAppState()
                                                                       .accessToken,
                                                                 );
+
                                                                 _shouldSetState =
                                                                     true;
                                                                 FFAppState().leadCountCalled = functions
@@ -2075,6 +2077,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                           leadChannel:
                                                               '${functions.getLeadChannelCode('${functions.showMatNameInList(FFAppState().leadChannelList.toList(), leadListIndex)}')}',
                                                         );
+
                                                         _shouldSetState = true;
                                                         if (!(((_model.getCalledStatusCode
                                                                         ?.statusCode ??
@@ -2310,6 +2313,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             leadID:
                                                                 '${functions.showMatNameInList(FFAppState().leadID.toList(), leadListIndex)}',
                                                           );
+
                                                           _shouldSetState =
                                                               true;
                                                           if (!((((_model.getCallHistory

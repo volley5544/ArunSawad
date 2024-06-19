@@ -207,3 +207,5 @@ export '/collection_page/interest_page/interest_page_widget.dart'
 export '/collection_page/q_r_code/q_r_code_widget.dart' show QRCodeWidget;
 export '/record_video_page/record_video_page_widget.dart'
     show RecordVideoPageWidget;
+export '/record_video_customer/record_video_customer_widget.dart'
+    show RecordVideoCustomerWidget;

@@ -2028,6 +2028,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                       assetid: _model
                                           .assetIDInputTextController.text,
                                     );
+
                                     _shouldSetState = true;
                                     if (!NpaCheckAssetIdAPICall.resultResponse(
                                       (_model.checkAssetID?.jsonBody ?? ''),
@@ -2086,6 +2087,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                     token: FFAppState().accessToken,
                                     apiUrl: FFAppState().apiURLLocalState,
                                   );
+
                                   _shouldSetState = true;
                                   if (NpaAPICall.status(
                                         (_model.npaAPISubmit?.jsonBody ?? ''),

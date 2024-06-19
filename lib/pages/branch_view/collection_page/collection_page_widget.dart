@@ -1061,6 +1061,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         await GetVloanContractAPICall.call(
                                       cuscod: _model.idInputTextController.text,
                                     );
+
                                     _shouldSetState = true;
                                     if (GetVloanContractAPICall.result(
                                           (_model.getVloanContract?.jsonBody ??
@@ -2896,6 +2897,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       apiUrl: FFAppState().apiURLLocalState,
                                       token: FFAppState().accessToken,
                                     );
+
                                     _shouldSetState = true;
                                     if (!(((_model.getUserBranchLocation
                                                     ?.statusCode ??
@@ -2986,6 +2988,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             ? FFAppState().branchNameTemp
                                             : FFAppState().profileLevel,
                                   );
+
                                   _shouldSetState = true;
                                   if (CollectionAPICall.status(
                                         (_model.collectionAPISubmit?.jsonBody ??
@@ -3095,6 +3098,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       long: functions.userLongitude(
                                           currentUserLocationValue),
                                     );
+
                                     _shouldSetState = true;
                                     FFAppState().imgURL = [];
                                     FFAppState().imgURLTemp =

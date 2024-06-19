@@ -1724,6 +1724,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       token: FFAppState().tokenVloanRemark,
                                       apiUrl: FFAppState().apiUrlVloanRemark,
                                     );
+
                                     _shouldSetState = true;
                                     if (GetVloanContractAPICall.result(
                                           (_model.getVloanContract?.jsonBody ??
@@ -2761,6 +2762,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       apiUrl: FFAppState().apiURLLocalState,
                                       token: FFAppState().accessToken,
                                     );
+
                                     _shouldSetState = true;
                                     if (!(((_model.getUserBranchLocation
                                                     ?.statusCode ??
@@ -2837,6 +2839,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             ? FFAppState().branchNameTemp
                                             : FFAppState().profileLevel,
                                   );
+
                                   _shouldSetState = true;
                                   if (CheckerAPICall.status(
                                         (_model.checkerAPISubmit?.jsonBody ??
@@ -2951,6 +2954,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       apiUrl: FFAppState().apiUrlVloanRemark,
                                       token: FFAppState().tokenVloanRemark,
                                     );
+
                                     _shouldSetState = true;
                                     FFAppState().imgURL = [];
                                     FFAppState().imgURLTemp =

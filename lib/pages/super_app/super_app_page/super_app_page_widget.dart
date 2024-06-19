@@ -11,7 +11,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
@@ -302,6 +304,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
             ? 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMC4xLjI3LjI0OjgwOTBcL3Nzd19hcnVuc2F3YWRfYXBpXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjY4MDcyOTA4LCJuYmYiOjE2NjgwNzI5MDgsImp0aSI6Ildlc0xUOEhBd0x3b0ZlVngiLCJzdWIiOjUwMSwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.VUyLGW6rHPHShsRdyWCUF5euUWkbizCADv8yMIsotfY'
             : FFAppState().accessToken,
       );
+
       FFAppState().profileInsuExpdateAD = functions
           .stringlistToDateAD(
               FFAppState().profileInsuLicenseExpireDate.toList())!
@@ -1845,6 +1848,72 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             unawaited(
                                                               () async {}(),
                                                             );
+                                                            await requestPermission(
+                                                                cameraPermission);
+                                                            await requestPermission(
+                                                                microphonePermission);
+                                                            final selectedMedia =
+                                                                await selectMedia(
+                                                              isVideo: true,
+                                                              multiImage: false,
+                                                            );
+                                                            if (selectedMedia !=
+                                                                    null &&
+                                                                selectedMedia.every((m) =>
+                                                                    validateFileFormat(
+                                                                        m.storagePath,
+                                                                        context))) {
+                                                              setState(() =>
+                                                                  _model.isDataUploading =
+                                                                      true);
+                                                              var selectedUploadedFiles =
+                                                                  <FFUploadedFile>[];
+
+                                                              try {
+                                                                showUploadMessage(
+                                                                  context,
+                                                                  'Uploading file...',
+                                                                  showLoading:
+                                                                      true,
+                                                                );
+                                                                selectedUploadedFiles =
+                                                                    selectedMedia
+                                                                        .map((m) =>
+                                                                            FFUploadedFile(
+                                                                              name: m.storagePath.split('/').last,
+                                                                              bytes: m.bytes,
+                                                                              height: m.dimensions?.height,
+                                                                              width: m.dimensions?.width,
+                                                                              blurHash: m.blurHash,
+                                                                            ))
+                                                                        .toList();
+                                                              } finally {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .hideCurrentSnackBar();
+                                                                _model.isDataUploading =
+                                                                    false;
+                                                              }
+                                                              if (selectedUploadedFiles
+                                                                      .length ==
+                                                                  selectedMedia
+                                                                      .length) {
+                                                                setState(() {
+                                                                  _model.uploadedLocalFile =
+                                                                      selectedUploadedFiles
+                                                                          .first;
+                                                                });
+                                                                showUploadMessage(
+                                                                    context,
+                                                                    'Success!');
+                                                              } else {
+                                                                setState(() {});
+                                                                showUploadMessage(
+                                                                    context,
+                                                                    'Failed to upload data');
+                                                                return;
+                                                              }
+                                                            }
                                                           },
                                                           child: Text(
                                                             'บริการ',
@@ -1862,11 +1931,31 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                           ),
                                                         ),
                                                       ),
-                                                      Divider(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .grayIcon,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          _model.uploadVideoOutput =
+                                                              await actions
+                                                                  .uploadFileFirebaseStorage(
+                                                            'VideoRecordFolder',
+                                                            _model
+                                                                .uploadedLocalFile,
+                                                          );
+
+                                                          setState(() {});
+                                                        },
+                                                        child: Divider(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .grayIcon,
+                                                        ),
                                                       ),
                                                       Expanded(
                                                         child: Padding(
@@ -2134,6 +2223,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginLeavePage?.statusCode ??
@@ -2279,6 +2369,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           token:
                                                                               FFAppState().accessToken,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         FFAppState().bossCheckFlag =
@@ -3257,6 +3348,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             apiUrl:
                                                                                 FFAppState().apiURLLocalState,
                                                                           );
+
                                                                           _shouldSetState =
                                                                               true;
                                                                           if ((_model.gerBrand?.statusCode ?? 200) !=
@@ -3328,6 +3420,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             apiUrl:
                                                                                 FFAppState().apiURLLocalState,
                                                                           );
+
                                                                           _shouldSetState =
                                                                               true;
                                                                           if ((_model.getModel?.statusCode ?? 200) !=
@@ -3408,6 +3501,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             apiUrl:
                                                                                 FFAppState().apiURLLocalState,
                                                                           );
+
                                                                           _shouldSetState =
                                                                               true;
                                                                           if ((_model.getProvince?.statusCode ?? 200) !=
@@ -3479,6 +3573,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             apiUrl:
                                                                                 FFAppState().apiURLLocalState,
                                                                           );
+
                                                                           _shouldSetState =
                                                                               true;
                                                                           if ((_model.getVehicle?.statusCode ?? 200) !=
@@ -3564,6 +3659,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             apiUrl:
                                                                                 FFAppState().apiURLLocalState,
                                                                           );
+
                                                                           _shouldSetState =
                                                                               true;
                                                                           if ((_model.getInsurer?.statusCode ?? 200) !=
@@ -3657,6 +3753,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             apiUrl:
                                                                                 FFAppState().apiURLLocalState,
                                                                           );
+
                                                                           _shouldSetState =
                                                                               true;
                                                                           if ((_model.getCoverType?.statusCode ?? 200) !=
@@ -4189,6 +4286,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginKPI?.statusCode ?? 200) !=
@@ -4491,6 +4589,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginKPIWelfare?.statusCode ?? 200) !=
@@ -4774,6 +4873,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginThaiPaiboon?.statusCode ?? 200) !=
@@ -5083,6 +5183,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginPercentSuccess?.statusCode ?? 200) !=
@@ -5376,6 +5477,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginCheckLead?.statusCode ??
@@ -5713,6 +5815,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginInsurance?.statusCode ??
@@ -5997,6 +6100,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginBranchView?.statusCode ??
@@ -6304,6 +6408,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginQR?.statusCode ??
@@ -6585,6 +6690,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginSaleskit?.statusCode ??
@@ -6867,6 +6973,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginFormLead?.statusCode ??
@@ -7149,6 +7256,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginPromotion?.statusCode ??
@@ -7433,6 +7541,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginCoach?.statusCode ??
@@ -7738,6 +7847,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginClassroom?.statusCode ??
@@ -8019,6 +8129,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginITSupport?.statusCode ??
@@ -8611,6 +8722,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginLeavePagetab?.statusCode ??
@@ -8756,6 +8868,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           token:
                                                                               FFAppState().accessToken,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         FFAppState().bossCheckFlag =
@@ -9691,6 +9804,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.gerBrandTab?.statusCode ??
@@ -9767,6 +9881,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.getModelTab?.statusCode ??
@@ -9852,6 +9967,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.getProvinceTab?.statusCode ??
@@ -9930,6 +10046,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.getVehicleTab?.statusCode ??
@@ -10020,6 +10137,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.getInsurerTab?.statusCode ??
@@ -10120,6 +10238,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.getCoverTypeTab?.statusCode ??
@@ -10628,6 +10747,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginKPItab?.statusCode ?? 200) !=
@@ -10923,6 +11043,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginKPIWelfaretab?.statusCode ?? 200) !=
@@ -11206,6 +11327,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginThaiPaiboonPad?.statusCode ?? 200) !=
@@ -11476,6 +11598,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginCheckLeadtab?.statusCode ??
@@ -11845,6 +11968,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               token: FFAppState().accessToken,
                                                                               apiUrl: FFAppState().apiURLLocalState,
                                                                             );
+
                                                                             _shouldSetState =
                                                                                 true;
                                                                             if ((_model.checkLoginPercentSuccessTab?.statusCode ?? 200) !=
@@ -12138,6 +12262,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginInsurancetab?.statusCode ??
@@ -12422,6 +12547,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginBranchViewtab?.statusCode ??
@@ -12729,6 +12855,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginQRtab?.statusCode ??
@@ -13010,6 +13137,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginSaleskittab?.statusCode ??
@@ -13292,6 +13420,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginFormLeadtab?.statusCode ??
@@ -13574,6 +13703,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginPromotiontab?.statusCode ??
@@ -13858,6 +13988,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginCoachtab?.statusCode ??
@@ -14163,6 +14294,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginClassroomtab?.statusCode ??
@@ -14445,6 +14577,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
                                                                         );
+
                                                                         _shouldSetState =
                                                                             true;
                                                                         if ((_model.checkLoginITSupporttab?.statusCode ??
@@ -14808,6 +14941,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                               apiUrl: FFAppState()
                                                                   .apiURLLocalState,
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.checkLoginFormService
@@ -15248,6 +15382,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                               apiUrl: FFAppState()
                                                                   .apiURLLocalState,
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.checkLoginFormServicetab
@@ -16089,6 +16224,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                 },
                                               ),
                                             ),
+                                          ),
+                                        if (_model.uploadVideoOutput != null &&
+                                            _model.uploadVideoOutput != '')
+                                          FlutterFlowVideoPlayer(
+                                            path: functions.stringToVideoPath(
+                                                _model.uploadVideoOutput)!,
+                                            videoType: VideoType.network,
+                                            autoPlay: true,
+                                            looping: true,
+                                            showControls: true,
+                                            allowFullScreen: true,
+                                            allowPlaybackSpeedMenu: false,
+                                            lazyLoad: false,
                                           ),
                                       ],
                                     ),

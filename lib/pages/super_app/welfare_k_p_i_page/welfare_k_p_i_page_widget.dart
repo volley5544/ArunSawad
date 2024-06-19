@@ -92,14 +92,17 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       _model.getKpiWelfareLastMonth = await GetWelfareKpiLastMonthAPICall.call(
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       _model.getServerDateTime = await GetDateTimeAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       Navigator.pop(context);
     });
 

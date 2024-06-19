@@ -57,14 +57,14 @@
     <string>อนุญาตให้อรุณสวัสดิ์เข้าถึง Location เพื่อระบุตำแหน่งในการเช็คอิน</string>
 	<key>NSCameraUsageDescription</key>
     <string>อนุญาตให้อรุณสวัสดิ์ใช้งาน Camera เพื่อทำการถ่ายรูปโปรไฟล์และเช็คอิน</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>In order to record audio for video, this app requires permission to access the microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
     <string>อนุญาตให้อรุณสวัสดิ์เข้าถึง Photo Libery เพื่ออัพโหลดรูปโปรไฟล์</string>
 	<key>NSFaceIDUsageDescription</key>
     <string>อนุญาตให้อรุณสวัสดิ์ใช้งาน Biometric Verification เพื่อทำการยืนยันตัวตนในการใช้งาน</string>
 	<key>PermissionGroupNotification</key>
     <string>อนุญาตให้อรุณสวัสดิ์ส่ง Notifications เพื่อรับการแจ้งเตือนเรื่องต่างๆ</string>
-	<key>NSMicrophoneUsageDescription</key>
-    <string>อนุญาตให้อรุณสวัสดิ์ใช้งาน Microphone เพื่อทำการบันทึกเสียงขณะคุยกับลูกค้า</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>

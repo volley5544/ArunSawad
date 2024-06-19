@@ -300,6 +300,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                   leaveDocId: widget.leaveID,
                                   email: _model.reasonCancelTextController.text,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.sendEmail?.statusCode ?? 200) !=
                                     200) {

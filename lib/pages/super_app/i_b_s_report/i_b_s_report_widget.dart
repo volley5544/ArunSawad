@@ -71,6 +71,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
         apiUrl: FFAppState().apiURLLocalState,
         empCode: widget.employeeId,
       );
+
       if (GetKPIAllCall.statusCode(
             (_model.kPIAllOutput?.jsonBody ?? ''),
           ) !=

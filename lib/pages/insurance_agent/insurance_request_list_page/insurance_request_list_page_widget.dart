@@ -65,6 +65,7 @@ class _InsuranceRequestListPageWidgetState
         ownerId: FFAppState().employeeID,
         mode: 'arunsawad',
       );
+
       if ((_model.getRequestList?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
@@ -496,6 +497,7 @@ class _InsuranceRequestListPageWidgetState
                                                   )?[requestListItemIndex])
                                                           ?.toString(),
                                                 );
+
                                                 Navigator.pop(context);
 
                                                 context.goNamed(
@@ -1238,6 +1240,7 @@ class _InsuranceRequestListPageWidgetState
                                                   )?[requestListItemIndex])
                                                           ?.toString(),
                                                 );
+
                                                 FFAppState().fromPage =
                                                     'ListPage';
                                                 setState(() {});

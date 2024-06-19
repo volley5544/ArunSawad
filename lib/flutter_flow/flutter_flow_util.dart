@@ -35,6 +35,8 @@ export '/backend/firebase_analytics/analytics.dart';
 export 'nav/nav.dart';
 export 'firebase_remote_config_util.dart';
 
+final RouteObserver<ModalRoute> routeObserver = RouteObserver<PageRoute>();
+
 T valueOrDefault<T>(T? value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;
 
@@ -501,6 +503,14 @@ extension FFStringExt on String {
 
 extension ListFilterExt<T> on Iterable<T?> {
   List<T> get withoutNulls => where((s) => s != null).map((e) => e!).toList();
+}
+
+extension MapFilterExtensions<T> on Map<String, T?> {
+  Map<String, T> get withoutNulls => Map.fromEntries(
+        entries
+            .where((e) => e.value != null)
+            .map((e) => MapEntry(e.key, e.value as T)),
+      );
 }
 
 extension MapListContainsExt on List<dynamic> {
