@@ -10158,54 +10158,22 @@ class SaveRecordVideoApiCall {
     );
   }
 
-  static int? overdueamount(dynamic response) => castToType<int>(getJsonField(
+  static dynamic? status(dynamic response) => getJsonField(
         response,
-        r'''$.results.data.over_due_amount''',
-      ));
-  static int? remain401(dynamic response) => castToType<int>(getJsonField(
+        r'''$.status''',
+      );
+  static int? code(dynamic response) => castToType<int>(getJsonField(
         response,
-        r'''$.results.data.remain_401''',
+        r'''$.status.code''',
       ));
-  static int? remain624(dynamic response) => castToType<int>(getJsonField(
+  static String? message(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.results.data.remain_624''',
+        r'''$.status.message''',
       ));
-  static String? customername(dynamic response) =>
-      castToType<String>(getJsonField(
+  static dynamic? data(dynamic response) => getJsonField(
         response,
-        r'''$.results.data.customer_name''',
-      ));
-  static String? duedateshow(dynamic response) =>
-      castToType<String>(getJsonField(
-        response,
-        r'''$.results.data.due_date_show''',
-      ));
-  static int? nextdueamount(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.results.data.next_due_amount''',
-      ));
-  static int? totaldueamount(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.results.data.total_due_amount''',
-      ));
-  static int? statuslayer2(dynamic response) => castToType<int>(getJsonField(
-        response,
-        r'''$.code''',
-      ));
-  static String? messagelayer2(dynamic response) =>
-      castToType<String>(getJsonField(
-        response,
-        r'''$.message''',
-      ));
-  static int? currentdueamount(dynamic response) =>
-      castToType<int>(getJsonField(
-        response,
-        r'''$.results.data.current_due_amount''',
-      ));
-  static String? birthday(dynamic response) => castToType<String>(getJsonField(
-        response,
-        r'''$.results.data.birth_day''',
-      ));
+        r'''$.data''',
+      );
 }
 
 class ApiPagingParams {

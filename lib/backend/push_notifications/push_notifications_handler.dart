@@ -593,6 +593,18 @@ final parametersBuilderMap =
       ),
   'RecordVideoPage': ParameterData.none(),
   'RecordVideoCustomer': ParameterData.none(),
+  'RecordVideoCustomer2': ParameterData.none(),
+  'RecordVideoCustomer3': (data) async => ParameterData(
+        allParams: {
+          'contNo': getParameter<String>(data, 'contNo'),
+          'checkType': getParameter<String>(data, 'checkType'),
+        },
+      ),
+  'SuperAppNewPage': (data) async => ParameterData(
+        allParams: {
+          'dailyText': getParameter<String>(data, 'dailyText'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

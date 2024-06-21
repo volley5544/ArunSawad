@@ -151,6 +151,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'SuperAppPage': SuperAppPageWidget(),
       'MyProfilePage': MyProfilePageWidget(),
+      'SuperAppNewPage': SuperAppNewPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -191,6 +192,18 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 30.0,
             ),
             label: 'Profile',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 30.0,
+            ),
+            activeIcon: Icon(
+              Icons.home_rounded,
+              size: 30.0,
+            ),
+            label: 'Home',
             tooltip: '',
           )
         ],

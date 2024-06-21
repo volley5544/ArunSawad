@@ -8008,6 +8008,12 @@ class FFAppState extends ChangeNotifier {
   set isOpenAndroidTableauBrowser(bool value) {
     _isOpenAndroidTableauBrowser = value;
   }
+
+  String _videoRecordFilePath = '';
+  String get videoRecordFilePath => _videoRecordFilePath;
+  set videoRecordFilePath(String value) {
+    _videoRecordFilePath = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

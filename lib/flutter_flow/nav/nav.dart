@@ -1807,6 +1807,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'RecordVideoCustomer',
               path: 'recordVideoCustomer',
               builder: (context, params) => RecordVideoCustomerWidget(),
+            ),
+            FFRoute(
+              name: 'RecordVideoCustomer2',
+              path: 'recordVideoCustomer2',
+              builder: (context, params) => RecordVideoCustomer2Widget(),
+            ),
+            FFRoute(
+              name: 'RecordVideoCustomer3',
+              path: 'recordVideoCustomer3',
+              builder: (context, params) => RecordVideoCustomer3Widget(
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+                checkType: params.getParam(
+                  'checkType',
+                  ParamType.String,
+                ),
+                fileVideo: params.getParam(
+                  'fileVideo',
+                  ParamType.FFUploadedFile,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'SuperAppNewPage',
+              path: 'superAppNewPage',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'SuperAppNewPage')
+                  : SuperAppNewPageWidget(
+                      dailyText: params.getParam(
+                        'dailyText',
+                        ParamType.String,
+                      ),
+                    ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

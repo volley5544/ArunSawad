@@ -207,5 +207,11 @@ export '/collection_page/interest_page/interest_page_widget.dart'
 export '/collection_page/q_r_code/q_r_code_widget.dart' show QRCodeWidget;
 export '/record_video_page/record_video_page_widget.dart'
     show RecordVideoPageWidget;
-export '/record_video_customer/record_video_customer_widget.dart'
+export '/camera_video_record/record_video_customer/record_video_customer_widget.dart'
     show RecordVideoCustomerWidget;
+export '/camera_video_record/record_video_customer2/record_video_customer2_widget.dart'
+    show RecordVideoCustomer2Widget;
+export '/camera_video_record/record_video_customer3/record_video_customer3_widget.dart'
+    show RecordVideoCustomer3Widget;
+export '/pages/super_app/super_app_new_page/super_app_new_page_widget.dart'
+    show SuperAppNewPageWidget;
