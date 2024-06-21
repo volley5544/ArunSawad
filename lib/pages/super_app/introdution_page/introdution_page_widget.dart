@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/permissions_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -146,10 +145,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          await requestPermission(cameraPermission);
-                          await requestPermission(microphonePermission);
-
-                          context.goNamed('RecordVideoPage');
+                          context.pushNamed('RecordVideoCustomer');
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
