@@ -1811,7 +1811,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'RecordVideoCustomer2',
               path: 'recordVideoCustomer2',
-              builder: (context, params) => RecordVideoCustomer2Widget(),
+              builder: (context, params) => RecordVideoCustomer2Widget(
+                contNo: params.getParam(
+                  'contNo',
+                  ParamType.String,
+                ),
+                checkApp: params.getParam(
+                  'checkApp',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: 'RecordVideoCustomer3',

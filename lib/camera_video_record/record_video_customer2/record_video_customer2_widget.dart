@@ -9,7 +9,14 @@ import 'record_video_customer2_model.dart';
 export 'record_video_customer2_model.dart';
 
 class RecordVideoCustomer2Widget extends StatefulWidget {
-  const RecordVideoCustomer2Widget({super.key});
+  const RecordVideoCustomer2Widget({
+    super.key,
+    required this.contNo,
+    required this.checkApp,
+  });
+
+  final String? contNo;
+  final String? checkApp;
 
   @override
   State<RecordVideoCustomer2Widget> createState() =>
@@ -93,6 +100,8 @@ class _RecordVideoCustomer2WidgetState
                     child: custom_widgets.CameraRecord(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
+                      contNo: widget.contNo,
+                      checkApp: widget.checkApp,
                     ),
                   ),
                 ),

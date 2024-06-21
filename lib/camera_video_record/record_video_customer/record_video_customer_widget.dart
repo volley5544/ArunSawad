@@ -411,7 +411,19 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                         await requestPermission(cameraPermission);
                         await requestPermission(microphonePermission);
                         if (true) {
-                          context.pushNamed('RecordVideoCustomer2');
+                          context.pushNamed(
+                            'RecordVideoCustomer2',
+                            queryParameters: {
+                              'contNo': serializeParam(
+                                _model.textController.text,
+                                ParamType.String,
+                              ),
+                              'checkApp': serializeParam(
+                                _model.choiceChipsValue,
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
                         } else {
                           final selectedMedia = await selectMedia(
                             isVideo: true,

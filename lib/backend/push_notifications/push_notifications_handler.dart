@@ -593,7 +593,12 @@ final parametersBuilderMap =
       ),
   'RecordVideoPage': ParameterData.none(),
   'RecordVideoCustomer': ParameterData.none(),
-  'RecordVideoCustomer2': ParameterData.none(),
+  'RecordVideoCustomer2': (data) async => ParameterData(
+        allParams: {
+          'contNo': getParameter<String>(data, 'contNo'),
+          'checkApp': getParameter<String>(data, 'checkApp'),
+        },
+      ),
   'RecordVideoCustomer3': (data) async => ParameterData(
         allParams: {
           'contNo': getParameter<String>(data, 'contNo'),
