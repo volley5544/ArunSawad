@@ -3,10 +3,11 @@ import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
-import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -95,7 +96,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.goNamed('SuperAppPage');
+                context.safePop();
               },
               child: Icon(
                 Icons.arrow_back,
@@ -123,13 +124,21 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Expanded(
-                  child: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: custom_widgets.VideoPage(
-                      width: double.infinity,
-                      height: double.infinity,
-                      filePath: FFAppState().videoRecordFilePath,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 24.0),
+                    child: Container(
+                      decoration: BoxDecoration(),
+                      child: FlutterFlowVideoPlayer(
+                        path: functions.stringToVideoPath(
+                            FFAppState().videoRecordFilePath)!,
+                        videoType: VideoType.network,
+                        autoPlay: true,
+                        looping: true,
+                        showControls: true,
+                        allowFullScreen: false,
+                        allowPlaybackSpeedMenu: false,
+                      ),
                     ),
                   ),
                 ),
