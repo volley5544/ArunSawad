@@ -21,6 +21,8 @@ class RecordVideoCustomer3Model
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - getFFUploadFileFromFilePath] action in Button widget.
+  FFUploadedFile? videoFileOutput;
   // Stores action output result for [Backend Call - API (saveRecordVideoApi)] action in Button widget.
   ApiCallResponse? saveRecordVideoApiOutput;
   // Stores action output result for [Custom Action - saveVideoFile] action in Button widget.

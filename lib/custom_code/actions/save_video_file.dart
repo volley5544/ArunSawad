@@ -13,34 +13,24 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
-Future<String> saveVideoFile(FFUploadedFile? inputFile) async {
+Future<String> saveVideoFile(String? inputFilePath) async {
   // Add your function code here!
 
-  print(inputFile!.name);
-  print(inputFile!.bytes);
-  print(inputFile!.height);
-  print(inputFile!.width);
-
   // Save the converted image to local storage
-  final directory = await getTemporaryDirectory();
-  final filePath = '${directory.path}/recording_video5544.mp4';
-  final File savedFile = File(filePath);
+  // final directory = await getTemporaryDirectory();
+  // final filePath = '${directory.path}/recording_video5544.mp4';
+  //final File savedFile = File(inputFilePath!);
   String outputText = '';
 
-  await savedFile.writeAsBytes(inputFile!.bytes!).then((value) async {
-    print('Gen File Done!');
-    final result1 = await ImageGallerySaver.saveFile(
-      value.path,
-    ).then((value1) {
-      print('File Saved Name : ${value1}');
-      outputText = 'Save Video to Gallery Success!';
-    }).onError((error, stackTrace) {
-      outputText = error.toString();
-    });
-    print('File Saved Name2 : ${result1}');
+  final result1 = await ImageGallerySaver.saveFile(
+    inputFilePath!,
+  ).then((value1) {
+    print('File Saved Name : ${value1}');
+    outputText = 'Save Video to Gallery Success!';
   }).onError((error, stackTrace) {
     outputText = error.toString();
   });
+  print('File Saved Name2 : ${result1}');
 
   return outputText;
 }

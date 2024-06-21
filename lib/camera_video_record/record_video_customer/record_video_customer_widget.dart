@@ -370,10 +370,6 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                                       '321',
                                                       ParamType.String,
                                                     ),
-                                                    'fileVideo': serializeParam(
-                                                      _model.uploadedLocalFile,
-                                                      ParamType.FFUploadedFile,
-                                                    ),
                                                   }.withoutNulls,
                                                 );
                                               },

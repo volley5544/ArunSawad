@@ -1834,10 +1834,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'checkType',
                   ParamType.String,
                 ),
-                fileVideo: params.getParam(
-                  'fileVideo',
-                  ParamType.FFUploadedFile,
-                ),
               ),
             ),
             FFRoute(

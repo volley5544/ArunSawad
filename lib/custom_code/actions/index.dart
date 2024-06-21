@@ -61,3 +61,5 @@ export 'upload_multiple_file_firebase_storage.dart'
 export 'get_firestore_server_time.dart' show getFirestoreServerTime;
 export 'add_user_log_document.dart' show addUserLogDocument;
 export 'sha256_encoder.dart' show sha256Encoder;
+export 'get_f_f_upload_file_from_file_path.dart'
+    show getFFUploadFileFromFilePath;

@@ -22,12 +22,10 @@ class RecordVideoCustomer3Widget extends StatefulWidget {
     super.key,
     required this.contNo,
     required this.checkType,
-    required this.fileVideo,
   });
 
   final String? contNo;
   final String? checkType;
-  final FFUploadedFile? fileVideo;
 
   @override
   State<RecordVideoCustomer3Widget> createState() =>
@@ -182,6 +180,46 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                   },
                                 ).then((value) => safeSetState(() {}));
 
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text('กำลังประมวลผลVideo'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                                _model.videoFileOutput =
+                                    await actions.getFFUploadFileFromFilePath(
+                                  FFAppState().videoRecordFilePath,
+                                  widget.contNo,
+                                );
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content:
+                                            Text('กำลังอัพโหลดไฟล์ไปยังServer'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
                                 _model.saveRecordVideoApiOutput =
                                     await SaveRecordVideoApiCall.call(
                                   apiUrl: 'https://vcall.swpfin.com',
@@ -190,7 +228,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                       ? 'con'
                                       : 'app',
                                   employeeId: FFAppState().employeeID,
-                                  filesVdo: widget.fileVideo,
+                                  filesVdo: _model.videoFileOutput,
                                 );
 
                                 await showDialog(
@@ -198,15 +236,11 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
                                       child: AlertDialog(
-                                        title: Text((_model
-                                                    .saveRecordVideoApiOutput
-                                                    ?.statusCode ??
-                                                200)
-                                            .toString()),
                                         content: Text((_model
-                                                .saveRecordVideoApiOutput
-                                                ?.bodyText ??
-                                            '')),
+                                                    .saveRecordVideoApiOutput
+                                                    ?.jsonBody ??
+                                                '')
+                                            .toString()),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(
@@ -291,7 +325,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                     const Duration(milliseconds: 500));
                                 _model.saveVideoFileOutput =
                                     await actions.saveVideoFile(
-                                  widget.fileVideo,
+                                  FFAppState().videoRecordFilePath,
                                 );
                                 await showDialog(
                                   context: context,
