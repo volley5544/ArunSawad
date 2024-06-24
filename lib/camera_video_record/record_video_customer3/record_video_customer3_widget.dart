@@ -47,6 +47,70 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'RecordVideoCustomer3'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('กำลังประมวลผลVideo'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      _model.videoFileOutput = await actions.getFFUploadFileFromFilePath(
+        FFAppState().videoRecordFilePath,
+        widget.contNo,
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('กำลังอัพโหลดไฟล์ไปยังServer'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      Navigator.pop(context);
+    });
+
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -180,46 +244,6 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                   },
                                 ).then((value) => safeSetState(() {}));
 
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content: Text('กำลังประมวลผลVideo'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
-                                _model.videoFileOutput =
-                                    await actions.getFFUploadFileFromFilePath(
-                                  FFAppState().videoRecordFilePath,
-                                  widget.contNo,
-                                );
-                                await showDialog(
-                                  context: context,
-                                  builder: (alertDialogContext) {
-                                    return WebViewAware(
-                                      child: AlertDialog(
-                                        content:
-                                            Text('กำลังอัพโหลดไฟล์ไปยังServer'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                );
                                 _model.saveRecordVideoApiOutput =
                                     await SaveRecordVideoApiCall.call(
                                   apiUrl: 'https://vcall.swpfin.com',
@@ -325,7 +349,8 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                     const Duration(milliseconds: 500));
                                 _model.saveVideoFileOutput =
                                     await actions.saveVideoFile(
-                                  FFAppState().videoRecordFilePath,
+                                  _model.videoFileOutput,
+                                  widget.contNo,
                                 );
                                 await showDialog(
                                   context: context,

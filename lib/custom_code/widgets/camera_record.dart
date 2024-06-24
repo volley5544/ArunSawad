@@ -55,7 +55,7 @@ class _CameraRecordState extends State<CameraRecord> {
     final cameras = await availableCameras();
     final back = cameras.firstWhere(
         (camera) => camera.lensDirection == CameraLensDirection.back);
-    _cameraController = CameraController(back, ResolutionPreset.high);
+    _cameraController = CameraController(back, ResolutionPreset.medium);
     await _cameraController.initialize();
     setState(() => _isLoading = false);
   }
@@ -72,13 +72,6 @@ class _CameraRecordState extends State<CameraRecord> {
           FFAppState().videoRecordFilePath = file.path;
         });
 
-        Uint8List bytes = await file.readAsBytes();
-
-        FFUploadedFile ffBytesFile = new FFUploadedFile(
-          name: '${widget.contNo!}',
-          bytes: bytes,
-        );
-
         // Ensure file is ready before navigation
         await _ensureFileIsReady(file);
 
@@ -92,10 +85,6 @@ class _CameraRecordState extends State<CameraRecord> {
             'checkType': serializeParam(
               '${widget.checkApp!}',
               ParamType.String,
-            ),
-            'fileVideo': serializeParam(
-              ffBytesFile,
-              ParamType.FFUploadedFile,
             ),
           }.withoutNulls,
         );

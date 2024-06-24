@@ -13,24 +13,26 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 
-Future<String> saveVideoFile(String? inputFilePath) async {
+Future<String> saveVideoFile(FFUploadedFile? inputFile, String? contNo) async {
   // Add your function code here!
 
   // Save the converted image to local storage
-  // final directory = await getTemporaryDirectory();
-  // final filePath = '${directory.path}/recording_video5544.mp4';
-  //final File savedFile = File(inputFilePath!);
+  final directory = await getTemporaryDirectory();
+  final filePath = '${directory.path}/${contNo}.mp4';
+  final File savedFile = File(filePath);
   String outputText = '';
-
-  final result1 = await ImageGallerySaver.saveFile(
-    inputFilePath!,
-  ).then((value1) {
-    print('File Saved Name : ${value1}');
-    outputText = 'Save Video to Gallery Success!';
+  await savedFile.writeAsBytes(inputFile!.bytes!).then((value) async {
+    await ImageGallerySaver.saveFile(
+      value.path,
+    ).then((value1) {
+      print('File Saved Name : ${value1}');
+      outputText = 'Save Video to Gallery Success!';
+    }).onError((error, stackTrace) {
+      outputText = error.toString();
+    });
   }).onError((error, stackTrace) {
     outputText = error.toString();
   });
-  print('File Saved Name2 : ${result1}');
 
   return outputText;
 }
