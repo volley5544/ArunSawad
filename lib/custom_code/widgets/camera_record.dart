@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import '../../flutter_flow/upload_data.dart';
 import 'dart:io';
 import 'package:camera/camera.dart';
+import 'dart:async';
 
 class CameraRecord extends StatefulWidget {
   const CameraRecord({
@@ -38,6 +39,7 @@ class _CameraRecordState extends State<CameraRecord> {
   bool _isRecording = false;
   bool _isPaused = false;
   bool _isFrontCamera = false;
+  final stopwatch = Stopwatch();
 
   @override
   void initState() {
@@ -61,37 +63,44 @@ class _CameraRecordState extends State<CameraRecord> {
   }
 
   _recordVideo() async {
+    print('_isRecording : ${_isRecording}');
+    print('_isPaused : ${_isPaused}');
     if (_isRecording) {
-      if (_isPaused) {
-        await _cameraController.resumeVideoRecording();
-        setState(() => _isPaused = false);
-      } else {
-        final file = await _cameraController.stopVideoRecording();
-        setState(() {
-          _isRecording = false;
-          FFAppState().videoRecordFilePath = file.path;
-        });
+      final file = await _cameraController.stopVideoRecording();
+      stopwatch.stop();
+      stopwatch.reset();
+      setState(() {
+        _isRecording = false;
+        _isPaused = false;
+        FFAppState().videoRecordFilePath = file.path;
+      });
 
-        // Ensure file is ready before navigation
-        await _ensureFileIsReady(file);
+      // Ensure file is ready before navigation
+      await _ensureFileIsReady(file);
 
-        context.pushNamed(
-          'RecordVideoCustomer3',
-          queryParameters: {
-            'contNo': serializeParam(
-              '${widget.contNo!}',
-              ParamType.String,
-            ),
-            'checkType': serializeParam(
-              '${widget.checkApp!}',
-              ParamType.String,
-            ),
-          }.withoutNulls,
-        );
-      }
+      context.pushNamed(
+        'RecordVideoCustomer3',
+        queryParameters: {
+          'contNo': serializeParam(
+            '${widget.contNo!}',
+            ParamType.String,
+          ),
+          'checkType': serializeParam(
+            '${widget.checkApp!}',
+            ParamType.String,
+          ),
+        }.withoutNulls,
+      );
     } else {
       await _cameraController.prepareForVideoRecording();
       await _cameraController.startVideoRecording();
+      stopwatch.start();
+      Timer.periodic(const Duration(seconds: 1), (timer) {
+        if (!stopwatch.isRunning) {
+          timer.cancel();
+        }
+        setState(() {}); // to update the timer on-screen
+      });
       setState(() => _isRecording = true);
     }
   }
@@ -113,8 +122,25 @@ class _CameraRecordState extends State<CameraRecord> {
   _pauseVideo() async {
     if (_isRecording && !_isPaused) {
       await _cameraController.pauseVideoRecording();
-      setState(() => _isPaused = true);
+      stopwatch.stop();
+      setState(() {
+        _isPaused = true;
+      });
+    } else {
+      await _cameraController.resumeVideoRecording();
+      stopwatch.start();
+      Timer.periodic(const Duration(seconds: 1), (timer) {
+        if (!stopwatch.isRunning) {
+          timer.cancel();
+        }
+        setState(() {}); // to update the timer on-screen
+      });
+      setState(() {
+        _isPaused = false;
+      });
     }
+    print('_isRecording2 : ${_isRecording}');
+    print('_isPaused2 : ${_isPaused}');
   }
 
   _switchCameraDirection() async {
@@ -122,7 +148,7 @@ class _CameraRecordState extends State<CameraRecord> {
     if (_isFrontCamera) {
       final back = cameras.firstWhere(
           (camera) => camera.lensDirection == CameraLensDirection.back);
-      _cameraController = CameraController(back, ResolutionPreset.high);
+      _cameraController = CameraController(back, ResolutionPreset.medium);
       await _cameraController.initialize();
       setState(() {
         _isLoading = false;
@@ -133,7 +159,7 @@ class _CameraRecordState extends State<CameraRecord> {
           (camera) => camera.lensDirection == CameraLensDirection.front);
       _cameraController = CameraController(
         front,
-        ResolutionPreset.high,
+        ResolutionPreset.medium,
       );
       await _cameraController.initialize();
       setState(() {
@@ -145,48 +171,67 @@ class _CameraRecordState extends State<CameraRecord> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Stack(
+    return Column(children: [
+      Stack(
         alignment: Alignment.bottomCenter,
         children: [
           if (!_isLoading) CameraPreview(_cameraController),
           Padding(
             padding: const EdgeInsets.all(25),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                if (_isRecording)
-                  FloatingActionButton(
-                    backgroundColor: Colors.blue,
-                    child: Icon(Icons.pause),
-                    onPressed: () => _pauseVideo(),
+                // SizedBox(width: 10),
+                Text(
+                  '${stopwatch.elapsed.toString().split('.').first.split(':')[1]}:${stopwatch.elapsed.toString().split('.').first.split(':')[2]}',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
                   ),
-                SizedBox(width: 10),
+                ),
                 FloatingActionButton(
                     backgroundColor: Colors.red,
                     child: Icon(_isRecording
-                        ? (_isPaused ? Icons.play_arrow : Icons.stop)
-                        : Icons.circle),
+                        ? Icons.stop
+                        : Icons.fiber_manual_record_sharp),
                     onPressed: () async {
                       await _recordVideo();
                     }),
+                if (_isRecording)
+                  FloatingActionButton(
+                    backgroundColor: Colors.blue,
+                    child: Icon(_isPaused ? Icons.play_arrow : Icons.pause),
+                    onPressed: () => _pauseVideo(),
+                  ),
+                if (!_isRecording)
+                  Visibility(
+                    visible: !_isRecording,
+                    child: FloatingActionButton(
+                      backgroundColor: Colors.grey,
+                      child: Icon(Icons.switch_camera),
+                      onPressed: () => _switchCameraDirection(),
+                    ),
+                  ),
               ],
             ),
           ),
-          Visibility(
-            visible: !_isRecording,
-            child: Positioned(
-              top: 30, // Adjust this value as needed
-              right: 20, // Adjust this value as needed
-              child: FloatingActionButton(
-                backgroundColor: Colors.grey,
-                child: Icon(Icons.switch_camera),
-                onPressed: () => _switchCameraDirection(),
+          Positioned(
+              top: 12,
+              right: 12,
+              child: Visibility(
+                visible: _isRecording,
+                child: Image(
+                  image: AssetImage('assets/images/icons8-recording2.gif'),
+                  height: 60,
+                  fit: BoxFit.fitHeight,
+                ),
+              )
+              //icons8-recording
               ),
-            ),
-          ),
         ],
       ),
-    );
+    ]);
   }
 }

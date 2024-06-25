@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,6 +9,7 @@ import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'record_video_customer_model.dart';
 export 'record_video_customer_model.dart';
 
@@ -352,34 +354,12 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  'RecordVideoCustomer3',
-                                                  queryParameters: {
-                                                    'contNo': serializeParam(
-                                                      '123',
-                                                      ParamType.String,
-                                                    ),
-                                                    'checkType': serializeParam(
-                                                      '321',
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-                                              },
-                                              child: Icon(
-                                                Icons.video_collection,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
-                                                size: 35.0,
-                                              ),
+                                            Icon(
+                                              Icons.video_collection,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 35.0,
                                             ),
                                           ],
                                         ),
@@ -404,6 +384,155 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 10.0),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        var _shouldSetState = false;
+                        if (!(_model.textController.text != null &&
+                            _model.textController.text != '')) {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return WebViewAware(
+                                child: AlertDialog(
+                                  content: Text(
+                                      _model.choiceChipsValue == 'ใบคำขอ'
+                                          ? 'กรุณากรอกเลขที่ใบคำขอ'
+                                          : 'กรุณากรอกเลขที่สัญญา'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                          if (_shouldSetState) setState(() {});
+                          return;
+                        }
+                        if (_model.choiceChipsValue == 'ใบคำขอ') {
+                          _model.checkAppVloanApiOutput =
+                              await CheckAppFromVloanAPICall.call(
+                            apiUrl: 'http://49.229.60.115',
+                            vloanNo: _model.textController.text,
+                            system: 'ssw_dlt',
+                          );
+
+                          _shouldSetState = true;
+                          if ((_model.checkAppVloanApiOutput?.statusCode ??
+                                  200) !=
+                              200) {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return WebViewAware(
+                                  child: AlertDialog(
+                                    content: Text(
+                                        'พบข้อผิดพลาดConnection (${(_model.checkAppVloanApiOutput?.statusCode ?? 200).toString()})'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                            if (_shouldSetState) setState(() {});
+                            return;
+                          }
+                          if (!(CheckAppFromVloanAPICall.vehicleInfo(
+                                (_model.checkAppVloanApiOutput?.jsonBody ?? ''),
+                              ) !=
+                              null)) {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return WebViewAware(
+                                  child: AlertDialog(
+                                    content: Text(
+                                        _model.choiceChipsValue == 'ใบคำขอ'
+                                            ? 'ไม่พบเลขที่ใบคำขอนี้'
+                                            : 'ไม่พบเลขที่สัญญานี้'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                            if (_shouldSetState) setState(() {});
+                            return;
+                          }
+                        } else {
+                          _model.checkContractActiveApiOutput =
+                              await CheckVloanContractActiveAPICall.call(
+                            apiUrl: 'http://49.229.60.115',
+                            contractNo: _model.textController.text,
+                          );
+
+                          _shouldSetState = true;
+                          if (!(_model
+                                  .checkContractActiveApiOutput?.succeeded ??
+                              true)) {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return WebViewAware(
+                                  child: AlertDialog(
+                                    content: Text(
+                                        'พบข้อผิดพลาดConnection (${(_model.checkContractActiveApiOutput?.statusCode ?? 200).toString()})'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                            if (_shouldSetState) setState(() {});
+                            return;
+                          }
+                          if ('${CheckVloanContractActiveAPICall.contractStatus(
+                                (_model.checkContractActiveApiOutput
+                                        ?.jsonBody ??
+                                    ''),
+                              )}' !=
+                              'ACTIVE') {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return WebViewAware(
+                                  child: AlertDialog(
+                                    content: Text(
+                                        _model.choiceChipsValue == 'ใบคำขอ'
+                                            ? 'ไม่พบเลขที่ใบคำขอนี้'
+                                            : 'ไม่พบเลขที่สัญญานี้'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                            if (_shouldSetState) setState(() {});
+                            return;
+                          }
+                        }
+
                         await requestPermission(cameraPermission);
                         await requestPermission(microphonePermission);
                         if (true) {
@@ -466,6 +595,8 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                             }
                           }
                         }
+
+                        if (_shouldSetState) setState(() {});
                       },
                       text: 'ถ่ายวิดีโอ',
                       options: FFButtonOptions(

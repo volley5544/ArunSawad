@@ -56,6 +56,36 @@ class RoleMenuRecord extends FirestoreRecord {
   List<AdminRoleGroupStruct> get adminRoleGroup => _adminRoleGroup ?? const [];
   bool hasAdminRoleGroup() => _adminRoleGroup != null;
 
+  // "servicemenuName" field.
+  List<String>? _servicemenuName;
+  List<String> get servicemenuName => _servicemenuName ?? const [];
+  bool hasServicemenuName() => _servicemenuName != null;
+
+  // "reportmenuName" field.
+  List<String>? _reportmenuName;
+  List<String> get reportmenuName => _reportmenuName ?? const [];
+  bool hasReportmenuName() => _reportmenuName != null;
+
+  // "othermenuName" field.
+  List<String>? _othermenuName;
+  List<String> get othermenuName => _othermenuName ?? const [];
+  bool hasOthermenuName() => _othermenuName != null;
+
+  // "serviecMenuIcon" field.
+  List<String>? _serviecMenuIcon;
+  List<String> get serviecMenuIcon => _serviecMenuIcon ?? const [];
+  bool hasServiecMenuIcon() => _serviecMenuIcon != null;
+
+  // "reportMenuIcon" field.
+  List<String>? _reportMenuIcon;
+  List<String> get reportMenuIcon => _reportMenuIcon ?? const [];
+  bool hasReportMenuIcon() => _reportMenuIcon != null;
+
+  // "otherMenuIcon" field.
+  List<String>? _otherMenuIcon;
+  List<String> get otherMenuIcon => _otherMenuIcon ?? const [];
+  bool hasOtherMenuIcon() => _otherMenuIcon != null;
+
   void _initializeFields() {
     _roleName = snapshotData['roleName'] as String?;
     _menuName = getDataList(snapshotData['menuName']);
@@ -68,6 +98,12 @@ class RoleMenuRecord extends FirestoreRecord {
       snapshotData['adminRoleGroup'],
       AdminRoleGroupStruct.fromMap,
     );
+    _servicemenuName = getDataList(snapshotData['servicemenuName']);
+    _reportmenuName = getDataList(snapshotData['reportmenuName']);
+    _othermenuName = getDataList(snapshotData['othermenuName']);
+    _serviecMenuIcon = getDataList(snapshotData['serviecMenuIcon']);
+    _reportMenuIcon = getDataList(snapshotData['reportMenuIcon']);
+    _otherMenuIcon = getDataList(snapshotData['otherMenuIcon']);
   }
 
   static CollectionReference get collection =>
@@ -129,7 +165,13 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         listEquality.equals(e1?.menuVisibleArea, e2?.menuVisibleArea) &&
         listEquality.equals(e1?.menuZone, e2?.menuZone) &&
         listEquality.equals(e1?.empAdmin, e2?.empAdmin) &&
-        listEquality.equals(e1?.adminRoleGroup, e2?.adminRoleGroup);
+        listEquality.equals(e1?.adminRoleGroup, e2?.adminRoleGroup) &&
+        listEquality.equals(e1?.servicemenuName, e2?.servicemenuName) &&
+        listEquality.equals(e1?.reportmenuName, e2?.reportmenuName) &&
+        listEquality.equals(e1?.othermenuName, e2?.othermenuName) &&
+        listEquality.equals(e1?.serviecMenuIcon, e2?.serviecMenuIcon) &&
+        listEquality.equals(e1?.reportMenuIcon, e2?.reportMenuIcon) &&
+        listEquality.equals(e1?.otherMenuIcon, e2?.otherMenuIcon);
   }
 
   @override
@@ -141,7 +183,13 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         e?.menuVisibleArea,
         e?.menuZone,
         e?.empAdmin,
-        e?.adminRoleGroup
+        e?.adminRoleGroup,
+        e?.servicemenuName,
+        e?.reportmenuName,
+        e?.othermenuName,
+        e?.serviecMenuIcon,
+        e?.reportMenuIcon,
+        e?.otherMenuIcon
       ]);
 
   @override

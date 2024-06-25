@@ -26,7 +26,7 @@ Future<String> saveVideoFile(FFUploadedFile? inputFile, String? contNo) async {
       value.path,
     ).then((value1) {
       print('File Saved Name : ${value1}');
-      outputText = 'Save Video to Gallery Success!';
+      outputText = 'บันทึกลง Gallery สำเร็จ!';
     }).onError((error, stackTrace) {
       outputText = error.toString();
     });

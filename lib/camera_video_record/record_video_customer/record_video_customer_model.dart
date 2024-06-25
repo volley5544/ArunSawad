@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,6 +10,7 @@ import 'record_video_customer_widget.dart' show RecordVideoCustomerWidget;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 class RecordVideoCustomerModel
     extends FlutterFlowModel<RecordVideoCustomerWidget> {
@@ -25,6 +27,10 @@ class RecordVideoCustomerModel
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Backend Call - API (checkAppFromVloanAPI)] action in Button widget.
+  ApiCallResponse? checkAppVloanApiOutput;
+  // Stores action output result for [Backend Call - API (checkVloanContractActiveAPI)] action in Button widget.
+  ApiCallResponse? checkContractActiveApiOutput;
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));

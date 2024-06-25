@@ -72,41 +72,9 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
         },
       ).then((value) => safeSetState(() {}));
 
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('กำลังประมวลผลVideo'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       _model.videoFileOutput = await actions.getFFUploadFileFromFilePath(
         FFAppState().videoRecordFilePath,
         widget.contNo,
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('กำลังอัพโหลดไฟล์ไปยังServer'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
       );
       Navigator.pop(context);
     });
@@ -260,11 +228,12 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
                                       child: AlertDialog(
-                                        content: Text((_model
-                                                    .saveRecordVideoApiOutput
-                                                    ?.jsonBody ??
-                                                '')
-                                            .toString()),
+                                        content:
+                                            Text(SaveRecordVideoApiCall.message(
+                                          (_model.saveRecordVideoApiOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(

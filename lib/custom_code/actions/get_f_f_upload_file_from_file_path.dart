@@ -16,7 +16,7 @@ Future<FFUploadedFile> getFFUploadFileFromFilePath(
   // Add your function code here!
   Uint8List bytes = await File('${inputFilePath!}').readAsBytes();
   FFUploadedFile bytesFile = new FFUploadedFile(
-    name: '${contNo}',
+    name: '${contNo}.mp4',
     bytes: bytes,
   );
 

@@ -2321,6 +2321,71 @@ class GetVloanContractAPICall {
           .toList();
 }
 
+class CheckAppFromVloanAPICall {
+  static Future<ApiCallResponse> call({
+    String? vloanNo = '',
+    String? system = '',
+    String? apiUrl = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'checkAppFromVloanAPI',
+      apiUrl: '${apiUrl}/api/v1/DLT/dlt_post_collateral',
+      callType: ApiCallType.POST,
+      headers: {
+        'Cookie': 'PHPSESSID=m2vjett3i2bc97k5cq7ip3ail6',
+      },
+      params: {
+        'vloan_no': vloanNo,
+        'system': system,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic? vehicleInfo(dynamic response) => getJsonField(
+        response,
+        r'''$.detail.vehicleInfo''',
+      );
+}
+
+class CheckVloanContractActiveAPICall {
+  static Future<ApiCallResponse> call({
+    String? contractNo = '',
+    String? apiUrl = '',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'checkVloanContractActiveAPI',
+      apiUrl: '${apiUrl}/api/v1/los/check_contract_active',
+      callType: ApiCallType.POST,
+      headers: {
+        'Cookie': 'PHPSESSID=m2vjett3i2bc97k5cq7ip3ail6',
+      },
+      params: {
+        'contract_no': contractNo,
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? contractStatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data''',
+      ));
+}
+
 class RemarkVLoneAPICall {
   static Future<ApiCallResponse> call({
     String? cuscod = '',
