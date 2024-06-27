@@ -215,3 +215,4 @@ export '/camera_video_record/record_video_customer3/record_video_customer3_widge
     show RecordVideoCustomer3Widget;
 export '/pages/super_app/super_app_new_page/super_app_new_page_widget.dart'
     show SuperAppNewPageWidget;
+export '/webview_page/webview_page_widget.dart' show WebviewPageWidget;

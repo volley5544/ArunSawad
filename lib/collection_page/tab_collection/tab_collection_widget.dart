@@ -59,7 +59,10 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                   : FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: LoadingSceneWidget(),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
           );

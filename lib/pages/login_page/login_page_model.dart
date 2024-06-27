@@ -1,12 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -40,10 +38,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? androidIMEI;
   // Stores action output result for [Custom Action - a4] action in LoginPage widget.
   String? iOSidentifierForVendor;
-  bool isDataUploading1 = false;
-  FFUploadedFile uploadedLocalFile1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-
   // State field(s) for usernameInput widget.
   FocusNode? usernameInputFocusNode;
   TextEditingController? usernameInputTextController;
@@ -81,10 +75,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   FCMTokenRecord? androidCreateFMCTokenDoc;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FCMTokenRecord? iosCreateFMCTokenDoc;
-  bool isDataUploading2 = false;
-  FFUploadedFile uploadedLocalFile2 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl2 = '';
 
   @override
   void initState(BuildContext context) {

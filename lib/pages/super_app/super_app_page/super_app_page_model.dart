@@ -75,11 +75,15 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutput;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  ReportStorageRecord? reportStorageGenEpaQuery;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   HideInAppContentRecord? queryRecordVideoIsOnWebview;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? getWebRecodeVideoUrl;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageDsiQuery;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageDsiHoQuery;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageGenEpaQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageImpoundCarQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
@@ -133,11 +137,15 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutputPad;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
-  ReportStorageRecord? reportStorageGenEpaQueryTab;
-  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   HideInAppContentRecord? queryRecordVideoIsOnWebviewTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? getWebRecodeVideoUrlTab;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageDsiQueryTab;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageDsiHoQueryTab;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageGenEpaQueryTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageImpoundCarTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.

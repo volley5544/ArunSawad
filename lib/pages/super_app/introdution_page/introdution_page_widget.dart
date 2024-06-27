@@ -139,86 +139,30 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          context.pushNamed('RecordVideoCustomer');
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            if (FFAppState().introPageIndex == 1) Spacer(),
-                            if (FFAppState().introPageIndex != 1)
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.9),
-                                  child: FFButtonWidget(
-                                    onPressed: () async {
-                                      if (FFAppState().introPageIndex <= 1) {
-                                        return;
-                                      }
-                                      FFAppState().introPageIndex =
-                                          FFAppState().introPageIndex + -1;
-                                      FFAppState().update(() {});
-                                      await _model.pageViewController
-                                          ?.previousPage(
-                                        duration: Duration(milliseconds: 300),
-                                        curve: Curves.ease,
-                                      );
-                                    },
-                                    text: 'ย้อนกลับ',
-                                    options: FFButtonOptions(
-                                      width: 130.0,
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.white,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            letterSpacing: 0.0,
-                                          ),
-                                      elevation: 2.0,
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFFF8D38),
-                                        width: 2.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          if (FFAppState().introPageIndex == 1) Spacer(),
+                          if (FFAppState().introPageIndex != 1)
                             Expanded(
                               child: Align(
                                 alignment: AlignmentDirectional(0.0, 0.9),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if (FFAppState().introPageIndex != 3) {
-                                      FFAppState().introPageIndex =
-                                          FFAppState().introPageIndex + 1;
-                                      FFAppState().update(() {});
-                                      await _model.pageViewController?.nextPage(
-                                        duration: Duration(milliseconds: 300),
-                                        curve: Curves.ease,
-                                      );
+                                    if (FFAppState().introPageIndex <= 1) {
                                       return;
                                     }
-                                    FFAppState().firstUseApp = true;
+                                    FFAppState().introPageIndex =
+                                        FFAppState().introPageIndex + -1;
                                     FFAppState().update(() {});
-
-                                    context.goNamed('LoginPage');
+                                    await _model.pageViewController
+                                        ?.previousPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease,
+                                    );
                                   },
-                                  text: functions.introPageTextButton(
-                                      FFAppState().introPageIndex),
+                                  text: 'ย้อนกลับ',
                                   options: FFButtonOptions(
                                     width: 130.0,
                                     height: 40.0,
@@ -244,8 +188,54 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          Expanded(
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.9),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  if (FFAppState().introPageIndex != 3) {
+                                    FFAppState().introPageIndex =
+                                        FFAppState().introPageIndex + 1;
+                                    FFAppState().update(() {});
+                                    await _model.pageViewController?.nextPage(
+                                      duration: Duration(milliseconds: 300),
+                                      curve: Curves.ease,
+                                    );
+                                    return;
+                                  }
+                                  FFAppState().firstUseApp = true;
+                                  FFAppState().update(() {});
+
+                                  context.goNamed('LoginPage');
+                                },
+                                text: functions.introPageTextButton(
+                                    FFAppState().introPageIndex),
+                                options: FFButtonOptions(
+                                  width: 130.0,
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: Colors.white,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  elevation: 2.0,
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFFF8D38),
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

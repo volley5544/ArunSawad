@@ -43,7 +43,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set contnoId(List<String>? val) => _contnoId = val;
 
   void updateContnoId(Function(List<String>) updateFn) {
-    updateFn(contnoId ??= []);
+    updateFn(_contnoId ??= []);
   }
 
   bool hasContnoId() => _contnoId != null;
@@ -54,7 +54,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set contno(List<String>? val) => _contno = val;
 
   void updateContno(Function(List<String>) updateFn) {
-    updateFn(contno ??= []);
+    updateFn(_contno ??= []);
   }
 
   bool hasContno() => _contno != null;
@@ -65,7 +65,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set historyLeadStatus(List<String>? val) => _historyLeadStatus = val;
 
   void updateHistoryLeadStatus(Function(List<String>) updateFn) {
-    updateFn(historyLeadStatus ??= []);
+    updateFn(_historyLeadStatus ??= []);
   }
 
   bool hasHistoryLeadStatus() => _historyLeadStatus != null;
@@ -76,7 +76,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set historyReasonName(List<String>? val) => _historyReasonName = val;
 
   void updateHistoryReasonName(Function(List<String>) updateFn) {
-    updateFn(historyReasonName ??= []);
+    updateFn(_historyReasonName ??= []);
   }
 
   bool hasHistoryReasonName() => _historyReasonName != null;
@@ -87,7 +87,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set createdUserid(List<String>? val) => _createdUserid = val;
 
   void updateCreatedUserid(Function(List<String>) updateFn) {
-    updateFn(createdUserid ??= []);
+    updateFn(_createdUserid ??= []);
   }
 
   bool hasCreatedUserid() => _createdUserid != null;
@@ -98,7 +98,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set updatedUserid(List<String>? val) => _updatedUserid = val;
 
   void updateUpdatedUserid(Function(List<String>) updateFn) {
-    updateFn(updatedUserid ??= []);
+    updateFn(_updatedUserid ??= []);
   }
 
   bool hasUpdatedUserid() => _updatedUserid != null;
@@ -109,7 +109,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set arappdate(List<String>? val) => _arappdate = val;
 
   void updateArappdate(Function(List<String>) updateFn) {
-    updateFn(arappdate ??= []);
+    updateFn(_arappdate ??= []);
   }
 
   bool hasArappdate() => _arappdate != null;
@@ -120,7 +120,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set ardesc(List<String>? val) => _ardesc = val;
 
   void updateArdesc(Function(List<String>) updateFn) {
-    updateFn(ardesc ??= []);
+    updateFn(_ardesc ??= []);
   }
 
   bool hasArdesc() => _ardesc != null;
@@ -131,7 +131,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set userid(List<String>? val) => _userid = val;
 
   void updateUserid(Function(List<String>) updateFn) {
-    updateFn(userid ??= []);
+    updateFn(_userid ??= []);
   }
 
   bool hasUserid() => _userid != null;
@@ -142,7 +142,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set remgcode(List<String>? val) => _remgcode = val;
 
   void updateRemgcode(Function(List<String>) updateFn) {
-    updateFn(remgcode ??= []);
+    updateFn(_remgcode ??= []);
   }
 
   bool hasRemgcode() => _remgcode != null;
@@ -153,7 +153,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set remdetcode(List<String>? val) => _remdetcode = val;
 
   void updateRemdetcode(Function(List<String>) updateFn) {
-    updateFn(remdetcode ??= []);
+    updateFn(_remdetcode ??= []);
   }
 
   bool hasRemdetcode() => _remdetcode != null;
@@ -164,7 +164,7 @@ class SaveCallStruct extends FFFirebaseStruct {
   set amount(List<String>? val) => _amount = val;
 
   void updateAmount(Function(List<String>) updateFn) {
-    updateFn(amount ??= []);
+    updateFn(_amount ??= []);
   }
 
   bool hasAmount() => _amount != null;

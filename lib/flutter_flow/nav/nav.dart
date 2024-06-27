@@ -1839,14 +1839,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'SuperAppNewPage',
               path: 'superAppNewPage',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'SuperAppNewPage')
-                  : SuperAppNewPageWidget(
-                      dailyText: params.getParam(
-                        'dailyText',
-                        ParamType.String,
-                      ),
-                    ),
+              builder: (context, params) => SuperAppNewPageWidget(
+                dailyText: params.getParam(
+                  'dailyText',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'WebviewPage',
+              path: 'webviewPage',
+              builder: (context, params) => WebviewPageWidget(
+                titleName: params.getParam(
+                  'titleName',
+                  ParamType.String,
+                ),
+                webUrl: params.getParam(
+                  'webUrl',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

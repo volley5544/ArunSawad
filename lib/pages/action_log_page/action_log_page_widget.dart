@@ -227,7 +227,7 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
               ),
               Html(
                 data: '<h3>H3 Header</h3> <p>Sample paragraph</p>',
-                onLinkTap: (url, _, __, ___) => launchURL(url!),
+                onLinkTap: (url, _, __) => launchURL(url!),
               ),
             ],
           ),

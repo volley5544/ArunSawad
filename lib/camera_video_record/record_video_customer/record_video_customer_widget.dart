@@ -266,63 +266,34 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                             autofocus: true,
                                             obscureText: false,
                                             decoration: InputDecoration(
-                                              labelText: 'กรุณากรอก',
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        fontSize: 156.0,
                                                         letterSpacing: 0.0,
                                                       ),
+                                              hintText: 'กรุณากรอก',
                                               hintStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              enabledBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              focusedBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              errorBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
+                                              enabledBorder: InputBorder.none,
+                                              focusedBorder: InputBorder.none,
+                                              errorBorder: InputBorder.none,
                                               focusedErrorBorder:
-                                                  UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                  color: Color(0x00000000),
-                                                  width: 2.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
+                                                  InputBorder.none,
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
+                                                  fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
@@ -334,38 +305,6 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                       ),
                                     ),
                                   ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 99.0,
-                                        height: 99.0,
-                                        decoration: BoxDecoration(
-                                          color: Color(0xFFE7E8EC),
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.video_collection,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              size: 35.0,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
                                 ),
                               ]
                                   .divide(SizedBox(height: 12.0))
@@ -626,6 +565,101 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                         ),
                       ),
                     ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                  child: Container(
+                    decoration: BoxDecoration(),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 10.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          if (!(_model.textController.text != null &&
+                              _model.textController.text != '')) {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return WebViewAware(
+                                  child: AlertDialog(
+                                    content: Text(
+                                        _model.choiceChipsValue == 'ใบคำขอ'
+                                            ? 'กรุณากรอกเลขที่ใบคำขอ'
+                                            : 'กรุณากรอกเลขที่สัญญา'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                            return;
+                          }
+                          await launchURL(
+                              'https://vcall.swpfin.com/?searchTerm=${_model.textController.text}');
+                        },
+                        text: 'ตรวจสอบวิดีโอ',
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 48.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              24.0, 0.0, 24.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).warning,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF283753),
+                                    letterSpacing: 0.0,
+                                  ),
+                          elevation: 3.0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(12.0),
+                            bottomRight: Radius.circular(12.0),
+                            topLeft: Radius.circular(12.0),
+                            topRight: Radius.circular(12.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 99.0,
+                        height: 99.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFE7E8EC),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.video_collection,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 35.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

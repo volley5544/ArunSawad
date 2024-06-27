@@ -1,31 +1,38 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'e_learning_model.dart';
-export 'e_learning_model.dart';
+import 'webview_page_model.dart';
+export 'webview_page_model.dart';
 
-class ELearningWidget extends StatefulWidget {
-  const ELearningWidget({super.key});
+class WebviewPageWidget extends StatefulWidget {
+  const WebviewPageWidget({
+    super.key,
+    required this.titleName,
+    required this.webUrl,
+  });
+
+  final String? titleName;
+  final String? webUrl;
 
   @override
-  State<ELearningWidget> createState() => _ELearningWidgetState();
+  State<WebviewPageWidget> createState() => _WebviewPageWidgetState();
 }
 
-class _ELearningWidgetState extends State<ELearningWidget> {
-  late ELearningModel _model;
+class _WebviewPageWidgetState extends State<WebviewPageWidget> {
+  late WebviewPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ELearningModel());
+    _model = createModel(context, () => WebviewPageModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'E-learning'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'WebviewPage'});
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -48,23 +55,35 @@ class _ELearningWidgetState extends State<ELearningWidget> {
         appBar: AppBar(
           backgroundColor: Color(0xFFFF6500),
           automaticallyImplyLeading: false,
-          leading: Icon(
-            Icons.arrow_back,
-            color: FlutterFlowTheme.of(context).primaryBtnText,
-            size: 24.0,
+          leading: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              context.goNamed('SuperAppPage');
+            },
+            child: Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.white,
+              size: 30.0,
+            ),
           ),
           title: Text(
-            'E-learning',
+            valueOrDefault<String>(
+              widget.titleName,
+              'title_Name',
+            ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
-                  fontSize: 22.0,
+                  fontSize: 32.0,
                   letterSpacing: 0.0,
                 ),
           ),
           actions: [],
           centerTitle: true,
-          elevation: 2.0,
+          elevation: 10.0,
         ),
         body: SafeArea(
           top: true,
@@ -73,14 +92,14 @@ class _ELearningWidgetState extends State<ELearningWidget> {
             children: [
               Container(
                 width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 1.0,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                child: Html(
-                  data:
-                      '<!DOCTYPE html>  \n<html>  \n<title>Javascript API</title>  \n<body>  \n\n<h1>My Tableau Viz</h1>  \n\n<script type=\'module\' src=\'https://bireport.srisawadpower.com/javascripts/api/tableau.embedding.3.latest.min.js\'></script><tableau-viz id=\'tableau-viz\' src=\'https://bireport.srisawadpower.com/views/EmployeeInsurancePerformance/Top_10_Sales\' width=\'575\' height=\'850\' toolbar=\'bottom\' ></tableau-viz>\n\n<h1>My Tableau Viz</h1>\n\n</body>\n</html>',
-                  onLinkTap: (url, _, __) => launchURL(url!),
+                height: MediaQuery.sizeOf(context).height * 0.8,
+                decoration: BoxDecoration(),
+                child: FlutterFlowWebView(
+                  content: widget.webUrl!,
+                  bypass: true,
+                  height: 500.0,
+                  verticalScroll: true,
+                  horizontalScroll: true,
                 ),
               ),
             ],

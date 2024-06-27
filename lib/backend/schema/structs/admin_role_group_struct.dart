@@ -32,7 +32,7 @@ class AdminRoleGroupStruct extends FFFirebaseStruct {
   set employeeId(List<String>? val) => _employeeId = val;
 
   void updateEmployeeId(Function(List<String>) updateFn) {
-    updateFn(employeeId ??= []);
+    updateFn(_employeeId ??= []);
   }
 
   bool hasEmployeeId() => _employeeId != null;
@@ -43,7 +43,7 @@ class AdminRoleGroupStruct extends FFFirebaseStruct {
   set visibleMenuName(List<String>? val) => _visibleMenuName = val;
 
   void updateVisibleMenuName(Function(List<String>) updateFn) {
-    updateFn(visibleMenuName ??= []);
+    updateFn(_visibleMenuName ??= []);
   }
 
   bool hasVisibleMenuName() => _visibleMenuName != null;

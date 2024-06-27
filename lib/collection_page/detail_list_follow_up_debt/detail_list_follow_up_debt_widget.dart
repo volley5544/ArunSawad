@@ -2346,74 +2346,71 @@ class _DetailListFollowUpDebtWidgetState
                                                               animationsMap[
                                                                   'buttonOnPageLoadAnimation3']!),
                                                         ),
-                                                        if (false)
-                                                          FFButtonWidget(
-                                                            onPressed:
-                                                                () async {
-                                                              context.pushNamed(
-                                                                'InterestPage',
-                                                                queryParameters:
-                                                                    {
-                                                                  'contno':
-                                                                      serializeParam(
-                                                                    getJsonField(
-                                                                      listCardItem,
-                                                                      r'''$.CONTNO''',
-                                                                    ).toString(),
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                              );
-                                                            },
-                                                            text: 'QR ชำระเงิน',
-                                                            options:
-                                                                FFButtonOptions(
-                                                              width: 160.0,
-                                                              height: 40.0,
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          24.0,
+                                                        FFButtonWidget(
+                                                          onPressed: () async {
+                                                            context.pushNamed(
+                                                              'InterestPage',
+                                                              queryParameters: {
+                                                                'contno':
+                                                                    serializeParam(
+                                                                  getJsonField(
+                                                                    listCardItem,
+                                                                    r'''$.CONTNO''',
+                                                                  ).toString(),
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
+                                                              }.withoutNulls,
+                                                            );
+                                                          },
+                                                          text: 'QR ชำระเงิน',
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: 160.0,
+                                                            height: 40.0,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        24.0,
+                                                                        0.0,
+                                                                        24.0,
+                                                                        0.0),
+                                                            iconPadding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            color: Color(
+                                                                0xFF4BB718),
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          15.0,
+                                                                      letterSpacing:
                                                                           0.0,
-                                                                          24.0,
-                                                                          0.0),
-                                                              iconPadding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              color: Color(
-                                                                  0xFF4BB718),
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmall
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Poppins',
-                                                                        color: Colors
-                                                                            .white,
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              elevation: 3.0,
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Colors
-                                                                    .transparent,
-                                                                width: 2.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10.0),
+                                                                    ),
+                                                            elevation: 3.0,
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: Colors
+                                                                  .transparent,
+                                                              width: 2.0,
                                                             ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
                                                           ),
+                                                        ),
                                                       ],
                                                     ),
                                                   ].addToEnd(

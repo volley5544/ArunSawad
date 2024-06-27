@@ -86,6 +86,11 @@ class RoleMenuRecord extends FirestoreRecord {
   List<String> get otherMenuIcon => _otherMenuIcon ?? const [];
   bool hasOtherMenuIcon() => _otherMenuIcon != null;
 
+  // "otherMenuUrl" field.
+  List<String>? _otherMenuUrl;
+  List<String> get otherMenuUrl => _otherMenuUrl ?? const [];
+  bool hasOtherMenuUrl() => _otherMenuUrl != null;
+
   void _initializeFields() {
     _roleName = snapshotData['roleName'] as String?;
     _menuName = getDataList(snapshotData['menuName']);
@@ -104,6 +109,7 @@ class RoleMenuRecord extends FirestoreRecord {
     _serviecMenuIcon = getDataList(snapshotData['serviecMenuIcon']);
     _reportMenuIcon = getDataList(snapshotData['reportMenuIcon']);
     _otherMenuIcon = getDataList(snapshotData['otherMenuIcon']);
+    _otherMenuUrl = getDataList(snapshotData['otherMenuUrl']);
   }
 
   static CollectionReference get collection =>
@@ -171,7 +177,8 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         listEquality.equals(e1?.othermenuName, e2?.othermenuName) &&
         listEquality.equals(e1?.serviecMenuIcon, e2?.serviecMenuIcon) &&
         listEquality.equals(e1?.reportMenuIcon, e2?.reportMenuIcon) &&
-        listEquality.equals(e1?.otherMenuIcon, e2?.otherMenuIcon);
+        listEquality.equals(e1?.otherMenuIcon, e2?.otherMenuIcon) &&
+        listEquality.equals(e1?.otherMenuUrl, e2?.otherMenuUrl);
   }
 
   @override
@@ -189,7 +196,8 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         e?.othermenuName,
         e?.serviecMenuIcon,
         e?.reportMenuIcon,
-        e?.otherMenuIcon
+        e?.otherMenuIcon,
+        e?.otherMenuUrl
       ]);
 
   @override

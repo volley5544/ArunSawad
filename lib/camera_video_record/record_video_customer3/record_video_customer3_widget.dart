@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -153,25 +154,45 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Expanded(
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 24.0),
-                    child: Container(
-                      decoration: BoxDecoration(),
-                      child: FlutterFlowVideoPlayer(
-                        path: functions.stringToVideoPath(
-                            FFAppState().videoRecordFilePath)!,
-                        videoType: VideoType.network,
-                        autoPlay: true,
-                        looping: true,
-                        showControls: true,
-                        allowFullScreen: false,
-                        allowPlaybackSpeedMenu: false,
+                if (isAndroid)
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          12.0, 24.0, 12.0, 24.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: FlutterFlowVideoPlayer(
+                          path: functions.stringToVideoPath(
+                              FFAppState().videoRecordFilePath)!,
+                          videoType: VideoType.network,
+                          autoPlay: true,
+                          looping: true,
+                          showControls: true,
+                          allowFullScreen: false,
+                          allowPlaybackSpeedMenu: false,
+                        ),
                       ),
                     ),
                   ),
-                ),
+                if (isiOS)
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          12.0, 24.0, 12.0, 24.0),
+                      child: Container(
+                        decoration: BoxDecoration(),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: MediaQuery.sizeOf(context).height * 1.0,
+                          child: custom_widgets.VideoPageIos(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: MediaQuery.sizeOf(context).height * 1.0,
+                            filePath: FFAppState().videoRecordFilePath,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                   child: Container(
@@ -246,6 +267,8 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                   },
                                 );
                                 Navigator.pop(context);
+                                await launchURL(
+                                    'https://vcall.swpfin.com/?searchTerm=${widget.contNo}');
 
                                 setState(() {});
                               },

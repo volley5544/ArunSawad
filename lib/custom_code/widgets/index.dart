@@ -9,3 +9,4 @@ export 'draw_circle_map.dart' show DrawCircleMap;
 export 'video_record_web_widget.dart' show VideoRecordWebWidget;
 export 'camera_record.dart' show CameraRecord;
 export 'video_page.dart' show VideoPage;
+export 'video_page_ios.dart' show VideoPageIos;

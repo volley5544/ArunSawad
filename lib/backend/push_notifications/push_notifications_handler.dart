@@ -610,6 +610,12 @@ final parametersBuilderMap =
           'dailyText': getParameter<String>(data, 'dailyText'),
         },
       ),
+  'WebviewPage': (data) async => ParameterData(
+        allParams: {
+          'titleName': getParameter<String>(data, 'titleName'),
+          'webUrl': getParameter<String>(data, 'webUrl'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
