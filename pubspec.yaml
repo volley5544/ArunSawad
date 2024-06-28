@@ -150,7 +150,7 @@ dependencies:
   provider: 6.1.2
   rxdart: 0.27.7
   screen_protector: ^1.1.4
-  screenshot: ^2.1.0
+  screenshot: ^3.0.0
   shared_preferences: 2.2.2
   shared_preferences_android: 2.2.1
   shared_preferences_foundation: 2.3.4
