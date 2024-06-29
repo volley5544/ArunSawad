@@ -1,7 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -87,13 +88,22 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
-                child: FlutterFlowWebView(
-                  content:
-                      'https://docs.google.com/spreadsheets/d/1i3BCLqozmAAJmSd8_8Gm3jE3Jy30UHLPzFvFrq3M4y0/edit?usp=sharing',
-                  bypass: false,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  verticalScroll: false,
-                  horizontalScroll: false,
+                child: FlutterFlowTimer(
+                  initialTime: _model.timerInitialTimeMs,
+                  getDisplayTime: (value) =>
+                      StopWatchTimer.getDisplayTime(value, milliSecond: false),
+                  controller: _model.timerController,
+                  updateStateInterval: Duration(milliseconds: 1000),
+                  onChanged: (value, displayTime, shouldUpdate) {
+                    _model.timerMilliseconds = value;
+                    _model.timerValue = displayTime;
+                    if (shouldUpdate) setState(() {});
+                  },
+                  textAlign: TextAlign.start,
+                  style: FlutterFlowTheme.of(context).headlineSmall.override(
+                        fontFamily: 'Poppins',
+                        letterSpacing: 0.0,
+                      ),
                 ),
               ),
             ],

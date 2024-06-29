@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'package:slide_digital_clock/slide_digital_clock.dart';
+import 'package:one_clock/one_clock.dart';
 
 class ShowTime extends StatefulWidget {
   const ShowTime({
@@ -38,30 +38,12 @@ class _ShowTimeState extends State<ShowTime> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            DigitalClock(
-              //digitAnimationStyle: Curves.elasticOut,
-              is24HourTimeFormat: true,
-              areaDecoration: BoxDecoration(
-                color: Colors.transparent,
-              ),
-              hourMinuteDigitTextStyle: TextStyle(
-                color: Colors.black,
-                fontSize: clockTextSize,
-              ),
-              hourDigitDecoration: BoxDecoration(
-                  border: Border.all(width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(16))),
-              minuteDigitDecoration: BoxDecoration(
-                  border: Border.all(width: 2),
-                  borderRadius: BorderRadius.all(Radius.circular(16))),
-              colon: Text(':',
-                  style: TextStyle(
-                    fontSize: clockTextSize * 0.7,
-                    color: Colors.grey,
-                  )),
-              secondDigitTextStyle: TextStyle(
-                fontSize: clockTextSize * 0.55,
-              ),
+            DigitalClock.light(
+              datetime: DateTime.now(),
+              isLive: true,
+              textScaleFactor: 1.5,
+
+              //format: DateFormat.Hms().format(DateTime.now()),
             ),
           ],
         ),
