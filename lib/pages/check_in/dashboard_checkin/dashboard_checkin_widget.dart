@@ -374,8 +374,8 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
-                                                content:
-                                                    Text('ไม่สามารถเช็คอินได้'),
+                                                content: Text(
+                                                    'กรุณาปิด Fake Location ก่อนเช็คอิน'),
                                                 actions: [
                                                   TextButton(
                                                     onPressed: () =>

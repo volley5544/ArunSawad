@@ -2326,6 +2326,42 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   LatLng(0.0, 0.0));
                                       var _shouldSetState = false;
                                       HapticFeedback.mediumImpact();
+                                      if ((functions.currentLatLngDouble(
+                                                  FFAppState()
+                                                      .firstLoginLocation,
+                                                  true) ==
+                                              functions.currentLatLngDouble(
+                                                  currentUserLocationValue,
+                                                  true)) &&
+                                          (functions.currentLatLngDouble(
+                                                  FFAppState()
+                                                      .firstLoginLocation,
+                                                  false) ==
+                                              functions.currentLatLngDouble(
+                                                  currentUserLocationValue,
+                                                  false))) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาปิด Fake Location ก่อนเช็คอิน'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
                                       if (!(FFAppState().branchLoString !=
                                               null &&
                                           FFAppState().branchLoString != '')) {
