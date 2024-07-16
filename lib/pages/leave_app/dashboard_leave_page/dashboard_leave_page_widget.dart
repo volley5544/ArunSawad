@@ -258,6 +258,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                 }
                 List<UserCustomRecord> columnUserCustomRecordList =
                     snapshot.data!;
+
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -559,6 +560,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                                               List<NotificationRecord>
                                                   badgeNotificationRecordList =
                                                   snapshot.data!;
+
                                               return badges.Badge(
                                                 badgeContent: Text(
                                                   badgeNotificationRecordList

@@ -144,7 +144,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'ใบอนุญาตเป็น${widget.insuranceName}',
+                                  'ใบอนุญาตเป็น${widget!.insuranceName}',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -189,7 +189,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                           alignment:
                                               AlignmentDirectional(-0.2, 0.0),
                                           child: Text(
-                                            'ประเภท ${widget.insuranceType}',
+                                            'ประเภท ${widget!.insuranceType}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -257,7 +257,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                             functions.getFirstLastNameFromFullName(
                                                                 FFAppState()
                                                                         .profileInsuLicenseFullName[
-                                                                    widget
+                                                                    widget!
                                                                         .index!],
                                                                 'first_name'),
                                                             'first_name',
@@ -317,7 +317,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                             functions.getFirstLastNameFromFullName(
                                                                 FFAppState()
                                                                         .profileInsuLicenseFullName[
-                                                                    widget
+                                                                    widget!
                                                                         .index!],
                                                                 'last_name'),
                                                             'last_name',
@@ -379,7 +379,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                           child: Text(
                                                             FFAppState()
                                                                     .profileInsuLicenseNumLicense[
-                                                                widget.index!],
+                                                                widget!.index!],
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -433,7 +433,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                         child: Text(
                                                           FFAppState()
                                                                   .profileInsuLicenseIdCard[
-                                                              widget.index!],
+                                                              widget!.index!],
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -474,7 +474,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                           Text(
                                                             FFAppState()
                                                                     .profileInsuLicenseStartDate[
-                                                                widget.index!],
+                                                                widget!.index!],
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -513,7 +513,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                           Text(
                                                             FFAppState()
                                                                     .profileInsuLicenseExpireDate[
-                                                                widget.index!],
+                                                                widget!.index!],
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -602,6 +602,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                   List<UserCustomRecord>
                                                       imageUserCustomRecordList =
                                                       snapshot.data!;
+
                                                   // Return an empty Container when the item does not exist.
                                                   if (snapshot.data!.isEmpty) {
                                                     return Container();

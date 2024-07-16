@@ -135,7 +135,7 @@ class _SearchEmployeeComponentWidgetState
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            widget.fromPage == 'เป้า/ผลงาน'
+                            widget!.fromPage == 'เป้า/ผลงาน'
                                 ? 'ดูเป้า/ผลงานของพนักงานรายบุคคล'
                                 : 'ดูยอดประกันพนักงานรายบุคคล',
                             style: FlutterFlowTheme.of(context)
@@ -577,7 +577,7 @@ class _SearchEmployeeComponentWidgetState
                             );
                             return;
                           }
-                          if (widget.fromPage == 'เป้า/ผลงาน') {
+                          if (widget!.fromPage == 'เป้า/ผลงาน') {
                             context.goNamed(
                               'IBSReport',
                               queryParameters: {
@@ -592,11 +592,11 @@ class _SearchEmployeeComponentWidgetState
                           }
                           await actions.openTableauBrowser(
                             FFAppState().accessToken,
-                            '${widget.tableauUrlLink}${_model.dropDownValue}/EmployeeInsurancePerformance/Emp_Sales',
+                            '${widget!.tableauUrlLink}${_model.dropDownValue}/EmployeeInsurancePerformance/Emp_Sales',
                             FFAppState().isOpenAndroidTableauBrowser,
                           );
                         },
-                        text: widget.fromPage == 'เป้า/ผลงาน'
+                        text: widget!.fromPage == 'เป้า/ผลงาน'
                             ? 'ดูเป้า/ผลงาน'
                             : 'ดูยอดประกัน',
                         options: FFButtonOptions(

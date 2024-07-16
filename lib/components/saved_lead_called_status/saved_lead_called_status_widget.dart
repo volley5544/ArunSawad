@@ -154,7 +154,7 @@ class _SavedLeadCalledStatusWidgetState
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
                               valueOrDefault<String>(
-                                'กรุณากรอกสถานะการโทรของ ${widget.leadChannel} Lead ID ${widget.leadId}',
+                                'กรุณากรอกสถานะการโทรของ ${widget!.leadChannel} Lead ID ${widget!.leadId}',
                                 'กรุณากรอกสถานะการโทรของ',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -196,8 +196,8 @@ class _SavedLeadCalledStatusWidgetState
                                   _model.callStatusDropDownValue ??= '',
                                 ),
                                 options:
-                                    List<String>.from(widget.callStatusId!),
-                                optionLabels: widget.callStatussName!,
+                                    List<String>.from(widget!.callStatusId!),
+                                optionLabels: widget!.callStatussName!,
                                 onChanged: (val) async {
                                   setState(() =>
                                       _model.callStatusDropDownValue = val);
@@ -453,7 +453,7 @@ class _SavedLeadCalledStatusWidgetState
                             await SaveCallStatusAPICall.call(
                           apiUrl: FFAppState().apiURLLocalState,
                           token: FFAppState().accessToken,
-                          leadID: widget.leadId,
+                          leadID: widget!.leadId,
                           statusCallID: _model.callStatusDropDownValue,
                           reasonID: _model.reasonDropDownValue,
                           reasonDetail:
@@ -532,7 +532,7 @@ class _SavedLeadCalledStatusWidgetState
                         FFAppState().leadCalledStatusReason = functions
                             .changeValueAtIndexSomethingList(
                                 FFAppState().leadCalledStatusReason.toList(),
-                                widget.leadIndex,
+                                widget!.leadIndex,
                                 '${SaveCallStatusAPICall.callStatusReason(
                                   (_model.saveCallOutput?.jsonBody ?? ''),
                                 )}')!
@@ -541,7 +541,7 @@ class _SavedLeadCalledStatusWidgetState
                         FFAppState().leadCallStatus = functions
                             .changeValueAtIndexSomethingList(
                                 FFAppState().leadCallStatus.toList(),
-                                widget.leadIndex,
+                                widget!.leadIndex,
                                 '${SaveCallStatusAPICall.callStatus(
                                   (_model.saveCallOutput?.jsonBody ?? ''),
                                 )}')!

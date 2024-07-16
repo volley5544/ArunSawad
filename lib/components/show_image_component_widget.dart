@@ -94,7 +94,7 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.network(
-                  widget.imageUrl!,
+                  widget!.imageUrl!,
                   width: double.infinity,
                   fit: BoxFit.cover,
                 ),

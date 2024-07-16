@@ -303,6 +303,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           );
         }
         List<KeyStorageRecord> loginPageKeyStorageRecordList = snapshot.data!;
+
         final loginPageKeyStorageRecord =
             loginPageKeyStorageRecordList.isNotEmpty
                 ? loginPageKeyStorageRecordList.first
@@ -344,6 +345,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                     }
                     List<UrlLinkStorageRecord>
                         containerUrlLinkStorageRecordList = snapshot.data!;
+
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -757,6 +759,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       List<HideInAppContentRecord>
                                           containerHideInAppContentRecordList =
                                           snapshot.data!;
+
                                       // Return an empty Container when the item does not exist.
                                       if (snapshot.data!.isEmpty) {
                                         return Container();
@@ -839,6 +842,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                             }
                             List<AuthorizationRecord>
                                 columnAuthorizationRecordList = snapshot.data!;
+
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
@@ -885,6 +889,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     List<InsuranceNotiDataRecord>
                                         columnInsuranceNotiDataRecordList =
                                         snapshot.data!;
+
                                     final columnInsuranceNotiDataRecord =
                                         columnInsuranceNotiDataRecordList
                                                 .isNotEmpty
@@ -930,6 +935,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 List<BuildVersionRecord>
                                                     signinButtonBuildVersionRecordList =
                                                     snapshot.data!;
+
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();
@@ -994,6 +1000,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       List<InsuranceLicenseDataRecord>
                                                           columnInsuranceLicenseDataRecordList =
                                                           snapshot.data!;
+
                                                       // Return an empty Container when the item does not exist.
                                                       if (snapshot
                                                           .data!.isEmpty) {
@@ -1059,6 +1066,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       buttonSplashPageImgRecordList =
                                                                       snapshot
                                                                           .data!;
+
                                                                   // Return an empty Container when the item does not exist.
                                                                   if (snapshot
                                                                       .data!

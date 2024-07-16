@@ -386,6 +386,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                                         (_model.tpbAPIOutput?.jsonBody ?? ''),
                                       )?.toList() ??
                                       [];
+
                               return ListView.builder(
                                 padding: EdgeInsets.zero,
                                 shrinkWrap: true,

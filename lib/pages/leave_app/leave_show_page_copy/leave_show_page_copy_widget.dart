@@ -271,6 +271,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                           ''),
                                     )?.toList() ??
                                     [];
+
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,
@@ -1899,6 +1900,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                           ''),
                                     )?.toList() ??
                                     [];
+
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,
@@ -1995,6 +1997,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                 List<LeavePageDataRecord>
                                                     columnPlusLeavePageDataRecordList =
                                                     snapshot.data!;
+
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();

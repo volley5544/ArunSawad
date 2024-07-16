@@ -134,6 +134,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
         }
         List<LeavePageDataRecord> addResignPageCopyLeavePageDataRecordList =
             snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();

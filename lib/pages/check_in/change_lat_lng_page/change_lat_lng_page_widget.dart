@@ -658,6 +658,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                   List<BranchLocationRecord>
                                       buttonBranchLocationRecordList =
                                       snapshot.data!;
+
                                   final buttonBranchLocationRecord =
                                       buttonBranchLocationRecordList.isNotEmpty
                                           ? buttonBranchLocationRecordList.first

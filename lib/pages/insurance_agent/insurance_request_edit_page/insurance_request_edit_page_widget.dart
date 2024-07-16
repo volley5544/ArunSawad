@@ -158,67 +158,67 @@ class _InsuranceRequestEditPageWidgetState
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'InsuranceRequestEditPage'});
     _model.insuranceLicenseNoInputTextController ??=
-        TextEditingController(text: widget.oldVmiPolicyNumber);
+        TextEditingController(text: widget!.oldVmiPolicyNumber);
     _model.insuranceLicenseNoInputFocusNode ??= FocusNode();
 
     _model.freezeBoxPriceInputTextController ??=
-        TextEditingController(text: widget.carrierPrice);
+        TextEditingController(text: widget!.carrierPrice);
     _model.freezeBoxPriceInputFocusNode ??= FocusNode();
 
     _model.brandInputTextController ??=
-        TextEditingController(text: widget.brandName);
+        TextEditingController(text: widget!.brandName);
     _model.brandInputFocusNode ??= FocusNode();
 
     _model.modelInputTextController ??=
-        TextEditingController(text: widget.modelName);
+        TextEditingController(text: widget!.modelName);
     _model.modelInputFocusNode ??= FocusNode();
 
     _model.truckCurrentPriceInputTextController ??=
-        TextEditingController(text: widget.truckCurrentPrice);
+        TextEditingController(text: widget!.truckCurrentPrice);
     _model.truckCurrentPriceInputFocusNode ??= FocusNode();
 
     _model.plateInputTextController ??=
-        TextEditingController(text: widget.plateNo);
+        TextEditingController(text: widget!.plateNo);
     _model.plateInputFocusNode ??= FocusNode();
 
     _model.plateAdditionalInputTextController ??=
-        TextEditingController(text: widget.trailerPlateNo);
+        TextEditingController(text: widget!.trailerPlateNo);
     _model.plateAdditionalInputFocusNode ??= FocusNode();
 
     _model.logistPoposeInputTextController ??=
-        TextEditingController(text: widget.carrierPropose);
+        TextEditingController(text: widget!.carrierPropose);
     _model.logistPoposeInputFocusNode ??= FocusNode();
 
     _model.accessoryProtectedInputTextController ??=
-        TextEditingController(text: widget.decorationDetail);
+        TextEditingController(text: widget!.decorationDetail);
     _model.accessoryProtectedInputFocusNode ??= FocusNode();
 
     _model.nameInputTextController ??=
-        TextEditingController(text: widget.firstname);
+        TextEditingController(text: widget!.firstname);
     _model.nameInputFocusNode ??= FocusNode();
 
     _model.lastnameInputTextController ??=
-        TextEditingController(text: widget.lastname);
+        TextEditingController(text: widget!.lastname);
     _model.lastnameInputFocusNode ??= FocusNode();
 
     _model.phoneInputTextController ??=
-        TextEditingController(text: widget.phoneNumber);
+        TextEditingController(text: widget!.phoneNumber);
     _model.phoneInputFocusNode ??= FocusNode();
 
     _model.idInputTextController ??=
-        TextEditingController(text: widget.idCardNumber);
+        TextEditingController(text: widget!.idCardNumber);
     _model.idInputFocusNode ??= FocusNode();
 
     _model.remarkInputTextController ??=
-        TextEditingController(text: widget.remark);
+        TextEditingController(text: widget!.remark);
     _model.remarkInputFocusNode ??= FocusNode();
 
     _model.sumInsuredInputTextController ??=
-        TextEditingController(text: widget.sumInsured);
+        TextEditingController(text: widget!.sumInsured);
     _model.sumInsuredInputFocusNode ??= FocusNode();
 
     _model.trailerSumInsuredInputTextController ??=
-        TextEditingController(text: widget.trailerSumInsured);
+        TextEditingController(text: widget!.trailerSumInsured);
     _model.trailerSumInsuredInputFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -320,7 +320,7 @@ class _InsuranceRequestEditPageWidgetState
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         FlutterFlowRadioButton(
-                          options: widget.insurerNameList!.toList(),
+                          options: widget!.insurerNameList!.toList(),
                           onChanged: (val) => setState(() {}),
                           controller: _model.radioButtonValueController ??=
                               FormFieldController<String>(null),
@@ -447,7 +447,7 @@ class _InsuranceRequestEditPageWidgetState
                                   ),
                             ),
                           ),
-                          if (widget.carType != 'รถบรรทุก หัวลาก หางพ่วง')
+                          if (widget!.carType != 'รถบรรทุก หัวลาก หางพ่วง')
                             Container(
                               width: double.infinity,
                               height: 315.0,
@@ -1801,7 +1801,7 @@ class _InsuranceRequestEditPageWidgetState
                                 ),
                               ),
                             ),
-                          if (widget.carType != 'รถบรรทุก หัวลาก หางพ่วง')
+                          if (widget!.carType != 'รถบรรทุก หัวลาก หางพ่วง')
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
@@ -1874,9 +1874,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageFront?[functions
+                                              if ((widget!.imageFront?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -1931,10 +1931,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageFront?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageFront?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -2045,9 +2045,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRightFront?[functions
+                                              if ((widget!.imageRightFront?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -2102,10 +2102,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRightFront?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRightFront?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -2216,9 +2216,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRight?[functions
+                                              if ((widget!.imageRight?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -2273,10 +2273,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRight?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRight?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRight?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -2387,9 +2387,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRightRear?[functions
+                                              if ((widget!.imageRightRear?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -2444,10 +2444,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRightRear?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRightRear?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -2558,9 +2558,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRear?[functions
+                                              if ((widget!.imageRear?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -2615,10 +2615,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRear?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRear?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -2729,9 +2729,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeftRear?[functions
+                                              if ((widget!.imageLeftRear?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -2786,10 +2786,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeftRear?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageLeftRear?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -2900,9 +2900,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeft?[functions
+                                              if ((widget!.imageLeft?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -2957,11 +2957,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeft?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) ==
+                                                                      imageUrl: (widget!.imageLeft?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) ==
                                                                               ''
                                                                           ? 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949'
-                                                                          : functions.stringToImgPath(widget.imageLeft?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          : functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!,
                                                                     ),
                                                                   ),
@@ -3071,9 +3071,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeftFront?[functions
+                                              if ((widget!.imageLeftFront?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -3128,10 +3128,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeftFront?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageLeftFront?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -3242,9 +3242,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRoof?[functions
+                                              if ((widget!.imageRoof?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -3299,10 +3299,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRoof?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRoof?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRoof?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRoof?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -3371,7 +3371,7 @@ class _InsuranceRequestEditPageWidgetState
                                 ),
                               ),
                             ),
-                          if (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง')
+                          if (widget!.carType == 'รถบรรทุก หัวลาก หางพ่วง')
                             Container(
                               width: double.infinity,
                               height: 315.0,
@@ -4586,7 +4586,7 @@ class _InsuranceRequestEditPageWidgetState
                                 ),
                               ),
                             ),
-                          if (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง')
+                          if (widget!.carType == 'รถบรรทุก หัวลาก หางพ่วง')
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
@@ -4659,9 +4659,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageFront?[functions
+                                              if ((widget!.imageFront?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -4716,10 +4716,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageFront?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageFront?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -4830,9 +4830,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRightFront?[functions
+                                              if ((widget!.imageRightFront?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -4887,10 +4887,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRightFront?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRightFront?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -5001,9 +5001,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRight?[functions
+                                              if ((widget!.imageRight?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -5058,10 +5058,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRight?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRight?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRight?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -5172,9 +5172,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRightRear?[functions
+                                              if ((widget!.imageRightRear?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -5229,10 +5229,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRightRear?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRightRear?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -5343,9 +5343,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRear?[functions
+                                              if ((widget!.imageRear?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -5400,10 +5400,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRear?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRear?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -5514,9 +5514,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeftRear?[functions
+                                              if ((widget!.imageLeftRear?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -5571,10 +5571,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeftRear?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageLeftRear?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -5685,9 +5685,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeft?[functions
+                                              if ((widget!.imageLeft?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -5742,11 +5742,11 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeft?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) ==
+                                                                      imageUrl: (widget!.imageLeft?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) ==
                                                                               ''
                                                                           ? 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949'
-                                                                          : functions.stringToImgPath(widget.imageLeft?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          : functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!,
                                                                     ),
                                                                   ),
@@ -5856,9 +5856,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeftFront?[functions
+                                              if ((widget!.imageLeftFront?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -5913,10 +5913,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeftFront?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageLeftFront?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -5985,8 +5985,8 @@ class _InsuranceRequestEditPageWidgetState
                                 ),
                               ),
                             ),
-                          if ((widget.truckPart == 'หัวลาก + หางพ่วง') &&
-                              (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง'))
+                          if ((widget!.truckPart == 'หัวลาก + หางพ่วง') &&
+                              (widget!.carType == 'รถบรรทุก หัวลาก หางพ่วง'))
                             Container(
                               width: double.infinity,
                               height: 315.0,
@@ -7201,8 +7201,8 @@ class _InsuranceRequestEditPageWidgetState
                                 ),
                               ),
                             ),
-                          if ((widget.truckPart == 'หัวลาก + หางพ่วง') &&
-                              (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง'))
+                          if ((widget!.truckPart == 'หัวลาก + หางพ่วง') &&
+                              (widget!.carType == 'รถบรรทุก หัวลาก หางพ่วง'))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
@@ -7275,9 +7275,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageFrontTrailer?[functions
+                                              if ((widget!.imageFrontTrailer?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -7332,10 +7332,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageFrontTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageFrontTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -7446,9 +7446,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRightFrontTrailer?[
+                                              if ((widget!.imageRightFrontTrailer?[
                                                           functions.getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -7503,10 +7503,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRightFrontTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRightFrontTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRightFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -7617,9 +7617,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRightTrailer?[functions
+                                              if ((widget!.imageRightTrailer?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -7674,10 +7674,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRightTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRightTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRightTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -7788,9 +7788,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRightRearTrailer?[
+                                              if ((widget!.imageRightRearTrailer?[
                                                           functions.getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -7845,10 +7845,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRightRearTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRightRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRightRearTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRightRearTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -7959,9 +7959,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageRearTrailer?[functions
+                                              if ((widget!.imageRearTrailer?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -8016,10 +8016,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageRearTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageRearTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageRearTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -8130,9 +8130,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeftRearTrailer?[
+                                              if ((widget!.imageLeftRearTrailer?[
                                                           functions.getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -8187,10 +8187,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeftRearTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageLeftRearTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageLeftRearTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -8301,9 +8301,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeftTrailer?[functions
+                                              if ((widget!.imageLeftTrailer?[functions
                                                           .getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -8358,10 +8358,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeftTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageLeftTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageLeftTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -8472,9 +8472,9 @@ class _InsuranceRequestEditPageWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((widget.imageLeftFrontTrailer?[
+                                              if ((widget!.imageLeftFrontTrailer?[
                                                           functions.getIndexOfSomethingList(
-                                                              widget
+                                                              widget!
                                                                   .insurerNameList
                                                                   ?.toList(),
                                                               _model
@@ -8529,10 +8529,10 @@ class _InsuranceRequestEditPageWidgetState
                                                                         .infinity,
                                                                     child:
                                                                         ShowImageComponentWidget(
-                                                                      imageUrl: (widget.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(widget.insurerNameList?.toList(), _model.radioButtonValue)]) !=
+                                                                      imageUrl: (widget!.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList?.toList(),
+                                                                          ? functions.stringToImgPath(widget!.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList?.toList(),
                                                                               _model.radioButtonValue)])!
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
@@ -8848,7 +8848,7 @@ class _InsuranceRequestEditPageWidgetState
                                                           -0.35, -0.09),
                                                   child: SelectionArea(
                                                       child: Text(
-                                                    widget.customerType ==
+                                                    widget!.customerType ==
                                                             'บุคคลธรรมดา'
                                                         ? 'สำเนาบัตรประชาชนผู้เอาประกัน :*'
                                                         : 'หนังสือจดทะเบียนบริษัท+บัตรประชาชนกรรมการ :*',
@@ -10043,9 +10043,9 @@ class _InsuranceRequestEditPageWidgetState
                                             ),
                                           ),
                                         ),
-                                        if ((widget.imageBlueBook?[functions
+                                        if ((widget!.imageBlueBook?[functions
                                                     .getIndexOfSomethingList(
-                                                        widget.insurerNameList
+                                                        widget!.insurerNameList
                                                             ?.toList(),
                                                         _model
                                                             .radioButtonValue)]) !=
@@ -10093,14 +10093,14 @@ class _InsuranceRequestEditPageWidgetState
                                                                   .infinity,
                                                               child:
                                                                   ShowImageComponentWidget(
-                                                                imageUrl: (widget.imageBlueBook?[functions.getIndexOfSomethingList(
-                                                                            widget.insurerNameList
+                                                                imageUrl: (widget!.imageBlueBook?[functions.getIndexOfSomethingList(
+                                                                            widget!.insurerNameList
                                                                                 ?.toList(),
                                                                             _model
                                                                                 .radioButtonValue)]) !=
                                                                         ''
-                                                                    ? functions.stringToImgPath(widget.imageBlueBook?[functions.getIndexOfSomethingList(
-                                                                        widget
+                                                                    ? functions.stringToImgPath(widget!.imageBlueBook?[functions.getIndexOfSomethingList(
+                                                                        widget!
                                                                             .insurerNameList
                                                                             ?.toList(),
                                                                         _model
@@ -10208,9 +10208,10 @@ class _InsuranceRequestEditPageWidgetState
                                               ),
                                             ),
                                           ),
-                                          if ((widget.imageIdCard?[functions
+                                          if ((widget!.imageIdCard?[functions
                                                       .getIndexOfSomethingList(
-                                                          widget.insurerNameList
+                                                          widget!
+                                                              .insurerNameList
                                                               ?.toList(),
                                                           _model
                                                               .radioButtonValue)]) !=
@@ -10262,14 +10263,14 @@ class _InsuranceRequestEditPageWidgetState
                                                                     .infinity,
                                                                 child:
                                                                     ShowImageComponentWidget(
-                                                                  imageUrl: (widget.imageIdCard?[functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList
+                                                                  imageUrl: (widget!.imageIdCard?[functions.getIndexOfSomethingList(
+                                                                              widget!.insurerNameList
                                                                                   ?.toList(),
                                                                               _model
                                                                                   .radioButtonValue)]) !=
                                                                           ''
-                                                                      ? functions.stringToImgPath(widget.imageIdCard?[functions.getIndexOfSomethingList(
-                                                                          widget
+                                                                      ? functions.stringToImgPath(widget!.imageIdCard?[functions.getIndexOfSomethingList(
+                                                                          widget!
                                                                               .insurerNameList
                                                                               ?.toList(),
                                                                           _model
@@ -10333,19 +10334,19 @@ class _InsuranceRequestEditPageWidgetState
                                     ),
                                   ),
                                 ),
-                                if (widget.insurerNameList!.length > 1
+                                if (widget!.insurerNameList!.length > 1
                                     ? (functions
                                             .returnListInList(
-                                                widget.imageOther?.toList(),
+                                                widget!.imageOther?.toList(),
                                                 functions
                                                     .getIndexOfSomethingList(
-                                                        widget.insurerNameList
+                                                        widget!.insurerNameList
                                                             ?.toList(),
                                                         _model
                                                             .radioButtonValue))
                                             .length >
                                         0)
-                                    : (widget.imageOther!.length > 0))
+                                    : (widget!.imageOther!.length > 0))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
@@ -10428,20 +10429,20 @@ class _InsuranceRequestEditPageWidgetState
                                                                     .infinity,
                                                                 child:
                                                                     ShowImageListComponentWidget(
-                                                                  imageUrl: widget
+                                                                  imageUrl: widget!
                                                                               .insurerNameList!
                                                                               .length >
                                                                           1
                                                                       ? functions.returnListInList(
-                                                                          widget
+                                                                          widget!
                                                                               .imageOther
                                                                               ?.toList(),
                                                                           functions.getIndexOfSomethingList(
-                                                                              widget.insurerNameList
+                                                                              widget!.insurerNameList
                                                                                   ?.toList(),
                                                                               _model
                                                                                   .radioButtonValue))
-                                                                      : widget
+                                                                      : widget!
                                                                           .imageOther!
                                                                           .map((e) =>
                                                                               e.toString())
@@ -10912,47 +10913,47 @@ class _InsuranceRequestEditPageWidgetState
                                         _model.insuranceEditApi =
                                             await InsuranceRequestEditAPICall
                                                 .call(
-                                          leadId: widget.leadId,
-                                          leadNo: widget.leadNo,
-                                          insurerShortName: widget
+                                          leadId: widget!.leadId,
+                                          leadNo: widget!.leadNo,
+                                          insurerShortName: widget!
                                                   .insurerShortNameList?[
                                               functions.getIndexOfSomethingList(
-                                                  widget.insurerNameList
+                                                  widget!.insurerNameList
                                                       ?.toList(),
                                                   _model.radioButtonValue)],
-                                          imageFront: widget.carType ==
+                                          imageFront: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile10
                                               : _model.uploadedLocalFile1,
-                                          imageRear: widget.carType ==
+                                          imageRear: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile14
                                               : _model.uploadedLocalFile5,
-                                          imageLeft: widget.carType ==
+                                          imageLeft: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile16
                                               : _model.uploadedLocalFile7,
-                                          imageRight: widget.carType ==
+                                          imageRight: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile12
                                               : _model.uploadedLocalFile3,
-                                          imageRightfront: widget.carType ==
+                                          imageRightfront: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile11
                                               : _model.uploadedLocalFile2,
-                                          imageRightrear: widget.carType ==
+                                          imageRightrear: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile13
                                               : _model.uploadedLocalFile4,
-                                          imageLeftfront: widget.carType ==
+                                          imageLeftfront: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile17
                                               : _model.uploadedLocalFile8,
-                                          imageLeftrear: widget.carType ==
+                                          imageLeftrear: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile15
                                               : _model.uploadedLocalFile6,
-                                          imageRoof: widget.carType ==
+                                          imageRoof: widget!.carType ==
                                                   'รถบรรทุก หัวลาก หางพ่วง'
                                               ? _model.uploadedLocalFile9
                                               : _model.uploadedLocalFile9,
@@ -10988,10 +10989,10 @@ class _InsuranceRequestEditPageWidgetState
                                               _model.uploadedLocalFile25,
                                           apiUrl: FFAppState().apiUrlInsurance,
                                           token: FFAppState().accessToken,
-                                          imageOtherName: widget
+                                          imageOtherName: widget!
                                                   .imageOtherName?[
                                               functions.getIndexOfSomethingList(
-                                                  widget.insurerNameList
+                                                  widget!.insurerNameList
                                                       ?.toList(),
                                                   _model.radioButtonValue)],
                                         );
@@ -11205,7 +11206,7 @@ class _InsuranceRequestEditPageWidgetState
                                                   .operationChoiceChipsValueController ??=
                                               FormFieldController<List<String>>(
                                             [
-                                              widget.flagRenew == '0'
+                                              widget!.flagRenew == '0'
                                                   ? 'งานใหม่          '
                                                   : 'งานต่ออายุ      '
                                             ],
@@ -11284,7 +11285,7 @@ class _InsuranceRequestEditPageWidgetState
                                                   .customerTypeChoiceChipsValueController ??=
                                               FormFieldController<List<String>>(
                                             [
-                                              widget.customerType ==
+                                              widget!.customerType ==
                                                       'บุคคลธรรมดา'
                                                   ? 'บุคคลธรรมดา'
                                                   : 'นิติบุคคล         '
@@ -11297,7 +11298,7 @@ class _InsuranceRequestEditPageWidgetState
                                   ),
                                 ),
                                 if (functions.returnStringWithNoSpace(
-                                        widget.flagRenew == '0'
+                                        widget!.flagRenew == '0'
                                             ? 'งานใหม่          '
                                             : 'งานต่ออายุ      ') ==
                                     'งานต่ออายุ')
@@ -11330,7 +11331,7 @@ class _InsuranceRequestEditPageWidgetState
                                     ),
                                   ),
                                 if (functions.returnStringWithNoSpace(
-                                        widget.flagRenew == '0'
+                                        widget!.flagRenew == '0'
                                             ? 'งานใหม่          '
                                             : 'งานต่ออายุ      ') ==
                                     'งานต่ออายุ')
@@ -11478,7 +11479,7 @@ class _InsuranceRequestEditPageWidgetState
                                               .vehicleTypeDropDownValueController ??=
                                           FormFieldController<String>(
                                         _model.vehicleTypeDropDownValue ??=
-                                            widget.carType,
+                                            widget!.carType,
                                       ),
                                       options: [
                                         'รถเก๋ง',
@@ -11518,7 +11519,8 @@ class _InsuranceRequestEditPageWidgetState
                                     ),
                                   ),
                                 ),
-                                if (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง')
+                                if (widget!.carType ==
+                                    'รถบรรทุก หัวลาก หางพ่วง')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 20.0, 10.0, 10.0),
@@ -11592,9 +11594,10 @@ class _InsuranceRequestEditPageWidgetState
                                                 FormFieldController<
                                                     List<String>>(
                                               [
-                                                widget.customerMemberchip == '-'
+                                                widget!.customerMemberchip ==
+                                                        '-'
                                                     ? 'ลูกค้าสินเชื่อ'
-                                                    : (widget.customerMemberchip ==
+                                                    : (widget!.customerMemberchip ==
                                                             'ลูกค้าสินเชื่อ'
                                                         ? 'ลูกค้าสินเชื่อ'
                                                         : 'ลูกค้านอก      ')
@@ -11607,7 +11610,7 @@ class _InsuranceRequestEditPageWidgetState
                                     ),
                                   ),
                                 if (valueOrDefault<bool>(
-                                  widget.carType == 'รถบรรทุก หัวลาก หางพ่วง',
+                                  widget!.carType == 'รถบรรทุก หัวลาก หางพ่วง',
                                   false,
                                 ))
                                   Padding(
@@ -11630,11 +11633,11 @@ class _InsuranceRequestEditPageWidgetState
                                               : (val) => setState(() {}),
                                           controller: _model
                                                   .truckPartRadioButtonValueController ??=
-                                              FormFieldController<String>(widget
-                                                          .truckPart ==
+                                              FormFieldController<
+                                                  String>(widget!.truckPart ==
                                                       '-'
                                                   ? 'เฉพาะหัวลาก'
-                                                  : (widget.truckPart == '0'
+                                                  : (widget!.truckPart == '0'
                                                       ? 'เฉพาะหัวลาก'
                                                       : 'หัวลาก + หางพ่วง')),
                                           optionHeight: 32.0,
@@ -11673,7 +11676,7 @@ class _InsuranceRequestEditPageWidgetState
                                     ),
                                   ),
                                 if (valueOrDefault<bool>(
-                                  widget.carType == 'รถกระบะ',
+                                  widget!.carType == 'รถกระบะ',
                                   false,
                                 ))
                                   Padding(
@@ -11725,9 +11728,9 @@ class _InsuranceRequestEditPageWidgetState
                                             ),
                                             child: Checkbox(
                                               value: _model.boxCheckboxValue ??=
-                                                  widget.flagCarrier == '-'
+                                                  widget!.flagCarrier == '-'
                                                       ? false
-                                                      : (widget.flagCarrier ==
+                                                      : (widget!.flagCarrier ==
                                                               '0'
                                                           ? false
                                                           : true),
@@ -11737,27 +11740,25 @@ class _InsuranceRequestEditPageWidgetState
                                                         newValue!);
                                                 if (newValue!) {
                                                   setState(() {
-                                                    _model
-                                                        .boxCheckboxValue = (widget
-                                                                .flagCarrier ==
-                                                            '-'
-                                                        ? false
-                                                        : (widget.flagCarrier ==
-                                                                '0'
+                                                    _model.boxCheckboxValue =
+                                                        (widget!.flagCarrier ==
+                                                                '-'
                                                             ? false
-                                                            : true));
+                                                            : (widget!.flagCarrier ==
+                                                                    '0'
+                                                                ? false
+                                                                : true));
                                                   });
                                                 } else {
                                                   setState(() {
-                                                    _model
-                                                        .boxCheckboxValue = (widget
-                                                                .flagCarrier ==
-                                                            '-'
-                                                        ? false
-                                                        : (widget.flagCarrier ==
-                                                                '0'
+                                                    _model.boxCheckboxValue =
+                                                        (widget!.flagCarrier ==
+                                                                '-'
                                                             ? false
-                                                            : true));
+                                                            : (widget!.flagCarrier ==
+                                                                    '0'
+                                                                ? false
+                                                                : true));
                                                   });
                                                 }
                                               },
@@ -11778,13 +11779,13 @@ class _InsuranceRequestEditPageWidgetState
                                     ),
                                   ),
                                 if (valueOrDefault<bool>(
-                                  (widget.flagCarrier == '-'
+                                  (widget!.flagCarrier == '-'
                                           ? false
-                                          : (widget.flagCarrier == '0'
+                                          : (widget!.flagCarrier == '0'
                                               ? false
                                               : true)) &&
                                       valueOrDefault<bool>(
-                                        widget.carType == 'รถกระบะ',
+                                        widget!.carType == 'รถกระบะ',
                                         false,
                                       ),
                                   false,
@@ -11839,9 +11840,9 @@ class _InsuranceRequestEditPageWidgetState
                                             child: Checkbox(
                                               value: _model
                                                       .coopCheckboxValue ??=
-                                                  widget.flagCoop == '-'
+                                                  widget!.flagCoop == '-'
                                                       ? false
-                                                      : (widget.flagCoop == '0'
+                                                      : (widget!.flagCoop == '0'
                                                           ? false
                                                           : true),
                                               onChanged: (newValue) async {
@@ -11851,9 +11852,9 @@ class _InsuranceRequestEditPageWidgetState
                                                 if (newValue!) {
                                                   setState(() {
                                                     _model.coopCheckboxValue =
-                                                        (widget.flagCoop == '-'
+                                                        (widget!.flagCoop == '-'
                                                             ? false
-                                                            : (widget.flagCoop ==
+                                                            : (widget!.flagCoop ==
                                                                     '0'
                                                                 ? false
                                                                 : true));
@@ -11861,9 +11862,9 @@ class _InsuranceRequestEditPageWidgetState
                                                 } else {
                                                   setState(() {
                                                     _model.coopCheckboxValue =
-                                                        (widget.flagCoop == '-'
+                                                        (widget!.flagCoop == '-'
                                                             ? false
-                                                            : (widget.flagCoop ==
+                                                            : (widget!.flagCoop ==
                                                                     '0'
                                                                 ? false
                                                                 : true));
@@ -11886,12 +11887,12 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if ((widget.flagCarrier == '-'
+                                if ((widget!.flagCarrier == '-'
                                         ? false
-                                        : (widget.flagCarrier == '0'
+                                        : (widget!.flagCarrier == '0'
                                             ? false
                                             : true)) &&
-                                    (widget.carType == 'รถกระบะ'))
+                                    (widget!.carType == 'รถกระบะ'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 10.0, 10.0),
@@ -11974,9 +11975,9 @@ class _InsuranceRequestEditPageWidgetState
                                                 FormFieldController<
                                                     List<String>>(
                                               [
-                                                widget.carrierType == '-'
+                                                widget!.carrierType == '-'
                                                     ? 'ตู้แห้ง'
-                                                    : (widget.carrierType ==
+                                                    : (widget!.carrierType ==
                                                             'ตู้แห้ง'
                                                         ? 'ตู้แห้ง'
                                                         : 'ตู้เย็น')
@@ -11988,13 +11989,13 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if ((widget.flagCarrier == '-'
+                                if ((widget!.flagCarrier == '-'
                                         ? false
-                                        : (widget.flagCarrier == '0'
+                                        : (widget!.flagCarrier == '0'
                                             ? false
                                             : true)) &&
-                                    (widget.carType == 'รถกระบะ') &&
-                                    (widget.carrierType == 'ตู้เย็น'))
+                                    (widget!.carType == 'รถกระบะ') &&
+                                    (widget!.carrierType == 'ตู้เย็น'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 10.0, 10.0, 10.0),
@@ -12023,13 +12024,13 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if ((widget.flagCarrier == '-'
+                                if ((widget!.flagCarrier == '-'
                                         ? false
-                                        : (widget.flagCarrier == '0'
+                                        : (widget!.flagCarrier == '0'
                                             ? false
                                             : true)) &&
-                                    (widget.carType == 'รถกระบะ') &&
-                                    (widget.carrierType == 'ตู้เย็น'))
+                                    (widget!.carType == 'รถกระบะ') &&
+                                    (widget!.carrierType == 'ตู้เย็น'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 15.0, 5.0),
@@ -12392,7 +12393,8 @@ class _InsuranceRequestEditPageWidgetState
                                     ],
                                   ),
                                 ),
-                                if (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง')
+                                if (widget!.carType ==
+                                    'รถบรรทุก หัวลาก หางพ่วง')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 10.0, 10.0),
@@ -12421,7 +12423,8 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง')
+                                if (widget!.carType ==
+                                    'รถบรรทุก หัวลาก หางพ่วง')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 15.0, 5.0),
@@ -12529,7 +12532,7 @@ class _InsuranceRequestEditPageWidgetState
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
-                                      if (widget.carType !=
+                                      if (widget!.carType !=
                                           'รถบรรทุก หัวลาก หางพ่วง')
                                         RichText(
                                           textScaler:
@@ -12569,7 +12572,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 ),
                                           ),
                                         ),
-                                      if (widget.carType ==
+                                      if (widget!.carType ==
                                           'รถบรรทุก หัวลาก หางพ่วง')
                                         RichText(
                                           textScaler:
@@ -12722,11 +12725,11 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if ((widget.carType ==
+                                if ((widget!.carType ==
                                         'รถบรรทุก หัวลาก หางพ่วง') &&
-                                    ((widget.truckPart == '-'
+                                    ((widget!.truckPart == '-'
                                             ? 'เฉพาะหัวลาก'
-                                            : (widget.truckPart == '0'
+                                            : (widget!.truckPart == '0'
                                                 ? 'เฉพาะหัวลาก'
                                                 : 'หัวลาก + หางพ่วง')) ==
                                         'หัวลาก + หางพ่วง'))
@@ -12758,11 +12761,11 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if ((widget.carType ==
+                                if ((widget!.carType ==
                                         'รถบรรทุก หัวลาก หางพ่วง') &&
-                                    ((widget.truckPart == '-'
+                                    ((widget!.truckPart == '-'
                                             ? 'เฉพาะหัวลาก'
-                                            : (widget.truckPart == '0'
+                                            : (widget!.truckPart == '0'
                                                 ? 'เฉพาะหัวลาก'
                                                 : 'หัวลาก + หางพ่วง')) ==
                                         'หัวลาก + หางพ่วง'))
@@ -12916,7 +12919,7 @@ class _InsuranceRequestEditPageWidgetState
                                           _model.yearDropDownValueController ??=
                                               FormFieldController<String>(
                                         _model.yearDropDownValue ??=
-                                            (int.parse((widget.year!)) + 543)
+                                            (int.parse((widget!.year!)) + 543)
                                                 .toString(),
                                       ),
                                       options: functions.ganerateYearList(
@@ -12988,7 +12991,7 @@ class _InsuranceRequestEditPageWidgetState
                                                   .provinceDropDownValueController ??=
                                               FormFieldController<String>(
                                             _model.provinceDropDownValue ??=
-                                                widget.provinceName,
+                                                widget!.provinceName,
                                           ),
                                           options: FFAppState()
                                               .insuranceBasicProvinceNameList,
@@ -13091,7 +13094,7 @@ class _InsuranceRequestEditPageWidgetState
                                                     FFAppState()
                                                         .insuranceBasicVehicleUsedTypeNameList
                                                         .toList(),
-                                                    widget.vehicleTypeCode),
+                                                    widget!.vehicleTypeCode),
                                           ),
                                           options: functions
                                               .generateInsuranceVehicleTypeDropdown(
@@ -13136,7 +13139,8 @@ class _InsuranceRequestEditPageWidgetState
                                     ],
                                   ),
                                 ),
-                                if (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง')
+                                if (widget!.carType ==
+                                    'รถบรรทุก หัวลาก หางพ่วง')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 10.0, 10.0, 10.0),
@@ -13165,7 +13169,8 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง')
+                                if (widget!.carType ==
+                                    'รถบรรทุก หัวลาก หางพ่วง')
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 15.0, 5.0),
@@ -13306,9 +13311,9 @@ class _InsuranceRequestEditPageWidgetState
                                         child: Checkbox(
                                           value: _model
                                                   .carModifyCheckboxValue ??=
-                                              widget.flagDecoration == '-'
+                                              widget!.flagDecoration == '-'
                                                   ? false
-                                                  : (widget.flagDecoration ==
+                                                  : (widget!.flagDecoration ==
                                                           '0'
                                                       ? false
                                                       : true),
@@ -13319,10 +13324,10 @@ class _InsuranceRequestEditPageWidgetState
                                             if (newValue!) {
                                               setState(() {
                                                 _model.carModifyCheckboxValue =
-                                                    (widget.flagDecoration ==
+                                                    (widget!.flagDecoration ==
                                                             '-'
                                                         ? false
-                                                        : (widget.flagDecoration ==
+                                                        : (widget!.flagDecoration ==
                                                                 '0'
                                                             ? false
                                                             : true));
@@ -13330,10 +13335,10 @@ class _InsuranceRequestEditPageWidgetState
                                             } else {
                                               setState(() {
                                                 _model.carModifyCheckboxValue =
-                                                    (widget.flagDecoration ==
+                                                    (widget!.flagDecoration ==
                                                             '-'
                                                         ? false
-                                                        : (widget.flagDecoration ==
+                                                        : (widget!.flagDecoration ==
                                                                 '0'
                                                             ? false
                                                             : true));
@@ -13354,9 +13359,9 @@ class _InsuranceRequestEditPageWidgetState
                                     ],
                                   ),
                                 ),
-                                if (widget.flagDecoration == '-'
+                                if (widget!.flagDecoration == '-'
                                     ? false
-                                    : (widget.flagDecoration == '0'
+                                    : (widget!.flagDecoration == '0'
                                         ? false
                                         : true))
                                   Padding(
@@ -13387,9 +13392,9 @@ class _InsuranceRequestEditPageWidgetState
                                       ],
                                     ),
                                   ),
-                                if (widget.flagDecoration == '-'
+                                if (widget!.flagDecoration == '-'
                                     ? false
-                                    : (widget.flagDecoration == '0'
+                                    : (widget!.flagDecoration == '0'
                                         ? false
                                         : true))
                                   Padding(
@@ -13503,7 +13508,7 @@ class _InsuranceRequestEditPageWidgetState
                                             AlignmentDirectional(-0.35, -0.09),
                                         child: SelectionArea(
                                             child: Text(
-                                          (widget.customerType == 'บุคคลธรรมดา'
+                                          (widget!.customerType == 'บุคคลธรรมดา'
                                                       ? 'บุคคลธรรมดา'
                                                       : 'นิติบุคคล         ') ==
                                                   'บุคคลธรรมดา'
@@ -13623,7 +13628,7 @@ class _InsuranceRequestEditPageWidgetState
                                             AlignmentDirectional(-0.35, -0.09),
                                         child: SelectionArea(
                                             child: Text(
-                                          (widget.customerType == 'บุคคลธรรมดา'
+                                          (widget!.customerType == 'บุคคลธรรมดา'
                                                       ? 'บุคคลธรรมดา'
                                                       : 'นิติบุคคล         ') ==
                                                   'บุคคลธรรมดา'
@@ -14112,7 +14117,7 @@ class _InsuranceRequestEditPageWidgetState
                                     FlutterFlowRadioButton(
                                       options: functions
                                           .generateListFromSingleString(
-                                              widget.coverTypeNameList)!
+                                              widget!.coverTypeNameList)!
                                           .toList(),
                                       onChanged: true
                                           ? null
@@ -14121,13 +14126,13 @@ class _InsuranceRequestEditPageWidgetState
                                               setState(() {
                                                 _model.insurerRadioButtonValueController
                                                         ?.value =
-                                                    widget.coverTypeNameList!;
+                                                    widget!.coverTypeNameList!;
                                               });
                                             },
                                       controller: _model
                                               .insurerRadioButtonValueController ??=
                                           FormFieldController<String>(
-                                              widget.coverTypeNameList!),
+                                              widget!.coverTypeNameList!),
                                       optionHeight: 32.0,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .labelMedium
@@ -14220,7 +14225,7 @@ class _InsuranceRequestEditPageWidgetState
                                                 .garageTypeChoiceChipsValueController ??=
                                             FormFieldController<List<String>>(
                                           [
-                                            widget.garageTypeName == 'ซ่อมอู่'
+                                            widget!.garageTypeName == 'ซ่อมอู่'
                                                 ? 'ซ่อมอู่    '
                                                 : 'ซ่อมห้าง'
                                           ],
@@ -14266,9 +14271,9 @@ class _InsuranceRequestEditPageWidgetState
                                       ),
                                       child: Checkbox(
                                         value: _model.flagActCheckboxValue ??=
-                                            widget.flagAct == '-'
+                                            widget!.flagAct == '-'
                                                 ? false
-                                                : (widget.flagAct == '0'
+                                                : (widget!.flagAct == '0'
                                                     ? false
                                                     : true),
                                         onChanged: (newValue) async {
@@ -14278,18 +14283,18 @@ class _InsuranceRequestEditPageWidgetState
                                           if (newValue!) {
                                             setState(() {
                                               _model.flagActCheckboxValue =
-                                                  (widget.flagAct == '-'
+                                                  (widget!.flagAct == '-'
                                                       ? false
-                                                      : (widget.flagAct == '0'
+                                                      : (widget!.flagAct == '0'
                                                           ? false
                                                           : true));
                                             });
                                           } else {
                                             setState(() {
                                               _model.flagActCheckboxValue =
-                                                  (widget.flagAct == '-'
+                                                  (widget!.flagAct == '-'
                                                       ? false
-                                                      : (widget.flagAct == '0'
+                                                      : (widget!.flagAct == '0'
                                                           ? false
                                                           : true));
                                             });
@@ -14318,7 +14323,7 @@ class _InsuranceRequestEditPageWidgetState
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Text(
-                                      widget.carType !=
+                                      widget!.carType !=
                                               'รถบรรทุก หัวลาก หางพ่วง'
                                           ? 'ทุนประกันที่ต้องการ (บาท) :'
                                           : 'ทุนประกันหัวลากที่ต้องการ (บาท) :',
@@ -14420,8 +14425,9 @@ class _InsuranceRequestEditPageWidgetState
                                   ],
                                 ),
                               ),
-                              if ((widget.truckPart == 'หัวลาก + หางพ่วง') &&
-                                  (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง'))
+                              if ((widget!.truckPart == 'หัวลาก + หางพ่วง') &&
+                                  (widget!.carType ==
+                                      'รถบรรทุก หัวลาก หางพ่วง'))
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 5.0, 15.0, 5.0),
@@ -14444,8 +14450,9 @@ class _InsuranceRequestEditPageWidgetState
                                     ],
                                   ),
                                 ),
-                              if ((widget.truckPart == 'หัวลาก + หางพ่วง') &&
-                                  (widget.carType == 'รถบรรทุก หัวลาก หางพ่วง'))
+                              if ((widget!.truckPart == 'หัวลาก + หางพ่วง') &&
+                                  (widget!.carType ==
+                                      'รถบรรทุก หัวลาก หางพ่วง'))
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 5.0, 15.0, 50.0),

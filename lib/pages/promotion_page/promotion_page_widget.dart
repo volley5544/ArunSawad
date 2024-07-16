@@ -153,6 +153,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                 List<PromotionimagesRecord>
                                     gridViewPromotionimagesRecordList =
                                     snapshot.data!;
+
                                 // Return an empty Container when the item does not exist.
                                 if (snapshot.data!.isEmpty) {
                                   return Container();
@@ -168,6 +169,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                         gridViewPromotionimagesRecord?.imgUrl
                                                 ?.toList() ??
                                             [];
+
                                     return GridView.builder(
                                       padding: EdgeInsets.zero,
                                       gridDelegate:

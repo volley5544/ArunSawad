@@ -372,7 +372,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                       token: FFAppState()
                                                                           .accessToken,
                                                                       leaveId:
-                                                                          widget
+                                                                          widget!
                                                                               .leaveId,
                                                                       reasonCancel: _model
                                                                           .reasonCancelTextController

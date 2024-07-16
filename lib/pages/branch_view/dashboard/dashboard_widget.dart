@@ -38,6 +38,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
   late DashboardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -49,6 +50,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Dashboard'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       if (!((FFAppState().employeeID == '31622') ||
           (FFAppState().employeeID == '33511') ||
           (FFAppState().employeeID == '32758') ||
@@ -75,6 +78,29 @@ class _DashboardWidgetState extends State<DashboardWidget>
         }
       }
 
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
       FFAppState().counterNum = 0;
       FFAppState().isFromTimesheetPage = false;
       FFAppState().update(() {});
@@ -94,6 +120,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
       FFAppState().materialImgList = [];
       FFAppState().materialNameList = [];
       FFAppState().update(() {});
+      Navigator.pop(context);
     });
 
     animationsMap.addAll({

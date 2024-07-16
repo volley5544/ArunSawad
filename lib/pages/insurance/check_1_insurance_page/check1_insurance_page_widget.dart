@@ -541,13 +541,13 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                               FFAppState().update(() {});
                               _model.packageSearchAPIOutput =
                                   await TelePackageSearchAPICall.call(
-                                brandCode: widget.brandCode,
-                                modelCode: widget.modelCode,
-                                year: widget.year,
-                                province: widget.province,
+                                brandCode: widget!.brandCode,
+                                modelCode: widget!.modelCode,
+                                year: widget!.year,
+                                province: widget!.province,
                                 carRegistration: '0000',
-                                driver: widget.driver,
-                                vehicleUsage: widget.vehicleUsage,
+                                driver: widget!.driver,
+                                vehicleUsage: widget!.vehicleUsage,
                                 companyIdList: FFAppState().insurerNameChosen,
                                 coverTypeList: FFAppState().coverTypeNameChosen,
                                 apiUrl: FFAppState().apiURLLocalState,

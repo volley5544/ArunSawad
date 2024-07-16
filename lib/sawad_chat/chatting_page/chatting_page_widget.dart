@@ -137,7 +137,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
             )
             .where(
               'user_b',
-              isEqualTo: widget.userBDocRef,
+              isEqualTo: widget!.userBDocRef,
             ),
         singleRecord: true,
       ),
@@ -160,6 +160,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
           );
         }
         List<ChatsRecord> chattingPageChatsRecordList = snapshot.data!;
+
         final chattingPageChatsRecord = chattingPageChatsRecordList.isNotEmpty
             ? chattingPageChatsRecordList.first
             : null;
@@ -188,7 +189,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                 ),
               ),
               title: Text(
-                '${widget.userBName} (${widget.userBNickname})',
+                '${widget!.userBName} (${widget!.userBNickname})',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Poppins',
                       color: Colors.white,
@@ -236,6 +237,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                           }
                           List<ChatMessagesRecord>
                               listViewChatMessagesRecordList = snapshot.data!;
+
                           if (listViewChatMessagesRecordList.isEmpty) {
                             return Center(
                               child: EmptyChatComponentWidget(),
@@ -283,7 +285,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 fadeOutDuration:
                                                     Duration(milliseconds: 500),
                                                 imageUrl:
-                                                    widget.userBProfileImage,
+                                                    widget!.userBProfileImage,
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -645,7 +647,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                       queryBuilder: (chatsRecord) => chatsRecord
                           .where(
                             'user_a',
-                            isEqualTo: widget.userBDocRef,
+                            isEqualTo: widget!.userBDocRef,
                           )
                           .where(
                             'user_b',
@@ -669,6 +671,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                         );
                       }
                       List<ChatsRecord> rowChatsRecordList = snapshot.data!;
+
                       final rowChatsRecord = rowChatsRecordList.isNotEmpty
                           ? rowChatsRecordList.first
                           : null;

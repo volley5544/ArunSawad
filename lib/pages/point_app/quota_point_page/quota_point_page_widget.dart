@@ -662,6 +662,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                   Builder(
                     builder: (context) {
                       final list = FFAppState().checkinStatusColor.toList();
+
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
@@ -721,6 +722,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                             List<UserCustomRecord>
                                                 circleImageUserCustomRecordList =
                                                 snapshot.data!;
+
                                             final circleImageUserCustomRecord =
                                                 circleImageUserCustomRecordList
                                                         .isNotEmpty

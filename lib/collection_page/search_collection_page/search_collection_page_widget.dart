@@ -754,6 +754,7 @@ class _SearchCollectionPageWidgetState
                                     List<UserLogRecord>
                                         containerUserLogRecordList =
                                         snapshot.data!;
+
                                     final containerUserLogRecord =
                                         containerUserLogRecordList.isNotEmpty
                                             ? containerUserLogRecordList.first

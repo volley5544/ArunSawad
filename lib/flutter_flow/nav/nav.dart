@@ -1806,7 +1806,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'RecordVideoCustomer',
               path: 'recordVideoCustomer',
-              builder: (context, params) => RecordVideoCustomerWidget(),
+              builder: (context, params) => RecordVideoCustomerWidget(
+                vloanApiUrl: params.getParam(
+                  'vloanApiUrl',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: 'RecordVideoCustomer2',
@@ -1859,6 +1864,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'Roadmapinsurance',
+              path: 'roadmapinsurance',
+              builder: (context, params) => RoadmapinsuranceWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

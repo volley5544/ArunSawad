@@ -70,7 +70,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
           future: queryUserCustomRecordOnce(
             queryBuilder: (userCustomRecord) => userCustomRecord.where(
               'employee_id',
-              isEqualTo: widget.employeeID != '' ? widget.employeeID : null,
+              isEqualTo: widget!.employeeID != '' ? widget!.employeeID : null,
             ),
             singleRecord: true,
           ),
@@ -91,6 +91,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
             }
             List<UserCustomRecord> containerUserCustomRecordList =
                 snapshot.data!;
+
             final containerUserCustomRecord =
                 containerUserCustomRecordList.isNotEmpty
                     ? containerUserCustomRecordList.first
@@ -109,8 +110,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                     queryBuilder: (fCMTokenRecord) => fCMTokenRecord
                         .where(
                           'employee_id',
-                          isEqualTo: widget.employeeID != ''
-                              ? widget.employeeID
+                          isEqualTo: widget!.employeeID != ''
+                              ? widget!.employeeID
                               : null,
                         )
                         .orderBy('created_at', descending: true),
@@ -133,6 +134,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                     }
                     List<FCMTokenRecord> columnPlusFCMTokenRecordList =
                         snapshot.data!;
+
                     final columnPlusFCMTokenRecord =
                         columnPlusFCMTokenRecordList.isNotEmpty
                             ? columnPlusFCMTokenRecordList.first
@@ -360,7 +362,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                             apiUrl:
                                                 FFAppState().apiURLLocalState,
                                             token: FFAppState().accessToken,
-                                            leaveId: widget.leaveID,
+                                            leaveId: widget!.leaveID,
                                             reasonCancel:
                                                 valueOrDefault<String>(
                                               _model.reasonCancelTextController
@@ -435,7 +437,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                               return;
                                             }
 
-                                            if (widget.isFromApprovePage!) {
+                                            if (widget!.isFromApprovePage!) {
                                               if (containerUserCustomRecord !=
                                                   null) {
                                                 _model.fcmSendNotificationCancelApprove =
@@ -446,7 +448,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                                   notificationJson:
                                                       getJsonField(
                                                     functions.createNotificationBody(
-                                                        'คำขอ \"${widget.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
+                                                        'คำขอ \"${widget!.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
                                                         'คำขออนุมัติการลา',
                                                         'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/test-flow-l46o23/assets/xqqgm3jn0hu4/leaveimg2.png'),
                                                     r'''$''',
@@ -488,7 +490,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                                   notiTime: getCurrentTimestamp,
                                                   notiTitle: 'คำขออนุมัติการลา',
                                                   notiBody:
-                                                      'คำขอ \"${widget.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
+                                                      'คำขอ \"${widget!.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
                                                   notiIsRead: false,
                                                   thisNotiIsRead: false,
                                                   notiType: 'Leave_Request',
@@ -502,7 +504,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                                               notiTitle:
                                                                   'คำขออนุมัติการลา',
                                                               notiBody:
-                                                                  'คำขอ \"${widget.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
+                                                                  'คำขอ \"${widget!.leaveName}\" ของคุณ ถูกยกเลิกแล้ว',
                                                               notiIsRead: false,
                                                               thisNotiIsRead:
                                                                   false,

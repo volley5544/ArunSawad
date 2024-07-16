@@ -162,6 +162,7 @@ class _InsuranceRequestListPageWidgetState
         }
         List<UrlLinkStorageRecord>
             insuranceRequestListPageUrlLinkStorageRecordList = snapshot.data!;
+
         final insuranceRequestListPageUrlLinkStorageRecord =
             insuranceRequestListPageUrlLinkStorageRecordList.isNotEmpty
                 ? insuranceRequestListPageUrlLinkStorageRecordList.first
@@ -302,6 +303,7 @@ class _InsuranceRequestListPageWidgetState
                                       (_model.getRequestList?.jsonBody ?? ''),
                                     )?.toList() ??
                                     [];
+
                             return ListView.separated(
                               padding: EdgeInsets.fromLTRB(
                                 0,

@@ -95,24 +95,24 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
 
       if (FFAppState().isGetDataViaFirebase) {
         FFAppState().checkinStatusDate = functions
-            .reverseList(widget.date?.toList())
+            .reverseList(widget!.date?.toList())
             .toList()
             .cast<String>();
         FFAppState().checkinStatusTimeIn = functions
-            .reverseList(widget.checkinTimeIn?.toList())
+            .reverseList(widget!.checkinTimeIn?.toList())
             .toList()
             .cast<String>();
         FFAppState().checkinStatusTimeOut = functions
-            .reverseList(widget.checkinTimeOut?.toList())
+            .reverseList(widget!.checkinTimeOut?.toList())
             .toList()
             .cast<String>();
         setState(() {});
         FFAppState().checkinLastMonthDate =
-            widget.checkinLastMonthDate!.toList().cast<String>();
+            widget!.checkinLastMonthDate!.toList().cast<String>();
         FFAppState().checkinLastMonthTimeIn =
-            widget.checkinLastMonthTimeIn!.toList().cast<String>();
+            widget!.checkinLastMonthTimeIn!.toList().cast<String>();
         FFAppState().checkinLastMonthTimeOut =
-            widget.checkinLastMonthTimeOut!.toList().cast<String>();
+            widget!.checkinLastMonthTimeOut!.toList().cast<String>();
         setState(() {});
       } else {
         _model.checkinThisMonthOutput = await CheckinoutThisMonthAPICall.call(
@@ -594,6 +594,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
         }
         List<UserCheckinHistoryRecord>
             checkInStatusPageUserCheckinHistoryRecordList = snapshot.data!;
+
         final checkInStatusPageUserCheckinHistoryRecord =
             checkInStatusPageUserCheckinHistoryRecordList.isNotEmpty
                 ? checkInStatusPageUserCheckinHistoryRecordList.first
@@ -1060,6 +1061,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                               FFAppState()
                                                   .checkinStatusDate
                                                   .toList();
+
                                           return ListView.builder(
                                             padding: EdgeInsets.zero,
                                             shrinkWrap: true,
@@ -1206,7 +1208,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                       functions.showMatNameInList(FFAppState().checkinStatusDate.toList(), checkinActionStatusListIndex),
                                                                       FFAppState().branchCode,
                                                                       FFAppState().checkinStatusColor.toList(),
-                                                                      widget.holidayDate?.toList(),
+                                                                      widget!.holidayDate?.toList(),
                                                                       checkinActionStatusListIndex,
                                                                       true,
                                                                       GetLeaveDateCheckinAPICall.statusLayer3CM(
@@ -1246,10 +1248,10 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                       functions.showMatNameInList(FFAppState().checkinStatusTimeOut.toList(), checkinActionStatusListIndex),
                                                                       functions.showMatNameInList(FFAppState().checkinStatusDate.toList(), checkinActionStatusListIndex),
                                                                       FFAppState().branchCode,
-                                                                      widget.holidayDate?.toList(),
+                                                                      widget!.holidayDate?.toList(),
                                                                       checkinActionStatusListIndex,
                                                                       true,
-                                                                      widget.holidayName?.toList(),
+                                                                      widget!.holidayName?.toList(),
                                                                       GetLeaveDateCheckinAPICall.statusLayer3CM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               ) ==
@@ -1423,6 +1425,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                               FFAppState()
                                                   .checkinLastMonthDate
                                                   .toList();
+
                                           return ListView.builder(
                                             padding: EdgeInsets.zero,
                                             shrinkWrap: true,
@@ -1576,7 +1579,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                         functions.showMatNameInList(FFAppState().checkinLastMonthDate.toList(), checkinStatusLMListIndex),
                                                                         FFAppState().branchCode,
                                                                         FFAppState().checkinStatusColor.toList(),
-                                                                        widget.holidayDate?.toList(),
+                                                                        widget!.holidayDate?.toList(),
                                                                         checkinStatusLMListIndex,
                                                                         false,
                                                                         GetLeaveDateCheckinAPICall.statusLayer3LM(
@@ -1619,10 +1622,10 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                                                                       functions.showMatNameInList(FFAppState().checkinLastMonthTimeOut.toList(), checkinStatusLMListIndex),
                                                                       functions.showMatNameInList(FFAppState().checkinLastMonthDate.toList(), checkinStatusLMListIndex),
                                                                       FFAppState().branchCode,
-                                                                      widget.holidayDate?.toList(),
+                                                                      widget!.holidayDate?.toList(),
                                                                       checkinStatusLMListIndex,
                                                                       false,
-                                                                      widget.holidayName?.toList(),
+                                                                      widget!.holidayName?.toList(),
                                                                       GetLeaveDateCheckinAPICall.statusLayer3LM(
                                                                                 (_model.getPersonalLeaveDate?.jsonBody ?? ''),
                                                                               ) ==

@@ -14,7 +14,12 @@ import 'record_video_customer_model.dart';
 export 'record_video_customer_model.dart';
 
 class RecordVideoCustomerWidget extends StatefulWidget {
-  const RecordVideoCustomerWidget({super.key});
+  const RecordVideoCustomerWidget({
+    super.key,
+    required this.vloanApiUrl,
+  });
+
+  final String? vloanApiUrl;
 
   @override
   State<RecordVideoCustomerWidget> createState() =>
@@ -352,7 +357,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                         if (_model.choiceChipsValue == 'ใบคำขอ') {
                           _model.checkAppVloanApiOutput =
                               await CheckAppFromVloanAPICall.call(
-                            apiUrl: 'http://49.229.60.115',
+                            apiUrl: widget!.vloanApiUrl,
                             vloanNo: _model.textController.text,
                             system: 'ssw_dlt',
                           );
@@ -412,7 +417,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                         } else {
                           _model.checkContractActiveApiOutput =
                               await CheckVloanContractActiveAPICall.call(
-                            apiUrl: 'http://49.229.60.115',
+                            apiUrl: widget!.vloanApiUrl,
                             contractNo: _model.textController.text,
                           );
 

@@ -86,6 +86,7 @@ class _PlanningSelfKPIWidgetState extends State<PlanningSelfKPIWidget> {
             child: Builder(
               builder: (context) {
                 final list = FFAppState().checkinStatusColor.toList();
+
                 return ListView.builder(
                   padding: EdgeInsets.zero,
                   shrinkWrap: true,

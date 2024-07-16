@@ -183,6 +183,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                   final winnerListItem = FFAppState()
                                       .tiktokEmployeeIdList
                                       .toList();
+
                                   return Container(
                                     width: double.infinity,
                                     height: 400.0,

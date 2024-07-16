@@ -100,8 +100,8 @@ class _RecordVideoCustomer2WidgetState
                     child: custom_widgets.CameraRecord(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 1.0,
-                      contNo: widget.contNo,
-                      checkApp: widget.checkApp,
+                      contNo: widget!.contNo,
+                      checkApp: widget!.checkApp,
                     ),
                   ),
                 ),

@@ -1083,6 +1083,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                   builder: (context) {
                                     final kpiProductList =
                                         FFAppState().kpiProductType.toList();
+
                                     return Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children:
@@ -1825,6 +1826,7 @@ class _EmployeeKPIPageWidgetState extends State<EmployeeKPIPageWidget>
                                   builder: (context) {
                                     final kpiProductLMList =
                                         FFAppState().kpiProductTypeLM.toList();
+
                                     return Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children:

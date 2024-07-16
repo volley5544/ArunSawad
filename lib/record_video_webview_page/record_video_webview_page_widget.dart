@@ -95,7 +95,7 @@ class _RecordVideoWebviewPageWidgetState
               child: custom_widgets.VideoRecordWebWidget(
                 width: 300.0,
                 height: 500.0,
-                webUrl: widget.webUrl,
+                webUrl: widget!.webUrl,
               ),
             ),
           ),

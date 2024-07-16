@@ -111,6 +111,7 @@ class _InsuranceRequestImagePageWidgetState
         }
         List<UrlLinkStorageRecord>
             insuranceRequestImagePageUrlLinkStorageRecordList = snapshot.data!;
+
         final insuranceRequestImagePageUrlLinkStorageRecord =
             insuranceRequestImagePageUrlLinkStorageRecordList.isNotEmpty
                 ? insuranceRequestImagePageUrlLinkStorageRecordList.first

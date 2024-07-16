@@ -348,7 +348,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                               width: double.infinity,
                               decoration: BoxDecoration(),
                               child: Text(
-                                '${widget.firstname} ${widget.lastname}',
+                                '${widget!.firstname} ${widget!.lastname}',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -420,7 +420,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                     .fromSTEB(
                                                         15.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  widget.contNo!,
+                                                  widget!.contNo!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -495,7 +495,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(5.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                '${functions.dateToBEDate(widget.lastPayDate)}',
+                                                '${functions.dateToBEDate(widget!.lastPayDate)}',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -571,7 +571,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 child: Text(
                                                   valueOrDefault<String>(
                                                     functions.dateToBEDate(
-                                                        widget.dateOfDue),
+                                                        widget!.dateOfDue),
                                                     '-',
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -594,7 +594,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                   ),
                                 ),
                               ),
-                              if (widget.expFrm != '0')
+                              if (widget!.expFrm != '0')
                                 Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
@@ -652,7 +652,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                       .fromSTEB(
                                                           5.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    '${functions.dateToBEDate(widget.dateOfExp)}(งวด${widget.expFrm})',
+                                                    '${functions.dateToBEDate(widget!.dateOfExp)}(งวด${widget!.expFrm})',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -727,7 +727,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  widget.tragetStat!,
+                                                  widget!.tragetStat!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -802,7 +802,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  widget.contStat!,
+                                                  widget!.contStat!,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -878,7 +878,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
                                                   '${functions.showNumberWithComma(valueOrDefault<String>(
-                                                    widget.expAmt,
+                                                    widget!.expAmt,
                                                     '-',
                                                   ))} บาท',
                                                   style: FlutterFlowTheme.of(
@@ -905,7 +905,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  if (widget.followupDebtTab == 1)
+                                  if (widget!.followupDebtTab == 1)
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
@@ -963,7 +963,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                             .fromSTEB(5.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      '${functions.showNumberWithComma(widget.sumCurrentDueAmt)} บาท',
+                                                      '${functions.showNumberWithComma(widget!.sumCurrentDueAmt)} บาท',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -1048,7 +1048,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                         functions.dateToBEDate(
                                                             valueOrDefault<
                                                                 String>(
-                                                          widget.dateOfData,
+                                                          widget!.dateOfData,
                                                           'date_of_data',
                                                         )),
                                                         'date_of_data',
@@ -1135,7 +1135,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       '${valueOrDefault<String>(
-                                                        widget.historyCount,
+                                                        widget!.historyCount,
                                                         '-',
                                                       )} ครั้ง',
                                                       style: FlutterFlowTheme
@@ -1236,6 +1236,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                   List<BranchviewDropdownRecord>
                                       dropDownFollowupBranchviewDropdownRecordList =
                                       snapshot.data!;
+
                                   final dropDownFollowupBranchviewDropdownRecord =
                                       dropDownFollowupBranchviewDropdownRecordList
                                               .isNotEmpty
@@ -1661,6 +1662,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           .toList()
                                           .take(5)
                                           .toList();
+
                                       return ListView.builder(
                                         padding: EdgeInsets.zero,
                                         scrollDirection: Axis.horizontal,
@@ -2034,10 +2036,10 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       await CollectionAPICall.call(
                                     location: functions.getUserLocation(
                                         currentUserLocationValue),
-                                    citizenId: widget.cusCode,
-                                    contNo: widget.contNo,
+                                    citizenId: widget!.cusCode,
+                                    contNo: widget!.contNo,
                                     customerName:
-                                        '${widget.firstname} ${widget.lastname}',
+                                        '${widget!.firstname} ${widget!.lastname}',
                                     remark: _model
                                         .remarkTextFieldTextController.text,
                                     uid: FFAppState().imei,
@@ -2046,7 +2048,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     username: FFAppState().employeeID,
                                     token: FFAppState().accessToken,
                                     apiUrl: FFAppState().apiURLLocalState,
-                                    vLoanServer: widget.database,
+                                    vLoanServer: widget!.database,
                                     urlImg: FFAppState().imgURL.length > 0
                                         ? functions.imgPathListToStringCopy2(
                                             FFAppState().imgURL.toList())
@@ -2149,7 +2151,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
                                           child: AlertDialog(
-                                            content: Text(widget.cusCode!),
+                                            content: Text(widget!.cusCode!),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -2166,7 +2168,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
                                           child: AlertDialog(
-                                            content: Text(widget.contNo!),
+                                            content: Text(widget!.contNo!),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -2183,7 +2185,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
                                           child: AlertDialog(
-                                            content: Text(widget.database!),
+                                            content: Text(widget!.database!),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -2264,7 +2266,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
                                           child: AlertDialog(
-                                            content: Text(widget.cusCode!),
+                                            content: Text(widget!.cusCode!),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
@@ -2279,9 +2281,9 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     _model.remarkVLoneOutput =
                                         await RemarkVLoneAPICall.call(
                                       func: 'dsi',
-                                      cuscod: widget.cusCode,
-                                      contno: widget.contNo,
-                                      server: widget.database,
+                                      cuscod: widget!.cusCode,
+                                      contno: widget!.contNo,
+                                      server: widget!.database,
                                       msg: '${functions.generateBranchViewVloneRemark(functions.checkStringLength(functions.generateBranchViewMapLink(CollectionAPICall.recordID(
                                             (_model.collectionAPISubmit
                                                     ?.jsonBody ??

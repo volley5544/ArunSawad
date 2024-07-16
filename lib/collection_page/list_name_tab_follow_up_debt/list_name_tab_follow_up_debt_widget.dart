@@ -106,27 +106,27 @@ class _ListNameTabFollowUpDebtWidgetState
                       ),
                       Text(
                         () {
-                          if (widget.followUpDebtTab == 1) {
+                          if (widget!.followUpDebtTab == 1) {
                             return 'เตือนก่อนดิว';
-                          } else if (widget.followUpDebtTab == 2) {
+                          } else if (widget!.followUpDebtTab == 2) {
                             return 'ค้าง 1-3 งวด';
-                          } else if (widget.followUpDebtTab == 3) {
+                          } else if (widget!.followUpDebtTab == 3) {
                             return 'ค้าง 4-5 งวด';
-                          } else if (widget.followUpDebtTab == 4) {
+                          } else if (widget!.followUpDebtTab == 4) {
                             return 'ค้าง 6 งวดเป็นต้นไป';
-                          } else if (widget.followUpDebtTab == 5) {
+                          } else if (widget!.followUpDebtTab == 5) {
                             return 'ค้างด้วยยอดน้อยกว่า 250 บาท';
-                          } else if (widget.followUpDebtTab == 6) {
+                          } else if (widget!.followUpDebtTab == 6) {
                             return 'โทรชวนปิดปรับ';
-                          } else if (widget.followUpDebtTab == 11) {
+                          } else if (widget!.followUpDebtTab == 11) {
                             return 'OD1';
-                          } else if (widget.followUpDebtTab == 12) {
+                          } else if (widget!.followUpDebtTab == 12) {
                             return 'OD2';
-                          } else if (widget.followUpDebtTab == 13) {
+                          } else if (widget!.followUpDebtTab == 13) {
                             return 'OD3';
-                          } else if (widget.followUpDebtTab == 14) {
+                          } else if (widget!.followUpDebtTab == 14) {
                             return 'OD4 - OD5';
-                          } else if (widget.followUpDebtTab == 15) {
+                          } else if (widget!.followUpDebtTab == 15) {
                             return 'OD6 เป็นต้นไป';
                           } else {
                             return '-';
@@ -673,7 +673,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                   : FFAppState().branchCode,
                               dataPage: nextPageMarker.nextPageNumber + 1,
                               pageSize: 30,
-                              dataFilter: widget.followUpDebtTab?.toString(),
+                              dataFilter: widget!.followUpDebtTab?.toString(),
                               searchBy: FFAppState().collectionSearchBy,
                               search: FFAppState().collectionSearch,
                               sortBy: FFAppState().collectionSortBy,
@@ -762,6 +762,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                   List<UserLogRecord>
                                       containerUserLogRecordList =
                                       snapshot.data!;
+
                                   final containerUserLogRecord =
                                       containerUserLogRecordList.isNotEmpty
                                           ? containerUserLogRecordList.first
@@ -783,7 +784,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                             ParamType.String,
                                           ),
                                           'followupDebtTab': serializeParam(
-                                            widget.followUpDebtTab,
+                                            widget!.followUpDebtTab,
                                             ParamType.int,
                                           ),
                                           'name': serializeParam(

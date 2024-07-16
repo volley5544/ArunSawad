@@ -42,13 +42,13 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
     super.initState();
     _model = createModel(context, () => AddBranchLoModel());
 
-    _model.textController1 ??= TextEditingController(text: widget.branchCode);
+    _model.textController1 ??= TextEditingController(text: widget!.branchCode);
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(text: widget.lat);
+    _model.textController2 ??= TextEditingController(text: widget!.lat);
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController(text: widget.lng);
+    _model.textController3 ??= TextEditingController(text: widget!.lng);
     _model.textFieldFocusNode3 ??= FocusNode();
 
     _model.textController4 ??= TextEditingController();
@@ -802,10 +802,10 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                             if (confirmDialogResponse) {
                               _model.insertAPIOutput =
                                   await InsertLocationAPICall.call(
-                                branchCode: widget.branchCode,
-                                latitude: widget.lat,
-                                longitude: widget.lng,
-                                apiUrl: widget.apiUrl,
+                                branchCode: widget!.branchCode,
+                                latitude: widget!.lat,
+                                longitude: widget!.lng,
+                                apiUrl: widget!.apiUrl,
                                 token: FFAppState().accessToken,
                                 branchName: _model.textController4.text,
                                 groupCode: _model.textController5.text,

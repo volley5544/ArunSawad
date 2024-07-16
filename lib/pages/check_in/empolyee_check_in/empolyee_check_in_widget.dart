@@ -978,6 +978,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                 }
                 List<AuthorizationRecord> columnAuthorizationRecordList =
                     snapshot.data!;
+
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();

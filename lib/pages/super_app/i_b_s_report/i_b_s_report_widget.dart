@@ -69,7 +69,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
 
       _model.kPIAllOutput = await GetKPIAllCall.call(
         apiUrl: FFAppState().apiURLLocalState,
-        empCode: widget.employeeId,
+        empCode: widget!.employeeId,
       );
 
       if (GetKPIAllCall.statusCode(
@@ -166,7 +166,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Text(
-                    'รหัสพนักงาน ${widget.employeeId}',
+                    'รหัสพนักงาน ${widget!.employeeId}',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           fontSize: 16.0,
@@ -264,6 +264,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                         }
                         List<KPIAllChangeRecord> rowKPIAllChangeRecordList =
                             snapshot.data!;
+
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();

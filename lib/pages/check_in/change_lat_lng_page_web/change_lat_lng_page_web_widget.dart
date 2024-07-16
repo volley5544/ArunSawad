@@ -167,6 +167,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
         }
         List<UrlLinkStorageRecord> changeLatLngPageWebUrlLinkStorageRecordList =
             snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -1030,7 +1031,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                               branchCode: FFAppState().changeBranchCode,
                               apiUrl: changeLatLngPageWebUrlLinkStorageRecord
                                   ?.urlLink,
-                              token: widget.token,
+                              token: widget!.token,
                             );
 
                             _shouldSetState = true;
@@ -1612,7 +1613,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               changeLatLngPageWebUrlLinkStorageRecord
                                                   ?.urlLink,
                                           flag: 'Y',
-                                          token: widget.token,
+                                          token: widget!.token,
                                         );
 
                                         _shouldSetState = true;

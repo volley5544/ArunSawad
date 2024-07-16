@@ -759,6 +759,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                           (_model.leaveListAprroveAPIOutput?.jsonBody ?? ''),
                         )?.toList() ??
                         [];
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -804,6 +805,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                             List<UserCustomRecord>
                                 bottomSheetUserCustomRecordList =
                                 snapshot.data!;
+
                             final bottomSheetUserCustomRecord =
                                 bottomSheetUserCustomRecordList.isNotEmpty
                                     ? bottomSheetUserCustomRecordList.first
@@ -960,6 +962,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                               List<UserCustomRecord>
                                                   containerUserCustomRecordList =
                                                   snapshot.data!;
+
                                               final containerUserCustomRecord =
                                                   containerUserCustomRecordList
                                                           .isNotEmpty
@@ -1066,6 +1069,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                         List<FCMTokenRecord>
                                                             columnPlusFCMTokenRecordList =
                                                             snapshot.data!;
+
                                                         final columnPlusFCMTokenRecord =
                                                             columnPlusFCMTokenRecordList
                                                                     .isNotEmpty
@@ -1154,6 +1158,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                         List<UserCustomRecord>
                                                                             imageUserCustomRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!

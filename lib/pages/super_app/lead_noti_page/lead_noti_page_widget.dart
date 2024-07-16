@@ -375,6 +375,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
         }
         List<LeadChannelColorRecord> leadNotiPageLeadChannelColorRecordList =
             snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -1320,6 +1321,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                         child: Builder(
                           builder: (context) {
                             final leadList = FFAppState().leadID.toList();
+
                             return ListView.builder(
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,

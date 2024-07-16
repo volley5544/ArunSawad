@@ -704,6 +704,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                           }
                           final listViewCollectionFollowupDebtPPResponse =
                               snapshot.data!;
+
                           return Builder(
                             builder: (context) {
                               final listName = getJsonField(
@@ -711,6 +712,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                     .jsonBody,
                                 r'''$.data''',
                               ).toList();
+
                               return RefreshIndicator(
                                 color: FlutterFlowTheme.of(context).tertiary,
                                 onRefresh: () async {
@@ -767,6 +769,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                         List<UserLogRecord>
                                             containerUserLogRecordList =
                                             snapshot.data!;
+
                                         final containerUserLogRecord =
                                             containerUserLogRecordList
                                                     .isNotEmpty

@@ -181,6 +181,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
                 Builder(
                   builder: (context) {
                     final teleList = FFAppState().searchFullName.toList();
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       primary: false,

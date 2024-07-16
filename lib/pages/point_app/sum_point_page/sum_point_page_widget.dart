@@ -601,6 +601,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                   Builder(
                     builder: (context) {
                       final list = FFAppState().checkinStatusColor.toList();
+
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
@@ -660,6 +661,7 @@ class _SumPointPageWidgetState extends State<SumPointPageWidget>
                                             List<UserCustomRecord>
                                                 circleImageUserCustomRecordList =
                                                 snapshot.data!;
+
                                             final circleImageUserCustomRecord =
                                                 circleImageUserCustomRecordList
                                                         .isNotEmpty

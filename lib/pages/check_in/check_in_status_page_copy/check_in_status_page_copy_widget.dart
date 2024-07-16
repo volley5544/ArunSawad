@@ -182,6 +182,7 @@ class _CheckInStatusPageCopyWidgetState
                   builder: (context) {
                     final checkinActionStatusList =
                         FFAppState().checkinStatusDate.toList();
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,

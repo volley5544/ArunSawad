@@ -88,6 +88,7 @@ class _NotificationDetailPageWidgetState
         }
         List<UserCustomRecord> notificationDetailPageUserCustomRecordList =
             snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -192,6 +193,7 @@ class _NotificationDetailPageWidgetState
                             }
                             List<NotificationRecord>
                                 listViewNotificationRecordList = snapshot.data!;
+
                             return RefreshIndicator(
                               color: FlutterFlowTheme.of(context).tertiary,
                               onRefresh: () async {

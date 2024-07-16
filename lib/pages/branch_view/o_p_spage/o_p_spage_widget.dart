@@ -431,6 +431,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         .toList()
                                         .take(5)
                                         .toList();
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -2323,8 +2324,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     queryBuilder: (fileUploadRecord) =>
                                         fileUploadRecord.where(
                                       'RecordId',
-                                      isEqualTo: widget.recordId != ''
-                                          ? widget.recordId
+                                      isEqualTo: widget!.recordId != ''
+                                          ? widget!.recordId
                                           : null,
                                     ),
                                     singleRecord: true,
@@ -2349,6 +2350,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
+
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -2363,6 +2365,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             listViewFileUploadRecord?.imgUrl
                                                     ?.toList() ??
                                                 [];
+
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
                                           scrollDirection: Axis.horizontal,

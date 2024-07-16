@@ -127,6 +127,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                       }
                       List<ChatsRecord> listViewChatsRecordList =
                           snapshot.data!;
+
                       return ListView.builder(
                         padding: EdgeInsets.fromLTRB(
                           0,

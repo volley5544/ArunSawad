@@ -433,7 +433,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showDateTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -456,7 +456,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showClockTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -576,6 +576,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         .toList()
                                         .take(5)
                                         .toList();
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -1464,7 +1465,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: false,
-                                          hintText: widget.coordinate,
+                                          hintText: widget!.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1579,7 +1580,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.branchCode,
+                                          hintText: widget!.branchCode,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1695,7 +1696,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.area,
+                                          hintText: widget!.area,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1811,7 +1812,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.detail,
+                                          hintText: widget!.detail,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1927,7 +1928,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.remark,
+                                          hintText: widget!.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -2101,6 +2102,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         .materialRecordId
                                         .map((e) => e)
                                         .toList();
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -2516,7 +2518,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                   pageName: 'marketing',
-                                  recordId: widget.recordId,
+                                  recordId: widget!.recordId,
                                 ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
@@ -2537,6 +2539,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                   }
                                   final listViewTimesheetDetailAPIResponse =
                                       snapshot.data!;
+
                                   return Builder(
                                     builder: (context) {
                                       final materialTimesheetList =
@@ -2545,6 +2548,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                                     .jsonBody,
                                               )?.toList() ??
                                               [];
+
                                       return ListView.builder(
                                         padding: EdgeInsets.zero,
                                         scrollDirection: Axis.horizontal,
@@ -2872,8 +2876,8 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     queryBuilder: (fileUploadRecord) =>
                                         fileUploadRecord.where(
                                       'RecordId',
-                                      isEqualTo: widget.recordId != ''
-                                          ? widget.recordId
+                                      isEqualTo: widget!.recordId != ''
+                                          ? widget!.recordId
                                           : null,
                                     ),
                                     singleRecord: true,
@@ -2898,6 +2902,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
+
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -2912,6 +2917,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             listViewFileUploadRecord?.imgUrl
                                                     ?.toList() ??
                                                 [];
+
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
                                           scrollDirection: Axis.horizontal,

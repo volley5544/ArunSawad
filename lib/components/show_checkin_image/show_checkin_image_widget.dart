@@ -51,7 +51,8 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
   Widget build(BuildContext context) {
     return Builder(
       builder: (context) {
-        final leaveimagelist = widget.leaveImage?.toList() ?? [];
+        final leaveimagelist = widget!.leaveImage?.toList() ?? [];
+
         return Container(
           width: double.infinity,
           height: 500.0,
@@ -81,21 +82,21 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                                 type: PageTransitionType.fade,
                                 child: FlutterFlowExpandedImageView(
                                   image: Image.network(
-                                    widget.leaveImage![leaveimagelistIndex],
+                                    widget!.leaveImage![leaveimagelistIndex],
                                     fit: BoxFit.contain,
                                   ),
                                   allowRotation: false,
-                                  tag: widget.leaveImage![leaveimagelistIndex],
+                                  tag: widget!.leaveImage![leaveimagelistIndex],
                                   useHeroAnimation: true,
                                 ),
                               ),
                             );
                           },
                           child: Hero(
-                            tag: widget.leaveImage![leaveimagelistIndex],
+                            tag: widget!.leaveImage![leaveimagelistIndex],
                             transitionOnUserGestures: true,
                             child: Image.network(
-                              widget.leaveImage![leaveimagelistIndex],
+                              widget!.leaveImage![leaveimagelistIndex],
                               width: double.infinity,
                               height: 600.0,
                               fit: BoxFit.contain,

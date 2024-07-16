@@ -406,7 +406,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showDateTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -429,7 +429,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showClockTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -549,6 +549,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         .toList()
                                         .take(5)
                                         .toList();
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -1591,7 +1592,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: false,
-                                          hintText: widget.coordinate,
+                                          hintText: widget!.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1705,7 +1706,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.description,
+                                          hintText: widget!.description,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1820,7 +1821,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.idCardNumber,
+                                          hintText: widget!.idCardNumber,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1936,7 +1937,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.customerName,
+                                          hintText: widget!.customerName,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -2052,7 +2053,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.landmark,
+                                          hintText: widget!.landmark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -2168,7 +2169,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.remark,
+                                          hintText: widget!.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -2401,8 +2402,8 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     queryBuilder: (fileUploadRecord) =>
                                         fileUploadRecord.where(
                                       'RecordId',
-                                      isEqualTo: widget.recordId != ''
-                                          ? widget.recordId
+                                      isEqualTo: widget!.recordId != ''
+                                          ? widget!.recordId
                                           : null,
                                     ),
                                     singleRecord: true,
@@ -2427,6 +2428,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
+
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -2441,6 +2443,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                             listViewFileUploadRecord?.imgUrl
                                                     ?.toList() ??
                                                 [];
+
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
                                           scrollDirection: Axis.horizontal,

@@ -91,6 +91,21 @@ class RoleMenuRecord extends FirestoreRecord {
   List<String> get otherMenuUrl => _otherMenuUrl ?? const [];
   bool hasOtherMenuUrl() => _otherMenuUrl != null;
 
+  // "servicemenuOrder" field.
+  List<String>? _servicemenuOrder;
+  List<String> get servicemenuOrder => _servicemenuOrder ?? const [];
+  bool hasServicemenuOrder() => _servicemenuOrder != null;
+
+  // "reportmenuOrder" field.
+  List<String>? _reportmenuOrder;
+  List<String> get reportmenuOrder => _reportmenuOrder ?? const [];
+  bool hasReportmenuOrder() => _reportmenuOrder != null;
+
+  // "othermenuOrder" field.
+  List<String>? _othermenuOrder;
+  List<String> get othermenuOrder => _othermenuOrder ?? const [];
+  bool hasOthermenuOrder() => _othermenuOrder != null;
+
   void _initializeFields() {
     _roleName = snapshotData['roleName'] as String?;
     _menuName = getDataList(snapshotData['menuName']);
@@ -110,6 +125,9 @@ class RoleMenuRecord extends FirestoreRecord {
     _reportMenuIcon = getDataList(snapshotData['reportMenuIcon']);
     _otherMenuIcon = getDataList(snapshotData['otherMenuIcon']);
     _otherMenuUrl = getDataList(snapshotData['otherMenuUrl']);
+    _servicemenuOrder = getDataList(snapshotData['servicemenuOrder']);
+    _reportmenuOrder = getDataList(snapshotData['reportmenuOrder']);
+    _othermenuOrder = getDataList(snapshotData['othermenuOrder']);
   }
 
   static CollectionReference get collection =>
@@ -178,7 +196,10 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         listEquality.equals(e1?.serviecMenuIcon, e2?.serviecMenuIcon) &&
         listEquality.equals(e1?.reportMenuIcon, e2?.reportMenuIcon) &&
         listEquality.equals(e1?.otherMenuIcon, e2?.otherMenuIcon) &&
-        listEquality.equals(e1?.otherMenuUrl, e2?.otherMenuUrl);
+        listEquality.equals(e1?.otherMenuUrl, e2?.otherMenuUrl) &&
+        listEquality.equals(e1?.servicemenuOrder, e2?.servicemenuOrder) &&
+        listEquality.equals(e1?.reportmenuOrder, e2?.reportmenuOrder) &&
+        listEquality.equals(e1?.othermenuOrder, e2?.othermenuOrder);
   }
 
   @override
@@ -197,7 +218,10 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         e?.serviecMenuIcon,
         e?.reportMenuIcon,
         e?.otherMenuIcon,
-        e?.otherMenuUrl
+        e?.otherMenuUrl,
+        e?.servicemenuOrder,
+        e?.reportmenuOrder,
+        e?.othermenuOrder
       ]);
 
   @override

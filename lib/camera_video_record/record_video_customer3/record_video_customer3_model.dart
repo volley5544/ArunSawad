@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -10,6 +12,8 @@ import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'record_video_customer3_widget.dart' show RecordVideoCustomer3Widget;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -24,6 +28,8 @@ class RecordVideoCustomer3Model
   final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getFFUploadFileFromFilePath] action in RecordVideoCustomer3 widget.
   FFUploadedFile? videoFileOutput;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  UrlLinkStorageRecord? queryVideoCallApiUrl;
   // Stores action output result for [Backend Call - API (saveRecordVideoApi)] action in Button widget.
   ApiCallResponse? saveRecordVideoApiOutput;
   // Stores action output result for [Custom Action - saveVideoFile] action in Button widget.

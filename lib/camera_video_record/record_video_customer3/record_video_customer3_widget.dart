@@ -1,4 +1,6 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,6 +11,8 @@ import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -75,7 +79,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
 
       _model.videoFileOutput = await actions.getFFUploadFileFromFilePath(
         FFAppState().videoRecordFilePath,
-        widget.contNo,
+        widget!.contNo,
       );
       Navigator.pop(context);
     });
@@ -233,11 +237,20 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                   },
                                 ).then((value) => safeSetState(() {}));
 
+                                _model.queryVideoCallApiUrl =
+                                    await queryUrlLinkStorageRecordOnce(
+                                  queryBuilder: (urlLinkStorageRecord) =>
+                                      urlLinkStorageRecord.where(
+                                    'url_name',
+                                    isEqualTo: 'video_call_api',
+                                  ),
+                                  singleRecord: true,
+                                ).then((s) => s.firstOrNull);
                                 _model.saveRecordVideoApiOutput =
                                     await SaveRecordVideoApiCall.call(
-                                  apiUrl: 'https://vcall.swpfin.com',
-                                  contno: widget.contNo,
-                                  checkType: widget.checkType == 'เลขที่สัญญา'
+                                  apiUrl: _model.queryVideoCallApiUrl?.urlLink,
+                                  contno: widget!.contNo,
+                                  checkType: widget!.checkType == 'เลขที่สัญญา'
                                       ? 'con'
                                       : 'app',
                                   employeeId: FFAppState().employeeID,
@@ -268,7 +281,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                 );
                                 Navigator.pop(context);
                                 await launchURL(
-                                    'https://vcall.swpfin.com/?searchTerm=${widget.contNo}');
+                                    'https://vcall.swpfin.com/?searchTerm=${widget!.contNo}');
 
                                 setState(() {});
                               },
@@ -342,7 +355,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                 _model.saveVideoFileOutput =
                                     await actions.saveVideoFile(
                                   _model.videoFileOutput,
-                                  widget.contNo,
+                                  widget!.contNo,
                                 );
                                 await showDialog(
                                   context: context,

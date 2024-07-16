@@ -96,6 +96,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
               }
               List<UrlLinkStorageRecord> columnUrlLinkStorageRecordList =
                   snapshot.data!;
+
               final columnUrlLinkStorageRecord =
                   columnUrlLinkStorageRecordList.isNotEmpty
                       ? columnUrlLinkStorageRecordList.first
@@ -331,7 +332,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                         locale: FFLocalizations.of(context)
                                             .languageCode,
                                       ),
-                                      contno: widget.contno,
+                                      contno: widget!.contno,
                                     );
 
                                     _shouldSetState = true;
@@ -1022,7 +1023,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                         )}&BIRTH_CHK=${functions.birthCheck(ApiRepaymentListCall.birthday(
                                           (_model.repayAPIOutput?.jsonBody ??
                                               ''),
-                                        ))}&CONTNO=${widget.contno}');
+                                        ))}&CONTNO=${widget!.contno}');
                                       },
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,

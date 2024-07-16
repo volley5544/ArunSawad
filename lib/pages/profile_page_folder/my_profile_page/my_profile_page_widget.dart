@@ -383,7 +383,9 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       ),
                                     );
                                   }
+
                                   final stackUserCustomRecord = snapshot.data!;
+
                                   return Container(
                                     width: double.infinity,
                                     height: MediaQuery.sizeOf(context).height *
@@ -914,6 +916,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   List<UserCustomRecord>
                                       stackUserCustomRecordList =
                                       snapshot.data!;
+
                                   // Return an empty Container when the item does not exist.
                                   if (snapshot.data!.isEmpty) {
                                     return Container();
@@ -2189,6 +2192,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               List<InsuranceLicenseDataRecord>
                                   listViewInsuranceLicenseDataRecordList =
                                   snapshot.data!;
+
                               // Return an empty Container when the item does not exist.
                               if (snapshot.data!.isEmpty) {
                                 return Container();
@@ -2206,6 +2210,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               ?.licenseName
                                               ?.toList() ??
                                           [];
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.horizontal,

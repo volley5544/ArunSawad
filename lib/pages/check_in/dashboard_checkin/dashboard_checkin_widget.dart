@@ -248,6 +248,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                 }
                 List<AuthorizationRecord> columnAuthorizationRecordList =
                     snapshot.data!;
+
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -332,6 +333,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                               }
                               List<HolidayDateRecord>
                                   wrapHolidayDateRecordList = snapshot.data!;
+
                               final wrapHolidayDateRecord =
                                   wrapHolidayDateRecordList.isNotEmpty
                                       ? wrapHolidayDateRecordList.first
@@ -353,8 +355,43 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       HapticFeedback.mediumImpact();
-
-                                      context.pushNamed('EmpolyeeCheckIn');
+                                      if ((functions.currentLatLngDouble(
+                                                  FFAppState()
+                                                      .firstLoginLocation,
+                                                  true) ==
+                                              functions.currentLatLngDouble(
+                                                  currentUserLocationValue,
+                                                  true)) &&
+                                          (functions.currentLatLngDouble(
+                                                  FFAppState()
+                                                      .firstLoginLocation,
+                                                  false) ==
+                                              functions.currentLatLngDouble(
+                                                  currentUserLocationValue,
+                                                  false))) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content:
+                                                    Text('ไม่สามารถเช็คอินได้'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      } else {
+                                        context.pushNamed('EmpolyeeCheckIn');
+                                      }
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *

@@ -72,7 +72,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
       await userLogRecordReference.set(createUserLogRecordData(
         employeeId: FFAppState().employeeID,
         action: valueOrDefault<String>(
-          'Form_Service_${widget.formServiceName}',
+          'Form_Service_${widget!.formServiceName}',
           '[form_service_action]',
         ),
         actionTime: getCurrentTimestamp,
@@ -82,7 +82,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
           createUserLogRecordData(
             employeeId: FFAppState().employeeID,
             action: valueOrDefault<String>(
-              'Form_Service_${widget.formServiceName}',
+              'Form_Service_${widget!.formServiceName}',
               '[form_service_action]',
             ),
             actionTime: getCurrentTimestamp,
@@ -138,7 +138,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
             ),
             title: Text(
               valueOrDefault<String>(
-                widget.formServiceName,
+                widget!.formServiceName,
                 '[form_service_name]',
               ),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -164,7 +164,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                 child: FlutterFlowWebView(
                   content: valueOrDefault<String>(
-                    widget.formServiceUrl,
+                    widget!.formServiceUrl,
                     'www.google.co.th',
                   ),
                   bypass: true,

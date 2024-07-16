@@ -169,10 +169,12 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                           );
                         }
                         final listViewGetTimesheetAPIResponse = snapshot.data!;
+
                         return Builder(
                           builder: (context) {
                             final emailList =
                                 _model.subjectEmailOutput!.toList();
+
                             return ListView.builder(
                               padding: EdgeInsets.zero,
                               shrinkWrap: true,

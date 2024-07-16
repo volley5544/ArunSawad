@@ -263,6 +263,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
         }
         List<UrlLinkStorageRecord> bsiReportPageUrlLinkStorageRecordList =
             snapshot.data!;
+
         final bsiReportPageUrlLinkStorageRecord =
             bsiReportPageUrlLinkStorageRecordList.isNotEmpty
                 ? bsiReportPageUrlLinkStorageRecordList.first
@@ -337,6 +338,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                     }
                     List<AuthorizationRecord> columnAuthorizationRecordList =
                         snapshot.data!;
+
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -374,6 +376,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                             }
                             List<ReportStorageRecord>
                                 columnReportStorageRecordList = snapshot.data!;
+
                             final columnReportStorageRecord =
                                 columnReportStorageRecordList.isNotEmpty
                                     ? columnReportStorageRecordList.first

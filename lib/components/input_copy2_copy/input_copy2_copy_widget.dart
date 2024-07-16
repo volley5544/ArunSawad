@@ -297,7 +297,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                     await SendResignFormEmailAPICall.call(
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
-                                  leaveDocId: widget.leaveID,
+                                  leaveDocId: widget!.leaveID,
                                   email: _model.reasonCancelTextController.text,
                                 );
 

@@ -150,7 +150,7 @@ class _InputWidgetState extends State<InputWidget> {
                 FFAppState().counterNum = int.parse(_model.textController.text);
                 FFAppState().update(() {});
                 if (FFAppState().counterNum >= 0) {
-                  if (widget.index == 0) {
+                  if (widget!.index == 0) {
                     if (FFAppState().counterNum > 1) {
                       await showDialog(
                         context: context,
@@ -249,7 +249,7 @@ class _InputWidgetState extends State<InputWidget> {
 
               FFAppState().materialsAmount = functions
                   .updateMatAmountList(FFAppState().materialsAmount.toList(),
-                      widget.index, int.tryParse(_model.textController.text))!
+                      widget!.index, int.tryParse(_model.textController.text))!
                   .toList()
                   .cast<int>();
               FFAppState().update(() {});

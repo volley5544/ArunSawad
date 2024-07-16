@@ -77,7 +77,7 @@ class _PDFViewerThaipaiboonWidgetState
           Stack(
             children: [
               FlutterFlowPdfViewer(
-                networkPath: widget.thaipaiboonPdfLink!,
+                networkPath: widget!.thaipaiboonPdfLink!,
                 width: double.infinity,
                 height: 600.0,
                 horizontalScroll: true,

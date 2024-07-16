@@ -155,7 +155,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
         return;
       }
       FFAppState().ppAmountList = functions
-          .generateListFromString('', widget.countNo?.length)!
+          .generateListFromString('', widget!.countNo?.length)!
           .toList()
           .cast<String>();
       setState(() {});
@@ -351,7 +351,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        '${widget.name1} ${widget.name2}',
+                                        '${widget!.name1} ${widget!.name2}',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -377,7 +377,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                               children: [
                                 Builder(
                                   builder: (context) {
-                                    final listCard = widget.countNo!.toList();
+                                    final listCard = widget!.countNo!.toList();
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       primary: false,
@@ -464,10 +465,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        functions.checkNullValueAndReturn(widget.countNo?[listCardIndex]) ==
+                                                                        functions.checkNullValueAndReturn(widget!.countNo?[listCardIndex]) ==
                                                                                 '-'
                                                                             ? '-'
-                                                                            : (widget.countNo![listCardIndex]),
+                                                                            : (widget!.countNo![listCardIndex]),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -568,7 +569,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                             0.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      '${functions.dateToBEDate(widget.lastPayDate?[listCardIndex])}',
+                                                                      '${functions.dateToBEDate(widget!.lastPayDate?[listCardIndex])}',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -676,7 +677,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                         valueOrDefault<
                                                                             String>(
                                                                           functions
-                                                                              .dateToBEDate(widget.dateOfDue?[listCardIndex]),
+                                                                              .dateToBEDate(widget!.dateOfDue?[listCardIndex]),
                                                                           '-',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -697,7 +698,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                    if ((widget.expFrm?[
+                                                    if ((widget!.expFrm?[
                                                             listCardIndex]) !=
                                                         '0')
                                                       Align(
@@ -778,7 +779,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          '${functions.dateToBEDate(widget.dateOfExp?[listCardIndex]) == '-' ? '-' : functions.dateToBEDate(widget.dateOfExp?[listCardIndex])}(งวด${functions.checkNullValueAndReturn(widget.dateOfExp?[listCardIndex]) == '-' ? '-' : (widget.expFrm?[listCardIndex])})',
+                                                                          '${functions.dateToBEDate(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : functions.dateToBEDate(widget!.dateOfExp?[listCardIndex])}(งวด${functions.checkNullValueAndReturn(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : (widget!.expFrm?[listCardIndex])})',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -879,10 +880,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        functions.checkNullValueAndReturn(widget.targetStat?[listCardIndex]) ==
+                                                                        functions.checkNullValueAndReturn(widget!.targetStat?[listCardIndex]) ==
                                                                                 '-'
                                                                             ? '-'
-                                                                            : (widget.targetStat![listCardIndex]),
+                                                                            : (widget!.targetStat![listCardIndex]),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -983,10 +984,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        functions.checkNullValueAndReturn(widget.contStat?[listCardIndex]) ==
+                                                                        functions.checkNullValueAndReturn(widget!.contStat?[listCardIndex]) ==
                                                                                 '-'
                                                                             ? '-'
-                                                                            : (widget.contStat![listCardIndex]),
+                                                                            : (widget!.contStat![listCardIndex]),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -1087,10 +1088,10 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        ('0.00' == (widget.expAmt?[listCardIndex])) ||
-                                                                                ('0' == (widget.expAmt?[listCardIndex]))
+                                                                        ('0.00' == (widget!.expAmt?[listCardIndex])) ||
+                                                                                ('0' == (widget!.expAmt?[listCardIndex]))
                                                                             ? '-'
-                                                                            : '${functions.showNumberWithComma(functions.checkNullValueAndReturn(widget.expAmt?[listCardIndex]) == '-' ? '-' : (widget.expAmt?[listCardIndex]))} บาท',
+                                                                            : '${functions.showNumberWithComma(functions.checkNullValueAndReturn(widget!.expAmt?[listCardIndex]) == '-' ? '-' : (widget!.expAmt?[listCardIndex]))} บาท',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -1116,7 +1117,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                           CrossAxisAlignment
                                                               .center,
                                                       children: [
-                                                        if (widget
+                                                        if (widget!
                                                                 .followupDebtTab ==
                                                             1)
                                                           Padding(
@@ -1198,7 +1199,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                               0.0),
                                                                           child:
                                                                               Text(
-                                                                            '${functions.showNumberWithComma(widget.sumCurrentDueAmt?[listCardIndex])} บาท',
+                                                                            '${functions.showNumberWithComma(widget!.sumCurrentDueAmt?[listCardIndex])} บาท',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,
@@ -1299,7 +1300,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                               Text(
                                                                             valueOrDefault<String>(
                                                                               functions.dateToBEDate(valueOrDefault<String>(
-                                                                                widget.dateOfData?[listCardIndex],
+                                                                                widget!.dateOfData?[listCardIndex],
                                                                                 'date_of_data',
                                                                               )),
                                                                               'date_of_data',
@@ -1404,7 +1405,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                           child:
                                                                               Text(
                                                                             '${valueOrDefault<String>(
-                                                                              widget.historyCount?[listCardIndex],
+                                                                              widget!.historyCount?[listCardIndex],
                                                                               '-',
                                                                             )} ครั้ง',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2430,7 +2431,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                             Builder(
                                               builder: (context) {
                                                 final contNoItemList =
-                                                    widget.countNo!.toList();
+                                                    widget!.countNo!.toList();
+
                                                 return ListView.builder(
                                                   padding: EdgeInsets.fromLTRB(
                                                     0,
@@ -2465,7 +2467,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                         key: Key(
                                                           'Keyajv_${contNoItemListIndex.toString()}',
                                                         ),
-                                                        textBody: widget
+                                                        textBody: widget!
                                                                 .countNo![
                                                             contNoItemListIndex],
                                                       ),
@@ -2792,7 +2794,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 } else {
                                                   while (FFAppState()
                                                           .loopCountNumber <
-                                                      widget.countNo!.length) {
+                                                      widget!.countNo!.length) {
                                                     if (!(_model.inputComponentModels
                                                                 .getValueForKey(
                                                               FFAppState()
@@ -2921,7 +2923,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                               if (!_model.checkboxValue!) {
                                                 while (FFAppState()
                                                         .loopCountNumber <
-                                                    widget.countNo!.length) {
+                                                    widget!.countNo!.length) {
                                                   FFAppState()
                                                       .updatePpAmountListAtIndex(
                                                     FFAppState()
@@ -2952,26 +2954,26 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                             }
                                             FFAppState().saveCalled =
                                                 SaveCallStruct(
-                                              contnoId: widget.id,
-                                              contno: widget.countNo,
+                                              contnoId: widget!.id,
+                                              contno: widget!.countNo,
                                               historyLeadStatus: functions
                                                   .generateListFromString(
                                                       FFAppState()
                                                           .outputRemarkDesc,
-                                                      widget.countNo?.length),
+                                                      widget!.countNo?.length),
                                               historyReasonName: functions
                                                   .generateListFromString(
                                                       FFAppState()
                                                           .outputRemarkDetDesc,
-                                                      widget.countNo?.length),
+                                                      widget!.countNo?.length),
                                               createdUserid: functions
                                                   .generateListFromString(
                                                       FFAppState().employeeID,
-                                                      widget.id?.length),
+                                                      widget!.id?.length),
                                               updatedUserid: functions
                                                   .generateListFromString(
                                                       FFAppState().employeeID,
-                                                      widget.id?.length),
+                                                      widget!.id?.length),
                                               arappdate: FFAppState()
                                                           .outputRemarkDetCode ==
                                                       'PP'
@@ -2984,7 +2986,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                     .of(context)
                                                                 .languageCode,
                                                           ),
-                                                          widget
+                                                          widget!
                                                               .countNo?.length)
                                                   : functions
                                                       .generateListFromString(
@@ -2995,40 +2997,40 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                     .of(context)
                                                                 .languageCode,
                                                           ),
-                                                          widget
+                                                          widget!
                                                               .countNo?.length),
                                               ardesc: functions
                                                   .generateListFromString(
                                                       _model
                                                           .textController2.text,
-                                                      widget.countNo?.length),
+                                                      widget!.countNo?.length),
                                               userid: functions
                                                   .generateListFromString(
                                                       FFAppState().employeeID,
-                                                      widget.id?.length),
+                                                      widget!.id?.length),
                                               remgcode: functions
                                                   .generateListFromString(
                                                       FFAppState()
                                                           .outputRemarkCode,
-                                                      widget.countNo?.length),
+                                                      widget!.countNo?.length),
                                               remdetcode: functions
                                                   .generateListFromString(
                                                       FFAppState()
                                                           .outputRemarkDetCode,
-                                                      widget.countNo?.length),
+                                                      widget!.countNo?.length),
                                               amount: FFAppState()
                                                           .outputRemarkDetCode !=
                                                       'PP'
                                                   ? functions
                                                       .generateListFromString(
                                                           '0',
-                                                          widget
+                                                          widget!
                                                               .countNo?.length)
                                                   : (_model.checkboxValue!
                                                       ? functions
                                                           .generateListFromString(
                                                               '0',
-                                                              widget.countNo
+                                                              widget!.countNo
                                                                   ?.length)
                                                       : FFAppState()
                                                           .ppAmountList),

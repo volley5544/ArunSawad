@@ -8014,6 +8014,12 @@ class FFAppState extends ChangeNotifier {
   set videoRecordFilePath(String value) {
     _videoRecordFilePath = value;
   }
+
+  LatLng? _firstLoginLocation;
+  LatLng? get firstLoginLocation => _firstLoginLocation;
+  set firstLoginLocation(LatLng? value) {
+    _firstLoginLocation = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

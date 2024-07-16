@@ -231,6 +231,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
         }
         List<SplashPageImgRecord> pinCodePageSplashPageImgRecordList =
             snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -272,6 +273,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                     List<SplashPageHolidayImgRecord>
                         columnfirstSplashPageHolidayImgRecordList =
                         snapshot.data!;
+
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -305,6 +307,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                             List<BuildVersionRecord>
                                 columnsecBuildVersionRecordList =
                                 snapshot.data!;
+
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
@@ -342,6 +345,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                       List<KeyStorageRecord>
                                           columntriKeyStorageRecordList =
                                           snapshot.data!;
+
                                       final columntriKeyStorageRecord =
                                           columntriKeyStorageRecordList
                                                   .isNotEmpty
@@ -411,6 +415,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                 List<UserCustomRecord>
                                                     columnfourUserCustomRecordList =
                                                     snapshot.data!;
+
                                                 final columnfourUserCustomRecord =
                                                     columnfourUserCustomRecordList
                                                             .isNotEmpty
@@ -460,6 +465,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                         List<UrlLinkStorageRecord>
                                                             containerUrlLinkStorageRecordList =
                                                             snapshot.data!;
+
                                                         // Return an empty Container when the item does not exist.
                                                         if (snapshot
                                                             .data!.isEmpty) {
@@ -541,6 +547,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   columnfifthAuthorizationRecordList =
                                                                   snapshot
                                                                       .data!;
+
                                                               // Return an empty Container when the item does not exist.
                                                               if (snapshot.data!
                                                                   .isEmpty) {
@@ -604,6 +611,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           containerUserCustomRecordList =
                                                                           snapshot
                                                                               .data!;
+
                                                                       final containerUserCustomRecord = containerUserCustomRecordList
                                                                               .isNotEmpty
                                                                           ? containerUserCustomRecordList
@@ -1011,6 +1019,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           columnAuthorizationRecordList =
                                                                           snapshot
                                                                               .data!;
+
                                                                       // Return an empty Container when the item does not exist.
                                                                       if (snapshot
                                                                           .data!
@@ -1063,6 +1072,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   );
                                                                                 }
                                                                                 List<InsuranceNotiDataRecord> notidatacolumnInsuranceNotiDataRecordList = snapshot.data!;
+
                                                                                 final notidatacolumnInsuranceNotiDataRecord = notidatacolumnInsuranceNotiDataRecordList.isNotEmpty ? notidatacolumnInsuranceNotiDataRecordList.first : null;
                                                                                 return Column(
                                                                                   mainAxisSize: MainAxisSize.max,
@@ -1095,6 +1105,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                           );
                                                                                         }
                                                                                         List<NotificationRecord> containerpinNotificationRecordList = snapshot.data!;
+
                                                                                         return Container(
                                                                                           width: double.infinity,
                                                                                           height: 200.0,
@@ -1120,6 +1131,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                 );
                                                                                               }
                                                                                               List<UserProfileRecord> columnUserProfileRecordList = snapshot.data!;
+
                                                                                               final columnUserProfileRecord = columnUserProfileRecordList.isNotEmpty ? columnUserProfileRecordList.first : null;
                                                                                               return Column(
                                                                                                 mainAxisSize: MainAxisSize.max,
@@ -1146,6 +1158,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           );
                                                                                                         }
                                                                                                         List<InsuranceLicenseDataRecord> pinCodeInsuranceLicenseDataRecordList = snapshot.data!;
+
                                                                                                         final pinCodeInsuranceLicenseDataRecord = pinCodeInsuranceLicenseDataRecordList.isNotEmpty ? pinCodeInsuranceLicenseDataRecordList.first : null;
                                                                                                         return PinCodeTextField(
                                                                                                           autoDisposeControllers: false,
@@ -1732,6 +1745,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 },
                                                                                                               ),
                                                                                                             });
+                                                                                                            FFAppState().firstLoginLocation = currentUserLocationValue;
+                                                                                                            setState(() {});
                                                                                                             Navigator.pop(context);
 
                                                                                                             context.goNamed('SuperAppPage');
@@ -1764,6 +1779,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                         );
                                                                                                       }
                                                                                                       List<InsuranceLicenseDataRecord> iconButtonInsuranceLicenseDataRecordList = snapshot.data!;
+
                                                                                                       final iconButtonInsuranceLicenseDataRecord = iconButtonInsuranceLicenseDataRecordList.isNotEmpty ? iconButtonInsuranceLicenseDataRecordList.first : null;
                                                                                                       return FlutterFlowIconButton(
                                                                                                         borderColor: Color(0x004B39EF),
@@ -2347,6 +2363,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               },
                                                                                                             ),
                                                                                                           });
+                                                                                                          FFAppState().firstLoginLocation = currentUserLocationValue;
+                                                                                                          setState(() {});
                                                                                                           Navigator.pop(context);
 
                                                                                                           context.goNamed('SuperAppPage');

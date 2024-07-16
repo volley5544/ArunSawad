@@ -94,8 +94,8 @@ class _HtmlPageWidgetState extends State<HtmlPageWidget> {
               color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
             child: FlutterFlowWebView(
-              content: widget.contentHtml != ''
-                  ? widget.contentHtml!
+              content: widget!.contentHtml != ''
+                  ? widget!.contentHtml!
                   : 'ไม่มีข้อความใน inbox',
               height: 500.0,
               verticalScroll: true,

@@ -89,6 +89,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
               }
               List<SplashPageBirthdayRecord>
                   containerSplashPageBirthdayRecordList = snapshot.data!;
+
               // Return an empty Container when the item does not exist.
               if (snapshot.data!.isEmpty) {
                 return Container();
@@ -119,6 +120,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                               containerSplashPageBirthdayRecord?.birthDateImg
                                       ?.toList() ??
                                   [];
+
                           return Container(
                             width: double.infinity,
                             height: 500.0,

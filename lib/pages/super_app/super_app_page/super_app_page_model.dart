@@ -75,6 +75,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutput;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  UrlLinkStorageRecord? queryVloanApiUrl;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   HideInAppContentRecord? queryRecordVideoIsOnWebview;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? getWebRecodeVideoUrl;
@@ -114,8 +116,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? checkLoginInsurance;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginBranchView;
-  // Stores action output result for [Backend Call - Create Document] action in Container widget.
-  UserLogRecord? createUserLogBranchView;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginQR;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
@@ -132,10 +132,48 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? checkLoginClassroom;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginITSupport;
+  // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in Container widget.
+  ApiCallResponse? gerBrandNew;
+  // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in Container widget.
+  ApiCallResponse? getModelNew;
+  // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in Container widget.
+  ApiCallResponse? getProvinceNew;
+  // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in Container widget.
+  ApiCallResponse? getVehicleNew;
+  // Stores action output result for [Backend Call - API (insuranceRequestGetInsurerAPI)] action in Container widget.
+  ApiCallResponse? getInsurerNew;
+  // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in Container widget.
+  ApiCallResponse? getCoverTypeNew;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginLeavePageNew;
+  // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
+  ApiCallResponse? bossCheckOutputNew;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginCheckLeadNew;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  int? countLeadNoti;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginInsuranceNew;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginKPIWelfareNew;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  AuthorizationRecord? queryWelfareAdmin;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginPromotionNew;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginKPINew;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  UrlLinkStorageRecord? queryKpiUrl;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginBranchViewNew;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginQRNew;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginLeavePagetab;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutputPad;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  UrlLinkStorageRecord? queryVloanApiUrlTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   HideInAppContentRecord? queryRecordVideoIsOnWebviewTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.

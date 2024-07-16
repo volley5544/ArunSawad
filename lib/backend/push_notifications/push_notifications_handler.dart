@@ -592,7 +592,11 @@ final parametersBuilderMap =
         },
       ),
   'RecordVideoPage': ParameterData.none(),
-  'RecordVideoCustomer': ParameterData.none(),
+  'RecordVideoCustomer': (data) async => ParameterData(
+        allParams: {
+          'vloanApiUrl': getParameter<String>(data, 'vloanApiUrl'),
+        },
+      ),
   'RecordVideoCustomer2': (data) async => ParameterData(
         allParams: {
           'contNo': getParameter<String>(data, 'contNo'),
@@ -616,6 +620,7 @@ final parametersBuilderMap =
           'webUrl': getParameter<String>(data, 'webUrl'),
         },
       ),
+  'Roadmapinsurance': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

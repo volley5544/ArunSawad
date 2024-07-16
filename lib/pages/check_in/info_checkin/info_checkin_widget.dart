@@ -283,7 +283,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                   child: SelectionArea(
                                       child: Text(
                                     valueOrDefault<String>(
-                                      widget.checkinLocation?.toString(),
+                                      widget!.checkinLocation?.toString(),
                                       'checkinLocation',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -342,7 +342,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                   child: SelectionArea(
                                       child: Text(
                                     valueOrDefault<String>(
-                                      widget.date,
+                                      widget!.date,
                                       'checkinDate',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -397,7 +397,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                   child: SelectionArea(
                                       child: Text(
                                     valueOrDefault<String>(
-                                      widget.checkinTime,
+                                      widget!.checkinTime,
                                       'checkinTime',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -427,7 +427,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                   child: SelectionArea(
                                       child: Text(
                                     valueOrDefault<String>(
-                                      widget.checkoutTime,
+                                      widget!.checkoutTime,
                                       'checkoutTime',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -492,7 +492,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                   flex: 3,
                                   child: SelectionArea(
                                       child: Text(
-                                    widget.status!,
+                                    widget!.status!,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -519,7 +519,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: valueOrDefault<Color>(
-                                          widget.colorStatus,
+                                          widget!.colorStatus,
                                           Color(0xFFF30000),
                                         ),
                                         textStyle: FlutterFlowTheme.of(context)
@@ -575,7 +575,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
                               onCameraIdle: (latLng) =>
                                   _model.googleMapsCenter = latLng,
                               initialLocation: _model.googleMapsCenter ??=
-                                  widget.checkinLocation!,
+                                  widget!.checkinLocation!,
                               markerColor: GoogleMarkerColor.red,
                               mapType: MapType.normal,
                               style: GoogleMapStyle.standard,

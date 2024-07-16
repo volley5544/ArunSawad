@@ -100,7 +100,8 @@ class _ShowImageListComponentWidgetState
               Expanded(
                 child: Builder(
                   builder: (context) {
-                    final imageListItem = widget.imageUrl!.toList();
+                    final imageListItem = widget!.imageUrl!.toList();
+
                     return Container(
                       width: double.infinity,
                       height: 500.0,
@@ -132,12 +133,12 @@ class _ShowImageListComponentWidgetState
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.network(
                                             functions.stringToImgPath(
-                                                widget.imageUrl?[
+                                                widget!.imageUrl?[
                                                     imageListItemIndex])!,
                                             fit: BoxFit.contain,
                                           ),
                                           allowRotation: false,
-                                          tag: functions.stringToImgPath(widget
+                                          tag: functions.stringToImgPath(widget!
                                               .imageUrl?[imageListItemIndex])!,
                                           useHeroAnimation: true,
                                         ),
@@ -146,12 +147,12 @@ class _ShowImageListComponentWidgetState
                                   },
                                   child: Hero(
                                     tag: functions.stringToImgPath(
-                                        widget.imageUrl?[imageListItemIndex])!,
+                                        widget!.imageUrl?[imageListItemIndex])!,
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
-                                        functions.stringToImgPath(widget
+                                        functions.stringToImgPath(widget!
                                             .imageUrl?[imageListItemIndex])!,
                                         width: double.infinity,
                                         fit: BoxFit.cover,

@@ -383,7 +383,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showDateTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -406,7 +406,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showClockTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -526,6 +526,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                         .toList()
                                         .take(5)
                                         .toList();
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -1218,7 +1219,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: false,
-                                          hintText: widget.coordinate,
+                                          hintText: widget!.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1334,7 +1335,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: false,
-                                          hintText: widget.assetId,
+                                          hintText: widget!.assetId,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1449,7 +1450,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.remark,
+                                          hintText: widget!.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1680,8 +1681,8 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                     queryBuilder: (fileUploadRecord) =>
                                         fileUploadRecord.where(
                                       'RecordId',
-                                      isEqualTo: widget.recordId != ''
-                                          ? widget.recordId
+                                      isEqualTo: widget!.recordId != ''
+                                          ? widget!.recordId
                                           : null,
                                     ),
                                     singleRecord: true,
@@ -1706,6 +1707,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
+
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -1720,6 +1722,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                             listViewFileUploadRecord?.imgUrl
                                                     ?.toList() ??
                                                 [];
+
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
                                           scrollDirection: Axis.horizontal,

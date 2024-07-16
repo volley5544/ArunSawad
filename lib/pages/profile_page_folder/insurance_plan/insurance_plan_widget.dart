@@ -36,14 +36,14 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().insurancePlan1 = functions
-          .insurancePlan(widget.planInsurance)!
+          .insurancePlan(widget!.planInsurance)!
           .toList()
           .cast<String>();
       FFAppState().update(() {});
     });
 
     _model.planInsuranceTextController ??=
-        TextEditingController(text: widget.planInsurance);
+        TextEditingController(text: widget!.planInsurance);
     _model.planInsuranceFocusNode ??= FocusNode();
 
     _model.textController2 ??= TextEditingController();
@@ -199,7 +199,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        hintText: widget.planInsurance,
+                                        hintText: widget!.planInsurance,
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(

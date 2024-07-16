@@ -82,7 +82,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                widget.textBody!,
+                widget!.textBody!,
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Poppins',
                       fontSize: 12.0,

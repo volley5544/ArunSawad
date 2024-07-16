@@ -282,6 +282,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                             (_model.getEmployee?.jsonBody ?? ''),
                           )?.toList() ??
                           [];
+
                       return ListView.builder(
                         padding: EdgeInsets.fromLTRB(
                           0,

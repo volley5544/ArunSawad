@@ -56,7 +56,7 @@ class _PDFViewerWidgetState extends State<PDFViewerWidget> {
           Stack(
             children: [
               FlutterFlowPdfViewer(
-                networkPath: widget.pdfUrl!,
+                networkPath: widget!.pdfUrl!,
                 width: double.infinity,
                 height: 700.0,
                 horizontalScroll: false,

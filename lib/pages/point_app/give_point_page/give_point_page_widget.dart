@@ -201,6 +201,7 @@ class _GivePointPageWidgetState extends State<GivePointPageWidget> {
                 child: Builder(
                   builder: (context) {
                     final list = FFAppState().checkinStatusColor.toList();
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,

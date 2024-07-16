@@ -170,6 +170,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                             }
                             List<HolidayDateRecord>
                                 buttonHolidayDateRecordList = snapshot.data!;
+
                             final buttonHolidayDateRecord =
                                 buttonHolidayDateRecordList.isNotEmpty
                                     ? buttonHolidayDateRecordList.first

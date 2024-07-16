@@ -35,6 +35,7 @@ class _ShowTimeDashState extends State<ShowTimeDash> {
       body: Center(
         child: Container(
           height: widget.height,
+          width: MediaQuery.of(context).size.width,
           color: Color(0xFF261E1E),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

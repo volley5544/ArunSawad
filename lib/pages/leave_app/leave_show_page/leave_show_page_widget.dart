@@ -367,6 +367,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                           ''),
                                     )?.toList() ??
                                     [];
+
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,

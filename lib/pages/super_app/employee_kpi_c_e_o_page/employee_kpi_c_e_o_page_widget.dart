@@ -1233,6 +1233,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                             (_model.getBudget?.jsonBody ?? ''),
                                           )?.toList() ??
                                           [];
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -1622,6 +1623,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                           )?.toList())
                                           ?.toList() ??
                                       [];
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -1747,6 +1749,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     employeeIdListIndex))
                                                             ?.toList() ??
                                                         [];
+
                                                     return Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -2216,6 +2219,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                             (_model.getBudget?.jsonBody ?? ''),
                                           )?.toList() ??
                                           [];
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -2606,6 +2610,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                           )?.toList())
                                           ?.toList() ??
                                       [];
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -2732,6 +2737,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                     employeeIdListLMIndex))
                                                             ?.toList() ??
                                                         [];
+
                                                     return Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -4494,6 +4500,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                               ''),
                                                         )?.toList() ??
                                                         [];
+
                                                 return Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -5309,6 +5316,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                               ''),
                                                         )?.toList() ??
                                                         [];
+
                                                 return Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -6107,6 +6115,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                     List<UrlLinkStorageRecord>
                                         iconButtonUrlLinkStorageRecordList =
                                         snapshot.data!;
+
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();

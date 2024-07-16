@@ -6,23 +6,24 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'classroom_page_model.dart';
-export 'classroom_page_model.dart';
+import 'roadmapinsurance_model.dart';
+export 'roadmapinsurance_model.dart';
 
-class ClassroomPageWidget extends StatefulWidget {
-  const ClassroomPageWidget({super.key});
+class RoadmapinsuranceWidget extends StatefulWidget {
+  const RoadmapinsuranceWidget({super.key});
 
   @override
-  State<ClassroomPageWidget> createState() => _ClassroomPageWidgetState();
+  State<RoadmapinsuranceWidget> createState() => _RoadmapinsuranceWidgetState();
 }
 
-class _ClassroomPageWidgetState extends State<ClassroomPageWidget> {
-  late ClassroomPageModel _model;
+class _RoadmapinsuranceWidgetState extends State<RoadmapinsuranceWidget> {
+  late RoadmapinsuranceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   LatLng? currentUserLocationValue;
@@ -30,10 +31,10 @@ class _ClassroomPageWidgetState extends State<ClassroomPageWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => ClassroomPageModel());
+    _model = createModel(context, () => RoadmapinsuranceModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'ClassroomPage'});
+        parameters: {'screen_name': 'Roadmapinsurance'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
@@ -64,19 +65,26 @@ class _ClassroomPageWidgetState extends State<ClassroomPageWidget> {
       var userLogRecordReference = UserLogRecord.collection.doc();
       await userLogRecordReference.set(createUserLogRecordData(
         employeeId: FFAppState().employeeID,
-        action: 'IT_Support',
+        action: 'roadmap_insurance',
         actionTime: getCurrentTimestamp,
         userLocation: currentUserLocationValue,
       ));
       _model.createdUserLogITSupport = UserLogRecord.getDocumentFromData(
           createUserLogRecordData(
             employeeId: FFAppState().employeeID,
-            action: 'IT_Support',
+            action: 'roadmap_insurance',
             actionTime: getCurrentTimestamp,
             userLocation: currentUserLocationValue,
           ),
           userLogRecordReference);
       await Future.delayed(const Duration(milliseconds: 2000));
+      _model.getroadmapinsurance = await queryUrlLinkStorageRecordOnce(
+        queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
+          'url_name',
+          isEqualTo: 'roadmap_insurance',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       Navigator.pop(context);
     });
 
@@ -124,7 +132,7 @@ class _ClassroomPageWidgetState extends State<ClassroomPageWidget> {
               ),
             ),
             title: Text(
-              'ห้องเรียนทันใจ',
+              'เส้นทางนักขายประกัน',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Poppins',
                     color: Colors.white,
@@ -147,7 +155,7 @@ class _ClassroomPageWidgetState extends State<ClassroomPageWidget> {
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                 child: FlutterFlowWebView(
-                  content: 'https://sites.google.com/srisawadpower.com/trn/001',
+                  content: _model.getroadmapinsurance!.urlLink,
                   bypass: true,
                   height: MediaQuery.sizeOf(context).height * 0.9,
                   verticalScroll: true,

@@ -80,6 +80,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
         }
         List<SplashPageHolidayImgRecord>
             setPinCodePageSplashPageHolidayImgRecordList = snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -264,6 +265,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                             }
                             List<UserCustomRecord> buttonUserCustomRecordList =
                                 snapshot.data!;
+
                             final buttonUserCustomRecord =
                                 buttonUserCustomRecordList.isNotEmpty
                                     ? buttonUserCustomRecordList.first
@@ -400,6 +402,8 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                     buttonUserCustomRecord?.reference;
                                 FFAppState().profileImage =
                                     buttonUserCustomRecord!.imgProfile;
+                                FFAppState().firstLoginLocation =
+                                    currentUserLocationValue;
                                 setState(() {});
 
                                 var userLogRecordReference =

@@ -180,7 +180,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.fullName,
+                                          hintText: widget!.fullName,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -291,7 +291,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.coverType,
+                                          hintText: widget!.coverType,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -401,7 +401,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.garageType,
+                                          hintText: widget!.garageType,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -513,7 +513,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         decoration: InputDecoration(
                                           hintText:
                                               functions.showNumberWithComma(
-                                                  widget.grossTotal),
+                                                  widget!.grossTotal),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -625,7 +625,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         decoration: InputDecoration(
                                           hintText:
                                               functions.showNumberWithComma(
-                                                  widget.sumInsured),
+                                                  widget!.sumInsured),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -734,8 +734,9 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: functions
-                                              .showNumberWithComma(widget.tppd),
+                                          hintText:
+                                              functions.showNumberWithComma(
+                                                  widget!.tppd),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -845,7 +846,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: functions
-                                              .showNumberWithComma(widget.pa),
+                                              .showNumberWithComma(widget!.pa),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -958,7 +959,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         decoration: InputDecoration(
                                           hintText:
                                               functions.showNumberWithComma(
-                                                  widget.grossTotal),
+                                                  widget!.grossTotal),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1072,8 +1073,8 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                           hintText:
                                               functions.showNumberWithComma(
                                                   functions.getGrossAct(
-                                                      widget.grossTotal,
-                                                      widget.actAmount)),
+                                                      widget!.grossTotal,
+                                                      widget!.actAmount)),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1185,7 +1186,7 @@ class _DetailInsurancePageWidgetState extends State<DetailInsurancePageWidget> {
                                         readOnly: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.expiryDate,
+                                          hintText: widget!.expiryDate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall

@@ -206,6 +206,7 @@ class _InsuranceRequestDashboardPageWidgetState
         List<UrlLinkStorageRecord>
             insuranceRequestDashboardPageUrlLinkStorageRecordList =
             snapshot.data!;
+
         final insuranceRequestDashboardPageUrlLinkStorageRecord =
             insuranceRequestDashboardPageUrlLinkStorageRecordList.isNotEmpty
                 ? insuranceRequestDashboardPageUrlLinkStorageRecordList.first

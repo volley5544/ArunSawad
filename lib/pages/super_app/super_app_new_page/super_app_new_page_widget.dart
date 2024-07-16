@@ -947,7 +947,9 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                         ),
                       );
                     }
+
                     final containerUserCustomRecord = snapshot.data!;
+
                     return Container(
                       width: double.infinity,
                       height: 120.0,
@@ -1075,6 +1077,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                     List<NotificationRecord>
                                         badgeNotificationRecordList =
                                         snapshot.data!;
+
                                     return badges.Badge(
                                       badgeContent: Text(
                                         badgeNotificationRecordList.length
@@ -1230,6 +1233,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                         List<ArunSawadImgBannerRecord>
                             pageViewBannerArunSawadImgBannerRecordList =
                             snapshot.data!;
+
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -1246,6 +1250,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                 pageViewBannerArunSawadImgBannerRecord?.imgUrl
                                         ?.toList() ??
                                     [];
+
                             return Container(
                               width: double.infinity,
                               height: 300.0,
@@ -1488,6 +1493,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                         List<ArunSawadImgBannerRecord>
                             pageViewArunSawadImgBannerRecordList =
                             snapshot.data!;
+
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -1502,6 +1508,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                 pageViewArunSawadImgBannerRecord?.imgUrl
                                         ?.toList() ??
                                     [];
+
                             return Container(
                               width: double.infinity,
                               height: 300.0,
@@ -1673,6 +1680,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                         }
                         List<AuthorizationRecord>
                             containerAuthorizationRecordList = snapshot.data!;
+
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -1724,6 +1732,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                               }
                               List<AuthorizationRecord>
                                   stackAuthorizationRecordList = snapshot.data!;
+
                               // Return an empty Container when the item does not exist.
                               if (snapshot.data!.isEmpty) {
                                 return Container();
@@ -1786,6 +1795,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                 List<UserCustomRecord>
                                                     containerUserCustomRecordList =
                                                     snapshot.data!;
+
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();
@@ -1913,6 +1923,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   gridViewRoleMenuRecordList =
                                                                   snapshot
                                                                       .data!;
+
                                                               // Return an empty Container when the item does not exist.
                                                               if (snapshot.data!
                                                                   .isEmpty) {
@@ -2346,6 +2357,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   );
                                                                                 }
                                                                                 List<NotificationRecord> badgeNotificationRecordList = snapshot.data!;
+
                                                                                 return badges.Badge(
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
@@ -2463,6 +2475,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
@@ -2637,8 +2650,60 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         var _shouldSetState =
                                                                             false;
                                                                         if (true) {
+                                                                          showModalBottomSheet(
+                                                                            isScrollControlled:
+                                                                                true,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            enableDrag:
+                                                                                false,
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (context) {
+                                                                              return WebViewAware(
+                                                                                child: GestureDetector(
+                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  child: Padding(
+                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                    child: Container(
+                                                                                      height: double.infinity,
+                                                                                      child: LoadingSceneWidget(),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ).then((value) =>
+                                                                              safeSetState(() {}));
+
+                                                                          _model.queryVloanApiUrl =
+                                                                              await queryUrlLinkStorageRecordOnce(
+                                                                            queryBuilder: (urlLinkStorageRecord) =>
+                                                                                urlLinkStorageRecord.where(
+                                                                              'url_name',
+                                                                              isEqualTo: 'check_app_vloan',
+                                                                            ),
+                                                                            singleRecord:
+                                                                                true,
+                                                                          ).then((s) => s.firstOrNull);
+                                                                          _shouldSetState =
+                                                                              true;
+
                                                                           context
-                                                                              .goNamed('RecordVideoCustomer');
+                                                                              .goNamed(
+                                                                            'RecordVideoCustomer',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'vloanApiUrl': serializeParam(
+                                                                                _model.queryVloanApiUrl?.urlLink,
+                                                                                ParamType.String,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+
+                                                                          Navigator.pop(
+                                                                              context);
                                                                         } else {
                                                                           _model.queryRecordVideoIsOnWebview =
                                                                               await queryHideInAppContentRecordOnce(
@@ -2851,6 +2916,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
@@ -3033,6 +3099,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
@@ -4134,6 +4201,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -4437,6 +4505,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<AuthorizationRecord>
                                                                             containerWelfareAuthorizationRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -4720,6 +4789,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -5031,6 +5101,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -5585,6 +5656,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   );
                                                                                 }
                                                                                 List<NotificationRecord> badgeNotificationRecordList = snapshot.data!;
+
                                                                                 return badges.Badge(
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
@@ -8287,6 +8359,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                 List<UserCustomRecord>
                                                     containerUserCustomRecordList =
                                                     snapshot.data!;
+
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();
@@ -8406,6 +8479,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   gridViewRoleMenuRecordList =
                                                                   snapshot
                                                                       .data!;
+
                                                               // Return an empty Container when the item does not exist.
                                                               if (snapshot.data!
                                                                   .isEmpty) {
@@ -8841,6 +8915,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   );
                                                                                 }
                                                                                 List<NotificationRecord> badgeNotificationRecordList = snapshot.data!;
+
                                                                                 return badges.Badge(
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
@@ -8959,6 +9034,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
@@ -9306,6 +9382,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
@@ -9488,6 +9565,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
@@ -10595,6 +10673,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -10891,6 +10970,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<AuthorizationRecord>
                                                                             containerWelfareTabAuthorizationRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -11174,6 +11254,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             thaipaiboonPadUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -11706,6 +11787,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   );
                                                                                 }
                                                                                 List<NotificationRecord> badgeNotificationRecordList = snapshot.data!;
+
                                                                                 return badges.Badge(
                                                                                   badgeContent: Text(
                                                                                     badgeNotificationRecordList.length.toString(),
@@ -11816,6 +11898,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
+
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -14737,6 +14820,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                   List<SawadFormServicesRecord>
                                                       listViewSawadFormServicesRecordList =
                                                       snapshot.data!;
+
                                                   return ListView.separated(
                                                     padding:
                                                         EdgeInsets.fromLTRB(
@@ -15200,6 +15284,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                   List<SawadFormServicesRecord>
                                                       listViewSawadFormServicesRecordList =
                                                       snapshot.data!;
+
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
                                                     shrinkWrap: true,
@@ -15640,6 +15725,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                   List<SawadAnnouncementRecord>
                                                       listViewSawadAnnouncementRecordList =
                                                       snapshot.data!;
+
                                                   return ListView.builder(
                                                     padding:
                                                         EdgeInsets.fromLTRB(
@@ -15927,6 +16013,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                   List<SawadAnnouncementRecord>
                                                       listViewSawadAnnouncementRecordList =
                                                       snapshot.data!;
+
                                                   return ListView.builder(
                                                     padding: EdgeInsets.zero,
                                                     shrinkWrap: true,

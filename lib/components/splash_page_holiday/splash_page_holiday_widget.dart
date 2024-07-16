@@ -94,6 +94,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
               }
               List<SplashPageHolidayImgRecord>
                   containerSplashPageHolidayImgRecordList = snapshot.data!;
+
               // Return an empty Container when the item does not exist.
               if (snapshot.data!.isEmpty) {
                 return Container();
@@ -124,6 +125,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                               containerSplashPageHolidayImgRecord?.holidayImg
                                       ?.toList() ??
                                   [];
+
                           return Container(
                             width: double.infinity,
                             height: 500.0,

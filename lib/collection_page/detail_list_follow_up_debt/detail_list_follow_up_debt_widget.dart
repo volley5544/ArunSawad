@@ -84,8 +84,8 @@ class _DetailListFollowUpDebtWidgetState
 
       _model.getListDataPerson = await CollectionApiGetDataPersonCall.call(
         apiUrl: FFAppState().apiUrlBranchViewCollection,
-        idCard: widget.cusCod,
-        dataFilter: widget.followupDebtTab,
+        idCard: widget!.cusCod,
+        dataFilter: widget!.followupDebtTab,
       );
 
       if ((_model.getListDataPerson?.statusCode ?? 200) != 200) {
@@ -407,7 +407,7 @@ class _DetailListFollowUpDebtWidgetState
                                 }
                                 _model.getHashThaiId =
                                     await actions.sha256Encoder(
-                                  widget.cusCod,
+                                  widget!.cusCod,
                                 );
                                 _shouldSetState = true;
                                 await actions.addUserLogDocument(
@@ -483,7 +483,7 @@ class _DetailListFollowUpDebtWidgetState
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                '${widget.name} ${widget.lastName}',
+                                '${widget!.name} ${widget!.lastName}',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -519,27 +519,27 @@ class _DetailListFollowUpDebtWidgetState
                                   12.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 () {
-                                  if (widget.followupDebtTab == 1) {
+                                  if (widget!.followupDebtTab == 1) {
                                     return 'เตือนก่อนดิว';
-                                  } else if (widget.followupDebtTab == 2) {
+                                  } else if (widget!.followupDebtTab == 2) {
                                     return 'ค้าง 1-3 งวด';
-                                  } else if (widget.followupDebtTab == 3) {
+                                  } else if (widget!.followupDebtTab == 3) {
                                     return 'ค้าง 4-5 งวด';
-                                  } else if (widget.followupDebtTab == 4) {
+                                  } else if (widget!.followupDebtTab == 4) {
                                     return 'ค้าง 6 งวดเป็นต้นไป';
-                                  } else if (widget.followupDebtTab == 5) {
+                                  } else if (widget!.followupDebtTab == 5) {
                                     return 'ค้างด้วยยอดน้อยกว่า 250 บาท';
-                                  } else if (widget.followupDebtTab == 6) {
+                                  } else if (widget!.followupDebtTab == 6) {
                                     return 'โทรชวนปิดปรับ';
-                                  } else if (widget.followupDebtTab == 11) {
+                                  } else if (widget!.followupDebtTab == 11) {
                                     return 'OD1';
-                                  } else if (widget.followupDebtTab == 12) {
+                                  } else if (widget!.followupDebtTab == 12) {
                                     return 'OD2';
-                                  } else if (widget.followupDebtTab == 13) {
+                                  } else if (widget!.followupDebtTab == 13) {
                                     return 'OD3';
-                                  } else if (widget.followupDebtTab == 14) {
+                                  } else if (widget!.followupDebtTab == 14) {
                                     return 'OD4 - OD5';
-                                  } else if (widget.followupDebtTab == 15) {
+                                  } else if (widget!.followupDebtTab == 15) {
                                     return 'OD6 เป็นต้นไป';
                                   } else {
                                     return ' ';
@@ -639,11 +639,11 @@ class _DetailListFollowUpDebtWidgetState
                             'saveOnSiteFollowUpDebt',
                             queryParameters: {
                               'firstname': serializeParam(
-                                widget.name,
+                                widget!.name,
                                 ParamType.String,
                               ),
                               'lastname': serializeParam(
-                                widget.lastName,
+                                widget!.lastName,
                                 ParamType.String,
                               ),
                               'contNo': serializeParam(
@@ -758,7 +758,7 @@ class _DetailListFollowUpDebtWidgetState
                                 ParamType.String,
                               ),
                               'followupDebtTab': serializeParam(
-                                widget.followupDebtTab,
+                                widget!.followupDebtTab,
                                 ParamType.int,
                               ),
                               'dateOfData': serializeParam(
@@ -931,11 +931,11 @@ class _DetailListFollowUpDebtWidgetState
                                 isList: true,
                               ),
                               'name1': serializeParam(
-                                widget.name,
+                                widget!.name,
                                 ParamType.String,
                               ),
                               'name2': serializeParam(
-                                widget.lastName,
+                                widget!.lastName,
                                 ParamType.String,
                               ),
                               'id': serializeParam(
@@ -972,7 +972,7 @@ class _DetailListFollowUpDebtWidgetState
                                 isList: true,
                               ),
                               'followupDebtTab': serializeParam(
-                                widget.followupDebtTab,
+                                widget!.followupDebtTab,
                                 ParamType.int,
                               ),
                               'dateOfData': serializeParam(
@@ -1184,6 +1184,7 @@ class _DetailListFollowUpDebtWidgetState
                             (_model.getListDataPerson?.jsonBody ?? ''),
                             r'''$.data''',
                           ).toList();
+
                           return ListView.builder(
                             padding: EdgeInsets.fromLTRB(
                               0,
@@ -1952,7 +1953,7 @@ class _DetailListFollowUpDebtWidgetState
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
-                                                        if ((widget.followupDebtTab ==
+                                                        if ((widget!.followupDebtTab ==
                                                                 1) ||
                                                             (valueOrDefault<
                                                                     String>(

@@ -190,6 +190,7 @@ class _WelfareKPIPageWidgetState extends State<WelfareKPIPageWidget>
                 }
                 List<TextContentRecord> tabBarTextContentRecordList =
                     snapshot.data!;
+
                 final tabBarTextContentRecord =
                     tabBarTextContentRecordList.isNotEmpty
                         ? tabBarTextContentRecordList.first

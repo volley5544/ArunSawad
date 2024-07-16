@@ -136,7 +136,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
     _model.coordinateTimesheetFocusNode ??= FocusNode();
 
     _model.remarkTimesheetTextController ??=
-        TextEditingController(text: widget.remark);
+        TextEditingController(text: widget!.remark);
     _model.remarkTimesheetFocusNode ??= FocusNode();
 
     _model.textController8 ??= TextEditingController();
@@ -379,7 +379,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showDateTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -402,7 +402,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     functions.showClockTimesheetDetail(
-                                        widget.clockIn),
+                                        widget!.clockIn),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -522,6 +522,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         .toList()
                                         .take(5)
                                         .toList();
+
                                     return ListView.builder(
                                       padding: EdgeInsets.zero,
                                       scrollDirection: Axis.horizontal,
@@ -1108,7 +1109,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: false,
-                                          hintText: widget.coordinate,
+                                          hintText: widget!.coordinate,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1222,7 +1223,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          hintText: widget.remark,
+                                          hintText: widget!.remark,
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
@@ -1453,8 +1454,8 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                     queryBuilder: (fileUploadRecord) =>
                                         fileUploadRecord.where(
                                       'RecordId',
-                                      isEqualTo: widget.recordId != ''
-                                          ? widget.recordId
+                                      isEqualTo: widget!.recordId != ''
+                                          ? widget!.recordId
                                           : null,
                                     ),
                                     singleRecord: true,
@@ -1479,6 +1480,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
+
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -1493,6 +1495,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                             listViewFileUploadRecord?.imgUrl
                                                     ?.toList() ??
                                                 [];
+
                                         return ListView.builder(
                                           padding: EdgeInsets.zero,
                                           scrollDirection: Axis.horizontal,
@@ -1696,7 +1699,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                       pageName: 'check-in',
                                       token: FFAppState().accessToken,
                                       apiUrl: FFAppState().apiURLLocalState,
-                                      recordId: widget.recordId,
+                                      recordId: widget!.recordId,
                                       editCheck: 'Y',
                                       remark: _model
                                           .remarkTimesheetTextController.text,

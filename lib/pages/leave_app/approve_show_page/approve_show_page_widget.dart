@@ -487,6 +487,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                           (_model.getApproved?.jsonBody ?? ''),
                                         )?.toList() ??
                                         [];
+
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,
@@ -1447,6 +1448,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                               ''),
                                         )?.toList() ??
                                         [];
+
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,
@@ -2222,6 +2224,7 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                                               ''),
                                         )?.toList() ??
                                         [];
+
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,

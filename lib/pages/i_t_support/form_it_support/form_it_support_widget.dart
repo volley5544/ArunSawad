@@ -133,6 +133,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
               }
               List<UserCustomRecord> columnUserCustomRecordList =
                   snapshot.data!;
+
               final columnUserCustomRecord =
                   columnUserCustomRecordList.isNotEmpty
                       ? columnUserCustomRecordList.first
@@ -170,6 +171,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                       }
                       List<FCMTokenRecord> columnFCMTokenRecordList =
                           snapshot.data!;
+
                       final columnFCMTokenRecord =
                           columnFCMTokenRecordList.isNotEmpty
                               ? columnFCMTokenRecordList.first
@@ -212,7 +214,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         10.0, 0.0, 0.0, 0.0),
                                                 child: SelectionArea(
                                                     child: Text(
-                                                  'ประเภทการซ่อม : ${widget.fixType}',
+                                                  'ประเภทการซ่อม : ${widget!.fixType}',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -816,6 +818,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                   final uploadListNum = _model
                                                       .uploadedFileUrls
                                                       .toList();
+
                                                   return Container(
                                                     width: double.infinity,
                                                     height: 500.0,

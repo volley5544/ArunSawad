@@ -69,7 +69,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
       ).then((value) => safeSetState(() {}));
 
       _model.getCalledHistory = await GetCalledHistoryCollectionApiCall.call(
-        contNo: widget.contNo,
+        contNo: widget!.contNo,
         apiUrl: FFAppState().apiUrlBranchViewCollection,
       );
 
@@ -218,6 +218,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                   (_model.getCalledHistory?.jsonBody ?? ''),
                                 )?.toList() ??
                                 [];
+
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           scrollDirection: Axis.vertical,

@@ -188,12 +188,14 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                         );
                       }
                       final listViewGetTimesheetAPIResponse = snapshot.data!;
+
                       return Builder(
                         builder: (context) {
                           final timesheetDataList =
                               GetTimesheetAPICall.timesheetData(
                             listViewGetTimesheetAPIResponse.jsonBody,
                           ).toList();
+
                           return RefreshIndicator(
                             color: FlutterFlowTheme.of(context).tertiary,
                             onRefresh: () async {

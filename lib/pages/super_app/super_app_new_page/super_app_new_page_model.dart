@@ -77,6 +77,8 @@ class SuperAppNewPageModel extends FlutterFlowModel<SuperAppNewPageWidget> {
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageGenEpaQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  UrlLinkStorageRecord? queryVloanApiUrl;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   HideInAppContentRecord? queryRecordVideoIsOnWebview;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? getWebRecodeVideoUrl;

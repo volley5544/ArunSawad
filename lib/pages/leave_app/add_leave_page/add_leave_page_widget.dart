@@ -53,8 +53,10 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().leaveDaysDouble = 0.5;
-      FFAppState().leaveTypeEdit =
-          functions.leaveTypeToList1(widget.leaveType)!.toList().cast<String>();
+      FFAppState().leaveTypeEdit = functions
+          .leaveTypeToList1(widget!.leaveType)!
+          .toList()
+          .cast<String>();
       FFAppState().update(() {});
       _model.getHolidayAPIOutput = await GetHolidayAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
@@ -175,6 +177,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
               }
               List<UserCustomRecord> columnUserCustomRecordList =
                   snapshot.data!;
+
               final columnUserCustomRecord =
                   columnUserCustomRecordList.isNotEmpty
                       ? columnUserCustomRecordList.first
@@ -212,6 +215,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                       }
                       List<FCMTokenRecord> columnFCMTokenRecordList =
                           snapshot.data!;
+
                       final columnFCMTokenRecord =
                           columnFCMTokenRecordList.isNotEmpty
                               ? columnFCMTokenRecordList.first
@@ -243,6 +247,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                 List<LeaveDaysAfterRecord>
                                     containerLeaveDaysAfterRecordList =
                                     snapshot.data!;
+
                                 // Return an empty Container when the item does not exist.
                                 if (snapshot.data!.isEmpty) {
                                   return Container();
@@ -289,7 +294,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 0.0, 0.0),
                                                     child: SelectionArea(
                                                         child: Text(
-                                                      'ประเภทการลา : ${widget.leaveType}',
+                                                      'ประเภทการลา : ${widget!.leaveType}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -352,9 +357,9 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           0.0, 0.0, 0.0, 5.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
-                                                      if (!(widget.leaveType !=
+                                                      if (!(widget!.leaveType !=
                                                               null &&
-                                                          widget.leaveType !=
+                                                          widget!.leaveType !=
                                                               '')) {
                                                         ScaffoldMessenger.of(
                                                                 context)
@@ -384,7 +389,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           initialDate: functions.startLeaveCalendar(
                                                               getCurrentTimestamp,
                                                               functions.leaveTypeToCanLeaveSince(
-                                                                  widget
+                                                                  widget!
                                                                       .leaveType,
                                                                   containerLeaveDaysAfterRecord
                                                                       ?.leaveListAllowDay
@@ -395,7 +400,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           firstDate: functions.startLeaveCalendar(
                                                               getCurrentTimestamp,
                                                               functions.leaveTypeToCanLeaveSince(
-                                                                  widget
+                                                                  widget!
                                                                       .leaveType,
                                                                   containerLeaveDaysAfterRecord
                                                                       ?.leaveListAllowDay
@@ -436,7 +441,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           currentTime: functions.startLeaveCalendar(
                                                               getCurrentTimestamp,
                                                               functions.leaveTypeToCanLeaveSince(
-                                                                  widget
+                                                                  widget!
                                                                       .leaveType,
                                                                   containerLeaveDaysAfterRecord
                                                                       ?.leaveListAllowDay
@@ -447,7 +452,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           minTime: functions.startLeaveCalendar(
                                                               getCurrentTimestamp,
                                                               functions.leaveTypeToCanLeaveSince(
-                                                                  widget
+                                                                  widget!
                                                                       .leaveType,
                                                                   containerLeaveDaysAfterRecord
                                                                       ?.leaveListAllowDay
@@ -560,7 +565,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                         );
                                                         return;
                                                       }
-                                                      if (widget.leaveType ==
+                                                      if (widget!.leaveType ==
                                                           'ลาป่วย') {
                                                         if (!functions
                                                             .checkSickLeaveIsBeforeCurrentDate(
@@ -711,14 +716,14 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                             .leaveTimeValueController ??=
                                                         FormFieldController<
                                                             String>(null),
-                                                    options: (widget
+                                                    options: (widget!
                                                                     .leaveType ==
                                                                 'ลาป่วย') ||
-                                                            (widget.leaveType ==
+                                                            (widget!.leaveType ==
                                                                 'ลากิจ') ||
-                                                            (widget.leaveType ==
+                                                            (widget!.leaveType ==
                                                                 'ลาป่วย') ||
-                                                            (widget.leaveType ==
+                                                            (widget!.leaveType ==
                                                                 'ลากิจ')
                                                         ? FFAppState()
                                                             .leaveHalfDay
@@ -863,7 +868,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 .update(() {});
                                                           }
 
-                                                          if ((widget.leaveType ==
+                                                          if ((widget!.leaveType ==
                                                                   'ลาพักร้อน') &&
                                                               (FFAppState()
                                                                       .leaveDaysDouble >
@@ -938,7 +943,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                         FFAppState()
                                                                 .allowFileUpload =
                                                             functions.allowFileInput(
-                                                                widget
+                                                                widget!
                                                                     .leaveType,
                                                                 double.tryParse(
                                                                     _model
@@ -1641,6 +1646,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               .firebaseuploadoutput
                                                               ?.toList() ??
                                                           [];
+
                                                       return Container(
                                                         width: double.infinity,
                                                         height: 500.0,
@@ -1855,14 +1861,14 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               setState(() {});
                                                             return;
                                                           }
-                                                          if (((widget.leaveType ==
+                                                          if (((widget!.leaveType ==
                                                                       'ลาป่วย') &&
                                                                   (FFAppState()
                                                                           .leaveDaysDouble >=
                                                                       3.0)) ||
-                                                              (widget.leaveType ==
+                                                              (widget!.leaveType ==
                                                                   'ลาทำหมัน') ||
-                                                              (widget.leaveType ==
+                                                              (widget!.leaveType ==
                                                                   'ลาเพื่อรับราชการทหาร')) {
                                                             if (_model
                                                                     .uploadedLocalFiles
@@ -2036,7 +2042,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               setState(() {});
                                                             return;
                                                           }
-                                                          if (widget
+                                                          if (widget!
                                                                   .leaveType ==
                                                               'ลาป่วย') {
                                                             if (!functions
@@ -2180,7 +2186,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           FFAppState()
                                                                   .checkAllowLeaveDay =
                                                               functions.allowLeaveDay(
-                                                                  widget
+                                                                  widget!
                                                                       .leaveType,
                                                                   FFAppState()
                                                                       .totalLeave
@@ -2204,7 +2210,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           FFAppState()
                                                                   .checkAllowLeaveDay =
                                                               functions.allowLeaveDay(
-                                                                  widget
+                                                                  widget!
                                                                       .leaveType,
                                                                   FFAppState()
                                                                       .totalLeave
@@ -2278,14 +2284,14 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               setState(() {});
                                                             return;
                                                           }
-                                                          if (((widget.leaveType ==
+                                                          if (((widget!.leaveType ==
                                                                       'ลาป่วย') &&
                                                                   (FFAppState()
                                                                           .leaveDaysDouble >=
                                                                       3.0)) ||
-                                                              (widget.leaveType ==
+                                                              (widget!.leaveType ==
                                                                   'ลาทำหมัน') ||
-                                                              (widget.leaveType ==
+                                                              (widget!.leaveType ==
                                                                   'ลาเพื่อรับราชการทหาร')) {
                                                             if (_model
                                                                     .uploadedLocalFiles
@@ -2305,7 +2311,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                     .accessToken,
                                                                 leaveId: functions
                                                                     .leaveTypeToLeaveId(
-                                                                        widget
+                                                                        widget!
                                                                             .leaveType),
                                                                 leaveStartDate:
                                                                     functions.startLeaveDayString(
@@ -2336,7 +2342,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                                       (_model.getHolidayAPIOutput?.jsonBody ?? ''),
                                                                                     )?.map((e) => e.toString()).toList()?.toList())! >
                                                                                 0)) &&
-                                                                        ((widget.leaveType != 'ลาอุปสมบท') && (widget.leaveType != 'ลาเพื่อรับราชการทหาร') && (widget.leaveType != 'ลาคลอด'))
+                                                                        ((widget!.leaveType != 'ลาอุปสมบท') && (widget!.leaveType != 'ลาเพื่อรับราชการทหาร') && (widget!.leaveType != 'ลาคลอด'))
                                                                     ? functions.leaveCountMinusSunday(
                                                                         _model.leaveDaysTextController.text,
                                                                         functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, int.tryParse(_model.leaveDaysTextController.text))),
@@ -2720,7 +2726,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                   .accessToken,
                                                               leaveId: functions
                                                                   .leaveTypeToLeaveId(
-                                                                      widget
+                                                                      widget!
                                                                           .leaveType),
                                                               leaveStartDate: functions
                                                                   .startLeaveDayString(
@@ -2754,7 +2760,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                                     (_model.getHolidayAPIOutput?.jsonBody ?? ''),
                                                                                   )?.map((e) => e.toString()).toList()?.toList())! >
                                                                               0)) &&
-                                                                      ((widget.leaveType != 'ลาอุปสมบท') && (widget.leaveType != 'ลาเพื่อรับราชการทหาร') && (widget.leaveType != 'ลาคลอด'))
+                                                                      ((widget!.leaveType != 'ลาอุปสมบท') && (widget!.leaveType != 'ลาเพื่อรับราชการทหาร') && (widget!.leaveType != 'ลาคลอด'))
                                                                   ? functions.leaveCountMinusSunday(
                                                                       _model.leaveDaysTextController.text,
                                                                       functions.checkSundayBetween2Day(_model.datePicked, functions.endLeaveCalendarDate(_model.datePicked, int.tryParse(_model.leaveDaysTextController.text))),
@@ -3107,7 +3113,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               notificationJson:
                                                                   getJsonField(
                                                                 functions.createNotificationBody(
-                                                                    'มีการขอ \"${widget.leaveType}\" โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
+                                                                    'มีการขอ \"${widget!.leaveType}\" โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
                                                                     'คำขอลาจากพนักงาน',
                                                                     'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/test-flow-l46o23/assets/xqqgm3jn0hu4/leaveimg2.png'),
                                                                 r'''$''',
@@ -3158,7 +3164,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               notiTitle:
                                                                   'แจ้งเตือนพนักงานขอลา',
                                                               notiBody:
-                                                                  'มีการขอ \'${widget.leaveType}\' โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
+                                                                  'มีการขอ \'${widget!.leaveType}\' โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
                                                               notiIsRead: false,
                                                               thisNotiIsRead:
                                                                   false,
@@ -3174,7 +3180,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                           notiTitle:
                                                                               'แจ้งเตือนพนักงานขอลา',
                                                                           notiBody:
-                                                                              'มีการขอ \'${widget.leaveType}\' โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
+                                                                              'มีการขอ \'${widget!.leaveType}\' โดย ${FFAppState().profileFullName} (${FFAppState().userNickname})',
                                                                           notiIsRead:
                                                                               false,
                                                                           thisNotiIsRead:
@@ -3186,14 +3192,14 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                             _shouldSetState =
                                                                 true;
                                                           }
-                                                          if (((widget.leaveType ==
+                                                          if (((widget!.leaveType ==
                                                                       'ลาป่วย') &&
                                                                   (FFAppState()
                                                                           .leaveDaysDouble >=
                                                                       3.0)) ||
-                                                              (widget.leaveType ==
+                                                              (widget!.leaveType ==
                                                                   'ลาทำหมัน') ||
-                                                              (widget.leaveType ==
+                                                              (widget!.leaveType ==
                                                                   'ลารับราชการ')) {
                                                             await showDialog(
                                                               context: context,

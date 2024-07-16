@@ -136,23 +136,23 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
     _model.textFieldFocusNode2 ??= FocusNode();
 
     _model.reasonToLeaveEtcTextField2TextController ??=
-        TextEditingController(text: widget.resignReasonEtc);
+        TextEditingController(text: widget!.resignReasonEtc);
     _model.reasonToLeaveEtcTextField2FocusNode ??= FocusNode();
 
     _model.reasonToLeaveTextField2TextController ??=
-        TextEditingController(text: widget.leaveReason);
+        TextEditingController(text: widget!.leaveReason);
     _model.reasonToLeaveTextField2FocusNode ??= FocusNode();
 
     _model.batchRoadTextField2TextController ??=
-        TextEditingController(text: widget.batchRoad);
+        TextEditingController(text: widget!.batchRoad);
     _model.batchRoadTextField2FocusNode ??= FocusNode();
 
     _model.phoneNumberTextField2TextController ??=
-        TextEditingController(text: widget.phone);
+        TextEditingController(text: widget!.phone);
     _model.phoneNumberTextField2FocusNode ??= FocusNode();
 
     _model.returnAssetTextField2TextController ??=
-        TextEditingController(text: widget.assetEtc);
+        TextEditingController(text: widget!.assetEtc);
     _model.returnAssetTextField2FocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
@@ -196,6 +196,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
         }
         List<LeavePageDataRecord> addResignPageLeavePageDataRecordList =
             snapshot.data!;
+
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -220,7 +221,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  if (!widget.isFromDashboard!) {
+                  if (!widget!.isFromDashboard!) {
                     context.goNamed('LeaveShowPage');
 
                     return;
@@ -276,6 +277,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                   }
                   List<UserCustomRecord> columnUserCustomRecordList =
                       snapshot.data!;
+
                   final columnUserCustomRecord =
                       columnUserCustomRecordList.isNotEmpty
                           ? columnUserCustomRecordList.first
@@ -284,7 +286,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      if (widget.isFromDashboard ?? true)
+                      if (widget!.isFromDashboard ?? true)
                         FutureBuilder<List<FCMTokenRecord>>(
                           future: queryFCMTokenRecordOnce(
                             queryBuilder: (fCMTokenRecord) => fCMTokenRecord
@@ -315,6 +317,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                             }
                             List<FCMTokenRecord> columnFCMTokenRecordList =
                                 snapshot.data!;
+
                             final columnFCMTokenRecord =
                                 columnFCMTokenRecordList.isNotEmpty
                                     ? columnFCMTokenRecordList.first
@@ -2884,7 +2887,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                             );
                           },
                         ),
-                      if (!widget.isFromDashboard!)
+                      if (!widget!.isFromDashboard!)
                         SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -3098,7 +3101,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   print(
                                                       'DateLastDayButton2 pressed ...');
                                                 },
-                                                text: widget.endDate!,
+                                                text: widget!.endDate!,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons
                                                       .solidCalendarAlt,
@@ -3205,7 +3208,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           List<String>>(
                                                     List.from(functions
                                                             .splitStringToList(
-                                                                widget
+                                                                widget!
                                                                     .resignReason) ??
                                                         []),
                                                   ),
@@ -3590,7 +3593,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .provinceDropDown2ValueController ??=
                                                     FormFieldController<String>(
                                                   _model.provinceDropDown2Value ??=
-                                                      widget.privince,
+                                                      widget!.privince,
                                                 ),
                                                 options: functions
                                                     .sortStringList(FFAppState()
@@ -3741,7 +3744,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                hintText: widget.privince,
+                                                hintText: widget!.privince,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
                                                 borderColor: Colors.transparent,
@@ -3772,7 +3775,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .districtDropDown2ValueController ??=
                                                     FormFieldController<String>(
                                                   _model.districtDropDown2Value ??=
-                                                      widget.district,
+                                                      widget!.district,
                                                 ),
                                                 options:
                                                     FFAppState().districtName,
@@ -3898,7 +3901,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                hintText: widget.district,
+                                                hintText: widget!.district,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
                                                 borderColor: Colors.transparent,
@@ -3934,7 +3937,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .subdistrictDropDown2ValueController ??=
                                                     FormFieldController<String>(
                                                   _model.subdistrictDropDown2Value ??=
-                                                      widget.subdistrict,
+                                                      widget!.subdistrict,
                                                 ),
                                                 options: FFAppState()
                                                     .subDistrictName,
@@ -3951,7 +3954,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                hintText: widget.subdistrict,
+                                                hintText: widget!.subdistrict,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
                                                 borderColor: Colors.transparent,
@@ -3987,7 +3990,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .postCodeDropDown2ValueController ??=
                                                     FormFieldController<String>(
                                                   _model.postCodeDropDown2Value ??=
-                                                      widget.postCode,
+                                                      widget!.postCode,
                                                 ),
                                                 options: FFAppState().postCode,
                                                 onChanged: (val) => setState(() =>
@@ -4003,7 +4006,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                hintText: widget.postCode,
+                                                hintText: widget!.postCode,
                                                 fillColor: Colors.white,
                                                 elevation: 2.0,
                                                 borderColor: Colors.transparent,
@@ -4260,7 +4263,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .chanceToWorkTgtDropDown2ValueController ??=
                                                     FormFieldController<String>(
                                                   _model.chanceToWorkTgtDropDown2Value ??=
-                                                      widget.willComeBack == 'Y'
+                                                      widget!.willComeBack ==
+                                                              'Y'
                                                           ? 'ร่วมงาน'
                                                           : 'ไม่ร่วมงาน',
                                                 ),
@@ -4287,7 +4291,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               FontWeight.normal,
                                                         ),
                                                 hintText:
-                                                    widget.willComeBack == 'Y'
+                                                    widget!.willComeBack == 'Y'
                                                         ? 'ร่วมงาน'
                                                         : 'ไม่ร่วมงาน',
                                                 fillColor: Colors.white,
@@ -4369,7 +4373,8 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           List<String>>(
                                                     List.from(functions
                                                             .splitStringToList(
-                                                                widget.asset) ??
+                                                                widget!
+                                                                    .asset) ??
                                                         []),
                                                   ),
                                                   activeColor:
@@ -4720,11 +4725,12 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 leaveId: '9',
                                                 leaveEndDate: functions
                                                     .getDateFormatAPIFromThaiFormat(
-                                                        widget.endDate),
+                                                        widget!.endDate),
                                                 empTel: _model
                                                     .phoneNumberTextField2TextController
                                                     .text,
-                                                leaveListId: widget.leaveListId,
+                                                leaveListId:
+                                                    widget!.leaveListId,
                                                 leaveReason: _model
                                                                 .reasonToLeaveTextField2TextController
                                                                 .text !=
@@ -4758,7 +4764,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 ''
                                                         ? _model
                                                             .chanceToWorkTgtDropDown2Value
-                                                        : widget.willComeBack,
+                                                        : widget!.willComeBack,
                                                 address: _model.batchRoadTextField2TextController
                                                                 .text !=
                                                             null &&
@@ -4768,21 +4774,21 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     ? _model
                                                         .batchRoadTextField2TextController
                                                         .text
-                                                    : widget.batchRoad,
+                                                    : widget!.batchRoad,
                                                 province: _model.provinceDropDown2Value !=
                                                             null &&
                                                         _model.provinceDropDown2Value !=
                                                             ''
                                                     ? _model
                                                         .provinceDropDown2Value
-                                                    : widget.privince,
+                                                    : widget!.privince,
                                                 district: _model.districtDropDown2Value !=
                                                             null &&
                                                         _model.districtDropDown2Value !=
                                                             ''
                                                     ? _model
                                                         .districtDropDown2Value
-                                                    : widget.district,
+                                                    : widget!.district,
                                                 subdistrict: _model
                                                                 .subdistrictDropDown2Value !=
                                                             null &&
@@ -4790,14 +4796,14 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                             ''
                                                     ? _model
                                                         .subdistrictDropDown2Value
-                                                    : widget.subdistrict,
+                                                    : widget!.subdistrict,
                                                 postcode: _model.postCodeDropDown2Value !=
                                                             null &&
                                                         _model.postCodeDropDown2Value !=
                                                             ''
                                                     ? _model
                                                         .postCodeDropDown2Value
-                                                    : widget.postCode,
+                                                    : widget!.postCode,
                                                 asset: functions
                                                     .combineStringFromList(_model
                                                         .checkboxGroupEdit2Values
@@ -4812,7 +4818,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     ? _model
                                                         .returnAssetTextField2TextController
                                                         .text
-                                                    : widget.assetEtc,
+                                                    : widget!.assetEtc,
                                               );
 
                                               _shouldSetState = true;

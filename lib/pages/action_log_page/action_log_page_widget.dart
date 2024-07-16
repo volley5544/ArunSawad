@@ -152,6 +152,7 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
                         }
                         List<UserLogRecord> columnUserLogRecordList =
                             snapshot.data!;
+
                         return SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
