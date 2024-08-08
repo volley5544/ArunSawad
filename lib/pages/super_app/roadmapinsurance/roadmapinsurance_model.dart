@@ -17,7 +17,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class RoadmapinsuranceModel extends FlutterFlowModel<RoadmapinsuranceWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in Roadmapinsurance widget.
   UserLogRecord? createdUserLogITSupport;
   // Stores action output result for [Firestore Query - Query a collection] action in Roadmapinsurance widget.
@@ -27,7 +26,5 @@ class RoadmapinsuranceModel extends FlutterFlowModel<RoadmapinsuranceWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

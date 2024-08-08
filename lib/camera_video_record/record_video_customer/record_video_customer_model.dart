@@ -16,7 +16,6 @@ class RecordVideoCustomerModel
     extends FlutterFlowModel<RecordVideoCustomerWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   String? get choiceChipsValue =>
@@ -40,7 +39,6 @@ class RecordVideoCustomerModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

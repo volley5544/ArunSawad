@@ -53,9 +53,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -243,9 +241,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -524,12 +520,8 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                           builder: (context) {
                                             return WebViewAware(
                                               child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
+                                                onTap: () =>
+                                                    FocusScope.of(context)
                                                         .unfocus(),
                                                 child: Padding(
                                                   padding:
@@ -805,11 +797,11 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                             List<UserCustomRecord>
                                 bottomSheetUserCustomRecordList =
                                 snapshot.data!;
-
                             final bottomSheetUserCustomRecord =
                                 bottomSheetUserCustomRecordList.isNotEmpty
                                     ? bottomSheetUserCustomRecordList.first
                                     : null;
+
                             return InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -962,13 +954,13 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                               List<UserCustomRecord>
                                                   containerUserCustomRecordList =
                                                   snapshot.data!;
-
                                               final containerUserCustomRecord =
                                                   containerUserCustomRecordList
                                                           .isNotEmpty
                                                       ? containerUserCustomRecordList
                                                           .first
                                                       : null;
+
                                               return InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -1069,13 +1061,13 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                         List<FCMTokenRecord>
                                                             columnPlusFCMTokenRecordList =
                                                             snapshot.data!;
-
                                                         final columnPlusFCMTokenRecord =
                                                             columnPlusFCMTokenRecordList
                                                                     .isNotEmpty
                                                                 ? columnPlusFCMTokenRecordList
                                                                     .first
                                                                 : null;
+
                                                         return SingleChildScrollView(
                                                           child: Column(
                                                             mainAxisSize:
@@ -1158,7 +1150,6 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                         List<UserCustomRecord>
                                                                             imageUserCustomRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -1168,6 +1159,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                         final imageUserCustomRecord = imageUserCustomRecordList.isNotEmpty
                                                                             ? imageUserCustomRecordList.first
                                                                             : null;
+
                                                                         return ClipRRect(
                                                                           borderRadius:
                                                                               BorderRadius.circular(8.0),
@@ -2195,7 +2187,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          onTap: () => FocusScope.of(context).unfocus(),
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: UrlLinkWidget(
@@ -2215,7 +2207,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          onTap: () => FocusScope.of(context).unfocus(),
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: ShowCheckinImageWidget(
@@ -2309,7 +2301,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          onTap: () => FocusScope.of(context).unfocus(),
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: LoadingSceneWidget(),
@@ -2676,7 +2668,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
                                                                                         child: GestureDetector(
-                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          onTap: () => FocusScope.of(context).unfocus(),
                                                                                           child: Padding(
                                                                                             padding: MediaQuery.viewInsetsOf(context),
                                                                                             child: LoadingSceneWidget(),

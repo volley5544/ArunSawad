@@ -70,9 +70,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -203,9 +201,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -520,15 +516,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -783,15 +772,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(
@@ -836,12 +818,20 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     if (!FFAppState()
                                                         .isSelectedBranch) {
                                                       if (animationsMap[
-                                                              'rowOnActionTriggerAnimation1'] !=
+                                                              'containerOnActionTriggerAnimation2'] !=
                                                           null) {
-                                                        animationsMap[
-                                                                'rowOnActionTriggerAnimation1']!
-                                                            .controller
-                                                            .forward(from: 0.0);
+                                                        setState(() =>
+                                                            hasContainerTriggered2 =
+                                                                true);
+                                                        SchedulerBinding
+                                                            .instance
+                                                            .addPostFrameCallback(
+                                                                (_) async => animationsMap[
+                                                                        'containerOnActionTriggerAnimation2']!
+                                                                    .controller
+                                                                    .forward(
+                                                                        from:
+                                                                            0.0));
                                                       }
                                                       FFAppState()
                                                               .isSelectedBranch =
@@ -963,15 +953,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -1016,12 +999,19 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                   if (!FFAppState()
                                                       .isSelectedBranch) {
                                                     if (animationsMap[
-                                                            'rowOnActionTriggerAnimation1'] !=
+                                                            'containerOnActionTriggerAnimation1'] !=
                                                         null) {
-                                                      animationsMap[
-                                                              'rowOnActionTriggerAnimation1']!
-                                                          .controller
-                                                          .forward(from: 0.0);
+                                                      setState(() =>
+                                                          hasContainerTriggered1 =
+                                                              true);
+                                                      SchedulerBinding.instance
+                                                          .addPostFrameCallback(
+                                                              (_) async => animationsMap[
+                                                                      'containerOnActionTriggerAnimation1']!
+                                                                  .controller
+                                                                  .forward(
+                                                                      from:
+                                                                          0.0));
                                                     }
                                                     FFAppState()
                                                             .isSelectedBranch =
@@ -2361,15 +2351,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -2638,15 +2621,8 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(
@@ -2691,12 +2667,20 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     if (!FFAppState()
                                                         .isEmployeeSelected) {
                                                       if (animationsMap[
-                                                              'rowOnActionTriggerAnimation2'] !=
+                                                              'containerOnActionTriggerAnimation1'] !=
                                                           null) {
-                                                        animationsMap[
-                                                                'rowOnActionTriggerAnimation2']!
-                                                            .controller
-                                                            .forward(from: 0.0);
+                                                        setState(() =>
+                                                            hasContainerTriggered1 =
+                                                                true);
+                                                        SchedulerBinding
+                                                            .instance
+                                                            .addPostFrameCallback(
+                                                                (_) async => animationsMap[
+                                                                        'containerOnActionTriggerAnimation1']!
+                                                                    .controller
+                                                                    .forward(
+                                                                        from:
+                                                                            0.0));
                                                       }
                                                       FFAppState()
                                                               .isEmployeeSelected =

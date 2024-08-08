@@ -29,7 +29,6 @@ class DetailListFollowUpDebtModel
     extends FlutterFlowModel<DetailListFollowUpDebtWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (collectionApiGetDataPerson)] action in detailListFollowUpDebt widget.
   ApiCallResponse? getListDataPerson;
   // Model for appbarFollowUpDebt component.
@@ -57,7 +56,6 @@ class DetailListFollowUpDebtModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     appbarFollowUpDebtModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

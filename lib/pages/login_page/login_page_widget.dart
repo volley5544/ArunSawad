@@ -303,15 +303,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           );
         }
         List<KeyStorageRecord> loginPageKeyStorageRecordList = snapshot.data!;
-
         final loginPageKeyStorageRecord =
             loginPageKeyStorageRecordList.isNotEmpty
                 ? loginPageKeyStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -345,7 +343,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                     }
                     List<UrlLinkStorageRecord>
                         containerUrlLinkStorageRecordList = snapshot.data!;
-
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -354,6 +351,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                         containerUrlLinkStorageRecordList.isNotEmpty
                             ? containerUrlLinkStorageRecordList.first
                             : null;
+
                     return Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -386,21 +384,33 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               ),
                               Align(
                                 alignment: AlignmentDirectional(2.43, -2.73),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.7,
-                                  height:
-                                      MediaQuery.sizeOf(context).width * 0.7,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Color(0xFF0006B4),
-                                        Color(0xFF7479FF)
-                                      ],
-                                      stops: [0.0, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    currentUserLocationValue =
+                                        await getCurrentUserLocation(
+                                            defaultLocation: LatLng(0.0, 0.0));
+                                  },
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.7,
+                                    height:
+                                        MediaQuery.sizeOf(context).width * 0.7,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xFF0006B4),
+                                          Color(0xFF7479FF)
+                                        ],
+                                        stops: [0.0, 1.0],
+                                        begin: AlignmentDirectional(0.0, -1.0),
+                                        end: AlignmentDirectional(0, 1.0),
+                                      ),
+                                      shape: BoxShape.circle,
                                     ),
-                                    shape: BoxShape.circle,
                                   ),
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation2']!),
@@ -759,7 +769,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       List<HideInAppContentRecord>
                                           containerHideInAppContentRecordList =
                                           snapshot.data!;
-
                                       // Return an empty Container when the item does not exist.
                                       if (snapshot.data!.isEmpty) {
                                         return Container();
@@ -770,6 +779,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               ? containerHideInAppContentRecordList
                                                   .first
                                               : null;
+
                                       return Container(
                                         decoration: BoxDecoration(),
                                         child: Visibility(
@@ -842,7 +852,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                             }
                             List<AuthorizationRecord>
                                 columnAuthorizationRecordList = snapshot.data!;
-
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
@@ -851,6 +860,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 columnAuthorizationRecordList.isNotEmpty
                                     ? columnAuthorizationRecordList.first
                                     : null;
+
                             return Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -889,13 +899,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     List<InsuranceNotiDataRecord>
                                         columnInsuranceNotiDataRecordList =
                                         snapshot.data!;
-
                                     final columnInsuranceNotiDataRecord =
                                         columnInsuranceNotiDataRecordList
                                                 .isNotEmpty
                                             ? columnInsuranceNotiDataRecordList
                                                 .first
                                             : null;
+
                                     return Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -935,7 +945,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 List<BuildVersionRecord>
                                                     signinButtonBuildVersionRecordList =
                                                     snapshot.data!;
-
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();
@@ -946,6 +955,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                         ? signinButtonBuildVersionRecordList
                                                             .first
                                                         : null;
+
                                                 return Container(
                                                   width: 190.0,
                                                   height: 40.0,
@@ -1000,7 +1010,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       List<InsuranceLicenseDataRecord>
                                                           columnInsuranceLicenseDataRecordList =
                                                           snapshot.data!;
-
                                                       // Return an empty Container when the item does not exist.
                                                       if (snapshot
                                                           .data!.isEmpty) {
@@ -1012,6 +1021,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                               ? columnInsuranceLicenseDataRecordList
                                                                   .first
                                                               : null;
+
                                                       return Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1066,7 +1076,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       buttonSplashPageImgRecordList =
                                                                       snapshot
                                                                           .data!;
-
                                                                   // Return an empty Container when the item does not exist.
                                                                   if (snapshot
                                                                       .data!
@@ -1078,6 +1087,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       ? buttonSplashPageImgRecordList
                                                                           .first
                                                                       : null;
+
                                                                   return FFButtonWidget(
                                                                     onPressed:
                                                                         () async {

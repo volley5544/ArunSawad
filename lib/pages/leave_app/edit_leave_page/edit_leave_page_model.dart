@@ -27,7 +27,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class EditLeavePageModel extends FlutterFlowModel<EditLeavePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetHolidayAPI)] action in EditLeavePage widget.
   ApiCallResponse? getHolidayAPIOutput;
   DateTime? datePicked;
@@ -80,7 +79,6 @@ class EditLeavePageModel extends FlutterFlowModel<EditLeavePageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     leaveDaysFocusNode?.dispose();
     leaveDaysTextController?.dispose();
 

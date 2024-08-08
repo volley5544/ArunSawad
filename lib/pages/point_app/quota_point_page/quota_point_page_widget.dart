@@ -145,9 +145,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -722,13 +720,13 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                                             List<UserCustomRecord>
                                                 circleImageUserCustomRecordList =
                                                 snapshot.data!;
-
                                             final circleImageUserCustomRecord =
                                                 circleImageUserCustomRecordList
                                                         .isNotEmpty
                                                     ? circleImageUserCustomRecordList
                                                         .first
                                                     : null;
+
                                             return Container(
                                               width: 50.0,
                                               height: 50.0,

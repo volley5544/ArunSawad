@@ -80,7 +80,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
         }
         List<SplashPageHolidayImgRecord>
             setPinCodePageSplashPageHolidayImgRecordList = snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -89,10 +88,9 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
             setPinCodePageSplashPageHolidayImgRecordList.isNotEmpty
                 ? setPinCodePageSplashPageHolidayImgRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -265,11 +263,11 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                             }
                             List<UserCustomRecord> buttonUserCustomRecordList =
                                 snapshot.data!;
-
                             final buttonUserCustomRecord =
                                 buttonUserCustomRecordList.isNotEmpty
                                     ? buttonUserCustomRecordList.first
                                     : null;
+
                             return FFButtonWidget(
                               onPressed: () async {
                                 currentUserLocationValue =

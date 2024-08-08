@@ -8020,6 +8020,395 @@ class FFAppState extends ChangeNotifier {
   set firstLoginLocation(LatLng? value) {
     _firstLoginLocation = value;
   }
+
+  String _loopStatusTemp2 = '';
+  String get loopStatusTemp2 => _loopStatusTemp2;
+  set loopStatusTemp2(String value) {
+    _loopStatusTemp2 = value;
+  }
+
+  List<String> _improundCONTNO = [];
+  List<String> get improundCONTNO => _improundCONTNO;
+  set improundCONTNO(List<String> value) {
+    _improundCONTNO = value;
+  }
+
+  void addToImproundCONTNO(String value) {
+    improundCONTNO.add(value);
+  }
+
+  void removeFromImproundCONTNO(String value) {
+    improundCONTNO.remove(value);
+  }
+
+  void removeAtIndexFromImproundCONTNO(int index) {
+    improundCONTNO.removeAt(index);
+  }
+
+  void updateImproundCONTNOAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundCONTNO[index] = updateFn(_improundCONTNO[index]);
+  }
+
+  void insertAtIndexInImproundCONTNO(int index, String value) {
+    improundCONTNO.insert(index, value);
+  }
+
+  List<String> _improundLOCAT = [];
+  List<String> get improundLOCAT => _improundLOCAT;
+  set improundLOCAT(List<String> value) {
+    _improundLOCAT = value;
+  }
+
+  void addToImproundLOCAT(String value) {
+    improundLOCAT.add(value);
+  }
+
+  void removeFromImproundLOCAT(String value) {
+    improundLOCAT.remove(value);
+  }
+
+  void removeAtIndexFromImproundLOCAT(int index) {
+    improundLOCAT.removeAt(index);
+  }
+
+  void updateImproundLOCATAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundLOCAT[index] = updateFn(_improundLOCAT[index]);
+  }
+
+  void insertAtIndexInImproundLOCAT(int index, String value) {
+    improundLOCAT.insert(index, value);
+  }
+
+  List<String> _improundTITLE = [];
+  List<String> get improundTITLE => _improundTITLE;
+  set improundTITLE(List<String> value) {
+    _improundTITLE = value;
+  }
+
+  void addToImproundTITLE(String value) {
+    improundTITLE.add(value);
+  }
+
+  void removeFromImproundTITLE(String value) {
+    improundTITLE.remove(value);
+  }
+
+  void removeAtIndexFromImproundTITLE(int index) {
+    improundTITLE.removeAt(index);
+  }
+
+  void updateImproundTITLEAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundTITLE[index] = updateFn(_improundTITLE[index]);
+  }
+
+  void insertAtIndexInImproundTITLE(int index, String value) {
+    improundTITLE.insert(index, value);
+  }
+
+  List<String> _improundFNAME = [];
+  List<String> get improundFNAME => _improundFNAME;
+  set improundFNAME(List<String> value) {
+    _improundFNAME = value;
+  }
+
+  void addToImproundFNAME(String value) {
+    improundFNAME.add(value);
+  }
+
+  void removeFromImproundFNAME(String value) {
+    improundFNAME.remove(value);
+  }
+
+  void removeAtIndexFromImproundFNAME(int index) {
+    improundFNAME.removeAt(index);
+  }
+
+  void updateImproundFNAMEAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundFNAME[index] = updateFn(_improundFNAME[index]);
+  }
+
+  void insertAtIndexInImproundFNAME(int index, String value) {
+    improundFNAME.insert(index, value);
+  }
+
+  List<String> _improundSNAME = [];
+  List<String> get improundSNAME => _improundSNAME;
+  set improundSNAME(List<String> value) {
+    _improundSNAME = value;
+  }
+
+  void addToImproundSNAME(String value) {
+    improundSNAME.add(value);
+  }
+
+  void removeFromImproundSNAME(String value) {
+    improundSNAME.remove(value);
+  }
+
+  void removeAtIndexFromImproundSNAME(int index) {
+    improundSNAME.removeAt(index);
+  }
+
+  void updateImproundSNAMEAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundSNAME[index] = updateFn(_improundSNAME[index]);
+  }
+
+  void insertAtIndexInImproundSNAME(int index, String value) {
+    improundSNAME.insert(index, value);
+  }
+
+  List<String> _improundREGNO = [];
+  List<String> get improundREGNO => _improundREGNO;
+  set improundREGNO(List<String> value) {
+    _improundREGNO = value;
+  }
+
+  void addToImproundREGNO(String value) {
+    improundREGNO.add(value);
+  }
+
+  void removeFromImproundREGNO(String value) {
+    improundREGNO.remove(value);
+  }
+
+  void removeAtIndexFromImproundREGNO(int index) {
+    improundREGNO.removeAt(index);
+  }
+
+  void updateImproundREGNOAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundREGNO[index] = updateFn(_improundREGNO[index]);
+  }
+
+  void insertAtIndexInImproundREGNO(int index, String value) {
+    improundREGNO.insert(index, value);
+  }
+
+  List<String> _improundREGPROV = [];
+  List<String> get improundREGPROV => _improundREGPROV;
+  set improundREGPROV(List<String> value) {
+    _improundREGPROV = value;
+  }
+
+  void addToImproundREGPROV(String value) {
+    improundREGPROV.add(value);
+  }
+
+  void removeFromImproundREGPROV(String value) {
+    improundREGPROV.remove(value);
+  }
+
+  void removeAtIndexFromImproundREGPROV(int index) {
+    improundREGPROV.removeAt(index);
+  }
+
+  void updateImproundREGPROVAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundREGPROV[index] = updateFn(_improundREGPROV[index]);
+  }
+
+  void insertAtIndexInImproundREGPROV(int index, String value) {
+    improundREGPROV.insert(index, value);
+  }
+
+  List<String> _improundCONTNOTYPE = [];
+  List<String> get improundCONTNOTYPE => _improundCONTNOTYPE;
+  set improundCONTNOTYPE(List<String> value) {
+    _improundCONTNOTYPE = value;
+  }
+
+  void addToImproundCONTNOTYPE(String value) {
+    improundCONTNOTYPE.add(value);
+  }
+
+  void removeFromImproundCONTNOTYPE(String value) {
+    improundCONTNOTYPE.remove(value);
+  }
+
+  void removeAtIndexFromImproundCONTNOTYPE(int index) {
+    improundCONTNOTYPE.removeAt(index);
+  }
+
+  void updateImproundCONTNOTYPEAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundCONTNOTYPE[index] = updateFn(_improundCONTNOTYPE[index]);
+  }
+
+  void insertAtIndexInImproundCONTNOTYPE(int index, String value) {
+    improundCONTNOTYPE.insert(index, value);
+  }
+
+  List<String> _improundCONTNOTYPENAME = [];
+  List<String> get improundCONTNOTYPENAME => _improundCONTNOTYPENAME;
+  set improundCONTNOTYPENAME(List<String> value) {
+    _improundCONTNOTYPENAME = value;
+  }
+
+  void addToImproundCONTNOTYPENAME(String value) {
+    improundCONTNOTYPENAME.add(value);
+  }
+
+  void removeFromImproundCONTNOTYPENAME(String value) {
+    improundCONTNOTYPENAME.remove(value);
+  }
+
+  void removeAtIndexFromImproundCONTNOTYPENAME(int index) {
+    improundCONTNOTYPENAME.removeAt(index);
+  }
+
+  void updateImproundCONTNOTYPENAMEAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundCONTNOTYPENAME[index] = updateFn(_improundCONTNOTYPENAME[index]);
+  }
+
+  void insertAtIndexInImproundCONTNOTYPENAME(int index, String value) {
+    improundCONTNOTYPENAME.insert(index, value);
+  }
+
+  List<String> _improundGCODE = [];
+  List<String> get improundGCODE => _improundGCODE;
+  set improundGCODE(List<String> value) {
+    _improundGCODE = value;
+  }
+
+  void addToImproundGCODE(String value) {
+    improundGCODE.add(value);
+  }
+
+  void removeFromImproundGCODE(String value) {
+    improundGCODE.remove(value);
+  }
+
+  void removeAtIndexFromImproundGCODE(int index) {
+    improundGCODE.removeAt(index);
+  }
+
+  void updateImproundGCODEAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundGCODE[index] = updateFn(_improundGCODE[index]);
+  }
+
+  void insertAtIndexInImproundGCODE(int index, String value) {
+    improundGCODE.insert(index, value);
+  }
+
+  List<String> _improundGDESC = [];
+  List<String> get improundGDESC => _improundGDESC;
+  set improundGDESC(List<String> value) {
+    _improundGDESC = value;
+  }
+
+  void addToImproundGDESC(String value) {
+    improundGDESC.add(value);
+  }
+
+  void removeFromImproundGDESC(String value) {
+    improundGDESC.remove(value);
+  }
+
+  void removeAtIndexFromImproundGDESC(int index) {
+    improundGDESC.removeAt(index);
+  }
+
+  void updateImproundGDESCAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundGDESC[index] = updateFn(_improundGDESC[index]);
+  }
+
+  void insertAtIndexInImproundGDESC(int index, String value) {
+    improundGDESC.insert(index, value);
+  }
+
+  List<String> _improundNumbody = [];
+  List<String> get improundNumbody => _improundNumbody;
+  set improundNumbody(List<String> value) {
+    _improundNumbody = value;
+  }
+
+  void addToImproundNumbody(String value) {
+    improundNumbody.add(value);
+  }
+
+  void removeFromImproundNumbody(String value) {
+    improundNumbody.remove(value);
+  }
+
+  void removeAtIndexFromImproundNumbody(int index) {
+    improundNumbody.removeAt(index);
+  }
+
+  void updateImproundNumbodyAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundNumbody[index] = updateFn(_improundNumbody[index]);
+  }
+
+  void insertAtIndexInImproundNumbody(int index, String value) {
+    improundNumbody.insert(index, value);
+  }
+
+  List<String> _improundCUSCOD = [];
+  List<String> get improundCUSCOD => _improundCUSCOD;
+  set improundCUSCOD(List<String> value) {
+    _improundCUSCOD = value;
+  }
+
+  void addToImproundCUSCOD(String value) {
+    improundCUSCOD.add(value);
+  }
+
+  void removeFromImproundCUSCOD(String value) {
+    improundCUSCOD.remove(value);
+  }
+
+  void removeAtIndexFromImproundCUSCOD(int index) {
+    improundCUSCOD.removeAt(index);
+  }
+
+  void updateImproundCUSCODAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    improundCUSCOD[index] = updateFn(_improundCUSCOD[index]);
+  }
+
+  void insertAtIndexInImproundCUSCOD(int index, String value) {
+    improundCUSCOD.insert(index, value);
+  }
+
+  String _improundUrl = '';
+  String get improundUrl => _improundUrl;
+  set improundUrl(String value) {
+    _improundUrl = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

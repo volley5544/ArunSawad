@@ -52,9 +52,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -140,9 +138,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -213,6 +209,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                 hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
                 icon: FaIcon(
                   FontAwesomeIcons.solidCalendarAlt,
+                  size: 15.0,
                 ),
                 fillColor: Colors.white,
                 elevation: 2.0,
@@ -1380,9 +1377,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       return WebViewAware(
                                                                         child:
                                                                             GestureDetector(
-                                                                          onTap: () => _model.unfocusNode.canRequestFocus
-                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                              : FocusScope.of(context).unfocus(),
+                                                                          onTap: () =>
+                                                                              FocusScope.of(context).unfocus(),
                                                                           child:
                                                                               Padding(
                                                                             padding:
@@ -1780,9 +1776,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                       return WebViewAware(
                                                                         child:
                                                                             GestureDetector(
-                                                                          onTap: () => _model.unfocusNode.canRequestFocus
-                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                              : FocusScope.of(context).unfocus(),
+                                                                          onTap: () =>
+                                                                              FocusScope.of(context).unfocus(),
                                                                           child:
                                                                               Padding(
                                                                             padding:
@@ -1997,7 +1992,6 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                 List<LeavePageDataRecord>
                                                     columnPlusLeavePageDataRecordList =
                                                     snapshot.data!;
-
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();
@@ -2008,6 +2002,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                         ? columnPlusLeavePageDataRecordList
                                                             .first
                                                         : null;
+
                                                 return SingleChildScrollView(
                                                   child: Column(
                                                     mainAxisSize:
@@ -3009,7 +3004,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -3166,7 +3161,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(

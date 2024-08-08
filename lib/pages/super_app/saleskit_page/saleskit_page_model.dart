@@ -16,7 +16,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SaleskitPageModel extends FlutterFlowModel<SaleskitPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in SaleskitPage widget.
   UserLogRecord? createdUserLogSaleskit;
 
@@ -24,7 +23,5 @@ class SaleskitPageModel extends FlutterFlowModel<SaleskitPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

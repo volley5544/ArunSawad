@@ -24,7 +24,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class CheckInStatusPageModel extends FlutterFlowModel<CheckInStatusPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (checkinoutThisMonthAPI)] action in CheckInStatusPage widget.
   ApiCallResponse? checkinThisMonthOutput;
   // Stores action output result for [Backend Call - Create Document] action in CheckInStatusPage widget.
@@ -48,7 +47,6 @@ class CheckInStatusPageModel extends FlutterFlowModel<CheckInStatusPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     expandableExpandableController.dispose();
     tabBarController?.dispose();
   }

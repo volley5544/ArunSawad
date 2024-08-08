@@ -63,3 +63,5 @@ export 'add_user_log_document.dart' show addUserLogDocument;
 export 'sha256_encoder.dart' show sha256Encoder;
 export 'get_f_f_upload_file_from_file_path.dart'
     show getFFUploadFileFromFilePath;
+export 'check_internet_connection_wifi.dart' show checkInternetConnectionWifi;
+export 'hide_keyboard_action.dart' show hideKeyboardAction;

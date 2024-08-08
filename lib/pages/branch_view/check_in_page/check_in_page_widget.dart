@@ -267,9 +267,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
     }
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -1480,7 +1478,6 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
-
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -1489,6 +1486,7 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                         listViewFileUploadRecordList.isNotEmpty
                                             ? listViewFileUploadRecordList.first
                                             : null;
+
                                     return Builder(
                                       builder: (context) {
                                         final imgFromFirestore =
@@ -1895,12 +1893,8 @@ class _CheckInPageWidgetState extends State<CheckInPageWidget>
                                   builder: (context) {
                                     return WebViewAware(
                                       child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
+                                        onTap: () =>
+                                            FocusScope.of(context).unfocus(),
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),

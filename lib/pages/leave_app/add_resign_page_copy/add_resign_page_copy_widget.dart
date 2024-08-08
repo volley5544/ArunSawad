@@ -134,7 +134,6 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
         }
         List<LeavePageDataRecord> addResignPageCopyLeavePageDataRecordList =
             snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -143,10 +142,9 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
             addResignPageCopyLeavePageDataRecordList.isNotEmpty
                 ? addResignPageCopyLeavePageDataRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -437,7 +435,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             },
                                             text: valueOrDefault<String>(
                                               dateTimeFormat(
-                                                'yMd',
+                                                "yMd",
                                                 _model.datePicked,
                                                 locale:
                                                     FFLocalizations.of(context)
@@ -447,6 +445,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                             ),
                                             icon: FaIcon(
                                               FontAwesomeIcons.solidCalendarAlt,
+                                              size: 15.0,
                                             ),
                                             options: FFButtonOptions(
                                               width: 90.0,

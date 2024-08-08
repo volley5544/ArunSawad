@@ -46,6 +46,26 @@ class MaterialRecord extends FirestoreRecord {
   String get employeeId => _employeeId ?? '';
   bool hasEmployeeId() => _employeeId != null;
 
+  // "lat_lng" field.
+  LatLng? _latLng;
+  LatLng? get latLng => _latLng;
+  bool hasLatLng() => _latLng != null;
+
+  // "latitude" field.
+  String? _latitude;
+  String get latitude => _latitude ?? '';
+  bool hasLatitude() => _latitude != null;
+
+  // "longitude" field.
+  String? _longitude;
+  String get longitude => _longitude ?? '';
+  bool hasLongitude() => _longitude != null;
+
+  // "date_time" field.
+  DateTime? _dateTime;
+  DateTime? get dateTime => _dateTime;
+  bool hasDateTime() => _dateTime != null;
+
   void _initializeFields() {
     _matetialName = snapshotData['matetial_name'] as String?;
     _imgUrl = snapshotData['img_url'] as String?;
@@ -53,6 +73,10 @@ class MaterialRecord extends FirestoreRecord {
     _phone = getDataList(snapshotData['phone']);
     _name = getDataList(snapshotData['name']);
     _employeeId = snapshotData['employee_id'] as String?;
+    _latLng = snapshotData['lat_lng'] as LatLng?;
+    _latitude = snapshotData['latitude'] as String?;
+    _longitude = snapshotData['longitude'] as String?;
+    _dateTime = snapshotData['date_time'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -94,6 +118,10 @@ Map<String, dynamic> createMaterialRecordData({
   String? imgUrl,
   int? recordId,
   String? employeeId,
+  LatLng? latLng,
+  String? latitude,
+  String? longitude,
+  DateTime? dateTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -101,6 +129,10 @@ Map<String, dynamic> createMaterialRecordData({
       'img_url': imgUrl,
       'record_id': recordId,
       'employee_id': employeeId,
+      'lat_lng': latLng,
+      'latitude': latitude,
+      'longitude': longitude,
+      'date_time': dateTime,
     }.withoutNulls,
   );
 
@@ -118,7 +150,11 @@ class MaterialRecordDocumentEquality implements Equality<MaterialRecord> {
         e1?.recordId == e2?.recordId &&
         listEquality.equals(e1?.phone, e2?.phone) &&
         listEquality.equals(e1?.name, e2?.name) &&
-        e1?.employeeId == e2?.employeeId;
+        e1?.employeeId == e2?.employeeId &&
+        e1?.latLng == e2?.latLng &&
+        e1?.latitude == e2?.latitude &&
+        e1?.longitude == e2?.longitude &&
+        e1?.dateTime == e2?.dateTime;
   }
 
   @override
@@ -128,7 +164,11 @@ class MaterialRecordDocumentEquality implements Equality<MaterialRecord> {
         e?.recordId,
         e?.phone,
         e?.name,
-        e?.employeeId
+        e?.employeeId,
+        e?.latLng,
+        e?.latitude,
+        e?.longitude,
+        e?.dateTime
       ]);
 
   @override

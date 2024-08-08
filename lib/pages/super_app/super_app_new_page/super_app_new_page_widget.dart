@@ -113,9 +113,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -243,9 +241,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
             builder: (context) {
               return WebViewAware(
                 child: GestureDetector(
-                  onTap: () => _model.unfocusNode.canRequestFocus
-                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                      : FocusScope.of(context).unfocus(),
+                  onTap: () => FocusScope.of(context).unfocus(),
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
                     child: Container(
@@ -281,9 +277,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -382,9 +376,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -699,13 +691,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -1233,7 +1220,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                         List<ArunSawadImgBannerRecord>
                             pageViewBannerArunSawadImgBannerRecordList =
                             snapshot.data!;
-
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -1244,6 +1230,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                 ? pageViewBannerArunSawadImgBannerRecordList
                                     .first
                                 : null;
+
                         return Builder(
                           builder: (context) {
                             final bannerImgList =
@@ -1327,15 +1314,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -1493,7 +1473,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                         List<ArunSawadImgBannerRecord>
                             pageViewArunSawadImgBannerRecordList =
                             snapshot.data!;
-
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -1502,6 +1481,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                             pageViewArunSawadImgBannerRecordList.isNotEmpty
                                 ? pageViewArunSawadImgBannerRecordList.first
                                 : null;
+
                         return Builder(
                           builder: (context) {
                             final bannerImgList =
@@ -1680,7 +1660,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                         }
                         List<AuthorizationRecord>
                             containerAuthorizationRecordList = snapshot.data!;
-
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -1689,6 +1668,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                             containerAuthorizationRecordList.isNotEmpty
                                 ? containerAuthorizationRecordList.first
                                 : null;
+
                         return Container(
                           width: double.infinity,
                           height: 800.0,
@@ -1732,7 +1712,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                               }
                               List<AuthorizationRecord>
                                   stackAuthorizationRecordList = snapshot.data!;
-
                               // Return an empty Container when the item does not exist.
                               if (snapshot.data!.isEmpty) {
                                 return Container();
@@ -1741,6 +1720,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                   stackAuthorizationRecordList.isNotEmpty
                                       ? stackAuthorizationRecordList.first
                                       : null;
+
                               return Stack(
                                 children: [
                                   SingleChildScrollView(
@@ -1795,7 +1775,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                 List<UserCustomRecord>
                                                     containerUserCustomRecordList =
                                                     snapshot.data!;
-
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();
@@ -1806,6 +1785,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                         ? containerUserCustomRecordList
                                                             .first
                                                         : null;
+
                                                 return Container(
                                                   width: double.infinity,
                                                   height: 300.0,
@@ -1923,7 +1903,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   gridViewRoleMenuRecordList =
                                                                   snapshot
                                                                       .data!;
-
                                                               // Return an empty Container when the item does not exist.
                                                               if (snapshot.data!
                                                                   .isEmpty) {
@@ -1935,6 +1914,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                       ? gridViewRoleMenuRecordList
                                                                           .first
                                                                       : null;
+
                                                               return GridView(
                                                                 padding:
                                                                     EdgeInsets
@@ -2125,7 +2105,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -2475,10 +2455,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -2511,7 +2491,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -2663,7 +2643,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -2916,10 +2896,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -2952,7 +2932,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -3099,10 +3079,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -3135,7 +3115,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -3304,7 +3284,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -4048,7 +4028,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -4201,7 +4181,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -4211,6 +4190,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -4243,7 +4223,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -4505,7 +4485,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<AuthorizationRecord>
                                                                             containerWelfareAuthorizationRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -4515,6 +4494,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final containerWelfareAuthorizationRecord = containerWelfareAuthorizationRecordList.isNotEmpty
                                                                             ? containerWelfareAuthorizationRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -4547,7 +4527,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -4789,7 +4769,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -4799,6 +4778,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -4832,7 +4812,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -4962,7 +4942,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                      onTap: () => FocusScope.of(context).unfocus(),
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -5101,7 +5081,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -5111,6 +5090,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -5143,7 +5123,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -5435,7 +5415,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -5774,7 +5754,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -6059,7 +6039,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -6367,7 +6347,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -6649,7 +6629,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -6932,7 +6912,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -7215,7 +7195,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -7500,7 +7480,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -7806,7 +7786,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -8088,7 +8068,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -8359,7 +8339,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                 List<UserCustomRecord>
                                                     containerUserCustomRecordList =
                                                     snapshot.data!;
-
                                                 // Return an empty Container when the item does not exist.
                                                 if (snapshot.data!.isEmpty) {
                                                   return Container();
@@ -8370,6 +8349,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                         ? containerUserCustomRecordList
                                                             .first
                                                         : null;
+
                                                 return Container(
                                                   width: double.infinity,
                                                   height: 530.0,
@@ -8479,7 +8459,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   gridViewRoleMenuRecordList =
                                                                   snapshot
                                                                       .data!;
-
                                                               // Return an empty Container when the item does not exist.
                                                               if (snapshot.data!
                                                                   .isEmpty) {
@@ -8491,6 +8470,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                       ? gridViewRoleMenuRecordList
                                                                           .first
                                                                       : null;
+
                                                               return GridView(
                                                                 padding:
                                                                     EdgeInsets
@@ -8683,7 +8663,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -9034,10 +9014,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -9070,7 +9050,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -9382,10 +9362,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -9418,7 +9398,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -9565,10 +9545,10 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -9601,7 +9581,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -9771,7 +9751,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -10529,7 +10509,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(
@@ -10673,7 +10653,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -10683,6 +10662,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -10715,7 +10695,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -10970,7 +10950,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<AuthorizationRecord>
                                                                             containerWelfareTabAuthorizationRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -10980,6 +10959,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final containerWelfareTabAuthorizationRecord = containerWelfareTabAuthorizationRecordList.isNotEmpty
                                                                             ? containerWelfareTabAuthorizationRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -11012,7 +10992,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -11254,7 +11234,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             thaipaiboonPadUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -11264,6 +11243,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final thaipaiboonPadUrlLinkStorageRecord = thaipaiboonPadUrlLinkStorageRecordList.isNotEmpty
                                                                             ? thaipaiboonPadUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -11297,7 +11277,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -11427,7 +11407,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
                                                                                     child: GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                      onTap: () => FocusScope.of(context).unfocus(),
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: Container(
@@ -11566,7 +11546,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -11898,7 +11878,6 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         List<UrlLinkStorageRecord>
                                                                             containerUrlLinkStorageRecordList =
                                                                             snapshot.data!;
-
                                                                         // Return an empty Container when the item does not exist.
                                                                         if (snapshot
                                                                             .data!
@@ -11908,6 +11887,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
                                                                             ? containerUrlLinkStorageRecordList.first
                                                                             : null;
+
                                                                         return InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -11940,7 +11920,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               builder: (context) {
                                                                                 return WebViewAware(
                                                                                   child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                     child: Padding(
                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                       child: Container(
@@ -12232,7 +12212,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -12517,7 +12497,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -12825,7 +12805,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13107,7 +13087,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13390,7 +13370,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13673,7 +13653,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -13958,7 +13938,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -14264,7 +14244,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -14547,7 +14527,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               (context) {
                                                                             return WebViewAware(
                                                                               child: GestureDetector(
-                                                                                onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
                                                                                   child: Container(
@@ -14898,12 +14878,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                 return WebViewAware(
                                                                   child:
                                                                       GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
+                                                                    onTap: () =>
+                                                                        FocusScope.of(context)
                                                                             .unfocus(),
                                                                     child:
                                                                         Padding(
@@ -15340,12 +15316,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                 return WebViewAware(
                                                                   child:
                                                                       GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
+                                                                    onTap: () =>
+                                                                        FocusScope.of(context)
                                                                             .unfocus(),
                                                                     child:
                                                                         Padding(
@@ -15898,7 +15870,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
                                                                                           child: GestureDetector(
-                                                                                            onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                            onTap: () => FocusScope.of(context).unfocus(),
                                                                                             child: Padding(
                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                               child: Container(
@@ -16179,7 +16151,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 (context) {
                                                                               return WebViewAware(
                                                                                 child: GestureDetector(
-                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: Container(

@@ -24,7 +24,6 @@ class SearchCollectionPageModel
     extends FlutterFlowModel<SearchCollectionPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // State field(s) for DropDown widget.
@@ -50,7 +49,6 @@ class SearchCollectionPageModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     appbarFollowUpDebtModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

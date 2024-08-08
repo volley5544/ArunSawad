@@ -218,3 +218,25 @@ export '/pages/super_app/super_app_new_page/super_app_new_page_widget.dart'
 export '/webview_page/webview_page_widget.dart' show WebviewPageWidget;
 export '/pages/super_app/roadmapinsurance/roadmapinsurance_widget.dart'
     show RoadmapinsuranceWidget;
+export '/car_seized/car_seized_page_step1/car_seized_page_step1_widget.dart'
+    show CarSeizedPageStep1Widget;
+export '/car_seized/car_seized_dashboard_page/car_seized_dashboard_page_widget.dart'
+    show CarSeizedDashboardPageWidget;
+export '/car_seized/customer_car_deails_step1/customer_car_deails_step1_widget.dart'
+    show CustomerCarDeailsStep1Widget;
+export '/car_seized/sample_car_image_step1/sample_car_image_step1_widget.dart'
+    show SampleCarImageStep1Widget;
+export '/car_seized/customer_car_deails_step4/customer_car_deails_step4_widget.dart'
+    show CustomerCarDeailsStep4Widget;
+export '/car_seized/type_pic_step1/type_pic_step1_widget.dart'
+    show TypePicStep1Widget;
+export '/car_seized/customer_bike_details_step1/customer_bike_details_step1_widget.dart'
+    show CustomerBikeDetailsStep1Widget;
+export '/car_seized/customer_bike_deails_step4/customer_bike_deails_step4_widget.dart'
+    show CustomerBikeDeailsStep4Widget;
+export '/car_seized/car_seized_select_dashboard/car_seized_select_dashboard_widget.dart'
+    show CarSeizedSelectDashboardWidget;
+export '/car_seized/search_customers_g_d/search_customers_g_d_widget.dart'
+    show SearchCustomersGDWidget;
+export '/car_seized/customer_car_deails_picture_step1/customer_car_deails_picture_step1_widget.dart'
+    show CustomerCarDeailsPictureStep1Widget;

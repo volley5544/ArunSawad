@@ -70,9 +70,7 @@ class _DetailListFollowUpDebtWidgetState
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -272,9 +270,7 @@ class _DetailListFollowUpDebtWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -362,12 +358,8 @@ class _DetailListFollowUpDebtWidgetState
                                   builder: (context) {
                                     return WebViewAware(
                                       child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
+                                        onTap: () =>
+                                            FocusScope.of(context).unfocus(),
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
@@ -1012,6 +1004,17 @@ class _DetailListFollowUpDebtWidgetState
                               'historyCount': serializeParam(
                                 functions.returnMapListFromBoolList(
                                     CollectionApiGetDataPersonCall.historyCount(
+                                      (_model.getListDataPerson?.jsonBody ??
+                                          ''),
+                                    )?.toList(),
+                                    FFAppState().selectCardList.toList(),
+                                    true),
+                                ParamType.String,
+                                isList: true,
+                              ),
+                              'arnow': serializeParam(
+                                functions.returnMapListFromBoolList(
+                                    CollectionApiGetDataPersonCall.arnow(
                                       (_model.getListDataPerson?.jsonBody ??
                                           ''),
                                     )?.toList(),

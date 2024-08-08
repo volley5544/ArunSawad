@@ -42,9 +42,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -355,7 +353,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                       children: [
                                                         Text(
                                                           dateTimeFormat(
-                                                            'Hm',
+                                                            "Hm",
                                                             listViewChatsRecord
                                                                 .lastMessageTime!,
                                                             locale: FFLocalizations
@@ -378,7 +376,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                         ),
                                                         Text(
                                                           dateTimeFormat(
-                                                            'd/M/y',
+                                                            "d/M/y",
                                                             listViewChatsRecord
                                                                 .lastMessageTime!,
                                                             locale: FFLocalizations

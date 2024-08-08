@@ -29,7 +29,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in MyProfilePage widget.
   UserLogRecord? createdUserLogProfile;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in MyProfilePage widget.
@@ -55,7 +54,5 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

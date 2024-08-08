@@ -93,7 +93,6 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
               }
               List<SplashPageImgRecord> containerSplashPageImgRecordList =
                   snapshot.data!;
-
               // Return an empty Container when the item does not exist.
               if (snapshot.data!.isEmpty) {
                 return Container();
@@ -102,6 +101,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                   containerSplashPageImgRecordList.isNotEmpty
                       ? containerSplashPageImgRecordList.first
                       : null;
+
               return Container(
                 width: 330.0,
                 height: 600.0,

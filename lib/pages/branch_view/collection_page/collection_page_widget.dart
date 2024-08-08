@@ -293,9 +293,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
     }
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -1476,13 +1474,13 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           List<BranchviewDropdownRecord>
                                               collectionResultDropdownBranchviewDropdownRecordList =
                                               snapshot.data!;
-
                                           final collectionResultDropdownBranchviewDropdownRecord =
                                               collectionResultDropdownBranchviewDropdownRecordList
                                                       .isNotEmpty
                                                   ? collectionResultDropdownBranchviewDropdownRecordList
                                                       .first
                                                   : null;
+
                                           return FlutterFlowDropDown<String>(
                                             controller: _model
                                                     .collectionResultDropdownValueController ??=
@@ -2516,7 +2514,6 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
-
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -2525,6 +2522,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         listViewFileUploadRecordList.isNotEmpty
                                             ? listViewFileUploadRecordList.first
                                             : null;
+
                                     return Builder(
                                       builder: (context) {
                                         final imgFromFirestore =
@@ -2873,13 +2871,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     builder: (context) {
                                       return WebViewAware(
                                         child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
+                                          onTap: () =>
+                                              FocusScope.of(context).unfocus(),
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),

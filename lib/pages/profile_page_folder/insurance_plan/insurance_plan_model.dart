@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 class InsurancePlanModel extends FlutterFlowModel<InsurancePlanWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for planInsurance widget.
   FocusNode? planInsuranceFocusNode;
   TextEditingController? planInsuranceTextController;
@@ -82,7 +81,6 @@ class InsurancePlanModel extends FlutterFlowModel<InsurancePlanWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     planInsuranceFocusNode?.dispose();
     planInsuranceTextController?.dispose();
 

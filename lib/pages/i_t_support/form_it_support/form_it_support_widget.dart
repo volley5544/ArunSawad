@@ -62,9 +62,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -133,11 +131,11 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
               }
               List<UserCustomRecord> columnUserCustomRecordList =
                   snapshot.data!;
-
               final columnUserCustomRecord =
                   columnUserCustomRecordList.isNotEmpty
                       ? columnUserCustomRecordList.first
                       : null;
+
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -171,11 +169,11 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                       }
                       List<FCMTokenRecord> columnFCMTokenRecordList =
                           snapshot.data!;
-
                       final columnFCMTokenRecord =
                           columnFCMTokenRecordList.isNotEmpty
                               ? columnFCMTokenRecordList.first
                               : null;
+
                       return SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,

@@ -15,7 +15,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - enoughEmail] action in inboxEmail widget.
   List<String>? subjectEmailOutput;
   // Stores action output result for [Custom Action - enoughEmail] action in inboxEmail widget.
@@ -27,7 +26,5 @@ class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

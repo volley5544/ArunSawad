@@ -23,7 +23,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildNumber] action in LoginPage widget.
   int? deviceBuildNumber;
   // Stores action output result for [Custom Action - getBuildVersion] action in LoginPage widget.
@@ -83,7 +82,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     usernameInputFocusNode?.dispose();
     usernameInputTextController?.dispose();
 

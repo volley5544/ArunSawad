@@ -167,7 +167,6 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
         }
         List<UrlLinkStorageRecord> changeLatLngPageWebUrlLinkStorageRecordList =
             snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -176,10 +175,9 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
             changeLatLngPageWebUrlLinkStorageRecordList.isNotEmpty
                 ? changeLatLngPageWebUrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             resizeToAvoidBottomInset: false,

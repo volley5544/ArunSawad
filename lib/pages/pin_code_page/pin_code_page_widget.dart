@@ -231,7 +231,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
         }
         List<SplashPageImgRecord> pinCodePageSplashPageImgRecordList =
             snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -240,10 +239,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
             pinCodePageSplashPageImgRecordList.isNotEmpty
                 ? pinCodePageSplashPageImgRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -273,7 +271,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                     List<SplashPageHolidayImgRecord>
                         columnfirstSplashPageHolidayImgRecordList =
                         snapshot.data!;
-
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -282,6 +279,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                         columnfirstSplashPageHolidayImgRecordList.isNotEmpty
                             ? columnfirstSplashPageHolidayImgRecordList.first
                             : null;
+
                     return Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -307,7 +305,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                             List<BuildVersionRecord>
                                 columnsecBuildVersionRecordList =
                                 snapshot.data!;
-
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
@@ -316,6 +313,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                 columnsecBuildVersionRecordList.isNotEmpty
                                     ? columnsecBuildVersionRecordList.first
                                     : null;
+
                             return SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -345,13 +343,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                       List<KeyStorageRecord>
                                           columntriKeyStorageRecordList =
                                           snapshot.data!;
-
                                       final columntriKeyStorageRecord =
                                           columntriKeyStorageRecordList
                                                   .isNotEmpty
                                               ? columntriKeyStorageRecordList
                                                   .first
                                               : null;
+
                                       return Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -415,13 +413,13 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                 List<UserCustomRecord>
                                                     columnfourUserCustomRecordList =
                                                     snapshot.data!;
-
                                                 final columnfourUserCustomRecord =
                                                     columnfourUserCustomRecordList
                                                             .isNotEmpty
                                                         ? columnfourUserCustomRecordList
                                                             .first
                                                         : null;
+
                                                 return Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -465,7 +463,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                         List<UrlLinkStorageRecord>
                                                             containerUrlLinkStorageRecordList =
                                                             snapshot.data!;
-
                                                         // Return an empty Container when the item does not exist.
                                                         if (snapshot
                                                             .data!.isEmpty) {
@@ -477,6 +474,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                 ? containerUrlLinkStorageRecordList
                                                                     .first
                                                                 : null;
+
                                                         return Container(
                                                           width:
                                                               double.infinity,
@@ -547,7 +545,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   columnfifthAuthorizationRecordList =
                                                                   snapshot
                                                                       .data!;
-
                                                               // Return an empty Container when the item does not exist.
                                                               if (snapshot.data!
                                                                   .isEmpty) {
@@ -559,6 +556,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       ? columnfifthAuthorizationRecordList
                                                                           .first
                                                                       : null;
+
                                                               return Column(
                                                                 mainAxisSize:
                                                                     MainAxisSize
@@ -611,12 +609,12 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           containerUserCustomRecordList =
                                                                           snapshot
                                                                               .data!;
-
                                                                       final containerUserCustomRecord = containerUserCustomRecordList
                                                                               .isNotEmpty
                                                                           ? containerUserCustomRecordList
                                                                               .first
                                                                           : null;
+
                                                                       return Container(
                                                                         width: double
                                                                             .infinity,
@@ -658,7 +656,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                         builder: (context) {
                                                                                           return WebViewAware(
                                                                                             child: GestureDetector(
-                                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                              onTap: () => FocusScope.of(context).unfocus(),
                                                                                               child: Padding(
                                                                                                 padding: MediaQuery.viewInsetsOf(context),
                                                                                                 child: Container(
@@ -1019,7 +1017,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           columnAuthorizationRecordList =
                                                                           snapshot
                                                                               .data!;
-
                                                                       // Return an empty Container when the item does not exist.
                                                                       if (snapshot
                                                                           .data!
@@ -1031,6 +1028,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           ? columnAuthorizationRecordList
                                                                               .first
                                                                           : null;
+
                                                                       return Column(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
@@ -1072,8 +1070,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   );
                                                                                 }
                                                                                 List<InsuranceNotiDataRecord> notidatacolumnInsuranceNotiDataRecordList = snapshot.data!;
-
                                                                                 final notidatacolumnInsuranceNotiDataRecord = notidatacolumnInsuranceNotiDataRecordList.isNotEmpty ? notidatacolumnInsuranceNotiDataRecordList.first : null;
+
                                                                                 return Column(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   children: [
@@ -1131,8 +1129,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                 );
                                                                                               }
                                                                                               List<UserProfileRecord> columnUserProfileRecordList = snapshot.data!;
-
                                                                                               final columnUserProfileRecord = columnUserProfileRecordList.isNotEmpty ? columnUserProfileRecordList.first : null;
+
                                                                                               return Column(
                                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                                 children: [
@@ -1158,8 +1156,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           );
                                                                                                         }
                                                                                                         List<InsuranceLicenseDataRecord> pinCodeInsuranceLicenseDataRecordList = snapshot.data!;
-
                                                                                                         final pinCodeInsuranceLicenseDataRecord = pinCodeInsuranceLicenseDataRecordList.isNotEmpty ? pinCodeInsuranceLicenseDataRecordList.first : null;
+
                                                                                                         return PinCodeTextField(
                                                                                                           autoDisposeControllers: false,
                                                                                                           appContext: context,
@@ -1296,7 +1294,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               builder: (context) {
                                                                                                                 return WebViewAware(
                                                                                                                   child: GestureDetector(
-                                                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                                    onTap: () => FocusScope.of(context).unfocus(),
                                                                                                                     child: Padding(
                                                                                                                       padding: MediaQuery.viewInsetsOf(context),
                                                                                                                       child: Container(
@@ -1779,8 +1777,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                         );
                                                                                                       }
                                                                                                       List<InsuranceLicenseDataRecord> iconButtonInsuranceLicenseDataRecordList = snapshot.data!;
-
                                                                                                       final iconButtonInsuranceLicenseDataRecord = iconButtonInsuranceLicenseDataRecordList.isNotEmpty ? iconButtonInsuranceLicenseDataRecordList.first : null;
+
                                                                                                       return FlutterFlowIconButton(
                                                                                                         borderColor: Color(0x004B39EF),
                                                                                                         borderRadius: 20.0,
@@ -1914,7 +1912,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             builder: (context) {
                                                                                                               return WebViewAware(
                                                                                                                 child: GestureDetector(
-                                                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                                  onTap: () => FocusScope.of(context).unfocus(),
                                                                                                                   child: Padding(
                                                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                                                     child: Container(

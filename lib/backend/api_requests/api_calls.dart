@@ -51,6 +51,441 @@ class UploadFileFirebaseStorageApiCall {
 
 /// End Spring Firebase Api Group Group Code
 
+/// Start uploadImagesGoogleDrive Group Code
+
+class UploadImagesGoogleDriveGroup {
+  static String getBaseUrl({
+    String? url = '',
+  }) =>
+      '${url}';
+  static Map<String, String> headers = {};
+  static SearchImagesCall searchImagesCall = SearchImagesCall();
+  static SearchContractNumberCall searchContractNumberCall =
+      SearchContractNumberCall();
+  static UploadGoogleDriveAPICall uploadGoogleDriveAPICall =
+      UploadGoogleDriveAPICall();
+}
+
+class SearchImagesCall {
+  Future<ApiCallResponse> call({
+    String? contNo = '',
+    String? step = '',
+    String? url = '',
+  }) async {
+    final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
+      url: url,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "cont_no": "${contNo}",
+  "step": "${step}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'searchImages',
+      apiUrl: '${baseUrl}/api/searchImages',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? statuscode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  int? imagesid(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.data[:].images_id''',
+      ));
+  String? contno(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].cont_no''',
+      ));
+  String? step(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].step''',
+      ));
+  String? nameth(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].name_th''',
+      ));
+  String? branchname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].branch_name''',
+      ));
+  String? branchcode(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].branch_code''',
+      ));
+  String? images1(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images1''',
+      ));
+  String? images2(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images2''',
+      ));
+  String? images3(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images3''',
+      ));
+  String? images4(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images4''',
+      ));
+  String? images5(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images5''',
+      ));
+  String? images6(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images6''',
+      ));
+  String? images7(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images7''',
+      ));
+  String? images8(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images8''',
+      ));
+  String? images9(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images9''',
+      ));
+  String? images10(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images10''',
+      ));
+  String? images11(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images11''',
+      ));
+  String? images12(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images12''',
+      ));
+  String? remark(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].remark''',
+      ));
+}
+
+class SearchContractNumberCall {
+  Future<ApiCallResponse> call({
+    String? contNo = '',
+    String? firstnameCust = '',
+    String? lastnameCust = '',
+    String? cuscod = '',
+    String? registrationCar = '',
+    String? url = '',
+  }) async {
+    final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
+      url: url,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "cont_no": "${contNo}",
+  "firstname_cust": "${firstnameCust}",
+  "lastname_cust": "${lastnameCust}",
+  "cuscod": "${cuscod}",
+  "registration_car": "${registrationCar}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'searchContractNumber',
+      apiUrl: '${baseUrl}/api/search',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? statuscode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.statuscode''',
+      ));
+  String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  List<String>? contno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].cont_no''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? nameth(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].name_th''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? contnotypename(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].contno_type_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? updateduserid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].updated_userid''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? createduserid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].created_userid''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? registrationcar(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].registration_car''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? productname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].product_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? branchname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].branch_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? typecontract(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].type_contract''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? firstnamecust(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].firstname_cust''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? locat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].locat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? registrationprove(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].registration_prove''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? numbody(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].num_body''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? productcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].product_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? branchcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].branch_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? lastnamecust(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].lastname_cust''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? titlecust(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].title_cust''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? cuscod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].cuscod''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class UploadGoogleDriveAPICall {
+  Future<ApiCallResponse> call({
+    String? projectName = '',
+    String? contractNumber = '',
+    String? step = '',
+    FFUploadedFile? images1,
+    FFUploadedFile? images2,
+    FFUploadedFile? images3,
+    FFUploadedFile? images4,
+    FFUploadedFile? images5,
+    FFUploadedFile? images6,
+    FFUploadedFile? images7,
+    FFUploadedFile? images8,
+    FFUploadedFile? images9,
+    FFUploadedFile? images10,
+    FFUploadedFile? images11,
+    FFUploadedFile? images12,
+    String? titleCust = '',
+    String? firstnameCust = '',
+    String? lastnameCust = '',
+    String? typeContract = '',
+    String? branchCode = '',
+    String? branchName = '',
+    String? nameTh = '',
+    String? productName = '',
+    String? productCode = '',
+    String? numBody = '',
+    String? registrationCar = '',
+    String? registrationProve = '',
+    String? contnoTypeName = '',
+    String? remark = '',
+    String? userid = '',
+    String? locat = '',
+    String? cuscod = '',
+    String? url = '',
+  }) async {
+    final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
+      url: url,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'uploadGoogleDriveAPI',
+      apiUrl: '${baseUrl}/api/upload',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {
+        'project_name': projectName,
+        'contract_number': contractNumber,
+        'step': step,
+        'images1': images1,
+        'images2': images2,
+        'images3': images3,
+        'images4': images4,
+        'images5': images5,
+        'images6': images6,
+        'images7': images7,
+        'images8': images8,
+        'images9': images9,
+        'images10': images10,
+        'images11': images11,
+        'images12': images12,
+        'title_cust': titleCust,
+        'firstname_cust': firstnameCust,
+        'lastname_cust': lastnameCust,
+        'type_contract': typeContract,
+        'branch_code': branchCode,
+        'branch_name': branchName,
+        'name_th': nameTh,
+        'product_name': productName,
+        'product_code': productCode,
+        'num_body': numBody,
+        'registration_car': registrationCar,
+        'registration_prove': registrationProve,
+        'contno_type_name': contnoTypeName,
+        'remark': remark,
+        'userid': userid,
+        'locat': locat,
+        'cuscod': cuscod,
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End uploadImagesGoogleDrive Group Code
+
 class AuthenAPICall {
   static Future<ApiCallResponse> call({
     String? username = '',
@@ -9642,6 +10077,15 @@ class CollectionApiGetDataPersonCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? arnow(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ARNOW''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class SaveCallCollectionCall {
@@ -10239,6 +10683,177 @@ class SaveRecordVideoApiCall {
         response,
         r'''$.data''',
       );
+}
+
+class SswSurveyAPIVloanGetContractCall {
+  static Future<ApiCallResponse> call({
+    String? contNo = '',
+    String? firstnameCust = '',
+    String? lastnameCust = '',
+    String? cuscod = '',
+    String? registrationCar = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "cont_no": "${contNo}",
+  "firstname_cust": "${firstnameCust}",
+  "lastname_cust": "${lastnameCust}",
+  "cuscod": "${cuscod}",
+  "registration_car": "${registrationCar}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'sswSurveyAPIVloanGetContract',
+      apiUrl: 'https://is-dev.swpfin.com/ssw_survey/api/vloan/get-contract',
+      callType: ApiCallType.POST,
+      headers: {
+        'X-API-KEY': 'xhJfdKPYnhicbDsC8YpPiOSyoA3ugBGqVXE1Bf9Ufnk=%',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? code(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<String>? contno(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].CONTNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? locat(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].LOCAT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? cuscod(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].CUSCOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? title(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].TITLE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? fname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].FNAME''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? sname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].SNAME''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? sdate(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].SDATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? insurer(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].INSURER''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regno(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].REGNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regprov(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].REGPROV''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? contnotype(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].CONTNO_TYPE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? contnotypename(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].CONTNO_TYPE_NAME''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? gcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].GCODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? gdesc(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].GDESC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ApiPagingParams {

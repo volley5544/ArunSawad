@@ -16,7 +16,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class FormServicePageModel extends FlutterFlowModel<FormServicePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in FormServicePage widget.
   UserLogRecord? createdUserLogFormService;
 
@@ -24,7 +23,5 @@ class FormServicePageModel extends FlutterFlowModel<FormServicePageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -1731,6 +1731,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                arnow: params.getParam<String>(
+                  'arnow',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -1869,6 +1874,263 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Roadmapinsurance',
               path: 'roadmapinsurance',
               builder: (context, params) => RoadmapinsuranceWidget(),
+            ),
+            FFRoute(
+              name: 'CarSeizedPageStep1',
+              path: 'carSeizedPageStep1',
+              builder: (context, params) => CarSeizedPageStep1Widget(),
+            ),
+            FFRoute(
+              name: 'CarSeizedDashboardPage',
+              path: 'carSeizedDashboardPage',
+              builder: (context, params) => CarSeizedDashboardPageWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'CustomerCarDeailsStep1',
+              path: 'customerCarDeailsStep1',
+              builder: (context, params) => CustomerCarDeailsStep1Widget(
+                improundCONTNO: params.getParam(
+                  'improundCONTNO',
+                  ParamType.String,
+                ),
+                improundLOCAT: params.getParam(
+                  'improundLOCAT',
+                  ParamType.String,
+                ),
+                improundTITLE: params.getParam(
+                  'improundTITLE',
+                  ParamType.String,
+                ),
+                improundFNAME: params.getParam(
+                  'improundFNAME',
+                  ParamType.String,
+                ),
+                improundSNAME: params.getParam(
+                  'improundSNAME',
+                  ParamType.String,
+                ),
+                improundREGNO: params.getParam(
+                  'improundREGNO',
+                  ParamType.String,
+                ),
+                improundREGPROV: params.getParam(
+                  'improundREGPROV',
+                  ParamType.String,
+                ),
+                improundCONTNOTYPE: params.getParam(
+                  'improundCONTNOTYPE',
+                  ParamType.String,
+                ),
+                improundCONTNOTYPENAME: params.getParam(
+                  'improundCONTNOTYPENAME',
+                  ParamType.String,
+                ),
+                improundGCODE: params.getParam(
+                  'improundGCODE',
+                  ParamType.String,
+                ),
+                improundGDESC: params.getParam(
+                  'improundGDESC',
+                  ParamType.String,
+                ),
+                improundNumbody: params.getParam(
+                  'improundNumbody',
+                  ParamType.String,
+                ),
+                step: params.getParam(
+                  'step',
+                  ParamType.String,
+                ),
+                improundCUSCOD: params.getParam(
+                  'improundCUSCOD',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'SampleCarImageStep1',
+              path: 'sampleCarImageStep1',
+              builder: (context, params) => SampleCarImageStep1Widget(
+                imageName: params.getParam(
+                  'imageName',
+                  ParamType.String,
+                ),
+                contNoType: params.getParam(
+                  'contNoType',
+                  ParamType.String,
+                ),
+                numberOfImage: params.getParam(
+                  'numberOfImage',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'CustomerCarDeailsStep4',
+              path: 'customerCarDeailsStep4',
+              builder: (context, params) => CustomerCarDeailsStep4Widget(
+                improundCONTNO: params.getParam(
+                  'improundCONTNO',
+                  ParamType.String,
+                ),
+                improundLOCAT: params.getParam(
+                  'improundLOCAT',
+                  ParamType.String,
+                ),
+                improundTITLE: params.getParam(
+                  'improundTITLE',
+                  ParamType.String,
+                ),
+                improundFNAME: params.getParam(
+                  'improundFNAME',
+                  ParamType.String,
+                ),
+                improundSNAME: params.getParam(
+                  'improundSNAME',
+                  ParamType.String,
+                ),
+                improundREGNO: params.getParam(
+                  'improundREGNO',
+                  ParamType.String,
+                ),
+                improundREGPROV: params.getParam(
+                  'improundREGPROV',
+                  ParamType.String,
+                ),
+                improundCONTNOTYPE: params.getParam(
+                  'improundCONTNOTYPE',
+                  ParamType.String,
+                ),
+                improundCONTNOTYPENAME: params.getParam(
+                  'improundCONTNOTYPENAME',
+                  ParamType.String,
+                ),
+                improundGCODE: params.getParam(
+                  'improundGCODE',
+                  ParamType.String,
+                ),
+                improundGDESC: params.getParam(
+                  'improundGDESC',
+                  ParamType.String,
+                ),
+                improundNumbody: params.getParam(
+                  'improundNumbody',
+                  ParamType.String,
+                ),
+                step: params.getParam(
+                  'step',
+                  ParamType.String,
+                ),
+                improundCUSCOD: params.getParam(
+                  'improundCUSCOD',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'TypePicStep1',
+              path: 'typePicStep1',
+              builder: (context, params) => TypePicStep1Widget(),
+            ),
+            FFRoute(
+              name: 'CustomerBikeDetailsStep1',
+              path: 'customerBikeDetailsStep1',
+              builder: (context, params) => CustomerBikeDetailsStep1Widget(),
+            ),
+            FFRoute(
+              name: 'CustomerBikeDeailsStep4',
+              path: 'customerBikeDeailsStep4',
+              builder: (context, params) => CustomerBikeDeailsStep4Widget(),
+            ),
+            FFRoute(
+              name: 'CarSeizedSelectDashboard',
+              path: 'carSeizedSelectDashboard',
+              builder: (context, params) => CarSeizedSelectDashboardWidget(),
+            ),
+            FFRoute(
+              name: 'searchCustomersGD',
+              path: 'searchCustomersGD',
+              builder: (context, params) => SearchCustomersGDWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                step: params.getParam(
+                  'step',
+                  ParamType.String,
+                ),
+                textShow: params.getParam(
+                  'textShow',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'customerCarDeailsPictureStep1',
+              path: 'customerCarDeailsPictureStep1',
+              builder: (context, params) => CustomerCarDeailsPictureStep1Widget(
+                improundCONTNO: params.getParam(
+                  'improundCONTNO',
+                  ParamType.String,
+                ),
+                improundLOCAT: params.getParam(
+                  'improundLOCAT',
+                  ParamType.String,
+                ),
+                improundTITLE: params.getParam(
+                  'improundTITLE',
+                  ParamType.String,
+                ),
+                improundFNAME: params.getParam(
+                  'improundFNAME',
+                  ParamType.String,
+                ),
+                improundSNAME: params.getParam(
+                  'improundSNAME',
+                  ParamType.String,
+                ),
+                improundREGNO: params.getParam(
+                  'improundREGNO',
+                  ParamType.String,
+                ),
+                improundREGPROV: params.getParam(
+                  'improundREGPROV',
+                  ParamType.String,
+                ),
+                improundCONTNOTYPE: params.getParam(
+                  'improundCONTNOTYPE',
+                  ParamType.String,
+                ),
+                improundCONTNOTYPENAME: params.getParam(
+                  'improundCONTNOTYPENAME',
+                  ParamType.String,
+                ),
+                improundGCODE: params.getParam(
+                  'improundGCODE',
+                  ParamType.String,
+                ),
+                improundGDESC: params.getParam(
+                  'improundGDESC',
+                  ParamType.String,
+                ),
+                improundNumbody: params.getParam(
+                  'improundNumbody',
+                  ParamType.String,
+                ),
+                step: params.getParam(
+                  'step',
+                  ParamType.String,
+                ),
+                improundCUSCOD: params.getParam(
+                  'improundCUSCOD',
+                  ParamType.String,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

@@ -57,9 +57,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -239,9 +237,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -312,6 +308,7 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                 hintText: 'กรุณาเลือกเดือนที่ต้องการหา',
                 icon: FaIcon(
                   FontAwesomeIcons.solidCalendarAlt,
+                  size: 15.0,
                 ),
                 fillColor: Colors.white,
                 elevation: 2.0,
@@ -1504,9 +1501,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         return WebViewAware(
                                                                           child:
                                                                               GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
+                                                                            onTap: () =>
+                                                                                FocusScope.of(context).unfocus(),
                                                                             child:
                                                                                 Padding(
                                                                               padding: MediaQuery.viewInsetsOf(context),
@@ -1540,9 +1536,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                         return WebViewAware(
                                                                           child:
                                                                               GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
+                                                                            onTap: () =>
+                                                                                FocusScope.of(context).unfocus(),
                                                                             child:
                                                                                 Padding(
                                                                               padding: MediaQuery.viewInsetsOf(context),
@@ -1939,9 +1934,8 @@ class _LeaveShowPageWidgetState extends State<LeaveShowPageWidget>
                                                                       return WebViewAware(
                                                                         child:
                                                                             GestureDetector(
-                                                                          onTap: () => _model.unfocusNode.canRequestFocus
-                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                              : FocusScope.of(context).unfocus(),
+                                                                          onTap: () =>
+                                                                              FocusScope.of(context).unfocus(),
                                                                           child:
                                                                               Padding(
                                                                             padding:

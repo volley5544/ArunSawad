@@ -23,7 +23,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginCheckInPage;
   // Stores action output result for [Custom Action - a1] action in Container widget.
@@ -77,7 +76,5 @@ class DashboardModel extends FlutterFlowModel<DashboardWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

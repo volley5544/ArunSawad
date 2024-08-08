@@ -78,9 +78,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -153,7 +151,6 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                 List<PromotionimagesRecord>
                                     gridViewPromotionimagesRecordList =
                                     snapshot.data!;
-
                                 // Return an empty Container when the item does not exist.
                                 if (snapshot.data!.isEmpty) {
                                   return Container();
@@ -163,6 +160,7 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                         ? gridViewPromotionimagesRecordList
                                             .first
                                         : null;
+
                                 return Builder(
                                   builder: (context) {
                                     final promotionImagesList =
@@ -205,15 +203,8 @@ class _PromotionPageWidgetState extends State<PromotionPageWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery

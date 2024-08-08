@@ -17,7 +17,6 @@ class InsuranceRequestListPageModel
     extends FlutterFlowModel<InsuranceRequestListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (insuranceRequestListAPI)] action in InsuranceRequestListPage widget.
   ApiCallResponse? getRequestList;
   // Stores action output result for [Backend Call - API (insuranceRequestDetailAPI)] action in Button widget.
@@ -29,7 +28,5 @@ class InsuranceRequestListPageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

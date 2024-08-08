@@ -67,9 +67,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -263,15 +261,13 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
         }
         List<UrlLinkStorageRecord> bsiReportPageUrlLinkStorageRecordList =
             snapshot.data!;
-
         final bsiReportPageUrlLinkStorageRecord =
             bsiReportPageUrlLinkStorageRecordList.isNotEmpty
                 ? bsiReportPageUrlLinkStorageRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -338,7 +334,6 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                     }
                     List<AuthorizationRecord> columnAuthorizationRecordList =
                         snapshot.data!;
-
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -347,6 +342,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                         columnAuthorizationRecordList.isNotEmpty
                             ? columnAuthorizationRecordList.first
                             : null;
+
                     return Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -376,11 +372,11 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                             }
                             List<ReportStorageRecord>
                                 columnReportStorageRecordList = snapshot.data!;
-
                             final columnReportStorageRecord =
                                 columnReportStorageRecordList.isNotEmpty
                                     ? columnReportStorageRecordList.first
                                     : null;
+
                             return Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -584,14 +580,8 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(
@@ -945,12 +935,22 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                 _model.reportDropDownValue ??=
                                                     '',
                                               ),
-                                              options: List<String>.from(
-                                                  columnReportStorageRecord!
-                                                      .reportUrl),
-                                              optionLabels:
-                                                  columnReportStorageRecord!
-                                                      .reportUrlName,
+                                              options: List<String>.from(functions
+                                                  .genDropdownFromBoolList(
+                                                      columnReportStorageRecord
+                                                          ?.reportUrl
+                                                          ?.toList(),
+                                                      columnReportStorageRecord
+                                                          ?.reportIsShow
+                                                          ?.toList())!),
+                                              optionLabels: functions
+                                                  .genDropdownFromBoolList(
+                                                      columnReportStorageRecord
+                                                          ?.reportUrlName
+                                                          ?.toList(),
+                                                      columnReportStorageRecord
+                                                          ?.reportIsShow
+                                                          ?.toList())!,
                                               onChanged: (val) => setState(() =>
                                                   _model.reportDropDownValue =
                                                       val),

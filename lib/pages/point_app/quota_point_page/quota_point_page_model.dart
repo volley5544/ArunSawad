@@ -16,7 +16,6 @@ import 'package:provider/provider.dart';
 class QuotaPointPageModel extends FlutterFlowModel<QuotaPointPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -25,7 +24,5 @@ class QuotaPointPageModel extends FlutterFlowModel<QuotaPointPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -67,9 +67,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -602,7 +600,6 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                   List<UserCustomRecord>
                                                       imageUserCustomRecordList =
                                                       snapshot.data!;
-
                                                   // Return an empty Container when the item does not exist.
                                                   if (snapshot.data!.isEmpty) {
                                                     return Container();
@@ -613,6 +610,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                           ? imageUserCustomRecordList
                                                               .first
                                                           : null;
+
                                                   return CachedNetworkImage(
                                                     fadeInDuration: Duration(
                                                         milliseconds: 500),

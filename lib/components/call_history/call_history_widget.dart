@@ -275,7 +275,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                   children: [
                                                                     Text(
                                                                       '${dateTimeFormat(
-                                                                        'Hm',
+                                                                        "Hm",
                                                                         functions.showLeadCreatedTime(
                                                                             widget!.historyTimeCallList?.toList(),
                                                                             callStatusListViewIndex),
@@ -298,7 +298,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     ),
                                                                     Text(
                                                                       '${dateTimeFormat(
-                                                                        'd/M/y',
+                                                                        "d/M/y",
                                                                         functions.showLeadCreatedTime(
                                                                             widget!.historyTimeCallList?.toList(),
                                                                             callStatusListViewIndex),
@@ -518,7 +518,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                           children: [
                                                             Text(
                                                               dateTimeFormat(
-                                                                'Hm',
+                                                                "Hm",
                                                                 widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(
@@ -541,7 +541,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             ),
                                                             Text(
                                                               dateTimeFormat(
-                                                                'd/M/y',
+                                                                "d/M/y",
                                                                 widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(
@@ -616,7 +616,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                           children: [
                                                             Text(
                                                               dateTimeFormat(
-                                                                'Hm',
+                                                                "Hm",
                                                                 widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(
@@ -639,7 +639,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             ),
                                                             Text(
                                                               dateTimeFormat(
-                                                                'd/M/y',
+                                                                "d/M/y",
                                                                 widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(

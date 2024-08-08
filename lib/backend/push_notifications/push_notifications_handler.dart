@@ -7,6 +7,7 @@ import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 import '../../index.dart';
 import '../../main.dart';
@@ -72,7 +73,9 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   @override
   void initState() {
     super.initState();
-    handleOpenedPushNotification();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      handleOpenedPushNotification();
+    });
   }
 
   @override
@@ -621,6 +624,90 @@ final parametersBuilderMap =
         },
       ),
   'Roadmapinsurance': ParameterData.none(),
+  'CarSeizedPageStep1': ParameterData.none(),
+  'CarSeizedDashboardPage': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
+  'CustomerCarDeailsStep1': (data) async => ParameterData(
+        allParams: {
+          'improundCONTNO': getParameter<String>(data, 'improundCONTNO'),
+          'improundLOCAT': getParameter<String>(data, 'improundLOCAT'),
+          'improundTITLE': getParameter<String>(data, 'improundTITLE'),
+          'improundFNAME': getParameter<String>(data, 'improundFNAME'),
+          'improundSNAME': getParameter<String>(data, 'improundSNAME'),
+          'improundREGNO': getParameter<String>(data, 'improundREGNO'),
+          'improundREGPROV': getParameter<String>(data, 'improundREGPROV'),
+          'improundCONTNOTYPE':
+              getParameter<String>(data, 'improundCONTNOTYPE'),
+          'improundCONTNOTYPENAME':
+              getParameter<String>(data, 'improundCONTNOTYPENAME'),
+          'improundGCODE': getParameter<String>(data, 'improundGCODE'),
+          'improundGDESC': getParameter<String>(data, 'improundGDESC'),
+          'improundNumbody': getParameter<String>(data, 'improundNumbody'),
+          'step': getParameter<String>(data, 'step'),
+          'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
+        },
+      ),
+  'SampleCarImageStep1': (data) async => ParameterData(
+        allParams: {
+          'imageName': getParameter<String>(data, 'imageName'),
+          'contNoType': getParameter<String>(data, 'contNoType'),
+          'numberOfImage': getParameter<String>(data, 'numberOfImage'),
+        },
+      ),
+  'CustomerCarDeailsStep4': (data) async => ParameterData(
+        allParams: {
+          'improundCONTNO': getParameter<String>(data, 'improundCONTNO'),
+          'improundLOCAT': getParameter<String>(data, 'improundLOCAT'),
+          'improundTITLE': getParameter<String>(data, 'improundTITLE'),
+          'improundFNAME': getParameter<String>(data, 'improundFNAME'),
+          'improundSNAME': getParameter<String>(data, 'improundSNAME'),
+          'improundREGNO': getParameter<String>(data, 'improundREGNO'),
+          'improundREGPROV': getParameter<String>(data, 'improundREGPROV'),
+          'improundCONTNOTYPE':
+              getParameter<String>(data, 'improundCONTNOTYPE'),
+          'improundCONTNOTYPENAME':
+              getParameter<String>(data, 'improundCONTNOTYPENAME'),
+          'improundGCODE': getParameter<String>(data, 'improundGCODE'),
+          'improundGDESC': getParameter<String>(data, 'improundGDESC'),
+          'improundNumbody': getParameter<String>(data, 'improundNumbody'),
+          'step': getParameter<String>(data, 'step'),
+          'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
+        },
+      ),
+  'TypePicStep1': ParameterData.none(),
+  'CustomerBikeDetailsStep1': ParameterData.none(),
+  'CustomerBikeDeailsStep4': ParameterData.none(),
+  'CarSeizedSelectDashboard': ParameterData.none(),
+  'searchCustomersGD': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'step': getParameter<String>(data, 'step'),
+          'textShow': getParameter<String>(data, 'textShow'),
+        },
+      ),
+  'customerCarDeailsPictureStep1': (data) async => ParameterData(
+        allParams: {
+          'improundCONTNO': getParameter<String>(data, 'improundCONTNO'),
+          'improundLOCAT': getParameter<String>(data, 'improundLOCAT'),
+          'improundTITLE': getParameter<String>(data, 'improundTITLE'),
+          'improundFNAME': getParameter<String>(data, 'improundFNAME'),
+          'improundSNAME': getParameter<String>(data, 'improundSNAME'),
+          'improundREGNO': getParameter<String>(data, 'improundREGNO'),
+          'improundREGPROV': getParameter<String>(data, 'improundREGPROV'),
+          'improundCONTNOTYPE':
+              getParameter<String>(data, 'improundCONTNOTYPE'),
+          'improundCONTNOTYPENAME':
+              getParameter<String>(data, 'improundCONTNOTYPENAME'),
+          'improundGCODE': getParameter<String>(data, 'improundGCODE'),
+          'improundGDESC': getParameter<String>(data, 'improundGDESC'),
+          'improundNumbody': getParameter<String>(data, 'improundNumbody'),
+          'step': getParameter<String>(data, 'step'),
+          'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

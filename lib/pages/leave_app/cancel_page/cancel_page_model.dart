@@ -11,7 +11,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class CancelPageModel extends FlutterFlowModel<CancelPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for reasonCancel widget.
   FocusNode? reasonCancelFocusNode;
   TextEditingController? reasonCancelTextController;
@@ -24,7 +23,6 @@ class CancelPageModel extends FlutterFlowModel<CancelPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     reasonCancelFocusNode?.dispose();
     reasonCancelTextController?.dispose();
   }

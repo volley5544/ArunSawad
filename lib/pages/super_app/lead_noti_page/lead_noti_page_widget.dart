@@ -65,9 +65,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -375,7 +373,6 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
         }
         List<LeadChannelColorRecord> leadNotiPageLeadChannelColorRecordList =
             snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -384,10 +381,9 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
             leadNotiPageLeadChannelColorRecordList.isNotEmpty
                 ? leadNotiPageLeadChannelColorRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -1941,7 +1937,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       0.0),
                                                           child: Text(
                                                             dateTimeFormat(
-                                                              'Hm',
+                                                              "Hm",
                                                               functions.showLeadCreatedTime(
                                                                   FFAppState()
                                                                       .leadCreatedTimeList
@@ -1979,7 +1975,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       0.0),
                                                           child: Text(
                                                             dateTimeFormat(
-                                                              'd/M/y',
+                                                              "d/M/y",
                                                               functions.showLeadCreatedTime(
                                                                   FFAppState()
                                                                       .leadCreatedTimeList
@@ -2040,14 +2036,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
+                                                                onTap: () =>
+                                                                    FocusScope.of(
                                                                             context)
                                                                         .unfocus(),
                                                                 child: Padding(
@@ -2140,14 +2130,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             return WebViewAware(
                                                               child:
                                                                   GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
+                                                                onTap: () =>
+                                                                    FocusScope.of(
                                                                             context)
                                                                         .unfocus(),
                                                                 child: Padding(
@@ -2275,14 +2259,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
+                                                                  onTap: () =>
+                                                                      FocusScope.of(
                                                                               context)
                                                                           .unfocus(),
                                                                   child:
@@ -2386,14 +2364,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               return WebViewAware(
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
+                                                                  onTap: () =>
+                                                                      FocusScope.of(
                                                                               context)
                                                                           .unfocus(),
                                                                   child:

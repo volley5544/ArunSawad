@@ -109,9 +109,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -177,11 +175,11 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
               }
               List<UserCustomRecord> columnUserCustomRecordList =
                   snapshot.data!;
-
               final columnUserCustomRecord =
                   columnUserCustomRecordList.isNotEmpty
                       ? columnUserCustomRecordList.first
                       : null;
+
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -215,11 +213,11 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                       }
                       List<FCMTokenRecord> columnFCMTokenRecordList =
                           snapshot.data!;
-
                       final columnFCMTokenRecord =
                           columnFCMTokenRecordList.isNotEmpty
                               ? columnFCMTokenRecordList.first
                               : null;
+
                       return SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -247,7 +245,6 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                 List<LeaveDaysAfterRecord>
                                     containerLeaveDaysAfterRecordList =
                                     snapshot.data!;
-
                                 // Return an empty Container when the item does not exist.
                                 if (snapshot.data!.isEmpty) {
                                   return Container();
@@ -257,6 +254,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                         ? containerLeaveDaysAfterRecordList
                                             .first
                                         : null;
+
                                 return Container(
                                   width: double.infinity,
                                   height:
@@ -601,7 +599,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                     text:
                                                         valueOrDefault<String>(
                                                       dateTimeFormat(
-                                                        'd/M/y',
+                                                        "d/M/y",
                                                         _model.datePicked,
                                                         locale:
                                                             FFLocalizations.of(
@@ -613,6 +611,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                     icon: FaIcon(
                                                       FontAwesomeIcons
                                                           .solidCalendarAlt,
+                                                      size: 15.0,
                                                     ),
                                                     options: FFButtonOptions(
                                                       width: 90.0,

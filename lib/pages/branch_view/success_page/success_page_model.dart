@@ -8,15 +8,9 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
 class SuccessPageModel extends FlutterFlowModel<SuccessPageWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

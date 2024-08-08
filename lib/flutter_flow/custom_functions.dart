@@ -3268,6 +3268,7 @@ String? splitDateintoEndDate(String? leavedate) {
 LatLng? randomLatLng(
   double? latitude,
   double? longitude,
+  String? platfrom,
 ) {
   double radius = 30;
   // Calculate latitude range
@@ -3287,8 +3288,13 @@ LatLng? randomLatLng(
       math.Random().nextDouble() * 2 * longitudeRange -
       longitudeRange;
 
-  return LatLng(double.parse(randomLatitude.toStringAsFixed(6)),
-      double.parse(randomLongitude.toStringAsFixed(6)));
+  if (platfrom == 'Android') {
+    return LatLng(double.parse(randomLatitude.toStringAsFixed(6)),
+        double.parse(randomLongitude.toStringAsFixed(6)));
+  } else {
+    return LatLng(double.parse(randomLatitude.toStringAsFixed(15)),
+        double.parse(randomLongitude.toStringAsFixed(15)));
+  }
 }
 
 bool? containWordinStringUrl(
@@ -4125,4 +4131,103 @@ String? formatDateToSlash(String? inputDate) {
 
 String? stringToVideoPath(String? inputUrl) {
   return inputUrl!;
+}
+
+bool? checkValueLessThenValue2(
+  String? text,
+  List<String>? arnow,
+  int? index,
+) {
+  double textdb = double.parse(text!);
+  double arnowdb = double.parse(arnow![index!]!);
+  return textdb < arnowdb;
+}
+
+List<String>? genDropdownFromBoolList(
+  List<String>? inputList,
+  List<bool>? boolList,
+) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < inputList!.length; i++) {
+    if (boolList![i]) {
+      outputList.add(inputList![i]);
+    }
+  }
+
+  return outputList;
+}
+
+bool? impoundCarCheckAccess(
+  String? profileLevel,
+  String? pageName,
+  List<String>? roleAccess,
+  String? menuName,
+  String? step,
+  String? actionName,
+) {
+  if (pageName! == 'select action') {
+    if (profileLevel! == 'สาขา' ||
+        profileLevel! == 'เขต' ||
+        profileLevel! == 'ภาค') {
+      return true;
+    } else if (roleAccess!.contains(menuName!)) {
+      return true;
+    }
+  } else {
+    if (step! == 'step1') {
+      if (profileLevel! == 'สาขา') {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (step! == 'step2') {
+      if (profileLevel! == 'สาขา') {
+        return true;
+      } else if (false) {
+      } else {
+        return false;
+      }
+    } else if (step! == 'step3') {
+      if (profileLevel! == 'เขต' || profileLevel! == 'ภาค') {
+        return true;
+      } else {
+        return false;
+      }
+    } else if (step! == 'step4') {
+    } else {
+      return false;
+    }
+  }
+}
+
+bool? impoundCarCheckIsHaveRole(
+  ImpoundCarRoleStruct? adminRole,
+  String? roleName,
+) {
+  Map<String, dynamic> mappedData = adminRole! as Map<String, dynamic>;
+
+  if (mappedData[roleName!] != null) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+String? impoundCargetRoleName(
+  ImpoundCarRoleStruct? adminRole,
+  String? employeeId,
+) {
+  Map<String, dynamic> mappedData = adminRole! as Map<String, dynamic>;
+  List<String> keyList = mappedData.keys.toList();
+  List<dynamic> valueList = mappedData.values.toList();
+  print(keyList);
+  print(valueList);
+  for (int i = 0; i < valueList.length; i++) {
+    if (valueList[i].contains(employeeId!)) {
+      return keyList[i];
+    }
+  }
+
+  return 'no role';
 }

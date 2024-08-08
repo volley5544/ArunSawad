@@ -22,7 +22,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class ApproveShowPageModel extends FlutterFlowModel<ApproveShowPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in ApproveShowPage widget.
   ApiCallResponse? dateTimeAPIOutput;
   // Stores action output result for [Backend Call - API (getApprovedAPI)] action in ApproveShowPage widget.
@@ -46,7 +45,6 @@ class ApproveShowPageModel extends FlutterFlowModel<ApproveShowPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     tabBarController?.dispose();
   }
 }

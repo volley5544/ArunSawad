@@ -16,7 +16,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class RegisterModel extends FlutterFlowModel<RegisterWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
@@ -41,7 +40,6 @@ class RegisterModel extends FlutterFlowModel<RegisterWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     emailAddressFocusNode?.dispose();
     emailAddressTextController?.dispose();
 

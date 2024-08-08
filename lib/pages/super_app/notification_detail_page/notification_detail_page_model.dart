@@ -22,7 +22,6 @@ class NotificationDetailPageModel
     extends FlutterFlowModel<NotificationDetailPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a21] action in NotificationDetailPage widget.
   String? getFirebaseUID;
   Completer<List<NotificationRecord>>? firestoreRequestCompleter;
@@ -33,9 +32,7 @@ class NotificationDetailPageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods.
   Future waitForFirestoreRequestCompleted({

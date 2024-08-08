@@ -88,7 +88,6 @@ class _NotificationDetailPageWidgetState
         }
         List<UserCustomRecord> notificationDetailPageUserCustomRecordList =
             snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -97,10 +96,9 @@ class _NotificationDetailPageWidgetState
             notificationDetailPageUserCustomRecordList.isNotEmpty
                 ? notificationDetailPageUserCustomRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -233,12 +231,8 @@ class _NotificationDetailPageWidgetState
                                           builder: (context) {
                                             return WebViewAware(
                                               child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
+                                                onTap: () =>
+                                                    FocusScope.of(context)
                                                         .unfocus(),
                                                 child: Padding(
                                                   padding:
@@ -387,7 +381,7 @@ class _NotificationDetailPageWidgetState
                                                                 20.0, 0.0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                        'Hm',
+                                                        "Hm",
                                                         listViewNotificationRecord
                                                             .notiTime!,
                                                         locale:
@@ -423,7 +417,7 @@ class _NotificationDetailPageWidgetState
                                                                 20.0, 0.0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                        'd/M/y',
+                                                        "d/M/y",
                                                         listViewNotificationRecord
                                                             .notiTime!,
                                                         locale:

@@ -20,7 +20,6 @@ class InsuranceRequestInsurerPageModel
     extends FlutterFlowModel<InsuranceRequestInsurerPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
   // State field(s) for ChoiceChips widget.
@@ -52,7 +51,6 @@ class InsuranceRequestInsurerPageModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     sumInsuredInputFocusNode?.dispose();
     sumInsuredInputTextController?.dispose();
 

@@ -58,9 +58,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -182,9 +180,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -248,7 +244,6 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                 }
                 List<AuthorizationRecord> columnAuthorizationRecordList =
                     snapshot.data!;
-
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -257,6 +252,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                     columnAuthorizationRecordList.isNotEmpty
                         ? columnAuthorizationRecordList.first
                         : null;
+
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -333,11 +329,11 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                               }
                               List<HolidayDateRecord>
                                   wrapHolidayDateRecordList = snapshot.data!;
-
                               final wrapHolidayDateRecord =
                                   wrapHolidayDateRecordList.isNotEmpty
                                       ? wrapHolidayDateRecordList.first
                                       : null;
+
                               return Wrap(
                                 spacing: 8.0,
                                 runSpacing: 8.0,
@@ -354,44 +350,13 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
+                                      currentUserLocationValue =
+                                          await getCurrentUserLocation(
+                                              defaultLocation:
+                                                  LatLng(0.0, 0.0));
                                       HapticFeedback.mediumImpact();
-                                      if ((functions.currentLatLngDouble(
-                                                  FFAppState()
-                                                      .firstLoginLocation,
-                                                  true) ==
-                                              functions.currentLatLngDouble(
-                                                  currentUserLocationValue,
-                                                  true)) &&
-                                          (functions.currentLatLngDouble(
-                                                  FFAppState()
-                                                      .firstLoginLocation,
-                                                  false) ==
-                                              functions.currentLatLngDouble(
-                                                  currentUserLocationValue,
-                                                  false))) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'กรุณาปิด Fake Location ก่อนเช็คอิน'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        return;
-                                      } else {
-                                        context.pushNamed('EmpolyeeCheckIn');
-                                      }
+
+                                      context.pushNamed('EmpolyeeCheckIn');
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *

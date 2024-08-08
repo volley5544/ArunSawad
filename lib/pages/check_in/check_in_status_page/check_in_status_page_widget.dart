@@ -78,9 +78,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -594,15 +592,13 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
         }
         List<UserCheckinHistoryRecord>
             checkInStatusPageUserCheckinHistoryRecordList = snapshot.data!;
-
         final checkInStatusPageUserCheckinHistoryRecord =
             checkInStatusPageUserCheckinHistoryRecordList.isNotEmpty
                 ? checkInStatusPageUserCheckinHistoryRecordList.first
                 : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: WillPopScope(
             onWillPop: () async => false,
             child: Scaffold(
@@ -655,11 +651,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                             builder: (context) {
                               return WebViewAware(
                                 child: GestureDetector(
-                                  onTap: () =>
-                                      _model.unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
+                                  onTap: () => FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: Container(
@@ -707,10 +699,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                           builder: (context) {
                             return WebViewAware(
                               child: GestureDetector(
-                                onTap: () => _model.unfocusNode.canRequestFocus
-                                    ? FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode)
-                                    : FocusScope.of(context).unfocus(),
+                                onTap: () => FocusScope.of(context).unfocus(),
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
                                   child: PDFViewerWidget(

@@ -22,7 +22,6 @@ class ChangeLatLngPageWebModel
     extends FlutterFlowModel<ChangeLatLngPageWebWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for BranchCodeInput widget.
   FocusNode? branchCodeInputFocusNode;
   TextEditingController? branchCodeInputTextController;
@@ -54,7 +53,6 @@ class ChangeLatLngPageWebModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     branchCodeInputFocusNode?.dispose();
     branchCodeInputTextController?.dispose();
 

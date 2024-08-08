@@ -233,9 +233,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
     }
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -2350,7 +2348,6 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                     List<FileUploadRecord>
                                         listViewFileUploadRecordList =
                                         snapshot.data!;
-
                                     // Return an empty Container when the item does not exist.
                                     if (snapshot.data!.isEmpty) {
                                       return Container();
@@ -2359,6 +2356,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                         listViewFileUploadRecordList.isNotEmpty
                                             ? listViewFileUploadRecordList.first
                                             : null;
+
                                     return Builder(
                                       builder: (context) {
                                         final imgFromFirestore =
@@ -2527,13 +2525,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
                                                             .unfocus(),
                                                     child: Padding(
                                                       padding: MediaQuery
@@ -2858,15 +2851,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -3200,15 +3186,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     builder: (context) {
                                                       return WebViewAware(
                                                         child: GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
+                                                          onTap: () =>
+                                                              FocusScope.of(
                                                                       context)
                                                                   .unfocus(),
                                                           child: Padding(
@@ -3542,14 +3521,8 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(

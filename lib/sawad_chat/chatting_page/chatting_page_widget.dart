@@ -160,14 +160,12 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
           );
         }
         List<ChatsRecord> chattingPageChatsRecordList = snapshot.data!;
-
         final chattingPageChatsRecord = chattingPageChatsRecordList.isNotEmpty
             ? chattingPageChatsRecordList.first
             : null;
+
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -237,12 +235,12 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                           }
                           List<ChatMessagesRecord>
                               listViewChatMessagesRecordList = snapshot.data!;
-
                           if (listViewChatMessagesRecordList.isEmpty) {
                             return Center(
                               child: EmptyChatComponentWidget(),
                             );
                           }
+
                           return ListView.separated(
                             padding: EdgeInsets.fromLTRB(
                               0,
@@ -398,7 +396,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                        'Hm',
+                                                        "Hm",
                                                         listViewChatMessagesRecord
                                                             .timestamp!,
                                                         locale:
@@ -548,7 +546,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       dateTimeFormat(
-                                                        'Hm',
+                                                        "Hm",
                                                         listViewChatMessagesRecord
                                                             .timestamp!,
                                                         locale:
@@ -671,10 +669,10 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                         );
                       }
                       List<ChatsRecord> rowChatsRecordList = snapshot.data!;
-
                       final rowChatsRecord = rowChatsRecordList.isNotEmpty
                           ? rowChatsRecordList.first
                           : null;
+
                       return Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,

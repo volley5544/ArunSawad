@@ -47,9 +47,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -170,11 +168,11 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
                             }
                             List<HolidayDateRecord>
                                 buttonHolidayDateRecordList = snapshot.data!;
-
                             final buttonHolidayDateRecord =
                                 buttonHolidayDateRecordList.isNotEmpty
                                     ? buttonHolidayDateRecordList.first
                                     : null;
+
                             return FFButtonWidget(
                               onPressed: () async {
                                 context.goNamed(

@@ -84,15 +84,18 @@ class _LoadingSceneInsuranceWidgetState
           Expanded(
             child: Align(
               alignment: AlignmentDirectional(0.0, -1.0),
-              child: Text(
-                'กำลังอัพโหลดรูปภาพและส่งอีเมลไปยังบริษัทประกัน กระบวนการนี้อาจใช้เวลาสักครู่\nกรุณาอย่าปิดหน้านี้',
-                textAlign: TextAlign.center,
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.white,
-                      fontSize: 16.0,
-                      letterSpacing: 0.0,
-                    ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                child: Text(
+                  'กำลังอัพโหลดรูปภาพและบันทึกข้อมูล กระบวนการนี้อาจใช้เวลาสักครู่\nกรุณาอย่าปิดหน้านี้',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Poppins',
+                        color: Colors.white,
+                        fontSize: 16.0,
+                        letterSpacing: 0.0,
+                      ),
+                ),
               ),
             ),
           ),

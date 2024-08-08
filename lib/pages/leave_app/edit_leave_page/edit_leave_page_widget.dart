@@ -125,9 +125,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -191,7 +189,6 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
               }
               List<UserCustomRecord> columnUserCustomRecordList =
                   snapshot.data!;
-
               // Return an empty Container when the item does not exist.
               if (snapshot.data!.isEmpty) {
                 return Container();
@@ -200,6 +197,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                   columnUserCustomRecordList.isNotEmpty
                       ? columnUserCustomRecordList.first
                       : null;
+
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -231,7 +229,6 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                       }
                       List<FCMTokenRecord> columnFCMTokenRecordList =
                           snapshot.data!;
-
                       // Return an empty Container when the item does not exist.
                       if (snapshot.data!.isEmpty) {
                         return Container();
@@ -240,6 +237,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                           columnFCMTokenRecordList.isNotEmpty
                               ? columnFCMTokenRecordList.first
                               : null;
+
                       return SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -267,7 +265,6 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                 List<LeaveDaysAfterRecord>
                                     containerLeaveDaysAfterRecordList =
                                     snapshot.data!;
-
                                 // Return an empty Container when the item does not exist.
                                 if (snapshot.data!.isEmpty) {
                                   return Container();
@@ -277,6 +274,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                         ? containerLeaveDaysAfterRecordList
                                             .first
                                         : null;
+
                                 return Container(
                                   width: double.infinity,
                                   height:
@@ -639,7 +637,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                     text:
                                                         valueOrDefault<String>(
                                                       dateTimeFormat(
-                                                        'd/M/y',
+                                                        "d/M/y",
                                                         _model.datePicked,
                                                         locale:
                                                             FFLocalizations.of(
@@ -651,6 +649,7 @@ class _EditLeavePageWidgetState extends State<EditLeavePageWidget> {
                                                     icon: FaIcon(
                                                       FontAwesomeIcons
                                                           .solidCalendarAlt,
+                                                      size: 15.0,
                                                     ),
                                                     options: FFButtonOptions(
                                                       width: 90.0,

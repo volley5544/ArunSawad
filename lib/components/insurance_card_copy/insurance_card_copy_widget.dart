@@ -100,11 +100,11 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
                         ),
                         Text(
                           '${dateTimeFormat(
-                            'd/M/y',
+                            "d/M/y",
                             getCurrentTimestamp,
                             locale: FFLocalizations.of(context).languageCode,
                           )}  /   ${dateTimeFormat(
-                            'd/M/y',
+                            "d/M/y",
                             getCurrentTimestamp,
                             locale: FFLocalizations.of(context).languageCode,
                           )}',

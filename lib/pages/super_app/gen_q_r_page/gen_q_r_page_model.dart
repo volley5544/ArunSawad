@@ -17,7 +17,6 @@ import 'package:provider/provider.dart';
 class GenQRPageModel extends FlutterFlowModel<GenQRPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in GenQRPage widget.
   UserLogRecord? createdUserLogLeadQR;
 
@@ -25,7 +24,5 @@ class GenQRPageModel extends FlutterFlowModel<GenQRPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

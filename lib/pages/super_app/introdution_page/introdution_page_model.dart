@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 class IntrodutionPageModel extends FlutterFlowModel<IntrodutionPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -27,7 +26,5 @@ class IntrodutionPageModel extends FlutterFlowModel<IntrodutionPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

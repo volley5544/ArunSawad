@@ -40,6 +40,7 @@ class SaveCallFollowUpDebtWidget extends StatefulWidget {
     required this.sumCurrentDueAmt,
     required this.lastPayDate,
     this.historyCount,
+    this.arnow,
   })  : this.name1 = name1 ?? '-',
         this.name2 = name2 ?? '-';
 
@@ -58,6 +59,7 @@ class SaveCallFollowUpDebtWidget extends StatefulWidget {
   final List<String>? sumCurrentDueAmt;
   final List<String>? lastPayDate;
   final List<String>? historyCount;
+  final List<String>? arnow;
 
   @override
   State<SaveCallFollowUpDebtWidget> createState() =>
@@ -89,9 +91,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -258,9 +258,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -2046,7 +2044,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                               ? functions
                                                                   .dateToBEDate(
                                                                       dateTimeFormat(
-                                                                  'd/M/y',
+                                                                  "d/M/y",
                                                                   _model
                                                                       .datePicked,
                                                                   locale: FFLocalizations.of(
@@ -2632,6 +2630,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                           var _shouldSetState = false;
                                           FFAppState().loopStatusTemp =
                                               'normal';
+                                          FFAppState().loopStatusTemp2 =
+                                              'normal';
                                           setState(() {});
                                           var confirmDialogResponse =
                                               await showDialog<bool>(
@@ -2675,13 +2675,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
                                                             .unfocus(),
                                                     child: Padding(
                                                       padding: MediaQuery
@@ -2759,12 +2754,39 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 'PP') {
                                               if (_model.datePicked != null) {
                                                 if (_model.checkboxValue!) {
-                                                  if (!(_model.textController1
+                                                  if (_model.textController1
                                                               .text !=
                                                           null &&
                                                       _model.textController1
                                                               .text !=
-                                                          '')) {
+                                                          '') {
+                                                    while (FFAppState()
+                                                            .loopCountNumber <
+                                                        widget!
+                                                            .countNo!.length) {
+                                                      if (!functions.checkValueLessThenValue2(
+                                                          functions
+                                                              .removeCommaFromNumText(
+                                                                  _model
+                                                                      .textController1
+                                                                      .text),
+                                                          widget!.arnow
+                                                              ?.toList(),
+                                                          FFAppState()
+                                                              .loopCountNumber)!) {
+                                                        FFAppState()
+                                                                .loopStatusTemp2 =
+                                                            'lessthenarnow';
+                                                        setState(() {});
+                                                      }
+                                                      FFAppState()
+                                                              .loopCountNumber =
+                                                          FFAppState()
+                                                                  .loopCountNumber +
+                                                              1;
+                                                      setState(() {});
+                                                    }
+                                                  } else {
                                                     Navigator.pop(context);
                                                     await showDialog(
                                                       context: context,
@@ -2820,6 +2842,27 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                           'validate';
                                                       setState(() {});
                                                     }
+                                                    if (!functions
+                                                        .checkValueLessThenValue2(
+                                                            functions.removeCommaFromNumText(_model
+                                                                .inputComponentModels
+                                                                .getValueForKey(
+                                                              FFAppState()
+                                                                  .loopCountNumber
+                                                                  .toString(),
+                                                              (m) => m
+                                                                  .textController
+                                                                  .text,
+                                                            )),
+                                                            widget!.arnow
+                                                                ?.toList(),
+                                                            FFAppState()
+                                                                .loopCountNumber)!) {
+                                                      FFAppState()
+                                                              .loopStatusTemp2 =
+                                                          'lessthenarnow';
+                                                      setState(() {});
+                                                    }
                                                     FFAppState()
                                                             .loopCountNumber =
                                                         FFAppState()
@@ -2832,6 +2875,34 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 FFAppState().loopCountNumber =
                                                     0;
                                                 setState(() {});
+                                                if (FFAppState()
+                                                        .loopStatusTemp2 ==
+                                                    'lessthenarnow') {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ยอดที่จ่ายเกินยอดที่คงเหลืออยู่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  Navigator.pop(context);
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
                                                 if (FFAppState()
                                                         .loopStatusTemp !=
                                                     'normal') {
@@ -2980,7 +3051,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                   ? functions
                                                       .generateListFromString(
                                                           dateTimeFormat(
-                                                            'y-MM-dd',
+                                                            "y-MM-dd",
                                                             _model.datePicked,
                                                             locale: FFLocalizations
                                                                     .of(context)
@@ -2991,7 +3062,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                   : functions
                                                       .generateListFromString(
                                                           dateTimeFormat(
-                                                            'y-MM-dd',
+                                                            "y-MM-dd",
                                                             _model.datePicked,
                                                             locale: FFLocalizations
                                                                     .of(context)

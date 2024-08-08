@@ -18,7 +18,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for PinCode widget.
   TextEditingController? pinCodeController;
   String? Function(BuildContext, String?)? pinCodeControllerValidator;
@@ -38,7 +37,6 @@ class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     pinCodeController?.dispose();
   }
 }

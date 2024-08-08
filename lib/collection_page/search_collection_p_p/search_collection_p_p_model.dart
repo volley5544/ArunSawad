@@ -23,7 +23,6 @@ class SearchCollectionPPModel
     extends FlutterFlowModel<SearchCollectionPPWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   Completer<ApiCallResponse>? apiRequestCompleter;
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
@@ -46,7 +45,6 @@ class SearchCollectionPPModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     appbarFollowUpDebtModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

@@ -81,9 +81,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -135,7 +133,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                               _model.dropDownValue ??= '',
                             ),
                             options: List<String>.from([
-                              'ๅ',
+                              '1',
                               '2',
                               '3',
                               '4',
@@ -225,13 +223,8 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                     builder: (context) {
                                       return WebViewAware(
                                         child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
+                                          onTap: () =>
+                                              FocusScope.of(context).unfocus(),
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
@@ -473,13 +466,8 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -547,12 +535,8 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                         builder: (context) {
                                           return WebViewAware(
                                             child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
+                                              onTap: () =>
+                                                  FocusScope.of(context)
                                                       .unfocus(),
                                               child: Padding(
                                                 padding:
@@ -769,13 +753,13 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                         List<UserLogRecord>
                                             containerUserLogRecordList =
                                             snapshot.data!;
-
                                         final containerUserLogRecord =
                                             containerUserLogRecordList
                                                     .isNotEmpty
                                                 ? containerUserLogRecordList
                                                     .first
                                                 : null;
+
                                         return InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -1083,11 +1067,11 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                                                                 child: AutoSizeText(
                                                                                   containerUserLogRecord != null
                                                                                       ? '${functions.dateToBEDate(dateTimeFormat(
-                                                                                          'd/M/y',
+                                                                                          "d/M/y",
                                                                                           containerUserLogRecord?.actionTime,
                                                                                           locale: FFLocalizations.of(context).languageCode,
                                                                                         ))} ${dateTimeFormat(
-                                                                                          'Hm',
+                                                                                          "Hm",
                                                                                           containerUserLogRecord?.actionTime,
                                                                                           locale: FFLocalizations.of(context).languageCode,
                                                                                         )}'

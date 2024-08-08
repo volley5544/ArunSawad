@@ -91,11 +91,11 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
             }
             List<UserCustomRecord> containerUserCustomRecordList =
                 snapshot.data!;
-
             final containerUserCustomRecord =
                 containerUserCustomRecordList.isNotEmpty
                     ? containerUserCustomRecordList.first
                     : null;
+
             return Container(
               width: double.infinity,
               height: 270.0,
@@ -134,11 +134,11 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                     }
                     List<FCMTokenRecord> columnPlusFCMTokenRecordList =
                         snapshot.data!;
-
                     final columnPlusFCMTokenRecord =
                         columnPlusFCMTokenRecordList.isNotEmpty
                             ? columnPlusFCMTokenRecordList.first
                             : null;
+
                     return SingleChildScrollView(
                       primary: false,
                       child: Column(

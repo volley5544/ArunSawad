@@ -19,7 +19,6 @@ class InsuranceRequestImagePageModel
     extends FlutterFlowModel<InsuranceRequestImagePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in InsuranceRequestImagePage widget.
   ApiCallResponse? getDateTimeServer;
   bool isDataUploading1 = false;
@@ -157,7 +156,5 @@ class InsuranceRequestImagePageModel
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

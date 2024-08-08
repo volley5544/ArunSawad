@@ -214,9 +214,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -658,11 +656,11 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                   List<BranchLocationRecord>
                                       buttonBranchLocationRecordList =
                                       snapshot.data!;
-
                                   final buttonBranchLocationRecord =
                                       buttonBranchLocationRecordList.isNotEmpty
                                           ? buttonBranchLocationRecordList.first
                                           : null;
+
                                   return FFButtonWidget(
                                     onPressed: () async {
                                       var _shouldSetState = false;
@@ -801,12 +799,8 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         builder: (context) {
                                           return WebViewAware(
                                             child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
+                                              onTap: () =>
+                                                  FocusScope.of(context)
                                                       .unfocus(),
                                               child: Padding(
                                                 padding:
@@ -972,13 +966,8 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
                                                             .unfocus(),
                                                     child: Padding(
                                                       padding: MediaQuery

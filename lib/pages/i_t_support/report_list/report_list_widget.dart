@@ -100,9 +100,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -410,7 +408,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                                                     flex: 5,
                                                     child: Text(
                                                       dateTimeFormat(
-                                                        'd/M H:mm',
+                                                        "d/M H:mm",
                                                         getCurrentTimestamp,
                                                         locale:
                                                             FFLocalizations.of(

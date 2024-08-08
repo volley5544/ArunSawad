@@ -83,9 +83,7 @@ class _SearchCollectionPageWidgetState
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -208,12 +206,8 @@ class _SearchCollectionPageWidgetState
                                   builder: (context) {
                                     return WebViewAware(
                                       child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
+                                        onTap: () =>
+                                            FocusScope.of(context).unfocus(),
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
@@ -449,13 +443,8 @@ class _SearchCollectionPageWidgetState
                                     builder: (context) {
                                       return WebViewAware(
                                         child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
+                                          onTap: () =>
+                                              FocusScope.of(context).unfocus(),
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
@@ -522,13 +511,8 @@ class _SearchCollectionPageWidgetState
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -754,11 +738,11 @@ class _SearchCollectionPageWidgetState
                                     List<UserLogRecord>
                                         containerUserLogRecordList =
                                         snapshot.data!;
-
                                     final containerUserLogRecord =
                                         containerUserLogRecordList.isNotEmpty
                                             ? containerUserLogRecordList.first
                                             : null;
+
                                     return InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -1078,11 +1062,11 @@ class _SearchCollectionPageWidgetState
                                                                                 AutoSizeText(
                                                                               containerUserLogRecord != null
                                                                                   ? '${functions.dateToBEDate(dateTimeFormat(
-                                                                                      'd/M/y',
+                                                                                      "d/M/y",
                                                                                       containerUserLogRecord?.actionTime,
                                                                                       locale: FFLocalizations.of(context).languageCode,
                                                                                     ))} ${dateTimeFormat(
-                                                                                      'Hm',
+                                                                                      "Hm",
                                                                                       containerUserLogRecord?.actionTime,
                                                                                       locale: FFLocalizations.of(context).languageCode,
                                                                                     )}'

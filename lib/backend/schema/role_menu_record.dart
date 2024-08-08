@@ -106,6 +106,18 @@ class RoleMenuRecord extends FirestoreRecord {
   List<String> get othermenuOrder => _othermenuOrder ?? const [];
   bool hasOthermenuOrder() => _othermenuOrder != null;
 
+  // "impoundCarReadAccessRole" field.
+  ImpoundCarAccessRoleStruct? _impoundCarReadAccessRole;
+  ImpoundCarAccessRoleStruct get impoundCarReadAccessRole =>
+      _impoundCarReadAccessRole ?? ImpoundCarAccessRoleStruct();
+  bool hasImpoundCarReadAccessRole() => _impoundCarReadAccessRole != null;
+
+  // "impoundCarSaveAccessRole" field.
+  ImpoundCarAccessRoleStruct? _impoundCarSaveAccessRole;
+  ImpoundCarAccessRoleStruct get impoundCarSaveAccessRole =>
+      _impoundCarSaveAccessRole ?? ImpoundCarAccessRoleStruct();
+  bool hasImpoundCarSaveAccessRole() => _impoundCarSaveAccessRole != null;
+
   void _initializeFields() {
     _roleName = snapshotData['roleName'] as String?;
     _menuName = getDataList(snapshotData['menuName']);
@@ -128,6 +140,10 @@ class RoleMenuRecord extends FirestoreRecord {
     _servicemenuOrder = getDataList(snapshotData['servicemenuOrder']);
     _reportmenuOrder = getDataList(snapshotData['reportmenuOrder']);
     _othermenuOrder = getDataList(snapshotData['othermenuOrder']);
+    _impoundCarReadAccessRole = ImpoundCarAccessRoleStruct.maybeFromMap(
+        snapshotData['impoundCarReadAccessRole']);
+    _impoundCarSaveAccessRole = ImpoundCarAccessRoleStruct.maybeFromMap(
+        snapshotData['impoundCarSaveAccessRole']);
   }
 
   static CollectionReference get collection =>
@@ -166,12 +182,24 @@ class RoleMenuRecord extends FirestoreRecord {
 
 Map<String, dynamic> createRoleMenuRecordData({
   String? roleName,
+  ImpoundCarAccessRoleStruct? impoundCarReadAccessRole,
+  ImpoundCarAccessRoleStruct? impoundCarSaveAccessRole,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'roleName': roleName,
+      'impoundCarReadAccessRole': ImpoundCarAccessRoleStruct().toMap(),
+      'impoundCarSaveAccessRole': ImpoundCarAccessRoleStruct().toMap(),
     }.withoutNulls,
   );
+
+  // Handle nested data for "impoundCarReadAccessRole" field.
+  addImpoundCarAccessRoleStructData(
+      firestoreData, impoundCarReadAccessRole, 'impoundCarReadAccessRole');
+
+  // Handle nested data for "impoundCarSaveAccessRole" field.
+  addImpoundCarAccessRoleStructData(
+      firestoreData, impoundCarSaveAccessRole, 'impoundCarSaveAccessRole');
 
   return firestoreData;
 }
@@ -199,7 +227,9 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         listEquality.equals(e1?.otherMenuUrl, e2?.otherMenuUrl) &&
         listEquality.equals(e1?.servicemenuOrder, e2?.servicemenuOrder) &&
         listEquality.equals(e1?.reportmenuOrder, e2?.reportmenuOrder) &&
-        listEquality.equals(e1?.othermenuOrder, e2?.othermenuOrder);
+        listEquality.equals(e1?.othermenuOrder, e2?.othermenuOrder) &&
+        e1?.impoundCarReadAccessRole == e2?.impoundCarReadAccessRole &&
+        e1?.impoundCarSaveAccessRole == e2?.impoundCarSaveAccessRole;
   }
 
   @override
@@ -221,7 +251,9 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         e?.otherMenuUrl,
         e?.servicemenuOrder,
         e?.reportmenuOrder,
-        e?.othermenuOrder
+        e?.othermenuOrder,
+        e?.impoundCarReadAccessRole,
+        e?.impoundCarSaveAccessRole
       ]);
 
   @override

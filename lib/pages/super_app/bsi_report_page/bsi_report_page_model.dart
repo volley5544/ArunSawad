@@ -27,7 +27,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class BsiReportPageModel extends FlutterFlowModel<BsiReportPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in BsiReportPage widget.
   UserLogRecord? createdUserLogBsiReport;
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in BsiReportPage widget.
@@ -52,7 +51,6 @@ class BsiReportPageModel extends FlutterFlowModel<BsiReportPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     branchInputFocusNode?.dispose();
     branchInputTextController?.dispose();
   }

@@ -62,9 +62,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
@@ -96,11 +94,11 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
               }
               List<UrlLinkStorageRecord> columnUrlLinkStorageRecordList =
                   snapshot.data!;
-
               final columnUrlLinkStorageRecord =
                   columnUrlLinkStorageRecordList.isNotEmpty
                       ? columnUrlLinkStorageRecordList.first
                       : null;
+
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -220,7 +218,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
 
                                   FFAppState().paidDateCollection =
                                       functions.dateToBEDate(dateTimeFormat(
-                                    'd/M/y',
+                                    "d/M/y",
                                     _model.datePicked,
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
@@ -232,6 +230,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                     : 'ระบุวันที่',
                                 icon: FaIcon(
                                   FontAwesomeIcons.solidCalendarAlt,
+                                  size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   width: 90.0,
@@ -305,13 +304,8 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                       builder: (context) {
                                         return WebViewAware(
                                           child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
@@ -327,7 +321,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                       apiUrl:
                                           columnUrlLinkStorageRecord?.urlLink,
                                       paiddate: dateTimeFormat(
-                                        'yyyy-MM-dd',
+                                        "yyyy-MM-dd",
                                         _model.datePicked,
                                         locale: FFLocalizations.of(context)
                                             .languageCode,

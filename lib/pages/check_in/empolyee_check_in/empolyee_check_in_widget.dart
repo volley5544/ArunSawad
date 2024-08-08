@@ -77,9 +77,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: LoadingSceneWidget(),
@@ -785,9 +783,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
     }
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -845,10 +841,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       builder: (context) {
                         return WebViewAware(
                           child: GestureDetector(
-                            onTap: () => _model.unfocusNode.canRequestFocus
-                                ? FocusScope.of(context)
-                                    .requestFocus(_model.unfocusNode)
-                                : FocusScope.of(context).unfocus(),
+                            onTap: () => FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: Container(
@@ -978,7 +971,6 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                 }
                 List<AuthorizationRecord> columnAuthorizationRecordList =
                     snapshot.data!;
-
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -987,6 +979,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                     columnAuthorizationRecordList.isNotEmpty
                         ? columnAuthorizationRecordList.first
                         : null;
+
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -1793,14 +1786,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(
@@ -2326,41 +2313,38 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   LatLng(0.0, 0.0));
                                       var _shouldSetState = false;
                                       HapticFeedback.mediumImpact();
-                                      if ((functions.currentLatLngDouble(
-                                                  FFAppState()
-                                                      .firstLoginLocation,
-                                                  true) ==
-                                              functions.currentLatLngDouble(
-                                                  currentUserLocationValue,
-                                                  true)) &&
-                                          (functions.currentLatLngDouble(
-                                                  FFAppState()
-                                                      .firstLoginLocation,
-                                                  false) ==
-                                              functions.currentLatLngDouble(
-                                                  currentUserLocationValue,
-                                                  false))) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                content: Text(
-                                                    'กรุณาปิด Fake Location ก่อนเช็คอิน'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState) setState(() {});
-                                        return;
+                                      if (!(isAndroid ||
+                                          (columnAuthorizationRecord
+                                                  ?.employeeIdList
+                                                  ?.contains(FFAppState()
+                                                      .employeeID) ==
+                                              true))) {
+                                        _model.connectionOutput = await actions
+                                            .checkInternetConnectionWifi();
+                                        _shouldSetState = true;
+                                        if (_model.connectionOutput!) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'กรุณาปิด Wifi แล้วใช้ internet  3G,4G,5Gในการเช็คอิน'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
                                       }
                                       if (!(FFAppState().branchLoString !=
                                               null &&
@@ -2720,18 +2704,34 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   .employeeIdList
                                                   .contains(
                                                       FFAppState().employeeID)
-                                              ? functions.userLatitude(
-                                                  functions.randomLatLng(
-                                                      13.8861023, 100.5621823))
+                                              ? (FFAppState().branchLoString ==
+                                                      'บ้าน'
+                                                  ? functions.userLatitude(
+                                                      currentUserLocationValue)
+                                                  : functions.userLatitude(
+                                                      functions.randomLatLng(
+                                                          13.886102345654345,
+                                                          100.562182345645432,
+                                                          isAndroid
+                                                              ? 'Android'
+                                                              : 'ios')))
                                               : functions.userLatitude(
                                                   currentUserLocationValue),
                                           longitude: columnAuthorizationRecord!
                                                   .employeeIdList
                                                   .contains(
                                                       FFAppState().employeeID)
-                                              ? functions.userLongitude(
-                                                  functions.randomLatLng(
-                                                      13.8861023, 100.5621823))
+                                              ? (FFAppState().branchLoString ==
+                                                      'บ้าน'
+                                                  ? currentUserLocationValue
+                                                      ?.toString()
+                                                  : functions.userLongitude(
+                                                      functions.randomLatLng(
+                                                          13.886102345654345,
+                                                          100.562182345645432,
+                                                          isAndroid
+                                                              ? 'Android'
+                                                              : 'ios')))
                                               : functions.userLongitude(
                                                   currentUserLocationValue),
                                           branch: FFAppState().branchLoString,
@@ -3039,12 +3039,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         builder: (context) {
                                           return WebViewAware(
                                             child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
+                                              onTap: () =>
+                                                  FocusScope.of(context)
                                                       .unfocus(),
                                               child: Padding(
                                                 padding:

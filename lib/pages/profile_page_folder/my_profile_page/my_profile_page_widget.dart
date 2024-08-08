@@ -223,9 +223,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -245,10 +243,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                   builder: (context) {
                     return WebViewAware(
                       child: GestureDetector(
-                        onTap: () => _model.unfocusNode.canRequestFocus
-                            ? FocusScope.of(context)
-                                .requestFocus(_model.unfocusNode)
-                            : FocusScope.of(context).unfocus(),
+                        onTap: () => FocusScope.of(context).unfocus(),
                         child: Padding(
                           padding: MediaQuery.viewInsetsOf(context),
                           child: Container(
@@ -537,14 +532,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(
@@ -791,7 +780,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           FFAppState().profileBirthDate !=
                                                   'null'
                                               ? dateTimeFormat(
-                                                  'd/M/y',
+                                                  "d/M/y",
                                                   functions.showClockIn(
                                                       FFAppState()
                                                           .profileBirthDate),
@@ -916,7 +905,6 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   List<UserCustomRecord>
                                       stackUserCustomRecordList =
                                       snapshot.data!;
-
                                   // Return an empty Container when the item does not exist.
                                   if (snapshot.data!.isEmpty) {
                                     return Container();
@@ -925,6 +913,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       stackUserCustomRecordList.isNotEmpty
                                           ? stackUserCustomRecordList.first
                                           : null;
+
                                   return Container(
                                     width: double.infinity,
                                     height:
@@ -1072,14 +1061,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   builder: (context) {
                                                     return WebViewAware(
                                                       child: GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
+                                                        onTap: () =>
+                                                            FocusScope.of(
                                                                     context)
                                                                 .unfocus(),
                                                         child: Padding(
@@ -1312,7 +1295,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           dateTimeFormat(
-                                            'd/M/y',
+                                            "d/M/y",
                                             functions.showClockIn(
                                                 FFAppState().profileBirthDate),
                                             locale: FFLocalizations.of(context)
@@ -1493,7 +1476,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                     if (FFAppState().profileHiredDate != 'null')
                                       Text(
                                         'วันเริ่มงาน: ${FFAppState().profileHiredDate != 'null' ? dateTimeFormat(
-                                            'd/M/y',
+                                            "d/M/y",
                                             functions.showClockIn(
                                                 FFAppState().profileHiredDate),
                                             locale: FFLocalizations.of(context)
@@ -1730,7 +1713,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       ),
                                     Text(
                                       'วันเริ่มงาน: ${dateTimeFormat(
-                                        'd/M/y',
+                                        "d/M/y",
                                         functions.showClockIn(
                                             FFAppState().profileHiredDate),
                                         locale: FFLocalizations.of(context)
@@ -2192,7 +2175,6 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                               List<InsuranceLicenseDataRecord>
                                   listViewInsuranceLicenseDataRecordList =
                                   snapshot.data!;
-
                               // Return an empty Container when the item does not exist.
                               if (snapshot.data!.isEmpty) {
                                 return Container();
@@ -2203,6 +2185,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       ? listViewInsuranceLicenseDataRecordList
                                           .first
                                       : null;
+
                               return Builder(
                                 builder: (context) {
                                   final licenseList =

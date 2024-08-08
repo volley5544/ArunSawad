@@ -54,9 +54,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         builder: (context) {
           return WebViewAware(
             child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
+              onTap: () => FocusScope.of(context).unfocus(),
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: Container(
@@ -557,9 +555,7 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -579,14 +575,22 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
                     ),
                     Align(
                       alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Text(
-                        'ประเภทหนี้',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.white,
-                              fontSize: 18.0,
-                              letterSpacing: 0.0,
-                            ),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {},
+                        child: Text(
+                          'ประเภทหนี้',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
                       ),
                     ),
                     Align(

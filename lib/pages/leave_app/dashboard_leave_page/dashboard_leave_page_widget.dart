@@ -191,9 +191,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -258,7 +256,6 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                 }
                 List<UserCustomRecord> columnUserCustomRecordList =
                     snapshot.data!;
-
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -267,6 +264,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
                     columnUserCustomRecordList.isNotEmpty
                         ? columnUserCustomRecordList.first
                         : null;
+
                 return SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,

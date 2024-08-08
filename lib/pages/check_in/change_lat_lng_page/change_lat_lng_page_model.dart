@@ -25,7 +25,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class ChangeLatLngPageModel extends FlutterFlowModel<ChangeLatLngPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a8] action in ChangeLatLngPage widget.
   bool? checkLatLngBVCheckIn;
   // Stores action output result for [Backend Call - Create Document] action in ChangeLatLngPage widget.
@@ -61,7 +60,6 @@ class ChangeLatLngPageModel extends FlutterFlowModel<ChangeLatLngPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     branchCodeInputFocusNode?.dispose();
     branchCodeInputTextController?.dispose();
 

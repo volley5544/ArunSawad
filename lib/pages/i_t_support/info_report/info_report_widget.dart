@@ -161,9 +161,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -373,7 +371,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                                       decoration: InputDecoration(
                                         isDense: false,
                                         hintText: dateTimeFormat(
-                                          'd/M h:mm a',
+                                          "d/M h:mm a",
                                           getCurrentTimestamp,
                                           locale: FFLocalizations.of(context)
                                               .languageCode,

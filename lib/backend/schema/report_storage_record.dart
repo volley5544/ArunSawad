@@ -31,10 +31,16 @@ class ReportStorageRecord extends FirestoreRecord {
   List<String> get reportUrlName => _reportUrlName ?? const [];
   bool hasReportUrlName() => _reportUrlName != null;
 
+  // "report_is_show" field.
+  List<bool>? _reportIsShow;
+  List<bool> get reportIsShow => _reportIsShow ?? const [];
+  bool hasReportIsShow() => _reportIsShow != null;
+
   void _initializeFields() {
     _reportName = snapshotData['report_name'] as String?;
     _reportUrl = getDataList(snapshotData['report_url']);
     _reportUrlName = getDataList(snapshotData['report_url_name']);
+    _reportIsShow = getDataList(snapshotData['report_is_show']);
   }
 
   static CollectionReference get collection =>
@@ -92,12 +98,13 @@ class ReportStorageRecordDocumentEquality
     const listEquality = ListEquality();
     return e1?.reportName == e2?.reportName &&
         listEquality.equals(e1?.reportUrl, e2?.reportUrl) &&
-        listEquality.equals(e1?.reportUrlName, e2?.reportUrlName);
+        listEquality.equals(e1?.reportUrlName, e2?.reportUrlName) &&
+        listEquality.equals(e1?.reportIsShow, e2?.reportIsShow);
   }
 
   @override
   int hash(ReportStorageRecord? e) => const ListEquality()
-      .hash([e?.reportName, e?.reportUrl, e?.reportUrlName]);
+      .hash([e?.reportName, e?.reportUrl, e?.reportUrlName, e?.reportIsShow]);
 
   @override
   bool isValidKey(Object? o) => o is ReportStorageRecord;

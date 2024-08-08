@@ -19,7 +19,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class InterestPageModel extends FlutterFlowModel<InterestPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   DateTime? datePicked;
@@ -34,7 +33,6 @@ class InterestPageModel extends FlutterFlowModel<InterestPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     appbarFollowUpDebtModel.dispose();
   }
 }

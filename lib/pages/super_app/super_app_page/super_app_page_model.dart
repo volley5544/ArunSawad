@@ -39,7 +39,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
   HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - getBuildVersion] action in SuperAppPage widget.
@@ -253,7 +252,5 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -26,7 +26,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class LeaveShowPageModel extends FlutterFlowModel<LeaveShowPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (leaveListAPI)] action in LeaveShowPage widget.
   ApiCallResponse? leaveListAPIOutput;
   // Stores action output result for [Backend Call - Create Document] action in LeaveShowPage widget.
@@ -46,7 +45,6 @@ class LeaveShowPageModel extends FlutterFlowModel<LeaveShowPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     tabBarController?.dispose();
   }
 }
