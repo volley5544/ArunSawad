@@ -2050,7 +2050,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'CarSeizedSelectDashboard',
               path: 'carSeizedSelectDashboard',
-              builder: (context, params) => CarSeizedSelectDashboardWidget(),
+              builder: (context, params) => CarSeizedSelectDashboardWidget(
+                readRoleAccess: params.getParam(
+                  'readRoleAccess',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: ImpoundCarAccessRoleStruct.fromSerializableMap,
+                ),
+                saveRoleAccess: params.getParam(
+                  'saveRoleAccess',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: ImpoundCarAccessRoleStruct.fromSerializableMap,
+                ),
+              ),
             ),
             FFRoute(
               name: 'searchCustomersGD',

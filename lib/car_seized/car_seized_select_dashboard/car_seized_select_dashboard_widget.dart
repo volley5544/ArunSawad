@@ -1,20 +1,31 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'car_seized_select_dashboard_model.dart';
 export 'car_seized_select_dashboard_model.dart';
 
 class CarSeizedSelectDashboardWidget extends StatefulWidget {
-  const CarSeizedSelectDashboardWidget({super.key});
+  const CarSeizedSelectDashboardWidget({
+    super.key,
+    required this.readRoleAccess,
+    required this.saveRoleAccess,
+  });
+
+  final ImpoundCarAccessRoleStruct? readRoleAccess;
+  final ImpoundCarAccessRoleStruct? saveRoleAccess;
 
   @override
   State<CarSeizedSelectDashboardWidget> createState() =>
@@ -36,6 +47,27 @@ class _CarSeizedSelectDashboardWidgetState
         parameters: {'screen_name': 'CarSeizedSelectDashboard'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () => FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
       _model.urlLinkStorage = await queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
           'url_name',
@@ -45,6 +77,43 @@ class _CarSeizedSelectDashboardWidgetState
       ).then((s) => s.firstOrNull);
       FFAppState().improundUrl = _model.urlLinkStorage!.urlLink;
       setState(() {});
+      Navigator.pop(context);
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              title: Text('read'),
+              content: Text(functions.impoundCargetRoleName(
+                  widget!.readRoleAccess, FFAppState().employeeID)!),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              title: Text('save'),
+              content: Text(functions.impoundCargetRoleName(
+                  widget!.saveRoleAccess, FFAppState().employeeID)!),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

@@ -1836,9 +1836,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                             unawaited(
                                                               () async {}(),
                                                             );
-
-                                                            context.pushNamed(
-                                                                'CarSeizedSelectDashboard');
                                                           },
                                                           child: Text(
                                                             'บริการ',
@@ -2672,8 +2669,23 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         HapticFeedback
                                                                             .mediumImpact();
 
-                                                                        context.pushNamed(
-                                                                            'CarSeizedSelectDashboard');
+                                                                        context
+                                                                            .goNamed(
+                                                                          'CarSeizedSelectDashboard',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'readRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                            'saveRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
                                                                       },
                                                                       child:
                                                                           Container(

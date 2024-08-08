@@ -4215,17 +4215,16 @@ bool? impoundCarCheckIsHaveRole(
 }
 
 String? impoundCargetRoleName(
-  ImpoundCarRoleStruct? adminRole,
+  ImpoundCarAccessRoleStruct? adminRole,
   String? employeeId,
 ) {
-  Map<String, dynamic> mappedData = adminRole! as Map<String, dynamic>;
-  List<String> keyList = mappedData.keys.toList();
-  List<dynamic> valueList = mappedData.values.toList();
-  print(keyList);
-  print(valueList);
-  for (int i = 0; i < valueList.length; i++) {
-    if (valueList[i].contains(employeeId!)) {
-      return keyList[i];
+  Map<String, dynamic> mappedData =
+      adminRole!.toMap(); // as Map<String, dynamic>;
+  List<String> roleList = mappedData['role'];
+
+  for (int i = 0; i < roleList.length; i++) {
+    if (mappedData['${roleList[i]}'].contains(employeeId)) {
+      return roleList[i];
     }
   }
 
