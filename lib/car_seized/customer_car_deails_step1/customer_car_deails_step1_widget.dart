@@ -33,6 +33,10 @@ class CustomerCarDeailsStep1Widget extends StatefulWidget {
     required this.improundNumbody,
     required this.step,
     required this.improundCUSCOD,
+    required this.readAccessRoleData,
+    required this.saveAccessRoleData,
+    required this.userRoleRead,
+    required this.userRoleSave,
   });
 
   final String? improundCONTNO;
@@ -49,6 +53,10 @@ class CustomerCarDeailsStep1Widget extends StatefulWidget {
   final String? improundNumbody;
   final String? step;
   final String? improundCUSCOD;
+  final dynamic readAccessRoleData;
+  final dynamic saveAccessRoleData;
+  final String? userRoleRead;
+  final String? userRoleSave;
 
   @override
   State<CustomerCarDeailsStep1Widget> createState() =>
@@ -6353,6 +6361,22 @@ class _CustomerCarDeailsStep1WidgetState
                                   ),
                                   'improundCUSCOD': serializeParam(
                                     widget!.improundCUSCOD,
+                                    ParamType.String,
+                                  ),
+                                  'readAccessRoleData': serializeParam(
+                                    widget!.readAccessRoleData,
+                                    ParamType.JSON,
+                                  ),
+                                  'saveAccessRoleData': serializeParam(
+                                    widget!.saveAccessRoleData,
+                                    ParamType.JSON,
+                                  ),
+                                  'userRoleRead': serializeParam(
+                                    widget!.userRoleRead,
+                                    ParamType.String,
+                                  ),
+                                  'userRoleSave': serializeParam(
+                                    widget!.userRoleSave,
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,

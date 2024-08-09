@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -32,6 +33,10 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
     required this.improundNumbody,
     required this.step,
     required this.improundCUSCOD,
+    required this.readAccessRoleData,
+    required this.saveAccessRoleData,
+    required this.userRoleRead,
+    required this.userRoleSave,
   });
 
   final String? improundCONTNO;
@@ -48,6 +53,10 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
   final String? improundNumbody;
   final String? step;
   final String? improundCUSCOD;
+  final dynamic readAccessRoleData;
+  final dynamic saveAccessRoleData;
+  final String? userRoleRead;
+  final String? userRoleSave;
 
   @override
   State<CustomerCarDeailsPictureStep1Widget> createState() =>
@@ -201,142 +210,246 @@ class _CustomerCarDeailsPictureStep1WidgetState
                 ),
           ),
           actions: [
-            FlutterFlowIconButton(
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.edit_outlined,
-                color: Color(0xFFDB771A),
-                size: 30.0,
+            Visibility(
+              visible: () {
+                    if (widget!.step == 'step1') {
+                      return ((FFAppState().profileLevel == 'สาขา') ||
+                              (FFAppState().profileLevel == 'เขต') ||
+                              (FFAppState().profileLevel == 'ภาค')
+                          ? functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step1'),
+                                  'Level'),
+                              FFAppState().profileLevel)
+                          : functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step1'),
+                                  'role_name'),
+                              widget!.userRoleSave));
+                    } else if (widget!.step == 'step2') {
+                      return ((FFAppState().profileLevel == 'สาขา') ||
+                              (FFAppState().profileLevel == 'เขต') ||
+                              (FFAppState().profileLevel == 'ภาค')
+                          ? functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step2'),
+                                  'Level'),
+                              FFAppState().profileLevel)
+                          : functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step2'),
+                                  'role_name'),
+                              widget!.userRoleSave));
+                    } else if (widget!.step == 'step3') {
+                      return ((FFAppState().profileLevel == 'สาขา') ||
+                              (FFAppState().profileLevel == 'เขต') ||
+                              (FFAppState().profileLevel == 'ภาค')
+                          ? functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step3'),
+                                  'Level'),
+                              FFAppState().profileLevel)
+                          : functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step3'),
+                                  'role_name'),
+                              widget!.userRoleSave));
+                    } else if (widget!.step == 'step4') {
+                      return ((FFAppState().profileLevel == 'สาขา') ||
+                              (FFAppState().profileLevel == 'เขต') ||
+                              (FFAppState().profileLevel == 'ภาค')
+                          ? functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step4'),
+                                  'Level'),
+                              FFAppState().profileLevel)
+                          : functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, 'step4'),
+                                  'role_name'),
+                              widget!.userRoleSave));
+                    } else {
+                      return true;
+                    }
+                  }() ??
+                  true,
+              child: FlutterFlowIconButton(
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.edit_outlined,
+                  color: Color(0xFFDB771A),
+                  size: 30.0,
+                ),
+                onPressed: () async {
+                  if (widget!.step == 'step4') {
+                    context.pushNamed(
+                      'CustomerCarDeailsStep4',
+                      queryParameters: {
+                        'improundCONTNO': serializeParam(
+                          widget!.improundCONTNO,
+                          ParamType.String,
+                        ),
+                        'improundLOCAT': serializeParam(
+                          widget!.improundLOCAT,
+                          ParamType.String,
+                        ),
+                        'improundTITLE': serializeParam(
+                          widget!.improundTITLE,
+                          ParamType.String,
+                        ),
+                        'improundFNAME': serializeParam(
+                          widget!.improundFNAME,
+                          ParamType.String,
+                        ),
+                        'improundSNAME': serializeParam(
+                          widget!.improundSNAME,
+                          ParamType.String,
+                        ),
+                        'improundREGNO': serializeParam(
+                          widget!.improundREGNO,
+                          ParamType.String,
+                        ),
+                        'improundREGPROV': serializeParam(
+                          widget!.improundREGPROV,
+                          ParamType.String,
+                        ),
+                        'improundCONTNOTYPE': serializeParam(
+                          widget!.improundCONTNOTYPE,
+                          ParamType.String,
+                        ),
+                        'improundCONTNOTYPENAME': serializeParam(
+                          widget!.improundCONTNOTYPENAME,
+                          ParamType.String,
+                        ),
+                        'improundGCODE': serializeParam(
+                          widget!.improundGCODE,
+                          ParamType.String,
+                        ),
+                        'improundGDESC': serializeParam(
+                          widget!.improundGDESC,
+                          ParamType.String,
+                        ),
+                        'improundNumbody': serializeParam(
+                          widget!.improundNumbody,
+                          ParamType.String,
+                        ),
+                        'step': serializeParam(
+                          widget!.step,
+                          ParamType.String,
+                        ),
+                        'improundCUSCOD': serializeParam(
+                          widget!.improundCUSCOD,
+                          ParamType.String,
+                        ),
+                        'readAccessRoleData': serializeParam(
+                          widget!.readAccessRoleData,
+                          ParamType.JSON,
+                        ),
+                        'saveAccessRoleData': serializeParam(
+                          widget!.saveAccessRoleData,
+                          ParamType.JSON,
+                        ),
+                        'userRoleRead': serializeParam(
+                          widget!.userRoleRead,
+                          ParamType.String,
+                        ),
+                        'userRoleSave': serializeParam(
+                          widget!.userRoleSave,
+                          ParamType.String,
+                        ),
+                      }.withoutNulls,
+                    );
+                  } else {
+                    context.pushNamed(
+                      'CustomerCarDeailsStep1',
+                      queryParameters: {
+                        'improundCONTNO': serializeParam(
+                          widget!.improundCONTNO,
+                          ParamType.String,
+                        ),
+                        'improundLOCAT': serializeParam(
+                          widget!.improundLOCAT,
+                          ParamType.String,
+                        ),
+                        'improundTITLE': serializeParam(
+                          widget!.improundTITLE,
+                          ParamType.String,
+                        ),
+                        'improundFNAME': serializeParam(
+                          widget!.improundFNAME,
+                          ParamType.String,
+                        ),
+                        'improundSNAME': serializeParam(
+                          widget!.improundSNAME,
+                          ParamType.String,
+                        ),
+                        'improundREGNO': serializeParam(
+                          widget!.improundREGNO,
+                          ParamType.String,
+                        ),
+                        'improundREGPROV': serializeParam(
+                          widget!.improundREGPROV,
+                          ParamType.String,
+                        ),
+                        'improundCONTNOTYPE': serializeParam(
+                          widget!.improundCONTNOTYPE,
+                          ParamType.String,
+                        ),
+                        'improundCONTNOTYPENAME': serializeParam(
+                          widget!.improundCONTNOTYPENAME,
+                          ParamType.String,
+                        ),
+                        'improundGCODE': serializeParam(
+                          widget!.improundGCODE,
+                          ParamType.String,
+                        ),
+                        'improundGDESC': serializeParam(
+                          widget!.improundGDESC,
+                          ParamType.String,
+                        ),
+                        'improundNumbody': serializeParam(
+                          widget!.improundNumbody,
+                          ParamType.String,
+                        ),
+                        'step': serializeParam(
+                          widget!.step,
+                          ParamType.String,
+                        ),
+                        'improundCUSCOD': serializeParam(
+                          widget!.improundCUSCOD,
+                          ParamType.String,
+                        ),
+                        'readAccessRoleData': serializeParam(
+                          widget!.readAccessRoleData,
+                          ParamType.JSON,
+                        ),
+                        'saveAccessRoleData': serializeParam(
+                          widget!.saveAccessRoleData,
+                          ParamType.JSON,
+                        ),
+                        'userRoleRead': serializeParam(
+                          widget!.userRoleRead,
+                          ParamType.String,
+                        ),
+                        'userRoleSave': serializeParam(
+                          widget!.userRoleSave,
+                          ParamType.String,
+                        ),
+                      }.withoutNulls,
+                    );
+                  }
+                },
               ),
-              onPressed: () async {
-                if (widget!.step == 'step4') {
-                  context.pushNamed(
-                    'CustomerCarDeailsStep4',
-                    queryParameters: {
-                      'improundCONTNO': serializeParam(
-                        widget!.improundCONTNO,
-                        ParamType.String,
-                      ),
-                      'improundLOCAT': serializeParam(
-                        widget!.improundLOCAT,
-                        ParamType.String,
-                      ),
-                      'improundTITLE': serializeParam(
-                        widget!.improundTITLE,
-                        ParamType.String,
-                      ),
-                      'improundFNAME': serializeParam(
-                        widget!.improundFNAME,
-                        ParamType.String,
-                      ),
-                      'improundSNAME': serializeParam(
-                        widget!.improundSNAME,
-                        ParamType.String,
-                      ),
-                      'improundREGNO': serializeParam(
-                        widget!.improundREGNO,
-                        ParamType.String,
-                      ),
-                      'improundREGPROV': serializeParam(
-                        widget!.improundREGPROV,
-                        ParamType.String,
-                      ),
-                      'improundCONTNOTYPE': serializeParam(
-                        widget!.improundCONTNOTYPE,
-                        ParamType.String,
-                      ),
-                      'improundCONTNOTYPENAME': serializeParam(
-                        widget!.improundCONTNOTYPENAME,
-                        ParamType.String,
-                      ),
-                      'improundGCODE': serializeParam(
-                        widget!.improundGCODE,
-                        ParamType.String,
-                      ),
-                      'improundGDESC': serializeParam(
-                        widget!.improundGDESC,
-                        ParamType.String,
-                      ),
-                      'improundNumbody': serializeParam(
-                        widget!.improundNumbody,
-                        ParamType.String,
-                      ),
-                      'step': serializeParam(
-                        widget!.step,
-                        ParamType.String,
-                      ),
-                      'improundCUSCOD': serializeParam(
-                        widget!.improundCUSCOD,
-                        ParamType.String,
-                      ),
-                    }.withoutNulls,
-                  );
-                } else {
-                  context.pushNamed(
-                    'CustomerCarDeailsStep1',
-                    queryParameters: {
-                      'improundCONTNO': serializeParam(
-                        widget!.improundCONTNO,
-                        ParamType.String,
-                      ),
-                      'improundLOCAT': serializeParam(
-                        widget!.improundLOCAT,
-                        ParamType.String,
-                      ),
-                      'improundTITLE': serializeParam(
-                        widget!.improundTITLE,
-                        ParamType.String,
-                      ),
-                      'improundFNAME': serializeParam(
-                        widget!.improundFNAME,
-                        ParamType.String,
-                      ),
-                      'improundSNAME': serializeParam(
-                        widget!.improundSNAME,
-                        ParamType.String,
-                      ),
-                      'improundREGNO': serializeParam(
-                        widget!.improundREGNO,
-                        ParamType.String,
-                      ),
-                      'improundREGPROV': serializeParam(
-                        widget!.improundREGPROV,
-                        ParamType.String,
-                      ),
-                      'improundCONTNOTYPE': serializeParam(
-                        widget!.improundCONTNOTYPE,
-                        ParamType.String,
-                      ),
-                      'improundCONTNOTYPENAME': serializeParam(
-                        widget!.improundCONTNOTYPENAME,
-                        ParamType.String,
-                      ),
-                      'improundGCODE': serializeParam(
-                        widget!.improundGCODE,
-                        ParamType.String,
-                      ),
-                      'improundGDESC': serializeParam(
-                        widget!.improundGDESC,
-                        ParamType.String,
-                      ),
-                      'improundNumbody': serializeParam(
-                        widget!.improundNumbody,
-                        ParamType.String,
-                      ),
-                      'step': serializeParam(
-                        widget!.step,
-                        ParamType.String,
-                      ),
-                      'improundCUSCOD': serializeParam(
-                        widget!.improundCUSCOD,
-                        ParamType.String,
-                      ),
-                    }.withoutNulls,
-                  );
-                }
-              },
             ),
           ],
           centerTitle: true,

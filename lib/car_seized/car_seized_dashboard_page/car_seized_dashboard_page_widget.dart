@@ -164,6 +164,22 @@ class _CarSeizedDashboardPageWidgetState
                                 : 'ดูรูปรถยึด',
                             ParamType.String,
                           ),
+                          'readAccessRoleData': serializeParam(
+                            widget!.readAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'saveAccessRoleData': serializeParam(
+                            widget!.saveAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleRead': serializeParam(
+                            widget!.userRoleRead,
+                            ParamType.String,
+                          ),
+                          'userRoleSave': serializeParam(
+                            widget!.userRoleSave,
+                            ParamType.String,
+                          ),
                         }.withoutNulls,
                       );
                     },
@@ -309,6 +325,22 @@ class _CarSeizedDashboardPageWidgetState
                             widget!.fromPage == 'takeImages'
                                 ? 'ถ่ายรูปส่งมอบรถ'
                                 : 'ดูรูปส่งมอบรถ',
+                            ParamType.String,
+                          ),
+                          'readAccessRoleData': serializeParam(
+                            widget!.readAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'saveAccessRoleData': serializeParam(
+                            widget!.saveAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleRead': serializeParam(
+                            widget!.userRoleRead,
+                            ParamType.String,
+                          ),
+                          'userRoleSave': serializeParam(
+                            widget!.userRoleSave,
                             ParamType.String,
                           ),
                         }.withoutNulls,
@@ -459,6 +491,22 @@ class _CarSeizedDashboardPageWidgetState
                                 : 'ดูรูปตั้งราคา',
                             ParamType.String,
                           ),
+                          'readAccessRoleData': serializeParam(
+                            widget!.readAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'saveAccessRoleData': serializeParam(
+                            widget!.saveAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleRead': serializeParam(
+                            widget!.userRoleRead,
+                            ParamType.String,
+                          ),
+                          'userRoleSave': serializeParam(
+                            widget!.userRoleSave,
+                            ParamType.String,
+                          ),
                         }.withoutNulls,
                       );
                     },
@@ -605,6 +653,22 @@ class _CarSeizedDashboardPageWidgetState
                             widget!.fromPage == 'takeImages'
                                 ? 'อัพโหลดรูปเข้าประมูล'
                                 : 'ดูรูปเข้าประมูล',
+                            ParamType.String,
+                          ),
+                          'readAccessRoleData': serializeParam(
+                            widget!.readAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'saveAccessRoleData': serializeParam(
+                            widget!.saveAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleRead': serializeParam(
+                            widget!.userRoleRead,
+                            ParamType.String,
+                          ),
+                          'userRoleSave': serializeParam(
+                            widget!.userRoleSave,
                             ParamType.String,
                           ),
                         }.withoutNulls,

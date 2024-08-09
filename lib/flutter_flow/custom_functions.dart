@@ -4244,7 +4244,7 @@ bool? containsValueInJsonList(
   dynamic listFromJson,
   String? value,
 ) {
-  List<String> inputList = jsonDecode(listFromJson!);
+  dynamic inputList = jsonDecode(listFromJson!);
 
   return inputList.contains(value!);
 }

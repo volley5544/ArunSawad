@@ -650,6 +650,8 @@ final parametersBuilderMap =
           'improundNumbody': getParameter<String>(data, 'improundNumbody'),
           'step': getParameter<String>(data, 'step'),
           'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
+          'userRoleRead': getParameter<String>(data, 'userRoleRead'),
+          'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
       ),
   'SampleCarImageStep1': (data) async => ParameterData(
@@ -677,6 +679,8 @@ final parametersBuilderMap =
           'improundNumbody': getParameter<String>(data, 'improundNumbody'),
           'step': getParameter<String>(data, 'step'),
           'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
+          'userRoleRead': getParameter<String>(data, 'userRoleRead'),
+          'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
       ),
   'TypePicStep1': ParameterData.none(),
@@ -690,6 +694,8 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
           'step': getParameter<String>(data, 'step'),
           'textShow': getParameter<String>(data, 'textShow'),
+          'userRoleRead': getParameter<String>(data, 'userRoleRead'),
+          'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
       ),
   'customerCarDeailsPictureStep1': (data) async => ParameterData(
@@ -710,6 +716,8 @@ final parametersBuilderMap =
           'improundNumbody': getParameter<String>(data, 'improundNumbody'),
           'step': getParameter<String>(data, 'step'),
           'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
+          'userRoleRead': getParameter<String>(data, 'userRoleRead'),
+          'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
       ),
 };

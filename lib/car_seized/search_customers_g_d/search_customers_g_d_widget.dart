@@ -23,11 +23,19 @@ class SearchCustomersGDWidget extends StatefulWidget {
     required this.fromPage,
     required this.step,
     required this.textShow,
+    required this.readAccessRoleData,
+    required this.saveAccessRoleData,
+    required this.userRoleRead,
+    required this.userRoleSave,
   });
 
   final String? fromPage;
   final String? step;
   final String? textShow;
+  final dynamic readAccessRoleData;
+  final dynamic saveAccessRoleData;
+  final String? userRoleRead;
+  final String? userRoleSave;
 
   @override
   State<SearchCustomersGDWidget> createState() =>
@@ -1571,6 +1579,34 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       ParamType
                                                                           .String,
                                                                     ),
+                                                                    'readAccessRoleData':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .readAccessRoleData,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'saveAccessRoleData':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .saveAccessRoleData,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'userRoleRead':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .userRoleRead,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'userRoleSave':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .userRoleSave,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
                                                                   }.withoutNulls,
                                                                 );
                                                               } else {
@@ -1690,6 +1726,34 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       ParamType
                                                                           .String,
                                                                     ),
+                                                                    'readAccessRoleData':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .readAccessRoleData,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'saveAccessRoleData':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .saveAccessRoleData,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'userRoleRead':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .userRoleRead,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'userRoleSave':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .userRoleSave,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
                                                                   }.withoutNulls,
                                                                 );
                                                               }
@@ -1806,6 +1870,34 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     FFAppState()
                                                                             .improundCUSCOD[
                                                                         listImproundIndex],
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'readAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .readAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'saveAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .saveAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'userRoleRead':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleRead,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'userRoleSave':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleSave,
                                                                     ParamType
                                                                         .String,
                                                                   ),

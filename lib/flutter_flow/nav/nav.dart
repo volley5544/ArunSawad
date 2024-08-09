@@ -1966,6 +1966,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'improundCUSCOD',
                   ParamType.String,
                 ),
+                readAccessRoleData: params.getParam(
+                  'readAccessRoleData',
+                  ParamType.JSON,
+                ),
+                saveAccessRoleData: params.getParam(
+                  'saveAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleRead: params.getParam(
+                  'userRoleRead',
+                  ParamType.String,
+                ),
+                userRoleSave: params.getParam(
+                  'userRoleSave',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2046,6 +2062,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'improundCUSCOD',
                   ParamType.String,
                 ),
+                readAccessRoleData: params.getParam(
+                  'readAccessRoleData',
+                  ParamType.JSON,
+                ),
+                saveAccessRoleData: params.getParam(
+                  'saveAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleRead: params.getParam(
+                  'userRoleRead',
+                  ParamType.String,
+                ),
+                userRoleSave: params.getParam(
+                  'userRoleSave',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2095,6 +2127,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 textShow: params.getParam(
                   'textShow',
+                  ParamType.String,
+                ),
+                readAccessRoleData: params.getParam(
+                  'readAccessRoleData',
+                  ParamType.JSON,
+                ),
+                saveAccessRoleData: params.getParam(
+                  'saveAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleRead: params.getParam(
+                  'userRoleRead',
+                  ParamType.String,
+                ),
+                userRoleSave: params.getParam(
+                  'userRoleSave',
                   ParamType.String,
                 ),
               ),
@@ -2157,6 +2205,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 improundCUSCOD: params.getParam(
                   'improundCUSCOD',
+                  ParamType.String,
+                ),
+                readAccessRoleData: params.getParam(
+                  'readAccessRoleData',
+                  ParamType.JSON,
+                ),
+                saveAccessRoleData: params.getParam(
+                  'saveAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleRead: params.getParam(
+                  'userRoleRead',
+                  ParamType.String,
+                ),
+                userRoleSave: params.getParam(
+                  'userRoleSave',
                   ParamType.String,
                 ),
               ),
