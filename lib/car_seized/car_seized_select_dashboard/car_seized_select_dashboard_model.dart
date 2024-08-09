@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'car_seized_select_dashboard_widget.dart'
     show CarSeizedSelectDashboardWidget;
@@ -23,6 +24,8 @@ class CarSeizedSelectDashboardModel
 
   // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.
   UrlLinkStorageRecord? urlLinkStorage;
+  // Stores action output result for [Custom Action - getDataFromCollection] action in CarSeizedSelectDashboard widget.
+  dynamic? getDataCollection;
 
   @override
   void initState(BuildContext context) {}

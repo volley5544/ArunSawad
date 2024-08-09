@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
@@ -77,6 +78,9 @@ class _CarSeizedSelectDashboardWidgetState
       ).then((s) => s.firstOrNull);
       FFAppState().improundUrl = _model.urlLinkStorage!.urlLink;
       setState(() {});
+      _model.getDataCollection = await actions.getDataFromCollection(
+        'role_menu',
+      );
       Navigator.pop(context);
       await showDialog(
         context: context,
@@ -104,6 +108,41 @@ class _CarSeizedSelectDashboardWidgetState
               title: Text('save'),
               content: Text(functions.impoundCargetRoleName(
                   widget!.saveRoleAccess, FFAppState().employeeID)!),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(_model.getDataCollection!.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(getJsonField(
+                _model.getDataCollection,
+                r'''$.role''',
+              ).toString().toString()),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),

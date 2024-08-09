@@ -65,3 +65,4 @@ export 'get_f_f_upload_file_from_file_path.dart'
     show getFFUploadFileFromFilePath;
 export 'check_internet_connection_wifi.dart' show checkInternetConnectionWifi;
 export 'hide_keyboard_action.dart' show hideKeyboardAction;
+export 'get_data_from_collection.dart' show getDataFromCollection;
