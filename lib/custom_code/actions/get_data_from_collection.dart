@@ -26,7 +26,7 @@ Future<dynamic> getDataFromCollection(String? collection) async {
     for (QueryDocumentSnapshot document in documents!) {
       Map<String, dynamic>? data = document.data() as Map<String, dynamic>?;
       if (data != null) {
-        dataOutput = data['impoundCarReadAccessRole'];
+        dataOutput = data;
       }
     }
   } catch (e) {

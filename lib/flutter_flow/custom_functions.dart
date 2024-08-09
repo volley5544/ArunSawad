@@ -4230,3 +4230,12 @@ String? impoundCargetRoleName(
 
   return 'no role';
 }
+
+dynamic getDataFromMapJson(
+  dynamic jsonDataInput,
+  String? fieldName,
+) {
+  Map<String, dynamic> mapDataInput = jsonDecode(jsonDataInput!);
+  dynamic jsonOutput = jsonEncode(mapDataInput[fieldName!]);
+  return jsonOutput;
+}

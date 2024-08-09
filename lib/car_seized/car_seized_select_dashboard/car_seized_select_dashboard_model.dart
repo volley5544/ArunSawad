@@ -20,6 +20,12 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class CarSeizedSelectDashboardModel
     extends FlutterFlowModel<CarSeizedSelectDashboardWidget> {
+  ///  Local state fields for this page.
+
+  dynamic readAccessRoleData;
+
+  dynamic writeAccessRoleData;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.

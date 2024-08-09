@@ -81,6 +81,11 @@ class _CarSeizedSelectDashboardWidgetState
       _model.getDataCollection = await actions.getDataFromCollection(
         'role_menu',
       );
+      _model.readAccessRoleData = functions.getDataFromMapJson(
+          _model.getDataCollection, 'impoundCarReadAccessRole');
+      _model.writeAccessRoleData = functions.getDataFromMapJson(
+          _model.getDataCollection, 'impoundCarSaveAccessRole');
+      setState(() {});
       Navigator.pop(context);
       await showDialog(
         context: context,
@@ -143,6 +148,44 @@ class _CarSeizedSelectDashboardWidgetState
                 _model.getDataCollection,
                 r'''$.role''',
               ).toString().toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              title: Text('readRole'),
+              content: Text(functions
+                  .getDataFromMapJson(_model.readAccessRoleData, 'role')!
+                  .toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              title: Text('writeRole'),
+              content: Text(functions
+                  .getDataFromMapJson(_model.writeAccessRoleData, 'role')!
+                  .toString()),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(alertDialogContext),
