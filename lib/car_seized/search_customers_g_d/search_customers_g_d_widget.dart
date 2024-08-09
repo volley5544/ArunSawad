@@ -562,7 +562,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 .cast<String>();
                                         FFAppState().improundNumbody =
                                             SswSurveyAPIVloanGetContractCall
-                                                    .insurer(
+                                                    .strno(
                                           (_model.vloanContractAPIOutput
                                                   ?.jsonBody ??
                                               ''),

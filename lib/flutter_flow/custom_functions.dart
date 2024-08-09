@@ -4215,11 +4215,11 @@ bool? impoundCarCheckIsHaveRole(
 }
 
 String? impoundCargetRoleName(
-  ImpoundCarAccessRoleStruct? adminRole,
+  dynamic adminRole,
   String? employeeId,
 ) {
   Map<String, dynamic> mappedData =
-      adminRole!.toMap(); // as Map<String, dynamic>;
+      jsonDecode(adminRole!); // as Map<String, dynamic>;
   List<String> roleList = mappedData['role'];
 
   for (int i = 0; i < roleList.length; i++) {
@@ -4238,4 +4238,13 @@ dynamic getDataFromMapJson(
   Map<String, dynamic> mapDataInput = jsonDecode(jsonDataInput!);
   dynamic jsonOutput = jsonEncode(mapDataInput[fieldName!]);
   return jsonOutput;
+}
+
+bool? containsValueInJsonList(
+  dynamic listFromJson,
+  String? value,
+) {
+  List<String> inputList = jsonDecode(listFromJson!);
+
+  return inputList.contains(value!);
 }

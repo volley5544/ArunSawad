@@ -10791,9 +10791,9 @@ class SswSurveyAPIVloanGetContractCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static List<String>? insurer(dynamic response) => (getJsonField(
+  static List<String>? strno(dynamic response) => (getJsonField(
         response,
-        r'''$.results.data[:].INSURER''',
+        r'''$.results.data[:].STRNO''',
         true,
       ) as List?)
           ?.withoutNulls

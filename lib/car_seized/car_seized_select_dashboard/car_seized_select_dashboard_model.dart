@@ -26,6 +26,10 @@ class CarSeizedSelectDashboardModel
 
   dynamic writeAccessRoleData;
 
+  String userRoleRead = 'no_role';
+
+  String userRoleSave = 'no_role';
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.
