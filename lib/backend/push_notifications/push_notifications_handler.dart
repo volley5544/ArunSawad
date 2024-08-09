@@ -628,6 +628,8 @@ final parametersBuilderMap =
   'CarSeizedDashboardPage': (data) async => ParameterData(
         allParams: {
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'userRoleRead': getParameter<String>(data, 'userRoleRead'),
+          'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
       ),
   'CustomerCarDeailsStep1': (data) async => ParameterData(

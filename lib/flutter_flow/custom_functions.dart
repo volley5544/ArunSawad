@@ -4220,7 +4220,7 @@ String? impoundCargetRoleName(
 ) {
   Map<String, dynamic> mappedData =
       jsonDecode(adminRole!); // as Map<String, dynamic>;
-  List<String> roleList = mappedData['role'];
+  dynamic roleList = mappedData['role'];
 
   for (int i = 0; i < roleList.length; i++) {
     if (mappedData['${roleList[i]}'].contains(employeeId)) {
@@ -4228,7 +4228,7 @@ String? impoundCargetRoleName(
     }
   }
 
-  return 'no role';
+  return 'no_role';
 }
 
 dynamic getDataFromMapJson(

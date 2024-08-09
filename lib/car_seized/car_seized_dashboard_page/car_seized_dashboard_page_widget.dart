@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,9 +13,18 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
   const CarSeizedDashboardPageWidget({
     super.key,
     required this.fromPage,
-  });
+    required this.readAccessRoleData,
+    required this.saveAccessRoleData,
+    String? userRoleRead,
+    String? userRoleSave,
+  })  : this.userRoleRead = userRoleRead ?? 'no_role',
+        this.userRoleSave = userRoleSave ?? 'no_role';
 
   final String? fromPage;
+  final dynamic readAccessRoleData;
+  final dynamic saveAccessRoleData;
+  final String userRoleRead;
+  final String userRoleSave;
 
   @override
   State<CarSeizedDashboardPageWidget> createState() =>
@@ -46,6 +56,8 @@ class _CarSeizedDashboardPageWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
@@ -84,689 +96,610 @@ class _CarSeizedDashboardPageWidgetState
         ),
         body: SafeArea(
           top: true,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              color: Color(0xFFFAFAFA),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+            child: GridView(
+              padding: EdgeInsets.zero,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 10.0,
+                childAspectRatio: 1.0,
+              ),
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
               children: [
-                Expanded(
-                  flex: 12,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Color(0xFFFAFAFA),
+                if ((widget!.fromPage == 'takeImages'
+                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step1'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step1'),
+                                    'role_name'),
+                                widget!.userRoleSave))
+                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step1'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step1'),
+                                    'role_name'),
+                                widget!.userRoleRead))) ??
+                    true)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'searchCustomersGD',
+                        queryParameters: {
+                          'fromPage': serializeParam(
+                            widget!.fromPage,
+                            ParamType.String,
                           ),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 12.0, 10.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.all(10.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'searchCustomersGD',
-                                                queryParameters: {
-                                                  'fromPage': serializeParam(
-                                                    widget!.fromPage,
-                                                    ParamType.String,
-                                                  ),
-                                                  'step': serializeParam(
-                                                    'step1',
-                                                    ParamType.String,
-                                                  ),
-                                                  'textShow': serializeParam(
-                                                    widget!.fromPage ==
-                                                            'takeImages'
-                                                        ? 'ถ่ายรูปรถยึด'
-                                                        : 'ดูรูปรถยึด',
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Container(
-                                                width: 100.0,
-                                                height: 120.0,
-                                                decoration: BoxDecoration(
-                                                  color: Colors.white,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    if (widget!.fromPage ==
-                                                        'takeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .camera_alt,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    if (widget!.fromPage ==
-                                                        'seeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .image_search,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child: Text(
-                                                        widget!.fromPage ==
-                                                                'takeImages'
-                                                            ? 'ถ่ายรูปรถยึด'
-                                                            : 'ดูรูปรถยึด',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFF204A77),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.all(10.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'searchCustomersGD',
-                                                queryParameters: {
-                                                  'fromPage': serializeParam(
-                                                    widget!.fromPage,
-                                                    ParamType.String,
-                                                  ),
-                                                  'step': serializeParam(
-                                                    'step2',
-                                                    ParamType.String,
-                                                  ),
-                                                  'textShow': serializeParam(
-                                                    widget!.fromPage ==
-                                                            'takeImages'
-                                                        ? 'ถ่ายรูปส่งมอบรถ'
-                                                        : 'ดูรูปส่งมอบรถ',
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Container(
-                                                width: 100.0,
-                                                height: 120.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    if (widget!.fromPage ==
-                                                        'takeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .camera_alt,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    if (widget!.fromPage ==
-                                                        'seeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .image_search,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child: Text(
-                                                        widget!.fromPage ==
-                                                                'takeImages'
-                                                            ? 'ถ่ายรูปส่งมอบรถ'
-                                                            : 'ดูรูปส่งมอบรถ',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFF204A77),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 12.0, 10.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.all(10.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'searchCustomersGD',
-                                                queryParameters: {
-                                                  'fromPage': serializeParam(
-                                                    widget!.fromPage,
-                                                    ParamType.String,
-                                                  ),
-                                                  'step': serializeParam(
-                                                    'step3',
-                                                    ParamType.String,
-                                                  ),
-                                                  'textShow': serializeParam(
-                                                    widget!.fromPage ==
-                                                            'takeImages'
-                                                        ? 'ถ่ายรูปตั้งราคา'
-                                                        : 'ดูรูปตั้งราคา',
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Container(
-                                                width: 100.0,
-                                                height: 120.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    if (widget!.fromPage ==
-                                                        'takeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .camera_alt,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    if (widget!.fromPage ==
-                                                        'seeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .image_search,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child: Text(
-                                                        widget!.fromPage ==
-                                                                'takeImages'
-                                                            ? 'ถ่ายรูปตั้งราคา'
-                                                            : 'ดูรูปตั้งราคา',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFF204A77),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.all(10.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'searchCustomersGD',
-                                                queryParameters: {
-                                                  'fromPage': serializeParam(
-                                                    widget!.fromPage,
-                                                    ParamType.String,
-                                                  ),
-                                                  'step': serializeParam(
-                                                    'step4',
-                                                    ParamType.String,
-                                                  ),
-                                                  'textShow': serializeParam(
-                                                    widget!.fromPage ==
-                                                            'takeImages'
-                                                        ? 'อัพโหลดรูปเข้าประมูล'
-                                                        : 'ดูรูปเข้าประมูล',
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Material(
-                                              color: Colors.transparent,
-                                              elevation: 1.0,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(16.0),
-                                              ),
-                                              child: Container(
-                                                width: 100.0,
-                                                height: 120.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    if (widget!.fromPage ==
-                                                        'takeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons.image,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    if (widget!.fromPage ==
-                                                        'seeImages')
-                                                      Expanded(
-                                                        flex: 2,
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Container(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          60.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: Colors
-                                                                    .black,
-                                                                width: 1.0,
-                                                              ),
-                                                            ),
-                                                            child: Align(
-                                                              alignment:
-                                                                  AlignmentDirectional(
-                                                                      0.0, 0.0),
-                                                              child: Icon(
-                                                                Icons
-                                                                    .image_search,
-                                                                color: Color(
-                                                                    0xFF354052),
-                                                                size: 28.0,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child: Text(
-                                                        widget!.fromPage ==
-                                                                'takeImages'
-                                                            ? 'อัพโหลดรูปเข้าประมูล'
-                                                            : 'ดูรูปเข้าประมูล',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFF204A77),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                          'step': serializeParam(
+                            'step1',
+                            ParamType.String,
                           ),
+                          'textShow': serializeParam(
+                            widget!.fromPage == 'takeImages'
+                                ? 'ถ่ายรูปรถยึด'
+                                : 'ดูรูปรถยึด',
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 120.0,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16.0),
                         ),
-                      ],
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (widget!.fromPage == 'takeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.camera_alt,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (widget!.fromPage == 'seeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.image_search,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                widget!.fromPage == 'takeImages'
+                                    ? 'ถ่ายรูปรถยึด'
+                                    : 'ดูรูปรถยึด',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Color(0xFF204A77),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                if ((widget!.fromPage == 'takeImages'
+                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step2'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step2'),
+                                    'role_name'),
+                                widget!.userRoleSave))
+                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step2'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step2'),
+                                    'role_name'),
+                                widget!.userRoleRead))) ??
+                    true)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'searchCustomersGD',
+                        queryParameters: {
+                          'fromPage': serializeParam(
+                            widget!.fromPage,
+                            ParamType.String,
+                          ),
+                          'step': serializeParam(
+                            'step2',
+                            ParamType.String,
+                          ),
+                          'textShow': serializeParam(
+                            widget!.fromPage == 'takeImages'
+                                ? 'ถ่ายรูปส่งมอบรถ'
+                                : 'ดูรูปส่งมอบรถ',
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 120.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (widget!.fromPage == 'takeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.camera_alt,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (widget!.fromPage == 'seeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.image_search,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                widget!.fromPage == 'takeImages'
+                                    ? 'ถ่ายรูปส่งมอบรถ'
+                                    : 'ดูรูปส่งมอบรถ',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Color(0xFF204A77),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                if ((widget!.fromPage == 'takeImages'
+                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step3'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step3'),
+                                    'role_name'),
+                                widget!.userRoleSave))
+                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step3'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step3'),
+                                    'role_name'),
+                                widget!.userRoleRead))) ??
+                    true)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'searchCustomersGD',
+                        queryParameters: {
+                          'fromPage': serializeParam(
+                            widget!.fromPage,
+                            ParamType.String,
+                          ),
+                          'step': serializeParam(
+                            'step3',
+                            ParamType.String,
+                          ),
+                          'textShow': serializeParam(
+                            widget!.fromPage == 'takeImages'
+                                ? 'ถ่ายรูปตั้งราคา'
+                                : 'ดูรูปตั้งราคา',
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 120.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (widget!.fromPage == 'takeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.camera_alt,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (widget!.fromPage == 'seeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.image_search,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                widget!.fromPage == 'takeImages'
+                                    ? 'ถ่ายรูปตั้งราคา'
+                                    : 'ดูรูปตั้งราคา',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Color(0xFF204A77),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                if ((widget!.fromPage == 'takeImages'
+                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step4'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.saveAccessRoleData, 'step4'),
+                                    'role_name'),
+                                widget!.userRoleSave))
+                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step4'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.readAccessRoleData, 'step4'),
+                                    'role_name'),
+                                widget!.userRoleRead))) ??
+                    true)
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed(
+                        'searchCustomersGD',
+                        queryParameters: {
+                          'fromPage': serializeParam(
+                            widget!.fromPage,
+                            ParamType.String,
+                          ),
+                          'step': serializeParam(
+                            'step4',
+                            ParamType.String,
+                          ),
+                          'textShow': serializeParam(
+                            widget!.fromPage == 'takeImages'
+                                ? 'อัพโหลดรูปเข้าประมูล'
+                                : 'ดูรูปเข้าประมูล',
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 1.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 120.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (widget!.fromPage == 'takeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.image,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            if (widget!.fromPage == 'seeImages')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.image_search,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                widget!.fromPage == 'takeImages'
+                                    ? 'อัพโหลดรูปเข้าประมูล'
+                                    : 'ดูรูปเข้าประมูล',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Color(0xFF204A77),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),

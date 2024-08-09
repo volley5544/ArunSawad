@@ -1888,6 +1888,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage',
                   ParamType.String,
                 ),
+                readAccessRoleData: params.getParam(
+                  'readAccessRoleData',
+                  ParamType.JSON,
+                ),
+                saveAccessRoleData: params.getParam(
+                  'saveAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleRead: params.getParam(
+                  'userRoleRead',
+                  ParamType.String,
+                ),
+                userRoleSave: params.getParam(
+                  'userRoleSave',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
