@@ -348,7 +348,15 @@ class _CarSeizedSelectDashboardWidgetState
                         ),
                       ),
                     ),
-                  if (_model.userRoleSave != 'no_role')
+                  if (((FFAppState().profileLevel == 'สาขา') ||
+                              (FFAppState().profileLevel == 'เขต') ||
+                              (FFAppState().profileLevel == 'ภาค')
+                          ? functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  _model.readAccessRoleData, 'profile_level'),
+                              FFAppState().profileLevel)
+                          : (_model.userRoleRead != 'no_role')) ??
+                      true)
                     InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
