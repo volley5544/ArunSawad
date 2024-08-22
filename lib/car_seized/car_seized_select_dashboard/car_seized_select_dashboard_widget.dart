@@ -92,78 +92,6 @@ class _CarSeizedSelectDashboardWidgetState
           _model.writeAccessRoleData, FFAppState().employeeID)!;
       setState(() {});
       Navigator.pop(context);
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              title: Text('readRole'),
-              content: Text(functions
-                  .getDataFromMapJson(_model.readAccessRoleData, 'role')!
-                  .toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              title: Text('writeRole'),
-              content: Text(functions
-                  .getDataFromMapJson(_model.writeAccessRoleData, 'role')!
-                  .toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              title: Text('user role read'),
-              content: Text(_model.userRoleRead),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              title: Text('user role save'),
-              content: Text(_model.userRoleSave),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -438,7 +366,7 @@ class _CarSeizedSelectDashboardWidgetState
                             Expanded(
                               flex: 1,
                               child: Text(
-                                'ดูส่งมอบรถ',
+                                'ดูรูปรถยึด',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

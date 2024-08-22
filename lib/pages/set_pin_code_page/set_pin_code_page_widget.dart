@@ -187,12 +187,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                     .primaryBackground,
                                 selectedColor:
                                     FlutterFlowTheme.of(context).secondaryText,
-                                activeFillColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                inactiveFillColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                selectedFillColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
                               ),
                               controller: _model.pinCodeController,
                               onChanged: (_) {},

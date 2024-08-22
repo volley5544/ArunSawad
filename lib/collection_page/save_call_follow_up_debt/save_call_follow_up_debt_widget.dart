@@ -777,7 +777,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                             0.0),
                                                                         child:
                                                                             Text(
-                                                                          '${functions.dateToBEDate(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : functions.dateToBEDate(widget!.dateOfExp?[listCardIndex])}(งวด${functions.checkNullValueAndReturn(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : (widget!.expFrm?[listCardIndex])})',
+                                                                          '${functions.dateToBEDate(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : (functions.dateToBEDate(widget!.dateOfExp?[listCardIndex]))}(งวด${functions.checkNullValueAndReturn(widget!.dateOfExp?[listCardIndex]) == '-' ? '-' : ((widget!.expFrm?[listCardIndex]))})',
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -1089,7 +1089,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                         ('0.00' == (widget!.expAmt?[listCardIndex])) ||
                                                                                 ('0' == (widget!.expAmt?[listCardIndex]))
                                                                             ? '-'
-                                                                            : '${functions.showNumberWithComma(functions.checkNullValueAndReturn(widget!.expAmt?[listCardIndex]) == '-' ? '-' : (widget!.expAmt?[listCardIndex]))} บาท',
+                                                                            : ('${functions.showNumberWithComma(functions.checkNullValueAndReturn(widget!.expAmt?[listCardIndex]) == '-' ? '-' : ((widget!.expAmt?[listCardIndex])))} บาท'),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(

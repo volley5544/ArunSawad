@@ -2629,28 +2629,34 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             'HO') {
                                                                           return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'ลูกค้ารถยึด')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
                                                                           return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'ลูกค้ารถยึด')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'เขต') {
                                                                           return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'ลูกค้ารถยึด')];
                                                                         } else {
                                                                           return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                              'ลูกค้ารถยึด')];
                                                                         }
                                                                       }() ||
                                                                       gridViewRoleMenuRecord!
                                                                           .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID) ||
-                                                                      true)
+                                                                          .contains(FFAppState()
+                                                                              .employeeID) ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'ลูกค้ารถยึด')!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -11832,6 +11838,121 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                             Text(
                                                                               'ลูกค้าที่ดิน',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  if (() {
+                                                                        if (FFAppState().profileLevel ==
+                                                                            'HO') {
+                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'สาขา') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'เขต') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
+                                                                        } else {
+                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        }
+                                                                      }() &&
+                                                                      gridViewRoleMenuRecord!
+                                                                          .empAdmin
+                                                                          .contains(FFAppState()
+                                                                              .employeeID) &&
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'ลูกค้ารถยึด')! &&
+                                                                      false)
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        HapticFeedback
+                                                                            .mediumImpact();
+
+                                                                        context
+                                                                            .goNamed(
+                                                                          'CarSeizedSelectDashboard',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'readRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                            'saveRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            100.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        ),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                              child: Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                height: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                clipBehavior: Clip.antiAlias,
+                                                                                decoration: BoxDecoration(
+                                                                                  shape: BoxShape.circle,
+                                                                                ),
+                                                                                child: Image.asset(
+                                                                                  'assets/images/NEW.png',
+                                                                                  fit: BoxFit.fitHeight,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Text(
+                                                                              'ลูกค้ารถยึด',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,

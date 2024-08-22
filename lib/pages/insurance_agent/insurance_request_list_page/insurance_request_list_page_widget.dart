@@ -345,7 +345,7 @@ class _InsuranceRequestListPageWidgetState
                                                 )?[requestListItemIndex]) ==
                                                 '-'
                                             ? 'ข้อมูลผิด'
-                                            : ((InsuranceRequestListAPICall
+                                            : (((InsuranceRequestListAPICall
                                                         .flagRenew(
                                                       (_model.getRequestList
                                                               ?.jsonBody ??
@@ -354,7 +354,7 @@ class _InsuranceRequestListPageWidgetState
                                                     FFAppState()
                                                         .insuranceBasicListFlagRenew
                                                 ? 'งานต่ออายุ'
-                                                : 'งานใหม่'),
+                                                : 'งานใหม่')),
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium

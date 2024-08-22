@@ -197,6 +197,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                 return 'ดูรูปส่งมอบรถ';
               } else if (widget!.step == 'step3') {
                 return 'ดูรูปตั้งราคา';
+              } else if (widget!.step == 'step4') {
+                return 'ดูรูปเข้าประมูล';
               } else {
                 return 'Title';
               }
@@ -524,6 +526,78 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               widget!.improundCONTNOTYPE == 'C'
                                   ? 'รถยนต์'
                                   : 'มอเตอร์ไซค์',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF404040),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 3.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'เลขทะเบียน',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 5.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                ':',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              valueOrDefault<String>(
+                                widget!.improundREGNO,
+                                '-',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -4244,7 +4318,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                               ''
                                           ? UploadImagesGoogleDriveGroup
                                               .searchImagesCall
-                                              .images1(
+                                              .images11(
                                               (_model.imagesAPIOutput
                                                       ?.jsonBody ??
                                                   ''),
@@ -4263,7 +4337,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                             ''
                                         ? UploadImagesGoogleDriveGroup
                                             .searchImagesCall
-                                            .images1(
+                                            .images11(
                                             (_model.imagesAPIOutput?.jsonBody ??
                                                 ''),
                                           )!
@@ -4282,7 +4356,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       ''
                                   ? UploadImagesGoogleDriveGroup
                                       .searchImagesCall
-                                      .images1(
+                                      .images11(
                                       (_model.imagesAPIOutput?.jsonBody ?? ''),
                                     )!
                                   : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
@@ -4298,7 +4372,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                           ''
                                       ? UploadImagesGoogleDriveGroup
                                           .searchImagesCall
-                                          .images1(
+                                          .images11(
                                           (_model.imagesAPIOutput?.jsonBody ??
                                               ''),
                                         )!

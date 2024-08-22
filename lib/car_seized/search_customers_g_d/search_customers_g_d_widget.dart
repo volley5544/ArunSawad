@@ -94,37 +94,37 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.0),
-          child: AppBar(
-            backgroundColor: Colors.white,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.arrow_back_rounded,
-                color: Color(0xFFDB771A),
-                size: 30.0,
-              ),
-              onPressed: () async {
-                context.safePop();
-              },
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: Color(0xFFDB771A),
+              size: 30.0,
             ),
-            title: AutoSizeText(
-              'ค้นหาลูกค้า',
-              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Poppins',
-                    color: Color(0xFF003063),
-                    fontSize: 18.0,
-                    letterSpacing: 0.0,
-                    fontWeight: FontWeight.w600,
-                  ),
-            ),
-            actions: [
-              FlutterFlowIconButton(
+            onPressed: () async {
+              context.safePop();
+            },
+          ),
+          title: AutoSizeText(
+            'ค้นหาลูกค้า',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Poppins',
+                  color: Color(0xFF003063),
+                  fontSize: 18.0,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+          actions: [
+            Visibility(
+              visible: false,
+              child: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
                 borderRadius: 30.0,
                 borderWidth: 1.0,
@@ -138,10 +138,10 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                   print('IconButton pressed ...');
                 },
               ),
-            ],
-            centerTitle: true,
-            elevation: 2.0,
-          ),
+            ),
+          ],
+          centerTitle: true,
+          elevation: 2.0,
         ),
         body: SafeArea(
           top: true,
@@ -173,19 +173,19 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                           ),
                           child: FlutterFlowDropDown<String>(
                             controller: _model.dropDownValueController ??=
-                                FormFieldController<String>(null),
+                                FormFieldController<String>(
+                              _model.dropDownValue ??= '',
+                            ),
                             options: List<String>.from([
                               'cont_no',
                               'firstname_cust',
                               'lastname_cust',
-                              'cuscod',
                               'registration_car'
                             ]),
                             optionLabels: [
                               'เลขที่สัญญา',
                               'ชื่อ',
                               'นามสกุล',
-                              'บัตรประชาชน',
                               'เลขทะเบียน'
                             ],
                             onChanged: (val) =>
@@ -648,6 +648,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                             ? _model.textController.text
                                             : '',
                                         url: FFAppState().improundUrl,
+                                        step: widget!.step,
                                       );
 
                                       _shouldSetState = true;

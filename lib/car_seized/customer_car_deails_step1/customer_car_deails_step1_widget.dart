@@ -232,12 +232,84 @@ class _CustomerCarDeailsStep1WidgetState
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 3.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'เลขทะเบียน',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 5.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'ถ่ายปยึดรถ',
+                                ':',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              valueOrDefault<String>(
+                                widget!.improundREGNO,
+                                '-',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF404040),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 5.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 5.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'ถ่ายรูปรถยึด',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -262,7 +334,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: Color(0xFFE21C3D),
+                                    color: Color(0xFFFF0000),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -287,7 +359,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -308,7 +380,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -355,23 +427,54 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       Expanded(
                                         flex: 10,
-                                        child: Container(
-                                          width: 37.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            'หน้าตรง',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                'หน้าตรง',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -737,7 +840,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -758,7 +861,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -805,23 +908,54 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       Expanded(
                                         flex: 10,
-                                        child: Container(
-                                          width: 37.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            'หน้าซ้าย 45 องศา',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                'หน้าซ้าย 45 องศา',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -1172,7 +1306,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -1193,7 +1327,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -1240,23 +1374,54 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       Expanded(
                                         flex: 10,
-                                        child: Container(
-                                          width: 37.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            'หลังซ้าย 45 องศา',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                'หลังซ้าย 45 องศา',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -1607,7 +1772,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -1675,23 +1840,54 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       Expanded(
                                         flex: 10,
-                                        child: Container(
-                                          width: 37.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            'หลังตรง',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                'หลังตรง',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -2042,7 +2238,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -2063,7 +2259,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -2110,23 +2306,54 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       Expanded(
                                         flex: 10,
-                                        child: Container(
-                                          width: 37.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            'หลังขวา 45 องศา',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                'หลังขวา 45 องศา',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -2477,7 +2704,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -2498,7 +2725,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -2545,23 +2772,54 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       Expanded(
                                         flex: 10,
-                                        child: Container(
-                                          width: 37.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            'หน้าขวา 45 องศา',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                'หน้าขวา 45 องศา',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -2912,7 +3170,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -2933,7 +3191,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -2982,25 +3240,57 @@ class _CustomerCarDeailsStep1WidgetState
                                       ),
                                       Expanded(
                                         flex: 10,
-                                        child: Container(
-                                          width: 37.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Text(
-                                            widget!.improundCONTNOTYPE == 'C'
-                                                ? 'เลขไมล์'
-                                                : 'เลขตัวถังรถ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 12.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                widget!.improundCONTNOTYPE ==
+                                                        'C'
+                                                    ? 'เลขไมล์'
+                                                    : 'เลขตัวถังรถ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFFFAFAFA),
                                                 ),
-                                          ),
+                                                child: Text(
+                                                  '(บังคับถ่าย)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFFFF0000),
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                     ],
@@ -3228,8 +3518,11 @@ class _CustomerCarDeailsStep1WidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              content: Text(
-                                                  'คุณต้องการจะถ่ายรูป เลขไมล์ หรือไม่?'),
+                                              content: Text(widget!
+                                                          .improundCONTNOTYPE ==
+                                                      'C'
+                                                  ? 'คุณต้องการจะถ่ายรูป เลขไมค์ หรือไม่?'
+                                                  : 'คุณต้องการจะถ่ายรูป เลขตัวถัง หรือไม่?'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -3351,7 +3644,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -3372,7 +3665,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -3424,18 +3717,37 @@ class _CustomerCarDeailsStep1WidgetState
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Expanded(
-                                              flex: 3,
-                                              child: Container(
-                                                width: 37.0,
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                widget!.improundCONTNOTYPE ==
+                                                        'C'
+                                                    ? 'คอนโซลหน้า'
+                                                    : 'เลขเครื่องยนต์',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            if (widget!.improundCONTNOTYPE !=
+                                                'C')
+                                              Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
-                                                          'C'
-                                                      ? 'คอนโซลหน้า'
-                                                      : 'เลขเครื่องยนต์',
+                                                  '(ถ้ามี)',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -3443,32 +3755,33 @@ class _CustomerCarDeailsStep1WidgetState
                                                         fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFF404040),
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
                                                 ),
                                               ),
-                                            ),
-                                            if (widget!.improundCONTNOTYPE !=
+                                            if (widget!.improundCONTNOTYPE ==
                                                 'C')
-                                              Expanded(
-                                                flex: 2,
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
                                                 child: Container(
-                                                  width: 37.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFFAFAFA),
                                                   ),
                                                   child: Text(
-                                                    '(ถ้ามี)',
+                                                    '(บังคับถ่าย)',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color:
-                                                              Color(0xFF404040),
+                                                              Color(0xFFFF0000),
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -3830,7 +4143,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -3851,7 +4164,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -3903,18 +4216,37 @@ class _CustomerCarDeailsStep1WidgetState
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Expanded(
-                                              flex: 3,
-                                              child: Container(
-                                                width: 37.0,
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                widget!.improundCONTNOTYPE ==
+                                                        'C'
+                                                    ? 'เบาะหลัง'
+                                                    : 'เลขไมล์',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            if (widget!.improundCONTNOTYPE ==
+                                                'C')
+                                              Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
-                                                          'C'
-                                                      ? 'เบาะหลัง'
-                                                      : 'เลขไมล์',
+                                                  '(ถ้ามี)',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -3922,42 +4254,37 @@ class _CustomerCarDeailsStep1WidgetState
                                                         fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFF404040),
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
                                                 ),
                                               ),
-                                            ),
-                                            if (widget!.improundCONTNOTYPE ==
+                                            if (widget!.improundCONTNOTYPE !=
                                                 'C')
-                                              Expanded(
-                                                flex: 2,
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
                                                 child: Container(
-                                                  width: 37.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFFAFAFA),
                                                   ),
-                                                  child: Visibility(
-                                                    visible: widget!
-                                                            .improundCONTNOTYPE ==
-                                                        'C',
-                                                    child: Text(
-                                                      '(ถ้ามี)',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            color: Color(
-                                                                0xFF404040),
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
-                                                    ),
+                                                  child: Text(
+                                                    '(บังคับถ่าย)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFFFF0000),
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
                                                   ),
                                                 ),
                                               ),
@@ -4315,7 +4642,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -4336,7 +4663,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -4390,18 +4717,37 @@ class _CustomerCarDeailsStep1WidgetState
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Expanded(
-                                              flex: 3,
-                                              child: Container(
-                                                width: 37.0,
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                widget!.improundCONTNOTYPE ==
+                                                        'C'
+                                                    ? 'เครื่องยนต์'
+                                                    : 'อื่นๆ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            if (widget!.improundCONTNOTYPE !=
+                                                'C')
+                                              Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
-                                                          'C'
-                                                      ? 'เครื่องยนต์'
-                                                      : 'อื่นๆ',
+                                                  '(ถ้ามี)',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -4409,32 +4755,33 @@ class _CustomerCarDeailsStep1WidgetState
                                                         fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFF404040),
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
                                                 ),
                                               ),
-                                            ),
-                                            if (widget!.improundCONTNOTYPE !=
+                                            if (widget!.improundCONTNOTYPE ==
                                                 'C')
-                                              Expanded(
-                                                flex: 2,
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
                                                 child: Container(
-                                                  width: 37.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFFAFAFA),
                                                   ),
                                                   child: Text(
-                                                    '(ถ้ามี)',
+                                                    '(บังคับถ่าย)',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color:
-                                                              Color(0xFF404040),
+                                                              Color(0xFFFF0000),
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -4796,7 +5143,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -4817,7 +5164,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -4871,18 +5218,37 @@ class _CustomerCarDeailsStep1WidgetState
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Expanded(
-                                              flex: 3,
-                                              child: Container(
-                                                width: 37.0,
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                widget!.improundCONTNOTYPE ==
+                                                        'C'
+                                                    ? 'เลขตัวถังรถ'
+                                                    : 'อื่นๆ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ),
+                                            if (widget!.improundCONTNOTYPE !=
+                                                'C')
+                                              Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
-                                                          'C'
-                                                      ? 'เลขตัวถังรถ'
-                                                      : 'อื่นๆ',
+                                                  '(ถ้ามี)',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -4890,32 +5256,33 @@ class _CustomerCarDeailsStep1WidgetState
                                                         fontFamily: 'Poppins',
                                                         color:
                                                             Color(0xFF404040),
-                                                        fontSize: 12.0,
+                                                        fontSize: 11.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
                                                 ),
                                               ),
-                                            ),
-                                            if (widget!.improundCONTNOTYPE !=
+                                            if (widget!.improundCONTNOTYPE ==
                                                 'C')
-                                              Expanded(
-                                                flex: 2,
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 0.0, 0.0),
                                                 child: Container(
-                                                  width: 37.0,
                                                   decoration: BoxDecoration(
                                                     color: Color(0xFFFAFAFA),
                                                   ),
                                                   child: Text(
-                                                    '(ถ้ามี)',
+                                                    '(บังคับถ่าย)',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color:
-                                                              Color(0xFF404040),
+                                                              Color(0xFFFF0000),
+                                                          fontSize: 11.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -5277,7 +5644,7 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              flex: 2,
+                              flex: 1,
                               child: Container(
                                 width: 20.0,
                                 decoration: BoxDecoration(
@@ -5298,7 +5665,7 @@ class _CustomerCarDeailsStep1WidgetState
                               ),
                             ),
                             Expanded(
-                              flex: 12,
+                              flex: 14,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -5352,54 +5719,47 @@ class _CustomerCarDeailsStep1WidgetState
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Expanded(
-                                              flex: 3,
-                                              child: Container(
-                                                width: 37.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFFAFAFA),
-                                                ),
-                                                child: Text(
-                                                  widget!.improundCONTNOTYPE ==
-                                                          'C'
-                                                      ? 'แผ่นเพลทรถ'
-                                                      : 'อื่นๆ',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF404040),
-                                                        fontSize: 12.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                widget!.improundCONTNOTYPE ==
+                                                        'C'
+                                                    ? 'แผ่นเพลทรถ'
+                                                    : 'อื่นๆ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
                                               ),
                                             ),
-                                            Expanded(
-                                              flex: 2,
-                                              child: Container(
-                                                width: 37.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xFFFAFAFA),
-                                                ),
-                                                child: Text(
-                                                  '(ถ้ามี)',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF404040),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                                ),
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFFAFAFA),
+                                              ),
+                                              child: Text(
+                                                '(ถ้ามี)',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
                                               ),
                                             ),
                                           ],
@@ -5634,7 +5994,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                           .improundCONTNOTYPE ==
                                                       'C'
                                                   ? 'คุณต้องการจะถ่ายรูป แผ่นเพลทรถ หรือไม่?'
-                                                  : 'อื่นๆ'),
+                                                  : 'คุณต้องการจะถ่ายรูป อื่นๆหรือไม่?'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -6286,11 +6646,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
                                     child: AlertDialog(
-                                      content: Text((_model
-                                                  .uploadGoogleDriveApiOutput
-                                                  ?.jsonBody ??
-                                              '')
-                                          .toString()),
+                                      content: Text('${getJsonField(
+                                        (_model.uploadGoogleDriveApiOutput
+                                                ?.jsonBody ??
+                                            ''),
+                                        r'''$.message''',
+                                      ).toString()}'),
                                       actions: [
                                         TextButton(
                                           onPressed: () =>

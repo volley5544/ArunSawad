@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -306,7 +307,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     0.0),
                                                         child: Text(
                                                           true
-                                                              ? valueOrDefault<
+                                                              ? (valueOrDefault<
                                                                   String>(
                                                                   GetCalledHistoryCollectionApiCall
                                                                       .calledTime(
@@ -315,8 +316,8 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                         ''),
                                                                   )?[calledStatusListItemIndex],
                                                                   '-',
-                                                                )
-                                                              : ((String
+                                                                ))
+                                                              : (((String
                                                                   callTime) {
                                                                   return '${callTime!.split(' ')[0].split('/')[0]}/${callTime!.split(' ')[0].split('/')[1]}/${int.parse(callTime!.split(' ')[0].split('/')[2]) + 543} ${callTime!.split(' ')[1]}';
                                                                 }(valueOrDefault<
@@ -328,7 +329,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                         ''),
                                                                   )?[calledStatusListItemIndex],
                                                                   '-',
-                                                                ))),
+                                                                )))),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -646,7 +647,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                     )?[
                                                                         calledStatusListItemIndex]) ==
                                                                     'PP'
-                                                                ? valueOrDefault<
+                                                                ? (valueOrDefault<
                                                                     String>(
                                                                     GetCalledHistoryCollectionApiCall
                                                                         .arAppdate(
@@ -655,7 +656,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                           ''),
                                                                     )?[calledStatusListItemIndex],
                                                                     '-',
-                                                                  )
+                                                                  ))
                                                                 : '-',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
@@ -751,31 +752,68 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
-                                                            child: Text(
-                                                              valueOrDefault<
-                                                                  String>(
-                                                                GetCalledHistoryCollectionApiCall
-                                                                    .arDesc(
-                                                                  (_model.getCalledHistory
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                )?[calledStatusListItemIndex],
-                                                                '-',
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                if (functions.extractUrlFromHtml(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                      GetCalledHistoryCollectionApiCall
+                                                                          .arDesc(
+                                                                        (_model.getCalledHistory?.jsonBody ??
+                                                                            ''),
+                                                                      )?[calledStatusListItemIndex],
+                                                                      '-',
+                                                                    )) !=
+                                                                    '') {
+                                                                  await launchURL(
+                                                                      functions.extractUrlFromHtml(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                    GetCalledHistoryCollectionApiCall
+                                                                        .arDesc(
+                                                                      (_model.getCalledHistory
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )?[calledStatusListItemIndex],
+                                                                    '-',
+                                                                  ))!);
+                                                                }
+                                                              },
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  GetCalledHistoryCollectionApiCall
+                                                                      .arDesc(
+                                                                    (_model.getCalledHistory
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?[calledStatusListItemIndex],
+                                                                  '-',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      fontSize:
+                                                                          12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                    ),
                                                               ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    fontSize:
-                                                                        12.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -787,6 +825,76 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                                             ),
                                           ),
                                         ),
+                                        if (functions.extractUrlFromHtml(
+                                                valueOrDefault<String>(
+                                              GetCalledHistoryCollectionApiCall
+                                                  .arDesc(
+                                                (_model.getCalledHistory
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )?[calledStatusListItemIndex],
+                                              '-',
+                                            )) !=
+                                            '')
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                FFButtonWidget(
+                                                  onPressed: () async {
+                                                    await launchURL(functions
+                                                        .extractUrlFromHtml(
+                                                            valueOrDefault<
+                                                                String>(
+                                                      GetCalledHistoryCollectionApiCall
+                                                          .arDesc(
+                                                        (_model.getCalledHistory
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )?[calledStatusListItemIndex],
+                                                      '-',
+                                                    ))!);
+                                                  },
+                                                  text: 'เปิดลิงค์',
+                                                  options: FFButtonOptions(
+                                                    width: 90.0,
+                                                    height: 35.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: Color(0xFFFF893A),
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    elevation: 3.0,
+                                                    borderSide: BorderSide(
+                                                      color: Colors.transparent,
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                       ],
                                     ),
                                   ),

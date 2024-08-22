@@ -4248,3 +4248,20 @@ bool? containsValueInJsonList(
 
   return inputList.contains(value!);
 }
+
+String? extractUrlFromHtml(String? text) {
+  if (text == null || text.isEmpty) {
+    return "";
+  }
+  // Corrected RegExp without raw string literal and proper escaping
+  final RegExp regExp = RegExp(
+    '<a\\s+[^>]*href=["\'](.*?)["\'][^>]*>.*?</a>',
+    caseSensitive: false,
+  );
+  final match = regExp.firstMatch(text!);
+  if (match != null) {
+    return match.group(1) ?? "";
+  } else {
+    return "";
+  }
+}

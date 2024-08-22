@@ -1925,9 +1925,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2090,9 +2090,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRightFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2255,9 +2255,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRight?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2420,9 +2420,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRightRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2585,9 +2585,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2750,9 +2750,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageLeftRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -2916,9 +2916,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                       imageUrl: (widget!.imageLeft?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) ==
                                                                               ''
                                                                           ? 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949'
-                                                                          : functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
+                                                                          : (functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!,
+                                                                              _model.radioButtonValue)])!),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -3080,9 +3080,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageLeftFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -3245,9 +3245,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRoof?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRoof?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRoof?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -4656,9 +4656,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageFront?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -4821,9 +4821,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRightFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRightFront?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -4986,9 +4986,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRight?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRight?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5151,9 +5151,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRightRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRightRear?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5316,9 +5316,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRear?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5481,9 +5481,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageLeftRear?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageLeftRear?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -5647,9 +5647,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                       imageUrl: (widget!.imageLeft?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) ==
                                                                               ''
                                                                           ? 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949'
-                                                                          : functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
+                                                                          : (functions.stringToImgPath(widget!.imageLeft?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!,
+                                                                              _model.radioButtonValue)])!),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -5811,9 +5811,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageLeftFront?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageLeftFront?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7224,9 +7224,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageFrontTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7389,9 +7389,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRightFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRightFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRightFrontTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7554,9 +7554,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRightTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRightTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRightTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7719,9 +7719,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRightRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRightRearTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRightRearTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -7884,9 +7884,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageRearTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageRearTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -8049,9 +8049,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageLeftRearTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageLeftRearTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageLeftRearTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -8214,9 +8214,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageLeftTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageLeftTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageLeftTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -8379,9 +8379,9 @@ class _InsuranceRequestEditPageWidgetState
                                                                         ShowImageComponentWidget(
                                                                       imageUrl: (widget!.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(widget!.insurerNameList?.toList(), _model.radioButtonValue)]) !=
                                                                               ''
-                                                                          ? functions.stringToImgPath(widget!.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(
+                                                                          ? (functions.stringToImgPath(widget!.imageLeftFrontTrailer?[functions.getIndexOfSomethingList(
                                                                               widget!.insurerNameList?.toList(),
-                                                                              _model.radioButtonValue)])!
+                                                                              _model.radioButtonValue)])!)
                                                                           : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                     ),
                                                                   ),
@@ -9940,12 +9940,12 @@ class _InsuranceRequestEditPageWidgetState
                                                                             _model
                                                                                 .radioButtonValue)]) !=
                                                                         ''
-                                                                    ? functions.stringToImgPath(widget!.imageBlueBook?[functions.getIndexOfSomethingList(
+                                                                    ? (functions.stringToImgPath(widget!.imageBlueBook?[functions.getIndexOfSomethingList(
                                                                         widget!
                                                                             .insurerNameList
                                                                             ?.toList(),
                                                                         _model
-                                                                            .radioButtonValue)])!
+                                                                            .radioButtonValue)])!)
                                                                     : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                               ),
                                                             ),
@@ -10103,12 +10103,12 @@ class _InsuranceRequestEditPageWidgetState
                                                                               _model
                                                                                   .radioButtonValue)]) !=
                                                                           ''
-                                                                      ? functions.stringToImgPath(widget!.imageIdCard?[functions.getIndexOfSomethingList(
+                                                                      ? (functions.stringToImgPath(widget!.imageIdCard?[functions.getIndexOfSomethingList(
                                                                           widget!
                                                                               .insurerNameList
                                                                               ?.toList(),
                                                                           _model
-                                                                              .radioButtonValue)])!
+                                                                              .radioButtonValue)])!)
                                                                       : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                 ),
                                                               ),

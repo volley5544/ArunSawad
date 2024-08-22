@@ -191,6 +191,7 @@ class SearchContractNumberCall {
     String? lastnameCust = '',
     String? cuscod = '',
     String? registrationCar = '',
+    String? step = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -203,7 +204,8 @@ class SearchContractNumberCall {
   "firstname_cust": "${firstnameCust}",
   "lastname_cust": "${lastnameCust}",
   "cuscod": "${cuscod}",
-  "registration_car": "${registrationCar}"
+  "registration_car": "${registrationCar}",
+  "step": "${step}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'searchContractNumber',
