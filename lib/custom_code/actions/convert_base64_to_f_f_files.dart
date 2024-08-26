@@ -17,6 +17,8 @@ import 'dart:typed_data';
 Future<String?> convertBase64ToFFFiles(
     String? imageBase64, String? index) async {
   // Add your function code here!
+  String base64Output = imageBase64!.split(',')[1];
+
   Uint8List imageBytes = base64Decode(imageBase64!);
 
   final directory = await getApplicationDocumentsDirectory();
