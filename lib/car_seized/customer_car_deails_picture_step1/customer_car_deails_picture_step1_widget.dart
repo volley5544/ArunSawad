@@ -1022,8 +1022,11 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
                                           image: Image.memory(
-                                            _model.image1File?.bytes ??
-                                                Uint8List.fromList([]),
+                                            true
+                                                ? _model.image1File
+                                                : _model.noImageAvailableFile
+                                                        ?.bytes ??
+                                                    Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
                                           allowRotation: false,
@@ -1039,8 +1042,11 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.memory(
-                                        _model.image1File?.bytes ??
-                                            Uint8List.fromList([]),
+                                        true
+                                            ? _model.image1File
+                                            : _model.noImageAvailableFile
+                                                    ?.bytes ??
+                                                Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
                                         fit: BoxFit.cover,
