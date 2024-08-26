@@ -1021,7 +1021,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       PageTransition(
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
-                                          image: Image.network(
+                                          image: Image.memory(
                                             UploadImagesGoogleDriveGroup
                                                         .searchImagesCall
                                                         .images1(
@@ -1030,58 +1030,25 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                           ''),
                                                     ) !=
                                                     ''
-                                                ? UploadImagesGoogleDriveGroup
-                                                    .searchImagesCall
-                                                    .images1(
-                                                    (_model.imagesAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )!
-                                                : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                                ? _model.image1File
+                                                : _model.noImageAvailableFile
+                                                        ?.bytes ??
+                                                    Uint8List.fromList([]),
                                             fit: BoxFit.contain,
                                           ),
                                           allowRotation: false,
-                                          tag: UploadImagesGoogleDriveGroup
-                                                      .searchImagesCall
-                                                      .images1(
-                                                    (_model.imagesAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ) !=
-                                                  ''
-                                              ? UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images1(
-                                                  (_model.imagesAPIOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )!
-                                              : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                          tag: 'imageTag1',
                                           useHeroAnimation: true,
                                         ),
                                       ),
                                     );
                                   },
                                   child: Hero(
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images1(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images1(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag1',
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
+                                      child: Image.memory(
                                         UploadImagesGoogleDriveGroup
                                                     .searchImagesCall
                                                     .images1(
@@ -1090,14 +1057,10 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                       ''),
                                                 ) !=
                                                 ''
-                                            ? UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images1(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )!
-                                            : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                            ? _model.image1File
+                                            : _model.noImageAvailableFile
+                                                    ?.bytes ??
+                                                Uint8List.fromList([]),
                                         width: 200.0,
                                         height: 200.0,
                                         fit: BoxFit.cover,
