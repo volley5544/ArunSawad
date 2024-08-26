@@ -1021,7 +1021,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       PageTransition(
                                         type: PageTransitionType.fade,
                                         child: FlutterFlowExpandedImageView(
-                                          image: Image.memory(
+                                          image: Image.network(
                                             UploadImagesGoogleDriveGroup
                                                         .searchImagesCall
                                                         .images1(
@@ -1030,10 +1030,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                           ''),
                                                     ) !=
                                                     ''
-                                                ? _model.image1File
-                                                : _model.noImageAvailableFile
-                                                        ?.bytes ??
-                                                    Uint8List.fromList([]),
+                                                ? UploadImagesGoogleDriveGroup
+                                                    .searchImagesCall
+                                                    .images1(
+                                                    (_model.imagesAPIOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!
+                                                : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                                             fit: BoxFit.contain,
                                           ),
                                           allowRotation: false,
@@ -1077,7 +1081,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     transitionOnUserGestures: true,
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.memory(
+                                      child: Image.network(
                                         UploadImagesGoogleDriveGroup
                                                     .searchImagesCall
                                                     .images1(
@@ -1086,10 +1090,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                       ''),
                                                 ) !=
                                                 ''
-                                            ? _model.image1File
-                                            : _model.noImageAvailableFile
-                                                    ?.bytes ??
-                                                Uint8List.fromList([]),
+                                            ? UploadImagesGoogleDriveGroup
+                                                .searchImagesCall
+                                                .images1(
+                                                (_model.imagesAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!
+                                            : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                                         width: 200.0,
                                         height: 200.0,
                                         fit: BoxFit.cover,
@@ -1375,39 +1383,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images2(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images2(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag2',
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
-                                          .images2(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      ''
-                                  ? UploadImagesGoogleDriveGroup
-                                      .searchImagesCall
-                                      .images2(
-                                      (_model.imagesAPIOutput?.jsonBody ?? ''),
-                                    )!
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              tag: 'imageTag2',
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -1703,39 +1686,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images3(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images3(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag3',
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
-                                          .images3(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      ''
-                                  ? UploadImagesGoogleDriveGroup
-                                      .searchImagesCall
-                                      .images3(
-                                      (_model.imagesAPIOutput?.jsonBody ?? ''),
-                                    )!
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              tag: 'imageTag3',
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -2031,39 +1989,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images4(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images4(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag4',
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
-                                          .images4(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      ''
-                                  ? UploadImagesGoogleDriveGroup
-                                      .searchImagesCall
-                                      .images4(
-                                      (_model.imagesAPIOutput?.jsonBody ?? ''),
-                                    )!
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              tag: 'imageTag4',
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -2359,39 +2292,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images5(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images5(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag5',
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
-                                          .images5(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      ''
-                                  ? UploadImagesGoogleDriveGroup
-                                      .searchImagesCall
-                                      .images5(
-                                      (_model.imagesAPIOutput?.jsonBody ?? ''),
-                                    )!
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              tag: 'imageTag5',
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -2687,39 +2595,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images6(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images6(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag6',
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
-                                          .images6(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      ''
-                                  ? UploadImagesGoogleDriveGroup
-                                      .searchImagesCall
-                                      .images6(
-                                      (_model.imagesAPIOutput?.jsonBody ?? ''),
-                                    )!
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              tag: 'imageTag6',
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -4037,7 +3920,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 PageTransition(
                                   type: PageTransitionType.fade,
                                   child: FlutterFlowExpandedImageView(
-                                    image: Image.memory(
+                                    image: Image.network(
                                       UploadImagesGoogleDriveGroup
                                                   .searchImagesCall
                                                   .images10(
@@ -4046,10 +3929,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                     ''),
                                               ) !=
                                               ''
-                                          ? _model.image10File
-                                          : _model.noImageAvailableFile
-                                                  ?.bytes ??
-                                              Uint8List.fromList([]),
+                                          ? UploadImagesGoogleDriveGroup
+                                              .searchImagesCall
+                                              .images10(
+                                              (_model.imagesAPIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                          : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
@@ -4089,16 +3976,20 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
-                                child: Image.memory(
+                                child: Image.network(
                                   UploadImagesGoogleDriveGroup.searchImagesCall
                                               .images10(
                                             (_model.imagesAPIOutput?.jsonBody ??
                                                 ''),
                                           ) !=
                                           ''
-                                      ? _model.image10File
-                                      : _model.noImageAvailableFile?.bytes ??
-                                          Uint8List.fromList([]),
+                                      ? UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
+                                          .images10(
+                                          (_model.imagesAPIOutput?.jsonBody ??
+                                              ''),
+                                        )!
+                                      : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
                                   width: 200.0,
                                   height: 200.0,
                                   fit: BoxFit.cover,
@@ -4399,39 +4290,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images11(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images11(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag11',
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
-                                          .images11(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      ''
-                                  ? UploadImagesGoogleDriveGroup
-                                      .searchImagesCall
-                                      .images11(
-                                      (_model.imagesAPIOutput?.jsonBody ?? ''),
-                                    )!
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              tag: 'imageTag11',
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -4745,39 +4611,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                       fit: BoxFit.contain,
                                     ),
                                     allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images12(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? UploadImagesGoogleDriveGroup
-                                            .searchImagesCall
-                                            .images12(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          )!
-                                        : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                                    tag: 'imageTag12',
                                     useHeroAnimation: true,
                                   ),
                                 ),
                               );
                             },
                             child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
-                                          .images12(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      ''
-                                  ? UploadImagesGoogleDriveGroup
-                                      .searchImagesCall
-                                      .images12(
-                                      (_model.imagesAPIOutput?.jsonBody ?? ''),
-                                    )!
-                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
+                              tag: 'imageTag12',
                               transitionOnUserGestures: true,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
