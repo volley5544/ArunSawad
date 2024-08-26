@@ -12,10 +12,10 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:io';
 
-Future<FFUploadedFile> convertBase64ToFFFiles(String? imageBase64) async {
+Future<FFUploadedFile?> convertBase64ToFFFiles(String? imageBase64) async {
   // Add your function code here!
   Uint8List? imageBytes = base64Decode(imageBase64!);
   FFUploadedFile? ffFile = FFUploadedFile(bytes: imageBytes!);
 
-  return ffFile!;
+  return ffFile;
 }
