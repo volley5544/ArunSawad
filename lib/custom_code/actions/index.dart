@@ -66,3 +66,4 @@ export 'get_f_f_upload_file_from_file_path.dart'
 export 'check_internet_connection_wifi.dart' show checkInternetConnectionWifi;
 export 'hide_keyboard_action.dart' show hideKeyboardAction;
 export 'get_data_from_collection.dart' show getDataFromCollection;
+export 'convert_base64_to_f_f_files.dart' show convertBase64ToFFFiles;
