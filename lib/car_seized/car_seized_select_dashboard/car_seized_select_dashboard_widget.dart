@@ -78,8 +78,6 @@ class _CarSeizedSelectDashboardWidgetState
       ).then((s) => s.firstOrNull);
       FFAppState().improundUrl = _model.urlLinkStorage!.urlLink;
       setState(() {});
-      FFAppState().improundUrl = 'https://78fb-115-31-145-24.ngrok-free.app';
-      setState(() {});
       _model.getDataCollection = await actions.getDataFromCollection(
         'role_menu',
       );

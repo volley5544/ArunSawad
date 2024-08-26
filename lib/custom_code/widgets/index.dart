@@ -11,3 +11,4 @@ export 'camera_record.dart' show CameraRecord;
 export 'video_page.dart' show VideoPage;
 export 'video_page_ios.dart' show VideoPageIos;
 export 'show_text_url.dart' show ShowTextUrl;
+export 'image_widget5544.dart' show ImageWidget5544;

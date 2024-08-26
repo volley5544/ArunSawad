@@ -1,17 +1,16 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'customer_car_deails_picture_step1_model.dart';
@@ -1021,79 +1020,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                           decoration: BoxDecoration(),
                           child: Stack(
                             children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      PageTransition(
-                                        type: PageTransitionType.fade,
-                                        child: FlutterFlowExpandedImageView(
-                                          image: Image.network(
-                                            UploadImagesGoogleDriveGroup
-                                                        .searchImagesCall
-                                                        .images1(
-                                                      (_model.imagesAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ) !=
-                                                    ''
-                                                ? _model.image1File!
-                                                : _model.noImageAvailableFile!,
-                                            fit: BoxFit.contain,
-                                          ),
-                                          allowRotation: false,
-                                          tag: UploadImagesGoogleDriveGroup
-                                                      .searchImagesCall
-                                                      .images1(
-                                                    (_model.imagesAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ) !=
-                                                  ''
-                                              ? _model.image1File!
-                                              : _model.noImageAvailableFile!,
-                                          useHeroAnimation: true,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                  child: Hero(
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images1(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image1File!
-                                        : _model.noImageAvailableFile!,
-                                    transitionOnUserGestures: true,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        UploadImagesGoogleDriveGroup
-                                                    .searchImagesCall
-                                                    .images1(
-                                                  (_model.imagesAPIOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ) !=
-                                                ''
-                                            ? _model.image1File!
-                                            : _model.noImageAvailableFile!,
-                                        width: 200.0,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
+                              Container(
+                                width: 200.0,
+                                height: 200.0,
+                                child: custom_widgets.ImageWidget5544(
+                                  width: 200.0,
+                                  height: 200.0,
+                                  imageFilePath1: UploadImagesGoogleDriveGroup
+                                              .searchImagesCall
+                                              .images1(
+                                            (_model.imagesAPIOutput?.jsonBody ??
+                                                ''),
+                                          ) !=
+                                          ''
+                                      ? _model.image1File
+                                      : _model.noImageAvailableFile,
                                 ),
                               ),
                             ],
@@ -1346,72 +1287,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images2(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image2File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images2(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image2File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images2(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image2File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images2(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image2File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image2File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -1662,72 +1552,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images3(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image3File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images3(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image3File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images3(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image3File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images3(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image3File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image3File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -1978,72 +1817,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images4(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image4File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images4(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image4File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images4(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image4File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images4(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image4File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image4File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -2294,72 +2082,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images5(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image5File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images5(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image5File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images5(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image5File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images5(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image5File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image5File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -2610,72 +2347,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images6(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image6File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images6(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image6File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images6(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image6File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images6(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image6File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image6File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -2930,72 +2616,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images7(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image7File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images7(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image7File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images7(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image7File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images7(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image7File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image7File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -3262,72 +2897,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images8(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image8File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images8(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image8File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images8(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image8File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images8(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image8File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image8File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -3594,72 +3178,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images9(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image9File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images9(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image9File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images9(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image9File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images9(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image9File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image9File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -3928,72 +3461,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images10(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image10File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images10(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image10File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images10(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image10File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images10(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image10File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image10File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -4262,72 +3744,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images11(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image11File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images11(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image11File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images11(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image11File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images11(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image11File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image11File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
@@ -4596,72 +4027,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       decoration: BoxDecoration(),
                       child: Stack(
                         children: [
-                          InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await Navigator.push(
-                                context,
-                                PageTransition(
-                                  type: PageTransitionType.fade,
-                                  child: FlutterFlowExpandedImageView(
-                                    image: Image.network(
-                                      UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .images12(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) !=
-                                              ''
-                                          ? _model.image12File!
-                                          : _model.noImageAvailableFile!,
-                                      fit: BoxFit.contain,
-                                    ),
-                                    allowRotation: false,
-                                    tag: UploadImagesGoogleDriveGroup
-                                                .searchImagesCall
-                                                .images12(
-                                              (_model.imagesAPIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) !=
-                                            ''
-                                        ? _model.image12File!
-                                        : _model.noImageAvailableFile!,
-                                    useHeroAnimation: true,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Hero(
-                              tag: UploadImagesGoogleDriveGroup.searchImagesCall
+                          Container(
+                            width: 200.0,
+                            height: 200.0,
+                            child: custom_widgets.ImageWidget5544(
+                              width: 200.0,
+                              height: 200.0,
+                              imageFilePath1: UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
                                           .images12(
                                         (_model.imagesAPIOutput?.jsonBody ??
                                             ''),
                                       ) !=
                                       ''
-                                  ? _model.image12File!
-                                  : _model.noImageAvailableFile!,
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  UploadImagesGoogleDriveGroup.searchImagesCall
-                                              .images12(
-                                            (_model.imagesAPIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          ''
-                                      ? _model.image12File!
-                                      : _model.noImageAvailableFile!,
-                                  width: 200.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
+                                  ? _model.image12File
+                                  : _model.noImageAvailableFile,
                             ),
                           ),
                         ],
