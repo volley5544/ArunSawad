@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 import '../../flutter_flow/flutter_flow_expanded_image_view.dart';
+import 'dart:io';
 
 class ImageWidget5544 extends StatefulWidget {
   const ImageWidget5544({
@@ -45,23 +46,23 @@ class _ImageWidget5544State extends State<ImageWidget5544> {
               type: PageTransitionType.fade,
               child: FlutterFlowExpandedImageView(
                 image: Image.file(
-                  File(imageFilePath1!),
+                  File(widget.imageFilePath1!),
                   fit: BoxFit.contain,
                 ),
                 allowRotation: false,
-                tag: Image.file(File(imageFilePath1!)),
+                tag: Image.file(File(widget.imageFilePath1!)),
                 useHeroAnimation: true,
               ),
             ),
           );
         },
         child: Hero(
-          tag: Image.file(File(imageFilePath1!)),
+          tag: Image.file(File(widget.imageFilePath1!)),
           transitionOnUserGestures: true,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: Image.file(
-              File(imageFilePath1!),
+              File(widget.imageFilePath1!),
               width: 200.0,
               height: 200.0,
               fit: BoxFit.cover,
