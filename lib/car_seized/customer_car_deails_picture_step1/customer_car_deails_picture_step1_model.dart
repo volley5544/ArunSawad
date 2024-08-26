@@ -24,31 +24,31 @@ class CustomerCarDeailsPictureStep1Model
   // Stores action output result for [Backend Call - API (searchImages)] action in customerCarDeailsPictureStep1 widget.
   ApiCallResponse? imagesAPIOutput;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image1File;
+  String? image1File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image2File;
+  String? image2File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image3File;
+  String? image3File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image4File;
+  String? image4File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image5File;
+  String? image5File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image6File;
+  String? image6File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image7File;
+  String? image7File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image8File;
+  String? image8File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image9File;
+  String? image9File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image10File;
+  String? image10File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image11File;
+  String? image11File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? image12File;
+  String? image12File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
-  FFUploadedFile? noImageAvailableFile;
+  String? noImageAvailableFile;
 
   @override
   void initState(BuildContext context) {}

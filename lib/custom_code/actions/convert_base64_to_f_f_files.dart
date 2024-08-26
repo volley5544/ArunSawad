@@ -11,11 +11,20 @@ import 'package:flutter/material.dart';
 
 import 'dart:convert';
 import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'dart:typed_data';
 
-Future<FFUploadedFile?> convertBase64ToFFFiles(String? imageBase64) async {
+Future<String?> convertBase64ToFFFiles(
+    String? imageBase64, String? index) async {
   // Add your function code here!
-  Uint8List? imageBytes = base64Decode(imageBase64!);
-  FFUploadedFile? ffFile = FFUploadedFile(bytes: imageBytes!);
+  Uint8List imageBytes = base64Decode(imageBase64!);
 
-  return ffFile;
+  final directory = await getApplicationDocumentsDirectory();
+  final filePath = '${directory.path}/image${index!}.png';
+
+  // Save the image file
+  final file = File(filePath);
+  await file.writeAsBytes(imageBytes);
+
+  return filePath;
 }
