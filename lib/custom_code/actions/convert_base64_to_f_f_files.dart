@@ -19,7 +19,7 @@ Future<String?> convertBase64ToFFFiles(
   // Add your function code here!
   String base64Output = imageBase64!.split(',')[1];
 
-  Uint8List imageBytes = base64Decode(imageBase64!);
+  Uint8List imageBytes = base64Decode(base64Output!);
 
   final directory = await getApplicationDocumentsDirectory();
   final filePath = '${directory.path}/image${index!}.png';
