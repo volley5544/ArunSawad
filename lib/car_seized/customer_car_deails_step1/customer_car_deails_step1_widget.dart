@@ -118,7 +118,7 @@ class _CustomerCarDeailsStep1WidgetState
           title: Text(
             () {
               if (widget!.step == 'step1') {
-                return 'ถ่ายรูปยึดรถ';
+                return 'ถ่ายรูปรถยึด';
               } else if (widget!.step == 'step2') {
                 return 'ถ่ายรูปส่งมอบรถ';
               } else if (widget!.step == 'step3') {
@@ -6641,28 +6641,6 @@ class _CustomerCarDeailsStep1WidgetState
                                 if (_shouldSetState) setState(() {});
                                 return;
                               }
-                              await showDialog(
-                                context: context,
-                                builder: (alertDialogContext) {
-                                  return WebViewAware(
-                                    child: AlertDialog(
-                                      content: Text('${getJsonField(
-                                        (_model.uploadGoogleDriveApiOutput
-                                                ?.jsonBody ??
-                                            ''),
-                                        r'''$.message''',
-                                      ).toString()}'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                              );
                               Navigator.pop(context);
 
                               context.pushNamed(

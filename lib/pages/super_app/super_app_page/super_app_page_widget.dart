@@ -2390,6 +2390,304 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             'HO') {
                                                                           return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'สาขา') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'เขต') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        } else {
+                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        }
+                                                                      }() ||
+                                                                      gridViewRoleMenuRecord!
+                                                                          .empAdmin
+                                                                          .contains(FFAppState()
+                                                                              .employeeID) ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'ลูกค้ารถยึด')!)
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        HapticFeedback
+                                                                            .mediumImpact();
+
+                                                                        context
+                                                                            .goNamed(
+                                                                          'CarSeizedSelectDashboard',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'readRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                            'saveRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            100.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Colors.white,
+                                                                          shape:
+                                                                              BoxShape.circle,
+                                                                        ),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                              child: Container(
+                                                                                width: 50.0,
+                                                                                height: 50.0,
+                                                                                clipBehavior: Clip.antiAlias,
+                                                                                decoration: BoxDecoration(
+                                                                                  shape: BoxShape.circle,
+                                                                                ),
+                                                                                child: Image.asset(
+                                                                                  'assets/images/NEW.png',
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Text(
+                                                                              'ลูกค้ารถยึด',
+                                                                              textAlign: TextAlign.center,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  if (() {
+                                                                        if (FFAppState().profileLevel ==
+                                                                            'HO') {
+                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'สาขา') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'เขต') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        } else {
+                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        }
+                                                                      }() ||
+                                                                      gridViewRoleMenuRecord!
+                                                                          .empAdmin
+                                                                          .contains(FFAppState()
+                                                                              .employeeID) ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'GEN E-PA')!)
+                                                                    FutureBuilder<
+                                                                        List<
+                                                                            UrlLinkStorageRecord>>(
+                                                                      future:
+                                                                          queryUrlLinkStorageRecordOnce(
+                                                                        queryBuilder:
+                                                                            (urlLinkStorageRecord) =>
+                                                                                urlLinkStorageRecord.where(
+                                                                          'url_name',
+                                                                          isEqualTo:
+                                                                              'tableau_report_base_url',
+                                                                        ),
+                                                                        singleRecord:
+                                                                            true,
+                                                                      ),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                SizedBox(
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).tertiary,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        List<UrlLinkStorageRecord>
+                                                                            containerUrlLinkStorageRecordList =
+                                                                            snapshot.data!;
+                                                                        final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
+                                                                            ? containerUrlLinkStorageRecordList.first
+                                                                            : null;
+
+                                                                        return InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            HapticFeedback.mediumImpact();
+                                                                            if (!(FFAppState().isFromAuthenPage ||
+                                                                                FFAppState().isFromSetPinPage)) {
+                                                                              Navigator.pop(context);
+
+                                                                              context.goNamed('PinCodePage');
+
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              enableDrag: false,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: LoadingSceneWidget(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+
+                                                                            _model.reportStorageTypeMQuery =
+                                                                                await queryReportStorageRecordOnce(
+                                                                              queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                'report_name',
+                                                                                isEqualTo: 'ค่าลีดรถ M',
+                                                                              ),
+                                                                              singleRecord: true,
+                                                                            ).then((s) => s.firstOrNull);
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            Navigator.pop(context);
+                                                                            await actions.openTableauBrowser(
+                                                                              FFAppState().accessToken,
+                                                                              '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageTypeMQuery?.reportUrl?.first}',
+                                                                              FFAppState().isOpenAndroidTableauBrowser,
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Colors.white,
+                                                                              shape: BoxShape.circle,
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                  child: Container(
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.asset(
+                                                                                      'assets/images/Type_M.png',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'ค่าลีดรถ M',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                  if (() {
+                                                                        if (FFAppState().profileLevel ==
+                                                                            'HO') {
+                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
                                                                               'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
@@ -2613,121 +2911,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                             Text(
                                                                               'ลูกค้าที่ดิน',
-                                                                              textAlign: TextAlign.center,
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 12.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                  ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
-                                                                      functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
-                                                                              ?.toList(),
-                                                                          FFAppState()
-                                                                              .employeeID,
-                                                                          'ลูกค้ารถยึด')!)
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        HapticFeedback
-                                                                            .mediumImpact();
-
-                                                                        context
-                                                                            .goNamed(
-                                                                          'CarSeizedSelectDashboard',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'readRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                            'saveRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            100.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              Colors.white,
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                              child: Container(
-                                                                                width: 50.0,
-                                                                                height: 50.0,
-                                                                                clipBehavior: Clip.antiAlias,
-                                                                                decoration: BoxDecoration(
-                                                                                  shape: BoxShape.circle,
-                                                                                ),
-                                                                                child: Image.asset(
-                                                                                  'assets/images/NEW.png',
-                                                                                  fit: BoxFit.cover,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Text(
-                                                                              'ลูกค้ารถยึด',
                                                                               textAlign: TextAlign.center,
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',

@@ -354,7 +354,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
           title: Text(
             () {
               if (widget!.step == 'step1') {
-                return 'ดูรูปยึดรถ';
+                return 'ดูรูปรถยึด';
               } else if (widget!.step == 'step2') {
                 return 'ดูรูปส่งมอบรถ';
               } else if (widget!.step == 'step3') {
