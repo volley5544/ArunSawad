@@ -20,6 +20,7 @@ class CustomerCarDeailsPictureStep1Model
     extends FlutterFlowModel<CustomerCarDeailsPictureStep1Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
   String? noImageAvailableFile;
   // Stores action output result for [Backend Call - API (searchImages)] action in customerCarDeailsPictureStep1 widget.

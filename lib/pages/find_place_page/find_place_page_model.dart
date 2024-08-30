@@ -14,6 +14,7 @@ import 'package:provider/provider.dart';
 class FindPlacePageModel extends FlutterFlowModel<FindPlacePageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for PlacePicker widget.
   FFPlace placePickerValue = FFPlace();
   // State field(s) for GoogleMap widget.

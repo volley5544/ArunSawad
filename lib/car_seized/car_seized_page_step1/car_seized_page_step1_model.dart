@@ -10,6 +10,10 @@ import 'package:provider/provider.dart';
 
 class CarSeizedPageStep1Model
     extends FlutterFlowModel<CarSeizedPageStep1Widget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

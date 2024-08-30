@@ -16,6 +16,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class GuideBookPageModel extends FlutterFlowModel<GuideBookPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in GuideBookPage widget.
   UserLogRecord? createdUserLogEmployeeGuide;
 

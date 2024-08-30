@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 class InsurancePlanModel extends FlutterFlowModel<InsurancePlanWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for planInsurance widget.
   FocusNode? planInsuranceFocusNode;
   TextEditingController? planInsuranceTextController;

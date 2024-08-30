@@ -20,6 +20,7 @@ class CustomerCarDeailsStep1Model
     extends FlutterFlowModel<CustomerCarDeailsStep1Widget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for CaptureCameraWidget component.
   late CaptureCameraWidgetModel captureCameraWidgetModel1;
   bool isDataUploading1 = false;

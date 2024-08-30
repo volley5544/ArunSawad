@@ -17,6 +17,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class InspocPageModel extends FlutterFlowModel<InspocPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a8] action in InspocPage widget.
   bool? checkLatLngClassroom;
   // Stores action output result for [Backend Call - Create Document] action in InspocPage widget.

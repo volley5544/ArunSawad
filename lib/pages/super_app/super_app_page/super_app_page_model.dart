@@ -39,6 +39,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
   HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - getBuildVersion] action in SuperAppPage widget.
@@ -73,6 +74,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? checkLoginLeavePage;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutput;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginImpoundCar;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   ReportStorageRecord? reportStorageTypeMQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
@@ -173,6 +176,12 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? checkLoginLeavePagetab;
   // Stores action output result for [Backend Call - API (GetBossAPI)] action in Container widget.
   ApiCallResponse? bossCheckOutputPad;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLogImpoundCarTab;
+  // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
+  ApiCallResponse? checkLoginLeadMTab;
+  // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
+  ReportStorageRecord? reportStorageTypeMQueryTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? queryVloanApiUrlTab;
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.

@@ -8,6 +8,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class ErtertModel extends FlutterFlowModel<ErtertWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

@@ -11,6 +11,10 @@ import 'package:provider/provider.dart';
 
 class CustomerBikeDetailsStep1Model
     extends FlutterFlowModel<CustomerBikeDetailsStep1Widget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

@@ -22,6 +22,7 @@ class CheckInsurancePageModel
     extends FlutterFlowModel<CheckInsurancePageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in CheckInsurancePage widget.
   UserLogRecord? createdUserLogInsurance;
   // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in CheckInsurancePage widget.

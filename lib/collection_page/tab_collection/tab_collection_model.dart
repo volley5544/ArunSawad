@@ -20,6 +20,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class TabCollectionModel extends FlutterFlowModel<TabCollectionWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (collectionApiGetDataCount)] action in tabCollection widget.
   ApiCallResponse? collectionApiGetdataCount;
   // Stores action output result for [Backend Call - API (collectionApiGetDataCountPP)] action in tabCollection widget.

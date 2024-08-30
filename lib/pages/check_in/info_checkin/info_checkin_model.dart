@@ -20,6 +20,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class InfoCheckinModel extends FlutterFlowModel<InfoCheckinWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a8] action in InfoCheckin widget.
   bool? checkLatLngBVCheckIn;
   // Stores action output result for [Backend Call - Create Document] action in InfoCheckin widget.

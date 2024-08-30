@@ -38,6 +38,7 @@ class _CarSeizedSelectDashboardWidgetState
   late CarSeizedSelectDashboardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   @override
   void initState() {
@@ -48,6 +49,8 @@ class _CarSeizedSelectDashboardWidgetState
         parameters: {'screen_name': 'CarSeizedSelectDashboard'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -92,6 +95,22 @@ class _CarSeizedSelectDashboardWidgetState
           _model.writeAccessRoleData, FFAppState().employeeID)!;
       setState(() {});
       Navigator.pop(context);
+
+      var userLogRecordReference = UserLogRecord.collection.doc();
+      await userLogRecordReference.set(createUserLogRecordData(
+        employeeId: FFAppState().employeeID,
+        action: 'ImpoundCar',
+        actionTime: getCurrentTimestamp,
+        userLocation: currentUserLocationValue,
+      ));
+      _model.createdUserLogImpoundCar = UserLogRecord.getDocumentFromData(
+          createUserLogRecordData(
+            employeeId: FFAppState().employeeID,
+            action: 'ImpoundCar',
+            actionTime: getCurrentTimestamp,
+            userLocation: currentUserLocationValue,
+          ),
+          userLogRecordReference);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));

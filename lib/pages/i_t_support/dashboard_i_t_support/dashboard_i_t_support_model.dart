@@ -14,6 +14,10 @@ import 'package:provider/provider.dart';
 
 class DashboardITSupportModel
     extends FlutterFlowModel<DashboardITSupportWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 

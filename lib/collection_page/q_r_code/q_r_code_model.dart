@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 class QRCodeModel extends FlutterFlowModel<QRCodeWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
 

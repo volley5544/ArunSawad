@@ -31,6 +31,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class OPSpageModel extends FlutterFlowModel<OPSpageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for cameraButton component.
   late CameraButtonModel cameraButtonModel;
   // State field(s) for TextField widget.

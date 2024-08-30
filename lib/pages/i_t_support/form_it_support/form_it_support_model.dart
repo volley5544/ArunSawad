@@ -15,6 +15,7 @@ import 'package:provider/provider.dart';
 class FormItSupportModel extends FlutterFlowModel<FormItSupportWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // State field(s) for leaveDays widget.
   FocusNode? leaveDaysFocusNode;

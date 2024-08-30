@@ -2433,8 +2433,199 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
+                                                                        var _shouldSetState =
+                                                                            false;
                                                                         HapticFeedback
                                                                             .mediumImpact();
+                                                                        if (!(FFAppState().isFromAuthenPage ||
+                                                                            FFAppState().isFromSetPinPage)) {
+                                                                          Navigator.pop(
+                                                                              context);
+
+                                                                          context
+                                                                              .goNamed('PinCodePage');
+
+                                                                          if (_shouldSetState)
+                                                                            setState(() {});
+                                                                          return;
+                                                                        }
+                                                                        showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          barrierColor:
+                                                                              Color(0x00000000),
+                                                                          enableDrag:
+                                                                              false,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: Container(
+                                                                                    height: double.infinity,
+                                                                                    child: LoadingSceneWidget(),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() {}));
+
+                                                                        _model.checkLoginImpoundCar =
+                                                                            await ActionUserAPICall.call(
+                                                                          token:
+                                                                              FFAppState().accessToken,
+                                                                          apiUrl:
+                                                                              FFAppState().apiURLLocalState,
+                                                                        );
+
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        if ((_model.checkLoginImpoundCar?.statusCode ??
+                                                                                200) !=
+                                                                            200) {
+                                                                          if (!((ActionUserAPICall.message(
+                                                                                    (_model.checkLoginImpoundCar?.jsonBody ?? ''),
+                                                                                  ) ==
+                                                                                  'The token has been blacklisted') ||
+                                                                              (ActionUserAPICall.message(
+                                                                                    (_model.checkLoginImpoundCar?.jsonBody ?? ''),
+                                                                                  ) ==
+                                                                                  'Token Signature could not be verified.'))) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('พบข้อผิดพลาด (${(_model.checkLoginImpoundCar?.statusCode ?? 200).toString()})'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('Session Loginหมดอายุ'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+                                                                          FFAppState().loginStateFirebase =
+                                                                              '[loginStateFirebase]';
+                                                                          FFAppState()
+                                                                              .deleteAccessToken();
+                                                                          FFAppState().accessToken =
+                                                                              'access_token';
+
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deleteEmployeeID();
+                                                                          FFAppState().employeeID =
+                                                                              'employee_id';
+
+                                                                          FFAppState().QRCodeLink =
+                                                                              'qrcode_link';
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deleteApiURLLocalState();
+                                                                          FFAppState().apiURLLocalState =
+                                                                              'api_url_local_state';
+
+                                                                          FFAppState()
+                                                                              .deleteBranchCode();
+                                                                          FFAppState().branchCode =
+                                                                              'branch_code';
+
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().isFromSetPinPage =
+                                                                              false;
+                                                                          FFAppState().leadChannelColor =
+                                                                              [];
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().leadChannelList =
+                                                                              [];
+                                                                          FFAppState().isFromLoginPage =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deletePinCodeAuthen();
+                                                                          FFAppState().pinCodeAuthen =
+                                                                              '013972';
+
+                                                                          FFAppState().isFromAuthenPage =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deleteDateDoNotShowAgain();
+                                                                          FFAppState().dateDoNotShowAgain =
+                                                                              null;
+
+                                                                          FFAppState()
+                                                                              .deleteDoNotShowAgain();
+                                                                          FFAppState().doNotShowAgain =
+                                                                              false;
+
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().inAppViaNotification =
+                                                                              true;
+                                                                          FFAppState().isInApp =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().fcmToken =
+                                                                              'fcm_token';
+                                                                          FFAppState().isPassLoginSection =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          Navigator.pop(
+                                                                              context);
+                                                                          await actions
+                                                                              .a22();
+
+                                                                          context
+                                                                              .goNamed('LoginPage');
+
+                                                                          if (_shouldSetState)
+                                                                            setState(() {});
+                                                                          return;
+                                                                        }
+                                                                        Navigator.pop(
+                                                                            context);
 
                                                                         context
                                                                             .goNamed(
@@ -2453,6 +2644,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           }.withoutNulls,
                                                                         );
+
+                                                                        if (_shouldSetState)
+                                                                          setState(
+                                                                              () {});
                                                                       },
                                                                       child:
                                                                           Container(
@@ -11837,6 +12032,628 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             'HO') {
                                                                           return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
                                                                               gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'สาขา') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'เขต') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        } else {
+                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ลูกค้ารถยึด')];
+                                                                        }
+                                                                      }() ||
+                                                                      gridViewRoleMenuRecord!
+                                                                          .empAdmin
+                                                                          .contains(FFAppState()
+                                                                              .employeeID) ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'ลูกค้ารถยึด')!)
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        var _shouldSetState =
+                                                                            false;
+                                                                        HapticFeedback
+                                                                            .mediumImpact();
+                                                                        if (!(FFAppState().isFromAuthenPage ||
+                                                                            FFAppState().isFromSetPinPage)) {
+                                                                          Navigator.pop(
+                                                                              context);
+
+                                                                          context
+                                                                              .goNamed('PinCodePage');
+
+                                                                          if (_shouldSetState)
+                                                                            setState(() {});
+                                                                          return;
+                                                                        }
+                                                                        showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          barrierColor:
+                                                                              Color(0x00000000),
+                                                                          enableDrag:
+                                                                              false,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () => FocusScope.of(context).unfocus(),
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: Container(
+                                                                                    height: double.infinity,
+                                                                                    child: LoadingSceneWidget(),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() {}));
+
+                                                                        _model.checkLogImpoundCarTab =
+                                                                            await ActionUserAPICall.call(
+                                                                          token:
+                                                                              FFAppState().accessToken,
+                                                                          apiUrl:
+                                                                              FFAppState().apiURLLocalState,
+                                                                        );
+
+                                                                        _shouldSetState =
+                                                                            true;
+                                                                        if ((_model.checkLogImpoundCarTab?.statusCode ??
+                                                                                200) !=
+                                                                            200) {
+                                                                          if (!((ActionUserAPICall.message(
+                                                                                    (_model.checkLogImpoundCarTab?.jsonBody ?? ''),
+                                                                                  ) ==
+                                                                                  'The token has been blacklisted') ||
+                                                                              (ActionUserAPICall.message(
+                                                                                    (_model.checkLogImpoundCarTab?.jsonBody ?? ''),
+                                                                                  ) ==
+                                                                                  'Token Signature could not be verified.'))) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('พบข้อผิดพลาด (${(_model.checkLogImpoundCarTab?.statusCode ?? 200).toString()})'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('Session Loginหมดอายุ'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+                                                                          FFAppState().loginStateFirebase =
+                                                                              '[loginStateFirebase]';
+                                                                          FFAppState()
+                                                                              .deleteAccessToken();
+                                                                          FFAppState().accessToken =
+                                                                              'access_token';
+
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deleteEmployeeID();
+                                                                          FFAppState().employeeID =
+                                                                              'employee_id';
+
+                                                                          FFAppState().QRCodeLink =
+                                                                              'qrcode_link';
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deleteApiURLLocalState();
+                                                                          FFAppState().apiURLLocalState =
+                                                                              'api_url_local_state';
+
+                                                                          FFAppState()
+                                                                              .deleteBranchCode();
+                                                                          FFAppState().branchCode =
+                                                                              'branch_code';
+
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().isFromSetPinPage =
+                                                                              false;
+                                                                          FFAppState().leadChannelColor =
+                                                                              [];
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().leadChannelList =
+                                                                              [];
+                                                                          FFAppState().isFromLoginPage =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deletePinCodeAuthen();
+                                                                          FFAppState().pinCodeAuthen =
+                                                                              '013972';
+
+                                                                          FFAppState().isFromAuthenPage =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState()
+                                                                              .deleteDateDoNotShowAgain();
+                                                                          FFAppState().dateDoNotShowAgain =
+                                                                              null;
+
+                                                                          FFAppState()
+                                                                              .deleteDoNotShowAgain();
+                                                                          FFAppState().doNotShowAgain =
+                                                                              false;
+
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().inAppViaNotification =
+                                                                              true;
+                                                                          FFAppState().isInApp =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().fcmToken =
+                                                                              'fcm_token';
+                                                                          FFAppState().isPassLoginSection =
+                                                                              false;
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          Navigator.pop(
+                                                                              context);
+                                                                          await actions
+                                                                              .a22();
+
+                                                                          context
+                                                                              .goNamed('LoginPage');
+
+                                                                          if (_shouldSetState)
+                                                                            setState(() {});
+                                                                          return;
+                                                                        }
+                                                                        Navigator.pop(
+                                                                            context);
+
+                                                                        context
+                                                                            .goNamed(
+                                                                          'CarSeizedSelectDashboard',
+                                                                          queryParameters:
+                                                                              {
+                                                                            'readRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                            'saveRoleAccess':
+                                                                                serializeParam(
+                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
+                                                                              ParamType.DataStruct,
+                                                                            ),
+                                                                          }.withoutNulls,
+                                                                        );
+
+                                                                        if (_shouldSetState)
+                                                                          setState(
+                                                                              () {});
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            100.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondaryBackground,
+                                                                        ),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.start,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                              child: Container(
+                                                                                width: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                height: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                clipBehavior: Clip.antiAlias,
+                                                                                decoration: BoxDecoration(
+                                                                                  shape: BoxShape.circle,
+                                                                                ),
+                                                                                child: Image.asset(
+                                                                                  'assets/images/NEW.png',
+                                                                                  fit: BoxFit.fitHeight,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Text(
+                                                                              'ลูกค้ารถยึด',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Poppins',
+                                                                                    fontSize: 20.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  if (() {
+                                                                        if (FFAppState().profileLevel ==
+                                                                            'HO') {
+                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'สาขา') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        } else if (FFAppState().profileLevel ==
+                                                                            'เขต') {
+                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        } else {
+                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
+                                                                              'ค่าลีดรถ M')];
+                                                                        }
+                                                                      }() ||
+                                                                      gridViewRoleMenuRecord!
+                                                                          .empAdmin
+                                                                          .contains(FFAppState()
+                                                                              .employeeID) ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          gridViewRoleMenuRecord
+                                                                              ?.adminRoleGroup
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID,
+                                                                          'ค่าลีดรถ M')!)
+                                                                    FutureBuilder<
+                                                                        List<
+                                                                            UrlLinkStorageRecord>>(
+                                                                      future:
+                                                                          queryUrlLinkStorageRecordOnce(
+                                                                        queryBuilder:
+                                                                            (urlLinkStorageRecord) =>
+                                                                                urlLinkStorageRecord.where(
+                                                                          'url_name',
+                                                                          isEqualTo:
+                                                                              'tableau_daily_new_loan',
+                                                                        ),
+                                                                        singleRecord:
+                                                                            true,
+                                                                      ),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                SizedBox(
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: CircularProgressIndicator(
+                                                                                valueColor: AlwaysStoppedAnimation<Color>(
+                                                                                  FlutterFlowTheme.of(context).tertiary,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        List<UrlLinkStorageRecord>
+                                                                            containerUrlLinkStorageRecordList =
+                                                                            snapshot.data!;
+                                                                        // Return an empty Container when the item does not exist.
+                                                                        if (snapshot
+                                                                            .data!
+                                                                            .isEmpty) {
+                                                                          return Container();
+                                                                        }
+                                                                        final containerUrlLinkStorageRecord = containerUrlLinkStorageRecordList.isNotEmpty
+                                                                            ? containerUrlLinkStorageRecordList.first
+                                                                            : null;
+
+                                                                        return InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            HapticFeedback.mediumImpact();
+                                                                            if (!(FFAppState().isFromAuthenPage ||
+                                                                                FFAppState().isFromSetPinPage)) {
+                                                                              Navigator.pop(context);
+
+                                                                              context.goNamed('PinCodePage');
+
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              barrierColor: Color(0x00000000),
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: LoadingSceneWidget(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+
+                                                                            _model.checkLoginLeadMTab =
+                                                                                await ActionUserAPICall.call(
+                                                                              token: FFAppState().accessToken,
+                                                                              apiUrl: FFAppState().apiURLLocalState,
+                                                                            );
+
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            if ((_model.checkLoginLeadMTab?.statusCode ?? 200) !=
+                                                                                200) {
+                                                                              if (!((ActionUserAPICall.message(
+                                                                                        (_model.checkLoginLeadMTab?.jsonBody ?? ''),
+                                                                                      ) ==
+                                                                                      'The token has been blacklisted') ||
+                                                                                  (ActionUserAPICall.message(
+                                                                                        (_model.checkLoginLeadMTab?.jsonBody ?? ''),
+                                                                                      ) ==
+                                                                                      'Token Signature could not be verified.'))) {
+                                                                                await showDialog(
+                                                                                  context: context,
+                                                                                  builder: (alertDialogContext) {
+                                                                                    return WebViewAware(
+                                                                                      child: AlertDialog(
+                                                                                        content: Text('พบข้อผิดพลาด (${(_model.checkLoginLeadMTab?.statusCode ?? 200).toString()})'),
+                                                                                        actions: [
+                                                                                          TextButton(
+                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                            child: Text('Ok'),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    );
+                                                                                  },
+                                                                                );
+                                                                                if (_shouldSetState) setState(() {});
+                                                                                return;
+                                                                              }
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('Session Loginหมดอายุ'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                              FFAppState().deleteAccessToken();
+                                                                              FFAppState().accessToken = 'access_token';
+
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().deleteEmployeeID();
+                                                                              FFAppState().employeeID = 'employee_id';
+
+                                                                              FFAppState().QRCodeLink = 'qrcode_link';
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().deleteApiURLLocalState();
+                                                                              FFAppState().apiURLLocalState = 'api_url_local_state';
+
+                                                                              FFAppState().deleteBranchCode();
+                                                                              FFAppState().branchCode = 'branch_code';
+
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().isFromSetPinPage = false;
+                                                                              FFAppState().leadChannelColor = [];
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().leadChannelList = [];
+                                                                              FFAppState().isFromLoginPage = false;
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().deletePinCodeAuthen();
+                                                                              FFAppState().pinCodeAuthen = '013972';
+
+                                                                              FFAppState().isFromAuthenPage = false;
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().deleteDateDoNotShowAgain();
+                                                                              FFAppState().dateDoNotShowAgain = null;
+
+                                                                              FFAppState().deleteDoNotShowAgain();
+                                                                              FFAppState().doNotShowAgain = false;
+
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().inAppViaNotification = true;
+                                                                              FFAppState().isInApp = false;
+                                                                              FFAppState().update(() {});
+                                                                              FFAppState().fcmToken = 'fcm_token';
+                                                                              FFAppState().isPassLoginSection = false;
+                                                                              FFAppState().update(() {});
+                                                                              Navigator.pop(context);
+                                                                              await actions.a22();
+
+                                                                              context.goNamed('LoginPage');
+
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              enableDrag: false,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: LoadingSceneWidget(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+
+                                                                            _model.reportStorageTypeMQueryTab =
+                                                                                await queryReportStorageRecordOnce(
+                                                                              queryBuilder: (reportStorageRecord) => reportStorageRecord.where(
+                                                                                'report_name',
+                                                                                isEqualTo: 'ค่าลีดรถ M',
+                                                                              ),
+                                                                              singleRecord: true,
+                                                                            ).then((s) => s.firstOrNull);
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            Navigator.pop(context);
+                                                                            await actions.openTableauBrowser(
+                                                                              FFAppState().accessToken,
+                                                                              '${containerUrlLinkStorageRecord?.urlLink}${_model.reportStorageTypeMQuery?.reportUrl?.first}',
+                                                                              FFAppState().isOpenAndroidTableauBrowser,
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                  child: Container(
+                                                                                    width: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                    height: MediaQuery.sizeOf(context).width * 0.1,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.asset(
+                                                                                      'assets/images/Type_M.png',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'ค่าลีดรถ M',
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        fontSize: 20.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                  if (() {
+                                                                        if (FFAppState().profileLevel ==
+                                                                            'HO') {
+                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
+                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
                                                                               'บันทึกวีดิโอ (ลูกค้า)')];
                                                                         } else if (FFAppState().profileLevel ==
                                                                             'สาขา') {
@@ -12021,121 +12838,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                             Text(
                                                                               'ลูกค้าที่ดิน',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'Poppins',
-                                                                                    fontSize: 20.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                  ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        }
-                                                                      }() &&
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) &&
-                                                                      functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
-                                                                              ?.toList(),
-                                                                          FFAppState()
-                                                                              .employeeID,
-                                                                          'ลูกค้ารถยึด')! &&
-                                                                      false)
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        HapticFeedback
-                                                                            .mediumImpact();
-
-                                                                        context
-                                                                            .goNamed(
-                                                                          'CarSeizedSelectDashboard',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'readRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                            'saveRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            100.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondaryBackground,
-                                                                        ),
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.start,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                                                                              child: Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.1,
-                                                                                height: MediaQuery.sizeOf(context).width * 0.1,
-                                                                                clipBehavior: Clip.antiAlias,
-                                                                                decoration: BoxDecoration(
-                                                                                  shape: BoxShape.circle,
-                                                                                ),
-                                                                                child: Image.asset(
-                                                                                  'assets/images/NEW.png',
-                                                                                  fit: BoxFit.fitHeight,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Text(
-                                                                              'ลูกค้ารถยึด',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Poppins',
                                                                                     fontSize: 20.0,

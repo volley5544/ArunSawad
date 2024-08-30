@@ -25,6 +25,7 @@ class InsuranceRequestEditPageModel
     extends FlutterFlowModel<InsuranceRequestEditPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for Column widget.
   ScrollController? columnController1;
   // State field(s) for RadioButton widget.

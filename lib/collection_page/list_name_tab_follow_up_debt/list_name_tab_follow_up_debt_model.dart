@@ -25,6 +25,7 @@ class ListNameTabFollowUpDebtModel
     extends FlutterFlowModel<ListNameTabFollowUpDebtWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Model for appbarFollowUpDebt component.
   late AppbarFollowUpDebtModel appbarFollowUpDebtModel;
   // State field(s) for DropDown widget.

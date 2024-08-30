@@ -16,6 +16,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class ChatSearchPageModel extends FlutterFlowModel<ChatSearchPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // State field(s) for SearchBox widget.
   FocusNode? searchBoxFocusNode;
   TextEditingController? searchBoxTextController;

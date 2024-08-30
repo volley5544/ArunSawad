@@ -30,6 +30,7 @@ class EmployeeKpiCEOPageModel
     extends FlutterFlowModel<EmployeeKpiCEOPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in EmployeeKpiCEOPage widget.
   UserLogRecord? createdUserLogKPI;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in EmployeeKpiCEOPage widget.

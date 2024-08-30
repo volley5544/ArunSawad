@@ -19,6 +19,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class WelfareKPIPageModel extends FlutterFlowModel<WelfareKPIPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in WelfareKPIPage widget.
   UserLogRecord? createdUserLogWelfareKPI;
   // Stores action output result for [Backend Call - API (getWelfareKpiCurrentMonthAPI)] action in WelfareKPIPage widget.

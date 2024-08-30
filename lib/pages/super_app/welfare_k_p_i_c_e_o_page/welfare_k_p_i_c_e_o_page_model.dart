@@ -25,6 +25,7 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class WelfareKPICEOPageModel extends FlutterFlowModel<WelfareKPICEOPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in WelfareKPICEOPage widget.
   UserLogRecord? createdUserLogWelfareKPI;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in WelfareKPICEOPage widget.

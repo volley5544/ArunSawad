@@ -11,6 +11,10 @@ import 'package:provider/provider.dart';
 
 class CarSeizedDashboardPageModel
     extends FlutterFlowModel<CarSeizedDashboardPageWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+
   @override
   void initState(BuildContext context) {}
 
