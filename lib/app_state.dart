@@ -8409,6 +8409,18 @@ class FFAppState extends ChangeNotifier {
   set improundUrl(String value) {
     _improundUrl = value;
   }
+
+  String _impoundUrlVloan = '';
+  String get impoundUrlVloan => _impoundUrlVloan;
+  set impoundUrlVloan(String value) {
+    _impoundUrlVloan = value;
+  }
+
+  String _impoundUrlVloanToken = '';
+  String get impoundUrlVloanToken => _impoundUrlVloanToken;
+  set impoundUrlVloanToken(String value) {
+    _impoundUrlVloanToken = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

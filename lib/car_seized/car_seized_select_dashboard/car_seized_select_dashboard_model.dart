@@ -35,6 +35,8 @@ class CarSeizedSelectDashboardModel
   final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.
   UrlLinkStorageRecord? urlLinkStorage;
+  // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.
+  UrlLinkStorageRecord? urlLinkStorageVloan;
   // Stores action output result for [Custom Action - getDataFromCollection] action in CarSeizedSelectDashboard widget.
   dynamic? getDataCollection;
   // Stores action output result for [Backend Call - Create Document] action in CarSeizedSelectDashboard widget.

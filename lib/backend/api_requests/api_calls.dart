@@ -10694,6 +10694,8 @@ class SswSurveyAPIVloanGetContractCall {
     String? lastnameCust = '',
     String? cuscod = '',
     String? registrationCar = '',
+    String? token = '',
+    String? apiUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -10705,10 +10707,10 @@ class SswSurveyAPIVloanGetContractCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'sswSurveyAPIVloanGetContract',
-      apiUrl: 'https://is-dev.swpfin.com/ssw_survey/api/vloan/get-contract',
+      apiUrl: '${apiUrl}/api/vloan/get-contract',
       callType: ApiCallType.POST,
       headers: {
-        'X-API-KEY': 'xhJfdKPYnhicbDsC8YpPiOSyoA3ugBGqVXE1Bf9Ufnk=%',
+        'X-API-KEY': '${token}',
       },
       params: {},
       body: ffApiRequestBody,

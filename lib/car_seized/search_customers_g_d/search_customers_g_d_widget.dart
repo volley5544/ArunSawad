@@ -433,6 +433,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 'registration_car'
                                             ? _model.textController.text
                                             : '',
+                                        token:
+                                            FFAppState().impoundUrlVloanToken,
+                                        apiUrl: FFAppState().impoundUrlVloan,
                                       );
 
                                       _shouldSetState = true;

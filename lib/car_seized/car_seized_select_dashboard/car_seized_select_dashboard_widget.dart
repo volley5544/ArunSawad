@@ -81,6 +81,16 @@ class _CarSeizedSelectDashboardWidgetState
       ).then((s) => s.firstOrNull);
       FFAppState().improundUrl = _model.urlLinkStorage!.urlLink;
       setState(() {});
+      _model.urlLinkStorageVloan = await queryUrlLinkStorageRecordOnce(
+        queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
+          'url_name',
+          isEqualTo: 'impound_car_vloan',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+      FFAppState().impoundUrlVloan = _model.urlLinkStorageVloan!.urlLink;
+      FFAppState().impoundUrlVloanToken = _model.urlLinkStorageVloan!.urlToken;
+      setState(() {});
       _model.getDataCollection = await actions.getDataFromCollection(
         'role_menu',
       );
