@@ -4317,12 +4317,11 @@ bool? containStringInListString(
 
 bool? getSpecificIndexFromJson(
   dynamic jsonData,
-  String? listMenuVisible,
-  String? listMenuName,
   String? menuName,
+  String? profileLevel,
 ) {
-  if (listMenuVisible == null || jsonData == null) {
-    print('Invalid input: jsonData or listMenuVisible is null.');
+  if (jsonData == null) {
+    print('Invalid input: jsonData ');
     return null;
   }
 
@@ -4338,6 +4337,24 @@ bool? getSpecificIndexFromJson(
     } else {
       print('Invalid jsonData type.');
       return null;
+    }
+    String? listMenuVisible = '';
+    String? listMenuName = 'menuName';
+    switch (profileLevel) {
+      case 'HO':
+        listMenuVisible = 'menuVisible';
+        break;
+      case 'สาขา':
+        listMenuVisible = 'menuVisibleBranch';
+        break;
+      case 'เขต':
+        listMenuVisible = 'menuVisibleArea';
+        break;
+      case 'ภาค':
+        listMenuVisible = 'menuZone';
+        break;
+      default:
+        listMenuVisible = 'menuVisible'; // Optional: Handle unexpected values
     }
 
     // Check if the listMenuVisible exists in the map and is a List

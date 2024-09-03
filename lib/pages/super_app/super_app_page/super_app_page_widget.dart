@@ -1938,36 +1938,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                 scrollDirection:
                                                                     Axis.horizontal,
                                                                 children: [
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return functions.getSpecificIndexFromJson(
-                                                                              FFAppState().roleMenuJson,
-                                                                              'menuVisible',
-                                                                              'menuName',
-                                                                              'เช็คอิน')!;
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return functions.getSpecificIndexFromJson(
-                                                                              FFAppState().roleMenuJson,
-                                                                              'menuVisibleBranch',
-                                                                              'menuName',
-                                                                              'เช็คอิน')!;
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return functions.getSpecificIndexFromJson(
-                                                                              FFAppState().roleMenuJson,
-                                                                              'menuVisibleArea',
-                                                                              'menuName',
-                                                                              'เช็คอิน')!;
-                                                                        } else {
-                                                                          return functions.getSpecificIndexFromJson(
-                                                                              FFAppState().roleMenuJson,
-                                                                              'menuZone',
-                                                                              'menuName',
-                                                                              'เช็คอิน')!;
-                                                                        }
-                                                                      }() &&
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'เช็คอิน',
+                                                                          FFAppState()
+                                                                              .profileLevel)! &&
                                                                       functions.containStringInListString(
                                                                           functions
                                                                               .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
