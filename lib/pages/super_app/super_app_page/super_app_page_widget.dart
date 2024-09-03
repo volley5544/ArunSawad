@@ -1943,7 +1943,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               .roleMenuJson,
                                                                           'เช็คอิน',
                                                                           FFAppState()
-                                                                              .profileLevel)! &&
+                                                                              .profileLevel)! ||
                                                                       functions.containStringInListString(
                                                                           functions
                                                                               .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
@@ -2023,32 +2023,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ขออนุมัติลา')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ขออนุมัติลา',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -2381,10 +2366,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           'ลูกค้ารถยึด',
                                                                           FFAppState()
                                                                               .profileLevel)! ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
                                                                           functions
                                                                               .getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')
@@ -2668,39 +2658,31 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ค่าลีดรถ M')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ค่าลีดรถ M')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ค่าลีดรถ M')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ค่าลีดรถ M')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ค่าลีดรถ M',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
-                                                                          'GEN E-PA')!)
+                                                                          'ลูกค้ารถยึด')!)
                                                                     FutureBuilder<
                                                                         List<
                                                                             UrlLinkStorageRecord>>(
@@ -2851,32 +2833,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'บันทึกวีดิโอ (ลูกค้า)')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'บันทึกวีดิโอ (ลูกค้า)',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -3090,32 +3057,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เส้นทางนักขายประกัน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เส้นทางนักขายประกัน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เส้นทางนักขายประกัน')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เส้นทางนักขายประกัน')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'เส้นทางนักขายประกัน',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -3181,15 +3133,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if ((FFAppState().profilePositionName ==
+                                                                  if ((FFAppState()
+                                                                              .profilePositionName ==
                                                                           'เจ้าหน้าที่ประจำแผนกDSI') ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -3344,15 +3305,24 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if ((FFAppState().profilePositionName ==
+                                                                  if ((FFAppState()
+                                                                              .profilePositionName ==
                                                                           'เจ้าหน้าที่ประจำแผนกDSI') ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -3508,35 +3478,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'GEN E-PA')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'GEN E-PA',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -3709,35 +3671,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงานรถยึด')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'รายงานรถยึด',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -3892,35 +3846,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โครงการ ZUVศษ')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'โครงการ ZUVศษ',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -4093,32 +4039,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ประกันนอกเรท')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ประกันนอกเรท',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -4723,38 +4654,26 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายงาน BSI')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
-                                                                      functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'รายงาน BSI',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
                                                                               ?.toList(),
                                                                           FFAppState()
-                                                                              .employeeID,
+                                                                              .employeeID)! ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          functions
+                                                                              .getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID,
                                                                           'รายงาน BSI')!)
                                                                     Container(
                                                                       decoration:
@@ -4831,38 +4750,26 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เป้า/ผลงาน')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
-                                                                      functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'รายงานรถยึด',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
                                                                               ?.toList(),
                                                                           FFAppState()
-                                                                              .employeeID,
+                                                                              .employeeID)! ||
+                                                                      functions.containsValueInDataTypeList(
+                                                                          functions
+                                                                              .getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID,
                                                                           'เป้า/ผลงาน')!)
                                                                     InkWell(
                                                                       splashColor:
@@ -4989,35 +4896,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'KPI')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'KPI',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -5298,35 +5197,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดจัดสาขา')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ยอดจัดสาขา',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -5584,32 +5475,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ยอดประกัน')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ยอดประกัน',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)!)
                                                                     FutureBuilder<
                                                                         List<
                                                                             UrlLinkStorageRecord>>(
@@ -5894,35 +5774,27 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              '%ความสำเร็จ')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(FFAppState()
-                                                                              .employeeID) ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          '%ความสำเร็จ',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState()
+                                                                              .employeeID)! ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(
+                                                                                  FFAppState()
+                                                                                      .roleMenuJson,
+                                                                                  'adminRoleGroup')
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
@@ -6228,32 +6100,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         );
                                                                       },
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'รายชื่อลีด')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'รายชื่อลีด',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -6567,32 +6424,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'เช็คเบี้ยประกัน')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'เช็คเบี้ยประกัน',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -6850,32 +6692,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Branch View')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'Branch View',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -7133,32 +6960,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'QR พนักงาน')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'QR พนักงาน',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -7415,32 +7227,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'Saleskit')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'Saleskit',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -7698,32 +7495,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ฟอร์มลีด')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ฟอร์มลีด',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -7981,32 +7763,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'โปรโมชั่น')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'โปรโมชั่น',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -8264,32 +8031,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'COACH')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'COACH',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -8572,32 +8324,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ห้องเรียนทันใจ')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ห้องเรียนทันใจ',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -8854,32 +8591,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ข้อมูลไอที')];
-                                                                        }
-                                                                      }() ||
-                                                                      gridViewRoleMenuRecord!
-                                                                          .empAdmin
-                                                                          .contains(
-                                                                              FFAppState().employeeID))
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ข้อมูลไอที',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
+                                                                      functions.containStringInListString(
+                                                                          functions
+                                                                              .getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')
+                                                                              ?.toList(),
+                                                                          FFAppState().employeeID)!)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors

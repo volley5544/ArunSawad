@@ -979,46 +979,26 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation3']!),
                                 if (functions.containsValueInDataTypeList(
-                                        columnRoleMenuRecord?.adminRoleGroup
+                                        functions
+                                            .getDataTypeFromJson(
+                                                FFAppState().roleMenuJson,
+                                                'adminRoleGroup')
                                             ?.toList(),
                                         FFAppState().employeeID,
                                         'ติดตามหนี้')! ||
-                                    () {
-                                      if (FFAppState().profileLevel == 'HO') {
-                                        return columnRoleMenuRecord!
-                                                .menuVisible[
-                                            functions.getIndexOfSomethingList(
-                                                columnRoleMenuRecord?.menuName
-                                                    ?.toList(),
-                                                'ติดตามหนี้')];
-                                      } else if (FFAppState().profileLevel ==
-                                          'สาขา') {
-                                        return columnRoleMenuRecord!
-                                                .menuVisibleBranch[
-                                            functions.getIndexOfSomethingList(
-                                                columnRoleMenuRecord?.menuName
-                                                    ?.toList(),
-                                                'ติดตามหนี้')];
-                                      } else if (FFAppState().profileLevel ==
-                                          'เขต') {
-                                        return columnRoleMenuRecord!
-                                                .menuVisibleArea[
-                                            functions.getIndexOfSomethingList(
-                                                columnRoleMenuRecord?.menuName
-                                                    ?.toList(),
-                                                'ติดตามหนี้')];
-                                      } else {
-                                        return columnRoleMenuRecord!.menuZone[
-                                            functions.getIndexOfSomethingList(
-                                                columnRoleMenuRecord?.menuName
-                                                    ?.toList(),
-                                                'ติดตามหนี้')];
-                                      }
-                                    }() ||
+                                    functions.getSpecificIndexFromJson(
+                                        FFAppState().roleMenuJson,
+                                        'ติดตามหนี้',
+                                        FFAppState().profileLevel)! ||
                                     (FFAppState().profilePositionName ==
                                         'เจ้าหน้าที่ประจำแผนกDSI') ||
-                                    columnRoleMenuRecord!.empAdmin
-                                        .contains(FFAppState().employeeID))
+                                    functions.containStringInListString(
+                                        functions
+                                            .getListDataFromJson(
+                                                FFAppState().roleMenuJson,
+                                                'empAdmin')
+                                            ?.toList(),
+                                        FFAppState().employeeID)!)
                                   InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,

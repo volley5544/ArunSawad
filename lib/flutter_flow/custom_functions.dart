@@ -4322,7 +4322,7 @@ bool? getSpecificIndexFromJson(
 ) {
   if (jsonData == null) {
     print('Invalid input: jsonData ');
-    return null;
+    return false;
   }
 
   try {
@@ -4336,7 +4336,7 @@ bool? getSpecificIndexFromJson(
       jsonMap = jsonData;
     } else {
       print('Invalid jsonData type.');
-      return null;
+      return false;
     }
     String? listMenuVisible = '';
     String? listMenuName = 'menuName';
@@ -4381,24 +4381,24 @@ bool? getSpecificIndexFromJson(
             return data[menuIndex];
           } else {
             print('menuName index is out of range.');
-            return null;
+            return false;
           }
         } else {
           print('Index or menuName is invalid.');
-          return null;
+          return false;
         }
       } else {
         print('listMenuName not found or not a list.');
-        return null;
+        return false;
       }
     } else {
       print('listMenuVisible not found or not a list.');
-      return null;
+      return false;
     }
   } catch (e) {
     // Print error if JSON decoding fails
     print('Error decoding JSON: $e');
-    return null;
+    return false;
   }
 }
 
