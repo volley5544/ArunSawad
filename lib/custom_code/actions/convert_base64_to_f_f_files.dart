@@ -13,13 +13,14 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
 
 Future<String?> convertBase64ToFFFiles(
     String? imageBase64, String? index) async {
   // Add your function code here!
   String base64Output = imageBase64!.split(',')[1];
 
-  Uint8List imageBytes = base64Decode(base64Output!);
+  Uint8List imageBytes = await compute(base64Decode, base64Output);
 
   final directory = await getApplicationDocumentsDirectory();
   final filePath = '${directory.path}/image${index!}.png';

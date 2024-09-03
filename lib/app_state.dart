@@ -8421,6 +8421,79 @@ class FFAppState extends ChangeNotifier {
   set impoundUrlVloanToken(String value) {
     _impoundUrlVloanToken = value;
   }
+
+  DocumentReference? _roleMenuRef =
+      FirebaseFirestore.instance.doc('/role_menu/3oqvy4g60Bhjtod5erYg');
+  DocumentReference? get roleMenuRef => _roleMenuRef;
+  set roleMenuRef(DocumentReference? value) {
+    _roleMenuRef = value;
+  }
+
+  dynamic _roleMenuJson;
+  dynamic get roleMenuJson => _roleMenuJson;
+  set roleMenuJson(dynamic value) {
+    _roleMenuJson = value;
+  }
+
+  List<UrlLinkStorageStruct> _urlLinkStorageDataType = [];
+  List<UrlLinkStorageStruct> get urlLinkStorageDataType =>
+      _urlLinkStorageDataType;
+  set urlLinkStorageDataType(List<UrlLinkStorageStruct> value) {
+    _urlLinkStorageDataType = value;
+  }
+
+  void addToUrlLinkStorageDataType(UrlLinkStorageStruct value) {
+    urlLinkStorageDataType.add(value);
+  }
+
+  void removeFromUrlLinkStorageDataType(UrlLinkStorageStruct value) {
+    urlLinkStorageDataType.remove(value);
+  }
+
+  void removeAtIndexFromUrlLinkStorageDataType(int index) {
+    urlLinkStorageDataType.removeAt(index);
+  }
+
+  void updateUrlLinkStorageDataTypeAtIndex(
+    int index,
+    UrlLinkStorageStruct Function(UrlLinkStorageStruct) updateFn,
+  ) {
+    urlLinkStorageDataType[index] = updateFn(_urlLinkStorageDataType[index]);
+  }
+
+  void insertAtIndexInUrlLinkStorageDataType(
+      int index, UrlLinkStorageStruct value) {
+    urlLinkStorageDataType.insert(index, value);
+  }
+
+  List<dynamic> _urlLinkStorageData = [];
+  List<dynamic> get urlLinkStorageData => _urlLinkStorageData;
+  set urlLinkStorageData(List<dynamic> value) {
+    _urlLinkStorageData = value;
+  }
+
+  void addToUrlLinkStorageData(dynamic value) {
+    urlLinkStorageData.add(value);
+  }
+
+  void removeFromUrlLinkStorageData(dynamic value) {
+    urlLinkStorageData.remove(value);
+  }
+
+  void removeAtIndexFromUrlLinkStorageData(int index) {
+    urlLinkStorageData.removeAt(index);
+  }
+
+  void updateUrlLinkStorageDataAtIndex(
+    int index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    urlLinkStorageData[index] = updateFn(_urlLinkStorageData[index]);
+  }
+
+  void insertAtIndexInUrlLinkStorageData(int index, dynamic value) {
+    urlLinkStorageData.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

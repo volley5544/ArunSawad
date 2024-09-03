@@ -37,6 +37,21 @@ import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
+  ///  Local state fields for this page.
+
+  List<UrlLinkStorageRecord> urlLinkStorage = [];
+  void addToUrlLinkStorage(UrlLinkStorageRecord item) =>
+      urlLinkStorage.add(item);
+  void removeFromUrlLinkStorage(UrlLinkStorageRecord item) =>
+      urlLinkStorage.remove(item);
+  void removeAtIndexFromUrlLinkStorage(int index) =>
+      urlLinkStorage.removeAt(index);
+  void insertAtIndexInUrlLinkStorage(int index, UrlLinkStorageRecord item) =>
+      urlLinkStorage.insert(index, item);
+  void updateUrlLinkStorageAtIndex(
+          int index, Function(UrlLinkStorageRecord) updateFn) =>
+      urlLinkStorage[index] = updateFn(urlLinkStorage[index]);
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
@@ -54,6 +69,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   bool? checkDoNotShow;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in SuperAppPage widget.
   ApiCallResponse? datetimeAPIOutput;
+  // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.
+  dynamic? getDataCollection;
+  // Stores action output result for [Firestore Query - Query a collection] action in SuperAppPage widget.
+  List<UrlLinkStorageRecord>? getDataUrlLink;
   // State field(s) for PageViewBanner widget.
   PageController? pageViewBannerController;
 

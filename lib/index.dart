@@ -240,3 +240,5 @@ export '/car_seized/search_customers_g_d/search_customers_g_d_widget.dart'
     show SearchCustomersGDWidget;
 export '/car_seized/customer_car_deails_picture_step1/customer_car_deails_picture_step1_widget.dart'
     show CustomerCarDeailsPictureStep1Widget;
+export '/car_seized/customer_car_deails_picture_step12/customer_car_deails_picture_step12_widget.dart'
+    show CustomerCarDeailsPictureStep12Widget;

@@ -983,7 +983,42 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             ?.toList(),
                                         FFAppState().employeeID,
                                         'ติดตามหนี้')! ||
-                                    (FFAppState().profileLevel != 'HO'))
+                                    () {
+                                      if (FFAppState().profileLevel == 'HO') {
+                                        return columnRoleMenuRecord!
+                                                .menuVisible[
+                                            functions.getIndexOfSomethingList(
+                                                columnRoleMenuRecord?.menuName
+                                                    ?.toList(),
+                                                'ติดตามหนี้')];
+                                      } else if (FFAppState().profileLevel ==
+                                          'สาขา') {
+                                        return columnRoleMenuRecord!
+                                                .menuVisibleBranch[
+                                            functions.getIndexOfSomethingList(
+                                                columnRoleMenuRecord?.menuName
+                                                    ?.toList(),
+                                                'ติดตามหนี้')];
+                                      } else if (FFAppState().profileLevel ==
+                                          'เขต') {
+                                        return columnRoleMenuRecord!
+                                                .menuVisibleArea[
+                                            functions.getIndexOfSomethingList(
+                                                columnRoleMenuRecord?.menuName
+                                                    ?.toList(),
+                                                'ติดตามหนี้')];
+                                      } else {
+                                        return columnRoleMenuRecord!.menuZone[
+                                            functions.getIndexOfSomethingList(
+                                                columnRoleMenuRecord?.menuName
+                                                    ?.toList(),
+                                                'ติดตามหนี้')];
+                                      }
+                                    }() ||
+                                    (FFAppState().profilePositionName ==
+                                        'เจ้าหน้าที่ประจำแผนกDSI') ||
+                                    columnRoleMenuRecord!.empAdmin
+                                        .contains(FFAppState().employeeID))
                                   InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,

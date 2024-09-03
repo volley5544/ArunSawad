@@ -720,6 +720,7 @@ final parametersBuilderMap =
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
       ),
+  'customerCarDeailsPictureStep12': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

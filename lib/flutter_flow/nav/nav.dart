@@ -2224,6 +2224,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'customerCarDeailsPictureStep12',
+              path: 'customerCarDeailsPictureStep12',
+              builder: (context, params) =>
+                  CustomerCarDeailsPictureStep12Widget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
