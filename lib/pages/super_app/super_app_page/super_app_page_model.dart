@@ -55,6 +55,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.
+  dynamic? getDataRoleMenu;
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
   HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - getBuildVersion] action in SuperAppPage widget.
@@ -69,10 +71,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   bool? checkDoNotShow;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in SuperAppPage widget.
   ApiCallResponse? datetimeAPIOutput;
-  // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.
-  dynamic? getDataCollection;
-  // Stores action output result for [Firestore Query - Query a collection] action in SuperAppPage widget.
-  List<UrlLinkStorageRecord>? getDataUrlLink;
   // State field(s) for PageViewBanner widget.
   PageController? pageViewBannerController;
 

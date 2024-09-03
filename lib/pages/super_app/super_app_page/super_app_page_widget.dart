@@ -126,6 +126,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      _model.getDataRoleMenu = await actions.getDataFromCollection(
+        'role_menu',
+      );
+      FFAppState().roleMenuJson = _model.getDataRoleMenu!;
+      setState(() {});
       _model.getHideContentTableauDoc =
           await HideInAppContentRecord.getDocumentOnce(
               FFAppState().hideContentTableauDocRef!);
@@ -314,12 +319,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
             .cast<bool>();
         setState(() {});
       }
-      _model.getDataCollection = await actions.getDataFromCollection(
-        'role_menu',
-      );
-      _model.getDataUrlLink = await queryUrlLinkStorageRecordOnce();
       FFAppState().isInApp = true;
-      FFAppState().roleMenuJson = _model.getDataCollection!;
       FFAppState().update(() {});
     });
 
