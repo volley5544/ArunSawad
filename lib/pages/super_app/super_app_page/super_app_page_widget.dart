@@ -2056,11 +2056,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(gridViewRoleMenuRecord?.menuName?.toList(), 'เช็คอิน')];
                                                                             }
                                                                           }() &&
-                                                                          functions.containsValueInJsonList(
-                                                                              getJsonField(
-                                                                                FFAppState().roleMenuJson,
-                                                                                r'''$.empAdmin''',
-                                                                              ),
+                                                                          functions.containStringInListString(
+                                                                              functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)!)
                                                                         InkWell(
                                                                           splashColor:

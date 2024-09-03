@@ -4265,3 +4265,18 @@ String? extractUrlFromHtml(String? text) {
     return "";
   }
 }
+
+List<String>? getListDataFromJson(
+  dynamic jsonData,
+  String? listName,
+) {
+  List<String> data = List<String>.from(jsonData!['${listName!}']);
+  return data;
+}
+
+bool? containStringInListString(
+  List<String>? inputListString,
+  String? valueString,
+) {
+  return inputListString!.contains(valueString!);
+}
