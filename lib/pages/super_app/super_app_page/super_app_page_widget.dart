@@ -2375,38 +2375,21 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (() {
-                                                                        if (FFAppState().profileLevel ==
-                                                                            'HO') {
-                                                                          return gridViewRoleMenuRecord!.menuVisible[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'สาขา') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleBranch[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        } else if (FFAppState().profileLevel ==
-                                                                            'เขต') {
-                                                                          return gridViewRoleMenuRecord!.menuVisibleArea[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        } else {
-                                                                          return gridViewRoleMenuRecord!.menuZone[functions.getIndexOfSomethingList(
-                                                                              gridViewRoleMenuRecord?.menuName?.toList(),
-                                                                              'ลูกค้ารถยึด')];
-                                                                        }
-                                                                      }() ||
+                                                                  if (functions.getSpecificIndexFromJson(
+                                                                          FFAppState()
+                                                                              .roleMenuJson,
+                                                                          'ลูกค้ารถยึด',
+                                                                          FFAppState()
+                                                                              .profileLevel)! ||
                                                                       gridViewRoleMenuRecord!
                                                                           .empAdmin
                                                                           .contains(FFAppState()
                                                                               .employeeID) ||
                                                                       functions.containsValueInDataTypeList(
-                                                                          gridViewRoleMenuRecord
-                                                                              ?.adminRoleGroup
+                                                                          functions
+                                                                              .getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')
                                                                               ?.toList(),
-                                                                          FFAppState()
-                                                                              .employeeID,
+                                                                          FFAppState().employeeID,
                                                                           'ลูกค้ารถยึด')!)
                                                                     InkWell(
                                                                       splashColor:
