@@ -4490,3 +4490,16 @@ List<AdminRoleGroupStruct>? getDataTypeFromJson(
     return null;
   }
 }
+
+bool? containListInString(
+  List<String>? listString,
+  String? input,
+) {
+  if (listString == null || input == null) {
+    return false; // Return null if either is null
+  }
+  // Use any() to check if at least one element in the list is found in the input string
+  bool containsAny = listString.any((element) => input.contains(element));
+
+  return containsAny;
+}

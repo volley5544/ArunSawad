@@ -994,7 +994,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         FFAppState().roleMenuJson,
                                         'ติดตามหนี้',
                                         FFAppState().profileLevel)! ||
-                                    functions.containStringInListString(
+                                    functions.containListInString(
                                         functions
                                             .getListDataFromJsonList(
                                                 FFAppState().roleMenuJson,
