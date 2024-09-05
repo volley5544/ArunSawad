@@ -4370,7 +4370,7 @@ bool? getSpecificIndexFromJson(
 
         // Convert List<dynamic> to List<bool>
         List<bool> data = rawData.map((item) => item == true).toList();
-        print('dataFromJson: $data');
+        //print('dataFromJson: $data');
 
         // Check for valid index and that menuName is present in rawData2
         if (rawData2.contains(menuName)) {

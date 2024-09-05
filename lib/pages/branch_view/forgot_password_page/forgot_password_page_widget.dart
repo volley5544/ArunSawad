@@ -180,7 +180,7 @@ class _ForgotPasswordPageWidgetState extends State<ForgotPasswordPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'ลืมรหัสผ่าน';
         }));
   }

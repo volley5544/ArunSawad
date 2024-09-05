@@ -26,7 +26,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class LeadNotiPageModel extends FlutterFlowModel<LeadNotiPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in LeadNotiPage widget.
   UserLogRecord? createdLeadDetailLog;
   // Stores action output result for [Backend Call - API (getLeadDetailAPI)] action in LeadNotiPage widget.

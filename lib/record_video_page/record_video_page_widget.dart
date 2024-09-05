@@ -26,7 +26,7 @@ class _RecordVideoPageWidgetState extends State<RecordVideoPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'RecordVideoPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

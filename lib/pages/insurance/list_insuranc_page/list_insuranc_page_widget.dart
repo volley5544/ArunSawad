@@ -27,7 +27,7 @@ class _ListInsurancPageWidgetState extends State<ListInsurancPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ListInsurancPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

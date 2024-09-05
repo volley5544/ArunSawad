@@ -26,7 +26,7 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
     _model = createModel(context, () => SuccessPageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'SuccessPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

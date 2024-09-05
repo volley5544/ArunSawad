@@ -94,7 +94,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
     _model.reasonToLeaveTextController ??= TextEditingController();
     _model.reasonToLeaveFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -729,7 +729,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                         : FFAppState()
                                                             .leaveFullDay,
                                                     onChanged: (val) =>
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .leaveTimeValue =
                                                             val),
                                                     width: 90.0,
@@ -851,7 +851,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 );
                                                               },
                                                             );
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model
                                                                   .leaveDaysTextController
                                                                   ?.clear();
@@ -894,7 +894,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 );
                                                               },
                                                             );
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model
                                                                   .leaveDaysTextController
                                                                   ?.clear();
@@ -928,7 +928,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 );
                                                               },
                                                             );
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model
                                                                   .leaveDaysTextController
                                                                   ?.clear();
@@ -977,7 +977,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               );
                                                             },
                                                           );
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model
                                                                 .leaveDaysTextController
                                                                 ?.clear();
@@ -1011,7 +1011,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               );
                                                             },
                                                           );
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model
                                                                 .leaveDaysTextController
                                                                 ?.clear();
@@ -1475,7 +1475,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               validateFileFormat(
                                                                   m.storagePath,
                                                                   context))) {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .isDataUploading =
                                                             true);
                                                         var selectedUploadedFiles =
@@ -1518,7 +1518,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 .length ==
                                                             selectedMedia
                                                                 .length) {
-                                                          setState(() {
+                                                          safeSetState(() {
                                                             _model.uploadedLocalFiles =
                                                                 selectedUploadedFiles;
                                                           });
@@ -1526,7 +1526,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               context,
                                                               'Success!');
                                                         } else {
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                           showUploadMessage(
                                                               context,
                                                               'Failed to upload data');
@@ -1570,11 +1570,11 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                           },
                                                         );
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         return;
                                                       }
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                     },
                                                     text: '[เเนบไฟล์ภาพ]',
                                                     icon: Icon(
@@ -1729,7 +1729,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                       curve: Curves
                                                                           .ease,
                                                                     );
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   },
                                                                   effect: smooth_page_indicator
@@ -1827,7 +1827,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (!(_model.leaveTimeValue !=
@@ -1857,7 +1858,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (((widget!.leaveType ==
@@ -1896,7 +1898,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 },
                                                               );
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                           }
@@ -1927,7 +1930,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (functions
@@ -1967,7 +1971,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (!functions
@@ -1997,13 +2002,14 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 );
                                                               },
                                                             );
-                                                            setState(() {
+                                                            safeSetState(() {
                                                               _model
                                                                   .phoneNumberTextController
                                                                   ?.clear();
                                                             });
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (!(false
@@ -2038,7 +2044,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (widget!
@@ -2072,7 +2079,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 },
                                                               );
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                           }
@@ -2100,7 +2108,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                             },
                                                           );
                                                           if (_shouldSetState)
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                           return;
                                                         }
 
@@ -2141,7 +2149,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 },
                                                               );
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                           } else {
@@ -2168,7 +2177,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
 
@@ -2280,7 +2290,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           if (((widget!.leaveType ==
@@ -2406,7 +2417,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                       },
                                                                     );
                                                                     if (_shouldSetState)
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {});
                                                                     return;
                                                                   }
@@ -2434,7 +2445,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                     },
                                                                   );
                                                                   if (_shouldSetState)
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   return;
                                                                 }
@@ -2643,7 +2654,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                       'LoginPage');
 
                                                                   if (_shouldSetState)
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   return;
                                                                 } else {
@@ -2671,7 +2682,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                     },
                                                                   );
                                                                   if (_shouldSetState)
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   return;
                                                                 }
@@ -2700,7 +2711,8 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                 },
                                                               );
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                           } else {
@@ -2829,7 +2841,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                     },
                                                                   );
                                                                   if (_shouldSetState)
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   return;
                                                                 }
@@ -2859,7 +2871,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 return;
                                                               }
@@ -3065,7 +3077,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                     'LoginPage');
 
                                                                 if (_shouldSetState)
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 return;
                                                               } else {
@@ -3095,7 +3107,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 return;
                                                               }
@@ -3254,7 +3266,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                               .update(() {});
                                                         } else {
                                                           if (_shouldSetState)
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                           return;
                                                         }
 
@@ -3262,7 +3274,7 @@ class _AddLeavePageWidgetState extends State<AddLeavePageWidget> {
                                                             'LeaveShowPage');
 
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                       },
                                                       text: 'บันทึก',
                                                       options: FFButtonOptions(

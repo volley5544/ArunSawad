@@ -19,7 +19,6 @@ class DashboardLeavePageModel
     extends FlutterFlowModel<DashboardLeavePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in DashboardLeavePage widget.
   UserLogRecord? createdUserLogLeavePage;
 

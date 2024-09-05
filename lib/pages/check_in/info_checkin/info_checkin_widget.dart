@@ -177,7 +177,7 @@ class _InfoCheckinWidgetState extends State<InfoCheckinWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

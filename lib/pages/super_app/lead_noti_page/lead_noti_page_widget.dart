@@ -266,7 +266,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
       )!
           .toList()
           .cast<String>();
-      setState(() {});
+      safeSetState(() {});
       if (valueOrDefault<String>(
             functions
                 .showMatAmountInList(
@@ -301,7 +301,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                   )?.toList())
               .toList()
               .cast<String>();
-          setState(() {});
+          safeSetState(() {});
         }
       }
       Navigator.pop(context);
@@ -335,7 +335,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -496,7 +496,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                   FFAppState().amountRequestJson.toList())
                               .toList()
                               .cast<dynamic>();
-                          setState(() {});
+                          safeSetState(() {});
                           FFAppState().leadCalledStatusReason = functions
                               .reverseList(GetLeadDetailAPICall.statusReason(
                                 (_model.getLeadDetail?.jsonBody ?? ''),
@@ -515,7 +515,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                               )?.toList())
                               .toList()
                               .cast<String>();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         child: FaIcon(
                           FontAwesomeIcons.sortAmountDown,
@@ -1700,7 +1700,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                         false;
                                                                 if (!confirmDialogResponse) {
                                                                   if (_shouldSetState)
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                   return;
                                                                 }
@@ -1767,7 +1767,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                       leadListIndex),
                                                                 );
                                                                 if (_shouldSetState)
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                               },
                                                               child: ClipRRect(
@@ -2111,7 +2111,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                             },
                                                           );
                                                           if (_shouldSetState)
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                           return;
                                                         }
                                                         Navigator.pop(context);
@@ -2174,7 +2174,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                 () {}));
 
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                       },
                                                       text: 'บันทึกการโทร',
                                                       options: FFButtonOptions(
@@ -2345,7 +2345,8 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                               },
                                                             );
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             return;
                                                           }
                                                           Navigator.pop(
@@ -2447,7 +2448,7 @@ class _LeadNotiPageWidgetState extends State<LeadNotiPageWidget>
                                                                   () {}));
 
                                                           if (_shouldSetState)
-                                                            setState(() {});
+                                                            safeSetState(() {});
                                                         },
                                                         text: 'ประวัติการโทร',
                                                         options:

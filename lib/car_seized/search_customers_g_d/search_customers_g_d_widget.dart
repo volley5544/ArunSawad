@@ -69,13 +69,13 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
       FFAppState().improundGDESC = [];
       FFAppState().improundNumbody = [];
       FFAppState().improundCUSCOD = [];
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -189,7 +189,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                               'เลขทะเบียน'
                             ],
                             onChanged: (val) =>
-                                setState(() => _model.dropDownValue = val),
+                                safeSetState(() => _model.dropDownValue = val),
                             width: 300.0,
                             height: 56.0,
                             textStyle: FlutterFlowTheme.of(context)
@@ -273,7 +273,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                   EasyDebounce.debounce(
                                                 '_model.textController',
                                                 Duration(milliseconds: 2000),
-                                                () => setState(() {}),
+                                                () => safeSetState(() {}),
                                               ),
                                               autofocus: true,
                                               obscureText: false,
@@ -307,7 +307,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                         onTap: () async {
                                                           _model.textController
                                                               ?.clear();
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         },
                                                         child: Icon(
                                                           Icons.clear,
@@ -364,7 +364,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (!(_model.textController.text != null &&
@@ -387,7 +387,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -463,7 +463,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                           },
                                         );
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (SswSurveyAPIVloanGetContractCall.code(
@@ -589,7 +590,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         )!
                                                 .toList()
                                                 .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         await showDialog(
                                           context: context,
@@ -615,7 +616,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                             );
                                           },
                                         );
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.textController?.text = '';
                                           _model.textController?.selection =
                                               TextSelection.collapsed(
@@ -623,7 +624,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                       .text.length);
                                         });
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                     } else {
@@ -678,7 +680,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                           },
                                         );
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (UploadImagesGoogleDriveGroup
@@ -818,7 +821,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 )!
                                                 .toList()
                                                 .cast<String>();
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         await showDialog(
                                           context: context,
@@ -845,7 +848,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                             );
                                           },
                                         );
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.textController?.text = '';
                                           _model.textController?.selection =
                                               TextSelection.collapsed(
@@ -853,13 +856,14 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                       .text.length);
                                         });
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                     }
 
                                     Navigator.pop(context);
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'ค้นหา',
                                   options: FFButtonOptions(

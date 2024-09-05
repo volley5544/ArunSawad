@@ -29,7 +29,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SurveyPageModel extends FlutterFlowModel<SurveyPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a8] action in SurveyPage widget.
   bool? checkLatLngBVSurvey;
   // Stores action output result for [Backend Call - Create Document] action in SurveyPage widget.

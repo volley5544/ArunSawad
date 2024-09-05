@@ -47,7 +47,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
     _model.reasonToLeaveTextController ??= TextEditingController();
     _model.reasonToLeaveFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -681,7 +681,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    setState(() =>
+                                                    safeSetState(() =>
                                                         _model.isDataUploading =
                                                             true);
                                                     var selectedUploadedFiles =
@@ -744,7 +744,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                         downloadUrls.length ==
                                                             selectedMedia
                                                                 .length) {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.uploadedLocalFiles =
                                                             selectedUploadedFiles;
                                                         _model.uploadedFileUrls =
@@ -753,7 +753,7 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                       showUploadMessage(
                                                           context, 'Success!');
                                                     } else {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       showUploadMessage(context,
                                                           'Failed to upload data');
                                                       return;
@@ -900,7 +900,8 @@ class _FormItSupportWidgetState extends State<FormItSupportWidget> {
                                                                   curve: Curves
                                                                       .ease,
                                                                 );
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               },
                                                               effect: smooth_page_indicator
                                                                   .ExpandingDotsEffect(

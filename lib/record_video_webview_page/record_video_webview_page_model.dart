@@ -10,10 +10,6 @@ import 'package:provider/provider.dart';
 
 class RecordVideoWebviewPageModel
     extends FlutterFlowModel<RecordVideoWebviewPageWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

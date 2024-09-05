@@ -157,7 +157,7 @@ class _DashboardITSupportWidgetState extends State<DashboardITSupportWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

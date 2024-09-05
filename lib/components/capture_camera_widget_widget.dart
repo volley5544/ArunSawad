@@ -28,7 +28,7 @@ class _CaptureCameraWidgetWidgetState extends State<CaptureCameraWidgetWidget> {
     super.initState();
     _model = createModel(context, () => CaptureCameraWidgetModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -114,11 +114,11 @@ class _InsuranceRequestListPageWidgetState
       FFAppState().insuranceBoxCheckbokValue = false;
       FFAppState().insuranceBoxTypeChoiceChip = 'ตู้แห้ง';
       FFAppState().insuranceVehicleTypeDropDown = 'กรุณาเลือก';
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1117,7 +1117,7 @@ class _InsuranceRequestListPageWidgetState
                                                   }.withoutNulls,
                                                 );
 
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               text: '',
                                               icon: Icon(
@@ -1229,7 +1229,7 @@ class _InsuranceRequestListPageWidgetState
 
                                                 FFAppState().fromPage =
                                                     'ListPage';
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .insuranceBasicIdCardNo =
                                                     functions
@@ -1567,13 +1567,13 @@ class _InsuranceRequestListPageWidgetState
                                                       ''),
                                                 )!
                                                         .first;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 Navigator.pop(context);
 
                                                 context.goNamed(
                                                     'InsuranceRequestBasicPage');
 
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               text: '',
                                               icon: Icon(

@@ -67,21 +67,21 @@ class _InsuranceRequestBasicPageWidgetState
       ).then((value) => safeSetState(() {}));
 
       if (FFAppState().fromPage == 'ListPage') {
-        setState(() {
+        safeSetState(() {
           _model.operationChoiceChipsValueController?.value = [
             (FFAppState().operationChoiceChips == '0'
                 ? 'งานใหม่          '
                 : 'งานต่ออายุ      ')
           ];
         });
-        setState(() {
+        safeSetState(() {
           _model.customerTypeChoiceChipsValueController?.value = [
             (FFAppState().customerTypeChoiceChips == 'บุคคลธรรมดา'
                 ? 'บุคคลธรรมดา'
                 : 'นิติบุคคล         ')
           ];
         });
-        setState(() {
+        safeSetState(() {
           _model.insuranceLicenseNoInputTextController?.text =
               FFAppState().insuranceBasicOldLicenseNo;
           _model.insuranceLicenseNoInputTextController?.selection =
@@ -89,11 +89,11 @@ class _InsuranceRequestBasicPageWidgetState
                   offset: _model
                       .insuranceLicenseNoInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.vehicleTypeDropDownValueController?.value =
               FFAppState().vehicleTypeDropdown;
         });
-        setState(() {
+        safeSetState(() {
           _model.customerMemberchipChoiceChipsValueController?.value = [
             (FFAppState().insuranceBasicMemberType == '-'
                 ? 'ลูกค้าสินเชื่อ'
@@ -102,7 +102,7 @@ class _InsuranceRequestBasicPageWidgetState
                     : 'ลูกค้านอก      '))
           ];
         });
-        setState(() {
+        safeSetState(() {
           _model.truckPartRadioButtonValueController?.value =
               (FFAppState().insuranceBasicTruckPart == '-'
                   ? 'เฉพาะหัวลาก'
@@ -110,13 +110,13 @@ class _InsuranceRequestBasicPageWidgetState
                       ? 'เฉพาะหัวลาก'
                       : 'หัวลาก + หางพ่วง'));
         });
-        setState(() {
+        safeSetState(() {
           _model.boxCheckboxValue = FFAppState().isEquipedMetalBox;
         });
-        setState(() {
+        safeSetState(() {
           _model.coopCheckboxValue = FFAppState().insuranceBasicCoop;
         });
-        setState(() {
+        safeSetState(() {
           _model.boxTypeChoiceChipValueController?.value = [
             (FFAppState().insuranceBasicPickupBoxType == '-'
                 ? 'ตู้แห้ง'
@@ -125,7 +125,7 @@ class _InsuranceRequestBasicPageWidgetState
                     : 'ตู้เย็น'))
           ];
         });
-        setState(() {
+        safeSetState(() {
           _model.freezeBoxPriceInputTextController?.text =
               functions.convertDoubleTextToIntText(
                   FFAppState().insuranceBasicPickupBoxPrice)!;
@@ -152,19 +152,19 @@ class _InsuranceRequestBasicPageWidgetState
             );
           },
         );
-        setState(() {
+        safeSetState(() {
           _model.brandInputTextController?.text =
               FFAppState().insuranceBasicBrandName;
           _model.brandInputTextController?.selection = TextSelection.collapsed(
               offset: _model.brandInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.modelInputTextController?.text =
               FFAppState().insuranceBasicModelName;
           _model.modelInputTextController?.selection = TextSelection.collapsed(
               offset: _model.modelInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.truckCurrentPriceInputTextController?.text =
               (FFAppState().insuranceBasicTruckCurrentPrice == '-'
                   ? ''
@@ -175,13 +175,13 @@ class _InsuranceRequestBasicPageWidgetState
                   offset:
                       _model.truckCurrentPriceInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.plateInputTextController?.text =
               FFAppState().insuranceBasicPlateNo;
           _model.plateInputTextController?.selection = TextSelection.collapsed(
               offset: _model.plateInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.plateAdditionalInputTextController?.text =
               (FFAppState().insuranceBasicPlateAdditional == '-'
                   ? ''
@@ -191,19 +191,19 @@ class _InsuranceRequestBasicPageWidgetState
                   offset:
                       _model.plateAdditionalInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.yearDropDownValueController?.value =
               FFAppState().insuranceBasicYear;
         });
-        setState(() {
+        safeSetState(() {
           _model.provinceDropDownValueController?.value =
               FFAppState().insuranceBasicProvinceName;
         });
-        setState(() {
+        safeSetState(() {
           _model.useTypeDropDownValueController?.value =
               FFAppState().insuranceBasicVehicleUsedTypeCode;
         });
-        setState(() {
+        safeSetState(() {
           _model.logistPoposeInputTextController?.text =
               (FFAppState().insuranceBasicCarryPurpose == '-'
                   ? ''
@@ -212,10 +212,10 @@ class _InsuranceRequestBasicPageWidgetState
               TextSelection.collapsed(
                   offset: _model.logistPoposeInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.carModifyCheckboxValue = FFAppState().insuranceBasicCarModify;
         });
-        setState(() {
+        safeSetState(() {
           _model.accessoryProtectedInputTextController?.text =
               (FFAppState().insuranceBasicAccessoryProtected == '-'
                   ? ''
@@ -225,26 +225,26 @@ class _InsuranceRequestBasicPageWidgetState
                   offset: _model
                       .accessoryProtectedInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.nameInputTextController?.text =
               FFAppState().insuranceBasicCusName;
           _model.nameInputTextController?.selection = TextSelection.collapsed(
               offset: _model.nameInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.lastnameInputTextController?.text =
               FFAppState().insuranceBasicCusLastname;
           _model.lastnameInputTextController?.selection =
               TextSelection.collapsed(
                   offset: _model.lastnameInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.phoneInputTextController?.text =
               FFAppState().insuranceBasicCusPhone;
           _model.phoneInputTextController?.selection = TextSelection.collapsed(
               offset: _model.phoneInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.idInputTextController?.text =
               (FFAppState().insuranceBasicIdCardNo == '-'
                   ? ''
@@ -252,7 +252,7 @@ class _InsuranceRequestBasicPageWidgetState
           _model.idInputTextController?.selection = TextSelection.collapsed(
               offset: _model.idInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.remarkInputTextController?.text =
               (FFAppState().insuranceBasicRemark == '-'
                   ? ''
@@ -304,7 +304,7 @@ class _InsuranceRequestBasicPageWidgetState
     _model.remarkInputTextController ??= TextEditingController();
     _model.remarkInputFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -336,7 +336,7 @@ class _InsuranceRequestBasicPageWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  setState(() {
+                  safeSetState(() {
                     _model.vehicleTypeDropDownValueController?.reset();
                   });
                   if (FFAppState().fromPage == 'ListPage') {
@@ -397,13 +397,13 @@ class _InsuranceRequestBasicPageWidgetState
                                       'งานต่ออายุ      ', Icons.more_time_sharp)
                                 ],
                                 onChanged: (val) async {
-                                  setState(() =>
+                                  safeSetState(() =>
                                       _model.operationChoiceChipsValue =
                                           val?.firstOrNull);
                                   FFAppState().insuranceOperationChoiceChips =
                                       functions.returnStringWithNoSpace(
                                           _model.operationChoiceChipsValue);
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
@@ -469,14 +469,14 @@ class _InsuranceRequestBasicPageWidgetState
                                       Icons.maps_home_work_outlined)
                                 ],
                                 onChanged: (val) async {
-                                  setState(() =>
+                                  safeSetState(() =>
                                       _model.customerTypeChoiceChipsValue =
                                           val?.firstOrNull);
                                   FFAppState()
                                           .insuranceCustomerTypeChoiceChips =
                                       functions.returnStringWithNoSpace(
                                           _model.customerTypeChoiceChipsValue);
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
@@ -593,7 +593,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.insuranceLicenseNoInputTextController',
                                       Duration(milliseconds: 2000),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -652,7 +652,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 _model
                                                     .insuranceLicenseNoInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -893,11 +893,11 @@ class _InsuranceRequestBasicPageWidgetState
                               'รถบรรทุก หัวลาก หางพ่วง'
                             ],
                             onChanged: (val) async {
-                              setState(
+                              safeSetState(
                                   () => _model.vehicleTypeDropDownValue = val);
                               FFAppState().insuranceVehicleTypeDropDown =
                                   _model.vehicleTypeDropDownValue!;
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             width: 90.0,
                             height: double.infinity,
@@ -941,7 +941,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     ChipData(
                                         'ลูกค้านอก      ', Icons.person_add_alt)
                                   ],
-                                  onChanged: (val) => setState(() => _model
+                                  onChanged: (val) => safeSetState(() => _model
                                           .customerMemberchipChoiceChipsValue =
                                       val?.firstOrNull),
                                   selectedChipStyle: ChipStyle(
@@ -1009,7 +1009,7 @@ class _InsuranceRequestBasicPageWidgetState
                               FlutterFlowRadioButton(
                                 options: ['เฉพาะหัวลาก', 'หัวลาก + หางพ่วง']
                                     .toList(),
-                                onChanged: (val) => setState(() {}),
+                                onChanged: (val) => safeSetState(() {}),
                                 controller: _model
                                         .truckPartRadioButtonValueController ??=
                                     FormFieldController<String>('เฉพาะหัวลาก'),
@@ -1088,16 +1088,16 @@ class _InsuranceRequestBasicPageWidgetState
                                   child: Checkbox(
                                     value: _model.boxCheckboxValue ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.boxCheckboxValue = newValue!);
                                       if (newValue!) {
                                         FFAppState().insuranceBoxCheckbokValue =
                                             true;
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         FFAppState().insuranceBoxCheckbokValue =
                                             false;
-                                        setState(() {});
+                                        safeSetState(() {});
                                       }
                                     },
                                     side: BorderSide(
@@ -1166,7 +1166,7 @@ class _InsuranceRequestBasicPageWidgetState
                                   child: Checkbox(
                                     value: _model.coopCheckboxValue ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.coopCheckboxValue = newValue!);
                                     },
                                     side: BorderSide(
@@ -1203,13 +1203,13 @@ class _InsuranceRequestBasicPageWidgetState
                                         'ตู้เย็น', FontAwesomeIcons.snowflake)
                                   ],
                                   onChanged: (val) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.boxTypeChoiceChipValue =
                                             val?.firstOrNull);
                                     FFAppState().insuranceBoxTypeChoiceChip =
                                         functions.returnStringWithNoSpace(
                                             _model.boxTypeChoiceChipValue);
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                   selectedChipStyle: ChipStyle(
                                     backgroundColor:
@@ -1330,7 +1330,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.freezeBoxPriceInputTextController',
                                       Duration(milliseconds: 2000),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -1389,7 +1389,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 _model
                                                     .freezeBoxPriceInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -1509,7 +1509,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     );
                                   },
                                   onSelected: (String selection) {
-                                    setState(() => _model
+                                    safeSetState(() => _model
                                         .brandInputSelectedOption = selection);
                                     FocusScope.of(context).unfocus();
                                   },
@@ -1552,7 +1552,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                           .text))
                                               .toList()
                                               .cast<String>();
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                       ),
                                       autofocus: false,
@@ -1633,8 +1633,8 @@ class _InsuranceRequestBasicPageWidgetState
                                                                   .text))
                                                       .toList()
                                                       .cast<String>();
-                                                  setState(() {});
-                                                  setState(() {});
+                                                  safeSetState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 child: Icon(
                                                   Icons.clear,
@@ -1755,7 +1755,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     );
                                   },
                                   onSelected: (String selection) {
-                                    setState(() => _model
+                                    safeSetState(() => _model
                                         .modelInputSelectedOption = selection);
                                     FocusScope.of(context).unfocus();
                                   },
@@ -1777,7 +1777,7 @@ class _InsuranceRequestBasicPageWidgetState
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.modelInputTextController',
                                         Duration(milliseconds: 2000),
-                                        () => setState(() {}),
+                                        () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
                                       obscureText: false,
@@ -1837,7 +1837,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                   _model
                                                       .modelInputTextController
                                                       ?.clear();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 child: Icon(
                                                   Icons.clear,
@@ -1914,7 +1914,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.truckCurrentPriceInputTextController',
                                       Duration(milliseconds: 2000),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -1973,7 +1973,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 _model
                                                     .truckCurrentPriceInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -2166,7 +2166,7 @@ class _InsuranceRequestBasicPageWidgetState
                                               onTap: () async {
                                                 _model.plateInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -2321,7 +2321,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 _model
                                                     .plateAdditionalInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -2411,8 +2411,8 @@ class _InsuranceRequestBasicPageWidgetState
                                 functions.ganerateYearList(1957, 2023)!),
                             optionLabels:
                                 functions.ganerateYearList(2500, 2566)!,
-                            onChanged: (val) =>
-                                setState(() => _model.yearDropDownValue = val),
+                            onChanged: (val) => safeSetState(
+                                () => _model.yearDropDownValue = val),
                             width: 90.0,
                             height: double.infinity,
                             searchHintTextStyle: GoogleFonts.getFont(
@@ -2502,7 +2502,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         FormFieldController<String>(null),
                                 options:
                                     FFAppState().insuranceBasicProvinceNameList,
-                                onChanged: (val) => setState(
+                                onChanged: (val) => safeSetState(
                                     () => _model.provinceDropDownValue = val),
                                 width: 90.0,
                                 height: 60.0,
@@ -2613,7 +2613,7 @@ class _InsuranceRequestBasicPageWidgetState
                                         FFAppState()
                                             .insuranceBasicVehicleUsedTypeNameList
                                             .toList())!,
-                                onChanged: (val) => setState(
+                                onChanged: (val) => safeSetState(
                                     () => _model.useTypeDropDownValue = val),
                                 width: 90.0,
                                 height: 60.0,
@@ -2704,7 +2704,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.logistPoposeInputTextController',
                                       Duration(milliseconds: 2000),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -2763,7 +2763,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 _model
                                                     .logistPoposeInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -2829,8 +2829,8 @@ class _InsuranceRequestBasicPageWidgetState
                               child: Checkbox(
                                 value: _model.carModifyCheckboxValue ??= false,
                                 onChanged: (newValue) async {
-                                  setState(() => _model.carModifyCheckboxValue =
-                                      newValue!);
+                                  safeSetState(() => _model
+                                      .carModifyCheckboxValue = newValue!);
                                 },
                                 side: BorderSide(
                                   width: 2,
@@ -2890,7 +2890,7 @@ class _InsuranceRequestBasicPageWidgetState
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.accessoryProtectedInputTextController',
                                       Duration(milliseconds: 2000),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -2949,7 +2949,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 _model
                                                     .accessoryProtectedInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -3036,7 +3036,7 @@ class _InsuranceRequestBasicPageWidgetState
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.nameInputTextController',
                                     Duration(milliseconds: 2000),
-                                    () => setState(() {}),
+                                    () => safeSetState(() {}),
                                   ),
                                   autofocus: false,
                                   obscureText: false,
@@ -3088,7 +3088,7 @@ class _InsuranceRequestBasicPageWidgetState
                                             onTap: () async {
                                               _model.nameInputTextController
                                                   ?.clear();
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Icon(
                                               Icons.clear,
@@ -3175,7 +3175,7 @@ class _InsuranceRequestBasicPageWidgetState
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.lastnameInputTextController',
                                     Duration(milliseconds: 2000),
-                                    () => setState(() {}),
+                                    () => safeSetState(() {}),
                                   ),
                                   autofocus: false,
                                   obscureText: false,
@@ -3229,7 +3229,7 @@ class _InsuranceRequestBasicPageWidgetState
                                             onTap: () async {
                                               _model.lastnameInputTextController
                                                   ?.clear();
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Icon(
                                               Icons.clear,
@@ -3313,7 +3313,7 @@ class _InsuranceRequestBasicPageWidgetState
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.phoneInputTextController',
                                     Duration(milliseconds: 2000),
-                                    () => setState(() {}),
+                                    () => safeSetState(() {}),
                                   ),
                                   autofocus: false,
                                   obscureText: false,
@@ -3365,7 +3365,7 @@ class _InsuranceRequestBasicPageWidgetState
                                             onTap: () async {
                                               _model.phoneInputTextController
                                                   ?.clear();
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Icon(
                                               Icons.clear,
@@ -3432,7 +3432,7 @@ class _InsuranceRequestBasicPageWidgetState
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.idInputTextController',
                                   Duration(milliseconds: 2000),
-                                  () => setState(() {}),
+                                  () => safeSetState(() {}),
                                 ),
                                 autofocus: false,
                                 obscureText: false,
@@ -3484,7 +3484,7 @@ class _InsuranceRequestBasicPageWidgetState
                                           onTap: () async {
                                             _model.idInputTextController
                                                 ?.clear();
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           child: Icon(
                                             Icons.clear,
@@ -3549,7 +3549,7 @@ class _InsuranceRequestBasicPageWidgetState
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.remarkInputTextController',
                                   Duration(milliseconds: 2000),
-                                  () => setState(() {}),
+                                  () => safeSetState(() {}),
                                 ),
                                 autofocus: false,
                                 obscureText: false,
@@ -3601,7 +3601,7 @@ class _InsuranceRequestBasicPageWidgetState
                                           onTap: () async {
                                             _model.remarkInputTextController
                                                 ?.clear();
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           child: Icon(
                                             Icons.clear,
@@ -4290,7 +4290,7 @@ class _InsuranceRequestBasicPageWidgetState
                                               .freezeBoxPriceInputTextController
                                               .text
                                           : '';
-                                      setState(() {});
+                                      safeSetState(() {});
                                     } else {
                                       if (!((_model.brandInputTextController
                                                       .text !=
@@ -4675,7 +4675,7 @@ class _InsuranceRequestBasicPageWidgetState
                                           : '';
                                       FFAppState().insuranceBasicTruckPart =
                                           _model.truckPartRadioButtonValue!;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     }
 
                                     FFAppState().operationChoiceChips =
@@ -4799,7 +4799,7 @@ class _InsuranceRequestBasicPageWidgetState
                                                 'งานใหม่'
                                             ? random_data.randomDate()
                                             : _model.datePicked;
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState()
                                             .insuranceBasicInsurerListNameRandomList =
                                         functions
@@ -4808,18 +4808,18 @@ class _InsuranceRequestBasicPageWidgetState
                                                 .toList())!
                                             .toList()
                                             .cast<String>();
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().operationChoiceChips =
                                         functions.returnStringWithNoSpace(
                                             _model.operationChoiceChipsValue);
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().customerTypeChoiceChips =
                                         functions.returnStringWithNoSpace(_model
                                             .customerTypeChoiceChipsValue);
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().vehicleTypeDropdown =
                                         _model.vehicleTypeDropDownValue!;
-                                    setState(() {});
+                                    safeSetState(() {});
 
                                     context.pushNamed(
                                         'InsuranceRequestInsurerPage');

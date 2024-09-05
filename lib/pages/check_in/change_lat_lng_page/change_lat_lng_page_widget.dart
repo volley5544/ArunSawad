@@ -199,7 +199,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -321,7 +321,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.branchCodeInputTextController',
                                           Duration(milliseconds: 100),
-                                          () => setState(() {}),
+                                          () => safeSetState(() {}),
                                         ),
                                         autofocus: false,
                                         obscureText: false,
@@ -432,7 +432,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.latInputTextController',
                                           Duration(milliseconds: 100),
-                                          () => setState(() {}),
+                                          () => safeSetState(() {}),
                                         ),
                                         autofocus: false,
                                         obscureText: false,
@@ -543,7 +543,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                         onChanged: (_) => EasyDebounce.debounce(
                                           '_model.lngInputTextController',
                                           Duration(milliseconds: 100),
-                                          () => setState(() {}),
+                                          () => safeSetState(() {}),
                                         ),
                                         autofocus: false,
                                         obscureText: false,
@@ -689,7 +689,8 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (!(_model.latInputTextController
@@ -716,7 +717,8 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (!(_model.lngInputTextController
@@ -743,7 +745,8 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (!(((functions.changeToDouble(_model.latInputTextController.text)! <=
@@ -781,13 +784,14 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             );
                                           },
                                         );
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.latInputTextController
                                               ?.clear();
                                           _model.lngInputTextController
                                               ?.clear();
                                         });
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       showModalBottomSheet(
@@ -819,7 +823,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           _model.latInputTextController.text;
                                       FFAppState().changeLng =
                                           _model.lngInputTextController.text;
-                                      setState(() {});
+                                      safeSetState(() {});
                                       _model.changeLocationAPIOutput =
                                           await ChangeLocationAPICall.call(
                                         branchCode:
@@ -866,7 +870,8 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             },
                                           );
                                           Navigator.pop(context);
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         if (ChangeLocationAPICall.statusLayer2(
@@ -875,7 +880,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                                   ''),
                                             ) ==
                                             200) {
-                                          setState(() {});
+                                          safeSetState(() {});
                                           Navigator.pop(context);
                                           await _model
                                               .googleMapsController1.future
@@ -1022,7 +1027,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                               },
                                             );
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -1047,11 +1052,12 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           },
                                         );
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     text: 'ค้นหา',
                                     options: FFButtonOptions(
@@ -1182,7 +1188,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                 ));
                             return FlutterFlowGoogleMap(
                               controller: _model.googleMapsController1,
-                              onCameraIdle: (latLng) => setState(
+                              onCameraIdle: (latLng) => safeSetState(
                                   () => _model.googleMapsCenter1 = latLng),
                               initialLocation: _model.googleMapsCenter1 ??=
                                   functions.stringToLatLng(
@@ -1251,7 +1257,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                 FFAppState().changeLat, FFAppState().changeLng);
                             return FlutterFlowGoogleMap(
                               controller: _model.googleMapsController2,
-                              onCameraIdle: (latLng) => setState(
+                              onCameraIdle: (latLng) => safeSetState(
                                   () => _model.googleMapsCenter2 = latLng),
                               initialLocation: _model.googleMapsCenter2 ??=
                                   functions.stringToLatLng(
@@ -1338,7 +1344,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (!(_model.latInputTextController.text !=
@@ -1364,7 +1370,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (!(_model.lngInputTextController.text !=
@@ -1390,7 +1396,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     var confirmDialogResponse =
@@ -1423,7 +1429,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             ) ??
                                             false;
                                     if (!confirmDialogResponse) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.changeLocationAPIOutputEdit =
@@ -1469,7 +1475,7 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                             );
                                           },
                                         );
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.branchCodeInputTextController
                                               ?.clear();
                                           _model.latInputTextController
@@ -1533,7 +1539,8 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           );
                                         }
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                     } else {
@@ -1556,11 +1563,11 @@ class _ChangeLatLngPageWidgetState extends State<ChangeLatLngPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'บันทึก',
                                   options: FFButtonOptions(

@@ -288,7 +288,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
     _model.plateInputTextController ??= TextEditingController();
     _model.plateInputFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -403,7 +403,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             FormFieldController<String>(null),
                                         options: FFAppState().teleBrandName,
                                         onChanged: (val) async {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.brandDropDownValue = val);
                                           HapticFeedback.mediumImpact();
                                           FFAppState().teleModelName = functions
@@ -514,7 +514,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                   .modelDropDownValueController ??=
                                               FormFieldController<String>(null),
                                           options: FFAppState().teleModelName,
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.modelDropDownValue = val),
                                           width: 90.0,
                                           height: 60.0,
@@ -607,7 +607,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                         FFAppState().teleADYearDropdown),
                                     optionLabels:
                                         FFAppState().teleYearDropdownOption,
-                                    onChanged: (val) => setState(
+                                    onChanged: (val) => safeSetState(
                                         () => _model.yearDropDownValue = val),
                                     width: 90.0,
                                     height: double.infinity,
@@ -673,7 +673,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                 .provinceDropDownValueController ??=
                                             FormFieldController<String>(null),
                                         options: FFAppState().teleGetProvince,
-                                        onChanged: (val) => setState(() =>
+                                        onChanged: (val) => safeSetState(() =>
                                             _model.provinceDropDownValue = val),
                                         width: 90.0,
                                         height: 60.0,
@@ -762,7 +762,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                           '210รถยนต์โดยสาร',
                                           '320รถยนต์บรรทุก'
                                         ],
-                                        onChanged: (val) => setState(() =>
+                                        onChanged: (val) => safeSetState(() =>
                                             _model.useTypeDropDownValue = val),
                                         width: 90.0,
                                         height: 60.0,
@@ -834,7 +834,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               EasyDebounce.debounce(
                                             '_model.nameInputTextController',
                                             Duration(milliseconds: 2000),
-                                            () => setState(() {}),
+                                            () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
                                           obscureText: false,
@@ -896,7 +896,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                       _model
                                                           .nameInputTextController
                                                           ?.clear();
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                     child: Icon(
                                                       Icons.clear,
@@ -968,7 +968,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               EasyDebounce.debounce(
                                             '_model.lastnameInputTextController',
                                             Duration(milliseconds: 2000),
-                                            () => setState(() {}),
+                                            () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
                                           obscureText: false,
@@ -1030,7 +1030,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                       _model
                                                           .lastnameInputTextController
                                                           ?.clear();
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                     child: Icon(
                                                       Icons.clear,
@@ -1102,7 +1102,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               EasyDebounce.debounce(
                                             '_model.idInputTextController',
                                             Duration(milliseconds: 2000),
-                                            () => setState(() {}),
+                                            () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
                                           obscureText: false,
@@ -1164,7 +1164,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                       _model
                                                           .idInputTextController
                                                           ?.clear();
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                     child: Icon(
                                                       Icons.clear,
@@ -1237,7 +1237,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               EasyDebounce.debounce(
                                             '_model.phoneInputTextController',
                                             Duration(milliseconds: 2000),
-                                            () => setState(() {}),
+                                            () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
                                           obscureText: false,
@@ -1299,7 +1299,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                       _model
                                                           .phoneInputTextController
                                                           ?.clear();
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                     child: Icon(
                                                       Icons.clear,
@@ -1373,7 +1373,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                               EasyDebounce.debounce(
                                             '_model.plateInputTextController',
                                             Duration(milliseconds: 2000),
-                                            () => setState(() {}),
+                                            () => safeSetState(() {}),
                                           ),
                                           autofocus: false,
                                           obscureText: false,
@@ -1435,7 +1435,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                                       _model
                                                           .plateInputTextController
                                                           ?.clear();
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                     child: Icon(
                                                       Icons.clear,
@@ -1515,7 +1515,7 @@ class _CheckInsurancePageWidgetState extends State<CheckInsurancePageWidget> {
                                             'ระบุผู้ขับขี่',
                                             'ไม่ระบุผู้ขับขี่'
                                           ],
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.driverDropDownValue = val),
                                           width: 90.0,
                                           height: 60.0,

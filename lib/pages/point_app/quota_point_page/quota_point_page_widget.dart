@@ -130,7 +130,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -633,7 +633,7 @@ class _QuotaPointPageWidgetState extends State<QuotaPointPageWidget>
                           'ธันวาคม'
                         ],
                         onChanged: (val) =>
-                            setState(() => _model.dropDownValue = val),
+                            safeSetState(() => _model.dropDownValue = val),
                         width: 180.0,
                         height: 50.0,
                         textStyle:

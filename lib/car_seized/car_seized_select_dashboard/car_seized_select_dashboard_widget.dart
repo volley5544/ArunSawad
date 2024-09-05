@@ -80,7 +80,7 @@ class _CarSeizedSelectDashboardWidgetState
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       FFAppState().improundUrl = _model.urlLinkStorage!.urlLink;
-      setState(() {});
+      safeSetState(() {});
       _model.urlLinkStorageVloan = await queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
           'url_name',
@@ -90,7 +90,7 @@ class _CarSeizedSelectDashboardWidgetState
       ).then((s) => s.firstOrNull);
       FFAppState().impoundUrlVloan = _model.urlLinkStorageVloan!.urlLink;
       FFAppState().impoundUrlVloanToken = _model.urlLinkStorageVloan!.urlToken;
-      setState(() {});
+      safeSetState(() {});
       _model.getDataCollection = await actions.getDataFromCollection(
         'role_menu',
       );
@@ -98,12 +98,12 @@ class _CarSeizedSelectDashboardWidgetState
           _model.getDataCollection, 'impoundCarReadAccessRole');
       _model.writeAccessRoleData = functions.getDataFromMapJson(
           _model.getDataCollection, 'impoundCarSaveAccessRole');
-      setState(() {});
+      safeSetState(() {});
       _model.userRoleRead = functions.impoundCargetRoleName(
           _model.readAccessRoleData, FFAppState().employeeID)!;
       _model.userRoleSave = functions.impoundCargetRoleName(
           _model.writeAccessRoleData, FFAppState().employeeID)!;
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
 
       var userLogRecordReference = UserLogRecord.collection.doc();
@@ -123,7 +123,7 @@ class _CarSeizedSelectDashboardWidgetState
           userLogRecordReference);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

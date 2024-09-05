@@ -94,7 +94,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
     _model.returnAssetTextFieldTextController ??= TextEditingController();
     _model.returnAssetTextFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'ลาออก';
         }));
   }
@@ -527,8 +527,9 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   addResignPageCopyLeavePageDataRecord!
                                                       .reasonToLeave
                                                       .toList(),
-                                              onChanged: (val) => setState(() =>
-                                                  _model.checkboxGroupValues1 =
+                                              onChanged: (val) => safeSetState(
+                                                  () => _model
+                                                          .checkboxGroupValues1 =
                                                       val),
                                               controller: _model
                                                       .checkboxGroupValueController1 ??=
@@ -935,7 +936,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                             },
                                             onSelected: (String selection) {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                       .provinceInputSelectedOption =
                                                   selection);
                                               FocusScope.of(context).unfocus();
@@ -1015,11 +1016,11 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                         },
                                                       );
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       return;
                                                     }
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                   },
                                                 ),
                                                 autofocus: true,
@@ -1171,7 +1172,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                             },
                                             onSelected: (String selection) {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                       .districtInputSelectedOption =
                                                   selection);
                                               FocusScope.of(context).unfocus();
@@ -1259,11 +1260,11 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                         },
                                                       );
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       return;
                                                     }
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                   },
                                                 ),
                                                 autofocus: false,
@@ -1413,7 +1414,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                             },
                                             onSelected: (String selection) {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                       .subdistrictInputSelectedOption =
                                                   selection);
                                               FocusScope.of(context).unfocus();
@@ -1671,7 +1672,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                               );
                                             },
                                             onSelected: (String selection) {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                       .postCodeTextFieldSelectedOption =
                                                   selection);
                                               FocusScope.of(context).unfocus();
@@ -1907,7 +1908,7 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                 FormFieldController<String>(
                                                     null),
                                             options: ['ร่วมงาน', 'ไม่ร่วมงาน'],
-                                            onChanged: (val) => setState(() =>
+                                            onChanged: (val) => safeSetState(() =>
                                                 _model.chanceToWorkTgtDropDownValue =
                                                     val),
                                             width: 90.0,
@@ -1984,8 +1985,9 @@ class _AddResignPageCopyWidgetState extends State<AddResignPageCopyWidget> {
                                                   addResignPageCopyLeavePageDataRecord!
                                                       .companyAsset
                                                       .toList(),
-                                              onChanged: (val) => setState(() =>
-                                                  _model.checkboxGroupValues2 =
+                                              onChanged: (val) => safeSetState(
+                                                  () => _model
+                                                          .checkboxGroupValues2 =
                                                       val),
                                               controller: _model
                                                       .checkboxGroupValueController2 ??=

@@ -33,8 +33,8 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'FindPlacePage'});
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -100,7 +100,7 @@ class _FindPlacePageWidgetState extends State<FindPlacePageWidget> {
                   webGoogleMapsApiKey:
                       'AIzaSyBbHtyznWFezYtHsXJ7ycj_AqgRS9eRfdM',
                   onSelect: (place) async {
-                    setState(() => _model.placePickerValue = place);
+                    safeSetState(() => _model.placePickerValue = place);
                   },
                   defaultText: 'Select Location',
                   icon: Icon(

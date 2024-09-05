@@ -29,7 +29,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class KPIAllCEOPageModel extends FlutterFlowModel<KPIAllCEOPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in KPIAllCEOPage widget.
   UserLogRecord? createdUserLogKPI;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in KPIAllCEOPage widget.

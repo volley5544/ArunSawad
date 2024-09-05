@@ -91,7 +91,7 @@ class _FormServicePageWidgetState extends State<FormServicePageWidget> {
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

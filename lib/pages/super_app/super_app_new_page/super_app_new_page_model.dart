@@ -39,7 +39,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SuperAppNewPageModel extends FlutterFlowModel<SuperAppNewPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in SuperAppNewPage widget.
   HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - getBuildVersion] action in SuperAppNewPage widget.

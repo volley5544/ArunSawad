@@ -122,7 +122,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
       vsync: this,
       length: 3,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.expandableExpandableController1 =
         ExpandableController(initialExpanded: true);
     _model.branchInputTextController ??= TextEditingController();
@@ -186,7 +186,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -502,7 +502,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -567,7 +567,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       if (animationsMap[
                                                               'containerOnActionTriggerAnimation1'] !=
                                                           null) {
-                                                        setState(() =>
+                                                        safeSetState(() =>
                                                             hasContainerTriggered1 =
                                                                 true);
                                                         SchedulerBinding
@@ -675,7 +675,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
 
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                 },
                                               ),
                                             ),
@@ -756,7 +756,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                         ''),
                                                   )!,
                                                   onChanged: (val) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                         .dropDownValue1 = val);
                                                     HapticFeedback
                                                         .mediumImpact();
@@ -820,7 +820,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       if (animationsMap[
                                                               'containerOnActionTriggerAnimation2'] !=
                                                           null) {
-                                                        setState(() =>
+                                                        safeSetState(() =>
                                                             hasContainerTriggered2 =
                                                                 true);
                                                         SchedulerBinding
@@ -841,7 +841,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     }
                                                     Navigator.pop(context);
 
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                   width: 180.0,
                                                   height: 50.0,
@@ -939,7 +939,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       ''),
                                                 )!,
                                                 onChanged: (val) async {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .dropDownNameValue = val);
                                                   HapticFeedback.mediumImpact();
                                                   showModalBottomSheet(
@@ -1001,7 +1001,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     if (animationsMap[
                                                             'containerOnActionTriggerAnimation1'] !=
                                                         null) {
-                                                      setState(() =>
+                                                      safeSetState(() =>
                                                           hasContainerTriggered1 =
                                                               true);
                                                       SchedulerBinding.instance
@@ -1020,7 +1020,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                   }
                                                   Navigator.pop(context);
 
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
@@ -2093,7 +2093,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(
@@ -2337,7 +2337,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -2401,7 +2401,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       if (animationsMap[
                                                               'containerOnActionTriggerAnimation2'] !=
                                                           null) {
-                                                        setState(() =>
+                                                        safeSetState(() =>
                                                             hasContainerTriggered2 =
                                                                 true);
                                                         SchedulerBinding
@@ -2515,7 +2515,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
 
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                 },
                                               ),
                                             ),
@@ -2605,7 +2605,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                                 ''),
                                                           )?.toList()),
                                                   onChanged: (val) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                         .dropDownValue2 = val);
                                                     HapticFeedback
                                                         .mediumImpact();
@@ -2669,7 +2669,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                       if (animationsMap[
                                                               'containerOnActionTriggerAnimation1'] !=
                                                           null) {
-                                                        setState(() =>
+                                                        safeSetState(() =>
                                                             hasContainerTriggered1 =
                                                                 true);
                                                         SchedulerBinding
@@ -2690,7 +2690,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                     }
                                                     Navigator.pop(context);
 
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                   width: 180.0,
                                                   height: 50.0,
@@ -3768,7 +3768,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(
@@ -3843,7 +3843,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                           List<String>.from(['เขต', 'ภาค']),
                                       optionLabels: ['เขต', 'ภาค'],
                                       onChanged: (val) async {
-                                        setState(() => _model
+                                        safeSetState(() => _model
                                             .areaRegionDropDownValue = val);
                                         HapticFeedback.mediumImpact();
                                       },
@@ -3947,9 +3947,9 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                   (_model.getRegion?.jsonBody ??
                                                       ''),
                                                 )?.toList()),
-                                        onChanged: (val) => setState(() => _model
-                                                .areaRegionSelectedDropDownValue =
-                                            val),
+                                        onChanged: (val) => safeSetState(() =>
+                                            _model.areaRegionSelectedDropDownValue =
+                                                val),
                                         searchHintTextStyle:
                                             FlutterFlowTheme.of(context)
                                                 .bodyLarge
@@ -4072,7 +4072,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                             );
                                           },
                                           onSelected: (String selection) {
-                                            setState(() => _model
+                                            safeSetState(() => _model
                                                     .branchInputAreaSelectedOption =
                                                 selection);
                                             FocusScope.of(context).unfocus();
@@ -5225,7 +5225,7 @@ class _KPIAllCEOPageWidgetState extends State<KPIAllCEOPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(

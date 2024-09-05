@@ -46,7 +46,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
     super.initState();
     _model = createModel(context, () => SplashPageHolidayModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -277,7 +277,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                           duration: Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                       },
                                       effect: smooth_page_indicator.SlideEffect(
                                         spacing: 8.0,
@@ -307,7 +307,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                             flex: 1,
                             child: FlutterFlowCheckboxGroup(
                               options: ['ไม่แสดงอีกในวันนี้'],
-                              onChanged: (val) => setState(
+                              onChanged: (val) => safeSetState(
                                   () => _model.checkboxGroupValues = val),
                               controller:
                                   _model.checkboxGroupValueController ??=

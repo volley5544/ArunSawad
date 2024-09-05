@@ -78,7 +78,7 @@ class _CustomerCarDeailsStep4WidgetState
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -479,7 +479,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading1 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -515,13 +515,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile1 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -812,7 +812,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading1 =
                                                               false;
                                                           _model.uploadedLocalFile1 =
@@ -980,7 +980,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading2 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1016,13 +1016,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile2 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1313,7 +1313,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading2 =
                                                               false;
                                                           _model.uploadedLocalFile2 =
@@ -1480,7 +1480,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading3 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -1516,13 +1516,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile3 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -1813,7 +1813,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading3 =
                                                               false;
                                                           _model.uploadedLocalFile3 =
@@ -1981,7 +1981,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading4 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -2017,13 +2017,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile4 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -2314,7 +2314,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading4 =
                                                               false;
                                                           _model.uploadedLocalFile4 =
@@ -2482,7 +2482,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading5 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -2518,13 +2518,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile5 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -2815,7 +2815,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading5 =
                                                               false;
                                                           _model.uploadedLocalFile5 =
@@ -2983,7 +2983,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading6 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -3019,13 +3019,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile6 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -3316,7 +3316,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading6 =
                                                               false;
                                                           _model.uploadedLocalFile6 =
@@ -3488,7 +3488,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading7 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -3524,13 +3524,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile7 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -3821,7 +3821,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading7 =
                                                               false;
                                                           _model.uploadedLocalFile7 =
@@ -3993,7 +3993,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading8 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -4029,13 +4029,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile8 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -4326,7 +4326,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading8 =
                                                               false;
                                                           _model.uploadedLocalFile8 =
@@ -4498,7 +4498,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading9 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -4534,13 +4534,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile9 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -4831,7 +4831,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading9 =
                                                               false;
                                                           _model.uploadedLocalFile9 =
@@ -5003,7 +5003,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading10 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -5039,13 +5039,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile10 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -5336,7 +5336,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading10 =
                                                               false;
                                                           _model.uploadedLocalFile10 =
@@ -5508,7 +5508,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading11 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -5544,13 +5544,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile11 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -5841,7 +5841,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading11 =
                                                               false;
                                                           _model.uploadedLocalFile11 =
@@ -6013,7 +6013,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                             validateFileFormat(
                                                                 m.storagePath,
                                                                 context))) {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .isDataUploading12 =
                                                           true);
                                                       var selectedUploadedFiles =
@@ -6049,13 +6049,13 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .length ==
                                                           selectedMedia
                                                               .length) {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.uploadedLocalFile12 =
                                                               selectedUploadedFiles
                                                                   .first;
                                                         });
                                                       } else {
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                         return;
                                                       }
                                                     }
@@ -6346,7 +6346,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         size: 18.0,
                                                       ),
                                                       onPressed: () async {
-                                                        setState(() {
+                                                        safeSetState(() {
                                                           _model.isDataUploading12 =
                                                               false;
                                                           _model.uploadedLocalFile12 =
@@ -6576,7 +6576,7 @@ class _CustomerCarDeailsStep4WidgetState
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           var confirmDialogResponse = await showDialog<bool>(
@@ -6604,7 +6604,7 @@ class _CustomerCarDeailsStep4WidgetState
                               ) ??
                               false;
                           if (!confirmDialogResponse) {
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           showModalBottomSheet(
@@ -6693,7 +6693,7 @@ class _CustomerCarDeailsStep4WidgetState
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           if ('${getJsonField(
@@ -6724,7 +6724,7 @@ class _CustomerCarDeailsStep4WidgetState
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           await showDialog(
@@ -6829,7 +6829,7 @@ class _CustomerCarDeailsStep4WidgetState
                             }.withoutNulls,
                           );
 
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                         },
                         text: 'บันทึก',
                         options: FFButtonOptions(

@@ -17,7 +17,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class IBSReportModel extends FlutterFlowModel<IBSReportWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetKPIAll)] action in IBSReport widget.
   ApiCallResponse? kPIAllOutput;
   // State field(s) for TabBar widget.

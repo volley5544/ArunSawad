@@ -304,7 +304,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -513,7 +513,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -583,7 +584,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                       context.goNamed('LoginPage');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.checkInLocationService =
@@ -613,7 +614,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       FFAppState().isFromTimesheetPage = false;
@@ -638,13 +640,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
                                     context.goNamed('CheckInPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     width:
@@ -782,7 +784,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -852,7 +855,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                       context.goNamed('LoginPage');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.surveyLocationService =
@@ -882,7 +885,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       FFAppState().isFromTimesheetPage = false;
@@ -907,13 +911,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
                                     context.goNamed('SurveyPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     width:
@@ -1074,7 +1078,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         await showDialog(
@@ -1146,7 +1151,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                         context.goNamed('LoginPage');
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       Navigator.pop(context);
@@ -1178,7 +1184,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         _model.getCollectionApiUrl =
@@ -1203,11 +1210,11 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         FFAppState().saveCalled = SaveCallStruct
                                             .fromSerializableMap(jsonDecode(
                                                 '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                        setState(() {});
+                                        safeSetState(() {});
                                         FFAppState()
                                                 .apiUrlBranchViewCollection =
                                             _model.getCollectionApiUrl!.urlLink;
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         await showDialog(
                                           context: context,
@@ -1228,13 +1235,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
 
                                       context.pushNamed('tabCollection');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -1373,7 +1381,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -1443,7 +1452,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                       context.goNamed('LoginPage');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.marketingLocationService =
@@ -1474,7 +1483,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       FFAppState().isFromTimesheetPage = false;
@@ -1499,13 +1509,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
                                     context.goNamed('MarketingPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     width:
@@ -1642,7 +1652,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -1712,7 +1723,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                       context.goNamed('LoginPage');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.nPALocationService =
@@ -1742,7 +1753,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       FFAppState().isFromTimesheetPage = false;
@@ -1767,13 +1779,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
                                     context.goNamed('NPApage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     width:
@@ -1931,7 +1943,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         context.goNamedAuth(
                                             'LoginPage', context.mounted);
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
 
@@ -1963,7 +1976,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         FFAppState().isFromTimesheetPage =
@@ -1990,14 +2004,15 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
 
                                       context.goNamedAuth(
                                           'OPSpage', context.mounted);
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -2139,7 +2154,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -2209,7 +2225,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                       context.goNamed('LoginPage');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.checkerLocationService =
@@ -2239,7 +2255,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       FFAppState().isFromTimesheetPage = false;
@@ -2258,7 +2275,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           _model.getVloanRemarkApiUrl!.urlLink;
                                       FFAppState().tokenVloanRemark =
                                           _model.getVloanRemarkApiUrl!.urlToken;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     } else {
                                       await showDialog(
                                         context: context,
@@ -2279,13 +2296,13 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
                                     context.goNamed('CheckerPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     width:
@@ -2423,7 +2440,8 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       await showDialog(
@@ -2493,7 +2511,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                       context.goNamed('LoginPage');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     FFAppState().isFromTimesheetPage = true;
@@ -2501,7 +2519,7 @@ class _DashboardWidgetState extends State<DashboardWidget>
 
                                     context.goNamed('TimeSheetPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     width:

@@ -155,7 +155,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
         TextEditingController(text: widget!.assetEtc);
     _model.returnAssetTextField2FocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'ประเภทการลา: ลาออก';
           _model.textController7?.text = 'ลาออก';
         }));
@@ -677,7 +677,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               .reasonToLeave
                                                               .toList(),
                                                       onChanged: (val) async {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .checkboxGroupValues1 =
                                                             val);
                                                         FFAppState()
@@ -1121,7 +1121,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                                 .provName
                                                                 .toList())!,
                                                     onChanged: (val) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .provinceDropDownValue =
                                                           val);
                                                       var _shouldSetState =
@@ -1248,13 +1248,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           },
                                                         );
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         return;
                                                       }
 
                                                       Navigator.pop(context);
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                     },
                                                     width: 180.0,
                                                     height: 50.0,
@@ -1304,7 +1304,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     options: FFAppState()
                                                         .districtName,
                                                     onChanged: (val) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .districtDropDownValue =
                                                           val);
                                                       var _shouldSetState =
@@ -1406,13 +1406,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           },
                                                         );
                                                         if (_shouldSetState)
-                                                          setState(() {});
+                                                          safeSetState(() {});
                                                         return;
                                                       }
 
                                                       Navigator.pop(context);
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                     },
                                                     width: 180.0,
                                                     height: 50.0,
@@ -1467,7 +1467,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     options: FFAppState()
                                                         .subDistrictName,
                                                     onChanged: (val) =>
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .subdistrictDropDownValue =
                                                             val),
                                                     width: 180.0,
@@ -1523,7 +1523,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                     options:
                                                         FFAppState().postCode,
                                                     onChanged: (val) =>
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .postCodeDropDownValue =
                                                             val),
                                                     width: 180.0,
@@ -1830,7 +1830,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       'ไม่ร่วมงาน'
                                                     ],
                                                     onChanged: (val) =>
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .chanceToWorkTgtDropDownValue =
                                                             val),
                                                     width: 90.0,
@@ -1916,7 +1916,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                               .companyAsset
                                                               .toList(),
                                                       onChanged: (val) async {
-                                                        setState(() => _model
+                                                        safeSetState(() => _model
                                                                 .checkboxGroupValues2 =
                                                             val);
                                                         FFAppState()
@@ -2159,7 +2159,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (_model
@@ -2188,7 +2188,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!(_model.reasonToLeaveTextFieldTextController
@@ -2219,7 +2219,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!(_model.provinceDropDownValue !=
@@ -2248,7 +2248,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!(_model.districtDropDownValue !=
@@ -2277,7 +2277,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!(_model.subdistrictDropDownValue !=
@@ -2306,7 +2306,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!(_model.batchRoadTextFieldTextController
@@ -2337,7 +2337,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!(_model.postCodeDropDownValue !=
@@ -2366,7 +2366,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!((_model.phoneNumberTextFieldTextController
@@ -2402,7 +2402,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!(_model.chanceToWorkTgtDropDownValue !=
@@ -2431,7 +2431,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (_model
@@ -2460,7 +2460,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   var confirmDialogResponse =
@@ -2496,7 +2496,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           false;
                                                   if (!confirmDialogResponse) {
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   FFAppState()
@@ -2602,7 +2602,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (!((LeaveRequestFirstAPICall
@@ -2663,7 +2663,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         },
                                                       );
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       return;
                                                     }
                                                     await showDialog(
@@ -2688,7 +2688,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   if (columnUserCustomRecord !=
@@ -2826,7 +2826,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       .goNamed('LeaveShowPage');
 
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                 },
                                                 text: 'บันทึก',
                                                 options: FFButtonOptions(
@@ -3177,7 +3177,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           .reasonToLeave
                                                           .toList(),
                                                   onChanged: (val) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .checkboxGroupEditValues =
                                                         val);
                                                     FFAppState()
@@ -3586,7 +3586,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                         .provName
                                                         .toList())!,
                                                 onChanged: (val) async {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                           .provinceDropDown2Value =
                                                       val);
                                                   var _shouldSetState = false;
@@ -3705,13 +3705,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
 
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
@@ -3759,7 +3759,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 options:
                                                     FFAppState().districtName,
                                                 onChanged: (val) async {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                           .districtDropDown2Value =
                                                       val);
                                                   var _shouldSetState = false;
@@ -3855,13 +3855,13 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
 
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
@@ -3913,8 +3913,9 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                 ),
                                                 options: FFAppState()
                                                     .subDistrictName,
-                                                onChanged: (val) => setState(() =>
-                                                    _model.subdistrictDropDown2Value =
+                                                onChanged: (val) =>
+                                                    safeSetState(() => _model
+                                                            .subdistrictDropDown2Value =
                                                         val),
                                                 width: 180.0,
                                                 height: 50.0,
@@ -3965,8 +3966,9 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       widget!.postCode,
                                                 ),
                                                 options: FFAppState().postCode,
-                                                onChanged: (val) => setState(() =>
-                                                    _model.postCodeDropDown2Value =
+                                                onChanged: (val) =>
+                                                    safeSetState(() => _model
+                                                            .postCodeDropDown2Value =
                                                         val),
                                                 width: 180.0,
                                                 height: 50.0,
@@ -4246,8 +4248,9 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   'ร่วมงาน',
                                                   'ไม่ร่วมงาน'
                                                 ],
-                                                onChanged: (val) => setState(() =>
-                                                    _model.chanceToWorkTgtDropDown2Value =
+                                                onChanged: (val) =>
+                                                    safeSetState(() => _model
+                                                            .chanceToWorkTgtDropDown2Value =
                                                         val),
                                                 width: 90.0,
                                                 height: 60.0,
@@ -4328,7 +4331,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                           .companyAsset
                                                           .toList(),
                                                   onChanged: (val) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .checkboxGroupEdit2Values =
                                                         val);
                                                     FFAppState()
@@ -4557,7 +4560,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               if (!(_model.batchRoadTextField2TextController
@@ -4587,7 +4590,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               if (!((_model.phoneNumberTextField2TextController
@@ -4621,7 +4624,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               if (_model
@@ -4649,7 +4652,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               var confirmDialogResponse =
@@ -4686,7 +4689,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                       false;
                                               if (!confirmDialogResponse) {
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               _model.resignEditAPIOutput =
@@ -4819,7 +4822,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               if (!((LeaveEditAPICall
@@ -4870,7 +4873,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               await showDialog(
@@ -4901,7 +4904,7 @@ class _AddResignPageWidgetState extends State<AddResignPageWidget> {
                                               context.goNamed('LeaveShowPage');
 
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                             },
                                             text: 'บันทึก',
                                             options: FFButtonOptions(

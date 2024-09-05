@@ -41,7 +41,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -140,7 +140,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                           ChipData('เลขที่สัญญา',
                                               Icons.feed_outlined)
                                         ],
-                                        onChanged: (val) => setState(() =>
+                                        onChanged: (val) => safeSetState(() =>
                                             _model.choiceChipsValue =
                                                 val?.firstOrNull),
                                         selectedChipStyle: ChipStyle(
@@ -349,7 +349,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         if (_model.choiceChipsValue == 'ใบคำขอ') {
@@ -382,7 +382,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           if (!(CheckAppFromVloanAPICall.vehicleInfo(
@@ -409,7 +409,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                         } else {
@@ -441,7 +441,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           if ('${CheckVloanContractActiveAPICall.contractStatus(
@@ -470,7 +470,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                         }
@@ -499,7 +499,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>
                                   validateFileFormat(m.storagePath, context))) {
-                            setState(() => _model.isDataUploading = true);
+                            safeSetState(() => _model.isDataUploading = true);
                             var selectedUploadedFiles = <FFUploadedFile>[];
 
                             try {
@@ -524,13 +524,13 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                             }
                             if (selectedUploadedFiles.length ==
                                 selectedMedia.length) {
-                              setState(() {
+                              safeSetState(() {
                                 _model.uploadedLocalFile =
                                     selectedUploadedFiles.first;
                               });
                               showUploadMessage(context, 'Success!');
                             } else {
-                              setState(() {});
+                              safeSetState(() {});
                               showUploadMessage(
                                   context, 'Failed to upload data');
                               return;
@@ -538,7 +538,7 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                           }
                         }
 
-                        if (_shouldSetState) setState(() {});
+                        if (_shouldSetState) safeSetState(() {});
                       },
                       text: 'ถ่ายวิดีโอ',
                       options: FFButtonOptions(

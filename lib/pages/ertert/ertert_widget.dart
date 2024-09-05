@@ -26,7 +26,7 @@ class _ErtertWidgetState extends State<ErtertWidget> {
     _model = createModel(context, () => ErtertModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'ertert'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -37,7 +37,7 @@ class _PlanningKPIComponentWidgetState
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -69,7 +69,7 @@ class _PlanningKPIComponentWidgetState
             weekStartsMonday: false,
             initialDate: getCurrentTimestamp,
             onChange: (DateTimeRange? newSelectedDate) {
-              setState(() => _model.calendarSelectedDay = newSelectedDate);
+              safeSetState(() => _model.calendarSelectedDay = newSelectedDate);
             },
             titleStyle: TextStyle(),
             dayOfWeekStyle: TextStyle(),

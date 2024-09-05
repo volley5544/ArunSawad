@@ -17,7 +17,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class LeavePageModel extends FlutterFlowModel<LeavePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (LeaveDayAPI)] action in LeavePage widget.
   ApiCallResponse? leaveDayAPIOutput;
 

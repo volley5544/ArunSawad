@@ -23,7 +23,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class LeaveShowPageCopyModel extends FlutterFlowModel<LeaveShowPageCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (leaveListAPI)] action in LeaveShowPageCopy widget.
   ApiCallResponse? leaveListAPIOutput;
   // Stores action output result for [Backend Call - API (resignListAPI)] action in LeaveShowPageCopy widget.

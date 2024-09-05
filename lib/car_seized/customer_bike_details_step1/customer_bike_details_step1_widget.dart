@@ -30,7 +30,7 @@ class _CustomerBikeDetailsStep1WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CustomerBikeDetailsStep1'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

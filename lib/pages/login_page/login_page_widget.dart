@@ -58,9 +58,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.deviceVersion = await actions.getBuildVersion();
       FFAppState().firstLogin = false;
-      setState(() {});
+      safeSetState(() {});
       FFAppState().profileRoleName = '';
-      setState(() {});
+      safeSetState(() {});
       FFAppState().deleteBrachGroupNew();
       FFAppState().brachGroupNew = '';
 
@@ -76,10 +76,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       FFAppState().deleteBrachListNew();
       FFAppState().brachListNew = [];
 
-      setState(() {});
+      safeSetState(() {});
       FFAppState().insuranceLicenseStatusCode =
           FFAppState().InsuranceLicenseStatusCodeDefault.toList().cast<int>();
-      setState(() {});
+      safeSetState(() {});
       if (!FFAppState().firstUseApp) {
         context.goNamed('IntrodutionPage');
 
@@ -266,7 +266,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -533,7 +533,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.usernameInputTextController',
                                         Duration(milliseconds: 2000),
-                                        () => setState(() {}),
+                                        () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
                                       obscureText: false,
@@ -609,7 +609,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                   _model
                                                       .usernameInputTextController
                                                       ?.clear();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 child: Icon(
                                                   Icons.clear,
@@ -638,7 +638,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.passwordInputTextController',
                                         Duration(milliseconds: 100),
-                                        () => setState(() {}),
+                                        () => safeSetState(() {}),
                                       ),
                                       autofocus: false,
                                       obscureText:
@@ -707,7 +707,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           color: Color(0xFF0006D6),
                                         ),
                                         suffixIcon: InkWell(
-                                          onTap: () => setState(
+                                          onTap: () => safeSetState(
                                             () => _model
                                                     .passwordInputVisibility =
                                                 !_model.passwordInputVisibility,
@@ -1124,7 +1124,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               await launchURL('https://testflight.apple.com/join/8sA3XObM');
                                                                               await actions.terminateAppAction();
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                           } else {
@@ -1149,7 +1149,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               await launchURL('https://play.google.com/store/apps/details?id=com.mycompany.publicarunsawad');
                                                                               await actions.terminateAppAction();
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                           }
@@ -1165,7 +1165,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       FFAppState()
                                                                               .firstLogin =
                                                                           false;
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {});
                                                                       FFAppState()
                                                                           .deleteBrachGroupNew();
@@ -1192,7 +1192,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       FFAppState()
                                                                           .brachListNew = [];
 
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {});
                                                                       if (functions.containWordinStringUrl(
                                                                           '@',
@@ -1260,7 +1260,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             context.mounted);
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         return;
                                                                       }
@@ -1307,7 +1307,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             ),
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
@@ -1384,12 +1384,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             } else {
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                           } else {
@@ -1441,7 +1441,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               ),
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           } else {
                                                                             await showDialog(
@@ -1463,7 +1463,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           }
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
@@ -1588,7 +1588,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
                                                                         FFAppState().profileLastName =
                                                                             '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                         FFAppState().departmentProfile =
                                                                             '${GetUserProfileAPICall.department(
@@ -1600,7 +1600,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           (_model.getUserProfile?.jsonBody ??
                                                                               ''),
                                                                         )}';
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                         _model.getUserInsuranceLicense =
                                                                             await GetUserInsuranceLicenseCall.call(
@@ -1623,7 +1623,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               ))!
                                                                               .toList()
                                                                               .cast<int>();
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                           FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
                                                                               ? functions.createSomethingListWithNullValue(
@@ -1660,19 +1660,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                     (_model.getUserInsuranceLicense?.jsonBody ?? ''),
                                                                                   )?.toList())!
                                                                               : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                           FFAppState().profileInsuExpdateAD = functions
                                                                               .stringlistToDateAD(FFAppState().profileInsuLicenseExpireDate.toList())!
                                                                               .toList()
                                                                               .cast<DateTime>();
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                           FFAppState().expInsuLessthen30 = functions
                                                                               .compareDate30(FFAppState().profileInsuExpdateAD.toList(), getCurrentTimestamp.toString())!
                                                                               .toList()
                                                                               .cast<bool>();
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         }
                                                                         if (!(columnInsuranceNotiDataRecord !=
@@ -1729,7 +1729,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           ),
                                                                         );
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         return;
                                                                       }
@@ -1895,7 +1895,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
@@ -1927,7 +1927,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       }
 
                                                                       if (_shouldSetState)
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                     },
                                                                     text:

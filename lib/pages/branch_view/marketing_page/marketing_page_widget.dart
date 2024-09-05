@@ -151,7 +151,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -287,7 +287,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'รูปภาพ';
           _model.textController2?.text = 'ทำการตลาด';
           _model.textController7?.text = 'ทำการตลาด';
@@ -365,7 +365,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
           actions: [
             wrapWithModel(
               model: _model.cameraButtonModel,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: CameraButtonWidget(),
             ),
           ],
@@ -1183,7 +1183,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           'สปอตโฆษณา-รถแห่',
                                           'ทำตลาดในสาขา'
                                         ],
-                                        onChanged: (val) => setState(
+                                        onChanged: (val) => safeSetState(
                                             () => _model.dropDownValue = val),
                                         width: 180.0,
                                         height:
@@ -3119,7 +3119,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         backgroundColor: Color(0xB2000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.areaInputTextController.text !=
@@ -3138,7 +3138,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         backgroundColor: Color(0xB3000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.dropDownValue != null &&
@@ -3155,7 +3155,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         backgroundColor: Color(0xB3000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.remarkInputTextController.text !=
@@ -3174,7 +3174,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         backgroundColor: Color(0xB2000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (functions.checkmatAmountIsEmpty(
@@ -3220,7 +3220,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                           .cast<int>();
                                       FFAppState().update(() {});
                                     } else {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                   } else {
@@ -3254,7 +3254,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                             ) ??
                                             false;
                                     if (!confirmDialogResponse) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                   }
@@ -3282,7 +3282,7 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   showModalBottomSheet(
@@ -3413,13 +3413,13 @@ class _MarketingPageWidgetState extends State<MarketingPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
                                   context.goNamed('SuccessPage');
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'บันทึก',
                                 options: FFButtonOptions(

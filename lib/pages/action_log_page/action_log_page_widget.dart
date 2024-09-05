@@ -28,7 +28,7 @@ class _ActionLogPageWidgetState extends State<ActionLogPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ActionLogPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

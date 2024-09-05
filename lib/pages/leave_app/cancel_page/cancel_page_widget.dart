@@ -35,7 +35,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
     _model.reasonCancelTextController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -430,7 +430,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                           },
                                                                         );
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                         return;
                                                                       }
@@ -455,13 +455,13 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                         },
                                                                       );
                                                                       if (_shouldSetState)
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                       return;
                                                                     }
                                                                   } else {
                                                                     if (_shouldSetState)
-                                                                      setState(
+                                                                      safeSetState(
                                                                           () {});
                                                                     return;
                                                                   }
@@ -470,7 +470,7 @@ class _CancelPageWidgetState extends State<CancelPageWidget> {
                                                                       'LeaveShowPage');
 
                                                                   if (_shouldSetState)
-                                                                    setState(
+                                                                    safeSetState(
                                                                         () {});
                                                                 },
                                                                 text: 'ตกลง',

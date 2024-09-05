@@ -30,7 +30,7 @@ class _PDFViewerCopyWidgetState extends State<PDFViewerCopyWidget> {
     super.initState();
     _model = createModel(context, () => PDFViewerCopyModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

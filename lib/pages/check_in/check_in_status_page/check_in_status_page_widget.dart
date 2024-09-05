@@ -104,14 +104,14 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
             .reverseList(widget!.checkinTimeOut?.toList())
             .toList()
             .cast<String>();
-        setState(() {});
+        safeSetState(() {});
         FFAppState().checkinLastMonthDate =
             widget!.checkinLastMonthDate!.toList().cast<String>();
         FFAppState().checkinLastMonthTimeIn =
             widget!.checkinLastMonthTimeIn!.toList().cast<String>();
         FFAppState().checkinLastMonthTimeOut =
             widget!.checkinLastMonthTimeOut!.toList().cast<String>();
-        setState(() {});
+        safeSetState(() {});
       } else {
         _model.checkinThisMonthOutput = await CheckinoutThisMonthAPICall.call(
           apiUrl: FFAppState().apiURLLocalState,
@@ -425,7 +425,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
               )?.toList())
               .toList()
               .cast<String>();
-          setState(() {});
+          safeSetState(() {});
           FFAppState().checkinLastMonthDate = CheckinoutLastMonthAPICall.date(
             (_model.checkinLastMonthOutput?.jsonBody ?? ''),
           )!
@@ -443,7 +443,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
           )!
                   .toList()
                   .cast<String>();
-          setState(() {});
+          safeSetState(() {});
         } else {
           if (CheckinoutLastMonthAPICall.statusLayer2(
                 (_model.checkinLastMonthOutput?.jsonBody ?? ''),
@@ -552,8 +552,8 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

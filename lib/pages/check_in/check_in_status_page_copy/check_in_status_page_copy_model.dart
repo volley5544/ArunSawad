@@ -9,10 +9,6 @@ import 'package:provider/provider.dart';
 
 class CheckInStatusPageCopyModel
     extends FlutterFlowModel<CheckInStatusPageCopyWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

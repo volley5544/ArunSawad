@@ -26,7 +26,7 @@ class _ELearningWidgetState extends State<ELearningWidget> {
     _model = createModel(context, () => ELearningModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'E-learning'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

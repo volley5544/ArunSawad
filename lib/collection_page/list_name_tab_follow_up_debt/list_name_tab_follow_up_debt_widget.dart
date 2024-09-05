@@ -52,7 +52,7 @@ class _ListNameTabFollowUpDebtWidgetState
       FFAppState().collectionSearchBy = '';
       FFAppState().collectionSearch = '';
       FFAppState().collectionSortBy = '';
-      setState(() {});
+      safeSetState(() {});
       FFAppState().collectionSortBy = '';
       FFAppState().collectionSearch = '';
       FFAppState().collectionSearchBy = '';
@@ -60,13 +60,13 @@ class _ListNameTabFollowUpDebtWidgetState
       FFAppState().collectionListBoolean = [];
       FFAppState().saveCalled = SaveCallStruct.fromSerializableMap(jsonDecode(
           '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -99,7 +99,7 @@ class _ListNameTabFollowUpDebtWidgetState
                     children: [
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: AppbarFollowUpDebtWidget(),
                       ),
                       Text(
@@ -173,8 +173,8 @@ class _ListNameTabFollowUpDebtWidgetState
                                 'เลขทะเบียนรถ',
                                 'เลขบัตรประชาชนลูกค้า'
                               ],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue = val),
+                              onChanged: (val) => safeSetState(
+                                  () => _model.dropDownValue = val),
                               width: 150.0,
                               textStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
@@ -220,7 +220,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                 'เรียงตามวันครบดิว'
                               ],
                               onChanged: (val) async {
-                                setState(
+                                safeSetState(
                                     () => _model.sortbyDropdownValue = val);
                                 showModalBottomSheet(
                                   isScrollControlled: true,
@@ -247,8 +247,8 @@ class _ListNameTabFollowUpDebtWidgetState
 
                                 FFAppState().collectionSortBy =
                                     _model.sortbyDropdownValue!;
-                                setState(() {});
-                                setState(() =>
+                                safeSetState(() {});
+                                safeSetState(() =>
                                     _model.listViewPagingController?.refresh());
                                 await _model.waitForOnePageForListView();
                                 Navigator.pop(context);
@@ -315,7 +315,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController',
                                   Duration(milliseconds: 1000),
-                                  () => setState(() {}),
+                                  () => safeSetState(() {}),
                                 ),
                                 autofocus: false,
                                 obscureText: false,
@@ -373,7 +373,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                           ? InkWell(
                                               onTap: () async {
                                                 _model.textController?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -486,8 +486,9 @@ class _ListNameTabFollowUpDebtWidgetState
                                       _model.dropDownValue!;
                                   FFAppState().collectionSearch =
                                       _model.textController.text;
-                                  setState(() {});
-                                  setState(() => _model.listViewPagingController
+                                  safeSetState(() {});
+                                  safeSetState(() => _model
+                                      .listViewPagingController
                                       ?.refresh());
                                   Navigator.pop(context);
                                 },
@@ -550,7 +551,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                   FFAppState().collectionSearchBy = '';
                                   FFAppState().collectionSearch = '';
                                   FFAppState().collectionSortBy = '';
-                                  setState(() {});
+                                  safeSetState(() {});
                                   FFAppState().collectionSortBy = '';
                                   FFAppState().collectionSearch = '';
                                   FFAppState().collectionSearchBy = '';
@@ -559,10 +560,11 @@ class _ListNameTabFollowUpDebtWidgetState
                                   FFAppState().saveCalled = SaveCallStruct
                                       .fromSerializableMap(jsonDecode(
                                           '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                  setState(() {});
-                                  setState(() => _model.listViewPagingController
+                                  safeSetState(() {});
+                                  safeSetState(() => _model
+                                      .listViewPagingController
                                       ?.refresh());
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.textController?.clear();
                                   });
                                   Navigator.pop(context);
@@ -643,7 +645,7 @@ class _ListNameTabFollowUpDebtWidgetState
                       child: RefreshIndicator(
                         color: FlutterFlowTheme.of(context).tertiary,
                         onRefresh: () async {
-                          setState(
+                          safeSetState(
                               () => _model.listViewPagingController?.refresh());
                           await _model.waitForOnePageForListView();
                         },

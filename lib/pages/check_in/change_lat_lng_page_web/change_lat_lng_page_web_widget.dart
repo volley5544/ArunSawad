@@ -125,7 +125,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -311,7 +311,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                           Duration(
                                                               milliseconds:
                                                                   100),
-                                                          () => setState(() {}),
+                                                          () => safeSetState(
+                                                              () {}),
                                                         ),
                                                         autofocus: false,
                                                         obscureText: false,
@@ -652,7 +653,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                           Duration(
                                                               milliseconds:
                                                                   100),
-                                                          () => setState(() {}),
+                                                          () => safeSetState(
+                                                              () {}),
                                                         ),
                                                         autofocus: false,
                                                         obscureText: false,
@@ -967,7 +969,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (!(_model.latInputTextController.text != null &&
@@ -989,7 +991,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             if (!(_model.lngInputTextController.text != null &&
@@ -1011,7 +1013,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             FFAppState().changeBranchCode =
@@ -1020,7 +1022,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                 _model.latInputTextController.text;
                             FFAppState().changeLng =
                                 _model.lngInputTextController.text;
-                            setState(() {});
+                            safeSetState(() {});
                             _model.changeLocationAPIOutput =
                                 await ChangeLocationAPICall.call(
                               latitude: FFAppState().changeLat,
@@ -1063,7 +1065,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if (ChangeLocationAPICall.statusLayer2(
@@ -1076,7 +1078,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                   (_model.changeLocationAPIOutput?.jsonBody ??
                                       ''),
                                 )!;
-                                setState(() {});
+                                safeSetState(() {});
                                 await _model.googleMap1sController.future.then(
                                   (c) => c.animateCamera(
                                     CameraUpdate.newLatLng(functions
@@ -1174,7 +1176,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                   );
                                 }
 
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                             } else {
@@ -1196,11 +1198,11 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
 
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                           },
                           text: 'ค้นหา',
                           options: FFButtonOptions(
@@ -1300,7 +1302,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               controller:
                                                   _model.googleMap1sController,
                                               onCameraIdle: (latLng) =>
-                                                  setState(() =>
+                                                  safeSetState(() =>
                                                       _model.googleMap1sCenter =
                                                           latLng),
                                               initialLocation:
@@ -1408,7 +1410,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               controller:
                                                   _model.googleMap3sController,
                                               onCameraIdle: (latLng) =>
-                                                  setState(() =>
+                                                  safeSetState(() =>
                                                       _model.googleMap3sCenter =
                                                           latLng),
                                               initialLocation: _model
@@ -1503,7 +1505,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         if (!(_model.latInputTextController
@@ -1531,7 +1534,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         if (!(_model.lngInputTextController
@@ -1559,7 +1563,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         var confirmDialogResponse =
@@ -1595,7 +1600,8 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                                 ) ??
                                                 false;
                                         if (!confirmDialogResponse) {
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         _model.changeLocationAPIOutputEdit =
@@ -1703,7 +1709,7 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                             }
 
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
                                         } else {
@@ -1726,11 +1732,13 @@ class _ChangeLatLngPageWebWidgetState extends State<ChangeLatLngPageWebWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                       },
                                       text: 'บันทึกตำแหน่งใหม่',
                                       options: FFButtonOptions(

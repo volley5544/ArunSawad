@@ -27,7 +27,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class AddLeavePageModel extends FlutterFlowModel<AddLeavePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   final formKey = GlobalKey<FormState>();
   // Stores action output result for [Backend Call - API (GetHolidayAPI)] action in AddLeavePage widget.
   ApiCallResponse? getHolidayAPIOutput;

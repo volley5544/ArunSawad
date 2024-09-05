@@ -196,7 +196,7 @@ class _RedeemPointPageWidgetState extends State<RedeemPointPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

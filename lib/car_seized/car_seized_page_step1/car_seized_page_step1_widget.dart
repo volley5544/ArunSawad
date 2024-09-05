@@ -29,7 +29,7 @@ class _CarSeizedPageStep1WidgetState extends State<CarSeizedPageStep1Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CarSeizedPageStep1'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

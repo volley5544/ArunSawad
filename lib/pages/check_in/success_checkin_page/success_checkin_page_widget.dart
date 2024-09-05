@@ -34,7 +34,7 @@ class _SuccessCheckinPageWidgetState extends State<SuccessCheckinPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SuccessCheckinPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

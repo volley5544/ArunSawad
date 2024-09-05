@@ -85,7 +85,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
       FFAppState().update(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -197,7 +197,8 @@ class _ReportListWidgetState extends State<ReportListWidget> {
                           return RefreshIndicator(
                             color: FlutterFlowTheme.of(context).tertiary,
                             onRefresh: () async {
-                              setState(() => _model.apiRequestCompleter = null);
+                              safeSetState(
+                                  () => _model.apiRequestCompleter = null);
                               await _model.waitForApiRequestCompleted();
                             },
                             child: ListView.builder(

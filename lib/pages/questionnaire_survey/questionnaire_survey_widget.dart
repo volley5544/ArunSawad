@@ -28,7 +28,7 @@ class _QuestionnaireSurveyWidgetState extends State<QuestionnaireSurveyWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'QuestionnaireSurvey'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

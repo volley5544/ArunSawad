@@ -36,7 +36,7 @@ class _RecordVideoCustomer2WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'RecordVideoCustomer2'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

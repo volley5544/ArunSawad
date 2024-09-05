@@ -19,7 +19,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class SearchCustomersGDModel extends FlutterFlowModel<SearchCustomersGDWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;

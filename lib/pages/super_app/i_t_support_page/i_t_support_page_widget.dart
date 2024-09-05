@@ -78,7 +78,7 @@ class _ITSupportPageWidgetState extends State<ITSupportPageWidget> {
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

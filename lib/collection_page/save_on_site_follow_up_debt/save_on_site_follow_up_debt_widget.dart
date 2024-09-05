@@ -136,11 +136,11 @@ class _SaveOnSiteFollowUpDebtWidgetState
         functions.getUserLocation(currentUserLocationValue),
         'Latitude,Longitude',
       );
-      setState(() {});
+      safeSetState(() {});
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -222,7 +222,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -274,7 +274,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                       children: [
                         wrapWithModel(
                           model: _model.appbarFollowUpDebtModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: AppbarFollowUpDebtWidget(),
                         ),
                         Padding(
@@ -300,7 +300,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: wrapWithModel(
                                 model: _model.cameraButtonModel,
-                                updateCallback: () => setState(() {}),
+                                updateCallback: () => safeSetState(() {}),
                                 child: CameraButtonWidget(),
                               ),
                             ),
@@ -1253,7 +1253,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                     optionLabels:
                                         dropDownFollowupBranchviewDropdownRecord!
                                             .dropdownName,
-                                    onChanged: (val) => setState(() =>
+                                    onChanged: (val) => safeSetState(() =>
                                         _model.dropDownFollowupValue = val),
                                     width: 200.0,
                                     height: 50.0,
@@ -1459,7 +1459,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                   currentUserLocationValue),
                                               'Latitude,Longitude',
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                             await showDialog(
                                               context: context,
                                               builder: (alertDialogContext) {
@@ -1788,7 +1788,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                             ),
                             child: FlutterFlowGoogleMap(
                               controller: _model.googleMapsController,
-                              onCameraIdle: (latLng) => setState(
+                              onCameraIdle: (latLng) => safeSetState(
                                   () => _model.googleMapsCenter = latLng),
                               initialLocation: _model.googleMapsCenter ??=
                                   currentUserLocationValue!,
@@ -1839,7 +1839,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.remarkTextFieldTextController
@@ -1865,7 +1865,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (functions.checkStringLength(_model
@@ -1889,7 +1889,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   var confirmDialogResponse =
@@ -1922,7 +1922,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           ) ??
                                           false;
                                   if (!confirmDialogResponse) {
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   _model.checkGPSBeforeSave = await actions.a8(
@@ -1948,7 +1948,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   showModalBottomSheet(
@@ -2010,14 +2010,14 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                                 ?.jsonBody ??
                                             ''),
                                       )!;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     } else {
                                       FFAppState().branchLocationTemp =
                                           functions.getUserLocation(
                                               currentUserLocationValue);
                                       FFAppState().branchNameTemp =
                                           FFAppState().profileUnitCodeName;
-                                      setState(() {});
+                                      safeSetState(() {});
                                     }
                                   }
                                   _model.collectionAPISubmit =
@@ -2131,7 +2131,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     await showDialog(
@@ -2327,7 +2327,8 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                     } else {
@@ -2351,7 +2352,7 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
@@ -2384,13 +2385,13 @@ class _SaveOnSiteFollowUpDebtWidgetState
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
                                   context.goNamed('SuccessPage');
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'บันทึกการลงพื้นที่',
                                 options: FFButtonOptions(

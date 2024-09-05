@@ -39,7 +39,7 @@ class _ShowImageListComponentWidgetState
     super.initState();
     _model = createModel(context, () => ShowImageListComponentModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -182,7 +182,7 @@ class _ShowImageListComponentWidgetState
                                     duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 effect:
                                     smooth_page_indicator.ExpandingDotsEffect(

@@ -27,7 +27,7 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChatHomePage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

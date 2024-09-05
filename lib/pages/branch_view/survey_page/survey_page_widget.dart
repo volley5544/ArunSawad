@@ -124,7 +124,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -262,7 +262,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'รูปภาพ';
           _model.textController2?.text = 'ตรวจสอบลูกค้า';
           _model.textController9?.text = 'ตรวจสอบลูกค้า';
@@ -338,7 +338,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
           actions: [
             wrapWithModel(
               model: _model.cameraButtonModel,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: CameraButtonWidget(),
             ),
           ],
@@ -2649,7 +2649,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.idInputTextController.text !=
@@ -2668,7 +2668,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.nameInputTextController.text !=
@@ -2687,7 +2687,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.landmarkInputTextController
@@ -2707,7 +2707,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.remarkInputTextController.text !=
@@ -2726,7 +2726,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   var confirmDialogResponse =
@@ -2759,7 +2759,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                           ) ??
                                           false;
                                   if (!confirmDialogResponse) {
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   _model.checkGPSBeforeSave = await actions.a8(
@@ -2785,7 +2785,7 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   showModalBottomSheet(
@@ -2909,13 +2909,13 @@ class _SurveyPageWidgetState extends State<SurveyPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
                                   context.goNamed('SuccessPage');
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'บันทึก',
                                 options: FFButtonOptions(

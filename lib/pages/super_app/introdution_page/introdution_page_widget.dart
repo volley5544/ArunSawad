@@ -36,7 +36,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
       FFAppState().update(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -114,7 +114,7 @@ class _IntrodutionPageWidgetState extends State<IntrodutionPageWidget> {
                                   duration: Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               effect: smooth_page_indicator.ExpandingDotsEffect(
                                 expansionFactor: 2.0,

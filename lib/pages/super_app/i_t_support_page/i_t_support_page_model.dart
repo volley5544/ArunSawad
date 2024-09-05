@@ -16,7 +16,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class ITSupportPageModel extends FlutterFlowModel<ITSupportPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in ITSupportPage widget.
   UserLogRecord? createdUserLogITSupport;
 

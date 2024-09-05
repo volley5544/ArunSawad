@@ -124,7 +124,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -256,7 +256,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'รูปภาพ';
           _model.textController2?.text = 'ฝ่ายตรวจสอบ';
           _model.textController8?.text = 'ฝ่ายตรวจสอบ';
@@ -332,7 +332,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
           actions: [
             wrapWithModel(
               model: _model.cameraButtonModel,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: CameraButtonWidget(),
             ),
           ],
@@ -1678,7 +1678,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                     var _shouldSetState = false;
                                     HapticFeedback.mediumImpact();
                                     if (FFAppState().isGetVloanContract) {
-                                      setState(() {
+                                      safeSetState(() {
                                         _model.idInputTextController2?.clear();
                                       });
                                       FFAppState().vloanContNoListTemp = [];
@@ -1688,7 +1688,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                       FFAppState().vloanServerListTemp = [];
                                       FFAppState().isGetVloanContract = false;
                                       FFAppState().update(() {});
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (!functions.checkIdCardInput(
@@ -1713,7 +1713,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.getVloanContract =
@@ -1749,7 +1749,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     FFAppState().vloanContNoListTemp =
@@ -1773,7 +1773,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             .cast<String>();
                                     FFAppState().isGetVloanContract = true;
                                     FFAppState().update(() {});
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: functions.buttonTextVloanGetContract(
                                       FFAppState().isGetVloanContract),
@@ -1921,7 +1921,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                               FormFieldController<String>(null),
                                           options:
                                               FFAppState().vloanContNoListTemp,
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.contNoDropDownValue = val),
                                           width: 180.0,
                                           height: 50.0,
@@ -2604,7 +2604,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.contNoDropDownValue != null &&
@@ -2621,7 +2621,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.remarkInput33TextController
@@ -2641,7 +2641,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (functions.checkStringLength(_model
@@ -2665,7 +2665,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   var confirmDialogResponse =
@@ -2698,7 +2698,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           ) ??
                                           false;
                                   if (!confirmDialogResponse) {
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   _model.checkGPSBeforeSave = await actions.a8(
@@ -2724,7 +2724,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   showModalBottomSheet(
@@ -2789,7 +2789,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                   }
@@ -2917,7 +2917,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.remarkVLoneOutput =
@@ -2989,7 +2989,8 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                     } else {
@@ -3013,7 +3014,7 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
@@ -3046,13 +3047,13 @@ class _CheckerPageWidgetState extends State<CheckerPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
                                   context.goNamed('SuccessPage');
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'บันทึก',
                                 options: FFButtonOptions(

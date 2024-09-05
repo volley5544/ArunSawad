@@ -20,7 +20,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class EmployeeKPIPageModel extends FlutterFlowModel<EmployeeKPIPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Create Document] action in EmployeeKPIPage widget.
   UserLogRecord? createdUserLogKPI;
   // Stores action output result for [Backend Call - API (getTargetContractKPIAPI)] action in EmployeeKPIPage widget.

@@ -48,7 +48,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
     _model.reasonCancelTextController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -323,7 +323,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         var confirmDialogResponse =
@@ -433,7 +434,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
 
@@ -536,7 +537,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                               },
                                             );
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
 
@@ -545,11 +546,13 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
 
                                           context.pushNamed('LeaveShowPage');
                                         } else {
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                       },
                                       text: 'ตกลง',
                                       options: FFButtonOptions(

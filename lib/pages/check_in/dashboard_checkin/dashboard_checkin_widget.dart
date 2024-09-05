@@ -165,7 +165,7 @@ class _DashboardCheckinWidgetState extends State<DashboardCheckinWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

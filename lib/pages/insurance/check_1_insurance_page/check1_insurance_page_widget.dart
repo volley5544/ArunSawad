@@ -149,7 +149,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -231,7 +231,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                             40.0, 0.0, 200.0, 0.0),
                         child: FlutterFlowCheckboxGroup(
                           options: FFAppState().coverTypeName.toList(),
-                          onChanged: (val) => setState(
+                          onChanged: (val) => safeSetState(
                               () => _model.coverTypeNameChooseValues = val),
                           controller:
                               _model.coverTypeNameChooseValueController ??=
@@ -301,7 +301,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                           FormFieldController<String>(null),
                                   options: ['ซ่อมห้าง', 'ซ่อมอู่'],
                                   onChanged: (val) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.garageChooseValue = val);
                                     FFAppState().garageTypeEng =
                                         functions.garageTypeToEng(
@@ -378,11 +378,11 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                               label: _model.sumInsuredValue?.toString(),
                               divisions: 200,
                               onChanged: (newValue) {
-                                setState(
+                                safeSetState(
                                     () => _model.sumInsuredValue = newValue);
                               },
                               onChangeEnd: (newValue) async {
-                                setState(
+                                safeSetState(
                                     () => _model.sumInsuredValue = newValue);
                                 FFAppState().sumInsuredChoosenDouble =
                                     _model.sumInsuredValue!;
@@ -475,7 +475,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                             40.0, 0.0, 200.0, 0.0),
                         child: FlutterFlowCheckboxGroup(
                           options: FFAppState().insurerFullNameList.toList(),
-                          onChanged: (val) => setState(
+                          onChanged: (val) => safeSetState(
                               () => _model.insurerNameChooseValues = val),
                           controller:
                               _model.insurerNameChooseValueController ??=
@@ -581,7 +581,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (TelePackageSearchAPICall.dataList(
@@ -607,7 +607,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 FFAppState().searchFullName =
@@ -704,7 +704,7 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
 
@@ -876,13 +876,13 @@ class _Check1InsurancePageWidgetState extends State<Check1InsurancePageWidget> {
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
 
                               context.pushNamed('ListInsurancPage');
 
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                             },
                             text: 'ค้นหา',
                             icon: Icon(

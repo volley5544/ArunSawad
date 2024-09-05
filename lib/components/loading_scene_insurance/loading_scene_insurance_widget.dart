@@ -29,7 +29,7 @@ class _LoadingSceneInsuranceWidgetState
     super.initState();
     _model = createModel(context, () => LoadingSceneInsuranceModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

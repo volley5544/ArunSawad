@@ -39,7 +39,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
     _model.reasonCancelTextController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -237,7 +237,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 var confirmDialogResponse =
@@ -270,7 +270,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                         ) ??
                                         false;
                                 if (!confirmDialogResponse) {
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 showModalBottomSheet(
@@ -322,7 +322,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (SendResignFormEmailAPICall.statusLayer2(
@@ -351,7 +351,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 await showDialog(
@@ -384,7 +384,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                 );
                                 Navigator.pop(context);
                                 Navigator.pop(context);
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                               },
                               text: 'ตกลง',
                               options: FFButtonOptions(

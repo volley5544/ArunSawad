@@ -122,8 +122,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -198,7 +198,7 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                   'ธันวาคม'
                 ],
                 onChanged: (val) =>
-                    setState(() => _model.monthSelectValue = val),
+                    safeSetState(() => _model.monthSelectValue = val),
                 width: double.infinity,
                 height: 50.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(

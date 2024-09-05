@@ -33,7 +33,7 @@ class _WebviewPageWidgetState extends State<WebviewPageWidget> {
     _model = createModel(context, () => WebviewPageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'WebviewPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

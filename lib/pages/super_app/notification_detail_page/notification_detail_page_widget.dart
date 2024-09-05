@@ -45,7 +45,7 @@ class _NotificationDetailPageWidgetState
       _model.getFirebaseUID = await actions.a21();
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -195,7 +195,7 @@ class _NotificationDetailPageWidgetState
                             return RefreshIndicator(
                               color: FlutterFlowTheme.of(context).tertiary,
                               onRefresh: () async {
-                                setState(() =>
+                                safeSetState(() =>
                                     _model.firestoreRequestCompleter = null);
                                 await _model.waitForFirestoreRequestCompleted();
                               },
@@ -258,12 +258,13 @@ class _NotificationDetailPageWidgetState
                                                   ?.jsonBody ??
                                               ''),
                                         )!;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         Navigator.pop(context);
 
                                         context.goNamed('DashboardLeavePage');
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       } else {
                                         if (listViewNotificationRecord
@@ -271,7 +272,8 @@ class _NotificationDetailPageWidgetState
                                             'Lead') {
                                           context.goNamed('LeadNotiPage');
 
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         } else {
                                           if (listViewNotificationRecord
@@ -282,7 +284,7 @@ class _NotificationDetailPageWidgetState
                                         }
                                       }
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     child: Container(
                                       width: double.infinity,

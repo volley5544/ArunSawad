@@ -176,7 +176,7 @@ class _DashboardLeavePageWidgetState extends State<DashboardLeavePageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

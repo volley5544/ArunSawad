@@ -25,7 +25,6 @@ class SaveCallFollowUpDebtModel
     extends FlutterFlowModel<SaveCallFollowUpDebtWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (collectionApiVloanData)] action in saveCallFollowUpDebt widget.
   ApiCallResponse? collectionApiVloneData;
   // Model for appbarFollowUpDebt component.

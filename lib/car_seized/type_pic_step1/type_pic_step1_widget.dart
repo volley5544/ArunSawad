@@ -27,7 +27,7 @@ class _TypePicStep1WidgetState extends State<TypePicStep1Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'TypePicStep1'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -67,7 +67,7 @@ class _InsuranceRequestImagePageWidgetState
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -416,7 +416,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading1 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -441,12 +441,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile1 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -550,7 +550,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading2 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -575,12 +575,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile2 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -684,7 +684,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading3 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -709,12 +709,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile3 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -818,7 +818,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading4 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -843,12 +843,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile4 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -952,7 +952,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading5 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -977,12 +977,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile5 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -1086,7 +1086,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading6 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -1111,12 +1111,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile6 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -1220,7 +1220,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading7 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -1245,12 +1245,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile7 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -1355,7 +1355,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading8 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -1380,12 +1380,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile8 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -1489,7 +1489,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading9 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -1514,12 +1514,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile9 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -2838,7 +2838,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading10 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -2863,12 +2863,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile10 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -2973,7 +2973,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading11 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -2998,12 +2998,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile11 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3108,7 +3108,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading12 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3133,12 +3133,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile12 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3243,7 +3243,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading13 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3268,12 +3268,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile13 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3378,7 +3378,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading14 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3403,12 +3403,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile14 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3513,7 +3513,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading15 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3538,12 +3538,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile15 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3648,7 +3648,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading16 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3673,12 +3673,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile16 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -3783,7 +3783,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading17 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -3808,12 +3808,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile17 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -4884,7 +4884,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading18 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -4909,12 +4909,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile18 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -5019,7 +5019,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading19 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -5044,12 +5044,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile19 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -5154,7 +5154,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading20 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -5179,12 +5179,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile20 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -5289,7 +5289,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading21 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -5314,12 +5314,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile21 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -5424,7 +5424,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading22 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -5449,12 +5449,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile22 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -5559,7 +5559,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading23 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -5584,12 +5584,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile23 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -5694,7 +5694,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading24 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -5719,12 +5719,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile24 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -5829,7 +5829,7 @@ class _InsuranceRequestImagePageWidgetState
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading25 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -5854,12 +5854,12 @@ class _InsuranceRequestImagePageWidgetState
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile25 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -6939,7 +6939,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() =>
+                                                  safeSetState(() =>
                                                       _model.isDataUploading26 =
                                                           true);
                                                   var selectedUploadedFiles =
@@ -6974,13 +6974,13 @@ class _InsuranceRequestImagePageWidgetState
                                                   if (selectedUploadedFiles
                                                           .length ==
                                                       selectedMedia.length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile26 =
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -7131,7 +7131,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() =>
+                                                  safeSetState(() =>
                                                       _model.isDataUploading27 =
                                                           true);
                                                   var selectedUploadedFiles =
@@ -7166,13 +7166,13 @@ class _InsuranceRequestImagePageWidgetState
                                                   if (selectedUploadedFiles
                                                           .length ==
                                                       selectedMedia.length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile27 =
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -7305,7 +7305,7 @@ class _InsuranceRequestImagePageWidgetState
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() =>
+                                                  safeSetState(() =>
                                                       _model.isDataUploading28 =
                                                           true);
                                                   var selectedUploadedFiles =
@@ -7340,13 +7340,13 @@ class _InsuranceRequestImagePageWidgetState
                                                   if (selectedUploadedFiles
                                                           .length ==
                                                       selectedMedia.length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile28 =
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -7471,7 +7471,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .isDataUploading29 =
                                                         true);
                                                     var selectedUploadedFiles =
@@ -7506,13 +7506,13 @@ class _InsuranceRequestImagePageWidgetState
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.uploadedLocalFile29 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
                                                     } else {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       return;
                                                     }
                                                   }
@@ -7641,7 +7641,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .isDataUploading30 =
                                                         true);
                                                     var selectedUploadedFiles =
@@ -7676,13 +7676,13 @@ class _InsuranceRequestImagePageWidgetState
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.uploadedLocalFile30 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
                                                     } else {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       return;
                                                     }
                                                   }
@@ -7811,7 +7811,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .isDataUploading31 =
                                                         true);
                                                     var selectedUploadedFiles =
@@ -7846,13 +7846,13 @@ class _InsuranceRequestImagePageWidgetState
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.uploadedLocalFile31 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
                                                     } else {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       return;
                                                     }
                                                   }
@@ -7981,7 +7981,7 @@ class _InsuranceRequestImagePageWidgetState
                                                           validateFileFormat(
                                                               m.storagePath,
                                                               context))) {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                             .isDataUploading32 =
                                                         true);
                                                     var selectedUploadedFiles =
@@ -8016,13 +8016,13 @@ class _InsuranceRequestImagePageWidgetState
                                                     if (selectedUploadedFiles
                                                             .length ==
                                                         selectedMedia.length) {
-                                                      setState(() {
+                                                      safeSetState(() {
                                                         _model.uploadedLocalFile32 =
                                                             selectedUploadedFiles
                                                                 .first;
                                                       });
                                                     } else {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                       return;
                                                     }
                                                   }
@@ -8735,7 +8735,8 @@ class _InsuranceRequestImagePageWidgetState
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         if ((FFAppState()
@@ -8792,7 +8793,7 @@ class _InsuranceRequestImagePageWidgetState
                                               ),
                                             );
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -8862,7 +8863,8 @@ class _InsuranceRequestImagePageWidgetState
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                       } else {
@@ -8922,7 +8924,7 @@ class _InsuranceRequestImagePageWidgetState
                                               },
                                             );
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -8951,7 +8953,7 @@ class _InsuranceRequestImagePageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (!(_model.uploadedLocalFile27 != null &&
@@ -8980,7 +8982,7 @@ class _InsuranceRequestImagePageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     var confirmDialogResponse =
@@ -9013,7 +9015,7 @@ class _InsuranceRequestImagePageWidgetState
                                             ) ??
                                             false;
                                     if (!confirmDialogResponse) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.sendEmailRequestApi =
@@ -9346,18 +9348,18 @@ class _InsuranceRequestImagePageWidgetState
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
                                     if ((FFAppState().employeeID == '33511') ||
                                         (FFAppState().employeeID == '36270')) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     FFAppState().insuranceVehicleTypeDropDown =
                                         'กรุณาเลือก';
-                                    setState(() {});
+                                    safeSetState(() {});
 
                                     context
                                         .goNamed('InsuranceRequestBasicPage');
@@ -9365,7 +9367,7 @@ class _InsuranceRequestImagePageWidgetState
                                     context.goNamed(
                                         'InsuranceRequestDashboardPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: 'บันทึก',
                                   options: FFButtonOptions(

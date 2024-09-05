@@ -36,7 +36,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
     _model.searchBoxTextController ??= TextEditingController();
     _model.searchBoxFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -178,7 +178,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         showModalBottomSheet(
@@ -228,7 +228,7 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         if (GetAllEmployeeAPICall.statusLayer2(
@@ -255,11 +255,11 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         Navigator.pop(context);
-                        if (_shouldSetState) setState(() {});
+                        if (_shouldSetState) safeSetState(() {});
                       },
                     ),
                   ],

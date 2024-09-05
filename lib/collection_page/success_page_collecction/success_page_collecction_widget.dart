@@ -29,7 +29,7 @@ class _SuccessPageCollecctionWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'successPageCollecction'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

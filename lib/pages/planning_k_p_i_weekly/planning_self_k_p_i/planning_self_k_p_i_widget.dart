@@ -27,7 +27,7 @@ class _PlanningSelfKPIWidgetState extends State<PlanningSelfKPIWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'PlanningSelfKPI'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

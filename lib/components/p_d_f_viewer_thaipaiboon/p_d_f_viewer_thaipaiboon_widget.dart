@@ -37,7 +37,7 @@ class _PDFViewerThaipaiboonWidgetState
     super.initState();
     _model = createModel(context, () => PDFViewerThaipaiboonModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

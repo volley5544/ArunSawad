@@ -9,10 +9,6 @@ import 'package:provider/provider.dart';
 
 class RecordVideoCustomer2Model
     extends FlutterFlowModel<RecordVideoCustomer2Widget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

@@ -118,7 +118,7 @@ class _DetailListFollowUpDebtWidgetState
                 )?.length)!
             .toList()
             .cast<bool>();
-        setState(() {});
+        safeSetState(() {});
       } else {
         Navigator.pop(context);
         await showDialog(
@@ -255,7 +255,7 @@ class _DetailListFollowUpDebtWidgetState
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -288,7 +288,7 @@ class _DetailListFollowUpDebtWidgetState
                     children: [
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: AppbarFollowUpDebtWidget(),
                       ),
                       if (((_model.getListDataPerson?.statusCode ?? 200) ==
@@ -347,7 +347,7 @@ class _DetailListFollowUpDebtWidgetState
                                         ) ??
                                         false;
                                 if (!confirmDialogResponse) {
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 showModalBottomSheet(
@@ -394,7 +394,7 @@ class _DetailListFollowUpDebtWidgetState
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 _model.getHashThaiId =
@@ -416,7 +416,7 @@ class _DetailListFollowUpDebtWidgetState
                                   )?.first,
                                 );
                                 _shouldSetState = true;
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                               },
                             ).animateOnActionTrigger(
                               animationsMap[
@@ -584,7 +584,7 @@ class _DetailListFollowUpDebtWidgetState
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           if (functions.countTrueInBoolList(
@@ -608,7 +608,7 @@ class _DetailListFollowUpDebtWidgetState
                                 );
                               },
                             );
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                             return;
                           }
                           _model.getVloanRemarkApiUrl =
@@ -625,7 +625,7 @@ class _DetailListFollowUpDebtWidgetState
                               _model.getVloanRemarkApiUrl!.urlLink;
                           FFAppState().tokenVloanRemark =
                               _model.getVloanRemarkApiUrl!.urlToken;
-                          setState(() {});
+                          safeSetState(() {});
 
                           context.pushNamed(
                             'saveOnSiteFollowUpDebt',
@@ -808,7 +808,7 @@ class _DetailListFollowUpDebtWidgetState
                             }.withoutNulls,
                           );
 
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                         },
                         text: 'ลงพื้นที่',
                         options: FFButtonOptions(
@@ -862,7 +862,7 @@ class _DetailListFollowUpDebtWidgetState
                           FFAppState().saveCalled =
                               SaveCallStruct.fromSerializableMap(jsonDecode(
                                   '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                          setState(() {});
+                          safeSetState(() {});
 
                           context.pushNamed(
                             'saveCallFollowUpDebt',
@@ -1082,7 +1082,7 @@ class _DetailListFollowUpDebtWidgetState
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController',
                                   Duration(milliseconds: 100),
-                                  () => setState(() {}),
+                                  () => safeSetState(() {}),
                                 ),
                                 autofocus: false,
                                 obscureText: false,
@@ -1140,7 +1140,7 @@ class _DetailListFollowUpDebtWidgetState
                                           ? InkWell(
                                               onTap: () async {
                                                 _model.textController?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -2475,7 +2475,7 @@ class _DetailListFollowUpDebtWidgetState
                                                                 listCardItem] ??= false,
                                                             onChanged:
                                                                 (newValue) async {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.checkboxValueMap[
                                                                           listCardItem] =
                                                                       newValue!);
@@ -2487,7 +2487,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                   listCardIndex,
                                                                   (_) => true,
                                                                 );
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               } else {
                                                                 HapticFeedback
                                                                     .mediumImpact();
@@ -2496,7 +2497,8 @@ class _DetailListFollowUpDebtWidgetState
                                                                   listCardIndex,
                                                                   (_) => false,
                                                                 );
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               }
                                                             },
                                                             side: BorderSide(

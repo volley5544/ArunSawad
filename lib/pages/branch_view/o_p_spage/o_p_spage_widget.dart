@@ -71,7 +71,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'OPSpage'});
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -197,7 +197,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'รูปภาพ';
           _model.textController2?.text = 'ทรัพย์สิน OPS';
           _model.textController7?.text = 'ทรัพย์สิน OPS';
@@ -280,7 +280,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
           actions: [
             wrapWithModel(
               model: _model.cameraButtonModel,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: CameraButtonWidget(),
             ),
           ],
@@ -925,7 +925,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           'รถยึด',
                                           'ป้ายสาขา'
                                         ],
-                                        onChanged: (val) => setState(() =>
+                                        onChanged: (val) => safeSetState(() =>
                                             _model.assetDropDownValue = val),
                                         width: 180.0,
                                         height: 50.0,
@@ -1006,7 +1006,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             'รถการเกษตร',
                                             'อื่นๆ'
                                           ],
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.assteTypeDropDownValue =
                                                   val),
                                           width: 180.0,
@@ -1209,7 +1209,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             'ต้องซ่อมแซม',
                                             'ยังไม่มีป้าย'
                                           ],
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.signStatusDropDownValue =
                                                   val),
                                           width: 180.0,
@@ -1730,7 +1730,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                           'รถยึด',
                                           'ป้ายสาขา'
                                         ],
-                                        onChanged: (val) => setState(() =>
+                                        onChanged: (val) => safeSetState(() =>
                                             _model.assetDropDownTimesheetValue =
                                                 val),
                                         width: 180.0,
@@ -1813,7 +1813,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             'รถการเกษตร',
                                             'อื่นๆ'
                                           ],
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.assteTypeDropDownTimesheetValue =
                                                   val),
                                           width: 180.0,
@@ -2016,7 +2016,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                             'ต้องซ่อมแซม',
                                             'ยังไม่มีป้าย'
                                           ],
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.signStatusDropDownTimesheetValue =
                                                   val),
                                           width: 180.0,
@@ -2478,7 +2478,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                               .isFromTimesheetPage) {
                                             context.pop();
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
                                           var confirmDialogResponse =
@@ -2612,19 +2612,20 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   'LoginPage', context.mounted);
 
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                           } else {
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
 
                                           context.goNamedAuth(
                                               'Dashboard', context.mounted);
 
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                         },
                                         text: functions.cancelButtonText(
                                             FFAppState().isFromTimesheetPage),
@@ -2697,7 +2698,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                             if (!(_model.remarkInputTextController
@@ -2727,7 +2728,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                             if (_model.assetDropDownValue !=
@@ -2758,7 +2759,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               if (_model
@@ -2805,7 +2806,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                           false;
                                                   if (!confirmDialogResponse) {
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   _model.checkGSPBeforeSave1 =
@@ -2838,7 +2839,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -3003,7 +3004,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         },
                                                       );
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       return;
                                                     }
                                                   } else {
@@ -3069,7 +3070,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         context.mounted);
 
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                 } else {
@@ -3095,7 +3096,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                               } else {
@@ -3140,7 +3141,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                           false;
                                                   if (!confirmDialogResponse) {
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   _model.checkGPSBeforeSave2 =
@@ -3173,7 +3174,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -3338,7 +3339,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         },
                                                       );
                                                       if (_shouldSetState)
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       return;
                                                     }
                                                   } else {
@@ -3404,7 +3405,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         context.mounted);
 
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                 } else {
@@ -3430,7 +3431,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                               }
@@ -3476,7 +3477,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                         false;
                                                 if (!confirmDialogResponse) {
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 _model.checkGPSBeforeSave3 =
@@ -3508,7 +3509,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 showModalBottomSheet(
@@ -3671,7 +3672,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                 } else {
@@ -3736,7 +3737,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                       context.mounted);
 
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                               } else {
@@ -3762,7 +3763,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                             }
@@ -3771,7 +3772,7 @@ class _OPSpageWidgetState extends State<OPSpageWidget>
                                                 'SuccessPage', context.mounted);
 
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                           },
                                           text: 'บันทึก',
                                           options: FFButtonOptions(

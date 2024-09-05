@@ -31,7 +31,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class CheckerPageModel extends FlutterFlowModel<CheckerPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a8] action in CheckerPage widget.
   bool? checkLatLngBVChecker;
   // Stores action output result for [Backend Call - Create Document] action in CheckerPage widget.

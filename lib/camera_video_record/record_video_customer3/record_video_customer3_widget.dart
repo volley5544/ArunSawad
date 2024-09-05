@@ -97,7 +97,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -275,7 +275,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                 await launchURL(
                                     'https://vcall.swpfin.com/?searchTerm=${widget!.contNo}');
 
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               text: 'อัพโหลดวิดีโอ',
                               options: FFButtonOptions(
@@ -365,7 +365,7 @@ class _RecordVideoCustomer3WidgetState extends State<RecordVideoCustomer3Widget>
                                 );
                                 Navigator.pop(context);
 
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               text: 'ดาวน์โหลด',
                               options: FFButtonOptions(

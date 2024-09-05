@@ -29,7 +29,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
     super.initState();
     _model = createModel(context, () => EmptyChatComponentModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -94,13 +94,13 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                         0,
                         (_) => false,
                       );
-                      setState(() {});
+                      safeSetState(() {});
                     } else {
                       FFAppState().updateTimeChatIsVisibleListAtIndex(
                         0,
                         (_) => true,
                       );
-                      setState(() {});
+                      safeSetState(() {});
                     }
                   },
                   child: Container(

@@ -39,7 +39,7 @@ class _InputWidgetState extends State<InputWidget> {
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -67,7 +67,7 @@ class _InputWidgetState extends State<InputWidget> {
               onChanged: (_) => EasyDebounce.debounce(
                 '_model.textController',
                 Duration(milliseconds: 2000),
-                () => setState(() {}),
+                () => safeSetState(() {}),
               ),
               autofocus: true,
               obscureText: false,
@@ -122,7 +122,7 @@ class _InputWidgetState extends State<InputWidget> {
                     ? InkWell(
                         onTap: () async {
                           _model.textController?.clear();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         child: Icon(
                           Icons.clear,

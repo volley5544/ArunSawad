@@ -163,7 +163,7 @@ class _InsuranceRequestDashboardPageWidgetState
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -318,7 +318,7 @@ class _InsuranceRequestDashboardPageWidgetState
                                 onTap: () async {
                                   HapticFeedback.mediumImpact();
                                   FFAppState().fromPage = 'Dashboard';
-                                  setState(() {});
+                                  safeSetState(() {});
 
                                   context.goNamed('InsuranceRequestBasicPage');
                                 },
@@ -395,7 +395,7 @@ class _InsuranceRequestDashboardPageWidgetState
                                   FFAppState().apiUrlInsurance =
                                       insuranceRequestDashboardPageUrlLinkStorageRecord!
                                           .urlLink;
-                                  setState(() {});
+                                  safeSetState(() {});
 
                                   context.goNamed('InsuranceRequestListPage');
                                 },

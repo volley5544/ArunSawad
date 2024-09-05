@@ -29,7 +29,7 @@ class _PinCodeAuthenInputWidgetState extends State<PinCodeAuthenInputWidget> {
     super.initState();
     _model = createModel(context, () => PinCodeAuthenInputModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

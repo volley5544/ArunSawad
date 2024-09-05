@@ -38,7 +38,7 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -66,7 +66,7 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
               onChanged: (_) => EasyDebounce.debounce(
                 '_model.textController',
                 Duration(milliseconds: 2000),
-                () => setState(() {}),
+                () => safeSetState(() {}),
               ),
               autofocus: true,
               obscureText: false,
@@ -121,7 +121,7 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                     ? InkWell(
                         onTap: () async {
                           _model.textController?.clear();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         child: Icon(
                           Icons.clear,

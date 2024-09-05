@@ -58,23 +58,23 @@ class _InsuranceRequestInsurerPageWidgetState
       ).then((value) => safeSetState(() {}));
 
       if (FFAppState().fromPage == 'ListPage') {
-        setState(() {
+        safeSetState(() {
           _model.radioButtonValueController?.value =
               FFAppState().insuranceBasicCoverTypeName;
         });
-        setState(() {
+        safeSetState(() {
           _model.choiceChipsValueController?.value = [
             (FFAppState().insuranceBasicGarageName == 'ซ่อมอู่'
                 ? 'ซ่อมอู่    '
                 : 'ซ่อมห้าง')
           ];
         });
-        setState(() {
+        safeSetState(() {
           _model.checkboxValue = (FFAppState().insuranceBasicActFlag == '-'
               ? false
               : (FFAppState().insuranceBasicActFlag == '0' ? false : true));
         });
-        setState(() {
+        safeSetState(() {
           _model.sumInsuredInputTextController?.text =
               (FFAppState().insuranceBasicSumInsured == '-'
                   ? ''
@@ -84,7 +84,7 @@ class _InsuranceRequestInsurerPageWidgetState
               TextSelection.collapsed(
                   offset: _model.sumInsuredInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.trailerSumInsuredInputTextController?.text =
               (FFAppState().insuranceBasicTrailerSumInsured == '-'
                   ? ''
@@ -95,7 +95,7 @@ class _InsuranceRequestInsurerPageWidgetState
                   offset:
                       _model.trailerSumInsuredInputTextController!.text.length);
         });
-        setState(() {
+        safeSetState(() {
           _model.checkboxGroupValueController?.value =
               functions.generateSelectedInsurerList(
                   FFAppState().insuranceBasicInsurerListNameList.toList(),
@@ -112,7 +112,7 @@ class _InsuranceRequestInsurerPageWidgetState
     _model.trailerSumInsuredInputTextController ??= TextEditingController();
     _model.trailerSumInsuredInputFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -231,7 +231,7 @@ class _InsuranceRequestInsurerPageWidgetState
                               options: FFAppState()
                                   .insuranceBasicCoverTypeNameList
                                   .toList(),
-                              onChanged: (val) => setState(() {}),
+                              onChanged: (val) => safeSetState(() {}),
                               controller: _model.radioButtonValueController ??=
                                   FormFieldController<String>(null),
                               optionHeight: 32.0,
@@ -271,7 +271,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                       'ซ่อมอู่    ', Icons.garage_outlined),
                                   ChipData('ซ่อมห้าง', Icons.warehouse_sharp)
                                 ],
-                                onChanged: (val) => setState(() =>
+                                onChanged: (val) => safeSetState(() =>
                                     _model.choiceChipsValue = val?.firstOrNull),
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
@@ -354,7 +354,7 @@ class _InsuranceRequestInsurerPageWidgetState
                               child: Checkbox(
                                 value: _model.checkboxValue ??= true,
                                 onChanged: (newValue) async {
-                                  setState(
+                                  safeSetState(
                                       () => _model.checkboxValue = newValue!);
                                 },
                                 side: BorderSide(
@@ -413,7 +413,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.sumInsuredInputTextController',
                                     Duration(milliseconds: 2000),
-                                    () => setState(() {}),
+                                    () => safeSetState(() {}),
                                   ),
                                   autofocus: false,
                                   obscureText: false,
@@ -468,7 +468,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                               _model
                                                   .sumInsuredInputTextController
                                                   ?.clear();
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Icon(
                                               Icons.clear,
@@ -544,7 +544,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                     onChanged: (_) => EasyDebounce.debounce(
                                       '_model.trailerSumInsuredInputTextController',
                                       Duration(milliseconds: 2000),
-                                      () => setState(() {}),
+                                      () => safeSetState(() {}),
                                     ),
                                     autofocus: false,
                                     obscureText: false,
@@ -603,7 +603,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                                 _model
                                                     .trailerSumInsuredInputTextController
                                                     ?.clear();
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: Icon(
                                                 Icons.clear,
@@ -684,12 +684,12 @@ class _InsuranceRequestInsurerPageWidgetState
                                     .insuranceBasicInsurerListNameRandomList
                                     .toList(),
                                 onChanged: (val) async {
-                                  setState(
+                                  safeSetState(
                                       () => _model.checkboxGroupValues = val);
                                   FFAppState().insurancePackageInsurer = true;
-                                  setState(() {});
+                                  safeSetState(() {});
                                   if (_model.checkboxGroupValues!.length > 5) {
-                                    setState(() {
+                                    safeSetState(() {
                                       _model.checkboxGroupValueController
                                               ?.value =
                                           _model.checkboxGroupValues!
@@ -864,7 +864,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                                   .insuranceBasicCoverTypeNameList
                                                   .toList(),
                                               _model.radioButtonValue);
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().insuranceBasicCoverTypeId =
                                           functions.searchMapValueFrom2List(
                                               FFAppState()
@@ -874,10 +874,10 @@ class _InsuranceRequestInsurerPageWidgetState
                                                   .insuranceBasicCoverTypeNameList
                                                   .toList(),
                                               _model.radioButtonValue);
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().insuranceBasicCoverTypeName =
                                           _model.radioButtonValue!;
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().insuranceBasicGarageId =
                                           functions.returnStringWithNoSpace(
                                                       _model
@@ -885,11 +885,11 @@ class _InsuranceRequestInsurerPageWidgetState
                                                   'ซ่อมห้าง'
                                               ? '1'
                                               : '2';
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().insuranceBasicGarageName =
                                           functions.returnStringWithNoSpace(
                                               _model.choiceChipsValue);
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState()
                                               .insuranceBasicInsurerIdOutput =
                                           functions
@@ -904,7 +904,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                                       ?.toList())!
                                               .toList()
                                               .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState()
                                               .insuranceBasicInsurerCodeOutput =
                                           functions
@@ -919,7 +919,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                                       ?.toList())!
                                               .toList()
                                               .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState()
                                               .insuranceBasicInsurerShortNameOutput =
                                           functions
@@ -934,7 +934,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                                       ?.toList())!
                                               .toList()
                                               .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState()
                                               .insuranceBasicInsurerFullNameOutput =
                                           functions
@@ -949,10 +949,10 @@ class _InsuranceRequestInsurerPageWidgetState
                                                       ?.toList())!
                                               .toList()
                                               .cast<String>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().insuranceBasicActFlag =
                                           _model.checkboxValue! ? '1' : '0';
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().insuranceBasicSumInsured =
                                           _model.sumInsuredInputTextController
                                                           .text !=
@@ -964,7 +964,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                                   .sumInsuredInputTextController
                                                   .text
                                               : '';
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState()
                                               .insuranceBasicTrailerSumInsured =
                                           _model.trailerSumInsuredInputTextController
@@ -977,7 +977,7 @@ class _InsuranceRequestInsurerPageWidgetState
                                                   .trailerSumInsuredInputTextController
                                                   .text
                                               : '';
-                                      setState(() {});
+                                      safeSetState(() {});
 
                                       context.pushNamed(
                                           'InsuranceRequestImagePage');

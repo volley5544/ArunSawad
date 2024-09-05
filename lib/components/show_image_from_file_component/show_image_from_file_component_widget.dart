@@ -37,7 +37,7 @@ class _ShowImageFromFileComponentWidgetState
     super.initState();
     _model = createModel(context, () => ShowImageFromFileComponentModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

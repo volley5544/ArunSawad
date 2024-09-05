@@ -33,7 +33,7 @@ class _PageControllerComponentWidgetState
     super.initState();
     _model = createModel(context, () => PageControllerComponentModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -67,7 +67,7 @@ class _PageControllerComponentWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    setState(() {
+                    safeSetState(() {
                       _model.choiceChipsValueController?.value = ['1'];
                     });
                     FFAppState().previousButtonVisible =
@@ -80,7 +80,7 @@ class _PageControllerComponentWidgetState
                             _model.choiceChipsValue,
                             'next_button',
                             FFAppState().maxPage)!;
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   child: FaIcon(
                     FontAwesomeIcons.fastBackward,
@@ -101,7 +101,7 @@ class _PageControllerComponentWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    setState(() {
+                    safeSetState(() {
                       _model.choiceChipsValueController?.value = [
                         ((int currentPage) {
                           return '${currentPage - 1}';
@@ -118,7 +118,7 @@ class _PageControllerComponentWidgetState
                             _model.choiceChipsValue,
                             'next_button',
                             FFAppState().maxPage)!;
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   child: Icon(
                     Icons.arrow_back_ios_rounded,
@@ -139,18 +139,19 @@ class _PageControllerComponentWidgetState
                       .map((label) => ChipData(label))
                       .toList(),
                   onChanged: (val) async {
-                    setState(() => _model.choiceChipsValue = val?.firstOrNull);
+                    safeSetState(
+                        () => _model.choiceChipsValue = val?.firstOrNull);
                     FFAppState().reportItemIndexList = functions
                         .setReportItemIndexList(_model.choiceChipsValue)!
                         .toList()
                         .cast<int>();
-                    setState(() {});
+                    safeSetState(() {});
                     FFAppState().pageSelectionList = functions
                         .generate5CurrentPageNumber(
                             _model.choiceChipsValue, FFAppState().maxPage)!
                         .toList()
                         .cast<String>();
-                    setState(() {});
+                    safeSetState(() {});
                     FFAppState().previousButtonVisible =
                         functions.checkVisiblePreviousForwordButton(
                             _model.choiceChipsValue,
@@ -161,7 +162,7 @@ class _PageControllerComponentWidgetState
                             _model.choiceChipsValue,
                             'next_button',
                             FFAppState().maxPage)!;
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   selectedChipStyle: ChipStyle(
                     backgroundColor: Color(0xFF0039E3),
@@ -211,7 +212,7 @@ class _PageControllerComponentWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    setState(() {
+                    safeSetState(() {
                       _model.choiceChipsValueController?.value = [
                         ((int currentPage) {
                           return '${currentPage + 1}';
@@ -228,7 +229,7 @@ class _PageControllerComponentWidgetState
                             _model.choiceChipsValue,
                             'next_button',
                             FFAppState().maxPage)!;
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   child: Icon(
                     Icons.arrow_forward_ios_rounded,
@@ -249,7 +250,7 @@ class _PageControllerComponentWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    setState(() {
+                    safeSetState(() {
                       _model.choiceChipsValueController?.value = [
                         FFAppState().maxPage.toString()
                       ];
@@ -264,7 +265,7 @@ class _PageControllerComponentWidgetState
                             _model.choiceChipsValue,
                             'next_button',
                             FFAppState().maxPage)!;
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   child: FaIcon(
                     FontAwesomeIcons.fastForward,

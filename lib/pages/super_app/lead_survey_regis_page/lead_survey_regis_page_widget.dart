@@ -79,7 +79,7 @@ class _LeadSurveyRegisPageWidgetState extends State<LeadSurveyRegisPageWidget> {
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

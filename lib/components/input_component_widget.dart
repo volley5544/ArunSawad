@@ -41,7 +41,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
           if (_model.textController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.textController?.text =
                 functions.removeCommaFromNumText(_model.textController.text);
             _model.textController?.selection = TextSelection.collapsed(
@@ -51,7 +51,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
           if (_model.textController.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.textController?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController.text)!;
             _model.textController?.selection = TextSelection.collapsed(
@@ -60,7 +60,7 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
         }
       },
     );
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

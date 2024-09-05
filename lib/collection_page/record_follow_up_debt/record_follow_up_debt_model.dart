@@ -19,7 +19,6 @@ class RecordFollowUpDebtModel
     extends FlutterFlowModel<RecordFollowUpDebtWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getCalledHistoryCollectionApi)] action in recordFollowUpDebt widget.
   ApiCallResponse? getCalledHistory;
   // Model for appbarFollowUpDebt component.

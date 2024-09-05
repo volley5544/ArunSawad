@@ -27,7 +27,7 @@ class _LoadingSceneCopyWidgetState extends State<LoadingSceneCopyWidget> {
     super.initState();
     _model = createModel(context, () => LoadingSceneCopyModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -46,7 +46,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -99,7 +99,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                     'ความรวดเร็ว',
                                     'รักษาผลประโยชน์ของบริษัท'
                                   ],
-                                  onChanged: (val) => setState(
+                                  onChanged: (val) => safeSetState(
                                       () => _model.dropDownValue = val),
                                   width: 180.0,
                                   height: 50.0,
@@ -252,7 +252,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                   ),
                                 ),
                                 count: _model.countControllerValue ??= 0,
-                                updateCount: (count) => setState(
+                                updateCount: (count) => safeSetState(
                                     () => _model.countControllerValue = count),
                                 stepSize: 1,
                               ),

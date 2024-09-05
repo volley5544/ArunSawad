@@ -123,7 +123,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
       vsync: this,
       length: 3,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     _model.expandableExpandableController1 =
         ExpandableController(initialExpanded: true);
     _model.branchInputTextController ??= TextEditingController();
@@ -229,7 +229,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -545,7 +545,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -610,7 +610,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       if (animationsMap[
                                                               'containerOnActionTriggerAnimation1'] !=
                                                           null) {
-                                                        setState(() =>
+                                                        safeSetState(() =>
                                                             hasContainerTriggered1 =
                                                                 true);
                                                         SchedulerBinding
@@ -718,7 +718,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
 
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                 },
                                               ),
                                             ),
@@ -799,7 +799,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                         ''),
                                                   )!,
                                                   onChanged: (val) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                         .dropDownValue1 = val);
                                                     HapticFeedback
                                                         .mediumImpact();
@@ -876,7 +876,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                     }
                                                     Navigator.pop(context);
 
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                   width: 180.0,
                                                   height: 50.0,
@@ -936,7 +936,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                           Icons.directions_car)
                                                     ],
                                                     onChanged: (val) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .choiceChipsTypeValue1 =
                                                           val?.firstOrNull);
                                                       HapticFeedback
@@ -1016,7 +1016,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                               .skip_previous_rounded)
                                                     ],
                                                     onChanged: (val) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .choiceChipsMonthValue1 =
                                                           val?.firstOrNull);
                                                       HapticFeedback
@@ -3355,7 +3355,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                   showModalBottomSheet(
@@ -3419,7 +3419,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                       if (animationsMap[
                                                               'containerOnActionTriggerAnimation2'] !=
                                                           null) {
-                                                        setState(() =>
+                                                        safeSetState(() =>
                                                             hasContainerTriggered2 =
                                                                 true);
                                                         SchedulerBinding
@@ -3533,7 +3533,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
 
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                 },
                                               ),
                                             ),
@@ -3623,7 +3623,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                                 ''),
                                                           )?.toList()),
                                                   onChanged: (val) async {
-                                                    setState(() => _model
+                                                    safeSetState(() => _model
                                                         .dropDownValue2 = val);
                                                     HapticFeedback
                                                         .mediumImpact();
@@ -3700,7 +3700,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                     }
                                                     Navigator.pop(context);
 
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                   width: 180.0,
                                                   height: 50.0,
@@ -3760,7 +3760,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                           Icons.directions_car)
                                                     ],
                                                     onChanged: (val) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .choiceChipsTypeValue2 =
                                                           val?.firstOrNull);
                                                       HapticFeedback
@@ -3840,7 +3840,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                               .skip_previous_rounded)
                                                     ],
                                                     onChanged: (val) async {
-                                                      setState(() => _model
+                                                      safeSetState(() => _model
                                                               .choiceChipsMonthValue2 =
                                                           val?.firstOrNull);
                                                       HapticFeedback
@@ -5682,7 +5682,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                           List<String>.from(['เขต', 'ภาค']),
                                       optionLabels: ['เขต', 'ภาค'],
                                       onChanged: (val) async {
-                                        setState(() => _model
+                                        safeSetState(() => _model
                                             .areaRegionDropDownValue = val);
                                         HapticFeedback.mediumImpact();
                                       },
@@ -5786,9 +5786,9 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                                   (_model.getRegion?.jsonBody ??
                                                       ''),
                                                 )?.toList()),
-                                        onChanged: (val) => setState(() => _model
-                                                .areaRegionSelectedDropDownValue =
-                                            val),
+                                        onChanged: (val) => safeSetState(() =>
+                                            _model.areaRegionSelectedDropDownValue =
+                                                val),
                                         searchHintTextStyle:
                                             FlutterFlowTheme.of(context)
                                                 .bodyLarge
@@ -5911,7 +5911,7 @@ class _EmployeeKpiCEOPageWidgetState extends State<EmployeeKpiCEOPageWidget>
                                             );
                                           },
                                           onSelected: (String selection) {
-                                            setState(() => _model
+                                            safeSetState(() => _model
                                                     .branchInputAreaSelectedOption =
                                                 selection);
                                             FocusScope.of(context).unfocus();

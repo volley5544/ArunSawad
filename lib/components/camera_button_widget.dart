@@ -33,7 +33,7 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
     super.initState();
     _model = createModel(context, () => CameraButtonModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -80,7 +80,7 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                     );
                   },
                 );
-                if (_shouldSetState) setState(() {});
+                if (_shouldSetState) safeSetState(() {});
                 return;
               }
               final selectedMedia = await selectMediaWithSourceBottomSheet(
@@ -94,7 +94,7 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
               if (selectedMedia != null &&
                   selectedMedia.every(
                       (m) => validateFileFormat(m.storagePath, context))) {
-                setState(() => _model.isDataUploading = true);
+                safeSetState(() => _model.isDataUploading = true);
                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                 try {
@@ -117,12 +117,12 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                   _model.isDataUploading = false;
                 }
                 if (selectedUploadedFiles.length == selectedMedia.length) {
-                  setState(() {
+                  safeSetState(() {
                     _model.uploadedLocalFile = selectedUploadedFiles.first;
                   });
                   showUploadMessage(context, 'Success!');
                 } else {
-                  setState(() {});
+                  safeSetState(() {});
                   showUploadMessage(context, 'Failed to upload data');
                   return;
                 }
@@ -154,13 +154,13 @@ class _CameraButtonWidgetState extends State<CameraButtonWidget> {
                     );
                   },
                 );
-                if (_shouldSetState) setState(() {});
+                if (_shouldSetState) safeSetState(() {});
                 return;
               }
               FFAppState().addToImgURL(functions
                   .stringToImgPath(_model.uploadFirebaseStorageAction)!);
               FFAppState().update(() {});
-              if (_shouldSetState) setState(() {});
+              if (_shouldSetState) safeSetState(() {});
             },
             child: FaIcon(
               FontAwesomeIcons.camera,

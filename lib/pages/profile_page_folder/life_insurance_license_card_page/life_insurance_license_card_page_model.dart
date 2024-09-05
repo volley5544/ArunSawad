@@ -14,10 +14,6 @@ import 'package:provider/provider.dart';
 
 class LifeInsuranceLicenseCardPageModel
     extends FlutterFlowModel<LifeInsuranceLicenseCardPageWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

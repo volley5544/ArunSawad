@@ -54,7 +54,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.
   dynamic? getDataRoleMenu;
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.

@@ -31,7 +31,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
     _model = createModel(context, () => QRCodeModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'QRCode'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -62,7 +62,7 @@ class _QRCodeWidgetState extends State<QRCodeWidget> {
                     children: [
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: AppbarFollowUpDebtWidget(),
                       ),
                       Text(

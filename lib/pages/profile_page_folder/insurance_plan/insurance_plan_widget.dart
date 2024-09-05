@@ -91,7 +91,7 @@ class _InsurancePlanWidgetState extends State<InsurancePlanWidget> {
     _model.textController16 ??= TextEditingController();
     _model.textFieldFocusNode15 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -29,7 +29,7 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'testCircleMap'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -97,14 +97,14 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                           r'''$[:].id''',
                           true,
                         ));
-                        setState(() {});
+                        safeSetState(() {});
                         await actions.deleteFileByUrlBatch(
                           GetCheckinImgUrlApiCall.imageUrl(
                             (_model.getCheckinImgUrl1?.jsonBody ?? ''),
                           )?.toList(),
                         );
 
-                        setState(() {});
+                        safeSetState(() {});
                       },
                       text: 'Button',
                       options: FFButtonOptions(
@@ -137,14 +137,14 @@ class _TestCircleMapWidgetState extends State<TestCircleMapWidget> {
                           (_model.getCheckinImgUrl2?.jsonBody ?? ''),
                           r'''$[:].id''',
                         );
-                        setState(() {});
+                        safeSetState(() {});
                         await actions.deleteFileByUrlBatch(
                           GetCheckinImgUrlUrlApiCall.imageUrl(
                             (_model.getCheckinImgUrl2?.jsonBody ?? ''),
                           )?.toList(),
                         );
 
-                        setState(() {});
+                        safeSetState(() {});
                       },
                       text: 'Button',
                       options: FFButtonOptions(

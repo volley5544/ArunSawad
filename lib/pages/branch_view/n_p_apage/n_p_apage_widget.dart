@@ -118,7 +118,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -238,7 +238,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'รูปภาพ';
           _model.textController2?.text = 'สำรวจ NPA';
           _model.textController6?.text = 'สำรวจ NPA';
@@ -314,7 +314,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
           actions: [
             wrapWithModel(
               model: _model.cameraButtonModel,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: CameraButtonWidget(),
             ),
           ],
@@ -1928,7 +1928,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                         backgroundColor: Color(0xB3000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (_model.remarkInputTextController.text !=
@@ -1965,7 +1965,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                             ) ??
                                             false;
                                     if (!confirmDialogResponse) {
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.checkGPSBeforeSave =
@@ -1993,7 +1993,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -2049,7 +2049,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                   } else {
@@ -2065,7 +2065,7 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                         backgroundColor: Color(0xB3000000),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
@@ -2156,13 +2156,13 @@ class _NPApageWidgetState extends State<NPApageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
                                   context.goNamed('SuccessPage');
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'บันทึก',
                                 options: FFButtonOptions(

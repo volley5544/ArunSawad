@@ -208,7 +208,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -566,7 +566,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .isDataUploading1 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
@@ -600,13 +600,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   if (selectedUploadedFiles
                                                           .length ==
                                                       selectedMedia.length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile1 =
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -620,7 +620,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                         false))) {
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 _model.uploadFirebaseStorageAction =
@@ -656,7 +656,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 if (stackUserCustomRecord
@@ -689,7 +689,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       .stringToImgPath(_model
                                                           .uploadFirebaseStorageAction),
                                                 ));
-                                                setState(() {
+                                                safeSetState(() {
                                                   _model.isDataUploading1 =
                                                       false;
                                                   _model.uploadedLocalFile1 =
@@ -700,7 +700,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
 
                                                 Navigator.pop(context);
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                             ),
                                           ),
@@ -1095,7 +1095,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                         validateFileFormat(
                                                             m.storagePath,
                                                             context))) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                       .isDataUploading2 = true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
@@ -1129,13 +1129,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   if (selectedUploadedFiles
                                                           .length ==
                                                       selectedMedia.length) {
-                                                    setState(() {
+                                                    safeSetState(() {
                                                       _model.uploadedLocalFile2 =
                                                           selectedUploadedFiles
                                                               .first;
                                                     });
                                                   } else {
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                     return;
                                                   }
                                                 }
@@ -1149,7 +1149,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                         false))) {
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 _model.uploadFirebaseStorageActionTablet =
@@ -1185,7 +1185,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 if (stackUserCustomRecord
@@ -1206,7 +1206,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                       .stringToImgPath(_model
                                                           .uploadFirebaseStorageActionTablet),
                                                 ));
-                                                setState(() {
+                                                safeSetState(() {
                                                   _model.isDataUploading2 =
                                                       false;
                                                   _model.uploadedLocalFile2 =
@@ -1217,7 +1217,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
 
                                                 Navigator.pop(context);
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                             ),
                                           ),

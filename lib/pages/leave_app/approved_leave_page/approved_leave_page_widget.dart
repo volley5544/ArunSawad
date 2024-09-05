@@ -64,7 +64,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
       ).then((value) => safeSetState(() {}));
 
       FFAppState().multiApprove = false;
-      setState(() {});
+      safeSetState(() {});
       _model.leaveListAprroveAPIOutput = await LeaveListAprroveAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
@@ -86,7 +86,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
               .toList()
               .cast<bool>();
           FFAppState().multiApprove = false;
-          setState(() {});
+          safeSetState(() {});
           Navigator.pop(context);
         } else {
           await showDialog(
@@ -226,7 +226,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
       }
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -315,7 +315,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                           )?.length)!
                                       .toList()
                                       .cast<bool>();
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 text: 'อนุมัติหลายคน',
                                 icon: Icon(
@@ -385,7 +385,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                       child: Checkbox(
                                         value: _model.checkboxValue ??= false,
                                         onChanged: (newValue) async {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.checkboxValue = newValue!);
                                           if (newValue!) {
                                             FFAppState().ApproveAllCheck = true;
@@ -401,7 +401,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                         )?.length)!
                                                     .toList()
                                                     .cast<bool>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                           } else {
                                             FFAppState().ApproveAllCheck =
                                                 false;
@@ -417,7 +417,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                         )?.length)!
                                                     .toList()
                                                     .cast<bool>();
-                                            setState(() {});
+                                            safeSetState(() {});
                                           }
                                         },
                                         side: BorderSide(
@@ -509,7 +509,8 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         showModalBottomSheet(
@@ -584,7 +585,8 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         if (LeaveFlagApproveListAPICall
@@ -643,7 +645,8 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
 
@@ -652,7 +655,8 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
 
                                         context.pushNamed('ApprovedLeavePage');
 
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                       },
                                       text: 'อนุมัติที่เลือก',
                                       icon: Icon(
@@ -702,7 +706,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                               )?.length)!
                                           .toList()
                                           .cast<bool>();
-                                      setState(() {});
+                                      safeSetState(() {});
                                     },
                                     text: 'ยกเลิก',
                                     icon: FaIcon(
@@ -817,7 +821,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                         ? false
                                         : true,
                                   );
-                                  setState(() {});
+                                  safeSetState(() {});
                                 }
                               },
                               child: Container(
@@ -859,14 +863,14 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                     leaveIdItemIndex,
                                                     (_) => false,
                                                   );
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 } else {
                                                   FFAppState()
                                                       .updateSelectApproveListAtIndex(
                                                     leaveIdItemIndex,
                                                     (_) => true,
                                                   );
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 }
                                               },
                                               child: Container(
@@ -984,7 +988,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                               )?.length)!
                                                           .toList()
                                                           .cast<bool>();
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 child: Container(
                                                   width:
@@ -1200,7 +1204,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                               leaveIdItemIndex,
                                                                               (_) => FFAppState().selectApproveList[leaveIdItemIndex] == true ? false : true,
                                                                             );
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Column(
@@ -2289,7 +2293,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                       ) ??
                                                                                       false;
                                                                                   if (!confirmDialogResponse) {
-                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
                                                                                   showModalBottomSheet(
@@ -2351,7 +2355,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                           );
                                                                                         },
                                                                                       );
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
                                                                                     if (functions.showMatNameInList(
@@ -2561,7 +2565,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
 
                                                                                       context.goNamed('LoginPage');
 
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     } else {
                                                                                       await showDialog(
@@ -2582,14 +2586,14 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                           );
                                                                                         },
                                                                                       );
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
                                                                                   }
 
                                                                                   context.pushNamed('ApprovedLeavePage');
 
-                                                                                  if (_shouldSetState) setState(() {});
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                 },
                                                                                 text: 'อนุมัติ',
                                                                                 icon: FaIcon(
@@ -2656,7 +2660,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                       ) ??
                                                                                       false;
                                                                                   if (!confirmDialogResponse) {
-                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                     return;
                                                                                   }
                                                                                   showModalBottomSheet(
@@ -2737,7 +2741,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                           );
                                                                                         },
                                                                                       );
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
 
@@ -2864,7 +2868,7 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
 
                                                                                       context.goNamed('LoginPage');
 
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     } else {
                                                                                       await showDialog(
@@ -2885,12 +2889,12 @@ class _ApprovedLeavePageWidgetState extends State<ApprovedLeavePageWidget> {
                                                                                           );
                                                                                         },
                                                                                       );
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                       return;
                                                                                     }
                                                                                   }
 
-                                                                                  if (_shouldSetState) setState(() {});
+                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                 },
                                                                                 text: 'ไม่อนุมัติ',
                                                                                 icon: FaIcon(

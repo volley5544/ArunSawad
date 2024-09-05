@@ -34,7 +34,7 @@ class _RecordVideoWebviewPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'RecordVideoWebviewPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

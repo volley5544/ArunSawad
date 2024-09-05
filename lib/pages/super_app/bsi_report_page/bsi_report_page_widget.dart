@@ -81,7 +81,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
       ).then((value) => safeSetState(() {}));
 
       FFAppState().isSearchedBranch = false;
-      setState(() {});
+      safeSetState(() {});
 
       var userLogRecordReference = UserLogRecord.collection.doc();
       await userLogRecordReference.set(createUserLogRecordData(
@@ -219,7 +219,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -565,7 +565,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 showModalBottomSheet(
@@ -719,7 +719,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
 
                                                 Navigator.pop(context);
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                             ),
                                           ),
@@ -832,8 +832,9 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                                       ''),
                                                                 ))
                                                           ?.toList()),
-                                              onChanged: (val) => setState(() =>
-                                                  _model.branchDropDownValue =
+                                              onChanged: (val) => safeSetState(
+                                                  () => _model
+                                                          .branchDropDownValue =
                                                       val),
                                               width: 180.0,
                                               height: 50.0,
@@ -951,8 +952,9 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                       columnReportStorageRecord
                                                           ?.reportIsShow
                                                           ?.toList())!,
-                                              onChanged: (val) => setState(() =>
-                                                  _model.reportDropDownValue =
+                                              onChanged: (val) => safeSetState(
+                                                  () => _model
+                                                          .reportDropDownValue =
                                                       val),
                                               width: 180.0,
                                               height: 50.0,
@@ -1053,18 +1055,18 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                         .fromSerializableMap(
                                                             jsonDecode(
                                                                 '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 FFAppState()
                                                         .apiUrlBranchViewCollection =
                                                     _model.getCollectionApiUrl!
                                                         .urlLink;
-                                                setState(() {});
+                                                safeSetState(() {});
 
                                                 context
                                                     .pushNamed('tabCollection');
 
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                               await actions.openTableauBrowser(
@@ -1074,7 +1076,7 @@ class _BsiReportPageWidgetState extends State<BsiReportPageWidget>
                                                     .isOpenAndroidTableauBrowser,
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                             },
                                             text: 'ดูรายงาน',
                                             options: FFButtonOptions(

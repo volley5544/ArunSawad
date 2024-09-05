@@ -28,7 +28,7 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'PhoneNumberInfo'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -95,7 +95,7 @@ class _PhoneNumberInfoWidgetState extends State<PhoneNumberInfoWidget> {
                   onChanged: (value, displayTime, shouldUpdate) {
                     _model.timerMilliseconds = value;
                     _model.timerValue = displayTime;
-                    if (shouldUpdate) setState(() {});
+                    if (shouldUpdate) safeSetState(() {});
                   },
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).headlineSmall.override(

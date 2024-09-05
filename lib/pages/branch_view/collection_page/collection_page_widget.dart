@@ -125,7 +125,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
 
@@ -257,7 +257,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'รูปภาพ';
           _model.textController2?.text = 'ติดตามหนี้';
           _model.textController8?.text = 'ติดตามหนี้';
@@ -333,7 +333,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
           actions: [
             wrapWithModel(
               model: _model.cameraButtonModel,
-              updateCallback: () => setState(() {}),
+              updateCallback: () => safeSetState(() {}),
               child: CameraButtonWidget(),
             ),
           ],
@@ -1018,7 +1018,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                     var _shouldSetState = false;
                                     HapticFeedback.mediumImpact();
                                     if (FFAppState().isGetVloanContract) {
-                                      setState(() {
+                                      safeSetState(() {
                                         _model.idInputTextController?.clear();
                                       });
                                       FFAppState().vloanContNoListTemp = [];
@@ -1028,7 +1028,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       FFAppState().vloanServerListTemp = [];
                                       FFAppState().isGetVloanContract = false;
                                       FFAppState().update(() {});
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (!functions.checkIdCardInput(
@@ -1053,7 +1053,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.getVloanContract =
@@ -1086,7 +1086,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     FFAppState().vloanContNoListTemp =
@@ -1110,7 +1110,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             .cast<String>();
                                     FFAppState().isGetVloanContract = true;
                                     FFAppState().update(() {});
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   text: functions.buttonTextVloanGetContract(
                                       FFAppState().isGetVloanContract),
@@ -1258,7 +1258,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                               FormFieldController<String>(null),
                                           options:
                                               FFAppState().vloanContNoListTemp,
-                                          onChanged: (val) => setState(() =>
+                                          onChanged: (val) => safeSetState(() =>
                                               _model.contNoDropDownValue = val),
                                           width: 180.0,
                                           height: 50.0,
@@ -1494,7 +1494,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             optionLabels:
                                                 collectionResultDropdownBranchviewDropdownRecord!
                                                     .dropdownName,
-                                            onChanged: (val) => setState(() =>
+                                            onChanged: (val) => safeSetState(() =>
                                                 _model.collectionResultDropdownValue =
                                                     val),
                                             width: 180.0,
@@ -2741,7 +2741,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.contNoDropDownValue != null &&
@@ -2758,7 +2758,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (!(_model.remarkInputTextController.text !=
@@ -2777,7 +2777,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         backgroundColor: Color(0xB3090F13),
                                       ),
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   if (functions.checkStringLength(_model
@@ -2801,7 +2801,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   var confirmDialogResponse =
@@ -2834,7 +2834,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           ) ??
                                           false;
                                   if (!confirmDialogResponse) {
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   _model.checkGPSBeforeSave = await actions.a8(
@@ -2860,7 +2860,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   showModalBottomSheet(
@@ -2925,7 +2925,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     FFAppState().branchLocationTemp =
@@ -2941,7 +2941,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                       (_model.getUserBranchLocation?.jsonBody ??
                                           ''),
                                     )!;
-                                    setState(() {});
+                                    safeSetState(() {});
                                   }
                                   _model.collectionAPISubmit =
                                       await CollectionAPICall.call(
@@ -3065,7 +3065,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.remarkVLoneOutput =
@@ -3134,7 +3134,8 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                     } else {
@@ -3158,7 +3159,7 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
@@ -3191,13 +3192,13 @@ class _CollectionPageWidgetState extends State<CollectionPageWidget>
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
 
                                   context.goNamed('SuccessPage');
 
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                 },
                                 text: 'บันทึก',
                                 options: FFButtonOptions(

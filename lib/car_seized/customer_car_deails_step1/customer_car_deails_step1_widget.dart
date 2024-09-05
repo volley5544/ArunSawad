@@ -79,7 +79,7 @@ class _CustomerCarDeailsStep1WidgetState
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -677,7 +677,7 @@ class _CustomerCarDeailsStep1WidgetState
                                             size: 18.0,
                                           ),
                                           onPressed: () async {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.isDataUploading1 = false;
                                               _model.uploadedLocalFile1 =
                                                   FFUploadedFile(
@@ -742,7 +742,7 @@ class _CustomerCarDeailsStep1WidgetState
                                       selectedMedia.every((m) =>
                                           validateFileFormat(
                                               m.storagePath, context))) {
-                                    setState(
+                                    safeSetState(
                                         () => _model.isDataUploading1 = true);
                                     var selectedUploadedFiles =
                                         <FFUploadedFile>[];
@@ -764,12 +764,12 @@ class _CustomerCarDeailsStep1WidgetState
                                     }
                                     if (selectedUploadedFiles.length ==
                                         selectedMedia.length) {
-                                      setState(() {
+                                      safeSetState(() {
                                         _model.uploadedLocalFile1 =
                                             selectedUploadedFiles.first;
                                       });
                                     } else {
-                                      setState(() {});
+                                      safeSetState(() {});
                                       return;
                                     }
                                   }
@@ -812,7 +812,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 },
                                 child: wrapWithModel(
                                   model: _model.captureCameraWidgetModel1,
-                                  updateCallback: () => setState(() {}),
+                                  updateCallback: () => safeSetState(() {}),
                                   child: CaptureCameraWidgetWidget(),
                                 ),
                               ),
@@ -1152,7 +1152,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading2 = false;
                                           _model.uploadedLocalFile2 =
                                               FFUploadedFile(
@@ -1216,7 +1216,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading2 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading2 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -1234,12 +1235,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile2 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -1280,7 +1281,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel2,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -1618,7 +1619,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading3 = false;
                                           _model.uploadedLocalFile3 =
                                               FFUploadedFile(
@@ -1682,7 +1683,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading3 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading3 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -1700,12 +1702,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile3 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -1746,7 +1748,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel3,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -2084,7 +2086,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading4 = false;
                                           _model.uploadedLocalFile4 =
                                               FFUploadedFile(
@@ -2148,7 +2150,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading4 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading4 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -2166,12 +2169,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile4 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -2212,7 +2215,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel4,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -2550,7 +2553,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading5 = false;
                                           _model.uploadedLocalFile5 =
                                               FFUploadedFile(
@@ -2614,7 +2617,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading5 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading5 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -2632,12 +2636,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile5 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -2678,7 +2682,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel5,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -3016,7 +3020,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading6 = false;
                                           _model.uploadedLocalFile6 =
                                               FFUploadedFile(
@@ -3080,7 +3084,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading6 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading6 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -3098,12 +3103,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile6 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -3144,7 +3149,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel6,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -3487,7 +3492,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading7 = false;
                                           _model.uploadedLocalFile7 =
                                               FFUploadedFile(
@@ -3554,7 +3559,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading7 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading7 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -3572,12 +3578,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile7 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -3618,7 +3624,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel7,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -3986,7 +3992,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading8 = false;
                                           _model.uploadedLocalFile8 =
                                               FFUploadedFile(
@@ -4053,7 +4059,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading8 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading8 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -4071,12 +4078,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile8 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -4117,7 +4124,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel8,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -4485,7 +4492,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading9 = false;
                                           _model.uploadedLocalFile9 =
                                               FFUploadedFile(
@@ -4552,7 +4559,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading9 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading9 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -4570,12 +4578,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile9 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -4616,7 +4624,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel9,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -4986,7 +4994,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading10 = false;
                                           _model.uploadedLocalFile10 =
                                               FFUploadedFile(
@@ -5053,7 +5061,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading10 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading10 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -5071,12 +5080,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile10 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -5117,7 +5126,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel10,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -5487,7 +5496,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading11 = false;
                                           _model.uploadedLocalFile11 =
                                               FFUploadedFile(
@@ -5554,7 +5563,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading11 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading11 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -5572,12 +5582,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile11 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -5618,7 +5628,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel11,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -5959,7 +5969,7 @@ class _CustomerCarDeailsStep1WidgetState
                                         size: 18.0,
                                       ),
                                       onPressed: () async {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.isDataUploading12 = false;
                                           _model.uploadedLocalFile12 =
                                               FFUploadedFile(
@@ -6026,7 +6036,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading12 = true);
+                                safeSetState(
+                                    () => _model.isDataUploading12 = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -6044,12 +6055,12 @@ class _CustomerCarDeailsStep1WidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile12 =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -6090,7 +6101,7 @@ class _CustomerCarDeailsStep1WidgetState
                             },
                             child: wrapWithModel(
                               model: _model.captureCameraWidgetModel12,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: CaptureCameraWidgetWidget(),
                             ),
                           ),
@@ -6235,7 +6246,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else if (_model.uploadedLocalFile2 == null ||
                                   (_model.uploadedLocalFile2.bytes?.isEmpty ??
@@ -6258,7 +6269,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else if (_model.uploadedLocalFile3 == null ||
                                   (_model.uploadedLocalFile3.bytes?.isEmpty ??
@@ -6281,7 +6292,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else if (_model.uploadedLocalFile4 == null ||
                                   (_model.uploadedLocalFile4.bytes?.isEmpty ??
@@ -6304,7 +6315,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else if (_model.uploadedLocalFile5 == null ||
                                   (_model.uploadedLocalFile5.bytes?.isEmpty ??
@@ -6327,7 +6338,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else if (_model.uploadedLocalFile6 == null ||
                                   (_model.uploadedLocalFile6.bytes?.isEmpty ??
@@ -6350,7 +6361,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else if (_model.uploadedLocalFile7 == null ||
                                   (_model.uploadedLocalFile7.bytes?.isEmpty ??
@@ -6376,7 +6387,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               } else if (_model.uploadedLocalFile8 == null ||
                                   (_model.uploadedLocalFile8.bytes?.isEmpty ??
@@ -6400,7 +6411,7 @@ class _CustomerCarDeailsStep1WidgetState
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                               }
@@ -6427,7 +6438,7 @@ class _CustomerCarDeailsStep1WidgetState
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                               }
@@ -6453,7 +6464,7 @@ class _CustomerCarDeailsStep1WidgetState
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                               }
@@ -6479,7 +6490,7 @@ class _CustomerCarDeailsStep1WidgetState
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                               }
@@ -6513,7 +6524,7 @@ class _CustomerCarDeailsStep1WidgetState
                                       ) ??
                                       false;
                               if (!confirmDialogResponse) {
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               showModalBottomSheet(
@@ -6606,7 +6617,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               if ('${getJsonField(
@@ -6638,7 +6649,7 @@ class _CustomerCarDeailsStep1WidgetState
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                               Navigator.pop(context);
@@ -6721,7 +6732,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 }.withoutNulls,
                               );
 
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                             },
                             text: 'บันทึก',
                             options: FFButtonOptions(

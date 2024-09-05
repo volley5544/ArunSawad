@@ -29,7 +29,7 @@ class _AppbarFollowUpDebtWidgetState extends State<AppbarFollowUpDebtWidget> {
     super.initState();
     _model = createModel(context, () => AppbarFollowUpDebtModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

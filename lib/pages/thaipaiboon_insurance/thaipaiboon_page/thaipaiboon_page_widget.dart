@@ -161,7 +161,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -237,7 +237,7 @@ class _ThaipaiboonPageWidgetState extends State<ThaipaiboonPageWidget> {
                       ChipData('พี่วินคุ้มชัวร์', Icons.motorcycle),
                       ChipData('แคมเปญทั้งหมด', FontAwesomeIcons.borderAll)
                     ],
-                    onChanged: (val) => setState(
+                    onChanged: (val) => safeSetState(
                         () => _model.choiceChipsValue = val?.firstOrNull),
                     selectedChipStyle: ChipStyle(
                       backgroundColor: Color(0xFFFF6500),

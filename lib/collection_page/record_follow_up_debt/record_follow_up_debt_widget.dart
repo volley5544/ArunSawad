@@ -153,7 +153,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -187,7 +187,7 @@ class _RecordFollowUpDebtWidgetState extends State<RecordFollowUpDebtWidget>
                       alignment: AlignmentDirectional(0.0, -1.0),
                       child: wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: AppbarFollowUpDebtWidget(),
                       ),
                     ),

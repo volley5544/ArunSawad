@@ -158,7 +158,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
           .generateListFromString('', widget!.countNo?.length)!
           .toList()
           .cast<String>();
-      setState(() {});
+      safeSetState(() {});
       Navigator.pop(context);
     });
 
@@ -170,7 +170,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
           if (_model.textController1.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.textController1?.text =
                 functions.removeCommaFromNumText(_model.textController1.text);
             _model.textController1?.selection = TextSelection.collapsed(
@@ -180,7 +180,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
           if (_model.textController1.text == '') {
             return;
           }
-          setState(() {
+          safeSetState(() {
             _model.textController1?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController1.text)!;
             _model.textController1?.selection = TextSelection.collapsed(
@@ -243,7 +243,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -275,7 +275,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                     children: [
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: AppbarFollowUpDebtWidget(),
                       ),
                       Padding(
@@ -1562,7 +1562,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                             ''),
                                                       )?.toList())
                                                   ?.toList())!,
-                                          onChanged: (val) => setState(
+                                          onChanged: (val) => safeSetState(
                                               () => _model.dropDownValue = val),
                                           width: 200.0,
                                           height: 50.0,
@@ -1678,7 +1678,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                     )?.toList(),
                                                     _model.dropDownValue)!,
                                             onChanged: (val) async {
-                                              setState(() => _model
+                                              safeSetState(() => _model
                                                   .dropDownSaveCallValue = val);
                                               FFAppState().outputRemarkCode = functions
                                                   .getValueWithMappedList(
@@ -1856,7 +1856,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                           ?.toList(),
                                                       _model
                                                           .dropDownSaveCallValue)!;
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             width: 250.0,
                                             height: 50.0,
@@ -2206,7 +2206,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                                 false,
                                                             onChanged:
                                                                 (newValue) async {
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.checkboxValue =
                                                                       newValue!);
                                                             },
@@ -2458,7 +2458,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                         contNoItemListIndex,
                                                       ),
                                                       updateCallback: () =>
-                                                          setState(() {}),
+                                                          safeSetState(() {}),
                                                       updateOnChange: true,
                                                       child:
                                                           InputComponentWidget(
@@ -2632,7 +2632,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                               'normal';
                                           FFAppState().loopStatusTemp2 =
                                               'normal';
-                                          setState(() {});
+                                          safeSetState(() {});
                                           var confirmDialogResponse =
                                               await showDialog<bool>(
                                                     context: context,
@@ -2718,7 +2718,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                             if (!(_model.dropDownSaveCallValue !=
@@ -2746,7 +2746,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                             if (FFAppState()
@@ -2777,14 +2777,14 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                         FFAppState()
                                                                 .loopStatusTemp2 =
                                                             'lessthenarnow';
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       }
                                                       FFAppState()
                                                               .loopCountNumber =
                                                           FFAppState()
                                                                   .loopCountNumber +
                                                               1;
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
                                                   } else {
                                                     Navigator.pop(context);
@@ -2810,7 +2810,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   }
                                                 } else {
@@ -2840,7 +2840,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                       FFAppState()
                                                               .loopStatusTemp =
                                                           'validate';
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
                                                     if (!functions
                                                         .checkValueLessThenValue2(
@@ -2861,20 +2861,20 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                       FFAppState()
                                                               .loopStatusTemp2 =
                                                           'lessthenarnow';
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
                                                     FFAppState()
                                                             .loopCountNumber =
                                                         FFAppState()
                                                                 .loopCountNumber +
                                                             1;
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   }
                                                 }
 
                                                 FFAppState().loopCountNumber =
                                                     0;
-                                                setState(() {});
+                                                safeSetState(() {});
                                                 if (FFAppState()
                                                         .loopStatusTemp2 ==
                                                     'lessthenarnow') {
@@ -2900,7 +2900,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                   );
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 if (FFAppState()
@@ -2927,7 +2927,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 if (!(_model.textController2
@@ -2958,7 +2958,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                     },
                                                   );
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                               } else {
@@ -2984,7 +2984,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                   },
                                                 );
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 return;
                                               }
                                             }
@@ -3011,16 +3011,16 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                           m.textController.text,
                                                     )),
                                                   );
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState().loopCountNumber =
                                                       FFAppState()
                                                               .loopCountNumber +
                                                           1;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 }
                                                 FFAppState().loopCountNumber =
                                                     0;
-                                                setState(() {});
+                                                safeSetState(() {});
                                               }
                                             }
                                             FFAppState().saveCalled =
@@ -3106,7 +3106,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                       : FFAppState()
                                                           .ppAmountList),
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                             if (_model.dropDownSaveCallValue !=
                                                         null &&
                                                     _model.dropDownSaveCallValue !=
@@ -3151,7 +3151,7 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                             if (SaveCallCollectionCall
@@ -3182,12 +3182,12 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                           } else {
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
 
@@ -3196,7 +3196,8 @@ class _SaveCallFollowUpDebtWidgetState extends State<SaveCallFollowUpDebtWidget>
                                           context.pushNamed(
                                               'successPageCollecction');
 
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                         },
                                         text: 'บันทึกการโทร',
                                         options: FFButtonOptions(

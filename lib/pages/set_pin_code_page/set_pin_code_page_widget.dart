@@ -42,7 +42,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
       FFAppState().update(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -283,7 +283,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       backgroundColor: Color(0xCC000000),
                                     ),
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (!functions.checkPinCodeInput(
@@ -306,7 +306,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 _model.checkDeviceLocationBeforeSetPin =
@@ -331,7 +331,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 _model.checkDeviceLocPerBeforeSetPin =
@@ -356,7 +356,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 _model.checkLatLngBeforeSetPin =
@@ -383,7 +383,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 FFAppState().pinCodeAuthen =
@@ -396,7 +396,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                     buttonUserCustomRecord!.imgProfile;
                                 FFAppState().firstLoginLocation =
                                     currentUserLocationValue;
-                                setState(() {});
+                                safeSetState(() {});
 
                                 var userLogRecordReference =
                                     UserLogRecord.collection.doc();
@@ -439,7 +439,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
 
                                 context.goNamed('SuperAppPage');
 
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                               },
                               text: 'ยืนยัน',
                               options: FFButtonOptions(

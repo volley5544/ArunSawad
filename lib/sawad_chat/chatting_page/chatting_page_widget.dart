@@ -63,11 +63,11 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
           .generateTimeIsVisibleInChatPageList(100)
           .toList()
           .cast<bool>();
-      setState(() {});
+      safeSetState(() {});
       FFAppState().isSendMessageSuccess = true;
-      setState(() {});
+      safeSetState(() {});
       FFAppState().chatMessagesTemp = '';
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -114,7 +114,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -314,14 +314,14 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                           0,
                                                           (_) => false,
                                                         );
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       } else {
                                                         FFAppState()
                                                             .updateTimeChatIsVisibleListAtIndex(
                                                           0,
                                                           (_) => true,
                                                         );
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       }
                                                     },
                                                     child: Container(
@@ -464,14 +464,14 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                         0,
                                                         (_) => false,
                                                       );
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     } else {
                                                       FFAppState()
                                                           .updateTimeChatIsVisibleListAtIndex(
                                                         0,
                                                         (_) => true,
                                                       );
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
                                                   },
                                                   child: Container(
@@ -778,15 +778,15 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                                 _model.textController.text !=
                                                     '')) {
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                             FFAppState().isSendMessageSuccess =
                                                 false;
                                             FFAppState().chatMessagesTemp =
                                                 _model.textController.text;
-                                            setState(() {});
-                                            setState(() {
+                                            safeSetState(() {});
+                                            safeSetState(() {
                                               _model.textController?.clear();
                                             });
                                             if ((chattingPageChatsRecord !=
@@ -916,9 +916,9 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget>
                                             FFAppState().isSendMessageSuccess =
                                                 true;
                                             FFAppState().chatMessagesTemp = '';
-                                            setState(() {});
+                                            safeSetState(() {});
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                           },
                                           child: Icon(
                                             Icons.send_outlined,

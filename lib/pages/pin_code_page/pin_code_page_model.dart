@@ -26,7 +26,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - a3] action in PinCodePage widget.
   String? androidIMEI1st;
   // Stores action output result for [Custom Action - a4] action in PinCodePage widget.

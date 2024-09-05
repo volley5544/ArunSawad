@@ -189,7 +189,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
 
                 FFAppState().firstLogin = true;
                 FFAppState().firstUseApp = true;
-                setState(() {});
+                safeSetState(() {});
                 Navigator.pop(context);
               } else {
                 if (GetlocationAPICall.statusLayer2(
@@ -580,7 +580,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
         }
 
         FFAppState().firstLogin = true;
-        setState(() {});
+        safeSetState(() {});
         Navigator.pop(context);
       } else {
         if (GetlocationAPICall.statusLayer2(
@@ -635,7 +635,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
     });
 
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
     _model.branchFieldTextController ??= TextEditingController();
 
     _model.reasoncheckin1TextController ??= TextEditingController();
@@ -752,7 +752,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -861,7 +861,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                     if (selectedMedia != null &&
                         selectedMedia.every((m) =>
                             validateFileFormat(m.storagePath, context))) {
-                      setState(() => _model.isDataUploading1 = true);
+                      safeSetState(() => _model.isDataUploading1 = true);
                       var selectedUploadedFiles = <FFUploadedFile>[];
 
                       try {
@@ -879,12 +879,12 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                       }
                       if (selectedUploadedFiles.length ==
                           selectedMedia.length) {
-                        setState(() {
+                        safeSetState(() {
                           _model.uploadedLocalFile1 =
                               selectedUploadedFiles.first;
                         });
                       } else {
-                        setState(() {});
+                        safeSetState(() {});
                         return;
                       }
                     }
@@ -893,7 +893,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                         (_model.uploadedLocalFile1.bytes?.isNotEmpty ??
                             false))) {
                       Navigator.pop(context);
-                      if (_shouldSetState) setState(() {});
+                      if (_shouldSetState) safeSetState(() {});
                       return;
                     }
                     _model.uploadFirebaseStorageAction =
@@ -923,14 +923,14 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                           );
                         },
                       );
-                      if (_shouldSetState) setState(() {});
+                      if (_shouldSetState) safeSetState(() {});
                       return;
                     }
                     FFAppState().imgURLTemp = functions
                         .stringToImgPath(_model.uploadFirebaseStorageAction)!;
                     FFAppState().update(() {});
                     Navigator.pop(context);
-                    if (_shouldSetState) setState(() {});
+                    if (_shouldSetState) safeSetState(() {});
                   },
                   child: FaIcon(
                     FontAwesomeIcons.camera,
@@ -1435,13 +1435,13 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                 options:
                                                     FFAppState().brachListNew,
                                                 onChanged: (val) async {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                           .branchDropDownValue =
                                                       val);
                                                   FFAppState()
                                                           .checkBranchDropdown =
                                                       false;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                   FFAppState().branchLo =
                                                       functions.getLatLngBranch(
                                                           _model
@@ -1495,7 +1495,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   FFAppState()
                                                           .checkBranchDropdown =
                                                       true;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                                 width: 180.0,
                                                 height: 50.0,
@@ -1631,7 +1631,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   );
                                                 },
                                                 onSelected: (String selection) {
-                                                  setState(() => _model
+                                                  safeSetState(() => _model
                                                           .branchFieldSelectedOption =
                                                       selection);
                                                   FocusScope.of(context)
@@ -1831,7 +1831,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                   );
                                                   Navigator.pop(context);
                                                   if (_shouldSetState)
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   return;
                                                 }
                                                 _model.findLocationOutput =
@@ -1905,7 +1905,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                       },
                                                     );
                                                     if (_shouldSetState)
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     return;
                                                   } else {
                                                     FFAppState().branchList =
@@ -1987,7 +1987,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
 
                                                 Navigator.pop(context);
                                                 if (_shouldSetState)
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                               },
                                             ),
                                           ),
@@ -2050,7 +2050,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               options:
                                                   FFAppState().brachListNew,
                                               onChanged: (val) async {
-                                                setState(() =>
+                                                safeSetState(() =>
                                                     _model.dropDownValue = val);
                                                 FFAppState().branchLo =
                                                     functions.getLatLngBranch(
@@ -2342,7 +2342,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                       }
@@ -2370,7 +2371,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if ((FFAppState().imgURLTemp !=
@@ -2418,7 +2420,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                 },
                                               );
                                               if (_shouldSetState)
-                                                setState(() {});
+                                                safeSetState(() {});
                                               return;
                                             }
                                           }
@@ -2442,7 +2444,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
 
@@ -2477,7 +2480,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                 ) ??
                                                 false;
                                         if (!confirmDialogResponse) {
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                       } else {
@@ -2489,7 +2493,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             selectedMedia.every((m) =>
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
-                                          setState(() =>
+                                          safeSetState(() =>
                                               _model.isDataUploading2 = true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -2514,12 +2518,12 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           }
                                           if (selectedUploadedFiles.length ==
                                               selectedMedia.length) {
-                                            setState(() {
+                                            safeSetState(() {
                                               _model.uploadedLocalFile2 =
                                                   selectedUploadedFiles.first;
                                             });
                                           } else {
-                                            setState(() {});
+                                            safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -2548,7 +2552,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         _model.uploadFirebaseStorageCheckinBtn =
@@ -2581,7 +2586,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         FFAppState().imgURLTemp =
@@ -2614,7 +2620,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               );
                                             },
                                           );
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         _model.inCurrentLocation2 =
@@ -2651,7 +2658,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               },
                                             );
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -2686,7 +2693,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                 ) ??
                                                 false;
                                         if (!confirmDialogResponse) {
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                       }
@@ -2877,7 +2885,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             context.goNamed('LoginPage');
 
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           } else {
                                             await showDialog(
@@ -2905,7 +2913,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               },
                                             );
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
                                         }
@@ -2949,10 +2957,11 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                               },
                                             );
                                             if (_shouldSetState)
-                                              setState(() {});
+                                              safeSetState(() {});
                                             return;
                                           }
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                       } else {
@@ -2975,7 +2984,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             );
                                           },
                                         );
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
 
@@ -2993,7 +3003,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         }.withoutNulls,
                                       );
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     text: 'ลงเวลางาน',
                                     options: FFButtonOptions(
@@ -3054,7 +3064,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                       ).then((value) => safeSetState(() {}));
 
                                       FFAppState().firstLogin = false;
-                                      setState(() {});
+                                      safeSetState(() {});
                                       if (!FFAppState().firstLogin) {
                                         _model.getLocationOutput2Copy =
                                             await GetlocationAPICall.call(
@@ -3066,7 +3076,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         _shouldSetState = true;
                                       } else {
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
 
@@ -3094,7 +3105,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           },
                                         );
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (GetlocationAPICall.statusLayer2(
@@ -3160,7 +3172,7 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                         }
 
                                         FFAppState().firstLogin = true;
-                                        setState(() {});
+                                        safeSetState(() {});
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
@@ -3212,7 +3224,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                             },
                                           );
                                           Navigator.pop(context);
-                                          if (_shouldSetState) setState(() {});
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
                                           return;
                                         }
                                         await showDialog(
@@ -3239,11 +3252,12 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                           },
                                         );
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     text: 'โหลดตำแหน่ง',
                                     options: FFButtonOptions(

@@ -95,7 +95,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
       FFAppState().update(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -209,7 +209,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                             return RefreshIndicator(
                               color: FlutterFlowTheme.of(context).tertiary,
                               onRefresh: () async {
-                                setState(
+                                safeSetState(
                                     () => _model.apiRequestCompleter = null);
                                 await _model.waitForApiRequestCompleted();
                               },
@@ -315,7 +315,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         );
 
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (functions.showJobType(getJsonField(
@@ -414,7 +415,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         );
 
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (functions.showJobType(getJsonField(
@@ -504,7 +506,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         );
 
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (functions.showJobType(getJsonField(
@@ -596,7 +599,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         );
 
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (functions.showJobType(getJsonField(
@@ -669,7 +673,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         );
 
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (functions.showJobType(getJsonField(
@@ -680,7 +685,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         context.pushNamed('OPSpage');
 
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       if (functions.showJobType(getJsonField(
@@ -770,7 +776,8 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                         );
 
                                         Navigator.pop(context);
-                                        if (_shouldSetState) setState(() {});
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
                                         return;
                                       }
                                       Navigator.pop(context);
@@ -794,7 +801,7 @@ class _TimeSheetPageWidgetState extends State<TimeSheetPageWidget> {
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                     },
                                     child: Container(
                                       width: double.infinity,

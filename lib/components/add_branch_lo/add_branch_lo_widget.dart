@@ -63,7 +63,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
     _model.textController7 ??= TextEditingController();
     _model.textFieldFocusNode7 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -772,7 +772,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   );
                                 },
                               );
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
                             var confirmDialogResponse = await showDialog<bool>(
@@ -861,7 +861,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
 
@@ -885,15 +885,15 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     );
                                   },
                                 );
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                                 return;
                               }
                             } else {
-                              if (_shouldSetState) setState(() {});
+                              if (_shouldSetState) safeSetState(() {});
                               return;
                             }
 
-                            if (_shouldSetState) setState(() {});
+                            if (_shouldSetState) safeSetState(() {});
                           },
                           text: 'เพิ่มสาขา',
                           icon: Icon(

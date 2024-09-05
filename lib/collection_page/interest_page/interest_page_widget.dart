@@ -44,10 +44,10 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().paidDateCollection = '';
-      setState(() {});
+      safeSetState(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -109,7 +109,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                       children: [
                         wrapWithModel(
                           model: _model.appbarFollowUpDebtModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: AppbarFollowUpDebtWidget(),
                         ),
                         Text(
@@ -223,7 +223,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
                                   ))!;
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 text: _model.datePicked != null
                                     ? FFAppState().paidDateCollection
@@ -293,7 +293,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -352,7 +352,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     if (ApiRepaymentListCall.statuslayer2(
@@ -384,12 +384,12 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
                                     Navigator.pop(context);
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: Container(
                                     width: 100.0,

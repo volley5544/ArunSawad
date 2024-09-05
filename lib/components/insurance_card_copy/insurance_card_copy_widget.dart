@@ -28,7 +28,7 @@ class _InsuranceCardCopyWidgetState extends State<InsuranceCardCopyWidget> {
     super.initState();
     _model = createModel(context, () => InsuranceCardCopyModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

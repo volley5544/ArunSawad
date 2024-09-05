@@ -131,7 +131,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
               FFAppState().hideContentTableauDocRef!);
       FFAppState().isOpenAndroidTableauBrowser =
           _model.getHideContentTableauDoc!.isShowContent;
-      setState(() {});
+      safeSetState(() {});
       logFirebaseEvent('super_app_page_view_5544');
       _model.getDeviceVersion = await actions.getBuildVersion();
       FFAppState().isSelectedBranch = false;
@@ -302,7 +302,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
               FFAppState().profileInsuLicenseExpireDate.toList())!
           .toList()
           .cast<DateTime>();
-      setState(() {});
+      safeSetState(() {});
       if (valueOrDefault(currentUserDocument?.employeeId, 0) < 100000) {
         FFAppState().expInsuLessthen30 = functions
             .compareDate30(
@@ -312,7 +312,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                 ).toString())!
             .toList()
             .cast<bool>();
-        setState(() {});
+        safeSetState(() {});
       }
       FFAppState().isInApp = true;
       FFAppState().update(() {});
@@ -361,7 +361,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
       ),
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -680,7 +680,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
 
                                       context.goNamed('PinCodePage');
 
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     showModalBottomSheet(
@@ -729,7 +729,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.checkDeviceLocPerLogout =
@@ -755,7 +755,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
                                     _model.checkLatLngLogout = await actions.a8(
@@ -782,7 +782,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                           );
                                         },
                                       );
-                                      if (_shouldSetState) setState(() {});
+                                      if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
 
@@ -878,7 +878,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
 
                                     context.goNamed('LoginPage');
 
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                   },
                                   child: ListTile(
                                     title: Text(
@@ -1417,7 +1417,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(
@@ -1606,7 +1606,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                 Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(
@@ -2087,7 +2087,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -2157,7 +2157,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -2262,7 +2262,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         _model.bossCheckOutput =
@@ -2280,7 +2280,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                           (_model.bossCheckOutput?.jsonBody ??
                                                                               ''),
                                                                         )!;
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                         Navigator.pop(
                                                                             context);
@@ -2289,7 +2289,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'DashboardLeavePage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -2480,7 +2480,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -2540,7 +2540,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -2731,7 +2731,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 },
                                                                               );
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             await requestPermission(microphonePermission);
@@ -2753,7 +2753,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 },
                                                                               );
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
 
@@ -2768,7 +2768,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             );
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await launchURL(_model
@@ -2777,7 +2777,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         }
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -2921,7 +2921,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -2963,7 +2963,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               FFAppState().isOpenAndroidTableauBrowser,
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -3104,7 +3104,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -3164,7 +3164,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -3264,7 +3264,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (!FFAppState()
@@ -3325,7 +3325,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           if (TeleGetBrandAPICall.statusLevel1(
@@ -3351,7 +3351,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           FFAppState()
@@ -3397,7 +3397,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           if (TeleGetModelAPICall.statusLevel1(
@@ -3423,7 +3423,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           FFAppState()
@@ -3478,7 +3478,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           if (TeleGetProvinceAPICall.statusLevel1(
@@ -3504,7 +3504,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           FFAppState()
@@ -3550,7 +3550,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           if (InsuranceRequestGetVehicleAPICall.statusLayer1(
@@ -3576,7 +3576,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           FFAppState()
@@ -3607,7 +3607,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                           )!
                                                                               .toList()
                                                                               .cast<String>();
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                           _model.getInsurer =
                                                                               await InsuranceRequestGetInsurerAPICall.call(
@@ -3636,7 +3636,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           if (InsuranceRequestGetInsurerAPICall.statusLayer1(
@@ -3662,7 +3662,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           FFAppState()
@@ -3701,7 +3701,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .map((e) => e.toString())
                                                                               .toList()
                                                                               .cast<String>();
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                           _model.getCoverType =
                                                                               await TeleGetCoverTypeAPICall.call(
@@ -3730,7 +3730,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           if (TeleGetCoverTypeAPICall.statusLevel1(
@@ -3756,7 +3756,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           FFAppState()
@@ -3780,11 +3780,11 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                           )!
                                                                               .toList()
                                                                               .cast<String>();
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                           FFAppState().insuranceRequestIsLoadedData =
                                                                               true;
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                           Navigator.pop(
                                                                               context);
@@ -3794,7 +3794,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'InsuranceRequestDashboardPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -4212,7 +4212,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -4271,7 +4271,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -4337,7 +4337,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(),
@@ -4353,7 +4353,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   containerUrlLinkStorageRecord?.urlLink,
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               if (FFAppState().profileLevel == 'เขต') {
@@ -4362,7 +4362,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   containerUrlLinkStorageRecord?.urlLink,
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
 
@@ -4370,7 +4370,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -4516,7 +4516,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -4575,7 +4575,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -4641,7 +4641,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             if (functions.checkIsHaveThisValueInList(containerWelfareAuthorizationRecord?.employeeIdList?.toList(),
@@ -4656,7 +4656,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -4800,7 +4800,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -4860,7 +4860,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -4926,7 +4926,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             Navigator.pop(context);
@@ -4966,7 +4966,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -5112,7 +5112,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -5171,7 +5171,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -5237,7 +5237,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(),
@@ -5285,7 +5285,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   '${containerUrlLinkStorageRecord?.urlLink}Region',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               if (FFAppState().profileLevel == 'เขต') {
@@ -5294,13 +5294,13 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   '${containerUrlLinkStorageRecord?.urlLink}Area',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -5399,7 +5399,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -5467,7 +5467,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -5572,7 +5572,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         await actions
@@ -5588,7 +5588,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'LeadNotiPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -5738,7 +5738,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -5806,7 +5806,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -5911,7 +5911,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -5921,7 +5921,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'CheckInsurancePage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -6023,7 +6023,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -6091,7 +6091,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -6196,7 +6196,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
@@ -6231,7 +6231,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'Dashboard');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -6331,7 +6331,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -6399,7 +6399,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -6504,7 +6504,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -6514,7 +6514,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'GenQRPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -6613,7 +6613,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -6681,7 +6681,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -6786,7 +6786,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -6796,7 +6796,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'SaleskitPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -6896,7 +6896,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -6964,7 +6964,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -7069,7 +7069,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -7079,7 +7079,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'LeadSurveyRegisPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -7179,7 +7179,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -7247,7 +7247,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -7352,7 +7352,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -7362,7 +7362,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'PromotionPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -7464,7 +7464,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -7532,7 +7532,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -7637,7 +7637,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
@@ -7670,7 +7670,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         await launchURL(
                                                                             'https://hris.srisawadpower.com/COACH');
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -7770,7 +7770,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -7838,7 +7838,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -7943,7 +7943,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -7953,7 +7953,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'ClassroomPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -8052,7 +8052,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -8120,7 +8120,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -8225,7 +8225,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -8235,7 +8235,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'ITSupportPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -8645,7 +8645,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -8715,7 +8715,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -8820,7 +8820,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         _model.bossCheckOutputPad =
@@ -8838,7 +8838,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                           (_model.bossCheckOutputPad?.jsonBody ??
                                                                               ''),
                                                                         )!;
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                         Navigator.pop(
                                                                             context);
@@ -8847,7 +8847,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'DashboardLeavePage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -9039,7 +9039,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -9099,7 +9099,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -9236,14 +9236,14 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                           );
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         await launchURL(_model
                                                                             .getWebRecodeVideoUrlTab!
                                                                             .urlLink);
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -9387,7 +9387,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -9429,7 +9429,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               FFAppState().isOpenAndroidTableauBrowser,
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -9570,7 +9570,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -9630,7 +9630,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -9729,13 +9729,13 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (FFAppState()
                                                                             .isLoadedInsuranceData) {
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -9795,7 +9795,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (TeleGetBrandAPICall.statusLevel1(
@@ -9823,7 +9823,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         FFAppState()
@@ -9872,7 +9872,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (TeleGetModelAPICall.statusLevel1(
@@ -9900,7 +9900,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         FFAppState()
@@ -9958,7 +9958,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (TeleGetProvinceAPICall.statusLevel1(
@@ -9986,7 +9986,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         FFAppState().isLoadedInsuranceData =
@@ -10037,7 +10037,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (InsuranceRequestGetVehicleAPICall.statusLayer1(
@@ -10065,7 +10065,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         FFAppState()
@@ -10096,7 +10096,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         )!
                                                                             .toList()
                                                                             .cast<String>();
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                         _model.getInsurerTab =
                                                                             await InsuranceRequestGetInsurerAPICall.call(
@@ -10128,7 +10128,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (InsuranceRequestGetInsurerAPICall.statusLayer1(
@@ -10156,7 +10156,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         FFAppState()
@@ -10197,7 +10197,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                 e.toString())
                                                                             .toList()
                                                                             .cast<String>();
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                         _model.getCoverTypeTab =
                                                                             await TeleGetCoverTypeAPICall.call(
@@ -10229,7 +10229,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         if (TeleGetCoverTypeAPICall.statusLevel1(
@@ -10257,7 +10257,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         FFAppState()
@@ -10281,7 +10281,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         )!
                                                                             .toList()
                                                                             .cast<String>();
-                                                                        setState(
+                                                                        safeSetState(
                                                                             () {});
                                                                         Navigator.pop(
                                                                             context);
@@ -10290,7 +10290,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'InsuranceRequestDashboardPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -10684,7 +10684,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -10743,7 +10743,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -10809,7 +10809,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(),
@@ -10825,7 +10825,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   containerUrlLinkStorageRecord?.urlLink,
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               if (FFAppState().profileLevel == 'เขต') {
@@ -10834,7 +10834,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   containerUrlLinkStorageRecord?.urlLink,
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
 
@@ -10842,7 +10842,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -10981,7 +10981,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -11040,7 +11040,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -11106,7 +11106,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             if (functions.checkIsHaveThisValueInList(containerWelfareTabAuthorizationRecord?.employeeIdList?.toList(),
@@ -11121,7 +11121,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -11265,7 +11265,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -11325,7 +11325,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -11391,7 +11391,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             Navigator.pop(context);
@@ -11431,7 +11431,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -11530,7 +11530,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -11598,7 +11598,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -11703,7 +11703,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         await actions
@@ -11719,7 +11719,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'LeadNotiPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -11909,7 +11909,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('PinCodePage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             showModalBottomSheet(
@@ -11968,7 +11968,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               await showDialog(
@@ -12034,7 +12034,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               context.goNamed('LoginPage');
 
                                                                               if (_shouldSetState)
-                                                                                setState(() {});
+                                                                                safeSetState(() {});
                                                                               return;
                                                                             }
                                                                             if (functions.checkIsHaveThisValueInList(containerAuthorizationRecord?.employeeIdList?.toList(),
@@ -12082,7 +12082,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   '${containerUrlLinkStorageRecord?.urlLink}Region',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                               if (FFAppState().profileLevel == 'เขต') {
@@ -12091,13 +12091,13 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                                   '${containerUrlLinkStorageRecord?.urlLink}Area',
                                                                                   FFAppState().isOpenAndroidTableauBrowser,
                                                                                 );
-                                                                                if (_shouldSetState) setState(() {});
+                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                 return;
                                                                               }
                                                                             }
 
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                           },
                                                                           child:
                                                                               Container(
@@ -12196,7 +12196,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -12264,7 +12264,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -12369,7 +12369,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -12379,7 +12379,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'CheckInsurancePage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -12481,7 +12481,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -12549,7 +12549,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -12654,7 +12654,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
@@ -12689,7 +12689,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'Dashboard');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -12789,7 +12789,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -12857,7 +12857,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -12962,7 +12962,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -12972,7 +12972,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'GenQRPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -13071,7 +13071,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -13139,7 +13139,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -13244,7 +13244,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -13254,7 +13254,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'SaleskitPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -13354,7 +13354,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -13422,7 +13422,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -13527,7 +13527,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -13537,7 +13537,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'LeadSurveyRegisPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -13637,7 +13637,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -13705,7 +13705,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -13810,7 +13810,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -13820,7 +13820,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'PromotionPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -13922,7 +13922,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -13990,7 +13990,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -14095,7 +14095,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
 
@@ -14128,7 +14128,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                         await launchURL(
                                                                             'https://hris.srisawadpower.com/COACH');
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -14228,7 +14228,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -14296,7 +14296,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -14401,7 +14401,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -14411,7 +14411,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'ClassroomPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -14511,7 +14511,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('PinCodePage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         showModalBottomSheet(
@@ -14579,7 +14579,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               },
                                                                             );
                                                                             if (_shouldSetState)
-                                                                              setState(() {});
+                                                                              safeSetState(() {});
                                                                             return;
                                                                           }
                                                                           await showDialog(
@@ -14684,7 +14684,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                               .goNamed('LoginPage');
 
                                                                           if (_shouldSetState)
-                                                                            setState(() {});
+                                                                            safeSetState(() {});
                                                                           return;
                                                                         }
                                                                         Navigator.pop(
@@ -14694,7 +14694,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                             'ITSupportPage');
 
                                                                         if (_shouldSetState)
-                                                                          setState(
+                                                                          safeSetState(
                                                                               () {});
                                                                       },
                                                                       child:
@@ -14861,7 +14861,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   'PinCodePage');
 
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                             showModalBottomSheet(
@@ -14951,7 +14952,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 return;
                                                               }
@@ -15086,7 +15087,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   'LoginPage');
 
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                             if (functions
@@ -15139,7 +15141,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   listViewSawadFormServicesRecord
                                                                       .formServiceUrl);
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                             Navigator.pop(
@@ -15166,7 +15169,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                             );
 
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                           },
                                                           child: Material(
                                                             color: Colors
@@ -15389,7 +15393,7 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
-                                                                  setState(
+                                                                  safeSetState(
                                                                       () {});
                                                                 return;
                                                               }
@@ -15524,7 +15528,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   'LoginPage');
 
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                             if (functions
@@ -15577,7 +15582,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                                   listViewSawadFormServicesRecord
                                                                       .formServiceUrl);
                                                               if (_shouldSetState)
-                                                                setState(() {});
+                                                                safeSetState(
+                                                                    () {});
                                                               return;
                                                             }
                                                             Navigator.pop(
@@ -15604,7 +15610,8 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
                                                             );
 
                                                             if (_shouldSetState)
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                           },
                                                           child: Material(
                                                             color: Colors

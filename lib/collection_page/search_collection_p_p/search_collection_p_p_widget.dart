@@ -50,7 +50,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
       FFAppState().collectionSearchBy = '';
       FFAppState().collectionSearch = '';
       FFAppState().collectionSortBy = '';
-      setState(() {});
+      safeSetState(() {});
       FFAppState().collectionSortBy = '';
       FFAppState().collectionSearch = '';
       FFAppState().collectionSearchBy = '';
@@ -59,14 +59,14 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
       FFAppState().saveCalled = SaveCallStruct.fromSerializableMap(jsonDecode(
           '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
       FFAppState().searchMonthPP = '';
-      setState(() {});
-      setState(() => _model.apiRequestCompleter = null);
+      safeSetState(() {});
+      safeSetState(() => _model.apiRequestCompleter = null);
     });
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -99,7 +99,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                     children: [
                       wrapWithModel(
                         model: _model.appbarFollowUpDebtModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: AppbarFollowUpDebtWidget(),
                       ),
                       Text(
@@ -161,11 +161,12 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                               'ธันวาคม'
                             ],
                             onChanged: (val) async {
-                              setState(() => _model.dropDownValue = val);
+                              safeSetState(() => _model.dropDownValue = val);
                               FFAppState().searchMonthPP =
                                   _model.dropDownValue!;
-                              setState(() {});
-                              setState(() => _model.apiRequestCompleter = null);
+                              safeSetState(() {});
+                              safeSetState(
+                                  () => _model.apiRequestCompleter = null);
                             },
                             width: 180.0,
                             height: 40.0,
@@ -213,7 +214,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                   'เรียงตามวันครบดิว'
                                 ],
                                 onChanged: (val) async {
-                                  setState(
+                                  safeSetState(
                                       () => _model.sortbyDropdownValue = val);
                                   showModalBottomSheet(
                                     isScrollControlled: true,
@@ -240,8 +241,8 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
 
                                   FFAppState().collectionSortBy =
                                       _model.sortbyDropdownValue!;
-                                  setState(() {});
-                                  setState(
+                                  safeSetState(() {});
+                                  safeSetState(
                                       () => _model.apiRequestCompleter = null);
                                   await _model.waitForApiRequestCompleted();
                                   Navigator.pop(context);
@@ -311,7 +312,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                   onChanged: (_) => EasyDebounce.debounce(
                                     '_model.textController',
                                     Duration(milliseconds: 1000),
-                                    () => setState(() {}),
+                                    () => safeSetState(() {}),
                                   ),
                                   autofocus: false,
                                   obscureText: false,
@@ -369,7 +370,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                         ? InkWell(
                                             onTap: () async {
                                               _model.textController?.clear();
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: Icon(
                                               Icons.clear,
@@ -485,11 +486,11 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                         _model.dropDownValue!;
                                     FFAppState().collectionSearch =
                                         _model.textController.text;
-                                    setState(() {});
+                                    safeSetState(() {});
                                     FFAppState().isLoadedSearchCollection =
                                         true;
-                                    setState(() {});
-                                    setState(() =>
+                                    safeSetState(() {});
+                                    safeSetState(() =>
                                         _model.apiRequestCompleter = null);
                                     Navigator.pop(context);
                                   },
@@ -555,7 +556,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                       FFAppState().collectionSearchBy = '';
                                       FFAppState().collectionSearch = '';
                                       FFAppState().collectionSortBy = '';
-                                      setState(() {});
+                                      safeSetState(() {});
                                       FFAppState().collectionSortBy = '';
                                       FFAppState().collectionSearch = '';
                                       FFAppState().collectionSearchBy = '';
@@ -564,10 +565,10 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                                       FFAppState().saveCalled = SaveCallStruct
                                           .fromSerializableMap(jsonDecode(
                                               '{\"CONTNO_ID\":\"[]\",\"CONTNO\":\"[]\",\"HISTORY_LEAD_STATUS\":\"[]\",\"HISTORY_REASON_NAME\":\"[]\",\"CREATED_USERID\":\"[]\",\"UPDATED_USERID\":\"[]\",\"ARAPPDATE\":\"[]\",\"ARDESC\":\"[]\",\"USERID\":\"[]\",\"REMGCODE\":\"[]\",\"REMDETCODE\":\"[]\",\"AMOUNT\":\"[]\"}'));
-                                      setState(() {});
-                                      setState(() =>
+                                      safeSetState(() {});
+                                      safeSetState(() =>
                                           _model.apiRequestCompleter = null);
-                                      setState(() {
+                                      safeSetState(() {
                                         _model.textController?.clear();
                                       });
                                       Navigator.pop(context);
@@ -700,7 +701,7 @@ class _SearchCollectionPPWidgetState extends State<SearchCollectionPPWidget> {
                               return RefreshIndicator(
                                 color: FlutterFlowTheme.of(context).tertiary,
                                 onRefresh: () async {
-                                  setState(
+                                  safeSetState(
                                       () => _model.apiRequestCompleter = null);
                                   await _model.waitForApiRequestCompleted();
                                 },

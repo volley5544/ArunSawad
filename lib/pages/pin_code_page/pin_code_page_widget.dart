@@ -187,7 +187,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -688,7 +688,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             );
                                                                                           },
                                                                                         );
-                                                                                        if (_shouldSetState) setState(() {});
+                                                                                        if (_shouldSetState) safeSetState(() {});
                                                                                         return;
                                                                                       }
                                                                                       _model.checkDeviceLocPerLogout = await actions.a2();
@@ -710,7 +710,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             );
                                                                                           },
                                                                                         );
-                                                                                        if (_shouldSetState) setState(() {});
+                                                                                        if (_shouldSetState) safeSetState(() {});
                                                                                         return;
                                                                                       }
                                                                                       _model.checkLatLngLogout = await actions.a8(
@@ -734,7 +734,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             );
                                                                                           },
                                                                                         );
-                                                                                        if (_shouldSetState) setState(() {});
+                                                                                        if (_shouldSetState) safeSetState(() {});
                                                                                         return;
                                                                                       }
 
@@ -822,7 +822,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                       context.goNamed('LoginPage');
 
-                                                                                      if (_shouldSetState) setState(() {});
+                                                                                      if (_shouldSetState) safeSetState(() {});
                                                                                     },
                                                                                   ),
                                                                                 ),
@@ -1221,7 +1221,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     );
                                                                                                                     await launchURL('https://testflight.apple.com/join/8sA3XObM');
                                                                                                                     await actions.terminateAppAction();
-                                                                                                                    if (_shouldSetState) setState(() {});
+                                                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                                                     return;
                                                                                                                   }
                                                                                                                 } else {
@@ -1244,7 +1244,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     );
                                                                                                                     await launchURL('https://play.google.com/store/apps/details?id=com.mycompany.publicarunsawad');
                                                                                                                     await actions.terminateAppAction();
-                                                                                                                    if (_shouldSetState) setState(() {});
+                                                                                                                    if (_shouldSetState) safeSetState(() {});
                                                                                                                     return;
                                                                                                                   }
                                                                                                                 }
@@ -1267,7 +1267,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   );
                                                                                                                 },
                                                                                                               );
-                                                                                                              if (_shouldSetState) setState(() {});
+                                                                                                              if (_shouldSetState) safeSetState(() {});
                                                                                                               return;
                                                                                                             }
                                                                                                             if (valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000) {
@@ -1280,7 +1280,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                               context.pushNamed('SuperAppPage');
 
-                                                                                                              if (_shouldSetState) setState(() {});
+                                                                                                              if (_shouldSetState) safeSetState(() {});
                                                                                                               return;
                                                                                                             }
                                                                                                             showModalBottomSheet(
@@ -1306,9 +1306,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                             FFAppState().userRef = columnfourUserCustomRecord?.reference;
                                                                                                             FFAppState().profileImage = columnfourUserCustomRecord!.imgProfile;
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             FFAppState().adminEMP = columnAuthorizationRecord!.employeeIdList.toList().cast<String>();
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
                                                                                                             FFAppState().update(() {});
                                                                                                             if (FFAppState().isGetDataViaFirebase) {
@@ -1331,20 +1331,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               FFAppState().profileBranch = columnUserProfileRecord!.branchName;
                                                                                                               FFAppState().branchCode = columnUserProfileRecord!.branchCode;
                                                                                                               FFAppState().QRCodeLink = '${containerUrlLinkStorageRecord?.urlLink}${FFAppState().employeeID}';
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               FFAppState().profileFirstName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'first_name')!;
                                                                                                               FFAppState().profileLastName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'last_name')!;
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               FFAppState().insuranceLicenseStatusCode = columnUserProfileRecord!.insuranceLicenseStatusCode.toList().cast<int>();
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseIdCard?.toList())! : FFAppState().profileInsuLicenseIdCard.toList().cast<String>();
                                                                                                               FFAppState().profileInsuLicenseNumLicense = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseLicenseNumber?.toList())! : FFAppState().profileInsuLicenseNumLicense.toList().cast<String>();
                                                                                                               FFAppState().profileInsuLicenseStartDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseStartDate?.toList())! : FFAppState().profileInsuLicenseStartDate.toList().cast<String>();
                                                                                                               FFAppState().profileInsuLicenseExpireDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseExpireDate?.toList())! : FFAppState().profileInsuLicenseExpireDate.toList().cast<String>();
                                                                                                               FFAppState().profileInsuLicenseFullName = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseFullname?.toList())! : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                             } else {
                                                                                                               _model.getUserProfilePin = await GetUserProfileAPICall.call(
                                                                                                                 token: FFAppState().accessToken,
@@ -1425,17 +1425,17 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   (_model.getUserProfilePin?.jsonBody ?? ''),
                                                                                                                 )}';
                                                                                                                 FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                                                setState(() {});
+                                                                                                                safeSetState(() {});
                                                                                                                 FFAppState().profileFirstName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
                                                                                                                 FFAppState().profileLastName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
-                                                                                                                setState(() {});
+                                                                                                                safeSetState(() {});
                                                                                                                 FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
                                                                                                                   (_model.getUserProfilePin?.jsonBody ?? ''),
                                                                                                                 )}';
                                                                                                                 FFAppState().profileRoleName = '${GetUserProfileAPICall.profileRoleName(
                                                                                                                   (_model.getUserProfilePin?.jsonBody ?? ''),
                                                                                                                 )}';
-                                                                                                                setState(() {});
+                                                                                                                safeSetState(() {});
                                                                                                                 _model.getUserInsuranceLicense = await GetUserInsuranceLicenseCall.call(
                                                                                                                   token: FFAppState().accessToken,
                                                                                                                   apiUrl: FFAppState().apiURLLocalState,
@@ -1451,7 +1451,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                       ))!
                                                                                                                       .toList()
                                                                                                                       .cast<int>();
-                                                                                                                  setState(() {});
+                                                                                                                  safeSetState(() {});
                                                                                                                   FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
                                                                                                                       ? functions.createSomethingListWithNullValue(
                                                                                                                           FFAppState().insuranceLicenseStatusCode.toList(),
@@ -1487,7 +1487,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                             (_model.getUserInsuranceLicense?.jsonBody ?? ''),
                                                                                                                           )?.toList())!
                                                                                                                       : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
-                                                                                                                  setState(() {});
+                                                                                                                  safeSetState(() {});
                                                                                                                 }
                                                                                                               } else {
                                                                                                                 if (!((GetUserProfileAPICall.message(
@@ -1514,7 +1514,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                       );
                                                                                                                     },
                                                                                                                   );
-                                                                                                                  if (_shouldSetState) setState(() {});
+                                                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                                                   return;
                                                                                                                 }
                                                                                                                 await showDialog(
@@ -1579,7 +1579,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                                 context.goNamed('LoginPage');
 
-                                                                                                                if (_shouldSetState) setState(() {});
+                                                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                                                 return;
                                                                                                               }
                                                                                                             }
@@ -1606,7 +1606,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   );
                                                                                                                 },
                                                                                                               );
-                                                                                                              if (_shouldSetState) setState(() {});
+                                                                                                              if (_shouldSetState) safeSetState(() {});
                                                                                                               return;
                                                                                                             }
 
@@ -1633,9 +1633,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             FFAppState().DateExpHoliday = columnfirstSplashPageHolidayImgRecord?.dateExp;
                                                                                                             FFAppState().update(() {});
                                                                                                             FFAppState().profileInsuExpdateAD = functions.stringlistToDateAD(FFAppState().profileInsuLicenseExpireDate.toList())!.toList().cast<DateTime>();
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             FFAppState().expInsuLessthen30 = functions.compareDate30(FFAppState().profileInsuExpdateAD.toList(), getCurrentTimestamp.toString())!.toList().cast<bool>();
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             if (notidatacolumnInsuranceNotiDataRecord != null) {
                                                                                                               if (!functions.compareListof2Date(notidatacolumnInsuranceNotiDataRecord?.expInsuDate?.toList(), FFAppState().profileInsuExpdateAD.toList())!) {
                                                                                                                 await notidatacolumnInsuranceNotiDataRecord!.reference.update({
@@ -1695,7 +1695,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                               context.goNamed('SuperAppPage');
 
-                                                                                                              if (_shouldSetState) setState(() {});
+                                                                                                              if (_shouldSetState) safeSetState(() {});
                                                                                                               return;
                                                                                                             }
 
@@ -1704,7 +1704,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 if (FFAppState().expInsuLessthen30[FFAppState().superAppi]) {
                                                                                                                   if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?[FFAppState().superAppi]) == false) {
                                                                                                                     FFAppState().falselistPersistd = functions.changelistFalseToTrue(FFAppState().falselistPersistd.toList(), FFAppState().superAppi)!.toList().cast<bool>();
-                                                                                                                    setState(() {});
+                                                                                                                    safeSetState(() {});
 
                                                                                                                     var notificationRecordReference = NotificationRecord.createDoc(columnfourUserCustomRecord!.reference);
                                                                                                                     await notificationRecordReference.set(createNotificationRecordData(
@@ -1730,7 +1730,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 }
                                                                                                               }
                                                                                                               FFAppState().superAppi = FFAppState().superAppi + 1;
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                             }
 
                                                                                                             await notidatacolumnInsuranceNotiDataRecord!.reference.update({
@@ -1741,12 +1741,12 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               ),
                                                                                                             });
                                                                                                             FFAppState().firstLoginLocation = currentUserLocationValue;
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             Navigator.pop(context);
 
                                                                                                             context.goNamed('SuperAppPage');
 
-                                                                                                            if (_shouldSetState) setState(() {});
+                                                                                                            if (_shouldSetState) safeSetState(() {});
                                                                                                           },
                                                                                                           autovalidateMode: AutovalidateMode.onUserInteraction,
                                                                                                           validator: _model.pinCodeControllerValidator.asValidator(context),
@@ -1813,7 +1813,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   );
                                                                                                                   await launchURL('https://testflight.apple.com/join/8sA3XObM');
                                                                                                                   await actions.terminateAppAction();
-                                                                                                                  if (_shouldSetState) setState(() {});
+                                                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                                                   return;
                                                                                                                 }
                                                                                                               } else {
@@ -1836,7 +1836,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                   );
                                                                                                                   await launchURL('https://play.google.com/store/apps/details?id=com.mycompany.publicarunsawad');
                                                                                                                   await actions.terminateAppAction();
-                                                                                                                  if (_shouldSetState) setState(() {});
+                                                                                                                  if (_shouldSetState) safeSetState(() {});
                                                                                                                   return;
                                                                                                                 }
                                                                                                               }
@@ -1866,7 +1866,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 false;
                                                                                                             if (confirmDialogResponse) {
                                                                                                               FFAppState().BioAuthCheck = true;
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               await showDialog(
                                                                                                                 context: context,
                                                                                                                 builder: (alertDialogContext) {
@@ -1884,7 +1884,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 },
                                                                                                               );
                                                                                                             } else {
-                                                                                                              if (_shouldSetState) setState(() {});
+                                                                                                              if (_shouldSetState) safeSetState(() {});
                                                                                                               return;
                                                                                                             }
                                                                                                           }
@@ -1893,12 +1893,12 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           bool canCheckBiometrics = await _localAuth.canCheckBiometrics;
                                                                                                           if (_isBiometricSupported && canCheckBiometrics) {
                                                                                                             _model.bioAuthCheck = await _localAuth.authenticate(localizedReason: 'ยืนยันตัวตนด้วย Face id หรือ สแกนลายนิ้วมือ', options: const AuthenticationOptions(biometricOnly: true));
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                           }
 
                                                                                                           _shouldSetState = true;
                                                                                                           if (!_model.bioAuthCheck!) {
-                                                                                                            if (_shouldSetState) setState(() {});
+                                                                                                            if (_shouldSetState) safeSetState(() {});
                                                                                                             return;
                                                                                                           }
                                                                                                           showModalBottomSheet(
@@ -1924,9 +1924,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                           FFAppState().userRef = columnfourUserCustomRecord?.reference;
                                                                                                           FFAppState().profileImage = columnfourUserCustomRecord!.imgProfile;
-                                                                                                          setState(() {});
+                                                                                                          safeSetState(() {});
                                                                                                           FFAppState().adminEMP = columnAuthorizationRecord!.employeeIdList.toList().cast<String>();
-                                                                                                          setState(() {});
+                                                                                                          safeSetState(() {});
                                                                                                           FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
                                                                                                           FFAppState().update(() {});
                                                                                                           if (FFAppState().isGetDataViaFirebase) {
@@ -1949,20 +1949,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             FFAppState().profileBranch = columnUserProfileRecord!.branchName;
                                                                                                             FFAppState().branchCode = columnUserProfileRecord!.branchCode;
                                                                                                             FFAppState().QRCodeLink = '${containerUrlLinkStorageRecord?.urlLink}${FFAppState().employeeID}';
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             FFAppState().profileFirstName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'first_name')!;
                                                                                                             FFAppState().profileLastName = functions.getFirstLastNameFromFullName(columnUserProfileRecord?.fullname, 'last_name')!;
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             FFAppState().insuranceLicenseStatusCode = columnUserProfileRecord!.insuranceLicenseStatusCode.toList().cast<int>();
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                             FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseIdCard?.toList())! : FFAppState().profileInsuLicenseIdCard.toList().cast<String>();
                                                                                                             FFAppState().profileInsuLicenseNumLicense = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseLicenseNumber?.toList())! : FFAppState().profileInsuLicenseNumLicense.toList().cast<String>();
                                                                                                             FFAppState().profileInsuLicenseStartDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseStartDate?.toList())! : FFAppState().profileInsuLicenseStartDate.toList().cast<String>();
                                                                                                             FFAppState().profileInsuLicenseExpireDate = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseExpireDate?.toList())! : FFAppState().profileInsuLicenseExpireDate.toList().cast<String>();
                                                                                                             FFAppState().profileInsuLicenseFullName = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess) ? functions.createSomethingListWithNullValue(FFAppState().insuranceLicenseStatusCode.toList(), columnUserProfileRecord?.insuranceLicenseFullname?.toList())! : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                           } else {
                                                                                                             _model.getUserProfileBio = await GetUserProfileAPICall.call(
                                                                                                               token: FFAppState().accessToken,
@@ -2043,17 +2043,17 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 (_model.getUserProfileBio?.jsonBody ?? ''),
                                                                                                               )}';
                                                                                                               FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               FFAppState().profileFirstName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
                                                                                                               FFAppState().profileLastName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
                                                                                                                 (_model.getUserProfileBio?.jsonBody ?? ''),
                                                                                                               )}';
                                                                                                               FFAppState().profileRoleName = '${GetUserProfileAPICall.profileRoleName(
                                                                                                                 (_model.getUserProfileBio?.jsonBody ?? ''),
                                                                                                               )}';
-                                                                                                              setState(() {});
+                                                                                                              safeSetState(() {});
                                                                                                               _model.getUserInsuranceLicenseBio = await GetUserInsuranceLicenseCall.call(
                                                                                                                 token: FFAppState().accessToken,
                                                                                                                 apiUrl: FFAppState().apiURLLocalState,
@@ -2069,7 +2069,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     ))!
                                                                                                                     .toList()
                                                                                                                     .cast<int>();
-                                                                                                                setState(() {});
+                                                                                                                safeSetState(() {});
                                                                                                                 FFAppState().profileInsuLicenseIdCard = FFAppState().insuranceLicenseStatusCode.contains(FFAppState().statusCodeSuccess)
                                                                                                                     ? functions.createSomethingListWithNullValue(
                                                                                                                         FFAppState().insuranceLicenseStatusCode.toList(),
@@ -2105,7 +2105,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                           (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
                                                                                                                         )?.toList())!
                                                                                                                     : FFAppState().profileInsuLicenseFullName.toList().cast<String>();
-                                                                                                                setState(() {});
+                                                                                                                safeSetState(() {});
                                                                                                               }
                                                                                                             } else {
                                                                                                               if (!((GetUserProfileAPICall.message(
@@ -2132,7 +2132,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                     );
                                                                                                                   },
                                                                                                                 );
-                                                                                                                if (_shouldSetState) setState(() {});
+                                                                                                                if (_shouldSetState) safeSetState(() {});
                                                                                                                 return;
                                                                                                               }
                                                                                                               await showDialog(
@@ -2197,7 +2197,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                               context.goNamed('LoginPage');
 
-                                                                                                              if (_shouldSetState) setState(() {});
+                                                                                                              if (_shouldSetState) safeSetState(() {});
                                                                                                               return;
                                                                                                             }
                                                                                                           }
@@ -2224,7 +2224,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                                 );
                                                                                                               },
                                                                                                             );
-                                                                                                            if (_shouldSetState) setState(() {});
+                                                                                                            if (_shouldSetState) safeSetState(() {});
                                                                                                             return;
                                                                                                           }
 
@@ -2251,9 +2251,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           FFAppState().DateExpHoliday = columnfirstSplashPageHolidayImgRecord?.dateExp;
                                                                                                           FFAppState().update(() {});
                                                                                                           FFAppState().profileInsuExpdateAD = functions.stringlistToDateAD(FFAppState().profileInsuLicenseExpireDate.toList())!.toList().cast<DateTime>();
-                                                                                                          setState(() {});
+                                                                                                          safeSetState(() {});
                                                                                                           FFAppState().expInsuLessthen30 = functions.compareDate30(FFAppState().profileInsuExpdateAD.toList(), getCurrentTimestamp.toString())!.toList().cast<bool>();
-                                                                                                          setState(() {});
+                                                                                                          safeSetState(() {});
                                                                                                           if (notidatacolumnInsuranceNotiDataRecord != null) {
                                                                                                             if (!functions.compareListof2Date(notidatacolumnInsuranceNotiDataRecord?.expInsuDate?.toList(), FFAppState().profileInsuExpdateAD.toList())!) {
                                                                                                               await notidatacolumnInsuranceNotiDataRecord!.reference.update({
@@ -2313,7 +2313,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                             context.goNamed('SuperAppPage');
 
-                                                                                                            if (_shouldSetState) setState(() {});
+                                                                                                            if (_shouldSetState) safeSetState(() {});
                                                                                                             return;
                                                                                                           }
 
@@ -2322,7 +2322,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               if (FFAppState().expInsuLessthen30[FFAppState().superAppi]) {
                                                                                                                 if ((notidatacolumnInsuranceNotiDataRecord?.notiIsSent?[FFAppState().superAppi]) == false) {
                                                                                                                   FFAppState().falselistPersistd = functions.changelistFalseToTrue(FFAppState().falselistPersistd.toList(), FFAppState().superAppi)!.toList().cast<bool>();
-                                                                                                                  setState(() {});
+                                                                                                                  safeSetState(() {});
 
                                                                                                                   var notificationRecordReference = NotificationRecord.createDoc(columnfourUserCustomRecord!.reference);
                                                                                                                   await notificationRecordReference.set(createNotificationRecordData(
@@ -2348,7 +2348,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                               }
                                                                                                             }
                                                                                                             FFAppState().superAppi = FFAppState().superAppi + 1;
-                                                                                                            setState(() {});
+                                                                                                            safeSetState(() {});
                                                                                                           }
 
                                                                                                           await notidatacolumnInsuranceNotiDataRecord!.reference.update({
@@ -2359,12 +2359,12 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                             ),
                                                                                                           });
                                                                                                           FFAppState().firstLoginLocation = currentUserLocationValue;
-                                                                                                          setState(() {});
+                                                                                                          safeSetState(() {});
                                                                                                           Navigator.pop(context);
 
                                                                                                           context.goNamed('SuperAppPage');
 
-                                                                                                          if (_shouldSetState) setState(() {});
+                                                                                                          if (_shouldSetState) safeSetState(() {});
                                                                                                         },
                                                                                                       );
                                                                                                     },

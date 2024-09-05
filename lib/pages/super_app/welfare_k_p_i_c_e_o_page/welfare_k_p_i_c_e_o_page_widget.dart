@@ -113,7 +113,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
 
     _model.branchInputTextController ??= TextEditingController();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -213,7 +213,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 FormFieldController<String>(null),
                             options: ['สาขา', 'เขต', 'ภาค'],
                             onChanged: (val) async {
-                              setState(() => _model.dropDownValue1 = val);
+                              safeSetState(() => _model.dropDownValue1 = val);
                               HapticFeedback.mediumImpact();
                             },
                             width: 180.0,
@@ -343,7 +343,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 );
                               },
                               onSelected: (String selection) {
-                                setState(() => _model
+                                safeSetState(() => _model
                                     .branchInputSelectedOption = selection);
                                 FocusScope.of(context).unfocus();
                               },
@@ -476,7 +476,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                       );
                                     },
                                   );
-                                  if (_shouldSetState) setState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 if (_model.dropDownValue1 == 'สาขา') {
@@ -662,7 +662,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                         );
                                       },
                                     );
-                                    if (_shouldSetState) setState(() {});
+                                    if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
                                   showModalBottomSheet(
@@ -761,7 +761,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 }
 
                                 Navigator.pop(context);
-                                if (_shouldSetState) setState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                               },
                             ),
                           ),
@@ -824,7 +824,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                 (_model.getBranchSearched?.jsonBody ?? ''),
                               )!,
                               onChanged: (val) async {
-                                setState(() => _model.dropDownValue2 = val);
+                                safeSetState(() => _model.dropDownValue2 = val);
                                 HapticFeedback.mediumImpact();
                                 showModalBottomSheet(
                                   isScrollControlled: true,
@@ -860,7 +860,7 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
 
                                 Navigator.pop(context);
 
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               width: 180.0,
                               height: 50.0,
@@ -908,8 +908,8 @@ class _WelfareKPICEOPageWidgetState extends State<WelfareKPICEOPageWidget> {
                                     Icons.skip_previous_rounded)
                               ],
                               onChanged: (val) async {
-                                setState(() => _model.choiceChipsMonthValue =
-                                    val?.firstOrNull);
+                                safeSetState(() => _model
+                                    .choiceChipsMonthValue = val?.firstOrNull);
                                 HapticFeedback.mediumImpact();
                               },
                               selectedChipStyle: ChipStyle(

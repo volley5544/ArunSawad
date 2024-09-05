@@ -55,7 +55,7 @@ class _SavedLeadCalledStatusWidgetState
     _model.calledRemarkTextFieldTextController ??= TextEditingController();
     _model.calledRemarkTextFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -199,7 +199,7 @@ class _SavedLeadCalledStatusWidgetState
                                     List<String>.from(widget!.callStatusId!),
                                 optionLabels: widget!.callStatussName!,
                                 onChanged: (val) async {
-                                  setState(() =>
+                                  safeSetState(() =>
                                       _model.callStatusDropDownValue = val);
                                   HapticFeedback.lightImpact();
                                   showModalBottomSheet(
@@ -233,7 +233,7 @@ class _SavedLeadCalledStatusWidgetState
 
                                   Navigator.pop(context);
 
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                                 width: 180.0,
                                 height: 50.0,
@@ -289,7 +289,7 @@ class _SavedLeadCalledStatusWidgetState
                                     (_model.getReasonCall?.jsonBody ?? ''),
                                   )!,
                                   onChanged: (val) async {
-                                    setState(
+                                    safeSetState(
                                         () => _model.reasonDropDownValue = val);
                                     HapticFeedback.mediumImpact();
                                   },
@@ -424,7 +424,7 @@ class _SavedLeadCalledStatusWidgetState
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         if (!(_model.reasonDropDownValue != null &&
@@ -446,7 +446,7 @@ class _SavedLeadCalledStatusWidgetState
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         _model.saveCallOutput =
@@ -480,7 +480,7 @@ class _SavedLeadCalledStatusWidgetState
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         if (SaveCallStatusAPICall.statusLayer2(
@@ -507,7 +507,7 @@ class _SavedLeadCalledStatusWidgetState
                               );
                             },
                           );
-                          if (_shouldSetState) setState(() {});
+                          if (_shouldSetState) safeSetState(() {});
                           return;
                         }
                         await showDialog(
@@ -547,9 +547,9 @@ class _SavedLeadCalledStatusWidgetState
                                 )}')!
                             .toList()
                             .cast<String>();
-                        setState(() {});
+                        safeSetState(() {});
                         Navigator.pop(context);
-                        if (_shouldSetState) setState(() {});
+                        if (_shouldSetState) safeSetState(() {});
                       },
                       text: 'บันทึกการโทร',
                       options: FFButtonOptions(

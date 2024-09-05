@@ -22,7 +22,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class AddResignPageCopyModel extends FlutterFlowModel<AddResignPageCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (GetProvinceAPI)] action in AddResignPageCopy widget.
   ApiCallResponse? provinceAPIOutput;
   // State field(s) for TextField widget.

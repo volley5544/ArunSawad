@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 class TestCircleMapModel extends FlutterFlowModel<TestCircleMapWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getCheckinImgUrlApi)] action in Button widget.
   ApiCallResponse? getCheckinImgUrl1;
   // Stores action output result for [Backend Call - API (getCheckinImgUrlUrlApi)] action in Button widget.

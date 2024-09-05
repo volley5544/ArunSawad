@@ -144,7 +144,7 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController1?.text = 'หมวดหมู่การแจ้ง';
         }));
   }
@@ -517,8 +517,8 @@ class _InfoReportWidgetState extends State<InfoReportWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RatingBar.builder(
-                        onRatingUpdate: (newValue) =>
-                            setState(() => _model.ratingBarValue = newValue),
+                        onRatingUpdate: (newValue) => safeSetState(
+                            () => _model.ratingBarValue = newValue),
                         itemBuilder: (context, index) => Icon(
                           Icons.star_rounded,
                           color: Color(0xFFF3E743),

@@ -44,7 +44,7 @@ class _CarSeizedDashboardPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CarSeizedDashboardPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

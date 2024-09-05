@@ -86,7 +86,7 @@ class _RoadmapinsuranceWidgetState extends State<RoadmapinsuranceWidget> {
       Navigator.pop(context);
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
