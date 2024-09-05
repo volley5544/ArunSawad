@@ -994,8 +994,14 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                         FFAppState().roleMenuJson,
                                         'ติดตามหนี้',
                                         FFAppState().profileLevel)! ||
-                                    (FFAppState().profilePositionName ==
-                                        'เจ้าหน้าที่ประจำแผนกDSI') ||
+                                    functions.containStringInListString(
+                                        functions
+                                            .getListDataFromJsonList(
+                                                FFAppState().roleMenuJson,
+                                                'positionName',
+                                                'ติดตามหนี้')
+                                            ?.toList(),
+                                        FFAppState().profilePositionName)! ||
                                     functions.containStringInListString(
                                         functions
                                             .getListDataFromJson(

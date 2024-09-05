@@ -101,6 +101,49 @@ double getLatLngBranchDouble(
   // Add your function code here!
 }
 
+List<String>? getListDataFromJsonList(
+  dynamic jsonData,
+  String? listName,
+  String? menuName,
+) {
+  if (listName == null || jsonData == null) {
+    print('Invalid input: jsonData or listName is null.');
+    return null;
+  }
+
+  try {
+    // Check if jsonData is already a Map
+    Map<String, dynamic> jsonMap;
+    if (jsonData is String) {
+      // If jsonData is a string, decode it to a Map
+      jsonMap = jsonDecode(jsonData);
+    } else if (jsonData is Map<String, dynamic>) {
+      // If jsonData is already a Map, use it directly
+      jsonMap = jsonData;
+    } else {
+      print('Invalid jsonData type.');
+      return null;
+    }
+
+    // Check if the listName exists in the map and is a List
+    if (jsonMap.containsKey(listName) && jsonMap[listName] is List) {
+      List<dynamic> rawData = jsonMap[listName][menuName] as List<dynamic>;
+
+      // Convert List<dynamic> to List<String>
+      List<String> data = rawData.map((item) => item.toString()).toList();
+      print('dataFromJson: $data');
+      return data;
+    } else {
+      print('List name not found or not a list.');
+      return null;
+    }
+  } catch (e) {
+    // Print error if JSON decoding fails
+    print('Error decoding JSON: $e');
+    return null;
+  }
+}
+
 String imgNameShow(String? imgPath) {
   // get upload file name
   if (imgPath == null || imgPath.isEmpty) return '';
