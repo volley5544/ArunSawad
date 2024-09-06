@@ -126,11 +126,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      _model.getDataRoleMenu = await actions.getDataFromCollection(
-        'role_menu',
-      );
-      FFAppState().roleMenuJson = _model.getDataRoleMenu!;
-      safeSetState(() {});
       _model.getHideContentTableauDoc =
           await HideInAppContentRecord.getDocumentOnce(
               FFAppState().hideContentTableauDocRef!);
@@ -139,11 +134,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
       safeSetState(() {});
       logFirebaseEvent('super_app_page_view_5544');
       _model.getDeviceVersion = await actions.getBuildVersion();
-      FFAppState().isSelectedBranch = false;
-      FFAppState().isSearchedBranch = false;
-      FFAppState().isEmployeeSearched = false;
-      FFAppState().isEmployeeSelected = false;
-      FFAppState().update(() {});
       FFAppState().isFromTimesheetPage = false;
       FFAppState().leadChannelAmountList =
           functions.resetLeadChannelAmount().toList().cast<int>();
@@ -177,6 +167,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         }
       }
 
+      _model.getDataRoleMenu = await actions.getDataFromCollection(
+        'role_menu',
+      );
+      FFAppState().roleMenuJson = _model.getDataRoleMenu!;
+      safeSetState(() {});
       if (_model.leadNotiOutput != 'notification_message_type') {
         if (FFAppState().inAppViaNotification) {
           await showDialog(

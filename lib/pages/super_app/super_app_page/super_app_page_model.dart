@@ -54,14 +54,14 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.
-  dynamic? getDataRoleMenu;
   // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
   HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - getBuildVersion] action in SuperAppPage widget.
   String? getDeviceVersion;
   // Stores action output result for [Custom Action - a14] action in SuperAppPage widget.
   String? leadNotiOutput;
+  // Stores action output result for [Custom Action - getDataFromCollection] action in SuperAppPage widget.
+  dynamic? getDataRoleMenu;
   // Stores action output result for [Custom Action - a17] action in SuperAppPage widget.
   bool? checkDoNotShowIsEmpty;
   // Stores action output result for [Custom Action - a18] action in SuperAppPage widget.
