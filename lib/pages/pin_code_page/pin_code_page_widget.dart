@@ -1354,6 +1354,31 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                               _shouldSetState = true;
                                                                                                               if ((_model.getUserProfilePin?.statusCode ?? 200) == 200) {
+                                                                                                                if (GetUserProfileAPICall.statuslayer1(
+                                                                                                                      (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                                                    ) !=
+                                                                                                                    200) {
+                                                                                                                  await showDialog(
+                                                                                                                    context: context,
+                                                                                                                    builder: (alertDialogContext) {
+                                                                                                                      return WebViewAware(
+                                                                                                                        child: AlertDialog(
+                                                                                                                          content: Text('${GetUserProfileAPICall.message(
+                                                                                                                            (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                                                          )}'),
+                                                                                                                          actions: [
+                                                                                                                            TextButton(
+                                                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                              child: Text('Ok'),
+                                                                                                                            ),
+                                                                                                                          ],
+                                                                                                                        ),
+                                                                                                                      );
+                                                                                                                    },
+                                                                                                                  );
+                                                                                                                  if (_shouldSetState) safeSetState(() {});
+                                                                                                                  return;
+                                                                                                                }
                                                                                                                 FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
                                                                                                                   (_model.getUserProfilePin?.jsonBody ?? ''),
                                                                                                                 )}';
@@ -1972,6 +1997,31 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
                                                                                                             _shouldSetState = true;
                                                                                                             if ((_model.getUserProfileBio?.statusCode ?? 200) == 200) {
+                                                                                                              if (GetUserProfileAPICall.statuslayer1(
+                                                                                                                    (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                  ) !=
+                                                                                                                  200) {
+                                                                                                                await showDialog(
+                                                                                                                  context: context,
+                                                                                                                  builder: (alertDialogContext) {
+                                                                                                                    return WebViewAware(
+                                                                                                                      child: AlertDialog(
+                                                                                                                        content: Text('${GetUserProfileAPICall.message(
+                                                                                                                          (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                                                                        )}'),
+                                                                                                                        actions: [
+                                                                                                                          TextButton(
+                                                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                                            child: Text('Ok'),
+                                                                                                                          ),
+                                                                                                                        ],
+                                                                                                                      ),
+                                                                                                                    );
+                                                                                                                  },
+                                                                                                                );
+                                                                                                                if (_shouldSetState) safeSetState(() {});
+                                                                                                                return;
+                                                                                                              }
                                                                                                               FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
                                                                                                                 (_model.getUserProfileBio?.jsonBody ?? ''),
                                                                                                               )}';

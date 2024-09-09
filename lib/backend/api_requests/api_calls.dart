@@ -1194,6 +1194,10 @@ class GetUserProfileAPICall {
         response,
         r'''$.UserRole[:].profile[:].role_name''',
       ));
+  static int? statuslayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
 }
 
 class GetUserInsuranceLicenseCall {

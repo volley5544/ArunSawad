@@ -1842,12 +1842,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       FFAppState()
                                                                           .update(
                                                                               () {});
-
-                                                                      context.goNamedAuth(
-                                                                          'SetPinCodePage',
-                                                                          context
-                                                                              .mounted);
-
                                                                       if (isAndroid) {
                                                                         var fCMTokenRecordReference1 = FCMTokenRecord
                                                                             .collection
