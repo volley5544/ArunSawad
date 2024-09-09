@@ -1479,6 +1479,63 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
                                                                         _shouldSetState =
                                                                             true;
+                                                                        if ((_model.getUserProfile?.statusCode ??
+                                                                                200) !=
+                                                                            200) {
+                                                                          Navigator.pop(
+                                                                              context);
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('พบข้อผิดพลาด Connection(${(_model.getUserProfile?.statusCode ?? 200).toString()})'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
+                                                                        if (GetUserProfileAPICall.statuslayer1(
+                                                                              (_model.getUserProfile?.jsonBody ?? ''),
+                                                                            ) !=
+                                                                            200) {
+                                                                          Navigator.pop(
+                                                                              context);
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text('${GetUserProfileAPICall.message(
+                                                                                    (_model.getUserProfile?.jsonBody ?? ''),
+                                                                                  )}'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+                                                                          if (_shouldSetState)
+                                                                            safeSetState(() {});
+                                                                          return;
+                                                                        }
                                                                         FFAppState().userNickname =
                                                                             '${GetUserProfileAPICall.profileNickName(
                                                                           (_model.getUserProfile?.jsonBody ??
@@ -1999,10 +2056,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                    'customerCarDeailsPictureStep12');
-                              },
+                              onTap: () async {},
                               child: Text(
                                 'Copyright ©2022.  Srisawad Corporation Plc.',
                                 style: FlutterFlowTheme.of(context)
