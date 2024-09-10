@@ -2677,7 +2677,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               ?.toList(),
                                                                           FFAppState()
                                                                               .employeeID,
-                                                                          'ลูกค้ารถยึด')!)
+                                                                          'ค่าลีดรถ M')!)
                                                                     FutureBuilder<
                                                                         List<
                                                                             UrlLinkStorageRecord>>(
@@ -4748,7 +4748,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                   if (functions.getSpecificIndexFromJson(
                                                                           FFAppState()
                                                                               .roleMenuJson,
-                                                                          'รายงานรถยึด',
+                                                                          'เป้า/ผลงาน',
                                                                           FFAppState()
                                                                               .profileLevel)! ||
                                                                       functions.containStringInListString(
