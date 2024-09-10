@@ -1482,8 +1482,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         if ((_model.getUserProfile?.statusCode ??
                                                                                 200) !=
                                                                             200) {
-                                                                          Navigator.pop(
-                                                                              context);
                                                                           await showDialog(
                                                                             context:
                                                                                 context,
@@ -1510,8 +1508,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               (_model.getUserProfile?.jsonBody ?? ''),
                                                                             ) !=
                                                                             200) {
-                                                                          Navigator.pop(
-                                                                              context);
                                                                           await showDialog(
                                                                             context:
                                                                                 context,

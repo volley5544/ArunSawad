@@ -126,7 +126,8 @@ List<String>? getListDataFromJsonList(
     }
 
     // Check if the listName exists in the map and is a List
-    if (jsonMap.containsKey(listName) && jsonMap[listName] is List) {
+    if (jsonMap.containsKey(listName) &&
+        jsonMap[listName] is Map<String, dynamic>) {
       List<dynamic> rawData = jsonMap[listName][menuName] as List<dynamic>;
 
       // Convert List<dynamic> to List<String>
