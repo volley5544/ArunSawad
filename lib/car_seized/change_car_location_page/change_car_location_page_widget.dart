@@ -275,6 +275,16 @@ class _ChangeCarLocationPageWidgetState
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
+                                  FFAppState().selectedDropdownList = functions
+                                      .createFalseListByItemNumber(
+                                          false,
+                                          ImproundCarGetBranchCall.branchcode(
+                                            (_model.getBranchOutput?.jsonBody ??
+                                                ''),
+                                          )?.length)!
+                                      .toList()
+                                      .cast<bool>();
+                                  safeSetState(() {});
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -314,11 +324,7 @@ class _ChangeCarLocationPageWidgetState
                                                   (_model.getBranchOutput
                                                           ?.jsonBody ??
                                                       ''),
-                                                )![functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)])
+                                                )![0])
                                               : ''),
                                           actions: [
                                             TextButton(

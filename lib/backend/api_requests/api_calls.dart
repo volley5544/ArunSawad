@@ -64,6 +64,7 @@ class UploadImagesGoogleDriveGroup {
       SearchContractNumberCall();
   static UploadGoogleDriveAPICall uploadGoogleDriveAPICall =
       UploadGoogleDriveAPICall();
+  static UpdateImproundCarCall updateImproundCarCall = UpdateImproundCarCall();
 }
 
 class SearchImagesCall {
@@ -722,6 +723,87 @@ class UploadGoogleDriveAPICall {
         'impound_nameth': impoundNameth,
       },
       bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class UpdateImproundCarCall {
+  Future<ApiCallResponse> call({
+    String? contNo = '',
+    String? status = '',
+    String? improundcarLocatId = '',
+    String? locatName = '',
+    String? improundcarSubLocatId = '',
+    String? branchCodeLocat = '',
+    String? branchName = '',
+    String? userid = '',
+    String? branchNameLocat = '',
+    String? branchCode = '',
+    String? nameTh = '',
+    String? improundcarStatusId = '',
+    String? statusCode = '',
+    String? statusName = '',
+    String? address = '',
+    String? subDistrict = '',
+    String? district = '',
+    String? province = '',
+    String? postcode = '',
+    String? phoneNumber = '',
+    String? latitude = '',
+    String? longitude = '',
+    String? areaCode = '',
+    String? areaName = '',
+    String? regionCode = '',
+    String? regionName = '',
+    String? url = '',
+  }) async {
+    final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
+      url: url,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "cont_no": "${contNo}",
+  "status": "${status}",
+  "improundcar_locat_id": "${improundcarLocatId}",
+  "locat_name": "${locatName}",
+  "improundcar_sub_locat_id": "${improundcarSubLocatId}",
+  "branch_code_locat": "${branchCodeLocat}",
+  "branch_name": "${branchName}",
+  "userid": "${userid}",
+  "branch_name_locat": "${branchNameLocat}",
+  "branch_code": "${branchCode}",
+  "name_th":"${nameTh}",
+  "improundcar_status_id": "${improundcarStatusId}",
+  "status_code":"${statusCode}" ,
+  "status_name":"${statusName}" ,
+  "address": "${address}",
+  "sub_district":"${subDistrict}" ,
+  "district":"${district}" ,
+  "province":"${province}" ,
+  "postcode": "${postcode}",
+  "phone_number":"${phoneNumber}" ,
+  "latitude": "${latitude}",
+  "longitude":"${longitude}" ,
+  "area_code":"${areaCode}" ,
+  "area_name":"${areaName}" ,
+  "region_code": "${regionCode}",
+  "region_name": "${regionName}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'updateImproundCar',
+      apiUrl: '${baseUrl}/api/update',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
