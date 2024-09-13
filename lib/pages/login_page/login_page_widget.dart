@@ -1941,9 +1941,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               );
                                                                             },
                                                                           );
-                                                                          if (_shouldSetState)
-                                                                            safeSetState(() {});
-                                                                          return;
                                                                         }
 
                                                                         var fCMTokenRecordReference2 = FCMTokenRecord
@@ -1972,6 +1969,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         _shouldSetState =
                                                                             true;
                                                                       }
+
+                                                                      context.goNamedAuth(
+                                                                          'SetPinCodePage',
+                                                                          context
+                                                                              .mounted);
 
                                                                       if (_shouldSetState)
                                                                         safeSetState(

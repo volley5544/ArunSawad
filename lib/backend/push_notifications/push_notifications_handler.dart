@@ -630,22 +630,7 @@ final parametersBuilderMap =
       ),
   'CustomerCarDeailsStep1': (data) async => ParameterData(
         allParams: {
-          'improundCONTNO': getParameter<String>(data, 'improundCONTNO'),
-          'improundLOCAT': getParameter<String>(data, 'improundLOCAT'),
-          'improundTITLE': getParameter<String>(data, 'improundTITLE'),
-          'improundFNAME': getParameter<String>(data, 'improundFNAME'),
-          'improundSNAME': getParameter<String>(data, 'improundSNAME'),
-          'improundREGNO': getParameter<String>(data, 'improundREGNO'),
-          'improundREGPROV': getParameter<String>(data, 'improundREGPROV'),
-          'improundCONTNOTYPE':
-              getParameter<String>(data, 'improundCONTNOTYPE'),
-          'improundCONTNOTYPENAME':
-              getParameter<String>(data, 'improundCONTNOTYPENAME'),
-          'improundGCODE': getParameter<String>(data, 'improundGCODE'),
-          'improundGDESC': getParameter<String>(data, 'improundGDESC'),
-          'improundNumbody': getParameter<String>(data, 'improundNumbody'),
           'step': getParameter<String>(data, 'step'),
-          'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
@@ -659,22 +644,7 @@ final parametersBuilderMap =
       ),
   'CustomerCarDeailsStep4': (data) async => ParameterData(
         allParams: {
-          'improundCONTNO': getParameter<String>(data, 'improundCONTNO'),
-          'improundLOCAT': getParameter<String>(data, 'improundLOCAT'),
-          'improundTITLE': getParameter<String>(data, 'improundTITLE'),
-          'improundFNAME': getParameter<String>(data, 'improundFNAME'),
-          'improundSNAME': getParameter<String>(data, 'improundSNAME'),
-          'improundREGNO': getParameter<String>(data, 'improundREGNO'),
-          'improundREGPROV': getParameter<String>(data, 'improundREGPROV'),
-          'improundCONTNOTYPE':
-              getParameter<String>(data, 'improundCONTNOTYPE'),
-          'improundCONTNOTYPENAME':
-              getParameter<String>(data, 'improundCONTNOTYPENAME'),
-          'improundGCODE': getParameter<String>(data, 'improundGCODE'),
-          'improundGDESC': getParameter<String>(data, 'improundGDESC'),
-          'improundNumbody': getParameter<String>(data, 'improundNumbody'),
           'step': getParameter<String>(data, 'step'),
-          'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
         },
@@ -696,27 +666,21 @@ final parametersBuilderMap =
       ),
   'customerCarDeailsPictureStep1': (data) async => ParameterData(
         allParams: {
-          'improundCONTNO': getParameter<String>(data, 'improundCONTNO'),
-          'improundLOCAT': getParameter<String>(data, 'improundLOCAT'),
-          'improundTITLE': getParameter<String>(data, 'improundTITLE'),
-          'improundFNAME': getParameter<String>(data, 'improundFNAME'),
-          'improundSNAME': getParameter<String>(data, 'improundSNAME'),
-          'improundREGNO': getParameter<String>(data, 'improundREGNO'),
-          'improundREGPROV': getParameter<String>(data, 'improundREGPROV'),
-          'improundCONTNOTYPE':
-              getParameter<String>(data, 'improundCONTNOTYPE'),
-          'improundCONTNOTYPENAME':
-              getParameter<String>(data, 'improundCONTNOTYPENAME'),
-          'improundGCODE': getParameter<String>(data, 'improundGCODE'),
-          'improundGDESC': getParameter<String>(data, 'improundGDESC'),
-          'improundNumbody': getParameter<String>(data, 'improundNumbody'),
           'step': getParameter<String>(data, 'step'),
-          'improundCUSCOD': getParameter<String>(data, 'improundCUSCOD'),
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
   'customerCarDeailsPictureStep12': ParameterData.none(),
+  'ChangeCarLocationPage': (data) async => ParameterData(
+        allParams: {
+          'step': getParameter<String>(data, 'step'),
+          'userRoleRead': getParameter<String>(data, 'userRoleRead'),
+          'userRoleSave': getParameter<String>(data, 'userRoleSave'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

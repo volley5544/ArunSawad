@@ -297,7 +297,7 @@ class SearchContractNumberCall {
           .toList();
   List<String>? branchname(dynamic response) => (getJsonField(
         response,
-        r'''$.data[:].branch_name''',
+        r'''$.data[:].branch_name_emp''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -360,7 +360,7 @@ class SearchContractNumberCall {
           .toList();
   List<String>? branchcode(dynamic response) => (getJsonField(
         response,
-        r'''$.data[:].branch_code''',
+        r'''$.data[:].branch_code_emp''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -388,6 +388,186 @@ class SearchContractNumberCall {
   List<String>? cuscod(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].cuscod''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? stage(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].stage''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? statuscodeStage(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].status_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? originyear(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].origin_year''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? convertyear(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].convert_year''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? improundcarlocatid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].improundcar_locat_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? locatname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].locat_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<int>? improundcarsublocatid(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].improundcar_sub_locat_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  List<String>? branchnamelocat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].branch_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? arnow(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].arnow''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? constat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].constat''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? typecod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].typecod''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? modelcod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].modelcod''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? colorcod(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].colorcod''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? keyincshprc(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].keyincshprc''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? engno(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].engno''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? impoundemp(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].impound_emp''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? impoundnameth(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].impound_nameth''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? impounddate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].impound_date''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? statusname(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].status_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? locatcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].locat_code''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -430,6 +610,39 @@ class UploadGoogleDriveAPICall {
     String? userid = '',
     String? locat = '',
     String? cuscod = '',
+    String? statusCode = '',
+    String? statusName = '',
+    String? originYear = '',
+    String? convertYear = '',
+    String? improundcarLocatId = '',
+    String? locatCode = '',
+    String? locatName = '',
+    String? improundcarSubLocatId = '',
+    String? branchNameLocat = '',
+    String? improundcarStatusId = '',
+    String? arnow = '',
+    String? constat = '',
+    String? typecod = '',
+    String? modelcod = '',
+    String? colorcod = '',
+    String? address = '',
+    String? subDistrict = '',
+    String? district = '',
+    String? province = '',
+    String? postcode = '',
+    String? phoneNumber = '',
+    String? latitude = '',
+    String? longitude = '',
+    String? branchCodeLocat = '',
+    String? areaCode = '',
+    String? areaName = '',
+    String? regionCode = '',
+    String? regionName = '',
+    String? keyincshprc = '',
+    String? engno = '',
+    String? impoundEmp = '',
+    String? impoundDate = '',
+    String? impoundNameth = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -474,6 +687,39 @@ class UploadGoogleDriveAPICall {
         'userid': userid,
         'locat': locat,
         'cuscod': cuscod,
+        'status_code': statusCode,
+        'status_name': statusName,
+        'origin_year': originYear,
+        'convert_year': convertYear,
+        'improundcar_locat_id': improundcarLocatId,
+        'locat_code': locatCode,
+        'locat_name': locatName,
+        'improundcar_sub_locat_id': improundcarSubLocatId,
+        'branch_name_locat': branchNameLocat,
+        'improundcar_status_id': improundcarStatusId,
+        'arnow': arnow,
+        'constat': constat,
+        'typecod': typecod,
+        'modelcod': modelcod,
+        'colorcod': colorcod,
+        'address': address,
+        'sub_district': subDistrict,
+        'district': district,
+        'province': province,
+        'postcode': postcode,
+        'phone_number': phoneNumber,
+        'latitude': latitude,
+        'longitude': longitude,
+        'branch_code_locat': branchCodeLocat,
+        'area_code': areaCode,
+        'area_name': areaName,
+        'region_code': regionCode,
+        'region_name': regionName,
+        'keyincshprc': keyincshprc,
+        'engno': engno,
+        'impound_emp': impoundEmp,
+        'impound_date': impoundDate,
+        'impound_nameth': impoundNameth,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
@@ -10700,6 +10946,7 @@ class SswSurveyAPIVloanGetContractCall {
     String? registrationCar = '',
     String? token = '',
     String? apiUrl = '',
+    String? step = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -10707,7 +10954,8 @@ class SswSurveyAPIVloanGetContractCall {
   "firstname_cust": "${firstnameCust}",
   "lastname_cust": "${lastnameCust}",
   "cuscod": "${cuscod}",
-  "registration_car": "${registrationCar}"
+  "registration_car": "${registrationCar}",
+  "step": "${step}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'sswSurveyAPIVloanGetContract',
@@ -10856,6 +11104,306 @@ class SswSurveyAPIVloanGetContractCall {
   static List<String>? gdesc(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].GDESC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? db(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].DB''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? insurer(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].INSURER''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? arnow(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].ARNOW''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? contstat(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].CONTSTAT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? typecod(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].TYPECOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? manuyr(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].MANUYR''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? modelcod(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].MODELCOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? colorcod(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].COLORCOD''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? engno(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].ENGNO''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? keyincshprc(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].KEYINCSHPRC''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? manuyrconvert(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].MANUYR_CONVERT''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? mANUYRCONVERTss(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data[:].MANUYR_CONVERT''',
+      ));
+}
+
+class ImproundCarGetBranchCall {
+  static Future<ApiCallResponse> call({
+    String? apiUrl = '',
+    String? token = '',
+    String? locatCode = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "api_url": "${apiUrl}",
+  "token": "${token}",
+  "locat_code": "${locatCode}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'improundCarGetBranch',
+      apiUrl: '${apiUrl}/api/improundcar/get-branch',
+      callType: ApiCallType.POST,
+      headers: {
+        'X-API-KEY': '${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? statusLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static List<String>? branchcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].branch_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].branch_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areacode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].area_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? areaname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].area_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regioncode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].region_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? regionname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].region_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? subdistrict(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].sub_district''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? district(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].district''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? province(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].province''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? postcode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].postcode''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? latitude(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].latitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? longitude(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].longitude''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? subLocatId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].improundcar_sub_locat_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? locatId(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].improundcar_locat_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? address(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].address''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? locatCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].locat_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? phoneNumber(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].phone_number''',
         true,
       ) as List?)
           ?.withoutNulls

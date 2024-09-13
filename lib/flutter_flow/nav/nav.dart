@@ -1910,60 +1910,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'CustomerCarDeailsStep1',
               path: 'customerCarDeailsStep1',
               builder: (context, params) => CustomerCarDeailsStep1Widget(
-                improundCONTNO: params.getParam(
-                  'improundCONTNO',
-                  ParamType.String,
-                ),
-                improundLOCAT: params.getParam(
-                  'improundLOCAT',
-                  ParamType.String,
-                ),
-                improundTITLE: params.getParam(
-                  'improundTITLE',
-                  ParamType.String,
-                ),
-                improundFNAME: params.getParam(
-                  'improundFNAME',
-                  ParamType.String,
-                ),
-                improundSNAME: params.getParam(
-                  'improundSNAME',
-                  ParamType.String,
-                ),
-                improundREGNO: params.getParam(
-                  'improundREGNO',
-                  ParamType.String,
-                ),
-                improundREGPROV: params.getParam(
-                  'improundREGPROV',
-                  ParamType.String,
-                ),
-                improundCONTNOTYPE: params.getParam(
-                  'improundCONTNOTYPE',
-                  ParamType.String,
-                ),
-                improundCONTNOTYPENAME: params.getParam(
-                  'improundCONTNOTYPENAME',
-                  ParamType.String,
-                ),
-                improundGCODE: params.getParam(
-                  'improundGCODE',
-                  ParamType.String,
-                ),
-                improundGDESC: params.getParam(
-                  'improundGDESC',
-                  ParamType.String,
-                ),
-                improundNumbody: params.getParam(
-                  'improundNumbody',
-                  ParamType.String,
-                ),
                 step: params.getParam(
                   'step',
-                  ParamType.String,
-                ),
-                improundCUSCOD: params.getParam(
-                  'improundCUSCOD',
                   ParamType.String,
                 ),
                 readAccessRoleData: params.getParam(
@@ -1981,6 +1929,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 userRoleSave: params.getParam(
                   'userRoleSave',
                   ParamType.String,
+                ),
+                impoundCarParamSet: params.getParam(
+                  'impoundCarParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: ImpoundCarParamSetStruct.fromSerializableMap,
+                ),
+                impoundCarLocateParamSet: params.getParam(
+                  'impoundCarLocateParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder:
+                      ImpoundCarLocateParamSetStruct.fromSerializableMap,
                 ),
               ),
             ),
@@ -2006,60 +1967,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'CustomerCarDeailsStep4',
               path: 'customerCarDeailsStep4',
               builder: (context, params) => CustomerCarDeailsStep4Widget(
-                improundCONTNO: params.getParam(
-                  'improundCONTNO',
-                  ParamType.String,
-                ),
-                improundLOCAT: params.getParam(
-                  'improundLOCAT',
-                  ParamType.String,
-                ),
-                improundTITLE: params.getParam(
-                  'improundTITLE',
-                  ParamType.String,
-                ),
-                improundFNAME: params.getParam(
-                  'improundFNAME',
-                  ParamType.String,
-                ),
-                improundSNAME: params.getParam(
-                  'improundSNAME',
-                  ParamType.String,
-                ),
-                improundREGNO: params.getParam(
-                  'improundREGNO',
-                  ParamType.String,
-                ),
-                improundREGPROV: params.getParam(
-                  'improundREGPROV',
-                  ParamType.String,
-                ),
-                improundCONTNOTYPE: params.getParam(
-                  'improundCONTNOTYPE',
-                  ParamType.String,
-                ),
-                improundCONTNOTYPENAME: params.getParam(
-                  'improundCONTNOTYPENAME',
-                  ParamType.String,
-                ),
-                improundGCODE: params.getParam(
-                  'improundGCODE',
-                  ParamType.String,
-                ),
-                improundGDESC: params.getParam(
-                  'improundGDESC',
-                  ParamType.String,
-                ),
-                improundNumbody: params.getParam(
-                  'improundNumbody',
-                  ParamType.String,
-                ),
                 step: params.getParam(
                   'step',
-                  ParamType.String,
-                ),
-                improundCUSCOD: params.getParam(
-                  'improundCUSCOD',
                   ParamType.String,
                 ),
                 readAccessRoleData: params.getParam(
@@ -2077,6 +1986,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 userRoleSave: params.getParam(
                   'userRoleSave',
                   ParamType.String,
+                ),
+                impoundCarParamSet: params.getParam(
+                  'impoundCarParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: ImpoundCarParamSetStruct.fromSerializableMap,
                 ),
               ),
             ),
@@ -2151,60 +2066,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'customerCarDeailsPictureStep1',
               path: 'customerCarDeailsPictureStep1',
               builder: (context, params) => CustomerCarDeailsPictureStep1Widget(
-                improundCONTNO: params.getParam(
-                  'improundCONTNO',
-                  ParamType.String,
-                ),
-                improundLOCAT: params.getParam(
-                  'improundLOCAT',
-                  ParamType.String,
-                ),
-                improundTITLE: params.getParam(
-                  'improundTITLE',
-                  ParamType.String,
-                ),
-                improundFNAME: params.getParam(
-                  'improundFNAME',
-                  ParamType.String,
-                ),
-                improundSNAME: params.getParam(
-                  'improundSNAME',
-                  ParamType.String,
-                ),
-                improundREGNO: params.getParam(
-                  'improundREGNO',
-                  ParamType.String,
-                ),
-                improundREGPROV: params.getParam(
-                  'improundREGPROV',
-                  ParamType.String,
-                ),
-                improundCONTNOTYPE: params.getParam(
-                  'improundCONTNOTYPE',
-                  ParamType.String,
-                ),
-                improundCONTNOTYPENAME: params.getParam(
-                  'improundCONTNOTYPENAME',
-                  ParamType.String,
-                ),
-                improundGCODE: params.getParam(
-                  'improundGCODE',
-                  ParamType.String,
-                ),
-                improundGDESC: params.getParam(
-                  'improundGDESC',
-                  ParamType.String,
-                ),
-                improundNumbody: params.getParam(
-                  'improundNumbody',
-                  ParamType.String,
-                ),
                 step: params.getParam(
                   'step',
-                  ParamType.String,
-                ),
-                improundCUSCOD: params.getParam(
-                  'improundCUSCOD',
                   ParamType.String,
                 ),
                 readAccessRoleData: params.getParam(
@@ -2223,6 +2086,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'userRoleSave',
                   ParamType.String,
                 ),
+                impoundCarParamSet: params.getParam(
+                  'impoundCarParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: ImpoundCarParamSetStruct.fromSerializableMap,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2230,6 +2103,42 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'customerCarDeailsPictureStep12',
               builder: (context, params) =>
                   CustomerCarDeailsPictureStep12Widget(),
+            ),
+            FFRoute(
+              name: 'ChangeCarLocationPage',
+              path: 'ChangeCarLocationPage',
+              builder: (context, params) => ChangeCarLocationPageWidget(
+                step: params.getParam(
+                  'step',
+                  ParamType.String,
+                ),
+                readAccessRoleData: params.getParam(
+                  'readAccessRoleData',
+                  ParamType.JSON,
+                ),
+                saveAccessRoleData: params.getParam(
+                  'saveAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleRead: params.getParam(
+                  'userRoleRead',
+                  ParamType.String,
+                ),
+                userRoleSave: params.getParam(
+                  'userRoleSave',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                impoundCarParamSet: params.getParam(
+                  'impoundCarParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder: ImpoundCarParamSetStruct.fromSerializableMap,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

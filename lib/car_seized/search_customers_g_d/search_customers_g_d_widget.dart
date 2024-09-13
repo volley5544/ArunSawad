@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -436,6 +437,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         token:
                                             FFAppState().impoundUrlVloanToken,
                                         apiUrl: FFAppState().impoundUrlVloan,
+                                        step: widget!.step,
                                       );
 
                                       _shouldSetState = true;
@@ -584,6 +586,87 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         FFAppState().improundCUSCOD =
                                             SswSurveyAPIVloanGetContractCall
                                                     .cuscod(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundARNOW =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .arnow(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundCONTSTAT =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .contstat(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundTYPECOD =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .typecod(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundMANUYR =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .manuyr(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundMODELCOD =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .modelcod(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundCOLORCOD =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .colorcod(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundENGNO =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .engno(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundKEYINCSHPRC =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .keyincshprc(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundMANUYRCONVERT =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .manuyrconvert(
                                           (_model.vloanContractAPIOutput
                                                   ?.jsonBody ??
                                               ''),
@@ -821,6 +904,96 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState().improundARNOW =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .arnow(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundCONTSTAT =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .constat(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundTYPECOD =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .typecod(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundMANUYR =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .originyear(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundMODELCOD =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .modelcod(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundCOLORCOD =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .colorcod(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundENGNO =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .engno(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundKEYINCSHPRC =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .keyincshprc(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().improundMANUYRCONVERT =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .convertyear(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                       } else {
                                         await showDialog(
@@ -954,14 +1127,14 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    22.0, 15.0, 22.0, 0.0),
+                                                    0.0, 15.0, 0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 0.0, 7.0),
+                                                          12.0, 0.0, 12.0, 7.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1058,7 +1231,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 0.0, 7.0),
+                                                          12.0, 0.0, 12.0, 7.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1153,7 +1326,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 0.0, 7.0),
+                                                          12.0, 0.0, 12.0, 7.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1250,7 +1423,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 0.0, 7.0),
+                                                          12.0, 0.0, 12.0, 7.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1347,7 +1520,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 0.0, 7.0),
+                                                          12.0, 0.0, 12.0, 7.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1444,6 +1617,101 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
+                                                          12.0, 0.0, 12.0, 7.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Container(
+                                                          width: 37.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Text(
+                                                            'สถานที่จอดรถ',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Color(
+                                                                      0xFF090F13),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        width: 10.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                        ),
+                                                        child: Text(
+                                                          ':',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Color(
+                                                                    0xFF090F13),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Container(
+                                                          width: 37.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Text(
+                                                            'สถานที่จอดรถ',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Color(
+                                                                      0xFF090F13),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
@@ -1453,8 +1721,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                             .center,
                                                     children: [
                                                       Padding(
-                                                        padding: EdgeInsets.all(
-                                                            10.0),
+                                                        padding:
+                                                            EdgeInsets.all(8.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -1465,419 +1733,18 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                           highlightColor: Colors
                                                               .transparent,
                                                           onTap: () async {
-                                                            if (widget!
-                                                                    .fromPage ==
-                                                                'takeImages') {
-                                                              if (widget!
-                                                                      .step ==
-                                                                  'step4') {
-                                                                context
-                                                                    .pushNamed(
-                                                                  'CustomerCarDeailsStep4',
-                                                                  queryParameters:
-                                                                      {
-                                                                    'improundCONTNO':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCONTNO[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundLOCAT':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundLOCAT[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundTITLE':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundTITLE[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundFNAME':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundFNAME[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundSNAME':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundSNAME[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundREGNO':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundREGNO[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundREGPROV':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundREGPROV[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundCONTNOTYPE':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCONTNOTYPE[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundCONTNOTYPENAME':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCONTNOTYPENAME[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundGCODE':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundGCODE[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundGDESC':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundGDESC[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundNumbody':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundNumbody[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'step':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .step,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundCUSCOD':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCUSCOD[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'readAccessRoleData':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .readAccessRoleData,
-                                                                      ParamType
-                                                                          .JSON,
-                                                                    ),
-                                                                    'saveAccessRoleData':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .saveAccessRoleData,
-                                                                      ParamType
-                                                                          .JSON,
-                                                                    ),
-                                                                    'userRoleRead':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .userRoleRead,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'userRoleSave':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .userRoleSave,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                  }.withoutNulls,
-                                                                );
-                                                              } else {
-                                                                context
-                                                                    .pushNamed(
-                                                                  'CustomerCarDeailsStep1',
-                                                                  queryParameters:
-                                                                      {
-                                                                    'improundCONTNO':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCONTNO[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundLOCAT':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundLOCAT[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundTITLE':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundTITLE[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundFNAME':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundFNAME[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundSNAME':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundSNAME[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundREGNO':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundREGNO[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundREGPROV':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundREGPROV[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundCONTNOTYPE':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCONTNOTYPE[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundCONTNOTYPENAME':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCONTNOTYPENAME[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundGCODE':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundGCODE[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundGDESC':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundGDESC[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundNumbody':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundNumbody[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'step':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .step,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'improundCUSCOD':
-                                                                        serializeParam(
-                                                                      FFAppState()
-                                                                              .improundCUSCOD[
-                                                                          listImproundIndex],
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'readAccessRoleData':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .readAccessRoleData,
-                                                                      ParamType
-                                                                          .JSON,
-                                                                    ),
-                                                                    'saveAccessRoleData':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .saveAccessRoleData,
-                                                                      ParamType
-                                                                          .JSON,
-                                                                    ),
-                                                                    'userRoleRead':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .userRoleRead,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                    'userRoleSave':
-                                                                        serializeParam(
-                                                                      widget!
-                                                                          .userRoleSave,
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                  }.withoutNulls,
-                                                                );
-                                                              }
-                                                            } else {
+                                                            if ((widget!.fromPage ==
+                                                                    'takeImages') ||
+                                                                (widget!.fromPage ==
+                                                                    'changeCarLocation')) {
                                                               context.pushNamed(
-                                                                'customerCarDeailsPictureStep1',
+                                                                'ChangeCarLocationPage',
                                                                 queryParameters:
                                                                     {
-                                                                  'improundCONTNO':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundCONTNO[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundLOCAT':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundLOCAT[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundTITLE':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundTITLE[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundFNAME':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundFNAME[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundSNAME':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundSNAME[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundREGNO':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundREGNO[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundREGPROV':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundREGPROV[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundCONTNOTYPE':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundCONTNOTYPE[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundCONTNOTYPENAME':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundCONTNOTYPENAME[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundGCODE':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundGCODE[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundGDESC':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundGDESC[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundNumbody':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundNumbody[
-                                                                        listImproundIndex],
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
                                                                   'step':
                                                                       serializeParam(
                                                                     widget!
                                                                         .step,
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                  'improundCUSCOD':
-                                                                      serializeParam(
-                                                                    FFAppState()
-                                                                            .improundCUSCOD[
-                                                                        listImproundIndex],
                                                                     ParamType
                                                                         .String,
                                                                   ),
@@ -1909,13 +1776,215 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     ParamType
                                                                         .String,
                                                                   ),
+                                                                  'fromPage':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .fromPage,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'impoundCarParamSet':
+                                                                      serializeParam(
+                                                                    ImpoundCarParamSetStruct(
+                                                                      improundCONTNO:
+                                                                          FFAppState()
+                                                                              .improundCONTNO[listImproundIndex],
+                                                                      improundLOCAT:
+                                                                          FFAppState()
+                                                                              .improundLOCAT[listImproundIndex],
+                                                                      improundTITLE:
+                                                                          FFAppState()
+                                                                              .improundTITLE[listImproundIndex],
+                                                                      improundFNAME:
+                                                                          FFAppState()
+                                                                              .improundFNAME[listImproundIndex],
+                                                                      improundSNAME:
+                                                                          FFAppState()
+                                                                              .improundSNAME[listImproundIndex],
+                                                                      improundREGNO:
+                                                                          FFAppState()
+                                                                              .improundREGNO[listImproundIndex],
+                                                                      improundREGPROV:
+                                                                          FFAppState()
+                                                                              .improundREGPROV[listImproundIndex],
+                                                                      improundCONTNOTYPE:
+                                                                          FFAppState()
+                                                                              .improundCONTNOTYPE[listImproundIndex],
+                                                                      improundCONTNOTYPENAME:
+                                                                          FFAppState()
+                                                                              .improundCONTNOTYPENAME[listImproundIndex],
+                                                                      improundGCODE:
+                                                                          FFAppState()
+                                                                              .improundGCODE[listImproundIndex],
+                                                                      improundGDESC:
+                                                                          FFAppState()
+                                                                              .improundGDESC[listImproundIndex],
+                                                                      improundNumbody:
+                                                                          FFAppState()
+                                                                              .improundNumbody[listImproundIndex],
+                                                                      improundCUSCOD:
+                                                                          FFAppState()
+                                                                              .improundCUSCOD[listImproundIndex],
+                                                                      improundARNOW:
+                                                                          FFAppState()
+                                                                              .improundARNOW[listImproundIndex],
+                                                                      improundCONTSTAT:
+                                                                          FFAppState()
+                                                                              .improundCONTSTAT[listImproundIndex],
+                                                                      improundTYPECOD:
+                                                                          FFAppState()
+                                                                              .improundTYPECOD[listImproundIndex],
+                                                                      improundMANUYR:
+                                                                          FFAppState()
+                                                                              .improundMANUYR[listImproundIndex],
+                                                                      improundMODELCOD:
+                                                                          FFAppState()
+                                                                              .improundMODELCOD[listImproundIndex],
+                                                                      improudCOLORCOD:
+                                                                          FFAppState()
+                                                                              .improundCOLORCOD[listImproundIndex],
+                                                                      improundENGNO:
+                                                                          FFAppState()
+                                                                              .improundENGNO[listImproundIndex],
+                                                                      improundKEYINCSHPRC:
+                                                                          FFAppState()
+                                                                              .improundKEYINCSHPRC[listImproundIndex],
+                                                                      improundMANUYRCONVERT:
+                                                                          FFAppState()
+                                                                              .improundMANUYRCONVERT[listImproundIndex],
+                                                                    ),
+                                                                    ParamType
+                                                                        .DataStruct,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            } else {
+                                                              context.pushNamed(
+                                                                'customerCarDeailsPictureStep1',
+                                                                queryParameters:
+                                                                    {
+                                                                  'step':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .step,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'readAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .readAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'saveAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .saveAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'userRoleRead':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleRead,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'userRoleSave':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleSave,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'impoundCarParamSet':
+                                                                      serializeParam(
+                                                                    ImpoundCarParamSetStruct(
+                                                                      improundCONTNO:
+                                                                          FFAppState()
+                                                                              .improundCONTNO[listImproundIndex],
+                                                                      improundLOCAT:
+                                                                          FFAppState()
+                                                                              .improundLOCAT[listImproundIndex],
+                                                                      improundTITLE:
+                                                                          FFAppState()
+                                                                              .improundTITLE[listImproundIndex],
+                                                                      improundFNAME:
+                                                                          FFAppState()
+                                                                              .improundFNAME[listImproundIndex],
+                                                                      improundSNAME:
+                                                                          FFAppState()
+                                                                              .improundSNAME[listImproundIndex],
+                                                                      improundREGNO:
+                                                                          FFAppState()
+                                                                              .improundREGNO[listImproundIndex],
+                                                                      improundREGPROV:
+                                                                          FFAppState()
+                                                                              .improundREGPROV[listImproundIndex],
+                                                                      improundCONTNOTYPE:
+                                                                          FFAppState()
+                                                                              .improundCONTNOTYPE[listImproundIndex],
+                                                                      improundCONTNOTYPENAME:
+                                                                          FFAppState()
+                                                                              .improundCONTNOTYPENAME[listImproundIndex],
+                                                                      improundGCODE:
+                                                                          FFAppState()
+                                                                              .improundGCODE[listImproundIndex],
+                                                                      improundGDESC:
+                                                                          FFAppState()
+                                                                              .improundGDESC[listImproundIndex],
+                                                                      improundNumbody:
+                                                                          FFAppState()
+                                                                              .improundNumbody[listImproundIndex],
+                                                                      improundCUSCOD:
+                                                                          FFAppState()
+                                                                              .improundCUSCOD[listImproundIndex],
+                                                                      improundARNOW:
+                                                                          FFAppState()
+                                                                              .improundARNOW[listImproundIndex],
+                                                                      improundCONTSTAT:
+                                                                          FFAppState()
+                                                                              .improundCONTSTAT[listImproundIndex],
+                                                                      improundTYPECOD:
+                                                                          FFAppState()
+                                                                              .improundTYPECOD[listImproundIndex],
+                                                                      improundMANUYR:
+                                                                          FFAppState()
+                                                                              .improundMANUYR[listImproundIndex],
+                                                                      improundMODELCOD:
+                                                                          FFAppState()
+                                                                              .improundMODELCOD[listImproundIndex],
+                                                                      improudCOLORCOD:
+                                                                          FFAppState()
+                                                                              .improundCOLORCOD[listImproundIndex],
+                                                                      improundENGNO:
+                                                                          FFAppState()
+                                                                              .improundENGNO[listImproundIndex],
+                                                                      improundKEYINCSHPRC:
+                                                                          FFAppState()
+                                                                              .improundKEYINCSHPRC[listImproundIndex],
+                                                                      improundMANUYRCONVERT:
+                                                                          FFAppState()
+                                                                              .improundMANUYRCONVERT[listImproundIndex],
+                                                                    ),
+                                                                    ParamType
+                                                                        .DataStruct,
+                                                                  ),
+                                                                  'fromPage':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .fromPage,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
                                                                 }.withoutNulls,
                                                               );
                                                             }
                                                           },
                                                           child: Container(
-                                                            width: 138.0,
-                                                            height: 110.0,
+                                                            width: 150.0,
+                                                            height: 130.0,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: FlutterFlowTheme
@@ -2036,6 +2105,52 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                if (widget!
+                                                                        .fromPage ==
+                                                                    'changeCarLocation')
+                                                                  Expanded(
+                                                                    flex: 2,
+                                                                    child:
+                                                                        Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Container(
+                                                                        width:
+                                                                            50.0,
+                                                                        height:
+                                                                            50.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(60.0),
+                                                                          border:
+                                                                              Border.all(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            width:
+                                                                                1.0,
+                                                                          ),
+                                                                        ),
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Icon(
+                                                                            Icons.garage,
+                                                                            color:
+                                                                                Color(0xFF354052),
+                                                                            size:
+                                                                                28.0,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
                                                                 Expanded(
                                                                   flex: 1,
                                                                   child: Text(
@@ -2054,7 +2169,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           color:
                                                                               Color(0xFF204A77),
                                                                           fontSize:
-                                                                              16.0,
+                                                                              14.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:

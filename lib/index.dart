@@ -242,3 +242,5 @@ export '/car_seized/customer_car_deails_picture_step1/customer_car_deails_pictur
     show CustomerCarDeailsPictureStep1Widget;
 export '/car_seized/customer_car_deails_picture_step12/customer_car_deails_picture_step12_widget.dart'
     show CustomerCarDeailsPictureStep12Widget;
+export '/car_seized/change_car_location_page/change_car_location_page_widget.dart'
+    show ChangeCarLocationPageWidget;

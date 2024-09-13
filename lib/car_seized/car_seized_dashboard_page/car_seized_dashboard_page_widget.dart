@@ -109,7 +109,8 @@ class _CarSeizedDashboardPageWidgetState
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
               children: [
-                if ((widget!.fromPage == 'takeImages'
+                if (((widget!.fromPage == 'takeImages') ||
+                            (widget!.fromPage == 'changeCarLocation')
                         ? ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
@@ -159,9 +160,16 @@ class _CarSeizedDashboardPageWidgetState
                             ParamType.String,
                           ),
                           'textShow': serializeParam(
-                            widget!.fromPage == 'takeImages'
-                                ? 'ถ่ายรูปรถยึด'
-                                : 'ดูรูปรถยึด',
+                            () {
+                              if (widget!.fromPage == 'takeImages') {
+                                return 'ถ่ายรูปรถยึด';
+                              } else if (widget!.fromPage ==
+                                  'changeCarLocation') {
+                                return 'เปลี่ยนที่จอดรถนึด';
+                              } else {
+                                return 'ดูรูปรถยึด';
+                              }
+                            }(),
                             ParamType.String,
                           ),
                           'readAccessRoleData': serializeParam(
@@ -251,12 +259,45 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'changeCarLocation')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.garage,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Text(
-                                widget!.fromPage == 'takeImages'
-                                    ? 'ถ่ายรูปรถยึด'
-                                    : 'ดูรูปรถยึด',
+                                () {
+                                  if (widget!.fromPage == 'takeImages') {
+                                    return 'ถ่ายรูปรถยึด';
+                                  } else if (widget!.fromPage ==
+                                      'changeCarLocation') {
+                                    return 'เปลี่ยนที่จอดรถยึด';
+                                  } else {
+                                    return 'ดูรูปรถยึด';
+                                  }
+                                }(),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -272,7 +313,8 @@ class _CarSeizedDashboardPageWidgetState
                       ),
                     ),
                   ),
-                if ((widget!.fromPage == 'takeImages'
+                if (((widget!.fromPage == 'takeImages') ||
+                            (widget!.fromPage == 'changeCarLocation')
                         ? ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
@@ -322,9 +364,16 @@ class _CarSeizedDashboardPageWidgetState
                             ParamType.String,
                           ),
                           'textShow': serializeParam(
-                            widget!.fromPage == 'takeImages'
-                                ? 'ถ่ายรูปส่งมอบรถ'
-                                : 'ดูรูปส่งมอบรถ',
+                            () {
+                              if (widget!.fromPage == 'takeImages') {
+                                return 'ถ่ายรูปส่งมอบรถ';
+                              } else if (widget!.fromPage ==
+                                  'changeCarLocation') {
+                                return 'เปลี่ยนที่จอดส่งมอบรถ';
+                              } else {
+                                return 'ดูรูปส่งมอบรถ';
+                              }
+                            }(),
                             ParamType.String,
                           ),
                           'readAccessRoleData': serializeParam(
@@ -415,12 +464,45 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'changeCarLocation')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.garage,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Text(
-                                widget!.fromPage == 'takeImages'
-                                    ? 'ถ่ายรูปส่งมอบรถ'
-                                    : 'ดูรูปส่งมอบรถ',
+                                () {
+                                  if (widget!.fromPage == 'takeImages') {
+                                    return 'ถ่ายรูปส่งมอบรถ';
+                                  } else if (widget!.fromPage ==
+                                      'changeCarLocation') {
+                                    return 'เปลี่ยนที่จอดส่งมอบรถ';
+                                  } else {
+                                    return 'ดูรูปส่งมอบรถ';
+                                  }
+                                }(),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -436,7 +518,8 @@ class _CarSeizedDashboardPageWidgetState
                       ),
                     ),
                   ),
-                if ((widget!.fromPage == 'takeImages'
+                if (((widget!.fromPage == 'takeImages') ||
+                            (widget!.fromPage == 'changeCarLocation')
                         ? ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
@@ -486,9 +569,16 @@ class _CarSeizedDashboardPageWidgetState
                             ParamType.String,
                           ),
                           'textShow': serializeParam(
-                            widget!.fromPage == 'takeImages'
-                                ? 'ถ่ายรูปตั้งราคา'
-                                : 'ดูรูปตั้งราคา',
+                            () {
+                              if (widget!.fromPage == 'takeImages') {
+                                return 'ถ่ายรูปตั้งราคา';
+                              } else if (widget!.fromPage ==
+                                  'changeCarLocation') {
+                                return 'เปลี่ยนที่จอดตั้งราคา';
+                              } else {
+                                return 'ดูรูปตั้งราคา';
+                              }
+                            }(),
                             ParamType.String,
                           ),
                           'readAccessRoleData': serializeParam(
@@ -579,12 +669,45 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'changeCarLocation')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.garage,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Text(
-                                widget!.fromPage == 'takeImages'
-                                    ? 'ถ่ายรูปตั้งราคา'
-                                    : 'ดูรูปตั้งราคา',
+                                () {
+                                  if (widget!.fromPage == 'takeImages') {
+                                    return 'ถ่ายรูปตั้งราคา';
+                                  } else if (widget!.fromPage ==
+                                      'changeCarLocation') {
+                                    return 'เปลี่ยนที่จอดตั้งราคา';
+                                  } else {
+                                    return 'ดูรูปตั้งราคา';
+                                  }
+                                }(),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -600,7 +723,8 @@ class _CarSeizedDashboardPageWidgetState
                       ),
                     ),
                   ),
-                if ((widget!.fromPage == 'takeImages'
+                if (((widget!.fromPage == 'takeImages') ||
+                            (widget!.fromPage == 'changeCarLocation')
                         ? ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
@@ -650,9 +774,16 @@ class _CarSeizedDashboardPageWidgetState
                             ParamType.String,
                           ),
                           'textShow': serializeParam(
-                            widget!.fromPage == 'takeImages'
-                                ? 'อัพโหลดรูปเข้าประมูล'
-                                : 'ดูรูปเข้าประมูล',
+                            () {
+                              if (widget!.fromPage == 'takeImages') {
+                                return 'อัพโหลดรูปเข้าประมูล';
+                              } else if (widget!.fromPage ==
+                                  'changeCarLocation') {
+                                return 'เปลี่ยนที่จอดเข้าประมูล';
+                              } else {
+                                return 'ดูรูปเข้าประมูล';
+                              }
+                            }(),
                             ParamType.String,
                           ),
                           'readAccessRoleData': serializeParam(
@@ -743,12 +874,45 @@ class _CarSeizedDashboardPageWidgetState
                                   ),
                                 ),
                               ),
+                            if (widget!.fromPage == 'changeCarLocation')
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(60.0),
+                                      border: Border.all(
+                                        color: Colors.black,
+                                        width: 1.0,
+                                      ),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.garage,
+                                        color: Color(0xFF354052),
+                                        size: 28.0,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             Expanded(
                               flex: 1,
                               child: Text(
-                                widget!.fromPage == 'takeImages'
-                                    ? 'อัพโหลดรูปเข้าประมูล'
-                                    : 'ดูรูปเข้าประมูล',
+                                () {
+                                  if (widget!.fromPage == 'takeImages') {
+                                    return 'อัพโหลดรูปเข้าประมูล';
+                                  } else if (widget!.fromPage ==
+                                      'changeCarLocation') {
+                                    return 'เปลี่ยนที่จอดเข้าประมูล';
+                                  } else {
+                                    return 'ดูรูปเข้าประมูล';
+                                  }
+                                }(),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

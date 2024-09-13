@@ -79,7 +79,8 @@ class _CarSeizedSelectDashboardWidgetState
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      FFAppState().improundUrl = _model.urlLinkStorage!.urlLink;
+      FFAppState().improundUrl =
+          true ? 'https://dev.swpfin.com:7077' : _model.urlLinkStorage!.urlLink;
       safeSetState(() {});
       _model.urlLinkStorageVloan = await queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
@@ -88,8 +89,12 @@ class _CarSeizedSelectDashboardWidgetState
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      FFAppState().impoundUrlVloan = _model.urlLinkStorageVloan!.urlLink;
-      FFAppState().impoundUrlVloanToken = _model.urlLinkStorageVloan!.urlToken;
+      FFAppState().impoundUrlVloan = true
+          ? 'https://is-dev.swpfin.com/ssw_survey'
+          : _model.urlLinkStorageVloan!.urlLink;
+      FFAppState().impoundUrlVloanToken = true
+          ? 'xhJfdKPYnhicbDsC8YpPiOSyoA3ugBGqVXE1Bf9Ufnk=%'
+          : _model.urlLinkStorageVloan!.urlToken;
       safeSetState(() {});
       _model.getDataCollection = await actions.getDataFromCollection(
         'role_menu',
@@ -396,6 +401,111 @@ class _CarSeizedSelectDashboardWidgetState
                               flex: 1,
                               child: Text(
                                 'ดูรูปรถยึด',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Color(0xFF204A77),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  if (((FFAppState().profileLevel == 'สาขา') ||
+                              (FFAppState().profileLevel == 'เขต') ||
+                              (FFAppState().profileLevel == 'ภาค')
+                          ? functions.containsValueInJsonList(
+                              functions.getDataFromMapJson(
+                                  _model.writeAccessRoleData, 'profile_level'),
+                              FFAppState().profileLevel)
+                          : (_model.userRoleSave != 'no_role')) ??
+                      true)
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed(
+                          'CarSeizedDashboardPage',
+                          queryParameters: {
+                            'fromPage': serializeParam(
+                              'changeCarLocation',
+                              ParamType.String,
+                            ),
+                            'readAccessRoleData': serializeParam(
+                              _model.readAccessRoleData,
+                              ParamType.JSON,
+                            ),
+                            'saveAccessRoleData': serializeParam(
+                              _model.writeAccessRoleData,
+                              ParamType.JSON,
+                            ),
+                            'userRoleRead': serializeParam(
+                              _model.userRoleRead,
+                              ParamType.String,
+                            ),
+                            'userRoleSave': serializeParam(
+                              _model.userRoleSave,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 0.43,
+                        height: 120.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 4.0,
+                              color: Color(0x33000000),
+                              offset: Offset(
+                                0.0,
+                                4.0,
+                              ),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              flex: 2,
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Container(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(60.0),
+                                    border: Border.all(
+                                      color: Colors.black,
+                                      width: 1.0,
+                                    ),
+                                  ),
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Icon(
+                                      Icons.garage,
+                                      color: Color(0xFF354052),
+                                      size: 28.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                'เปลี่ยนสถานที่จอดรถ',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

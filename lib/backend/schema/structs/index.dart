@@ -3,6 +3,8 @@ export '/backend/schema/util/schema_util.dart';
 export 'admin_role_group_struct.dart';
 export 'impound_car_access_role_struct.dart';
 export 'impound_car_admin_role_struct.dart';
+export 'impound_car_locate_param_set_struct.dart';
+export 'impound_car_param_set_struct.dart';
 export 'impound_car_role_struct.dart';
 export 'url_link_storage_struct.dart';
 export 'vehicle_type_list_struct.dart';

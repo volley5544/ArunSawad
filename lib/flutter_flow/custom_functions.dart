@@ -18,6 +18,13 @@ String getUserLocation(LatLng? userLocation) {
   return userLatLng;
 }
 
+int getIndexOfBoolList(
+  List<bool>? boolList,
+  bool? boolValue,
+) {
+  return boolList!.indexOf(boolValue!);
+}
+
 String showNumberWithCommaWithDot(String? number) {
   // Add your function code here!
   List<String> numberSplit = number!.split('.');
@@ -4503,4 +4510,13 @@ bool? containListInString(
   bool containsAny = listString.any((element) => input.contains(element));
 
   return containsAny;
+}
+
+List<bool>? setBoolValueListAtIndex(
+  List<bool>? falseList,
+  int? trueIndex,
+) {
+  List<bool> outputList = falseList!;
+  outputList[trueIndex!] = true;
+  return outputList;
 }

@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -19,44 +20,22 @@ export 'customer_car_deails_picture_step1_model.dart';
 class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
   const CustomerCarDeailsPictureStep1Widget({
     super.key,
-    required this.improundCONTNO,
-    required this.improundLOCAT,
-    required this.improundTITLE,
-    required this.improundFNAME,
-    required this.improundSNAME,
-    required this.improundREGNO,
-    required this.improundREGPROV,
-    required this.improundCONTNOTYPE,
-    required this.improundCONTNOTYPENAME,
-    required this.improundGCODE,
-    required this.improundGDESC,
-    required this.improundNumbody,
     required this.step,
-    required this.improundCUSCOD,
     required this.readAccessRoleData,
     required this.saveAccessRoleData,
     required this.userRoleRead,
     required this.userRoleSave,
+    required this.impoundCarParamSet,
+    this.fromPage,
   });
 
-  final String? improundCONTNO;
-  final String? improundLOCAT;
-  final String? improundTITLE;
-  final String? improundFNAME;
-  final String? improundSNAME;
-  final String? improundREGNO;
-  final String? improundREGPROV;
-  final String? improundCONTNOTYPE;
-  final String? improundCONTNOTYPENAME;
-  final String? improundGCODE;
-  final String? improundGDESC;
-  final String? improundNumbody;
   final String? step;
-  final String? improundCUSCOD;
   final dynamic readAccessRoleData;
   final dynamic saveAccessRoleData;
   final String? userRoleRead;
   final String? userRoleSave;
+  final ImpoundCarParamSetStruct? impoundCarParamSet;
+  final String? fromPage;
 
   @override
   State<CustomerCarDeailsPictureStep1Widget> createState() =>
@@ -102,7 +81,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
       );
       _model.imagesAPIOutput =
           await UploadImagesGoogleDriveGroup.searchImagesCall.call(
-        contNo: widget!.improundCONTNO,
+        contNo: widget!.impoundCarParamSet?.improundCONTNO,
         step: widget!.step,
         url: FFAppState().improundUrl,
       );
@@ -455,163 +434,41 @@ class _CustomerCarDeailsPictureStep1WidgetState
                   size: 30.0,
                 ),
                 onPressed: () async {
-                  if (widget!.step == 'step4') {
-                    context.pushNamed(
-                      'CustomerCarDeailsStep4',
-                      queryParameters: {
-                        'improundCONTNO': serializeParam(
-                          widget!.improundCONTNO,
-                          ParamType.String,
-                        ),
-                        'improundLOCAT': serializeParam(
-                          widget!.improundLOCAT,
-                          ParamType.String,
-                        ),
-                        'improundTITLE': serializeParam(
-                          widget!.improundTITLE,
-                          ParamType.String,
-                        ),
-                        'improundFNAME': serializeParam(
-                          widget!.improundFNAME,
-                          ParamType.String,
-                        ),
-                        'improundSNAME': serializeParam(
-                          widget!.improundSNAME,
-                          ParamType.String,
-                        ),
-                        'improundREGNO': serializeParam(
-                          widget!.improundREGNO,
-                          ParamType.String,
-                        ),
-                        'improundREGPROV': serializeParam(
-                          widget!.improundREGPROV,
-                          ParamType.String,
-                        ),
-                        'improundCONTNOTYPE': serializeParam(
-                          widget!.improundCONTNOTYPE,
-                          ParamType.String,
-                        ),
-                        'improundCONTNOTYPENAME': serializeParam(
-                          widget!.improundCONTNOTYPENAME,
-                          ParamType.String,
-                        ),
-                        'improundGCODE': serializeParam(
-                          widget!.improundGCODE,
-                          ParamType.String,
-                        ),
-                        'improundGDESC': serializeParam(
-                          widget!.improundGDESC,
-                          ParamType.String,
-                        ),
-                        'improundNumbody': serializeParam(
-                          widget!.improundNumbody,
-                          ParamType.String,
-                        ),
-                        'step': serializeParam(
-                          widget!.step,
-                          ParamType.String,
-                        ),
-                        'improundCUSCOD': serializeParam(
-                          widget!.improundCUSCOD,
-                          ParamType.String,
-                        ),
-                        'readAccessRoleData': serializeParam(
-                          widget!.readAccessRoleData,
-                          ParamType.JSON,
-                        ),
-                        'saveAccessRoleData': serializeParam(
-                          widget!.saveAccessRoleData,
-                          ParamType.JSON,
-                        ),
-                        'userRoleRead': serializeParam(
-                          widget!.userRoleRead,
-                          ParamType.String,
-                        ),
-                        'userRoleSave': serializeParam(
-                          widget!.userRoleSave,
-                          ParamType.String,
-                        ),
-                      }.withoutNulls,
-                    );
-                  } else {
-                    context.pushNamed(
-                      'CustomerCarDeailsStep1',
-                      queryParameters: {
-                        'improundCONTNO': serializeParam(
-                          widget!.improundCONTNO,
-                          ParamType.String,
-                        ),
-                        'improundLOCAT': serializeParam(
-                          widget!.improundLOCAT,
-                          ParamType.String,
-                        ),
-                        'improundTITLE': serializeParam(
-                          widget!.improundTITLE,
-                          ParamType.String,
-                        ),
-                        'improundFNAME': serializeParam(
-                          widget!.improundFNAME,
-                          ParamType.String,
-                        ),
-                        'improundSNAME': serializeParam(
-                          widget!.improundSNAME,
-                          ParamType.String,
-                        ),
-                        'improundREGNO': serializeParam(
-                          widget!.improundREGNO,
-                          ParamType.String,
-                        ),
-                        'improundREGPROV': serializeParam(
-                          widget!.improundREGPROV,
-                          ParamType.String,
-                        ),
-                        'improundCONTNOTYPE': serializeParam(
-                          widget!.improundCONTNOTYPE,
-                          ParamType.String,
-                        ),
-                        'improundCONTNOTYPENAME': serializeParam(
-                          widget!.improundCONTNOTYPENAME,
-                          ParamType.String,
-                        ),
-                        'improundGCODE': serializeParam(
-                          widget!.improundGCODE,
-                          ParamType.String,
-                        ),
-                        'improundGDESC': serializeParam(
-                          widget!.improundGDESC,
-                          ParamType.String,
-                        ),
-                        'improundNumbody': serializeParam(
-                          widget!.improundNumbody,
-                          ParamType.String,
-                        ),
-                        'step': serializeParam(
-                          widget!.step,
-                          ParamType.String,
-                        ),
-                        'improundCUSCOD': serializeParam(
-                          widget!.improundCUSCOD,
-                          ParamType.String,
-                        ),
-                        'readAccessRoleData': serializeParam(
-                          widget!.readAccessRoleData,
-                          ParamType.JSON,
-                        ),
-                        'saveAccessRoleData': serializeParam(
-                          widget!.saveAccessRoleData,
-                          ParamType.JSON,
-                        ),
-                        'userRoleRead': serializeParam(
-                          widget!.userRoleRead,
-                          ParamType.String,
-                        ),
-                        'userRoleSave': serializeParam(
-                          widget!.userRoleSave,
-                          ParamType.String,
-                        ),
-                      }.withoutNulls,
-                    );
-                  }
+                  if (widget!.step == 'step4') {}
+
+                  context.pushNamed(
+                    'ChangeCarLocationPage',
+                    queryParameters: {
+                      'step': serializeParam(
+                        widget!.step,
+                        ParamType.String,
+                      ),
+                      'readAccessRoleData': serializeParam(
+                        widget!.readAccessRoleData,
+                        ParamType.JSON,
+                      ),
+                      'saveAccessRoleData': serializeParam(
+                        widget!.saveAccessRoleData,
+                        ParamType.JSON,
+                      ),
+                      'userRoleRead': serializeParam(
+                        widget!.userRoleRead,
+                        ParamType.String,
+                      ),
+                      'userRoleSave': serializeParam(
+                        widget!.userRoleSave,
+                        ParamType.String,
+                      ),
+                      'impoundCarParamSet': serializeParam(
+                        widget!.impoundCarParamSet,
+                        ParamType.DataStruct,
+                      ),
+                      'fromPage': serializeParam(
+                        widget!.fromPage,
+                        ParamType.String,
+                      ),
+                    }.withoutNulls,
+                  );
                 },
               ),
             ),
@@ -685,7 +542,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              widget!.improundCONTNOTYPE == 'C'
+                              widget!.impoundCarParamSet?.improundCONTNOTYPE ==
+                                      'C'
                                   ? 'รถยนต์'
                                   : 'มอเตอร์ไซค์',
                               style: FlutterFlowTheme.of(context)
@@ -757,8 +615,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                           children: [
                             Text(
                               valueOrDefault<String>(
-                                widget!.improundREGNO,
-                                '-',
+                                widget!.impoundCarParamSet?.improundREGNO,
+                                'default',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -772,6 +630,201 @@ class _CustomerCarDeailsPictureStep1WidgetState
                             ),
                           ],
                         ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 3.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'สถานที่จอดรถ',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 5.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                ':',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              'สถานที่จอดรถ',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF404040),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ],
+                        ),
+                        if (() {
+                              if (widget!.step == 'step1') {
+                                return ((FFAppState().profileLevel == 'สาขา') ||
+                                        (FFAppState().profileLevel == 'เขต') ||
+                                        (FFAppState().profileLevel == 'ภาค')
+                                    ? functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step1'),
+                                            'Level'),
+                                        FFAppState().profileLevel)
+                                    : functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step1'),
+                                            'role_name'),
+                                        widget!.userRoleSave));
+                              } else if (widget!.step == 'step2') {
+                                return ((FFAppState().profileLevel == 'สาขา') ||
+                                        (FFAppState().profileLevel == 'เขต') ||
+                                        (FFAppState().profileLevel == 'ภาค')
+                                    ? functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step2'),
+                                            'Level'),
+                                        FFAppState().profileLevel)
+                                    : functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step2'),
+                                            'role_name'),
+                                        widget!.userRoleSave));
+                              } else if (widget!.step == 'step3') {
+                                return ((FFAppState().profileLevel == 'สาขา') ||
+                                        (FFAppState().profileLevel == 'เขต') ||
+                                        (FFAppState().profileLevel == 'ภาค')
+                                    ? functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step3'),
+                                            'Level'),
+                                        FFAppState().profileLevel)
+                                    : functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step3'),
+                                            'role_name'),
+                                        widget!.userRoleSave));
+                              } else if (widget!.step == 'step4') {
+                                return ((FFAppState().profileLevel == 'สาขา') ||
+                                        (FFAppState().profileLevel == 'เขต') ||
+                                        (FFAppState().profileLevel == 'ภาค')
+                                    ? functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step4'),
+                                            'Level'),
+                                        FFAppState().profileLevel)
+                                    : functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                'step4'),
+                                            'role_name'),
+                                        widget!.userRoleSave));
+                              } else {
+                                return true;
+                              }
+                            }() ??
+                            true)
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 40.0,
+                            icon: Icon(
+                              Icons.edit_outlined,
+                              color: Color(0xFFDB771A),
+                              size: 25.0,
+                            ),
+                            onPressed: () async {
+                              if (widget!.step == 'step4') {}
+
+                              context.pushNamed(
+                                'ChangeCarLocationPage',
+                                queryParameters: {
+                                  'step': serializeParam(
+                                    widget!.step,
+                                    ParamType.String,
+                                  ),
+                                  'readAccessRoleData': serializeParam(
+                                    widget!.readAccessRoleData,
+                                    ParamType.JSON,
+                                  ),
+                                  'saveAccessRoleData': serializeParam(
+                                    widget!.saveAccessRoleData,
+                                    ParamType.JSON,
+                                  ),
+                                  'userRoleRead': serializeParam(
+                                    widget!.userRoleRead,
+                                    ParamType.String,
+                                  ),
+                                  'userRoleSave': serializeParam(
+                                    widget!.userRoleSave,
+                                    ParamType.String,
+                                  ),
+                                  'impoundCarParamSet': serializeParam(
+                                    widget!.impoundCarParamSet,
+                                    ParamType.DataStruct,
+                                  ),
+                                  'fromPage': serializeParam(
+                                    widget!.fromPage,
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
+                              );
+                            },
+                          ),
                       ],
                     ),
                   ),
@@ -825,7 +878,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -1101,7 +1155,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -1372,7 +1427,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -1643,7 +1699,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -1914,7 +1971,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -2185,7 +2243,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -2455,13 +2514,16 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     'SampleCarImageStep1',
                                     queryParameters: {
                                       'imageName': serializeParam(
-                                        widget!.improundCONTNOTYPE == 'C'
+                                        widget!.impoundCarParamSet
+                                                    ?.improundCONTNOTYPE ==
+                                                'C'
                                             ? 'เลขไมล์'
                                             : 'เลขตัวถังรถ',
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -2499,7 +2561,9 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                             color: Color(0xFFFAFAFA),
                                           ),
                                           child: Text(
-                                            widget!.improundCONTNOTYPE == 'C'
+                                            widget!.impoundCarParamSet
+                                                        ?.improundCONTNOTYPE ==
+                                                    'C'
                                                 ? 'เลขไมล์'
                                                 : 'เลขตัวถังรถ',
                                             style: FlutterFlowTheme.of(context)
@@ -2733,13 +2797,16 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     'SampleCarImageStep1',
                                     queryParameters: {
                                       'imageName': serializeParam(
-                                        widget!.improundCONTNOTYPE == 'C'
+                                        widget!.impoundCarParamSet
+                                                    ?.improundCONTNOTYPE ==
+                                                'C'
                                             ? 'คอนโซลหน้า'
                                             : 'เลขเครื่องยนต์',
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -2782,7 +2849,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
+                                                  widget!.impoundCarParamSet
+                                                              ?.improundCONTNOTYPE ==
                                                           'C'
                                                       ? 'คอนโซลหน้า'
                                                       : 'เลขเครื่องยนต์',
@@ -3020,13 +3088,16 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                     'SampleCarImageStep1',
                                     queryParameters: {
                                       'imageName': serializeParam(
-                                        widget!.improundCONTNOTYPE == 'C'
+                                        widget!.impoundCarParamSet
+                                                    ?.improundCONTNOTYPE ==
+                                                'C'
                                             ? 'เบาะหลัง'
                                             : 'เลขไมล์',
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -3069,7 +3140,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
+                                                  widget!.impoundCarParamSet
+                                                              ?.improundCONTNOTYPE ==
                                                           'C'
                                                       ? 'เบาะหลัง'
                                                       : 'เลขไมล์',
@@ -3303,7 +3375,9 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.improundCONTNOTYPE != 'C') {
+                                  if (widget!.impoundCarParamSet
+                                          ?.improundCONTNOTYPE !=
+                                      'C') {
                                     return;
                                   }
 
@@ -3315,7 +3389,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -3358,7 +3433,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
+                                                  widget!.impoundCarParamSet
+                                                              ?.improundCONTNOTYPE ==
                                                           'C'
                                                       ? 'เครื่องยนต์'
                                                       : 'อื่นๆ',
@@ -3592,7 +3668,9 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.improundCONTNOTYPE != 'C') {
+                                  if (widget!.impoundCarParamSet
+                                          ?.improundCONTNOTYPE !=
+                                      'C') {
                                     return;
                                   }
 
@@ -3604,7 +3682,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -3647,7 +3726,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
+                                                  widget!.impoundCarParamSet
+                                                              ?.improundCONTNOTYPE ==
                                                           'C'
                                                       ? 'เลขตัวถังรถ'
                                                       : 'อื่นๆ',
@@ -3881,7 +3961,9 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.improundCONTNOTYPE != 'C') {
+                                  if (widget!.impoundCarParamSet
+                                          ?.improundCONTNOTYPE !=
+                                      'C') {
                                     return;
                                   }
 
@@ -3893,7 +3975,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                         ParamType.String,
                                       ),
                                       'contNoType': serializeParam(
-                                        widget!.improundCONTNOTYPE,
+                                        widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE,
                                         ParamType.String,
                                       ),
                                       'numberOfImage': serializeParam(
@@ -3936,7 +4019,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                   color: Color(0xFFFAFAFA),
                                                 ),
                                                 child: Text(
-                                                  widget!.improundCONTNOTYPE ==
+                                                  widget!.impoundCarParamSet
+                                                              ?.improundCONTNOTYPE ==
                                                           'C'
                                                       ? 'แผ่นเพลทรถ'
                                                       : 'อื่นๆ',
@@ -4200,6 +4284,51 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         ],
                       ),
                     ],
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 24.0, 12.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: 'เปลี่ยนสถานที่จอดรถ',
+                            icon: Icon(
+                              Icons.garage,
+                              size: 30.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: MediaQuery.sizeOf(context).width * 0.45,
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFFD9761A),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ].addToEnd(SizedBox(height: 50.0)),
               ),

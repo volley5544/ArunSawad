@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/loading_scene_insurance/loading_scene_insurance_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -18,44 +19,20 @@ export 'customer_car_deails_step4_model.dart';
 class CustomerCarDeailsStep4Widget extends StatefulWidget {
   const CustomerCarDeailsStep4Widget({
     super.key,
-    required this.improundCONTNO,
-    required this.improundLOCAT,
-    required this.improundTITLE,
-    required this.improundFNAME,
-    required this.improundSNAME,
-    required this.improundREGNO,
-    required this.improundREGPROV,
-    required this.improundCONTNOTYPE,
-    required this.improundCONTNOTYPENAME,
-    required this.improundGCODE,
-    required this.improundGDESC,
-    required this.improundNumbody,
     required this.step,
-    required this.improundCUSCOD,
     required this.readAccessRoleData,
     required this.saveAccessRoleData,
     required this.userRoleRead,
     required this.userRoleSave,
+    required this.impoundCarParamSet,
   });
 
-  final String? improundCONTNO;
-  final String? improundLOCAT;
-  final String? improundTITLE;
-  final String? improundFNAME;
-  final String? improundSNAME;
-  final String? improundREGNO;
-  final String? improundREGPROV;
-  final String? improundCONTNOTYPE;
-  final String? improundCONTNOTYPENAME;
-  final String? improundGCODE;
-  final String? improundGDESC;
-  final String? improundNumbody;
   final String? step;
-  final String? improundCUSCOD;
   final dynamic readAccessRoleData;
   final dynamic saveAccessRoleData;
   final String? userRoleRead;
   final String? userRoleSave;
+  final ImpoundCarParamSetStruct? impoundCarParamSet;
 
   @override
   State<CustomerCarDeailsStep4Widget> createState() =>
@@ -202,7 +179,12 @@ class _CustomerCarDeailsStep4WidgetState
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Text(
-                                          widget!.improundCONTNOTYPE == 'C'
+                                          valueOrDefault<String>(
+                                                    widget!.impoundCarParamSet
+                                                        ?.improundCONTNOTYPE,
+                                                    'default',
+                                                  ) ==
+                                                  'C'
                                               ? 'รถยนต์'
                                               : 'มอเตอร์ไซค์',
                                           style: FlutterFlowTheme.of(context)
@@ -274,8 +256,9 @@ class _CustomerCarDeailsStep4WidgetState
                                       children: [
                                         Text(
                                           valueOrDefault<String>(
-                                            widget!.improundREGNO,
-                                            '-',
+                                            widget!.impoundCarParamSet
+                                                ?.improundREGNO,
+                                            'default',
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -358,7 +341,8 @@ class _CustomerCarDeailsStep4WidgetState
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -863,7 +847,8 @@ class _CustomerCarDeailsStep4WidgetState
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -1364,7 +1349,8 @@ class _CustomerCarDeailsStep4WidgetState
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -1864,7 +1850,8 @@ class _CustomerCarDeailsStep4WidgetState
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -2365,7 +2352,8 @@ class _CustomerCarDeailsStep4WidgetState
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -2866,7 +2854,8 @@ class _CustomerCarDeailsStep4WidgetState
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -3363,13 +3352,16 @@ class _CustomerCarDeailsStep4WidgetState
                                       'SampleCarImageStep1',
                                       queryParameters: {
                                         'imageName': serializeParam(
-                                          widget!.improundCONTNOTYPE == 'C'
+                                          widget!.impoundCarParamSet
+                                                      ?.improundCONTNOTYPE ==
+                                                  'C'
                                               ? 'เลขไมล์'
                                               : 'เลขตัวถังรถ',
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -3414,7 +3406,9 @@ class _CustomerCarDeailsStep4WidgetState
                                               color: Color(0xFFFAFAFA),
                                             ),
                                             child: Text(
-                                              widget!.improundCONTNOTYPE == 'C'
+                                              widget!.impoundCarParamSet
+                                                          ?.improundCONTNOTYPE ==
+                                                      'C'
                                                   ? 'เลขไมล์ (ถ้ามี)'
                                                   : 'เลขตัวถังรถ (ถ้ามี)',
                                               style: FlutterFlowTheme.of(
@@ -3868,13 +3862,16 @@ class _CustomerCarDeailsStep4WidgetState
                                       'SampleCarImageStep1',
                                       queryParameters: {
                                         'imageName': serializeParam(
-                                          widget!.improundCONTNOTYPE == 'C'
+                                          widget!.impoundCarParamSet
+                                                      ?.improundCONTNOTYPE ==
+                                                  'C'
                                               ? 'คอลโซลหน้า'
                                               : 'เลขเครื่องยนต์',
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -3919,7 +3916,9 @@ class _CustomerCarDeailsStep4WidgetState
                                               color: Color(0xFFFAFAFA),
                                             ),
                                             child: Text(
-                                              widget!.improundCONTNOTYPE == 'C'
+                                              widget!.impoundCarParamSet
+                                                          ?.improundCONTNOTYPE ==
+                                                      'C'
                                                   ? 'คอลโซลหน้า (ถ้ามี)'
                                                   : 'เลขเครื่องยนต์ (ถ้ามี)',
                                               style: FlutterFlowTheme.of(
@@ -4373,13 +4372,16 @@ class _CustomerCarDeailsStep4WidgetState
                                       'SampleCarImageStep1',
                                       queryParameters: {
                                         'imageName': serializeParam(
-                                          widget!.improundCONTNOTYPE == 'C'
+                                          widget!.impoundCarParamSet
+                                                      ?.improundCONTNOTYPE ==
+                                                  'C'
                                               ? 'เบาะหลัง'
                                               : 'เลขไมล์',
                                           ParamType.String,
                                         ),
                                         'contNoType': serializeParam(
-                                          widget!.improundCONTNOTYPE,
+                                          widget!.impoundCarParamSet
+                                              ?.improundCONTNOTYPE,
                                           ParamType.String,
                                         ),
                                         'numberOfImage': serializeParam(
@@ -4424,7 +4426,9 @@ class _CustomerCarDeailsStep4WidgetState
                                               color: Color(0xFFFAFAFA),
                                             ),
                                             child: Text(
-                                              widget!.improundCONTNOTYPE == 'C'
+                                              widget!.impoundCarParamSet
+                                                          ?.improundCONTNOTYPE ==
+                                                      'C'
                                                   ? 'เบาะหลัง (ถ้ามี)'
                                                   : 'เลขไมล์ (ถ้ามี)',
                                               style: FlutterFlowTheme.of(
@@ -4874,7 +4878,9 @@ class _CustomerCarDeailsStep4WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    if (widget!.improundCONTNOTYPE == 'C') {
+                                    if (widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE ==
+                                        'C') {
                                       context.pushNamed(
                                         'SampleCarImageStep1',
                                         queryParameters: {
@@ -4883,7 +4889,8 @@ class _CustomerCarDeailsStep4WidgetState
                                             ParamType.String,
                                           ),
                                           'contNoType': serializeParam(
-                                            widget!.improundCONTNOTYPE,
+                                            widget!.impoundCarParamSet
+                                                ?.improundCONTNOTYPE,
                                             ParamType.String,
                                           ),
                                           'numberOfImage': serializeParam(
@@ -4929,7 +4936,9 @@ class _CustomerCarDeailsStep4WidgetState
                                               color: Color(0xFFFAFAFA),
                                             ),
                                             child: Text(
-                                              widget!.improundCONTNOTYPE == 'C'
+                                              widget!.impoundCarParamSet
+                                                          ?.improundCONTNOTYPE ==
+                                                      'C'
                                                   ? 'เครื่องยนต์ (ถ้ามี)'
                                                   : 'อื่นๆ (ถ้ามี)',
                                               style: FlutterFlowTheme.of(
@@ -5379,7 +5388,9 @@ class _CustomerCarDeailsStep4WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    if (widget!.improundCONTNOTYPE == 'C') {
+                                    if (widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE ==
+                                        'C') {
                                       context.pushNamed(
                                         'SampleCarImageStep1',
                                         queryParameters: {
@@ -5388,7 +5399,8 @@ class _CustomerCarDeailsStep4WidgetState
                                             ParamType.String,
                                           ),
                                           'contNoType': serializeParam(
-                                            widget!.improundCONTNOTYPE,
+                                            widget!.impoundCarParamSet
+                                                ?.improundCONTNOTYPE,
                                             ParamType.String,
                                           ),
                                           'numberOfImage': serializeParam(
@@ -5434,7 +5446,9 @@ class _CustomerCarDeailsStep4WidgetState
                                               color: Color(0xFFFAFAFA),
                                             ),
                                             child: Text(
-                                              widget!.improundCONTNOTYPE == 'C'
+                                              widget!.impoundCarParamSet
+                                                          ?.improundCONTNOTYPE ==
+                                                      'C'
                                                   ? 'เลขตัวถังรถ (ถ้ามี)'
                                                   : 'อื่นๆ (ถ้ามี)',
                                               style: FlutterFlowTheme.of(
@@ -5884,7 +5898,9 @@ class _CustomerCarDeailsStep4WidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    if (widget!.improundCONTNOTYPE == 'C') {
+                                    if (widget!.impoundCarParamSet
+                                            ?.improundCONTNOTYPE ==
+                                        'C') {
                                       context.pushNamed(
                                         'SampleCarImageStep1',
                                         queryParameters: {
@@ -5893,7 +5909,8 @@ class _CustomerCarDeailsStep4WidgetState
                                             ParamType.String,
                                           ),
                                           'contNoType': serializeParam(
-                                            widget!.improundCONTNOTYPE,
+                                            widget!.impoundCarParamSet
+                                                ?.improundCONTNOTYPE,
                                             ParamType.String,
                                           ),
                                           'numberOfImage': serializeParam(
@@ -5939,7 +5956,9 @@ class _CustomerCarDeailsStep4WidgetState
                                               color: Color(0xFFFAFAFA),
                                             ),
                                             child: Text(
-                                              widget!.improundCONTNOTYPE == 'C'
+                                              widget!.impoundCarParamSet
+                                                          ?.improundCONTNOTYPE ==
+                                                      'C'
                                                   ? 'แผ่นเพลทรถ (ถ้ามี)'
                                                   : 'อื่นๆ (ถ้ามี)',
                                               style: FlutterFlowTheme.of(
@@ -6633,23 +6652,35 @@ class _CustomerCarDeailsStep4WidgetState
                                   .uploadGoogleDriveAPICall
                                   .call(
                             projectName: 'impround_car',
-                            contractNumber: '${widget!.improundCONTNO}',
+                            contractNumber:
+                                '${widget!.impoundCarParamSet?.improundCONTNO}',
                             step: widget!.step,
-                            titleCust: '${widget!.improundTITLE}',
-                            firstnameCust: '${widget!.improundFNAME}',
-                            lastnameCust: '${widget!.improundSNAME}',
-                            typeContract: '${widget!.improundCONTNOTYPE}',
+                            titleCust:
+                                '${widget!.impoundCarParamSet?.improundTITLE}',
+                            firstnameCust:
+                                '${widget!.impoundCarParamSet?.improundFNAME}',
+                            lastnameCust:
+                                '${widget!.impoundCarParamSet?.improundSNAME}',
+                            typeContract:
+                                '${widget!.impoundCarParamSet?.improundCONTNOTYPE}',
                             branchCode: FFAppState().profileBranch,
                             branchName: FFAppState().profileUnitCodeName,
                             nameTh: FFAppState().profileFullName,
-                            productName: '${widget!.improundGDESC}',
-                            productCode: '${widget!.improundGCODE}',
-                            numBody: '${widget!.improundNumbody}',
-                            registrationCar: '${widget!.improundREGNO}',
-                            registrationProve: '${widget!.improundREGPROV}',
-                            contnoTypeName: '${widget!.improundCONTNOTYPENAME}',
+                            productName:
+                                '${widget!.impoundCarParamSet?.improundGDESC}',
+                            productCode:
+                                '${widget!.impoundCarParamSet?.improundGCODE}',
+                            numBody:
+                                '${widget!.impoundCarParamSet?.improundNumbody}',
+                            registrationCar:
+                                '${widget!.impoundCarParamSet?.improundREGNO}',
+                            registrationProve:
+                                '${widget!.impoundCarParamSet?.improundREGPROV}',
+                            contnoTypeName:
+                                '${widget!.impoundCarParamSet?.improundCONTNOTYPENAME}',
                             userid: FFAppState().employeeID,
-                            locat: '${widget!.improundLOCAT}',
+                            locat:
+                                '${widget!.impoundCarParamSet?.improundLOCAT}',
                             remark: (_model.textController.text != null &&
                                         _model.textController.text != '') &&
                                     (_model.textController.text != '')
@@ -6667,7 +6698,7 @@ class _CustomerCarDeailsStep4WidgetState
                             images10: _model.uploadedLocalFile10,
                             images11: _model.uploadedLocalFile11,
                             images12: _model.uploadedLocalFile12,
-                            cuscod: widget!.improundCUSCOD,
+                            cuscod: widget!.impoundCarParamSet?.improundCUSCOD,
                             url: FFAppState().improundUrl,
                           );
 
@@ -6754,60 +6785,8 @@ class _CustomerCarDeailsStep4WidgetState
                           context.pushNamed(
                             'customerCarDeailsPictureStep1',
                             queryParameters: {
-                              'improundCONTNO': serializeParam(
-                                widget!.improundCONTNO,
-                                ParamType.String,
-                              ),
-                              'improundLOCAT': serializeParam(
-                                widget!.improundLOCAT,
-                                ParamType.String,
-                              ),
-                              'improundTITLE': serializeParam(
-                                widget!.improundTITLE,
-                                ParamType.String,
-                              ),
-                              'improundFNAME': serializeParam(
-                                widget!.improundFNAME,
-                                ParamType.String,
-                              ),
-                              'improundSNAME': serializeParam(
-                                widget!.improundSNAME,
-                                ParamType.String,
-                              ),
-                              'improundREGNO': serializeParam(
-                                widget!.improundREGNO,
-                                ParamType.String,
-                              ),
-                              'improundREGPROV': serializeParam(
-                                widget!.improundREGPROV,
-                                ParamType.String,
-                              ),
-                              'improundCONTNOTYPE': serializeParam(
-                                widget!.improundCONTNOTYPE,
-                                ParamType.String,
-                              ),
-                              'improundCONTNOTYPENAME': serializeParam(
-                                widget!.improundCONTNOTYPENAME,
-                                ParamType.String,
-                              ),
-                              'improundGCODE': serializeParam(
-                                widget!.improundGCODE,
-                                ParamType.String,
-                              ),
-                              'improundGDESC': serializeParam(
-                                widget!.improundGDESC,
-                                ParamType.String,
-                              ),
-                              'improundNumbody': serializeParam(
-                                widget!.improundNumbody,
-                                ParamType.String,
-                              ),
                               'step': serializeParam(
                                 widget!.step,
-                                ParamType.String,
-                              ),
-                              'improundCUSCOD': serializeParam(
-                                widget!.improundCUSCOD,
                                 ParamType.String,
                               ),
                               'readAccessRoleData': serializeParam(
@@ -6824,6 +6803,14 @@ class _CustomerCarDeailsStep4WidgetState
                               ),
                               'userRoleSave': serializeParam(
                                 widget!.userRoleSave,
+                                ParamType.String,
+                              ),
+                              'impoundCarParamSet': serializeParam(
+                                widget!.impoundCarParamSet,
+                                ParamType.DataStruct,
+                              ),
+                              'fromPage': serializeParam(
+                                'seeImages',
                                 ParamType.String,
                               ),
                             }.withoutNulls,

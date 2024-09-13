@@ -47,6 +47,7 @@ import 'schema/branchview_dropdown_record.dart';
 import 'schema/report_storage_record.dart';
 import 'schema/admin_role_group_record.dart';
 import 'schema/collection_call_dropdown_record.dart';
+import 'schema/impound_car_master_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -97,6 +98,7 @@ export 'schema/branchview_dropdown_record.dart';
 export 'schema/report_storage_record.dart';
 export 'schema/admin_role_group_record.dart';
 export 'schema/collection_call_dropdown_record.dart';
+export 'schema/impound_car_master_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1667,6 +1669,43 @@ Future<List<CollectionCallDropdownRecord>>
           limit: limit,
           singleRecord: singleRecord,
         );
+
+/// Functions to query ImpoundCarMasterRecords (as a Stream and as a Future).
+Future<int> queryImpoundCarMasterRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ImpoundCarMasterRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ImpoundCarMasterRecord>> queryImpoundCarMasterRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ImpoundCarMasterRecord.collection,
+      ImpoundCarMasterRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ImpoundCarMasterRecord>> queryImpoundCarMasterRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ImpoundCarMasterRecord.collection,
+      ImpoundCarMasterRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
 
 Future<int> queryCollectionCount(
   Query collection, {
