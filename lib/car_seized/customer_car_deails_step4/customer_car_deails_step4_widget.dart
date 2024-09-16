@@ -25,6 +25,7 @@ class CustomerCarDeailsStep4Widget extends StatefulWidget {
     required this.userRoleRead,
     required this.userRoleSave,
     required this.impoundCarParamSet,
+    required this.impoundCarLocateParamSet,
   });
 
   final String? step;
@@ -33,6 +34,7 @@ class CustomerCarDeailsStep4Widget extends StatefulWidget {
   final String? userRoleRead;
   final String? userRoleSave;
   final ImpoundCarParamSetStruct? impoundCarParamSet;
+  final ImpoundCarLocateParamSetStruct? impoundCarLocateParamSet;
 
   @override
   State<CustomerCarDeailsStep4Widget> createState() =>

@@ -8791,6 +8791,151 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImproundMANUYRCONVERT(int index, String value) {
     improundMANUYRCONVERT.insert(index, value);
   }
+
+  List<String> _impoundCarStatusName = [];
+  List<String> get impoundCarStatusName => _impoundCarStatusName;
+  set impoundCarStatusName(List<String> value) {
+    _impoundCarStatusName = value;
+  }
+
+  void addToImpoundCarStatusName(String value) {
+    impoundCarStatusName.add(value);
+  }
+
+  void removeFromImpoundCarStatusName(String value) {
+    impoundCarStatusName.remove(value);
+  }
+
+  void removeAtIndexFromImpoundCarStatusName(int index) {
+    impoundCarStatusName.removeAt(index);
+  }
+
+  void updateImpoundCarStatusNameAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundCarStatusName[index] = updateFn(_impoundCarStatusName[index]);
+  }
+
+  void insertAtIndexInImpoundCarStatusName(int index, String value) {
+    impoundCarStatusName.insert(index, value);
+  }
+
+  List<String> _impoundCarBranchName = [];
+  List<String> get impoundCarBranchName => _impoundCarBranchName;
+  set impoundCarBranchName(List<String> value) {
+    _impoundCarBranchName = value;
+  }
+
+  void addToImpoundCarBranchName(String value) {
+    impoundCarBranchName.add(value);
+  }
+
+  void removeFromImpoundCarBranchName(String value) {
+    impoundCarBranchName.remove(value);
+  }
+
+  void removeAtIndexFromImpoundCarBranchName(int index) {
+    impoundCarBranchName.removeAt(index);
+  }
+
+  void updateImpoundCarBranchNameAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundCarBranchName[index] = updateFn(_impoundCarBranchName[index]);
+  }
+
+  void insertAtIndexInImpoundCarBranchName(int index, String value) {
+    impoundCarBranchName.insert(index, value);
+  }
+
+  List<String> _impoundCarMainBranch = [];
+  List<String> get impoundCarMainBranch => _impoundCarMainBranch;
+  set impoundCarMainBranch(List<String> value) {
+    _impoundCarMainBranch = value;
+  }
+
+  void addToImpoundCarMainBranch(String value) {
+    impoundCarMainBranch.add(value);
+  }
+
+  void removeFromImpoundCarMainBranch(String value) {
+    impoundCarMainBranch.remove(value);
+  }
+
+  void removeAtIndexFromImpoundCarMainBranch(int index) {
+    impoundCarMainBranch.removeAt(index);
+  }
+
+  void updateImpoundCarMainBranchAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundCarMainBranch[index] = updateFn(_impoundCarMainBranch[index]);
+  }
+
+  void insertAtIndexInImpoundCarMainBranch(int index, String value) {
+    impoundCarMainBranch.insert(index, value);
+  }
+
+  List<String> _impoundCarStatusId = [];
+  List<String> get impoundCarStatusId => _impoundCarStatusId;
+  set impoundCarStatusId(List<String> value) {
+    _impoundCarStatusId = value;
+  }
+
+  void addToImpoundCarStatusId(String value) {
+    impoundCarStatusId.add(value);
+  }
+
+  void removeFromImpoundCarStatusId(String value) {
+    impoundCarStatusId.remove(value);
+  }
+
+  void removeAtIndexFromImpoundCarStatusId(int index) {
+    impoundCarStatusId.removeAt(index);
+  }
+
+  void updateImpoundCarStatusIdAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundCarStatusId[index] = updateFn(_impoundCarStatusId[index]);
+  }
+
+  void insertAtIndexInImpoundCarStatusId(int index, String value) {
+    impoundCarStatusId.insert(index, value);
+  }
+
+  List<String> _impoundCarStatusCode = [];
+  List<String> get impoundCarStatusCode => _impoundCarStatusCode;
+  set impoundCarStatusCode(List<String> value) {
+    _impoundCarStatusCode = value;
+  }
+
+  void addToImpoundCarStatusCode(String value) {
+    impoundCarStatusCode.add(value);
+  }
+
+  void removeFromImpoundCarStatusCode(String value) {
+    impoundCarStatusCode.remove(value);
+  }
+
+  void removeAtIndexFromImpoundCarStatusCode(int index) {
+    impoundCarStatusCode.removeAt(index);
+  }
+
+  void updateImpoundCarStatusCodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundCarStatusCode[index] = updateFn(_impoundCarStatusCode[index]);
+  }
+
+  void insertAtIndexInImpoundCarStatusCode(int index, String value) {
+    impoundCarStatusCode.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

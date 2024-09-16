@@ -2364,6 +2364,15 @@ class _DetailListFollowUpDebtWidgetState
                                                                   ParamType
                                                                       .String,
                                                                 ),
+                                                                'dbName':
+                                                                    serializeParam(
+                                                                  getJsonField(
+                                                                    listCardItem,
+                                                                    r'''$.DBNAME''',
+                                                                  ).toString(),
+                                                                  ParamType
+                                                                      .String,
+                                                                ),
                                                               }.withoutNulls,
                                                             );
                                                           },

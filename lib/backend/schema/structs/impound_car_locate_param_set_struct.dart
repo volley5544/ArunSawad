@@ -14,7 +14,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
     String? locatName,
     String? improundcarSubLocatId,
     String? branchNameLocat,
-    String? improundcarStatusId,
     String? address,
     String? subDistrict,
     String? district,
@@ -33,7 +32,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         _locatName = locatName,
         _improundcarSubLocatId = improundcarSubLocatId,
         _branchNameLocat = branchNameLocat,
-        _improundcarStatusId = improundcarStatusId,
         _address = address,
         _subDistrict = subDistrict,
         _district = district,
@@ -76,13 +74,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
   set branchNameLocat(String? val) => _branchNameLocat = val;
 
   bool hasBranchNameLocat() => _branchNameLocat != null;
-
-  // "improundcar_status_id" field.
-  String? _improundcarStatusId;
-  String get improundcarStatusId => _improundcarStatusId ?? '';
-  set improundcarStatusId(String? val) => _improundcarStatusId = val;
-
-  bool hasImproundcarStatusId() => _improundcarStatusId != null;
 
   // "address" field.
   String? _address;
@@ -181,7 +172,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         locatName: data['locat_name'] as String?,
         improundcarSubLocatId: data['improundcar_sub_locat_id'] as String?,
         branchNameLocat: data['branch_name_locat'] as String?,
-        improundcarStatusId: data['improundcar_status_id'] as String?,
         address: data['address'] as String?,
         subDistrict: data['sub_district'] as String?,
         district: data['district'] as String?,
@@ -207,7 +197,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         'locat_name': _locatName,
         'improundcar_sub_locat_id': _improundcarSubLocatId,
         'branch_name_locat': _branchNameLocat,
-        'improundcar_status_id': _improundcarStatusId,
         'address': _address,
         'sub_district': _subDistrict,
         'district': _district,
@@ -239,10 +228,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         ),
         'branch_name_locat': serializeParam(
           _branchNameLocat,
-          ParamType.String,
-        ),
-        'improundcar_status_id': serializeParam(
-          _improundcarStatusId,
           ParamType.String,
         ),
         'address': serializeParam(
@@ -319,11 +304,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         ),
         branchNameLocat: deserializeParam(
           data['branch_name_locat'],
-          ParamType.String,
-          false,
-        ),
-        improundcarStatusId: deserializeParam(
-          data['improundcar_status_id'],
           ParamType.String,
           false,
         ),
@@ -404,7 +384,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         locatName == other.locatName &&
         improundcarSubLocatId == other.improundcarSubLocatId &&
         branchNameLocat == other.branchNameLocat &&
-        improundcarStatusId == other.improundcarStatusId &&
         address == other.address &&
         subDistrict == other.subDistrict &&
         district == other.district &&
@@ -426,7 +405,6 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         locatName,
         improundcarSubLocatId,
         branchNameLocat,
-        improundcarStatusId,
         address,
         subDistrict,
         district,
@@ -448,7 +426,6 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
   String? locatName,
   String? improundcarSubLocatId,
   String? branchNameLocat,
-  String? improundcarStatusId,
   String? address,
   String? subDistrict,
   String? district,
@@ -472,7 +449,6 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
       locatName: locatName,
       improundcarSubLocatId: improundcarSubLocatId,
       branchNameLocat: branchNameLocat,
-      improundcarStatusId: improundcarStatusId,
       address: address,
       subDistrict: subDistrict,
       district: district,

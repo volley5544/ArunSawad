@@ -583,6 +583,7 @@ final parametersBuilderMap =
   'InterestPage': (data) async => ParameterData(
         allParams: {
           'contno': getParameter<String>(data, 'contno'),
+          'dbName': getParameter<String>(data, 'dbName'),
         },
       ),
   'QRCode': (data) async => ParameterData(
@@ -679,6 +680,12 @@ final parametersBuilderMap =
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'impoundCarStatusId':
+              getParameter<String>(data, 'impoundCarStatusId'),
+          'impoundCarStatusCode':
+              getParameter<String>(data, 'impoundCarStatusCode'),
+          'impoundCarStatusName':
+              getParameter<String>(data, 'impoundCarStatusName'),
         },
       ),
 };

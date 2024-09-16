@@ -1791,6 +1791,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'contno',
                   ParamType.String,
                 ),
+                dbName: params.getParam(
+                  'dbName',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1993,6 +1997,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   isList: false,
                   structBuilder: ImpoundCarParamSetStruct.fromSerializableMap,
                 ),
+                impoundCarLocateParamSet: params.getParam(
+                  'impoundCarLocateParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder:
+                      ImpoundCarLocateParamSetStruct.fromSerializableMap,
+                ),
               ),
             ),
             FFRoute(
@@ -2137,6 +2148,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.DataStruct,
                   isList: false,
                   structBuilder: ImpoundCarParamSetStruct.fromSerializableMap,
+                ),
+                impoundCarStatusId: params.getParam(
+                  'impoundCarStatusId',
+                  ParamType.String,
+                ),
+                impoundCarStatusCode: params.getParam(
+                  'impoundCarStatusCode',
+                  ParamType.String,
+                ),
+                impoundCarStatusName: params.getParam(
+                  'impoundCarStatusName',
+                  ParamType.String,
                 ),
               ),
             )

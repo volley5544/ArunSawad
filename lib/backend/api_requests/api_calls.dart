@@ -183,6 +183,25 @@ class SearchImagesCall {
         response,
         r'''$.data[:].remark''',
       ));
+  String? impoundCarStatusId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].improundcar_status_id''',
+      ));
+  String? impoundCarStatusName(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].status_name''',
+      ));
+  String? impoundCarStatusCode(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].status_code''',
+      ));
+  String? locatName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].locat_name''',
+      ));
 }
 
 class SearchContractNumberCall {
@@ -575,6 +594,24 @@ class SearchContractNumberCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? impoundStatusId(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].improundcar_status_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? impoundStatusCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].status_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class UploadGoogleDriveAPICall {
@@ -736,7 +773,6 @@ class UploadGoogleDriveAPICall {
 class UpdateImproundCarCall {
   Future<ApiCallResponse> call({
     String? contNo = '',
-    String? status = '',
     String? improundcarLocatId = '',
     String? locatName = '',
     String? improundcarSubLocatId = '',
@@ -770,7 +806,6 @@ class UpdateImproundCarCall {
     final ffApiRequestBody = '''
 {
   "cont_no": "${contNo}",
-  "status": "${status}",
   "improundcar_locat_id": "${improundcarLocatId}",
   "locat_name": "${locatName}",
   "improundcar_sub_locat_id": "${improundcarSubLocatId}",
@@ -10897,15 +10932,17 @@ class ApiRepaymentListCall {
     String? apiUrl = '',
     String? paiddate = '',
     String? contno = '',
+    String? dbName = '',
   }) async {
     final ffApiRequestBody = '''
 {
   "paiddate": "${paiddate}",
-  "contno": "${contno}"
+  "contno": "${contno}",
+  "db_name": "${dbName}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'apiRepaymentList',
-      apiUrl: '${apiUrl}/api/repayment/list',
+      apiUrl: '${apiUrl}/api/repayment/list-cus',
       callType: ApiCallType.POST,
       headers: {
         'X-API-KEY': 'xs6PekOU2GPChNTgeHVmlvgs7QNImu9OqEksBQ01/Yg=',

@@ -467,6 +467,18 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         widget!.fromPage,
                         ParamType.String,
                       ),
+                      'impoundCarStatusId': serializeParam(
+                        '',
+                        ParamType.String,
+                      ),
+                      'impoundCarStatusCode': serializeParam(
+                        '',
+                        ParamType.String,
+                      ),
+                      'impoundCarStatusName': serializeParam(
+                        '',
+                        ParamType.String,
+                      ),
                     }.withoutNulls,
                   );
                 },
@@ -633,21 +645,68 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       ],
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 3.0, 0.0),
-                          child: Row(
+                  if (UploadImagesGoogleDriveGroup.searchImagesCall.branchname(
+                        (_model.imagesAPIOutput?.jsonBody ?? ''),
+                      ) !=
+                      '')
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 3.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'สถานที่จอดรถ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF404040),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 5.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  ':',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF404040),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'สถานที่จอดรถ',
+                                '${UploadImagesGoogleDriveGroup.searchImagesCall.branchname(
+                                  (_model.imagesAPIOutput?.jsonBody ?? ''),
+                                )} (${UploadImagesGoogleDriveGroup.searchImagesCall.locatName(
+                                  (_model.imagesAPIOutput?.jsonBody ?? ''),
+                                )})',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -660,174 +719,250 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               ),
                             ],
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 5.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                ':',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF404040),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                          if (() {
+                                if (widget!.step == 'step1') {
+                                  return ((FFAppState().profileLevel ==
+                                              'สาขา') ||
+                                          (FFAppState().profileLevel ==
+                                              'เขต') ||
+                                          (FFAppState().profileLevel == 'ภาค')
+                                      ? functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step1'),
+                                              'Level'),
+                                          FFAppState().profileLevel)
+                                      : functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step1'),
+                                              'role_name'),
+                                          widget!.userRoleSave));
+                                } else if (widget!.step == 'step2') {
+                                  return ((FFAppState().profileLevel ==
+                                              'สาขา') ||
+                                          (FFAppState().profileLevel ==
+                                              'เขต') ||
+                                          (FFAppState().profileLevel == 'ภาค')
+                                      ? functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step2'),
+                                              'Level'),
+                                          FFAppState().profileLevel)
+                                      : functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step2'),
+                                              'role_name'),
+                                          widget!.userRoleSave));
+                                } else if (widget!.step == 'step3') {
+                                  return ((FFAppState().profileLevel ==
+                                              'สาขา') ||
+                                          (FFAppState().profileLevel ==
+                                              'เขต') ||
+                                          (FFAppState().profileLevel == 'ภาค')
+                                      ? functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step3'),
+                                              'Level'),
+                                          FFAppState().profileLevel)
+                                      : functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step3'),
+                                              'role_name'),
+                                          widget!.userRoleSave));
+                                } else if (widget!.step == 'step4') {
+                                  return ((FFAppState().profileLevel ==
+                                              'สาขา') ||
+                                          (FFAppState().profileLevel ==
+                                              'เขต') ||
+                                          (FFAppState().profileLevel == 'ภาค')
+                                      ? functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step4'),
+                                              'Level'),
+                                          FFAppState().profileLevel)
+                                      : functions.containsValueInJsonList(
+                                          functions.getDataFromMapJson(
+                                              functions.getDataFromMapJson(
+                                                  widget!.saveAccessRoleData,
+                                                  'step4'),
+                                              'role_name'),
+                                          widget!.userRoleSave));
+                                } else {
+                                  return true;
+                                }
+                              }() ??
+                              true)
+                            FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30.0,
+                              borderWidth: 1.0,
+                              buttonSize: 40.0,
+                              icon: Icon(
+                                Icons.edit_outlined,
+                                color: Color(0xFFDB771A),
+                                size: 25.0,
                               ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'สถานที่จอดรถ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF404040),
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ],
-                        ),
-                        if (() {
-                              if (widget!.step == 'step1') {
-                                return ((FFAppState().profileLevel == 'สาขา') ||
-                                        (FFAppState().profileLevel == 'เขต') ||
-                                        (FFAppState().profileLevel == 'ภาค')
-                                    ? functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step1'),
-                                            'Level'),
-                                        FFAppState().profileLevel)
-                                    : functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step1'),
-                                            'role_name'),
-                                        widget!.userRoleSave));
-                              } else if (widget!.step == 'step2') {
-                                return ((FFAppState().profileLevel == 'สาขา') ||
-                                        (FFAppState().profileLevel == 'เขต') ||
-                                        (FFAppState().profileLevel == 'ภาค')
-                                    ? functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step2'),
-                                            'Level'),
-                                        FFAppState().profileLevel)
-                                    : functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step2'),
-                                            'role_name'),
-                                        widget!.userRoleSave));
-                              } else if (widget!.step == 'step3') {
-                                return ((FFAppState().profileLevel == 'สาขา') ||
-                                        (FFAppState().profileLevel == 'เขต') ||
-                                        (FFAppState().profileLevel == 'ภาค')
-                                    ? functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step3'),
-                                            'Level'),
-                                        FFAppState().profileLevel)
-                                    : functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step3'),
-                                            'role_name'),
-                                        widget!.userRoleSave));
-                              } else if (widget!.step == 'step4') {
-                                return ((FFAppState().profileLevel == 'สาขา') ||
-                                        (FFAppState().profileLevel == 'เขต') ||
-                                        (FFAppState().profileLevel == 'ภาค')
-                                    ? functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step4'),
-                                            'Level'),
-                                        FFAppState().profileLevel)
-                                    : functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
-                                            functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                'step4'),
-                                            'role_name'),
-                                        widget!.userRoleSave));
-                              } else {
-                                return true;
-                              }
-                            }() ??
-                            true)
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 40.0,
-                            icon: Icon(
-                              Icons.edit_outlined,
-                              color: Color(0xFFDB771A),
-                              size: 25.0,
-                            ),
-                            onPressed: () async {
-                              if (widget!.step == 'step4') {}
+                              onPressed: () async {
+                                if (widget!.step == 'step4') {}
 
-                              context.pushNamed(
-                                'ChangeCarLocationPage',
-                                queryParameters: {
-                                  'step': serializeParam(
-                                    widget!.step,
-                                    ParamType.String,
-                                  ),
-                                  'readAccessRoleData': serializeParam(
-                                    widget!.readAccessRoleData,
-                                    ParamType.JSON,
-                                  ),
-                                  'saveAccessRoleData': serializeParam(
-                                    widget!.saveAccessRoleData,
-                                    ParamType.JSON,
-                                  ),
-                                  'userRoleRead': serializeParam(
-                                    widget!.userRoleRead,
-                                    ParamType.String,
-                                  ),
-                                  'userRoleSave': serializeParam(
-                                    widget!.userRoleSave,
-                                    ParamType.String,
-                                  ),
-                                  'impoundCarParamSet': serializeParam(
-                                    widget!.impoundCarParamSet,
-                                    ParamType.DataStruct,
-                                  ),
-                                  'fromPage': serializeParam(
-                                    widget!.fromPage,
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-                            },
-                          ),
-                      ],
+                                context.pushNamed(
+                                  'ChangeCarLocationPage',
+                                  queryParameters: {
+                                    'step': serializeParam(
+                                      widget!.step,
+                                      ParamType.String,
+                                    ),
+                                    'readAccessRoleData': serializeParam(
+                                      widget!.readAccessRoleData,
+                                      ParamType.JSON,
+                                    ),
+                                    'saveAccessRoleData': serializeParam(
+                                      widget!.saveAccessRoleData,
+                                      ParamType.JSON,
+                                    ),
+                                    'userRoleRead': serializeParam(
+                                      widget!.userRoleRead,
+                                      ParamType.String,
+                                    ),
+                                    'userRoleSave': serializeParam(
+                                      widget!.userRoleSave,
+                                      ParamType.String,
+                                    ),
+                                    'impoundCarParamSet': serializeParam(
+                                      widget!.impoundCarParamSet,
+                                      ParamType.DataStruct,
+                                    ),
+                                    'fromPage': serializeParam(
+                                      widget!.fromPage,
+                                      ParamType.String,
+                                    ),
+                                    'impoundCarStatusId': serializeParam(
+                                      UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
+                                          .impoundCarStatusId(
+                                        (_model.imagesAPIOutput?.jsonBody ??
+                                            ''),
+                                      ),
+                                      ParamType.String,
+                                    ),
+                                    'impoundCarStatusCode': serializeParam(
+                                      UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
+                                          .impoundCarStatusCode(
+                                        (_model.imagesAPIOutput?.jsonBody ??
+                                            ''),
+                                      ),
+                                      ParamType.String,
+                                    ),
+                                    'impoundCarStatusName': serializeParam(
+                                      UploadImagesGoogleDriveGroup
+                                          .searchImagesCall
+                                          .impoundCarStatusName(
+                                        (_model.imagesAPIOutput?.jsonBody ??
+                                            ''),
+                                      ),
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                            ),
+                        ],
+                      ),
                     ),
-                  ),
+                  if (UploadImagesGoogleDriveGroup.searchImagesCall
+                          .impoundCarStatusName(
+                        (_model.imagesAPIOutput?.jsonBody ?? ''),
+                      ) !=
+                      '')
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 3.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'สถานะ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF404040),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 5.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  ':',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF404040),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                valueOrDefault<String>(
+                                  UploadImagesGoogleDriveGroup.searchImagesCall
+                                      .impoundCarStatusName(
+                                    (_model.imagesAPIOutput?.jsonBody ?? ''),
+                                  ),
+                                  'status_name',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 12.0),

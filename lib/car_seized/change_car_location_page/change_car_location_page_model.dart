@@ -30,6 +30,8 @@ class ChangeCarLocationPageModel
   TextEditingController? searchTextfieldTextController;
   String? Function(BuildContext, String?)?
       searchTextfieldTextControllerValidator;
+  // Stores action output result for [Backend Call - API (updateImproundCar)] action in Button widget.
+  ApiCallResponse? updateCarLocationOutput;
 
   @override
   void initState(BuildContext context) {}

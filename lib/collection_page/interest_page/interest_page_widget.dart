@@ -21,9 +21,11 @@ class InterestPageWidget extends StatefulWidget {
   const InterestPageWidget({
     super.key,
     required this.contno,
+    required this.dbName,
   });
 
   final String? contno;
+  final String? dbName;
 
   @override
   State<InterestPageWidget> createState() => _InterestPageWidgetState();
@@ -327,6 +329,7 @@ class _InterestPageWidgetState extends State<InterestPageWidget> {
                                             .languageCode,
                                       ),
                                       contno: widget!.contno,
+                                      dbName: widget!.dbName,
                                     );
 
                                     _shouldSetState = true;
