@@ -1056,6 +1056,95 @@ class _ChangeCarLocationPageWidgetState
                                     );
 
                                     _shouldSetState = true;
+                                    if ((_model.updateCarLocationOutput
+                                                ?.statusCode ??
+                                            200) !=
+                                        200) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาด Connection(${(_model.updateCarLocationOutput?.statusCode ?? 200).toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    if ('200' ==
+                                        UploadImagesGoogleDriveGroup
+                                            .updateImproundCarCall
+                                            .statusLayer1(
+                                              (_model.updateCarLocationOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )
+                                            .toString()) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  '${UploadImagesGoogleDriveGroup.updateImproundCarCall.messageLayer1(
+                                                        (_model.updateCarLocationOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ).toString()}'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+
+                                      context
+                                          .goNamed('CarSeizedSelectDashboard');
+                                    } else {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  '${UploadImagesGoogleDriveGroup.updateImproundCarCall.messageLayer1(
+                                                        (_model.updateCarLocationOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ).toString()}'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }

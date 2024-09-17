@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -19,14 +18,7 @@ import 'car_seized_select_dashboard_model.dart';
 export 'car_seized_select_dashboard_model.dart';
 
 class CarSeizedSelectDashboardWidget extends StatefulWidget {
-  const CarSeizedSelectDashboardWidget({
-    super.key,
-    required this.readRoleAccess,
-    required this.saveRoleAccess,
-  });
-
-  final ImpoundCarAccessRoleStruct? readRoleAccess;
-  final ImpoundCarAccessRoleStruct? saveRoleAccess;
+  const CarSeizedSelectDashboardWidget({super.key});
 
   @override
   State<CarSeizedSelectDashboardWidget> createState() =>

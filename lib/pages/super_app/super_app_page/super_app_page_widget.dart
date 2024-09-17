@@ -2585,23 +2585,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         Navigator.pop(
                                                                             context);
 
-                                                                        context
-                                                                            .goNamed(
-                                                                          'CarSeizedSelectDashboard',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'readRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                            'saveRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
+                                                                        context.goNamed(
+                                                                            'CarSeizedSelectDashboard');
 
                                                                         if (_shouldSetState)
                                                                           safeSetState(
@@ -11959,23 +11944,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                         Navigator.pop(
                                                                             context);
 
-                                                                        context
-                                                                            .goNamed(
-                                                                          'CarSeizedSelectDashboard',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'readRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarReadAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                            'saveRoleAccess':
-                                                                                serializeParam(
-                                                                              gridViewRoleMenuRecord?.impoundCarSaveAccessRole,
-                                                                              ParamType.DataStruct,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
+                                                                        context.goNamed(
+                                                                            'CarSeizedSelectDashboard');
 
                                                                         if (_shouldSetState)
                                                                           safeSetState(

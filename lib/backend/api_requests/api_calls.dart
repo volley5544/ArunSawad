@@ -847,6 +847,15 @@ class UpdateImproundCarCall {
       alwaysAllowBody: false,
     );
   }
+
+  dynamic messageLayer1(dynamic response) => getJsonField(
+        response,
+        r'''$.message''',
+      );
+  dynamic statusLayer1(dynamic response) => getJsonField(
+        response,
+        r'''$.statuscode''',
+      );
 }
 
 /// End uploadImagesGoogleDrive Group Code

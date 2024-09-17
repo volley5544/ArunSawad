@@ -653,9 +653,7 @@ final parametersBuilderMap =
   'TypePicStep1': ParameterData.none(),
   'CustomerBikeDetailsStep1': ParameterData.none(),
   'CustomerBikeDeailsStep4': ParameterData.none(),
-  'CarSeizedSelectDashboard': (data) async => ParameterData(
-        allParams: {},
-      ),
+  'CarSeizedSelectDashboard': ParameterData.none(),
   'searchCustomersGD': (data) async => ParameterData(
         allParams: {
           'fromPage': getParameter<String>(data, 'fromPage'),
