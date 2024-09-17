@@ -85,7 +85,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
       FFAppState().improundTYPECOD = [];
       FFAppState().improundCONTSTAT = [];
       FFAppState().improundARNOW = [];
-
+      FFAppState().selectedDropdownList = [];
       safeSetState(() {});
     });
 

@@ -284,7 +284,7 @@ class _ChangeCarLocationPageWidgetState
                                   FFAppState().selectedDropdownList = functions
                                       .createFalseListByItemNumber(
                                           false,
-                                          ImproundCarGetBranchCall.branchcode(
+                                          ImproundCarGetBranchCall.branchname(
                                             (_model.getBranchOutput?.jsonBody ??
                                                 ''),
                                           )?.length)!
@@ -326,7 +326,7 @@ class _ChangeCarLocationPageWidgetState
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 10.0, 12.0, 0.0),
+                                12.0, 10.0, 12.0, 8.0),
                             child: Container(
                               width: double.infinity,
                               height: 50.0,
@@ -412,6 +412,9 @@ class _ChangeCarLocationPageWidgetState
                                 ),
                               ),
                             ),
+                          ),
+                          Divider(
+                            thickness: 2.0,
                           ),
                           if ((_model.dropDownValue != null &&
                                   _model.dropDownValue != '') &&
