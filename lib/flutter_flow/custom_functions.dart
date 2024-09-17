@@ -4520,3 +4520,13 @@ List<bool>? setBoolValueListAtIndex(
   outputList[trueIndex!] = true;
   return outputList;
 }
+
+List<String>? generateEmptyListByLength(int? listLength) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < listLength!; i++) {
+    outputList.add('');
+  }
+
+  return outputList;
+}

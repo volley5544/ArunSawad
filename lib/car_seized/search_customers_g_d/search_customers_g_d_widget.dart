@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -70,6 +71,21 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
       FFAppState().improundGDESC = [];
       FFAppState().improundNumbody = [];
       FFAppState().improundCUSCOD = [];
+      FFAppState().impoundCarStatusName = [];
+      FFAppState().impoundCarBranchName = [];
+      FFAppState().impoundCarMainBranch = [];
+      FFAppState().impoundCarStatusId = [];
+      FFAppState().impoundCarStatusCode = [];
+      FFAppState().improundMANUYRCONVERT = [];
+      FFAppState().improundKEYINCSHPRC = [];
+      FFAppState().improundENGNO = [];
+      FFAppState().improundCOLORCOD = [];
+      FFAppState().improundMODELCOD = [];
+      FFAppState().improundMANUYR = [];
+      FFAppState().improundTYPECOD = [];
+      FFAppState().improundCONTSTAT = [];
+      FFAppState().improundARNOW = [];
+
       safeSetState(() {});
     });
 
@@ -671,6 +687,47 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                   ?.jsonBody ??
                                               ''),
                                         )!
+                                                .toList()
+                                                .cast<String>();
+                                        safeSetState(() {});
+                                        FFAppState().impoundCarBranchName =
+                                            functions
+                                                .generateEmptyListByLength(
+                                                    FFAppState()
+                                                        .improundCONTNO
+                                                        .length)!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundCarMainBranch =
+                                            functions
+                                                .generateEmptyListByLength(
+                                                    FFAppState()
+                                                        .improundCONTNO
+                                                        .length)!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundCarStatusId =
+                                            functions
+                                                .generateEmptyListByLength(
+                                                    FFAppState()
+                                                        .improundCONTNO
+                                                        .length)!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundCarStatusCode =
+                                            functions
+                                                .generateEmptyListByLength(
+                                                    FFAppState()
+                                                        .improundCONTNO
+                                                        .length)!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundCarStatusName =
+                                            functions
+                                                .generateEmptyListByLength(
+                                                    FFAppState()
+                                                        .improundCONTNO
+                                                        .length)!
                                                 .toList()
                                                 .cast<String>();
                                         safeSetState(() {});
