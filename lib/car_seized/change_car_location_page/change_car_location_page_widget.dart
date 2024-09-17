@@ -487,10 +487,9 @@ class _ChangeCarLocationPageWidgetState
                                                       .selectedDropdownList =
                                                   functions
                                                       .setBoolValueListAtIndex(
-                                                          functions
-                                                              .createFalseListByItemNumber(
-                                                                  false, 5)
-                                                              ?.toList(),
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
                                                           branchListItemIndex)!
                                                       .toList()
                                                       .cast<bool>();
