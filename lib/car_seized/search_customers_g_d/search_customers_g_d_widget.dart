@@ -29,6 +29,8 @@ class SearchCustomersGDWidget extends StatefulWidget {
     required this.saveAccessRoleData,
     required this.userRoleRead,
     required this.userRoleSave,
+    required this.carConfig,
+    required this.motocycleConfig,
   });
 
   final String? fromPage;
@@ -38,6 +40,8 @@ class SearchCustomersGDWidget extends StatefulWidget {
   final dynamic saveAccessRoleData;
   final String? userRoleRead;
   final String? userRoleSave;
+  final List<String>? carConfig;
+  final List<String>? motocycleConfig;
 
   @override
   State<SearchCustomersGDWidget> createState() =>
@@ -2102,6 +2106,24 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     ParamType
                                                                         .String,
                                                                   ),
+                                                                  'carConfig':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .carConfig,
+                                                                    ParamType
+                                                                        .String,
+                                                                    isList:
+                                                                        true,
+                                                                  ),
+                                                                  'motocycleConfig':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .motocycleConfig,
+                                                                    ParamType
+                                                                        .String,
+                                                                    isList:
+                                                                        true,
+                                                                  ),
                                                                 }.withoutNulls,
                                                               );
                                                             } else {
@@ -2223,6 +2245,45 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                         .fromPage,
                                                                     ParamType
                                                                         .String,
+                                                                  ),
+                                                                  'impoundCarLocateParamSet':
+                                                                      serializeParam(
+                                                                    ImpoundCarLocateParamSetStruct(
+                                                                      locatName:
+                                                                          FFAppState()
+                                                                              .impoundCarMainBranch[listImproundIndex],
+                                                                      branchNameLocat:
+                                                                          FFAppState()
+                                                                              .impoundCarBranchName[listImproundIndex],
+                                                                    ),
+                                                                    ParamType
+                                                                        .DataStruct,
+                                                                  ),
+                                                                  'impoundCarStatusName':
+                                                                      serializeParam(
+                                                                    FFAppState()
+                                                                            .impoundCarStatusName[
+                                                                        listImproundIndex],
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
+                                                                  'carConfig':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .carConfig,
+                                                                    ParamType
+                                                                        .String,
+                                                                    isList:
+                                                                        true,
+                                                                  ),
+                                                                  'motocycleConfig':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .motocycleConfig,
+                                                                    ParamType
+                                                                        .String,
+                                                                    isList:
+                                                                        true,
                                                                   ),
                                                                 }.withoutNulls,
                                                               );

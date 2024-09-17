@@ -15,11 +15,15 @@ class SampleCarImageStep1Widget extends StatefulWidget {
     required this.imageName,
     required this.contNoType,
     required this.numberOfImage,
+    required this.carConfig,
+    required this.motocycleConfig,
   });
 
   final String? imageName;
   final String? contNoType;
   final String? numberOfImage;
+  final List<String>? carConfig;
+  final List<String>? motocycleConfig;
 
   @override
   State<SampleCarImageStep1Widget> createState() =>
@@ -97,7 +101,7 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                if (widget!.contNoType == 'C')
+                if (widget!.carConfig?.contains(widget!.contNoType) ?? true)
                   Expanded(
                     child: ListView(
                       padding: EdgeInsets.zero,
@@ -287,7 +291,8 @@ class _SampleCarImageStep1WidgetState extends State<SampleCarImageStep1Widget> {
                       ],
                     ),
                   ),
-                if (widget!.contNoType != 'C')
+                if (widget!.motocycleConfig?.contains(widget!.contNoType) ??
+                    true)
                   Expanded(
                     child: ListView(
                       padding: EdgeInsets.zero,

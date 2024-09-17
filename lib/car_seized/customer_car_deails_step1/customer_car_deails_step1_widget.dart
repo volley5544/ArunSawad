@@ -27,6 +27,8 @@ class CustomerCarDeailsStep1Widget extends StatefulWidget {
     required this.userRoleSave,
     required this.impoundCarParamSet,
     required this.impoundCarLocateParamSet,
+    required this.carConfig,
+    required this.motocycleConfig,
   });
 
   final String? step;
@@ -36,6 +38,8 @@ class CustomerCarDeailsStep1Widget extends StatefulWidget {
   final String? userRoleSave;
   final ImpoundCarParamSetStruct? impoundCarParamSet;
   final ImpoundCarLocateParamSetStruct? impoundCarLocateParamSet;
+  final List<String>? carConfig;
+  final List<String>? motocycleConfig;
 
   @override
   State<CustomerCarDeailsStep1Widget> createState() =>
@@ -184,10 +188,11 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              widget!.impoundCarParamSet?.improundCONTNOTYPE ==
-                                      'C'
-                                  ? 'รถยนต์'
-                                  : 'มอเตอร์ไซค์',
+                              valueOrDefault<String>(
+                                widget!
+                                    .impoundCarParamSet?.improundCONTNOTYPENAME,
+                                'type_name',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -307,8 +312,8 @@ class _CustomerCarDeailsStep1WidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              widget!.impoundCarParamSet?.improundCONTNOTYPE ==
-                                      'C'
+                              widget!.carConfig!.contains(widget!
+                                      .impoundCarParamSet?.improundCONTNOTYPE)
                                   ? 'บังคับถ่ายรูปให้ครบ 10 รูป'
                                   : 'บังคับถ่ายรูปให้ครบ 8 รูป',
                               style: FlutterFlowTheme.of(context)
@@ -383,6 +388,16 @@ class _CustomerCarDeailsStep1WidgetState
                                       'numberOfImage': serializeParam(
                                         '1',
                                         ParamType.String,
+                                      ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -866,6 +881,16 @@ class _CustomerCarDeailsStep1WidgetState
                                         '2',
                                         ParamType.String,
                                       ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
                                     }.withoutNulls,
                                   );
                                 },
@@ -1333,6 +1358,16 @@ class _CustomerCarDeailsStep1WidgetState
                                       'numberOfImage': serializeParam(
                                         '3',
                                         ParamType.String,
+                                      ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -1802,6 +1837,16 @@ class _CustomerCarDeailsStep1WidgetState
                                         '4',
                                         ParamType.String,
                                       ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
                                     }.withoutNulls,
                                   );
                                 },
@@ -2270,6 +2315,16 @@ class _CustomerCarDeailsStep1WidgetState
                                         '5',
                                         ParamType.String,
                                       ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
                                     }.withoutNulls,
                                   );
                                 },
@@ -2737,6 +2792,16 @@ class _CustomerCarDeailsStep1WidgetState
                                       'numberOfImage': serializeParam(
                                         '6',
                                         ParamType.String,
+                                      ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -3210,6 +3275,16 @@ class _CustomerCarDeailsStep1WidgetState
                                         '7',
                                         ParamType.String,
                                       ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
                                     }.withoutNulls,
                                   );
                                 },
@@ -3243,13 +3318,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                               child: Text(
-                                                valueOrDefault<String>(
-                                                          widget!
-                                                              .impoundCarParamSet
-                                                              ?.improundCONTNOTYPE,
-                                                          'default',
-                                                        ) ==
-                                                        'C'
+                                                widget!.carConfig!.contains(
+                                                        widget!
+                                                            .impoundCarParamSet
+                                                            ?.improundCONTNOTYPE)
                                                     ? 'เลขไมล์'
                                                     : 'เลขตัวถังรถ',
                                                 style:
@@ -3694,6 +3766,16 @@ class _CustomerCarDeailsStep1WidgetState
                                         '8',
                                         ParamType.String,
                                       ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
                                     }.withoutNulls,
                                   );
                                 },
@@ -3727,13 +3809,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                               child: Text(
-                                                valueOrDefault<String>(
-                                                          widget!
-                                                              .impoundCarParamSet
-                                                              ?.improundCONTNOTYPE,
-                                                          'default',
-                                                        ) ==
-                                                        'C'
+                                                widget!.carConfig!.contains(
+                                                        widget!
+                                                            .impoundCarParamSet
+                                                            ?.improundCONTNOTYPE)
                                                     ? 'คอนโซลหน้า'
                                                     : 'เลขเครื่องยนต์',
                                                 style:
@@ -4211,6 +4290,16 @@ class _CustomerCarDeailsStep1WidgetState
                                         '9',
                                         ParamType.String,
                                       ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
                                     }.withoutNulls,
                                   );
                                 },
@@ -4244,13 +4333,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                               child: Text(
-                                                valueOrDefault<String>(
-                                                          widget!
-                                                              .impoundCarParamSet
-                                                              ?.improundCONTNOTYPE,
-                                                          'default',
-                                                        ) ==
-                                                        'C'
+                                                widget!.carConfig!.contains(
+                                                        widget!
+                                                            .impoundCarParamSet
+                                                            ?.improundCONTNOTYPE)
                                                     ? 'เบาะหลัง'
                                                     : 'เลขไมล์',
                                                 style:
@@ -4708,9 +4794,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.impoundCarParamSet
-                                          ?.improundCONTNOTYPE !=
-                                      'C') {
+                                  if (!widget!.carConfig!.contains(widget!
+                                      .impoundCarParamSet
+                                      ?.improundCONTNOTYPE)) {
                                     return;
                                   }
 
@@ -4729,6 +4815,16 @@ class _CustomerCarDeailsStep1WidgetState
                                       'numberOfImage': serializeParam(
                                         '10',
                                         ParamType.String,
+                                      ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -4763,13 +4859,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                               child: Text(
-                                                valueOrDefault<String>(
-                                                          widget!
-                                                              .impoundCarParamSet
-                                                              ?.improundCONTNOTYPE,
-                                                          'default',
-                                                        ) ==
-                                                        'C'
+                                                widget!.carConfig!.contains(
+                                                        widget!
+                                                            .impoundCarParamSet
+                                                            ?.improundCONTNOTYPE)
                                                     ? 'เครื่องยนต์'
                                                     : 'อื่นๆ',
                                                 style:
@@ -5227,9 +5320,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.impoundCarParamSet
-                                          ?.improundCONTNOTYPE !=
-                                      'C') {
+                                  if (!widget!.carConfig!.contains(widget!
+                                      .impoundCarParamSet
+                                      ?.improundCONTNOTYPE)) {
                                     return;
                                   }
 
@@ -5248,6 +5341,16 @@ class _CustomerCarDeailsStep1WidgetState
                                       'numberOfImage': serializeParam(
                                         '11',
                                         ParamType.String,
+                                      ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -5282,13 +5385,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                               child: Text(
-                                                valueOrDefault<String>(
-                                                          widget!
-                                                              .impoundCarParamSet
-                                                              ?.improundCONTNOTYPE,
-                                                          'default',
-                                                        ) ==
-                                                        'C'
+                                                widget!.carConfig!.contains(
+                                                        widget!
+                                                            .impoundCarParamSet
+                                                            ?.improundCONTNOTYPE)
                                                     ? 'เลขตัวถังรถ'
                                                     : 'อื่นๆ',
                                                 style:
@@ -5746,9 +5846,9 @@ class _CustomerCarDeailsStep1WidgetState
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.impoundCarParamSet
-                                          ?.improundCONTNOTYPE !=
-                                      'C') {
+                                  if (!widget!.carConfig!.contains(widget!
+                                      .impoundCarParamSet
+                                      ?.improundCONTNOTYPE)) {
                                     return;
                                   }
 
@@ -5767,6 +5867,16 @@ class _CustomerCarDeailsStep1WidgetState
                                       'numberOfImage': serializeParam(
                                         '12',
                                         ParamType.String,
+                                      ),
+                                      'carConfig': serializeParam(
+                                        widget!.carConfig,
+                                        ParamType.String,
+                                        isList: true,
+                                      ),
+                                      'motocycleConfig': serializeParam(
+                                        widget!.motocycleConfig,
+                                        ParamType.String,
+                                        isList: true,
                                       ),
                                     }.withoutNulls,
                                   );
@@ -5801,13 +5911,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                               child: Text(
-                                                valueOrDefault<String>(
-                                                          widget!
-                                                              .impoundCarParamSet
-                                                              ?.improundCONTNOTYPE,
-                                                          'default',
-                                                        ) ==
-                                                        'C'
+                                                widget!.carConfig!.contains(
+                                                        widget!
+                                                            .impoundCarParamSet
+                                                            ?.improundCONTNOTYPE)
                                                     ? 'แผ่นเพลทรถ'
                                                     : 'อื่นๆ',
                                                 style:
@@ -6465,9 +6572,8 @@ class _CustomerCarDeailsStep1WidgetState
                               } else if (_model.uploadedLocalFile8 == null ||
                                   (_model.uploadedLocalFile8.bytes?.isEmpty ??
                                       true)) {
-                                if (widget!.impoundCarParamSet
-                                        ?.improundCONTNOTYPE ==
-                                    'C') {
+                                if (widget!.carConfig!.contains(widget!
+                                    .impoundCarParamSet?.improundCONTNOTYPE)) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -6494,9 +6600,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (_model.uploadedLocalFile9 == null ||
                                   (_model.uploadedLocalFile9.bytes?.isEmpty ??
                                       true)) {
-                                if (widget!.impoundCarParamSet
-                                        ?.improundCONTNOTYPE !=
-                                    'C') {
+                                if (!widget!.carConfig!.contains(widget!
+                                    .impoundCarParamSet?.improundCONTNOTYPE)) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -6522,9 +6627,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (_model.uploadedLocalFile10 == null ||
                                   (_model.uploadedLocalFile10.bytes?.isEmpty ??
                                       true)) {
-                                if (widget!.impoundCarParamSet
-                                        ?.improundCONTNOTYPE ==
-                                    'C') {
+                                if (widget!.carConfig!.contains(widget!
+                                    .impoundCarParamSet?.improundCONTNOTYPE)) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -6550,9 +6654,8 @@ class _CustomerCarDeailsStep1WidgetState
                               if (_model.uploadedLocalFile11 == null ||
                                   (_model.uploadedLocalFile11.bytes?.isEmpty ??
                                       true)) {
-                                if (widget!.impoundCarParamSet
-                                        ?.improundCONTNOTYPE ==
-                                    'C') {
+                                if (widget!.carConfig!.contains(widget!
+                                    .impoundCarParamSet?.improundCONTNOTYPE)) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -6839,6 +6942,24 @@ class _CustomerCarDeailsStep1WidgetState
                                   'fromPage': serializeParam(
                                     'seeImages',
                                     ParamType.String,
+                                  ),
+                                  'impoundCarLocateParamSet': serializeParam(
+                                    widget!.impoundCarLocateParamSet,
+                                    ParamType.DataStruct,
+                                  ),
+                                  'impoundCarStatusName': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'carConfig': serializeParam(
+                                    widget!.carConfig,
+                                    ParamType.String,
+                                    isList: true,
+                                  ),
+                                  'motocycleConfig': serializeParam(
+                                    widget!.motocycleConfig,
+                                    ParamType.String,
+                                    isList: true,
                                   ),
                                 }.withoutNulls,
                               );

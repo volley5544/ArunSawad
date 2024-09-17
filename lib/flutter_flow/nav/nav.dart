@@ -1908,6 +1908,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'userRoleSave',
                   ParamType.String,
                 ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -1947,6 +1957,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   structBuilder:
                       ImpoundCarLocateParamSetStruct.fromSerializableMap,
                 ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -1964,6 +1984,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 numberOfImage: params.getParam(
                   'numberOfImage',
                   ParamType.String,
+                ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
                 ),
               ),
             ),
@@ -2003,6 +2033,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   isList: false,
                   structBuilder:
                       ImpoundCarLocateParamSetStruct.fromSerializableMap,
+                ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
                 ),
               ),
             ),
@@ -2058,6 +2098,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'userRoleSave',
                   ParamType.String,
                 ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
               ),
             ),
             FFRoute(
@@ -2093,6 +2143,27 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 fromPage: params.getParam(
                   'fromPage',
                   ParamType.String,
+                ),
+                impoundCarLocateParamSet: params.getParam(
+                  'impoundCarLocateParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder:
+                      ImpoundCarLocateParamSetStruct.fromSerializableMap,
+                ),
+                impoundCarStatusName: params.getParam(
+                  'impoundCarStatusName',
+                  ParamType.String,
+                ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
                 ),
               ),
             ),
@@ -2147,6 +2218,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 impoundCarStatusName: params.getParam(
                   'impoundCarStatusName',
                   ParamType.String,
+                ),
+                carConfig: params.getParam<String>(
+                  'carConfig',
+                  ParamType.String,
+                  isList: true,
+                ),
+                motocycleConfig: params.getParam<String>(
+                  'motocycleConfig',
+                  ParamType.String,
+                  isList: true,
                 ),
               ),
             )

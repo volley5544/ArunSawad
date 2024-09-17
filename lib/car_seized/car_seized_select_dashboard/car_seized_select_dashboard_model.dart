@@ -29,6 +29,25 @@ class CarSeizedSelectDashboardModel
 
   String userRoleSave = 'no_role';
 
+  List<String> carConfig = [];
+  void addToCarConfig(String item) => carConfig.add(item);
+  void removeFromCarConfig(String item) => carConfig.remove(item);
+  void removeAtIndexFromCarConfig(int index) => carConfig.removeAt(index);
+  void insertAtIndexInCarConfig(int index, String item) =>
+      carConfig.insert(index, item);
+  void updateCarConfigAtIndex(int index, Function(String) updateFn) =>
+      carConfig[index] = updateFn(carConfig[index]);
+
+  List<String> motocycleConfig = [];
+  void addToMotocycleConfig(String item) => motocycleConfig.add(item);
+  void removeFromMotocycleConfig(String item) => motocycleConfig.remove(item);
+  void removeAtIndexFromMotocycleConfig(int index) =>
+      motocycleConfig.removeAt(index);
+  void insertAtIndexInMotocycleConfig(int index, String item) =>
+      motocycleConfig.insert(index, item);
+  void updateMotocycleConfigAtIndex(int index, Function(String) updateFn) =>
+      motocycleConfig[index] = updateFn(motocycleConfig[index]);
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.

@@ -669,6 +669,8 @@ final parametersBuilderMap =
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'impoundCarStatusName':
+              getParameter<String>(data, 'impoundCarStatusName'),
         },
       ),
   'customerCarDeailsPictureStep12': ParameterData.none(),

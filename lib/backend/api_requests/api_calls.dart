@@ -797,6 +797,7 @@ class UpdateImproundCarCall {
     String? areaName = '',
     String? regionCode = '',
     String? regionName = '',
+    String? locatCode = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -807,6 +808,7 @@ class UpdateImproundCarCall {
 {
   "cont_no": "${contNo}",
   "improundcar_locat_id": "${improundcarLocatId}",
+"locat_code":"${locatCode}",
   "locat_name": "${locatName}",
   "improundcar_sub_locat_id": "${improundcarSubLocatId}",
   "branch_code_locat": "${branchCodeLocat}",

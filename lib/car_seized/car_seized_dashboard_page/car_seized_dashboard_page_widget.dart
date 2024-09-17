@@ -17,6 +17,8 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
     required this.saveAccessRoleData,
     String? userRoleRead,
     String? userRoleSave,
+    required this.carConfig,
+    required this.motocycleConfig,
   })  : this.userRoleRead = userRoleRead ?? 'no_role',
         this.userRoleSave = userRoleSave ?? 'no_role';
 
@@ -25,6 +27,8 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
   final dynamic saveAccessRoleData;
   final String userRoleRead;
   final String userRoleSave;
+  final List<String>? carConfig;
+  final List<String>? motocycleConfig;
 
   @override
   State<CarSeizedDashboardPageWidget> createState() =>
@@ -187,6 +191,16 @@ class _CarSeizedDashboardPageWidgetState
                           'userRoleSave': serializeParam(
                             widget!.userRoleSave,
                             ParamType.String,
+                          ),
+                          'carConfig': serializeParam(
+                            widget!.carConfig,
+                            ParamType.String,
+                            isList: true,
+                          ),
+                          'motocycleConfig': serializeParam(
+                            widget!.motocycleConfig,
+                            ParamType.String,
+                            isList: true,
                           ),
                         }.withoutNulls,
                       );
@@ -391,6 +405,16 @@ class _CarSeizedDashboardPageWidgetState
                           'userRoleSave': serializeParam(
                             widget!.userRoleSave,
                             ParamType.String,
+                          ),
+                          'carConfig': serializeParam(
+                            widget!.carConfig,
+                            ParamType.String,
+                            isList: true,
+                          ),
+                          'motocycleConfig': serializeParam(
+                            widget!.motocycleConfig,
+                            ParamType.String,
+                            isList: true,
                           ),
                         }.withoutNulls,
                       );
@@ -597,6 +621,16 @@ class _CarSeizedDashboardPageWidgetState
                             widget!.userRoleSave,
                             ParamType.String,
                           ),
+                          'carConfig': serializeParam(
+                            widget!.carConfig,
+                            ParamType.String,
+                            isList: true,
+                          ),
+                          'motocycleConfig': serializeParam(
+                            widget!.motocycleConfig,
+                            ParamType.String,
+                            isList: true,
+                          ),
                         }.withoutNulls,
                       );
                     },
@@ -801,6 +835,16 @@ class _CarSeizedDashboardPageWidgetState
                           'userRoleSave': serializeParam(
                             widget!.userRoleSave,
                             ParamType.String,
+                          ),
+                          'carConfig': serializeParam(
+                            widget!.carConfig,
+                            ParamType.String,
+                            isList: true,
+                          ),
+                          'motocycleConfig': serializeParam(
+                            widget!.motocycleConfig,
+                            ParamType.String,
+                            isList: true,
                           ),
                         }.withoutNulls,
                       );

@@ -30,6 +30,8 @@ class ChangeCarLocationPageWidget extends StatefulWidget {
     required this.impoundCarStatusId,
     required this.impoundCarStatusCode,
     required this.impoundCarStatusName,
+    required this.carConfig,
+    required this.motocycleConfig,
   });
 
   final String? step;
@@ -42,6 +44,8 @@ class ChangeCarLocationPageWidget extends StatefulWidget {
   final String? impoundCarStatusId;
   final String? impoundCarStatusCode;
   final String? impoundCarStatusName;
+  final List<String>? carConfig;
+  final List<String>? motocycleConfig;
 
   @override
   State<ChangeCarLocationPageWidget> createState() =>
@@ -1053,6 +1057,31 @@ class _ChangeCarLocationPageWidgetState
                                                   true)]))
                                               : '',
                                       url: FFAppState().improundUrl,
+                                      locatCode:
+                                          ImproundCarGetBranchCall.regionname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .regionname(
+                                                    (_model.getBranchOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? ((ImproundCarGetBranchCall
+                                                  .locatCode(
+                                                  (_model.getBranchOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?[functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .selectedDropdownList
+                                                      .toList(),
+                                                  true)]))
+                                              : '',
                                     );
 
                                     _shouldSetState = true;
@@ -1406,6 +1435,16 @@ class _ChangeCarLocationPageWidgetState
                                           ),
                                           ParamType.DataStruct,
                                         ),
+                                        'carConfig': serializeParam(
+                                          widget!.carConfig,
+                                          ParamType.String,
+                                          isList: true,
+                                        ),
+                                        'motocycleConfig': serializeParam(
+                                          widget!.motocycleConfig,
+                                          ParamType.String,
+                                          isList: true,
+                                        ),
                                       }.withoutNulls,
                                     );
                                   } else {
@@ -1665,6 +1704,16 @@ class _ChangeCarLocationPageWidgetState
                                                     _model.dropDownValue)],
                                           ),
                                           ParamType.DataStruct,
+                                        ),
+                                        'carConfig': serializeParam(
+                                          widget!.carConfig,
+                                          ParamType.String,
+                                          isList: true,
+                                        ),
+                                        'motocycleConfig': serializeParam(
+                                          widget!.motocycleConfig,
+                                          ParamType.String,
+                                          isList: true,
                                         ),
                                       }.withoutNulls,
                                     );

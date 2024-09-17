@@ -101,6 +101,17 @@ class _CarSeizedSelectDashboardWidgetState
       _model.userRoleSave = functions.impoundCargetRoleName(
           _model.writeAccessRoleData, FFAppState().employeeID)!;
       safeSetState(() {});
+      _model.carConfig = functions
+          .getDataFromMapJsonToList(
+              _model.getDataCollection, 'impound_C_config')!
+          .toList()
+          .cast<String>();
+      _model.motocycleConfig = functions
+          .getDataFromMapJsonToList(
+              _model.getDataCollection, 'impound_M_config')!
+          .toList()
+          .cast<String>();
+      safeSetState(() {});
       Navigator.pop(context);
 
       var userLogRecordReference = UserLogRecord.collection.doc();
@@ -229,6 +240,16 @@ class _CarSeizedSelectDashboardWidgetState
                               _model.userRoleSave,
                               ParamType.String,
                             ),
+                            'carConfig': serializeParam(
+                              _model.carConfig,
+                              ParamType.String,
+                              isList: true,
+                            ),
+                            'motocycleConfig': serializeParam(
+                              _model.motocycleConfig,
+                              ParamType.String,
+                              isList: true,
+                            ),
                           }.withoutNulls,
                         );
                       },
@@ -340,6 +361,16 @@ class _CarSeizedSelectDashboardWidgetState
                               _model.userRoleSave,
                               ParamType.String,
                             ),
+                            'carConfig': serializeParam(
+                              _model.carConfig,
+                              ParamType.String,
+                              isList: true,
+                            ),
+                            'motocycleConfig': serializeParam(
+                              _model.motocycleConfig,
+                              ParamType.String,
+                              isList: true,
+                            ),
                           }.withoutNulls,
                         );
                       },
@@ -444,6 +475,16 @@ class _CarSeizedSelectDashboardWidgetState
                             'userRoleSave': serializeParam(
                               _model.userRoleSave,
                               ParamType.String,
+                            ),
+                            'carConfig': serializeParam(
+                              _model.carConfig,
+                              ParamType.String,
+                              isList: true,
+                            ),
+                            'motocycleConfig': serializeParam(
+                              _model.motocycleConfig,
+                              ParamType.String,
+                              isList: true,
                             ),
                           }.withoutNulls,
                         );

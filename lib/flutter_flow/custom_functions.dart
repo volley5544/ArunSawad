@@ -2193,6 +2193,15 @@ String? imgPathListToStringCopy2(List<String>? imgPathList) {
   return namesString;
 }
 
+List<String>? getDataFromMapJsonToList(
+  dynamic jsonDataInput,
+  String? fieldName,
+) {
+  Map<String, dynamic> mapDataInput = jsonDecode(jsonDataInput!);
+  List<String> listOutput = mapDataInput['${fieldName!}'];
+  return listOutput;
+}
+
 bool? checkLeaveDayNumber(String? leaveDayNumber) {
   return leaveDayNumber!.contains('.');
 }
