@@ -27,6 +27,7 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
     String? areaName,
     String? regionCode,
     String? regionName,
+    String? locatCode,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _improundcarLocatId = improundcarLocatId,
         _locatName = locatName,
@@ -45,6 +46,7 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         _areaName = areaName,
         _regionCode = regionCode,
         _regionName = regionName,
+        _locatCode = locatCode,
         super(firestoreUtilData);
 
   // "improundcar_locat_id" field.
@@ -166,6 +168,13 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
 
   bool hasRegionName() => _regionName != null;
 
+  // "locat_code" field.
+  String? _locatCode;
+  String get locatCode => _locatCode ?? '';
+  set locatCode(String? val) => _locatCode = val;
+
+  bool hasLocatCode() => _locatCode != null;
+
   static ImpoundCarLocateParamSetStruct fromMap(Map<String, dynamic> data) =>
       ImpoundCarLocateParamSetStruct(
         improundcarLocatId: data['improundcar_locat_id'] as String?,
@@ -185,6 +194,7 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         areaName: data['area_name'] as String?,
         regionCode: data['region_code'] as String?,
         regionName: data['region_name'] as String?,
+        locatCode: data['locat_code'] as String?,
       );
 
   static ImpoundCarLocateParamSetStruct? maybeFromMap(dynamic data) =>
@@ -210,6 +220,7 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         'area_name': _areaName,
         'region_code': _regionCode,
         'region_name': _regionName,
+        'locat_code': _locatCode,
       }.withoutNulls;
 
   @override
@@ -280,6 +291,10 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         ),
         'region_name': serializeParam(
           _regionName,
+          ParamType.String,
+        ),
+        'locat_code': serializeParam(
+          _locatCode,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -372,6 +387,11 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        locatCode: deserializeParam(
+          data['locat_code'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -396,7 +416,8 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         areaCode == other.areaCode &&
         areaName == other.areaName &&
         regionCode == other.regionCode &&
-        regionName == other.regionName;
+        regionName == other.regionName &&
+        locatCode == other.locatCode;
   }
 
   @override
@@ -417,7 +438,8 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         areaCode,
         areaName,
         regionCode,
-        regionName
+        regionName,
+        locatCode
       ]);
 }
 
@@ -439,6 +461,7 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
   String? areaName,
   String? regionCode,
   String? regionName,
+  String? locatCode,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -462,6 +485,7 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
       areaName: areaName,
       regionCode: regionCode,
       regionName: regionName,
+      locatCode: locatCode,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

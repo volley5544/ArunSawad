@@ -6685,6 +6685,68 @@ class _CustomerCarDeailsStep1WidgetState
                                 cuscod:
                                     widget!.impoundCarParamSet?.improundCUSCOD,
                                 url: FFAppState().improundUrl,
+                                statusCode: '',
+                                statusName: '',
+                                originYear:
+                                    widget!.impoundCarParamSet?.improundMANUYR,
+                                convertYear: widget!
+                                    .impoundCarParamSet?.improundMANUYRCONVERT,
+                                improundcarLocatId: widget!
+                                    .impoundCarLocateParamSet
+                                    ?.improundcarLocatId,
+                                locatCode:
+                                    widget!.impoundCarLocateParamSet?.locatCode,
+                                locatName:
+                                    widget!.impoundCarLocateParamSet?.locatName,
+                                improundcarSubLocatId: widget!
+                                    .impoundCarLocateParamSet
+                                    ?.improundcarSubLocatId,
+                                branchNameLocat: widget!
+                                    .impoundCarLocateParamSet?.branchNameLocat,
+                                improundcarStatusId: '',
+                                arnow:
+                                    widget!.impoundCarParamSet?.improundARNOW,
+                                constat: widget!
+                                    .impoundCarParamSet?.improundCONTSTAT,
+                                typecod:
+                                    widget!.impoundCarParamSet?.improundTYPECOD,
+                                modelcod: widget!
+                                    .impoundCarParamSet?.improundMODELCOD,
+                                colorcod:
+                                    widget!.impoundCarParamSet?.improudCOLORCOD,
+                                address:
+                                    widget!.impoundCarLocateParamSet?.address,
+                                subDistrict: widget!
+                                    .impoundCarLocateParamSet?.subDistrict,
+                                district:
+                                    widget!.impoundCarLocateParamSet?.district,
+                                province:
+                                    widget!.impoundCarLocateParamSet?.province,
+                                postcode:
+                                    widget!.impoundCarLocateParamSet?.postcode,
+                                phoneNumber: widget!
+                                    .impoundCarLocateParamSet?.phoneNumber,
+                                latitude:
+                                    widget!.impoundCarLocateParamSet?.latitude,
+                                longitude:
+                                    widget!.impoundCarLocateParamSet?.longitude,
+                                branchCodeLocat: widget!
+                                    .impoundCarLocateParamSet?.branchNameLocat,
+                                areaCode:
+                                    widget!.impoundCarLocateParamSet?.areaCode,
+                                areaName:
+                                    widget!.impoundCarLocateParamSet?.areaName,
+                                regionCode: widget!
+                                    .impoundCarLocateParamSet?.regionCode,
+                                regionName: widget!
+                                    .impoundCarLocateParamSet?.regionName,
+                                keyincshprc: widget!
+                                    .impoundCarParamSet?.improundKEYINCSHPRC,
+                                engno:
+                                    widget!.impoundCarParamSet?.improundENGNO,
+                                impoundEmp: '',
+                                impoundDate: '',
+                                impoundNameth: '',
                               );
 
                               _shouldSetState = true;

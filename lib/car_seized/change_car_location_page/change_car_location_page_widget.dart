@@ -1253,6 +1253,13 @@ class _ChangeCarLocationPageWidgetState
                                                     .selectedDropdownList
                                                     .toList(),
                                                 true)],
+                                            locatCode: containerImpoundCarMasterRecord
+                                                    .locateCode[
+                                                functions.getIndexOfSomethingList(
+                                                    containerImpoundCarMasterRecord
+                                                        .locateCode
+                                                        .toList(),
+                                                    _model.dropDownValue)],
                                           ),
                                           ParamType.DataStruct,
                                         ),
@@ -1506,6 +1513,13 @@ class _ChangeCarLocationPageWidgetState
                                                     .selectedDropdownList
                                                     .toList(),
                                                 true)],
+                                            locatCode: containerImpoundCarMasterRecord
+                                                    .locateCode[
+                                                functions.getIndexOfSomethingList(
+                                                    containerImpoundCarMasterRecord
+                                                        .locateCode
+                                                        .toList(),
+                                                    _model.dropDownValue)],
                                           ),
                                           ParamType.DataStruct,
                                         ),
