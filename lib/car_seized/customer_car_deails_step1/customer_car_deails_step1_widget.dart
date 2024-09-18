@@ -3504,40 +3504,44 @@ class _CustomerCarDeailsStep1WidgetState
                             decoration: BoxDecoration(),
                             child: Stack(
                               children: [
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      PageTransition(
-                                        type: PageTransitionType.fade,
-                                        child: FlutterFlowExpandedImageView(
-                                          image: Image.memory(
-                                            _model.uploadedLocalFile7.bytes ??
-                                                Uint8List.fromList([]),
-                                            fit: BoxFit.contain,
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await Navigator.push(
+                                        context,
+                                        PageTransition(
+                                          type: PageTransitionType.fade,
+                                          child: FlutterFlowExpandedImageView(
+                                            image: Image.memory(
+                                              _model.uploadedLocalFile7.bytes ??
+                                                  Uint8List.fromList([]),
+                                              fit: BoxFit.contain,
+                                            ),
+                                            allowRotation: false,
+                                            tag: 'imageTag7',
+                                            useHeroAnimation: true,
                                           ),
-                                          allowRotation: false,
-                                          tag: 'imageTag7',
-                                          useHeroAnimation: true,
                                         ),
-                                      ),
-                                    );
-                                  },
-                                  child: Hero(
-                                    tag: 'imageTag7',
-                                    transitionOnUserGestures: true,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.memory(
-                                        _model.uploadedLocalFile7.bytes ??
-                                            Uint8List.fromList([]),
-                                        width: 200.0,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
+                                      );
+                                    },
+                                    child: Hero(
+                                      tag: 'imageTag7',
+                                      transitionOnUserGestures: true,
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.memory(
+                                          _model.uploadedLocalFile7.bytes ??
+                                              Uint8List.fromList([]),
+                                          width: 200.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -3590,10 +3594,10 @@ class _CustomerCarDeailsStep1WidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              content: Text(widget!
+                                              content: Text(widget!.carConfig!
+                                                      .contains(widget!
                                                           .impoundCarParamSet
-                                                          ?.improundCONTNOTYPE ==
-                                                      'C'
+                                                          ?.improundCONTNOTYPE)
                                                   ? 'คุณต้องการจะถ่ายรูป เลขไมค์ หรือไม่?'
                                                   : 'คุณต้องการจะถ่ายรูป เลขตัวถัง หรือไม่?'),
                                               actions: [
@@ -4114,10 +4118,10 @@ class _CustomerCarDeailsStep1WidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              content: Text(widget!
+                                              content: Text(widget!.carConfig!
+                                                      .contains(widget!
                                                           .impoundCarParamSet
-                                                          ?.improundCONTNOTYPE ==
-                                                      'C'
+                                                          ?.improundCONTNOTYPE)
                                                   ? 'คุณต้องการจะถ่ายรูป คอนโซลหน้า หรือไม่?'
                                                   : 'คุณต้องการจะถ่ายรูป เลขเครื่องยนต์ หรือไม่?'),
                                               actions: [
@@ -4638,10 +4642,10 @@ class _CustomerCarDeailsStep1WidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              content: Text(widget!
+                                              content: Text(widget!.carConfig!
+                                                      .contains(widget!
                                                           .impoundCarParamSet
-                                                          ?.improundCONTNOTYPE ==
-                                                      'C'
+                                                          ?.improundCONTNOTYPE)
                                                   ? 'คุณต้องการจะถ่ายรูป เบาะหลัง หรือไม่?'
                                                   : 'คุณต้องการจะถ่ายรูป เลขไมล์ หรือไม่?'),
                                               actions: [
@@ -5164,10 +5168,10 @@ class _CustomerCarDeailsStep1WidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              content: Text(widget!
+                                              content: Text(widget!.carConfig!
+                                                      .contains(widget!
                                                           .impoundCarParamSet
-                                                          ?.improundCONTNOTYPE ==
-                                                      'C'
+                                                          ?.improundCONTNOTYPE)
                                                   ? 'คุณต้องการจะถ่ายรูป เครื่องยนต์ หรือไม่?'
                                                   : 'คุณต้องการจะถ่ายรูป อื่นๆ หรือไม่?'),
                                               actions: [
@@ -5690,10 +5694,10 @@ class _CustomerCarDeailsStep1WidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              content: Text(widget!
+                                              content: Text(widget!.carConfig!
+                                                      .contains(widget!
                                                           .impoundCarParamSet
-                                                          ?.improundCONTNOTYPE ==
-                                                      'C'
+                                                          ?.improundCONTNOTYPE)
                                                   ? 'คุณต้องการจะถ่ายรูป เลขตัวถังรถ หรือไม่?'
                                                   : 'คุณต้องการจะถ่ายรูป อื่นๆ หรือไม่?'),
                                               actions: [
@@ -6179,10 +6183,10 @@ class _CustomerCarDeailsStep1WidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              content: Text(widget!
+                                              content: Text(widget!.carConfig!
+                                                      .contains(widget!
                                                           .impoundCarParamSet
-                                                          ?.improundCONTNOTYPE ==
-                                                      'C'
+                                                          ?.improundCONTNOTYPE)
                                                   ? 'คุณต้องการจะถ่ายรูป แผ่นเพลทรถ หรือไม่?'
                                                   : 'คุณต้องการจะถ่ายรูป อื่นๆหรือไม่?'),
                                               actions: [
