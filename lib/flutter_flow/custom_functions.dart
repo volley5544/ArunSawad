@@ -4543,3 +4543,23 @@ List<String>? generateEmptyListByLength(int? listLength) {
 
   return outputList;
 }
+
+List<BranchDataTypeStruct>? generateBranchDataOutput(
+  List<BranchDataTypeStruct>? branchDataOriginal,
+  String? keyword,
+) {
+  if (keyword! == '') {
+    return branchDataOriginal!;
+  }
+
+  List<BranchDataTypeStruct> branchOutput = [];
+
+  for (int i = 0; i < branchDataOriginal!.length; i++) {
+    if (branchDataOriginal![i].branchName.contains('${keyword!}') ||
+        branchDataOriginal![i].branchCode.contains('${keyword!}')) {
+      branchOutput.add(branchDataOriginal![i]);
+    }
+  }
+
+  return branchOutput;
+}

@@ -533,6 +533,29 @@ class _ChangeCarLocationPageWidgetState
                                           );
                                           return;
                                         }
+                                        FFAppState().branchDataOutput = functions
+                                            .generateBranchDataOutput(
+                                                FFAppState()
+                                                    .branchDataOriginal
+                                                    .toList(),
+                                                _model
+                                                    .searchTextfieldTextController
+                                                    .text)!
+                                            .toList()
+                                            .cast<BranchDataTypeStruct>();
+                                        safeSetState(() {});
+                                        FFAppState().selectedDropdownList = [];
+                                        safeSetState(() {});
+                                        FFAppState().selectedDropdownList =
+                                            functions
+                                                .createFalseListByItemNumber(
+                                                    false,
+                                                    FFAppState()
+                                                        .branchDataOutput
+                                                        .length)!
+                                                .toList()
+                                                .cast<bool>();
+                                        safeSetState(() {});
                                       },
                                       text: 'ค้นหา',
                                       options: FFButtonOptions(
@@ -580,12 +603,10 @@ class _ChangeCarLocationPageWidgetState
                             Expanded(
                               child: Builder(
                                 builder: (context) {
-                                  final branchListItem =
-                                      ImproundCarGetBranchCall.branchname(
-                                            (_model.getBranchOutput?.jsonBody ??
-                                                ''),
-                                          )?.toList() ??
-                                          [];
+                                  final branchListItem = FFAppState()
+                                      .branchDataOutput
+                                      .take(100)
+                                      .toList();
                                   if (branchListItem.isEmpty) {
                                     return Center(
                                       child: Image.asset(
@@ -661,15 +682,7 @@ class _ChangeCarLocationPageWidgetState
                                                   Expanded(
                                                     flex: 10,
                                                     child: Text(
-                                                      '${ImproundCarGetBranchCall.branchname(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )?[branchListItemIndex]} (${ImproundCarGetBranchCall.branchcode(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )?[branchListItemIndex]})',
+                                                      '${branchListItemItem.branchName} (${branchListItemItem.branchCode})',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -820,70 +833,64 @@ class _ChangeCarLocationPageWidgetState
                                                         ''),
                                                   ))!
                                                       .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .subLocatId(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .improundcarSubLocatId
                                               : '',
-                                      branchCodeLocat:
-                                          ImproundCarGetBranchCall.branchcode(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .branchcode(
+                                      branchCodeLocat: ImproundCarGetBranchCall
+                                                      .branchcode(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .branchcode(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .branchcode(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .branchCode
+                                          : '',
                                       branchName:
                                           FFAppState().profileUnitCodeName,
                                       userid: FFAppState().employeeID,
-                                      branchNameLocat:
-                                          ImproundCarGetBranchCall.branchname(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .branchname(
+                                      branchNameLocat: ImproundCarGetBranchCall
+                                                      .branchname(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .branchname(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .branchname(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .branchName
+                                          : '',
                                       branchCode: FFAppState().profileBranch,
                                       nameTh: FFAppState().profileFullName,
                                       improundcarStatusId:
@@ -902,41 +909,38 @@ class _ChangeCarLocationPageWidgetState
                                                     ''),
                                               ))!
                                                   .isNotEmpty
-                                          ? ((ImproundCarGetBranchCall.address(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .selectedDropdownList
-                                                  .toList(),
-                                              true)]))
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .address
                                           : '',
-                                      subDistrict:
-                                          ImproundCarGetBranchCall.subdistrict(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .subdistrict(
+                                      subDistrict: ImproundCarGetBranchCall
+                                                      .subdistrict(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .subdistrict(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .subdistrict(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .subDistrict
+                                          : '',
                                       district: ImproundCarGetBranchCall
                                                       .district(
                                                     (_model.getBranchOutput
@@ -951,15 +955,14 @@ class _ChangeCarLocationPageWidgetState
                                                     ''),
                                               ))!
                                                   .isNotEmpty
-                                          ? ((ImproundCarGetBranchCall.district(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .selectedDropdownList
-                                                  .toList(),
-                                              true)]))
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .district
                                           : '',
                                       province: ImproundCarGetBranchCall
                                                       .province(
@@ -975,15 +978,14 @@ class _ChangeCarLocationPageWidgetState
                                                     ''),
                                               ))!
                                                   .isNotEmpty
-                                          ? ((ImproundCarGetBranchCall.province(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .selectedDropdownList
-                                                  .toList(),
-                                              true)]))
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .province
                                           : '',
                                       postcode: ImproundCarGetBranchCall
                                                       .postcode(
@@ -999,41 +1001,38 @@ class _ChangeCarLocationPageWidgetState
                                                     ''),
                                               ))!
                                                   .isNotEmpty
-                                          ? ((ImproundCarGetBranchCall.postcode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .selectedDropdownList
-                                                  .toList(),
-                                              true)]))
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .postcode
                                           : '',
-                                      phoneNumber:
-                                          ImproundCarGetBranchCall.phoneNumber(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .phoneNumber(
+                                      phoneNumber: ImproundCarGetBranchCall
+                                                      .phoneNumber(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .phoneNumber(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .phoneNumber(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .phoneNumber
+                                          : '',
                                       latitude: ImproundCarGetBranchCall
                                                       .latitude(
                                                     (_model.getBranchOutput
@@ -1048,41 +1047,38 @@ class _ChangeCarLocationPageWidgetState
                                                     ''),
                                               ))!
                                                   .isNotEmpty
-                                          ? ((ImproundCarGetBranchCall.latitude(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .selectedDropdownList
-                                                  .toList(),
-                                              true)]))
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .latitude
                                           : '',
-                                      longitude:
-                                          ImproundCarGetBranchCall.longitude(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .longitude(
+                                      longitude: ImproundCarGetBranchCall
+                                                      .longitude(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .longitude(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .longitude(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .longitude
+                                          : '',
                                       areaCode: ImproundCarGetBranchCall
                                                       .areacode(
                                                     (_model.getBranchOutput
@@ -1097,15 +1093,14 @@ class _ChangeCarLocationPageWidgetState
                                                     ''),
                                               ))!
                                                   .isNotEmpty
-                                          ? ((ImproundCarGetBranchCall.areacode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .selectedDropdownList
-                                                  .toList(),
-                                              true)]))
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .areaCode
                                           : '',
                                       areaName: ImproundCarGetBranchCall
                                                       .areaname(
@@ -1121,92 +1116,85 @@ class _ChangeCarLocationPageWidgetState
                                                     ''),
                                               ))!
                                                   .isNotEmpty
-                                          ? ((ImproundCarGetBranchCall.areaname(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                              FFAppState()
-                                                  .selectedDropdownList
-                                                  .toList(),
-                                              true)]))
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .areaName
                                           : '',
-                                      regionCode:
-                                          ImproundCarGetBranchCall.regioncode(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .regioncode(
+                                      regionCode: ImproundCarGetBranchCall
+                                                      .regioncode(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .regioncode(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
-                                      regionName:
-                                          ImproundCarGetBranchCall.regionname(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .regionname(
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .regioncode(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .regionCode
+                                          : '',
+                                      regionName: ImproundCarGetBranchCall
+                                                      .regionname(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .regionname(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .regionname(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .regionName
+                                          : '',
                                       url: FFAppState().improundUrl,
-                                      locatCode:
-                                          ImproundCarGetBranchCall.regionname(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) !=
-                                                      null &&
-                                                  (ImproundCarGetBranchCall
-                                                          .regionname(
+                                      locatCode: ImproundCarGetBranchCall
+                                                      .regionname(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ))!
-                                                      .isNotEmpty
-                                              ? ((ImproundCarGetBranchCall
-                                                  .locatCode(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .selectedDropdownList
-                                                      .toList(),
-                                                  true)]))
-                                              : '',
+                                                  ) !=
+                                                  null &&
+                                              (ImproundCarGetBranchCall
+                                                      .regionname(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ))!
+                                                  .isNotEmpty
+                                          ? FFAppState()
+                                              .branchDataOutput[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .selectedDropdownList
+                                                          .toList(),
+                                                      true)]
+                                              .locatCode
+                                          : '',
                                     );
 
                                     _shouldSetState = true;
@@ -1363,29 +1351,23 @@ class _ChangeCarLocationPageWidgetState
                                                               ''),
                                                         ))!
                                                             .isNotEmpty
-                                                    ? ((ImproundCarGetBranchCall
-                                                        .subLocatId(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .selectedDropdownList
-                                                                .toList(),
-                                                            true)]))
+                                                    ? FFAppState()
+                                                        .branchDataOutput[functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .selectedDropdownList
+                                                                    .toList(),
+                                                                true)]
+                                                        .improundcarSubLocatId
                                                     : '',
-                                            branchNameLocat:
-                                                ImproundCarGetBranchCall
-                                                    .branchname(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .selectedDropdownList
-                                                        .toList(),
-                                                    true)],
+                                            branchNameLocat: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .branchName,
                                             address: ImproundCarGetBranchCall
                                                             .address(
                                                           (_model.getBranchOutput
@@ -1400,59 +1382,47 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? ((ImproundCarGetBranchCall
-                                                    .address(
-                                                    (_model.getBranchOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?[functions
+                                                ? FFAppState()
+                                                    .branchDataOutput[functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true)]
+                                                    .address
+                                                : '',
+                                            subDistrict: FFAppState()
+                                                .branchDataOutput[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .selectedDropdownList
                                                             .toList(),
-                                                        true)]))
-                                                : '',
-                                            subDistrict:
-                                                ImproundCarGetBranchCall
-                                                    .subdistrict(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .selectedDropdownList
-                                                        .toList(),
-                                                    true)],
-                                            district: ImproundCarGetBranchCall
-                                                .district(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            province: ImproundCarGetBranchCall
-                                                .province(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            postcode: ImproundCarGetBranchCall
-                                                .postcode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
+                                                        true)]
+                                                .subDistrict,
+                                            district: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .district,
+                                            province: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .province,
+                                            postcode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .postcode,
                                             phoneNumber: ImproundCarGetBranchCall
                                                             .phoneNumber(
                                                           (_model.getBranchOutput
@@ -1467,96 +1437,79 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? ((ImproundCarGetBranchCall
-                                                    .phoneNumber(
-                                                    (_model.getBranchOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?[functions
+                                                ? FFAppState()
+                                                    .branchDataOutput[functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true)]
+                                                    .phoneNumber
+                                                : '',
+                                            latitude: FFAppState()
+                                                .branchDataOutput[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .selectedDropdownList
                                                             .toList(),
-                                                        true)]))
-                                                : '',
-                                            latitude: ImproundCarGetBranchCall
-                                                .latitude(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            longitude: ImproundCarGetBranchCall
-                                                .longitude(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            branchCodeLocat:
-                                                ImproundCarGetBranchCall
-                                                    .branchcode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .selectedDropdownList
-                                                        .toList(),
-                                                    true)],
-                                            areaCode: ImproundCarGetBranchCall
-                                                .areacode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            areaName: ImproundCarGetBranchCall
-                                                .areaname(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            regionCode: ImproundCarGetBranchCall
-                                                .regioncode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            regionName: ImproundCarGetBranchCall
-                                                .regionname(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            locatCode: containerImpoundCarMasterRecord
-                                                    .locateCode[
-                                                functions.getIndexOfSomethingList(
-                                                    containerImpoundCarMasterRecord
-                                                        .locateCode
-                                                        .toList(),
-                                                    _model.dropDownValue)],
+                                                        true)]
+                                                .latitude,
+                                            longitude: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .longitude,
+                                            branchCodeLocat: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .branchCode,
+                                            areaCode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .areaCode,
+                                            areaName: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .areaName,
+                                            regionCode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .regionCode,
+                                            regionName: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .regionName,
+                                            locatCode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .locatCode,
                                           ),
                                           ParamType.DataStruct,
                                         ),
@@ -1633,29 +1586,23 @@ class _ChangeCarLocationPageWidgetState
                                                               ''),
                                                         ))!
                                                             .isNotEmpty
-                                                    ? ((ImproundCarGetBranchCall
-                                                        .subLocatId(
-                                                        (_model.getBranchOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )?[functions
-                                                        .getIndexOfBoolList(
-                                                            FFAppState()
-                                                                .selectedDropdownList
-                                                                .toList(),
-                                                            true)]))
+                                                    ? FFAppState()
+                                                        .branchDataOutput[functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .selectedDropdownList
+                                                                    .toList(),
+                                                                true)]
+                                                        .improundcarSubLocatId
                                                     : '',
-                                            branchNameLocat:
-                                                ImproundCarGetBranchCall
-                                                    .branchname(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .selectedDropdownList
-                                                        .toList(),
-                                                    true)],
+                                            branchNameLocat: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .branchName,
                                             address: ImproundCarGetBranchCall
                                                             .address(
                                                           (_model.getBranchOutput
@@ -1670,59 +1617,47 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? ((ImproundCarGetBranchCall
-                                                    .address(
-                                                    (_model.getBranchOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?[functions
+                                                ? FFAppState()
+                                                    .branchDataOutput[functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true)]
+                                                    .address
+                                                : '',
+                                            subDistrict: FFAppState()
+                                                .branchDataOutput[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .selectedDropdownList
                                                             .toList(),
-                                                        true)]))
-                                                : '',
-                                            subDistrict:
-                                                ImproundCarGetBranchCall
-                                                    .subdistrict(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .selectedDropdownList
-                                                        .toList(),
-                                                    true)],
-                                            district: ImproundCarGetBranchCall
-                                                .district(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            province: ImproundCarGetBranchCall
-                                                .province(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            postcode: ImproundCarGetBranchCall
-                                                .postcode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
+                                                        true)]
+                                                .subDistrict,
+                                            district: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .district,
+                                            province: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .province,
+                                            postcode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .postcode,
                                             phoneNumber: ImproundCarGetBranchCall
                                                             .phoneNumber(
                                                           (_model.getBranchOutput
@@ -1737,96 +1672,79 @@ class _ChangeCarLocationPageWidgetState
                                                           ''),
                                                     ))!
                                                         .isNotEmpty
-                                                ? ((ImproundCarGetBranchCall
-                                                    .phoneNumber(
-                                                    (_model.getBranchOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )?[functions
+                                                ? FFAppState()
+                                                    .branchDataOutput[functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            true)]
+                                                    .phoneNumber
+                                                : '',
+                                            latitude: FFAppState()
+                                                .branchDataOutput[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .selectedDropdownList
                                                             .toList(),
-                                                        true)]))
-                                                : '',
-                                            latitude: ImproundCarGetBranchCall
-                                                .latitude(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            longitude: ImproundCarGetBranchCall
-                                                .longitude(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            branchCodeLocat:
-                                                ImproundCarGetBranchCall
-                                                    .branchcode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .selectedDropdownList
-                                                        .toList(),
-                                                    true)],
-                                            areaCode: ImproundCarGetBranchCall
-                                                .areacode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            areaName: ImproundCarGetBranchCall
-                                                .areaname(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            regionCode: ImproundCarGetBranchCall
-                                                .regioncode(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            regionName: ImproundCarGetBranchCall
-                                                .regionname(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )?[functions.getIndexOfBoolList(
-                                                FFAppState()
-                                                    .selectedDropdownList
-                                                    .toList(),
-                                                true)],
-                                            locatCode: containerImpoundCarMasterRecord
-                                                    .locateCode[
-                                                functions.getIndexOfSomethingList(
-                                                    containerImpoundCarMasterRecord
-                                                        .locateCode
-                                                        .toList(),
-                                                    _model.dropDownValue)],
+                                                        true)]
+                                                .latitude,
+                                            longitude: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .longitude,
+                                            branchCodeLocat: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .branchCode,
+                                            areaCode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .areaCode,
+                                            areaName: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .areaName,
+                                            regionCode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .regionCode,
+                                            regionName: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .regionName,
+                                            locatCode: FFAppState()
+                                                .branchDataOutput[functions
+                                                    .getIndexOfBoolList(
+                                                        FFAppState()
+                                                            .selectedDropdownList
+                                                            .toList(),
+                                                        true)]
+                                                .locatCode,
                                           ),
                                           ParamType.DataStruct,
                                         ),
