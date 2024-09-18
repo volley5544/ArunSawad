@@ -8,9 +8,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -65,6 +67,12 @@ class _ChangeCarLocationPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChangeCarLocationPage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().selectedDropdownList = [];
+      safeSetState(() {});
+    });
+
     _model.searchTextfieldTextController ??= TextEditingController();
     _model.searchTextfieldFocusNode ??= FocusNode();
 
@@ -295,7 +303,62 @@ class _ChangeCarLocationPageWidgetState
                                       .toList()
                                       .cast<bool>();
                                   safeSetState(() {});
+                                  FFAppState().branchDataOriginal =
+                                      (getJsonField(
+                                    (_model.getBranchOutput?.jsonBody ?? ''),
+                                    r'''$.results.data''',
+                                    true,
+                                  )!
+                                                  .toList()
+                                                  .map<BranchDataTypeStruct?>(
+                                                      BranchDataTypeStruct
+                                                          .maybeFromMap)
+                                                  .toList()
+                                              as Iterable<
+                                                  BranchDataTypeStruct?>)
+                                          .withoutNulls
+                                          .toList()
+                                          .cast<BranchDataTypeStruct>();
+                                  FFAppState().branchDataOutput = (getJsonField(
+                                    (_model.getBranchOutput?.jsonBody ?? ''),
+                                    r'''$.results.data''',
+                                    true,
+                                  )!
+                                              .toList()
+                                              .map<BranchDataTypeStruct?>(
+                                                  BranchDataTypeStruct.maybeFromMap)
+                                              .toList()
+                                          as Iterable<BranchDataTypeStruct?>)
+                                      .withoutNulls
+                                      .toList()
+                                      .cast<BranchDataTypeStruct>();
+                                  safeSetState(() {});
                                   Navigator.pop(context);
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          title: Text(FFAppState()
+                                              .branchDataOriginal
+                                              .length
+                                              .toString()),
+                                          content: Text((FFAppState()
+                                                  .branchDataOriginal
+                                                  .last
+                                                  .toMap())
+                                              .toString()),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
                                   if (_shouldSetState) safeSetState(() {});
                                 },
                                 width: 300.0,
@@ -341,79 +404,164 @@ class _ChangeCarLocationPageWidgetState
                                   color: Color(0xFFB3B3B3),
                                 ),
                               ),
-                              child: Container(
-                                width: 200.0,
-                                child: TextFormField(
-                                  controller:
-                                      _model.searchTextfieldTextController,
-                                  focusNode: _model.searchTextfieldFocusNode,
-                                  autofocus: false,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    isDense: true,
-                                    labelStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      decoration: BoxDecoration(),
+                                      child: Container(
+                                        width: 200.0,
+                                        child: TextFormField(
+                                          controller: _model
+                                              .searchTextfieldTextController,
+                                          focusNode:
+                                              _model.searchTextfieldFocusNode,
+                                          autofocus: false,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            isDense: true,
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            hintText: 'กรุณากรอกคีย์เวิร์ด...',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            filled: true,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondaryBackground,
+                                            prefixIcon: Icon(
+                                              Icons.search_outlined,
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                          validator: _model
+                                              .searchTextfieldTextControllerValidator
+                                              .asValidator(context),
                                         ),
-                                    hintText: 'กรุณากรอกคีย์เวิร์ด...',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          letterSpacing: 0.0,
-                                        ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color:
-                                            FlutterFlowTheme.of(context).error,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    filled: true,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    prefixIcon: Icon(
-                                      Icons.search_outlined,
-                                      size: 24.0,
                                     ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        letterSpacing: 0.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        4.0, 0.0, 0.0, 0.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        await actions.hideKeyboardAction(
+                                          context,
+                                        );
+                                        if (!(_model.searchTextfieldTextController
+                                                    .text !=
+                                                null &&
+                                            _model.searchTextfieldTextController
+                                                    .text !=
+                                                '')) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content:
+                                                      Text('กรุณากรอกคำค้นหา'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          return;
+                                        }
+                                      },
+                                      text: 'ค้นหา',
+                                      options: FFButtonOptions(
+                                        width: 94.0,
+                                        height: 50.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Color(0xFFFE6400),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                  cursorColor:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  validator: _model
-                                      .searchTextfieldTextControllerValidator
-                                      .asValidator(context),
-                                ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -460,133 +608,110 @@ class _ChangeCarLocationPageWidgetState
                                         (context, branchListItemIndex) {
                                       final branchListItemItem =
                                           branchListItem[branchListItemIndex];
-                                      return Visibility(
-                                        visible: (_model.searchTextfieldTextController
-                                                        .text ==
-                                                    null ||
-                                                _model.searchTextfieldTextController
-                                                        .text ==
-                                                    '') ||
-                                            functions.containWordinStringUrl(
-                                                _model
-                                                    .searchTextfieldTextController
-                                                    .text,
-                                                ImproundCarGetBranchCall
-                                                    .branchname(
-                                                  (_model.getBranchOutput
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )?[branchListItemIndex])!,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 8.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              FFAppState()
-                                                      .selectedDropdownList =
-                                                  functions
-                                                      .setBoolValueListAtIndex(
-                                                          functions
-                                                              .createFalseListByItemNumber(
-                                                                  false,
-                                                                  FFAppState()
-                                                                      .selectedDropdownList
-                                                                      .length)
-                                                              ?.toList(),
-                                                          branchListItemIndex)!
-                                                      .toList()
-                                                      .cast<bool>();
-                                              safeSetState(() {});
-                                            },
-                                            child: Container(
-                                              height: 40.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    blurRadius: 4.0,
-                                                    color: Color(0x33000000),
-                                                    offset: Offset(
-                                                      0.0,
-                                                      2.0,
+                                      return Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 8.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            FFAppState().selectedDropdownList =
+                                                functions
+                                                    .setBoolValueListAtIndex(
+                                                        functions
+                                                            .createFalseListByItemNumber(
+                                                                false,
+                                                                FFAppState()
+                                                                    .selectedDropdownList
+                                                                    .length)
+                                                            ?.toList(),
+                                                        branchListItemIndex)!
+                                                    .toList()
+                                                    .cast<bool>();
+                                            safeSetState(() {});
+                                          },
+                                          child: Container(
+                                            height: 40.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(4.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 10,
+                                                    child: Text(
+                                                      '${ImproundCarGetBranchCall.branchname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )?[branchListItemIndex]} (${ImproundCarGetBranchCall.branchcode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )?[branchListItemIndex]})',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
-                                                  )
+                                                  ),
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        if ((List<bool>
+                                                                    selectedDropdownList,
+                                                                int index) {
+                                                          return selectedDropdownList[
+                                                              index];
+                                                        }(
+                                                            FFAppState()
+                                                                .selectedDropdownList
+                                                                .toList(),
+                                                            branchListItemIndex)) {
+                                                          return Icon(
+                                                            Icons.check_sharp,
+                                                            color: Color(
+                                                                0xFF14B401),
+                                                            size: 24.0,
+                                                          );
+                                                        } else {
+                                                          return Container(
+                                                            width: 100.0,
+                                                            height: 100.0,
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                          );
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
                                                 ],
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Expanded(
-                                                      flex: 10,
-                                                      child: Text(
-                                                        '${ImproundCarGetBranchCall.branchname(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )?[branchListItemIndex]} (${ImproundCarGetBranchCall.branchcode(
-                                                          (_model.getBranchOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )?[branchListItemIndex]})',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Poppins',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Expanded(
-                                                      flex: 1,
-                                                      child: Builder(
-                                                        builder: (context) {
-                                                          if ((List<bool>
-                                                                      selectedDropdownList,
-                                                                  int index) {
-                                                            return selectedDropdownList[
-                                                                index];
-                                                          }(
-                                                              FFAppState()
-                                                                  .selectedDropdownList
-                                                                  .toList(),
-                                                              branchListItemIndex)) {
-                                                            return Icon(
-                                                              Icons.check_sharp,
-                                                              color: Color(
-                                                                  0xFF14B401),
-                                                              size: 24.0,
-                                                            );
-                                                          } else {
-                                                            return Container(
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              decoration:
-                                                                  BoxDecoration(),
-                                                            );
-                                                          }
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
                                               ),
                                             ),
                                           ),

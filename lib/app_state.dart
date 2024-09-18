@@ -8936,6 +8936,65 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImpoundCarStatusCode(int index, String value) {
     impoundCarStatusCode.insert(index, value);
   }
+
+  List<BranchDataTypeStruct> _branchDataOriginal = [];
+  List<BranchDataTypeStruct> get branchDataOriginal => _branchDataOriginal;
+  set branchDataOriginal(List<BranchDataTypeStruct> value) {
+    _branchDataOriginal = value;
+  }
+
+  void addToBranchDataOriginal(BranchDataTypeStruct value) {
+    branchDataOriginal.add(value);
+  }
+
+  void removeFromBranchDataOriginal(BranchDataTypeStruct value) {
+    branchDataOriginal.remove(value);
+  }
+
+  void removeAtIndexFromBranchDataOriginal(int index) {
+    branchDataOriginal.removeAt(index);
+  }
+
+  void updateBranchDataOriginalAtIndex(
+    int index,
+    BranchDataTypeStruct Function(BranchDataTypeStruct) updateFn,
+  ) {
+    branchDataOriginal[index] = updateFn(_branchDataOriginal[index]);
+  }
+
+  void insertAtIndexInBranchDataOriginal(
+      int index, BranchDataTypeStruct value) {
+    branchDataOriginal.insert(index, value);
+  }
+
+  List<BranchDataTypeStruct> _branchDataOutput = [];
+  List<BranchDataTypeStruct> get branchDataOutput => _branchDataOutput;
+  set branchDataOutput(List<BranchDataTypeStruct> value) {
+    _branchDataOutput = value;
+  }
+
+  void addToBranchDataOutput(BranchDataTypeStruct value) {
+    branchDataOutput.add(value);
+  }
+
+  void removeFromBranchDataOutput(BranchDataTypeStruct value) {
+    branchDataOutput.remove(value);
+  }
+
+  void removeAtIndexFromBranchDataOutput(int index) {
+    branchDataOutput.removeAt(index);
+  }
+
+  void updateBranchDataOutputAtIndex(
+    int index,
+    BranchDataTypeStruct Function(BranchDataTypeStruct) updateFn,
+  ) {
+    branchDataOutput[index] = updateFn(_branchDataOutput[index]);
+  }
+
+  void insertAtIndexInBranchDataOutput(int index, BranchDataTypeStruct value) {
+    branchDataOutput.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -11540,6 +11540,11 @@ class ImproundCarGetBranchCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List? data(dynamic response) => getJsonField(
+        response,
+        r'''$.results.data''',
+        true,
+      ) as List?;
 }
 
 class ApiPagingParams {
