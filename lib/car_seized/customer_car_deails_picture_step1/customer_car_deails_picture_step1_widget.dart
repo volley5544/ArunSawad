@@ -472,7 +472,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         ParamType.DataStruct,
                       ),
                       'fromPage': serializeParam(
-                        widget!.fromPage,
+                        'takeImages',
                         ParamType.String,
                       ),
                       'impoundCarStatusId': serializeParam(
@@ -876,7 +876,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                               ParamType.DataStruct,
                                             ),
                                             'fromPage': serializeParam(
-                                              widget!.fromPage,
+                                              'changeCarLocation',
                                               ParamType.String,
                                             ),
                                             'impoundCarStatusId':
