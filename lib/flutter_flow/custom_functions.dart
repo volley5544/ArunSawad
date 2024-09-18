@@ -2198,8 +2198,12 @@ List<String>? getDataFromMapJsonToList(
   String? fieldName,
 ) {
   Map<String, dynamic> mapDataInput = jsonDecode(jsonDataInput!);
-  List<String> listOutput = mapDataInput['${fieldName!}'];
-  return listOutput;
+  dynamic listOutput = mapDataInput['${fieldName!}'];
+  print('listOutput : ${listOutput}');
+  //List<String> listOutput1 = [];
+  List<String> listOutput1 = listOutput.cast<String>();
+
+  return listOutput1!;
 }
 
 bool? checkLeaveDayNumber(String? leaveDayNumber) {

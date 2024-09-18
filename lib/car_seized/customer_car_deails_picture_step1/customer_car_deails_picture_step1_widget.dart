@@ -714,194 +714,222 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               ],
                             ),
                           ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                '${widget!.impoundCarLocateParamSet?.branchNameLocat} (${widget!.impoundCarLocateParamSet?.locatName})',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF404040),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      '${widget!.impoundCarLocateParamSet?.branchNameLocat} (${widget!.impoundCarLocateParamSet?.locatName})',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Color(0xFF404040),
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
-                              ),
-                            ],
-                          ),
-                          if (() {
-                                if (widget!.step == 'step1') {
-                                  return ((FFAppState().profileLevel ==
-                                              'สาขา') ||
-                                          (FFAppState().profileLevel ==
-                                              'เขต') ||
-                                          (FFAppState().profileLevel == 'ภาค')
-                                      ? functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step1'),
-                                              'Level'),
-                                          FFAppState().profileLevel)
-                                      : functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step1'),
-                                              'role_name'),
-                                          widget!.userRoleSave));
-                                } else if (widget!.step == 'step2') {
-                                  return ((FFAppState().profileLevel ==
-                                              'สาขา') ||
-                                          (FFAppState().profileLevel ==
-                                              'เขต') ||
-                                          (FFAppState().profileLevel == 'ภาค')
-                                      ? functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step2'),
-                                              'Level'),
-                                          FFAppState().profileLevel)
-                                      : functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step2'),
-                                              'role_name'),
-                                          widget!.userRoleSave));
-                                } else if (widget!.step == 'step3') {
-                                  return ((FFAppState().profileLevel ==
-                                              'สาขา') ||
-                                          (FFAppState().profileLevel ==
-                                              'เขต') ||
-                                          (FFAppState().profileLevel == 'ภาค')
-                                      ? functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step3'),
-                                              'Level'),
-                                          FFAppState().profileLevel)
-                                      : functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step3'),
-                                              'role_name'),
-                                          widget!.userRoleSave));
-                                } else if (widget!.step == 'step4') {
-                                  return ((FFAppState().profileLevel ==
-                                              'สาขา') ||
-                                          (FFAppState().profileLevel ==
-                                              'เขต') ||
-                                          (FFAppState().profileLevel == 'ภาค')
-                                      ? functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step4'),
-                                              'Level'),
-                                          FFAppState().profileLevel)
-                                      : functions.containsValueInJsonList(
-                                          functions.getDataFromMapJson(
-                                              functions.getDataFromMapJson(
-                                                  widget!.saveAccessRoleData,
-                                                  'step4'),
-                                              'role_name'),
-                                          widget!.userRoleSave));
-                                } else {
-                                  return true;
-                                }
-                              }() ??
-                              true)
-                            FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 1.0,
-                              buttonSize: 40.0,
-                              icon: Icon(
-                                Icons.edit_outlined,
-                                color: Color(0xFFDB771A),
-                                size: 25.0,
-                              ),
-                              onPressed: () async {
-                                if (widget!.step == 'step4') {}
+                                  ),
+                                  if (() {
+                                        if (widget!.step == 'step1') {
+                                          return ((FFAppState().profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step1'),
+                                                      'Level'),
+                                                  FFAppState().profileLevel)
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step1'),
+                                                      'role_name'),
+                                                  widget!.userRoleSave));
+                                        } else if (widget!.step == 'step2') {
+                                          return ((FFAppState().profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step2'),
+                                                      'Level'),
+                                                  FFAppState().profileLevel)
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step2'),
+                                                      'role_name'),
+                                                  widget!.userRoleSave));
+                                        } else if (widget!.step == 'step3') {
+                                          return ((FFAppState().profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step3'),
+                                                      'Level'),
+                                                  FFAppState().profileLevel)
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step3'),
+                                                      'role_name'),
+                                                  widget!.userRoleSave));
+                                        } else if (widget!.step == 'step4') {
+                                          return ((FFAppState().profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step4'),
+                                                      'Level'),
+                                                  FFAppState().profileLevel)
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .saveAccessRoleData,
+                                                          'step4'),
+                                                      'role_name'),
+                                                  widget!.userRoleSave));
+                                        } else {
+                                          return true;
+                                        }
+                                      }() ??
+                                      true)
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30.0,
+                                      borderWidth: 1.0,
+                                      buttonSize: 40.0,
+                                      icon: Icon(
+                                        Icons.edit_outlined,
+                                        color: Color(0xFFDB771A),
+                                        size: 25.0,
+                                      ),
+                                      onPressed: () async {
+                                        if (widget!.step == 'step4') {}
 
-                                context.pushNamed(
-                                  'ChangeCarLocationPage',
-                                  queryParameters: {
-                                    'step': serializeParam(
-                                      widget!.step,
-                                      ParamType.String,
+                                        context.pushNamed(
+                                          'ChangeCarLocationPage',
+                                          queryParameters: {
+                                            'step': serializeParam(
+                                              widget!.step,
+                                              ParamType.String,
+                                            ),
+                                            'readAccessRoleData':
+                                                serializeParam(
+                                              widget!.readAccessRoleData,
+                                              ParamType.JSON,
+                                            ),
+                                            'saveAccessRoleData':
+                                                serializeParam(
+                                              widget!.saveAccessRoleData,
+                                              ParamType.JSON,
+                                            ),
+                                            'userRoleRead': serializeParam(
+                                              widget!.userRoleRead,
+                                              ParamType.String,
+                                            ),
+                                            'userRoleSave': serializeParam(
+                                              widget!.userRoleSave,
+                                              ParamType.String,
+                                            ),
+                                            'impoundCarParamSet':
+                                                serializeParam(
+                                              widget!.impoundCarParamSet,
+                                              ParamType.DataStruct,
+                                            ),
+                                            'fromPage': serializeParam(
+                                              widget!.fromPage,
+                                              ParamType.String,
+                                            ),
+                                            'impoundCarStatusId':
+                                                serializeParam(
+                                              UploadImagesGoogleDriveGroup
+                                                  .searchImagesCall
+                                                  .impoundCarStatusId(
+                                                (_model.imagesAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'impoundCarStatusCode':
+                                                serializeParam(
+                                              UploadImagesGoogleDriveGroup
+                                                  .searchImagesCall
+                                                  .impoundCarStatusCode(
+                                                (_model.imagesAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'impoundCarStatusName':
+                                                serializeParam(
+                                              UploadImagesGoogleDriveGroup
+                                                  .searchImagesCall
+                                                  .impoundCarStatusName(
+                                                (_model.imagesAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ),
+                                              ParamType.String,
+                                            ),
+                                            'carConfig': serializeParam(
+                                              widget!.carConfig,
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                            'motocycleConfig': serializeParam(
+                                              widget!.motocycleConfig,
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
                                     ),
-                                    'readAccessRoleData': serializeParam(
-                                      widget!.readAccessRoleData,
-                                      ParamType.JSON,
-                                    ),
-                                    'saveAccessRoleData': serializeParam(
-                                      widget!.saveAccessRoleData,
-                                      ParamType.JSON,
-                                    ),
-                                    'userRoleRead': serializeParam(
-                                      widget!.userRoleRead,
-                                      ParamType.String,
-                                    ),
-                                    'userRoleSave': serializeParam(
-                                      widget!.userRoleSave,
-                                      ParamType.String,
-                                    ),
-                                    'impoundCarParamSet': serializeParam(
-                                      widget!.impoundCarParamSet,
-                                      ParamType.DataStruct,
-                                    ),
-                                    'fromPage': serializeParam(
-                                      widget!.fromPage,
-                                      ParamType.String,
-                                    ),
-                                    'impoundCarStatusId': serializeParam(
-                                      UploadImagesGoogleDriveGroup
-                                          .searchImagesCall
-                                          .impoundCarStatusId(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ),
-                                      ParamType.String,
-                                    ),
-                                    'impoundCarStatusCode': serializeParam(
-                                      UploadImagesGoogleDriveGroup
-                                          .searchImagesCall
-                                          .impoundCarStatusCode(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ),
-                                      ParamType.String,
-                                    ),
-                                    'impoundCarStatusName': serializeParam(
-                                      UploadImagesGoogleDriveGroup
-                                          .searchImagesCall
-                                          .impoundCarStatusName(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ),
-                                      ParamType.String,
-                                    ),
-                                    'carConfig': serializeParam(
-                                      widget!.carConfig,
-                                      ParamType.String,
-                                      isList: true,
-                                    ),
-                                    'motocycleConfig': serializeParam(
-                                      widget!.motocycleConfig,
-                                      ParamType.String,
-                                      isList: true,
-                                    ),
-                                  }.withoutNulls,
-                                );
-                              },
+                                ],
+                              ),
                             ),
+                          ),
                         ],
                       ),
                     ),
