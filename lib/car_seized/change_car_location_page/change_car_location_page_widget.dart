@@ -303,6 +303,16 @@ class _ChangeCarLocationPageWidgetState
                                       .toList()
                                       .cast<bool>();
                                   safeSetState(() {});
+                                  FFAppState().selectedDropdownList = functions
+                                      .createFalseListByItemNumber(
+                                          false,
+                                          ImproundCarGetBranchCall.branchname(
+                                            (_model.getBranchOutput?.jsonBody ??
+                                                ''),
+                                          )?.length)!
+                                      .toList()
+                                      .cast<bool>();
+                                  safeSetState(() {});
                                   FFAppState().branchDataOriginal =
                                       (getJsonField(
                                     (_model.getBranchOutput?.jsonBody ?? ''),
@@ -1257,8 +1267,249 @@ class _ChangeCarLocationPageWidgetState
                                         },
                                       );
 
-                                      context
-                                          .goNamed('CarSeizedSelectDashboard');
+                                      context.goNamed(
+                                        'customerCarDeailsPictureStep1',
+                                        queryParameters: {
+                                          'step': serializeParam(
+                                            widget!.step,
+                                            ParamType.String,
+                                          ),
+                                          'readAccessRoleData': serializeParam(
+                                            widget!.readAccessRoleData,
+                                            ParamType.JSON,
+                                          ),
+                                          'saveAccessRoleData': serializeParam(
+                                            widget!.saveAccessRoleData,
+                                            ParamType.JSON,
+                                          ),
+                                          'userRoleRead': serializeParam(
+                                            widget!.userRoleRead,
+                                            ParamType.String,
+                                          ),
+                                          'userRoleSave': serializeParam(
+                                            widget!.userRoleSave,
+                                            ParamType.String,
+                                          ),
+                                          'impoundCarParamSet': serializeParam(
+                                            widget!.impoundCarParamSet,
+                                            ParamType.DataStruct,
+                                          ),
+                                          'fromPage': serializeParam(
+                                            widget!.fromPage,
+                                            ParamType.String,
+                                          ),
+                                          'impoundCarLocateParamSet':
+                                              serializeParam(
+                                            ImpoundCarLocateParamSetStruct(
+                                              improundcarLocatId:
+                                                  containerImpoundCarMasterRecord
+                                                          .impoundCarLocateId[
+                                                      functions.getIndexOfSomethingList(
+                                                          containerImpoundCarMasterRecord
+                                                              .locateCode
+                                                              .toList(),
+                                                          _model
+                                                              .dropDownValue)],
+                                              locatName: containerImpoundCarMasterRecord
+                                                      .locateName[
+                                                  functions.getIndexOfSomethingList(
+                                                      containerImpoundCarMasterRecord
+                                                          .locateCode
+                                                          .toList(),
+                                                      _model.dropDownValue)],
+                                              improundcarSubLocatId: ImproundCarGetBranchCall
+                                                              .subLocatId(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ) !=
+                                                          null &&
+                                                      (ImproundCarGetBranchCall
+                                                              .subLocatId(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ))!
+                                                          .isNotEmpty
+                                                  ? FFAppState()
+                                                      .branchDataOutput[functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .selectedDropdownList
+                                                                  .toList(),
+                                                              true)]
+                                                      .improundcarSubLocatId
+                                                  : '',
+                                              branchNameLocat: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .branchName,
+                                              address: ImproundCarGetBranchCall
+                                                              .address(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ) !=
+                                                          null &&
+                                                      (ImproundCarGetBranchCall
+                                                              .address(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ))!
+                                                          .isNotEmpty
+                                                  ? FFAppState()
+                                                      .branchDataOutput[functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .selectedDropdownList
+                                                                  .toList(),
+                                                              true)]
+                                                      .address
+                                                  : '',
+                                              subDistrict: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .subDistrict,
+                                              district: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .district,
+                                              province: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .province,
+                                              postcode: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .postcode,
+                                              phoneNumber: ImproundCarGetBranchCall
+                                                              .phoneNumber(
+                                                            (_model.getBranchOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ) !=
+                                                          null &&
+                                                      (ImproundCarGetBranchCall
+                                                              .phoneNumber(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ))!
+                                                          .isNotEmpty
+                                                  ? FFAppState()
+                                                      .branchDataOutput[functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .selectedDropdownList
+                                                                  .toList(),
+                                                              true)]
+                                                      .phoneNumber
+                                                  : '',
+                                              latitude: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .latitude,
+                                              longitude: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .longitude,
+                                              branchCodeLocat: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .branchCode,
+                                              areaCode: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .areaCode,
+                                              areaName: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .areaName,
+                                              regionCode: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .regionCode,
+                                              regionName: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .regionName,
+                                              locatCode: FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .locatCode,
+                                            ),
+                                            ParamType.DataStruct,
+                                          ),
+                                          'impoundCarStatusName':
+                                              serializeParam(
+                                            widget!.impoundCarStatusName,
+                                            ParamType.String,
+                                          ),
+                                          'carConfig': serializeParam(
+                                            widget!.carConfig,
+                                            ParamType.String,
+                                            isList: true,
+                                          ),
+                                          'motocycleConfig': serializeParam(
+                                            widget!.motocycleConfig,
+                                            ParamType.String,
+                                            isList: true,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     } else {
                                       await showDialog(
                                         context: context,

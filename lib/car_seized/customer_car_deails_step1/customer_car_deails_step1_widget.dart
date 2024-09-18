@@ -6916,7 +6916,7 @@ class _CustomerCarDeailsStep1WidgetState
                               }
                               Navigator.pop(context);
 
-                              context.pushNamed(
+                              context.goNamed(
                                 'customerCarDeailsPictureStep1',
                                 queryParameters: {
                                   'step': serializeParam(
