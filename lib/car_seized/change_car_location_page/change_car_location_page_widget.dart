@@ -293,15 +293,7 @@ class _ChangeCarLocationPageWidgetState
                                     if (_shouldSetState) safeSetState(() {});
                                     return;
                                   }
-                                  FFAppState().selectedDropdownList = functions
-                                      .createFalseListByItemNumber(
-                                          false,
-                                          ImproundCarGetBranchCall.branchname(
-                                            (_model.getBranchOutput?.jsonBody ??
-                                                ''),
-                                          )?.length)!
-                                      .toList()
-                                      .cast<bool>();
+                                  FFAppState().selectedDropdownList = [];
                                   safeSetState(() {});
                                   FFAppState().selectedDropdownList = functions
                                       .createFalseListByItemNumber(
@@ -344,31 +336,6 @@ class _ChangeCarLocationPageWidgetState
                                       .cast<BranchDataTypeStruct>();
                                   safeSetState(() {});
                                   Navigator.pop(context);
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          title: Text(FFAppState()
-                                              .branchDataOriginal
-                                              .length
-                                              .toString()),
-                                          content: Text((FFAppState()
-                                                  .branchDataOriginal
-                                                  .last
-                                                  .toMap())
-                                              .toString()),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
                                   if (_shouldSetState) safeSetState(() {});
                                 },
                                 width: 300.0,
