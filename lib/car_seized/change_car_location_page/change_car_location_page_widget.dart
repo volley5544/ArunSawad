@@ -870,10 +870,6 @@ class _ChangeCarLocationPageWidgetState
                                           : '',
                                       branchCode: FFAppState().profileBranch,
                                       nameTh: FFAppState().profileFullName,
-                                      improundcarStatusId:
-                                          widget!.impoundCarStatusId,
-                                      statusCode: widget!.impoundCarStatusCode,
-                                      statusName: widget!.impoundCarStatusName,
                                       address: ImproundCarGetBranchCall.address(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
