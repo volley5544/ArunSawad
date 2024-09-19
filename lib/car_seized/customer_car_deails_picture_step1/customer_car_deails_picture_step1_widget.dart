@@ -904,13 +904,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                             ),
                                             'impoundCarStatusName':
                                                 serializeParam(
-                                              UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .impoundCarStatusName(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
+                                              widget!.impoundCarStatusName,
                                               ParamType.String,
                                             ),
                                             'carConfig': serializeParam(
