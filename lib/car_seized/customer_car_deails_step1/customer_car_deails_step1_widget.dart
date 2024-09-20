@@ -3833,12 +3833,11 @@ class _CustomerCarDeailsStep1WidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) !=
-                                                'C')
+                                            if (widget!.motocycleConfig
+                                                    ?.contains(widget!
+                                                        .impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
@@ -3859,12 +3858,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                       ),
                                                 ),
                                               ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) ==
-                                                'C')
+                                            if (widget!.carConfig?.contains(
+                                                    widget!.impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -4357,12 +4354,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) ==
-                                                'C')
+                                            if (widget!.carConfig?.contains(
+                                                    widget!.impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
@@ -4383,12 +4378,11 @@ class _CustomerCarDeailsStep1WidgetState
                                                       ),
                                                 ),
                                               ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) !=
-                                                'C')
+                                            if (widget!.motocycleConfig
+                                                    ?.contains(widget!
+                                                        .impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -4883,12 +4877,11 @@ class _CustomerCarDeailsStep1WidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) !=
-                                                'C')
+                                            if (widget!.motocycleConfig
+                                                    ?.contains(widget!
+                                                        .impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
@@ -4909,12 +4902,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                       ),
                                                 ),
                                               ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) ==
-                                                'C')
+                                            if (widget!.carConfig?.contains(
+                                                    widget!.impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -5409,12 +5400,11 @@ class _CustomerCarDeailsStep1WidgetState
                                                         ),
                                               ),
                                             ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) !=
-                                                'C')
+                                            if (widget!.motocycleConfig
+                                                    ?.contains(widget!
+                                                        .impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Container(
                                                 decoration: BoxDecoration(
                                                   color: Color(0xFFFAFAFA),
@@ -5435,12 +5425,10 @@ class _CustomerCarDeailsStep1WidgetState
                                                       ),
                                                 ),
                                               ),
-                                            if (valueOrDefault<String>(
-                                                  widget!.impoundCarParamSet
-                                                      ?.improundCONTNOTYPE,
-                                                  'default',
-                                                ) ==
-                                                'C')
+                                            if (widget!.carConfig?.contains(
+                                                    widget!.impoundCarParamSet
+                                                        ?.improundCONTNOTYPE) ??
+                                                true)
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(

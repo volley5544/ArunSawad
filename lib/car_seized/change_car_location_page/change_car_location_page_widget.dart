@@ -1146,14 +1146,14 @@ class _ChangeCarLocationPageWidgetState
                                           : '',
                                       url: FFAppState().improundUrl,
                                       locatCode: ImproundCarGetBranchCall
-                                                      .regionname(
+                                                      .locatCode(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
                                                   ) !=
                                                   null &&
                                               (ImproundCarGetBranchCall
-                                                      .regionname(
+                                                      .locatCode(
                                                 (_model.getBranchOutput
                                                         ?.jsonBody ??
                                                     ''),

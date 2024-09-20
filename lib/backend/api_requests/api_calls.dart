@@ -862,6 +862,40 @@ class UpdateImproundCarCall {
 
 /// End uploadImagesGoogleDrive Group Code
 
+/// Start SWP Fin Search API Group Code
+
+class SWPFinSearchAPIGroup {
+  static String getBaseUrl() => 'https://dev.swpfin.com:7077';
+  static Map<String, String> headers = {};
+  static SearchByContainerNumberAndCustomerDetailsUsingFormDataCall
+      searchByContainerNumberAndCustomerDetailsUsingFormDataCall =
+      SearchByContainerNumberAndCustomerDetailsUsingFormDataCall();
+}
+
+class SearchByContainerNumberAndCustomerDetailsUsingFormDataCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = SWPFinSearchAPIGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName:
+          'Search by container number and customer details using form data',
+      apiUrl: '${baseUrl}/api/search',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End SWP Fin Search API Group Code
+
 class AuthenAPICall {
   static Future<ApiCallResponse> call({
     String? username = '',
