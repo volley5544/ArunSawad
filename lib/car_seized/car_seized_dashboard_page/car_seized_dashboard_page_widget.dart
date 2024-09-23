@@ -166,12 +166,12 @@ class _CarSeizedDashboardPageWidgetState
                           'textShow': serializeParam(
                             () {
                               if (widget!.fromPage == 'takeImages') {
-                                return 'ถ่ายรูปรถยึด';
+                                return 'ถ่ายรูปส่งเปลี่ยนเป้ารถยึด';
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
-                                return 'เปลี่ยนที่จอดรถนึด';
+                                return 'เปลี่ยนสถานที่ส่งเปลี่ยนเป้ารถยึด';
                               } else {
-                                return 'ดูรูปรถยึด';
+                                return 'ดูรูปส่งเปลี่ยนเป้ารถยึด';
                               }
                             }(),
                             ParamType.String,
@@ -301,25 +301,29 @@ class _CarSeizedDashboardPageWidgetState
                               ),
                             Expanded(
                               flex: 1,
-                              child: Text(
-                                () {
-                                  if (widget!.fromPage == 'takeImages') {
-                                    return 'ถ่ายรูปรถยึด';
-                                  } else if (widget!.fromPage ==
-                                      'changeCarLocation') {
-                                    return 'เปลี่ยนที่จอดรถยึด';
-                                  } else {
-                                    return 'ดูรูปรถยึด';
-                                  }
-                                }(),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Noto Sans Thai',
-                                      color: Color(0xFF204A77),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                    ),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(),
+                                child: Text(
+                                  () {
+                                    if (widget!.fromPage == 'takeImages') {
+                                      return 'ถ่ายรูปส่งเปลี่ยนเป้ารถยึด';
+                                    } else if (widget!.fromPage ==
+                                        'changeCarLocation') {
+                                      return 'เปลี่ยนสถานที่ส่งเปลี่ยนเป้ารถยึด';
+                                    } else {
+                                      return 'ดูรูปส่งเปลี่ยนเป้ารถยึด';
+                                    }
+                                  }(),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        color: Color(0xFF204A77),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
                               ),
                             ),
                           ],

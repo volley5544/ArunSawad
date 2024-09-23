@@ -101,7 +101,7 @@ class _CustomerCarDeailsStep1WidgetState
           title: Text(
             () {
               if (widget!.step == 'step1') {
-                return 'ถ่ายรูปรถยึด';
+                return 'ถ่ายรูปส่งเปลี่ยนเป้ารถยึด';
               } else if (widget!.step == 'step2') {
                 return 'ถ่ายรูปส่งมอบรถ';
               } else if (widget!.step == 'step3') {

@@ -557,7 +557,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
-                                            color: Color(0xFFEEEEEE),
+                                            color: Color(0xFFFFF1EC),
                                             width: 1.0,
                                           ),
                                           borderRadius: const BorderRadius.only(
