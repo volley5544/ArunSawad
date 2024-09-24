@@ -612,6 +612,15 @@ class SearchContractNumberCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? branchcodelocat(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].branch_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class UploadGoogleDriveAPICall {
@@ -11378,6 +11387,60 @@ class SswSurveyAPIVloanGetContractCall {
         response,
         r'''$.results.data[:].MANUYR_CONVERT''',
       ));
+  static List<String>? locatname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].locat_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchcodelocat(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].branch_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? branchnamelocat(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].branch_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? improundcarstatusid(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].improundcar_status_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? statuscode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].status_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? statusname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].status_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ImproundCarGetBranchCall {

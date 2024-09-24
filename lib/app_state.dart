@@ -8995,6 +8995,35 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInBranchDataOutput(int index, BranchDataTypeStruct value) {
     branchDataOutput.insert(index, value);
   }
+
+  List<String> _ImpoundCarBranchCode = [];
+  List<String> get ImpoundCarBranchCode => _ImpoundCarBranchCode;
+  set ImpoundCarBranchCode(List<String> value) {
+    _ImpoundCarBranchCode = value;
+  }
+
+  void addToImpoundCarBranchCode(String value) {
+    ImpoundCarBranchCode.add(value);
+  }
+
+  void removeFromImpoundCarBranchCode(String value) {
+    ImpoundCarBranchCode.remove(value);
+  }
+
+  void removeAtIndexFromImpoundCarBranchCode(int index) {
+    ImpoundCarBranchCode.removeAt(index);
+  }
+
+  void updateImpoundCarBranchCodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    ImpoundCarBranchCode[index] = updateFn(_ImpoundCarBranchCode[index]);
+  }
+
+  void insertAtIndexInImpoundCarBranchCode(int index, String value) {
+    ImpoundCarBranchCode.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

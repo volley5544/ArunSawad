@@ -695,19 +695,21 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 .cast<String>();
                                         safeSetState(() {});
                                         FFAppState().impoundCarBranchName =
-                                            functions
-                                                .generateEmptyListByLength(
-                                                    FFAppState()
-                                                        .improundCONTNO
-                                                        .length)!
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .branchnamelocat(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
                                                 .toList()
                                                 .cast<String>();
                                         FFAppState().impoundCarMainBranch =
-                                            functions
-                                                .generateEmptyListByLength(
-                                                    FFAppState()
-                                                        .improundCONTNO
-                                                        .length)!
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .locatname(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
                                                 .toList()
                                                 .cast<String>();
                                         FFAppState().impoundCarStatusId =
@@ -732,6 +734,15 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                     FFAppState()
                                                         .improundCONTNO
                                                         .length)!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().ImpoundCarBranchCode =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .branchcodelocat(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
                                                 .toList()
                                                 .cast<String>();
                                         safeSetState(() {});
@@ -1099,6 +1110,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                             UploadImagesGoogleDriveGroup
                                                 .searchContractNumberCall
                                                 .impoundStatusCode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().ImpoundCarBranchCode =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .branchcodelocat(
                                                   (_model.searchAPIOutput
                                                           ?.jsonBody ??
                                                       ''),
@@ -1726,7 +1747,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                   ),
                                                 ),
                                                 if (FFAppState()
-                                                            .impoundCarBranchName[
+                                                            .impoundCarMainBranch[
                                                         listImproundIndex] !=
                                                     '')
                                                   Padding(
@@ -1805,7 +1826,108 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .secondaryBackground,
                                                             ),
                                                             child: Text(
-                                                              '${FFAppState().impoundCarBranchName[listImproundIndex]} (${FFAppState().impoundCarMainBranch[listImproundIndex]})',
+                                                              '${FFAppState().impoundCarMainBranch[listImproundIndex]}',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF090F13),
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                            .impoundCarBranchName[
+                                                        listImproundIndex] !=
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                12.0, 7.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Expanded(
+                                                          child: Container(
+                                                            width: 37.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Text(
+                                                              'สาขาที่จอดรถ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF090F13),
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          width: 10.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                          ),
+                                                          child: Text(
+                                                            ':',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Color(
+                                                                      0xFF090F13),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          child: Container(
+                                                            width: 37.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                            ),
+                                                            child: Text(
+                                                              '${FFAppState().ImpoundCarBranchCode[listImproundIndex]} -${FFAppState().impoundCarBranchName[listImproundIndex]}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium

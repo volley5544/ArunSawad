@@ -589,7 +589,7 @@ class _CarSeizedDashboardPageWidgetState
                                           return 'ส่งมอบรถ';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'จอดส่งมอบรถ';
+                                          return 'ส่งมอบรถ';
                                         } else {
                                           return ' ';
                                         }
@@ -832,7 +832,7 @@ class _CarSeizedDashboardPageWidgetState
                                           return 'ถ่ายรูปตั้งราคา';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'จอดตั้งราคา';
+                                          return 'ตั้งราคา';
                                         } else {
                                           return ' ';
                                         }
