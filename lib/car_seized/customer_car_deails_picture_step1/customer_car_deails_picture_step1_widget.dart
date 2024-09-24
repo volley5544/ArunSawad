@@ -575,7 +575,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               valueOrDefault<String>(
                                 widget!
                                     .impoundCarParamSet?.improundCONTNOTYPENAME,
-                                'type_name',
+                                '-',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -647,7 +647,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                             Text(
                               valueOrDefault<String>(
                                 widget!.impoundCarParamSet?.improundREGNO,
-                                'default',
+                                '-',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium

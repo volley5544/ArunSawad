@@ -1847,10 +1847,14 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                       ],
                                                     ),
                                                   ),
-                                                if (FFAppState()
-                                                            .impoundCarBranchName[
-                                                        listImproundIndex] !=
-                                                    '')
+                                                if ((FFAppState()
+                                                                .impoundCarBranchName[
+                                                            listImproundIndex] !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                                .impoundCarBranchName[
+                                                            listImproundIndex] !=
+                                                        ''))
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
