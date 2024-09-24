@@ -315,7 +315,7 @@ class _CarSeizedDashboardPageWidgetState
                                             'changeCarLocation') {
                                           return 'เปลี่ยนสถานที่';
                                         } else {
-                                          return 'ดูรูปส่งเปลี่ยนเป้ารถยึด';
+                                          return 'ดูรูป';
                                         }
                                       }(),
                                       textAlign: TextAlign.center,
@@ -345,7 +345,7 @@ class _CarSeizedDashboardPageWidgetState
                                               'changeCarLocation') {
                                             return 'ส่งเปลี่ยนเป้ารถยึด';
                                           } else {
-                                            return ' ';
+                                            return ' ส่งเปลี่ยนเป้ารถยึด';
                                           }
                                         }(),
                                         textAlign: TextAlign.center,
@@ -563,7 +563,7 @@ class _CarSeizedDashboardPageWidgetState
                                   Text(
                                     () {
                                       if (widget!.fromPage == 'takeImages') {
-                                        return 'ถ่ายรูป';
+                                        return 'ถ่ายรูปส่งมอบรถ';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
                                         return 'เปลี่ยนสถานที่';
@@ -581,9 +581,7 @@ class _CarSeizedDashboardPageWidgetState
                                           letterSpacing: 0.0,
                                         ),
                                   ),
-                                  if ((widget!.fromPage ==
-                                          'changeCarLocation') ||
-                                      (widget!.fromPage == 'takeImages'))
+                                  if (widget!.fromPage == 'changeCarLocation')
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {
