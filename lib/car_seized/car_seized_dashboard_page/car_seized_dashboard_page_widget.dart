@@ -307,7 +307,7 @@ class _CarSeizedDashboardPageWidgetState
                                 child: Text(
                                   () {
                                     if (widget!.fromPage == 'takeImages') {
-                                      return 'ถ่ายรูปส่งเปลี่ยนเป้ารถยึด';
+                                      return 'ถ่ายรูป';
                                     } else if (widget!.fromPage ==
                                         'changeCarLocation') {
                                       return 'เปลี่ยนสถานที่';
@@ -333,12 +333,13 @@ class _CarSeizedDashboardPageWidgetState
                                 width: double.infinity,
                                 decoration: BoxDecoration(),
                                 child: Visibility(
-                                  visible:
-                                      widget!.fromPage == 'changeCarLocation',
+                                  visible: (widget!.fromPage ==
+                                          'changeCarLocation') ||
+                                      (widget!.fromPage == 'takeImages'),
                                   child: Text(
                                     () {
                                       if (widget!.fromPage == 'takeImages') {
-                                        return 'ถ่ายรูปส่งเปลี่ยนเป้ารถยึด';
+                                        return 'ส่งเปลี่ยนเป้ารถยึด';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
                                         return 'ส่งเปลี่ยนเป้ารถยึด';
@@ -556,7 +557,7 @@ class _CarSeizedDashboardPageWidgetState
                               child: Text(
                                 () {
                                   if (widget!.fromPage == 'takeImages') {
-                                    return 'ถ่ายรูปส่งมอบรถ';
+                                    return 'ถ่ายรูป';
                                   } else if (widget!.fromPage ==
                                       'changeCarLocation') {
                                     return 'เปลี่ยนสถานที่';
@@ -575,13 +576,14 @@ class _CarSeizedDashboardPageWidgetState
                                     ),
                               ),
                             ),
-                            if (widget!.fromPage == 'changeCarLocation')
+                            if ((widget!.fromPage == 'changeCarLocation') ||
+                                (widget!.fromPage == 'takeImages'))
                               Expanded(
                                 flex: 1,
                                 child: Text(
                                   () {
                                     if (widget!.fromPage == 'takeImages') {
-                                      return 'ถ่ายรูปส่งมอบรถ';
+                                      return 'ส่งมอบรถ';
                                     } else if (widget!.fromPage ==
                                         'changeCarLocation') {
                                       return 'จอดส่งมอบรถ';
