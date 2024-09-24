@@ -335,7 +335,8 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Visibility(
                                       visible: (widget!.fromPage ==
                                               'changeCarLocation') ||
-                                          (widget!.fromPage == 'takeImages'),
+                                          (widget!.fromPage == 'takeImages') ||
+                                          (widget!.fromPage == 'seeImages'),
                                       child: Text(
                                         () {
                                           if (widget!.fromPage ==
