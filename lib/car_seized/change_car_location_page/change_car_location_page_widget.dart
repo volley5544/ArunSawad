@@ -405,7 +405,7 @@ class _ChangeCarLocationPageWidgetState
                                                       fontFamily: 'Poppins',
                                                       letterSpacing: 0.0,
                                                     ),
-                                            hintText: 'กรุณากรอกคีย์เวิร์ด...',
+                                            hintText: 'ระบุคำค้นหา...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -866,7 +866,7 @@ class _ChangeCarLocationPageWidgetState
                                                           .selectedDropdownList
                                                           .toList(),
                                                       true)]
-                                              .branchName
+                                              .branchCode
                                           : '',
                                       branchCode: FFAppState().profileBranch,
                                       nameTh: FFAppState().profileFullName,
