@@ -291,7 +291,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.garage,
+                                        Icons.location_pin,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -548,7 +548,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.garage,
+                                        Icons.location_pin,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -586,10 +586,10 @@ class _CarSeizedDashboardPageWidgetState
                                     Text(
                                       () {
                                         if (widget!.fromPage == 'takeImages') {
-                                          return 'ส่งมอบรถ';
+                                          return 'รูปส่งมอบรถ';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'ส่งมอบรถ';
+                                          return 'รูปส่งมอบรถ';
                                         } else {
                                           return ' ';
                                         }
@@ -791,7 +791,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.garage,
+                                        Icons.location_pin,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -832,7 +832,7 @@ class _CarSeizedDashboardPageWidgetState
                                           return 'ถ่ายรูปตั้งราคา';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'ตั้งราคา';
+                                          return 'รูปตั้งราคา';
                                         } else {
                                           return ' ';
                                         }
@@ -1034,7 +1034,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.garage,
+                                        Icons.location_pin,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -1075,7 +1075,7 @@ class _CarSeizedDashboardPageWidgetState
                                           return 'อัพโหลดรูปเข้าประมูล';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'เข้าประมูล';
+                                          return 'รูปเข้าประมูล';
                                         } else {
                                           return ' ';
                                         }

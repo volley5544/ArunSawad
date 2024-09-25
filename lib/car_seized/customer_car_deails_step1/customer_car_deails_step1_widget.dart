@@ -6826,7 +6826,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 longitude:
                                     widget!.impoundCarLocateParamSet?.longitude,
                                 branchCodeLocat: widget!
-                                    .impoundCarLocateParamSet?.branchNameLocat,
+                                    .impoundCarLocateParamSet?.branchCodeLocat,
                                 areaCode:
                                     widget!.impoundCarLocateParamSet?.areaCode,
                                 areaName:

@@ -527,7 +527,7 @@ class _CarSeizedSelectDashboardWidgetState
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Icon(
-                                      Icons.garage,
+                                      Icons.location_on,
                                       color: Color(0xFF354052),
                                       size: 28.0,
                                     ),

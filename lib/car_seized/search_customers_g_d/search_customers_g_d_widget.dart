@@ -2574,7 +2574,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                               0.0),
                                                                           child:
                                                                               Icon(
-                                                                            Icons.garage,
+                                                                            Icons.location_pin,
                                                                             color:
                                                                                 Color(0xFF354052),
                                                                             size:
@@ -2593,6 +2593,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                           .textShow,
                                                                       '-',
                                                                     ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium

@@ -96,7 +96,7 @@ dependencies:
   flutter_secure_storage_windows: 2.0.0
   flutter_web_browser: ^0.17.1
   flutter_windowmanager: ^0.2.0
-  font_awesome_flutter: 10.6.0
+  font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
   geolocator: 12.0.0
   geolocator_android: 4.6.0
@@ -241,6 +241,7 @@ flutter:
     - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
+
   fonts:
     - family: 'Athiti Regular Font'
       fonts:
