@@ -1931,7 +1931,7 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                   .secondaryBackground,
                                                             ),
                                                             child: Text(
-                                                              '${FFAppState().ImpoundCarBranchCode[listImproundIndex]} -${FFAppState().impoundCarBranchName[listImproundIndex]}',
+                                                              '${FFAppState().impoundCarBranchName[listImproundIndex]}(${FFAppState().ImpoundCarBranchCode[listImproundIndex]})',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -2381,6 +2381,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       branchNameLocat:
                                                                           FFAppState()
                                                                               .impoundCarBranchName[listImproundIndex],
+                                                                      branchCodeLocat:
+                                                                          FFAppState()
+                                                                              .ImpoundCarBranchCode[listImproundIndex],
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,

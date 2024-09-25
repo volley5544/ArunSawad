@@ -6870,7 +6870,7 @@ class _CustomerCarDeailsStep4WidgetState
                             areaCode:
                                 widget!.impoundCarLocateParamSet?.areaCode,
                             areaName:
-                                widget!.impoundCarLocateParamSet?.regionName,
+                                widget!.impoundCarLocateParamSet?.areaName,
                             regionCode:
                                 widget!.impoundCarLocateParamSet?.regionCode,
                             regionName:

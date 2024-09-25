@@ -866,7 +866,7 @@ class _ChangeCarLocationPageWidgetState
                                                           .selectedDropdownList
                                                           .toList(),
                                                       true)]
-                                              .branchCode
+                                              .branchName
                                           : '',
                                       branchCode: FFAppState().profileBranch,
                                       nameTh: FFAppState().profileFullName,
