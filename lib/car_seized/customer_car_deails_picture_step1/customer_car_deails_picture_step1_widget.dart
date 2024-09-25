@@ -984,28 +984,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               ],
                             ),
                           ),
-                          Container(
-                            decoration: BoxDecoration(),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
-                                  child: Text(
-                                    '${widget!.impoundCarLocateParamSet?.branchNameLocat}(${widget!.impoundCarLocateParamSet?.branchCodeLocat})',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF404040),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ),
-                              ],
+                          Expanded(
+                            child: Container(
+                              decoration: BoxDecoration(),
+                              child: Text(
+                                '${widget!.impoundCarLocateParamSet?.branchNameLocat}(${widget!.impoundCarLocateParamSet?.branchCodeLocat})',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
                             ),
                           ),
                         ],
