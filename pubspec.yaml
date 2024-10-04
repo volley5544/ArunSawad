@@ -168,6 +168,7 @@ dependencies:
   sqflite: 2.2.6
   stop_watch_timer: 3.0.2
   stream_transform: 2.1.0
+  string_similarity: ^2.1.1
   substring_highlight: 1.0.33
   syncfusion_flutter_gauges: ^20.3.56
   synchronized: 3.1.0

@@ -1917,7 +1917,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                           bool _isBiometricSupported = await _localAuth.isDeviceSupported();
                                                                                                           bool canCheckBiometrics = await _localAuth.canCheckBiometrics;
                                                                                                           if (_isBiometricSupported && canCheckBiometrics) {
-                                                                                                            _model.bioAuthCheck = await _localAuth.authenticate(localizedReason: 'ยืนยันตัวตนด้วย Face id หรือ สแกนลายนิ้วมือ', options: const AuthenticationOptions(biometricOnly: true));
+                                                                                                            try {
+                                                                                                              _model.bioAuthCheck = await _localAuth.authenticate(localizedReason: 'ยืนยันตัวตนด้วย Face id หรือ สแกนลายนิ้วมือ', options: const AuthenticationOptions(biometricOnly: true));
+                                                                                                            } on PlatformException {
+                                                                                                              _model.bioAuthCheck = false;
+                                                                                                            }
                                                                                                             safeSetState(() {});
                                                                                                           }
 
