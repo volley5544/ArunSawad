@@ -1091,9 +1091,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'ChatHomePage',
               path: 'chatHomePage',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'ChatHomePage')
-                  : ChatHomePageWidget(),
+              builder: (context, params) => ChatHomePageWidget(),
             ),
             FFRoute(
               name: 'ChattingPage',
