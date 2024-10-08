@@ -1145,29 +1145,7 @@ class _ChangeCarLocationPageWidgetState
                                               .regionName
                                           : '',
                                       url: FFAppState().improundUrl,
-                                      locatCode: ImproundCarGetBranchCall
-                                                      .locatCode(
-                                                    (_model.getBranchOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .locatCode(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .locatCode
-                                          : '',
+                                      locatCode: _model.dropDownValue,
                                     );
 
                                     _shouldSetState = true;
@@ -1716,14 +1694,7 @@ class _ChangeCarLocationPageWidgetState
                                                             .toList(),
                                                         true)]
                                                 .regionName,
-                                            locatCode: FFAppState()
-                                                .branchDataOutput[functions
-                                                    .getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .selectedDropdownList
-                                                            .toList(),
-                                                        true)]
-                                                .locatCode,
+                                            locatCode: _model.dropDownValue,
                                           ),
                                           ParamType.DataStruct,
                                         ),
@@ -1951,14 +1922,7 @@ class _ChangeCarLocationPageWidgetState
                                                             .toList(),
                                                         true)]
                                                 .regionName,
-                                            locatCode: FFAppState()
-                                                .branchDataOutput[functions
-                                                    .getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .selectedDropdownList
-                                                            .toList(),
-                                                        true)]
-                                                .locatCode,
+                                            locatCode: _model.dropDownValue,
                                           ),
                                           ParamType.DataStruct,
                                         ),
