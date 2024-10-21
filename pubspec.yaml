@@ -53,6 +53,7 @@ dependencies:
   enough_mail: ^2.1.1
   equatable: 2.0.5
   expandable: 5.0.1
+  fetch_client: 1.0.2
   file_picker: 8.0.3
   firebase_analytics: 10.10.5
   firebase_analytics_platform_interface: 3.10.6
@@ -239,9 +240,9 @@ flutter:
     - assets/images/
     - assets/videos/
     - assets/audios/
-    - assets/lottie_animations/
     - assets/rive_animations/
     - assets/pdfs/
+    - assets/jsons/
 
   fonts:
     - family: 'Athiti Regular Font'
@@ -254,7 +255,7 @@ flutter:
           weight: 600
           style: italic
 
-  
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

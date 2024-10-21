@@ -11644,6 +11644,25 @@ class ImproundCarGetBranchCall {
       ) as List?;
 }
 
+class ChatAPIHistoryCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'chatAPIHistory',
+      apiUrl:
+          'https://6e27-2405-9800-b661-aa6-89a7-ee3d-3630-faf1.ngrok-free.app/api/real-time-data',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: true,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

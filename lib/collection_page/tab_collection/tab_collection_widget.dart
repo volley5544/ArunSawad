@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/collection_page/appbar_follow_up_debt/appbar_follow_up_debt_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:convert';
 import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -67,6 +69,9 @@ class _TabCollectionWidgetState extends State<TabCollectionWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      FFAppState().apiUrlBranchViewCollection =
+          'https://f73f-115-31-145-24.ngrok-free.app';
+      safeSetState(() {});
       _model.collectionApiGetdataCount =
           await CollectionApiGetDataCountCall.call(
         branchCode: (FFAppState().branchCode == 'HO') ||
