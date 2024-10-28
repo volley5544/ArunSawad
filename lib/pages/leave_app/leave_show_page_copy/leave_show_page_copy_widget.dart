@@ -230,6 +230,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                       alignment: Alignment(0.0, 0),
                       child: TabBar(
                         labelColor: FlutterFlowTheme.of(context).black600,
+                        unselectedLabelColor:
+                            FlutterFlowTheme.of(context).black600,
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'Poppins',
@@ -935,8 +937,8 @@ class _LeaveShowPageCopyWidgetState extends State<LeaveShowPageCopyWidget>
                                                                     leaveIdItemIndex),
                                                                 '[leave_name]',
                                                               ).maybeHandleOverflow(
-                                                                  maxChars:
-                                                                      200),
+                                                                maxChars: 200,
+                                                              ),
                                                               textAlign:
                                                                   TextAlign
                                                                       .start,

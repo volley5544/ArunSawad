@@ -244,3 +244,6 @@ export '/car_seized/customer_car_deails_picture_step12/customer_car_deails_pictu
     show CustomerCarDeailsPictureStep12Widget;
 export '/car_seized/change_car_location_page/change_car_location_page_widget.dart'
     show ChangeCarLocationPageWidget;
+export '/calendar_page/calendar_page_widget.dart' show CalendarPageWidget;
+export '/test_page/test_page_widget.dart' show TestPageWidget;
+export '/scan_q_r/scan_q_r_widget.dart' show ScanQRWidget;

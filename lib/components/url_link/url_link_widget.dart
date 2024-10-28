@@ -126,7 +126,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                         unselectedLabelStyle: TextStyle(),
                         labelColor: FlutterFlowTheme.of(context).primaryText,
                         unselectedLabelColor:
-                            FlutterFlowTheme.of(context).secondaryText,
+                            FlutterFlowTheme.of(context).primaryText,
                         backgroundColor:
                             FlutterFlowTheme.of(context).primaryBtnText,
                         unselectedBackgroundColor:

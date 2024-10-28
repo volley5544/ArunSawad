@@ -2230,6 +2230,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   isList: true,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'calendarPage',
+              path: 'calendarPage',
+              builder: (context, params) => CalendarPageWidget(),
+            ),
+            FFRoute(
+              name: 'TestPage',
+              path: 'testPage',
+              builder: (context, params) => TestPageWidget(
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'ScanQR',
+              path: 'scanQR',
+              builder: (context, params) => ScanQRWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

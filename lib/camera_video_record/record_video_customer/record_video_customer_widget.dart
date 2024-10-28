@@ -184,6 +184,9 @@ class _RecordVideoCustomerWidgetState extends State<RecordVideoCustomerWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .secondaryText,
                                           iconSize: 22.0,
+                                          labelPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 0.0),
                                           elevation: 2.0,
                                           borderWidth: 4.0,
                                           borderRadius: BorderRadius.only(

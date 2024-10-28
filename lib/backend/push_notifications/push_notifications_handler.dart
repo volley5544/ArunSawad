@@ -688,6 +688,13 @@ final parametersBuilderMap =
               getParameter<String>(data, 'impoundCarStatusName'),
         },
       ),
+  'calendarPage': ParameterData.none(),
+  'TestPage': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
+  'ScanQR': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

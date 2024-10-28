@@ -313,8 +313,9 @@ class _ChatHomePageWidgetState extends State<ChatHomePageWidget> {
                                                                     listViewChatsRecord
                                                                         .lastMessage
                                                                         .maybeHandleOverflow(
-                                                                            maxChars:
-                                                                                100),
+                                                                      maxChars:
+                                                                          100,
+                                                                    ),
                                                                     maxLines: 2,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)

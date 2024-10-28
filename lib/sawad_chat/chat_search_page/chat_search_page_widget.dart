@@ -865,7 +865,9 @@ class _ChatSearchPageWidgetState extends State<ChatSearchPageWidget> {
                                                                             GetAllEmployeeAPICall.workPosition(
                                                                               (_model.getEmployee?.jsonBody ?? ''),
                                                                             )![employeeListItemIndex]
-                                                                                .maybeHandleOverflow(maxChars: 50),
+                                                                                .maybeHandleOverflow(
+                                                                              maxChars: 50,
+                                                                            ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Poppins',
                                                                                   fontSize: 12.0,

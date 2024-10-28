@@ -233,31 +233,34 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
-                                    child: ListTile(
-                                      title: Text(
-                                        'เลือกประเภทรถ',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF868686),
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      trailing: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF143678),
-                                        size: 20.0,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          'เลือกประเภทรถ',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF868686),
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF143678),
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -331,31 +334,34 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
-                                    child: ListTile(
-                                      title: Text(
-                                        'เลือกยี่ห้อรถ',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF868686),
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      trailing: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF143678),
-                                        size: 20.0,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          'เลือกยี่ห้อรถ',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF868686),
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF143678),
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -535,31 +541,34 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
-                                    child: ListTile(
-                                      title: Text(
-                                        'เลือกปี',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF868686),
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      trailing: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF143678),
-                                        size: 20.0,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          'เลือกปี',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF868686),
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF143678),
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -633,31 +642,34 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
-                                    child: ListTile(
-                                      title: Text(
-                                        'เลือกการใช้งาน',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF868686),
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      trailing: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF143678),
-                                        size: 20.0,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          'เลือกการใช้งาน',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF868686),
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF143678),
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -731,31 +743,34 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
-                                    child: ListTile(
-                                      title: Text(
-                                        'เลือกชั้นประกัน',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF868686),
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      trailing: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF143678),
-                                        size: 20.0,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          'เลือกชั้นประกัน',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF868686),
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF143678),
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -829,31 +844,34 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
-                                    child: ListTile(
-                                      title: Text(
-                                        'เลือกประเภทการซ่อม',
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF868686),
-                                              fontSize: 18.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      trailing: Icon(
-                                        Icons.arrow_forward_ios,
-                                        color: Color(0xFF143678),
-                                        size: 20.0,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          'เลือกประเภทการซ่อม',
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFF868686),
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.arrow_forward_ios,
+                                          color: Color(0xFF143678),
+                                          size: 20.0,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                        ),
                                       ),
                                     ),
                                   ),

@@ -622,29 +622,33 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
 
                                         context.goNamed('LoginPage');
                                       },
-                                      child: ListTile(
-                                        title: Text(
-                                          'DELETE ACCOUNT',
-                                          style: FlutterFlowTheme.of(context)
-                                              .headlineSmall
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                              ),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        child: ListTile(
+                                          title: Text(
+                                            'DELETE ACCOUNT',
+                                            style: FlutterFlowTheme.of(context)
+                                                .headlineSmall
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                          trailing: Icon(
+                                            Icons.delete,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            size: 20.0,
+                                          ),
+                                          tileColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                          dense: false,
                                         ),
-                                        trailing: Icon(
-                                          Icons.delete,
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          size: 20.0,
-                                        ),
-                                        tileColor: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        dense: false,
                                       ),
                                     ),
                                   ),
@@ -882,24 +886,27 @@ class _SuperAppNewPageWidgetState extends State<SuperAppNewPageWidget>
 
                                     if (_shouldSetState) safeSetState(() {});
                                   },
-                                  child: ListTile(
-                                    title: Text(
-                                      'ออกจากระบบ',
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    child: ListTile(
+                                      title: Text(
+                                        'ออกจากระบบ',
+                                        style: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                      trailing: FaIcon(
+                                        FontAwesomeIcons.signOutAlt,
+                                        color: Colors.white,
+                                        size: 20.0,
+                                      ),
+                                      tileColor: Colors.white,
+                                      dense: false,
                                     ),
-                                    trailing: FaIcon(
-                                      FontAwesomeIcons.signOutAlt,
-                                      color: Colors.white,
-                                      size: 20.0,
-                                    ),
-                                    tileColor: Colors.white,
-                                    dense: false,
                                   ),
                                 ),
                               ),
