@@ -69,3 +69,4 @@ export 'get_data_from_collection.dart' show getDataFromCollection;
 export 'convert_base64_to_f_f_files.dart' show convertBase64ToFFFiles;
 export 'find_most_similar_string.dart' show findMostSimilarString;
 export 'open_in_app_browser.dart' show openInAppBrowser;
+export 'scan_qr_code.dart' show scanQrCode;
