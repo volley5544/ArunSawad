@@ -1,8 +1,10 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -125,98 +127,139 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        _model.scanOutput =
-                            await FlutterBarcodeScanner.scanBarcode(
-                          '#C62828', // scanning line color
-                          'Cancel', // cancel button text
-                          true, // whether to show the flash icon
-                          ScanMode.QR,
-                        );
-
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return WebViewAware(
-                              child: AlertDialog(
-                                title: Text('Scanoutput'),
-                                content: Text(_model.scanOutput!),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        );
-
-                        safeSetState(() {});
-                      },
-                      child: BarcodeWidget(
-                        data: 'Barcode',
-                        barcode: Barcode.qrCode(),
-                        width: 250.0,
-                        height: 250.0,
-                        color: Colors.black,
-                        backgroundColor: Colors.transparent,
-                        errorBuilder: (_context, _error) => SizedBox(
-                          width: 250.0,
-                          height: 250.0,
+            child: StreamBuilder<List<UrlLinkStorageRecord>>(
+              stream: queryUrlLinkStorageRecord(
+                queryBuilder: (urlLinkStorageRecord) =>
+                    urlLinkStorageRecord.where(
+                  'url_name',
+                  isEqualTo: 'scan_qrcode',
+                ),
+                singleRecord: true,
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50.0,
+                      height: 50.0,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          FlutterFlowTheme.of(context).tertiary,
                         ),
-                        drawText: false,
                       ),
                     ),
-                  ),
-                  Row(
+                  );
+                }
+                List<UrlLinkStorageRecord> columnUrlLinkStorageRecordList =
+                    snapshot.data!;
+                // Return an empty Container when the item does not exist.
+                if (snapshot.data!.isEmpty) {
+                  return Container();
+                }
+                final columnUrlLinkStorageRecord =
+                    columnUrlLinkStorageRecordList.isNotEmpty
+                        ? columnUrlLinkStorageRecordList.first
+                        : null;
+
+                return SingleChildScrollView(
+                  child: Column(
                     mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
-                          child: Text(
-                            'กดเพื่อ scan QRCode',
-                            style: FlutterFlowTheme.of(context)
-                                .titleMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation']!),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            _model.scanOutput =
+                                await FlutterBarcodeScanner.scanBarcode(
+                              '#C62828', // scanning line color
+                              'Cancel', // cancel button text
+                              true, // whether to show the flash icon
+                              ScanMode.QR,
+                            );
+
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return WebViewAware(
+                                  child: AlertDialog(
+                                    title: Text('Scanoutput'),
+                                    content: Text(_model.scanOutput!),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                            if (isAndroid) {
+                              await actions.openTableauBrowser(
+                                _model.scanOutput,
+                                columnUrlLinkStorageRecord?.urlLink,
+                                true,
+                              );
+                            } else {
+                              await actions.openTableauBrowser(
+                                _model.scanOutput,
+                                columnUrlLinkStorageRecord?.urlLink,
+                                false,
+                              );
+                            }
+
+                            safeSetState(() {});
+                          },
+                          child: BarcodeWidget(
+                            data: 'Barcode',
+                            barcode: Barcode.qrCode(),
+                            width: 250.0,
+                            height: 250.0,
+                            color: Colors.black,
+                            backgroundColor: Colors.transparent,
+                            errorBuilder: (_context, _error) => SizedBox(
+                              width: 250.0,
+                              height: 250.0,
+                            ),
+                            drawText: false,
+                          ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 10.0, 0.0, 0.0),
-                        child: Icon(
-                          Icons.camera_alt,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
-                        ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Text(
+                                'กดเพื่อ scan QRCode',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation']!),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
+                );
+              },
             ),
           ),
         ),
