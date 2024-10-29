@@ -153,10 +153,6 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                 }
                 List<UrlLinkStorageRecord> columnUrlLinkStorageRecordList =
                     snapshot.data!;
-                // Return an empty Container when the item does not exist.
-                if (snapshot.data!.isEmpty) {
-                  return Container();
-                }
                 final columnUrlLinkStorageRecord =
                     columnUrlLinkStorageRecordList.isNotEmpty
                         ? columnUrlLinkStorageRecordList.first
@@ -166,30 +162,6 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'กดเพื่อ scan QRCode',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ).animateOnPageLoad(
-                                  animationsMap['textOnPageLoadAnimation']!),
-                            ),
-                          ),
-                        ],
-                      ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
@@ -248,10 +220,29 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                           ),
                         ),
                       ),
-                      Icon(
-                        Icons.arrow_back,
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        size: 100.0,
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Text(
+                                'กดเพื่อ scan QRCode',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation']!),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
