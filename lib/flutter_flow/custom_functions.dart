@@ -173,6 +173,16 @@ bool returnTrueFunction() {
   return true;
 }
 
+bool? checkYearHoliday(DateTime? dateNow) {
+  int year = dateNow!.year;
+
+  if (year == 2025) {
+    return true;
+  } else if (year == 2024) {
+    return false;
+  }
+}
+
 List<String> returnvalueBooleanToString(
   List<bool>? somethingList1,
   List<String>? somethingList2,
@@ -2456,7 +2466,7 @@ int? checkHoliDayBetween2Day(
 bool? checkYearLeave(DateTime? startDate) {
   int year = startDate!.year;
 
-  if (year == 2024 || year == 2023) {
+  if (year == 2025 || year == 2024) {
     return true;
   } else {
     return false;
