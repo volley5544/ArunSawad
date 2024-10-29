@@ -166,6 +166,30 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 10.0, 0.0, 0.0),
+                              child: Text(
+                                'กดเพื่อ scan QRCode',
+                                style: FlutterFlowTheme.of(context)
+                                    .titleMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation']!),
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
@@ -201,19 +225,11 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                                 );
                               },
                             );
-                            if (isAndroid) {
-                              await actions.openTableauBrowser(
-                                _model.scanOutput,
-                                columnUrlLinkStorageRecord?.urlLink,
-                                true,
-                              );
-                            } else {
-                              await actions.openTableauBrowser(
-                                _model.scanOutput,
-                                columnUrlLinkStorageRecord?.urlLink,
-                                false,
-                              );
-                            }
+                            await actions.openInAppBrowser(
+                              _model.scanOutput,
+                              columnUrlLinkStorageRecord?.urlLink,
+                              true,
+                            );
 
                             safeSetState(() {});
                           },
@@ -232,29 +248,10 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                           ),
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
-                              child: Text(
-                                'กดเพื่อ scan QRCode',
-                                style: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ).animateOnPageLoad(
-                                  animationsMap['textOnPageLoadAnimation']!),
-                            ),
-                          ),
-                        ],
+                      Icon(
+                        Icons.arrow_back,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 100.0,
                       ),
                     ],
                   ),
