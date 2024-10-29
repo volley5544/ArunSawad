@@ -189,7 +189,7 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                             );
                             await actions.openInAppBrowser(
                               _model.scanOutput,
-                              columnUrlLinkStorageRecord.urlLink,
+                              '${columnUrlLinkStorageRecord.urlLink}/${_model.scanOutput}',
                               true,
                             );
 

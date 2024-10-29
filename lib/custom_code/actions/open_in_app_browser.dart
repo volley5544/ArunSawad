@@ -23,7 +23,7 @@ Future openInAppBrowser(
   // Add your function code here!
   String browserUrl = '${tableauURL}/${token}';
   String encodedUrl =
-      '${tableauURL!}/${token}'; //Uri.encodeFull('${tableauURL}/${token}');
+      '${tableauURL!}'; //Uri.encodeFull('${tableauURL}/${token}');
   Map<String, String> headers = {'X-Application': 'ArunSawad'};
 
   print('tavleauUrl : ${tableauURL}');
