@@ -10500,7 +10500,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                 }
                                                                               }() ||
                                                                               gridViewRoleMenuRecord!.empAdmin.contains(FFAppState().employeeID) ||
-                                                                              functions.containsValueInDataTypeList(gridViewRoleMenuRecord?.adminRoleGroup?.toList(), FFAppState().employeeID, 'ค่าลีดรถ M')!)
+                                                                              functions.containsValueInDataTypeList(gridViewRoleMenuRecord?.adminRoleGroup?.toList(), FFAppState().employeeID, 'scan_qrcode')!)
                                                                             InkWell(
                                                                               splashColor: Colors.transparent,
                                                                               focusColor: Colors.transparent,
@@ -10508,6 +10508,16 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
                                                                                 HapticFeedback.mediumImpact();
+                                                                                _model.scanQRTablet = await actions.scanQrCode();
+                                                                                if (_model.scanQRTablet != '-1') {
+                                                                                  await actions.openInAppBrowser(
+                                                                                    '',
+                                                                                    '${columnQrcodeUrlLinkStorageRecord.urlLink}/${_model.scanQRTablet}',
+                                                                                    true,
+                                                                                  );
+                                                                                }
+
+                                                                                safeSetState(() {});
                                                                               },
                                                                               child: Container(
                                                                                 width: 100.0,
