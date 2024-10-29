@@ -2551,25 +2551,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             HapticFeedback.mediumImpact();
                                                                             _model.scanQrCode =
                                                                                 await actions.scanQrCode();
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                    title: Text('outpu'),
-                                                                                    content: Text(_model.scanQrCode!),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
                                                                             if (_model.scanQrCode !=
-                                                                                '') {
+                                                                                '-1') {
                                                                               await actions.openInAppBrowser(
                                                                                 '',
                                                                                 '${columnQrcodeUrlLinkStorageRecord.urlLink}/${_model.scanQrCode}',
