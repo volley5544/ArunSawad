@@ -9024,6 +9024,13 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImpoundCarBranchCode(int index, String value) {
     ImpoundCarBranchCode.insert(index, value);
   }
+
+  DocumentReference? _urlContractQrcodeDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/IhT2Gt9YwomhpbPU6dCx');
+  DocumentReference? get urlContractQrcodeDocRef => _urlContractQrcodeDocRef;
+  set urlContractQrcodeDocRef(DocumentReference? value) {
+    _urlContractQrcodeDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

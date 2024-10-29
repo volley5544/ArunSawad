@@ -127,15 +127,9 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
             width: double.infinity,
             height: double.infinity,
             decoration: BoxDecoration(),
-            child: StreamBuilder<List<UrlLinkStorageRecord>>(
-              stream: queryUrlLinkStorageRecord(
-                queryBuilder: (urlLinkStorageRecord) =>
-                    urlLinkStorageRecord.where(
-                  'url_name',
-                  isEqualTo: 'scan_qrcode',
-                ),
-                singleRecord: true,
-              ),
+            child: FutureBuilder<UrlLinkStorageRecord>(
+              future: UrlLinkStorageRecord.getDocumentOnce(
+                  FFAppState().urlContractQrcodeDocRef!),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
@@ -151,12 +145,8 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                     ),
                   );
                 }
-                List<UrlLinkStorageRecord> columnUrlLinkStorageRecordList =
-                    snapshot.data!;
-                final columnUrlLinkStorageRecord =
-                    columnUrlLinkStorageRecordList.isNotEmpty
-                        ? columnUrlLinkStorageRecordList.first
-                        : null;
+
+                final columnUrlLinkStorageRecord = snapshot.data!;
 
                 return SingleChildScrollView(
                   child: Column(
@@ -199,7 +189,7 @@ class _ScanQRWidgetState extends State<ScanQRWidget>
                             );
                             await actions.openInAppBrowser(
                               _model.scanOutput,
-                              columnUrlLinkStorageRecord?.urlLink,
+                              columnUrlLinkStorageRecord.urlLink,
                               true,
                             );
 
