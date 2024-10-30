@@ -2530,13 +2530,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       if (functions.getSpecificIndexFromJson(
                                                                               FFAppState()
                                                                                   .roleMenuJson,
-                                                                              'scan_qrcode',
+                                                                              'Scan สัญญา',
                                                                               FFAppState()
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'scan_qrcode')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'Scan สัญญา')!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -2593,7 +2593,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   ),
                                                                                 ),
                                                                                 Text(
-                                                                                  'Scan QRcode',
+                                                                                  'Scan สัญญา',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Poppins',
                                                                                         fontSize: 12.0,

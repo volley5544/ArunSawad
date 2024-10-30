@@ -180,6 +180,8 @@ bool? checkYearHoliday(DateTime? dateNow) {
     return true;
   } else if (year == 2024) {
     return false;
+  } else {
+    return false;
   }
 }
 
