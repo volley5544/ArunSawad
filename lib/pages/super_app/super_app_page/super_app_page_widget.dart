@@ -7393,7 +7393,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ข้อมูลไอที')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
