@@ -2326,7 +2326,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้ารถยึด')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ลูกค้ารถยึด')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ลูกค้ารถยึด')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -2536,7 +2537,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'Scan สัญญา')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'Scan สัญญา')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'Scan สัญญา')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -2613,7 +2615,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ค่าลีดรถ M')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ค่าลีดรถ M')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ค่าลีดรถ M')?.toList(), FFAppState().profilePositionName)!)
                                                                         FutureBuilder<List<UrlLinkStorageRecord>>(
                                                                           future:
                                                                               queryUrlLinkStorageRecordOnce(
@@ -2748,7 +2751,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ลูกค้าที่ดิน')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -2933,7 +2937,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'เส้นทางนักขายประกัน')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -3267,7 +3272,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'GEN E-PA')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'GEN E-PA')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'GEN E-PA')?.toList(), FFAppState().profilePositionName)!)
                                                                         FutureBuilder<List<UrlLinkStorageRecord>>(
                                                                           future:
                                                                               queryUrlLinkStorageRecordOnce(
@@ -3420,7 +3426,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รายงานรถยึด')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รายงานรถยึด')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'รายงานรถยึด')?.toList(), FFAppState().profilePositionName)!)
                                                                         FutureBuilder<List<UrlLinkStorageRecord>>(
                                                                           future:
                                                                               queryUrlLinkStorageRecordOnce(
@@ -3556,7 +3563,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'โครงการ ZUVศษ')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'โครงการ ZUVศษ')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'โครงการ ZUVศษ')?.toList(), FFAppState().profilePositionName)!)
                                                                         FutureBuilder<List<UrlLinkStorageRecord>>(
                                                                           future:
                                                                               queryUrlLinkStorageRecordOnce(
@@ -3708,7 +3716,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ประกันนอกเรท')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -4219,7 +4228,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รายงาน BSI')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รายงาน BSI')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'รายงาน BSI')?.toList(), FFAppState().profilePositionName)!)
                                                                         Container(
                                                                           decoration:
                                                                               BoxDecoration(),
@@ -4294,7 +4304,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'เป้า/ผลงาน')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'เป้า/ผลงาน')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'เป้า/ผลงาน')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -4407,7 +4418,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'KPI')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'KPI')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'KPI')?.toList(), FFAppState().profilePositionName)!)
                                                                         FutureBuilder<List<UrlLinkStorageRecord>>(
                                                                           future:
                                                                               queryUrlLinkStorageRecordOnce(
@@ -4665,7 +4677,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ยอดจัดสาขา')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'ยอดจัดสาขา')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ยอดจัดสาขา')?.toList(), FFAppState().profilePositionName)!)
                                                                         FutureBuilder<List<AuthorizationRecord>>(
                                                                           future:
                                                                               queryAuthorizationRecordOnce(
@@ -5164,7 +5177,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, '%ความสำเร็จ')!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, '%ความสำเร็จ')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', '%ความสำเร็จ')?.toList(), FFAppState().profilePositionName)!)
                                                                         FutureBuilder<List<UrlLinkStorageRecord>>(
                                                                           future:
                                                                               queryUrlLinkStorageRecordOnce(
@@ -5445,7 +5459,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'รายชื่อลีด')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -5705,7 +5720,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'เช็คเบี้ยประกัน')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -5911,7 +5927,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'Branch View')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -6117,7 +6134,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'QR พนักงาน')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -6322,7 +6340,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'Saleskit')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -6528,7 +6547,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ฟอร์มลีด')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -6734,7 +6754,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'โปรโมชั่น')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -6940,7 +6961,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'COACH')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
@@ -7165,7 +7187,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
-                                                                              FFAppState().employeeID)!)
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'ห้องเรียนทันใจ')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
