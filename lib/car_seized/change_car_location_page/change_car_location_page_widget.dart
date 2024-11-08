@@ -116,10 +116,7 @@ class _ChangeCarLocationPageWidgetState
         }
       },
     );
-    _model.textController3 ??= TextEditingController(
-        text: widget!.fromPage != 'takeImages'
-            ? widget!.impoundCarLocateParamSet?.remark
-            : '');
+    _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));

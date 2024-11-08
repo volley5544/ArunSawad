@@ -117,9 +117,9 @@ class _CarSeizedDashboardPageWidgetState
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
               children: [
-                if (((widget!.fromPage == 'takeImages') ||
-                            (widget!.fromPage == 'changeCarLocation')
-                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                if (() {
+                      if (widget!.fromPage == 'takeImages') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -133,8 +133,25 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.saveAccessRoleData, 'step1'),
                                     'role_name'),
-                                widget!.userRoleSave))
-                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                widget!.userRoleSave));
+                      } else if (widget!.fromPage == 'changeCarLocation') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step1'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step1'),
+                                    'role_name'),
+                                widget!.userRoleEdit));
+                      } else {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -148,7 +165,9 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.readAccessRoleData, 'step1'),
                                     'role_name'),
-                                widget!.userRoleRead))) ??
+                                widget!.userRoleRead));
+                      }
+                    }() ??
                     true)
                   InkWell(
                     splashColor: Colors.transparent,
@@ -381,9 +400,9 @@ class _CarSeizedDashboardPageWidgetState
                       ),
                     ),
                   ),
-                if (((widget!.fromPage == 'takeImages') ||
-                            (widget!.fromPage == 'changeCarLocation')
-                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                if (() {
+                      if (widget!.fromPage == 'takeImages') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -397,8 +416,25 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.saveAccessRoleData, 'step2'),
                                     'role_name'),
-                                widget!.userRoleSave))
-                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                widget!.userRoleSave));
+                      } else if (widget!.fromPage == 'changeCarLocation') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step2'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step2'),
+                                    'role_name'),
+                                widget!.userRoleEdit));
+                      } else {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -412,7 +448,9 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.readAccessRoleData, 'step2'),
                                     'role_name'),
-                                widget!.userRoleRead))) ??
+                                widget!.userRoleRead));
+                      }
+                    }() ??
                     true)
                   InkWell(
                     splashColor: Colors.transparent,
@@ -632,9 +670,9 @@ class _CarSeizedDashboardPageWidgetState
                       ),
                     ),
                   ),
-                if (((widget!.fromPage == 'takeImages') ||
-                            (widget!.fromPage == 'changeCarLocation')
-                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                if (() {
+                      if (widget!.fromPage == 'takeImages') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -648,8 +686,25 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.saveAccessRoleData, 'step3'),
                                     'role_name'),
-                                widget!.userRoleSave))
-                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                widget!.userRoleSave));
+                      } else if (widget!.fromPage == 'changeCarLocation') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step3'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step3'),
+                                    'role_name'),
+                                widget!.userRoleEdit));
+                      } else {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -663,7 +718,9 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.readAccessRoleData, 'step3'),
                                     'role_name'),
-                                widget!.userRoleRead))) ??
+                                widget!.userRoleRead));
+                      }
+                    }() ??
                     true)
                   InkWell(
                     splashColor: Colors.transparent,
@@ -883,9 +940,9 @@ class _CarSeizedDashboardPageWidgetState
                       ),
                     ),
                   ),
-                if (((widget!.fromPage == 'takeImages') ||
-                            (widget!.fromPage == 'changeCarLocation')
-                        ? ((FFAppState().profileLevel == 'สาขา') ||
+                if (() {
+                      if (widget!.fromPage == 'takeImages') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -899,8 +956,25 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.saveAccessRoleData, 'step4'),
                                     'role_name'),
-                                widget!.userRoleSave))
-                        : ((FFAppState().profileLevel == 'สาขา') ||
+                                widget!.userRoleSave));
+                      } else if (widget!.fromPage == 'changeCarLocation') {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
+                                (FFAppState().profileLevel == 'เขต') ||
+                                (FFAppState().profileLevel == 'ภาค')
+                            ? functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step4'),
+                                    'Level'),
+                                FFAppState().profileLevel)
+                            : functions.containsValueInJsonList(
+                                functions.getDataFromMapJson(
+                                    functions.getDataFromMapJson(
+                                        widget!.editAccessRoleData, 'step4'),
+                                    'role_name'),
+                                widget!.userRoleEdit));
+                      } else {
+                        return ((FFAppState().profileLevel == 'สาขา') ||
                                 (FFAppState().profileLevel == 'เขต') ||
                                 (FFAppState().profileLevel == 'ภาค')
                             ? functions.containsValueInJsonList(
@@ -914,7 +988,9 @@ class _CarSeizedDashboardPageWidgetState
                                     functions.getDataFromMapJson(
                                         widget!.readAccessRoleData, 'step4'),
                                     'role_name'),
-                                widget!.userRoleRead))) ??
+                                widget!.userRoleRead));
+                      }
+                    }() ??
                     true)
                   InkWell(
                     splashColor: Colors.transparent,
