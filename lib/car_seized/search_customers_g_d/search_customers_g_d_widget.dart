@@ -1262,6 +1262,36 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState().impoundVloanDbName =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .vloneDbName(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundVloanDbCode =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .vloneDbCode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundPriceCurrentStep =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .priceCurrentStep(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                       } else {
                                         await showDialog(
@@ -2316,6 +2346,12 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             FFAppState().improundKEYINCSHPRC[listImproundIndex],
                                                                         improundMANUYRCONVERT:
                                                                             FFAppState().improundMANUYRCONVERT[listImproundIndex],
+                                                                        impoundPrice:
+                                                                            FFAppState().impoundPriceCurrentStep[listImproundIndex],
+                                                                        impoundDbName:
+                                                                            FFAppState().impoundVloanDbName[listImproundIndex],
+                                                                        impoundDbCode:
+                                                                            FFAppState().impoundVloanDbCode[listImproundIndex],
                                                                       ),
                                                                       ParamType
                                                                           .DataStruct,
@@ -2544,6 +2580,12 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       improundMANUYRCONVERT:
                                                                           FFAppState()
                                                                               .improundMANUYRCONVERT[listImproundIndex],
+                                                                      impoundDbName:
+                                                                          FFAppState()
+                                                                              .impoundVloanDbName[listImproundIndex],
+                                                                      impoundDbCode:
+                                                                          FFAppState()
+                                                                              .impoundVloanDbCode[listImproundIndex],
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,
@@ -2721,6 +2763,12 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       improundMANUYRCONVERT:
                                                                           FFAppState()
                                                                               .improundMANUYRCONVERT[listImproundIndex],
+                                                                      impoundDbName:
+                                                                          FFAppState()
+                                                                              .impoundVloanDbName[listImproundIndex],
+                                                                      impoundDbCode:
+                                                                          FFAppState()
+                                                                              .impoundVloanDbCode[listImproundIndex],
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,

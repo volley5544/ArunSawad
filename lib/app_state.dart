@@ -9408,6 +9408,93 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImpoundSubLocateId(int index, String value) {
     impoundSubLocateId.insert(index, value);
   }
+
+  List<String> _impoundVloanDbName = [];
+  List<String> get impoundVloanDbName => _impoundVloanDbName;
+  set impoundVloanDbName(List<String> value) {
+    _impoundVloanDbName = value;
+  }
+
+  void addToImpoundVloanDbName(String value) {
+    impoundVloanDbName.add(value);
+  }
+
+  void removeFromImpoundVloanDbName(String value) {
+    impoundVloanDbName.remove(value);
+  }
+
+  void removeAtIndexFromImpoundVloanDbName(int index) {
+    impoundVloanDbName.removeAt(index);
+  }
+
+  void updateImpoundVloanDbNameAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundVloanDbName[index] = updateFn(_impoundVloanDbName[index]);
+  }
+
+  void insertAtIndexInImpoundVloanDbName(int index, String value) {
+    impoundVloanDbName.insert(index, value);
+  }
+
+  List<String> _impoundVloanDbCode = [];
+  List<String> get impoundVloanDbCode => _impoundVloanDbCode;
+  set impoundVloanDbCode(List<String> value) {
+    _impoundVloanDbCode = value;
+  }
+
+  void addToImpoundVloanDbCode(String value) {
+    impoundVloanDbCode.add(value);
+  }
+
+  void removeFromImpoundVloanDbCode(String value) {
+    impoundVloanDbCode.remove(value);
+  }
+
+  void removeAtIndexFromImpoundVloanDbCode(int index) {
+    impoundVloanDbCode.removeAt(index);
+  }
+
+  void updateImpoundVloanDbCodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundVloanDbCode[index] = updateFn(_impoundVloanDbCode[index]);
+  }
+
+  void insertAtIndexInImpoundVloanDbCode(int index, String value) {
+    impoundVloanDbCode.insert(index, value);
+  }
+
+  List<String> _impoundPriceCurrentStep = [];
+  List<String> get impoundPriceCurrentStep => _impoundPriceCurrentStep;
+  set impoundPriceCurrentStep(List<String> value) {
+    _impoundPriceCurrentStep = value;
+  }
+
+  void addToImpoundPriceCurrentStep(String value) {
+    impoundPriceCurrentStep.add(value);
+  }
+
+  void removeFromImpoundPriceCurrentStep(String value) {
+    impoundPriceCurrentStep.remove(value);
+  }
+
+  void removeAtIndexFromImpoundPriceCurrentStep(int index) {
+    impoundPriceCurrentStep.removeAt(index);
+  }
+
+  void updateImpoundPriceCurrentStepAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundPriceCurrentStep[index] = updateFn(_impoundPriceCurrentStep[index]);
+  }
+
+  void insertAtIndexInImpoundPriceCurrentStep(int index, String value) {
+    impoundPriceCurrentStep.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

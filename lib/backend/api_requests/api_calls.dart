@@ -729,6 +729,42 @@ class SearchContractNumberCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? priceCurrentStep(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].step_price''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? editRemark(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].remark_price''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? vloneDbName(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].db''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? vloneDbCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].db_code''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class UploadGoogleDriveAPICall {
