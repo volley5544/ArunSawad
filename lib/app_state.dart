@@ -9031,6 +9031,383 @@ class FFAppState extends ChangeNotifier {
   set urlContractQrcodeDocRef(DocumentReference? value) {
     _urlContractQrcodeDocRef = value;
   }
+
+  List<String> _impoundAddress = [];
+  List<String> get impoundAddress => _impoundAddress;
+  set impoundAddress(List<String> value) {
+    _impoundAddress = value;
+  }
+
+  void addToImpoundAddress(String value) {
+    impoundAddress.add(value);
+  }
+
+  void removeFromImpoundAddress(String value) {
+    impoundAddress.remove(value);
+  }
+
+  void removeAtIndexFromImpoundAddress(int index) {
+    impoundAddress.removeAt(index);
+  }
+
+  void updateImpoundAddressAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundAddress[index] = updateFn(_impoundAddress[index]);
+  }
+
+  void insertAtIndexInImpoundAddress(int index, String value) {
+    impoundAddress.insert(index, value);
+  }
+
+  List<String> _impoundSubDistrict = [];
+  List<String> get impoundSubDistrict => _impoundSubDistrict;
+  set impoundSubDistrict(List<String> value) {
+    _impoundSubDistrict = value;
+  }
+
+  void addToImpoundSubDistrict(String value) {
+    impoundSubDistrict.add(value);
+  }
+
+  void removeFromImpoundSubDistrict(String value) {
+    impoundSubDistrict.remove(value);
+  }
+
+  void removeAtIndexFromImpoundSubDistrict(int index) {
+    impoundSubDistrict.removeAt(index);
+  }
+
+  void updateImpoundSubDistrictAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundSubDistrict[index] = updateFn(_impoundSubDistrict[index]);
+  }
+
+  void insertAtIndexInImpoundSubDistrict(int index, String value) {
+    impoundSubDistrict.insert(index, value);
+  }
+
+  List<String> _impoundDistrict = [];
+  List<String> get impoundDistrict => _impoundDistrict;
+  set impoundDistrict(List<String> value) {
+    _impoundDistrict = value;
+  }
+
+  void addToImpoundDistrict(String value) {
+    impoundDistrict.add(value);
+  }
+
+  void removeFromImpoundDistrict(String value) {
+    impoundDistrict.remove(value);
+  }
+
+  void removeAtIndexFromImpoundDistrict(int index) {
+    impoundDistrict.removeAt(index);
+  }
+
+  void updateImpoundDistrictAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundDistrict[index] = updateFn(_impoundDistrict[index]);
+  }
+
+  void insertAtIndexInImpoundDistrict(int index, String value) {
+    impoundDistrict.insert(index, value);
+  }
+
+  List<String> _impoundProvince = [];
+  List<String> get impoundProvince => _impoundProvince;
+  set impoundProvince(List<String> value) {
+    _impoundProvince = value;
+  }
+
+  void addToImpoundProvince(String value) {
+    impoundProvince.add(value);
+  }
+
+  void removeFromImpoundProvince(String value) {
+    impoundProvince.remove(value);
+  }
+
+  void removeAtIndexFromImpoundProvince(int index) {
+    impoundProvince.removeAt(index);
+  }
+
+  void updateImpoundProvinceAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundProvince[index] = updateFn(_impoundProvince[index]);
+  }
+
+  void insertAtIndexInImpoundProvince(int index, String value) {
+    impoundProvince.insert(index, value);
+  }
+
+  List<String> _impoundPostcode = [];
+  List<String> get impoundPostcode => _impoundPostcode;
+  set impoundPostcode(List<String> value) {
+    _impoundPostcode = value;
+  }
+
+  void addToImpoundPostcode(String value) {
+    impoundPostcode.add(value);
+  }
+
+  void removeFromImpoundPostcode(String value) {
+    impoundPostcode.remove(value);
+  }
+
+  void removeAtIndexFromImpoundPostcode(int index) {
+    impoundPostcode.removeAt(index);
+  }
+
+  void updateImpoundPostcodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundPostcode[index] = updateFn(_impoundPostcode[index]);
+  }
+
+  void insertAtIndexInImpoundPostcode(int index, String value) {
+    impoundPostcode.insert(index, value);
+  }
+
+  List<String> _impoundPhoneNumber = [];
+  List<String> get impoundPhoneNumber => _impoundPhoneNumber;
+  set impoundPhoneNumber(List<String> value) {
+    _impoundPhoneNumber = value;
+  }
+
+  void addToImpoundPhoneNumber(String value) {
+    impoundPhoneNumber.add(value);
+  }
+
+  void removeFromImpoundPhoneNumber(String value) {
+    impoundPhoneNumber.remove(value);
+  }
+
+  void removeAtIndexFromImpoundPhoneNumber(int index) {
+    impoundPhoneNumber.removeAt(index);
+  }
+
+  void updateImpoundPhoneNumberAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundPhoneNumber[index] = updateFn(_impoundPhoneNumber[index]);
+  }
+
+  void insertAtIndexInImpoundPhoneNumber(int index, String value) {
+    impoundPhoneNumber.insert(index, value);
+  }
+
+  List<String> _impoundLatitude = [];
+  List<String> get impoundLatitude => _impoundLatitude;
+  set impoundLatitude(List<String> value) {
+    _impoundLatitude = value;
+  }
+
+  void addToImpoundLatitude(String value) {
+    impoundLatitude.add(value);
+  }
+
+  void removeFromImpoundLatitude(String value) {
+    impoundLatitude.remove(value);
+  }
+
+  void removeAtIndexFromImpoundLatitude(int index) {
+    impoundLatitude.removeAt(index);
+  }
+
+  void updateImpoundLatitudeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundLatitude[index] = updateFn(_impoundLatitude[index]);
+  }
+
+  void insertAtIndexInImpoundLatitude(int index, String value) {
+    impoundLatitude.insert(index, value);
+  }
+
+  List<String> _impoundLongitude = [];
+  List<String> get impoundLongitude => _impoundLongitude;
+  set impoundLongitude(List<String> value) {
+    _impoundLongitude = value;
+  }
+
+  void addToImpoundLongitude(String value) {
+    impoundLongitude.add(value);
+  }
+
+  void removeFromImpoundLongitude(String value) {
+    impoundLongitude.remove(value);
+  }
+
+  void removeAtIndexFromImpoundLongitude(int index) {
+    impoundLongitude.removeAt(index);
+  }
+
+  void updateImpoundLongitudeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundLongitude[index] = updateFn(_impoundLongitude[index]);
+  }
+
+  void insertAtIndexInImpoundLongitude(int index, String value) {
+    impoundLongitude.insert(index, value);
+  }
+
+  List<String> _impoundAreaCode = [];
+  List<String> get impoundAreaCode => _impoundAreaCode;
+  set impoundAreaCode(List<String> value) {
+    _impoundAreaCode = value;
+  }
+
+  void addToImpoundAreaCode(String value) {
+    impoundAreaCode.add(value);
+  }
+
+  void removeFromImpoundAreaCode(String value) {
+    impoundAreaCode.remove(value);
+  }
+
+  void removeAtIndexFromImpoundAreaCode(int index) {
+    impoundAreaCode.removeAt(index);
+  }
+
+  void updateImpoundAreaCodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundAreaCode[index] = updateFn(_impoundAreaCode[index]);
+  }
+
+  void insertAtIndexInImpoundAreaCode(int index, String value) {
+    impoundAreaCode.insert(index, value);
+  }
+
+  List<String> _impoundAreaName = [];
+  List<String> get impoundAreaName => _impoundAreaName;
+  set impoundAreaName(List<String> value) {
+    _impoundAreaName = value;
+  }
+
+  void addToImpoundAreaName(String value) {
+    impoundAreaName.add(value);
+  }
+
+  void removeFromImpoundAreaName(String value) {
+    impoundAreaName.remove(value);
+  }
+
+  void removeAtIndexFromImpoundAreaName(int index) {
+    impoundAreaName.removeAt(index);
+  }
+
+  void updateImpoundAreaNameAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundAreaName[index] = updateFn(_impoundAreaName[index]);
+  }
+
+  void insertAtIndexInImpoundAreaName(int index, String value) {
+    impoundAreaName.insert(index, value);
+  }
+
+  List<String> _impoundRegionCode = [];
+  List<String> get impoundRegionCode => _impoundRegionCode;
+  set impoundRegionCode(List<String> value) {
+    _impoundRegionCode = value;
+  }
+
+  void addToImpoundRegionCode(String value) {
+    impoundRegionCode.add(value);
+  }
+
+  void removeFromImpoundRegionCode(String value) {
+    impoundRegionCode.remove(value);
+  }
+
+  void removeAtIndexFromImpoundRegionCode(int index) {
+    impoundRegionCode.removeAt(index);
+  }
+
+  void updateImpoundRegionCodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundRegionCode[index] = updateFn(_impoundRegionCode[index]);
+  }
+
+  void insertAtIndexInImpoundRegionCode(int index, String value) {
+    impoundRegionCode.insert(index, value);
+  }
+
+  List<String> _impoundRegionName = [];
+  List<String> get impoundRegionName => _impoundRegionName;
+  set impoundRegionName(List<String> value) {
+    _impoundRegionName = value;
+  }
+
+  void addToImpoundRegionName(String value) {
+    impoundRegionName.add(value);
+  }
+
+  void removeFromImpoundRegionName(String value) {
+    impoundRegionName.remove(value);
+  }
+
+  void removeAtIndexFromImpoundRegionName(int index) {
+    impoundRegionName.removeAt(index);
+  }
+
+  void updateImpoundRegionNameAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundRegionName[index] = updateFn(_impoundRegionName[index]);
+  }
+
+  void insertAtIndexInImpoundRegionName(int index, String value) {
+    impoundRegionName.insert(index, value);
+  }
+
+  List<String> _impoundSubLocateId = [];
+  List<String> get impoundSubLocateId => _impoundSubLocateId;
+  set impoundSubLocateId(List<String> value) {
+    _impoundSubLocateId = value;
+  }
+
+  void addToImpoundSubLocateId(String value) {
+    impoundSubLocateId.add(value);
+  }
+
+  void removeFromImpoundSubLocateId(String value) {
+    impoundSubLocateId.remove(value);
+  }
+
+  void removeAtIndexFromImpoundSubLocateId(int index) {
+    impoundSubLocateId.removeAt(index);
+  }
+
+  void updateImpoundSubLocateIdAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundSubLocateId[index] = updateFn(_impoundSubLocateId[index]);
+  }
+
+  void insertAtIndexInImpoundSubLocateId(int index, String value) {
+    impoundSubLocateId.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

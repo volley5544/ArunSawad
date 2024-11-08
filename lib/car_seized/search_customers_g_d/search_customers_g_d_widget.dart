@@ -1132,6 +1132,136 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState().impoundAddress =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .address(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundSubDistrict =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .subDistrict(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundDistrict =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .district(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundProvince =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .province(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundPostcode =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .postcode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundPhoneNumber =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .phoneNumber(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundLatitude =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .latitude(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundLongitude =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .longitude(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundAreaCode =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .areaCode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundAreaName =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .areaName(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundRegionCode =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .regionCode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundRegionName =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .regionName(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundSubLocateId =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .improundcarsublocatid(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                       } else {
                                         await showDialog(
@@ -2249,6 +2379,32 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             FFAppState().ImpoundCarBranchCode[listImproundIndex],
                                                                         improundcarLocatId:
                                                                             FFAppState().improundLOCAT[listImproundIndex],
+                                                                        address:
+                                                                            FFAppState().impoundAddress[listImproundIndex],
+                                                                        subDistrict:
+                                                                            FFAppState().impoundSubDistrict[listImproundIndex],
+                                                                        district:
+                                                                            FFAppState().impoundDistrict[listImproundIndex],
+                                                                        province:
+                                                                            FFAppState().impoundProvince[listImproundIndex],
+                                                                        postcode:
+                                                                            FFAppState().impoundPostcode[listImproundIndex],
+                                                                        phoneNumber:
+                                                                            FFAppState().impoundPhoneNumber[listImproundIndex],
+                                                                        latitude:
+                                                                            FFAppState().impoundLatitude[listImproundIndex],
+                                                                        longitude:
+                                                                            FFAppState().impoundLongitude[listImproundIndex],
+                                                                        areaCode:
+                                                                            FFAppState().impoundAreaCode[listImproundIndex],
+                                                                        areaName:
+                                                                            FFAppState().impoundAreaName[listImproundIndex],
+                                                                        regionCode:
+                                                                            FFAppState().impoundRegionCode[listImproundIndex],
+                                                                        regionName:
+                                                                            FFAppState().impoundRegionName[listImproundIndex],
+                                                                        improundcarSubLocatId:
+                                                                            FFAppState().impoundSubLocateId[listImproundIndex],
                                                                       ),
                                                                       ParamType
                                                                           .DataStruct,
