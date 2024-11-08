@@ -32,6 +32,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
     String? improundENGNO,
     String? improundKEYINCSHPRC,
     String? improundMANUYRCONVERT,
+    String? impoundPrice,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _improundCONTNO = improundCONTNO,
         _improundLOCAT = improundLOCAT,
@@ -55,6 +56,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         _improundENGNO = improundENGNO,
         _improundKEYINCSHPRC = improundKEYINCSHPRC,
         _improundMANUYRCONVERT = improundMANUYRCONVERT,
+        _impoundPrice = impoundPrice,
         super(firestoreUtilData);
 
   // "improundCONTNO" field.
@@ -211,6 +213,13 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
 
   bool hasImproundMANUYRCONVERT() => _improundMANUYRCONVERT != null;
 
+  // "impoundPrice" field.
+  String? _impoundPrice;
+  String get impoundPrice => _impoundPrice ?? '';
+  set impoundPrice(String? val) => _impoundPrice = val;
+
+  bool hasImpoundPrice() => _impoundPrice != null;
+
   static ImpoundCarParamSetStruct fromMap(Map<String, dynamic> data) =>
       ImpoundCarParamSetStruct(
         improundCONTNO: data['improundCONTNO'] as String?,
@@ -235,6 +244,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         improundENGNO: data['improundENGNO'] as String?,
         improundKEYINCSHPRC: data['improundKEYINCSHPRC'] as String?,
         improundMANUYRCONVERT: data['improundMANUYRCONVERT'] as String?,
+        impoundPrice: data['impoundPrice'] as String?,
       );
 
   static ImpoundCarParamSetStruct? maybeFromMap(dynamic data) => data is Map
@@ -264,6 +274,7 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         'improundENGNO': _improundENGNO,
         'improundKEYINCSHPRC': _improundKEYINCSHPRC,
         'improundMANUYRCONVERT': _improundMANUYRCONVERT,
+        'impoundPrice': _impoundPrice,
       }.withoutNulls;
 
   @override
@@ -354,6 +365,10 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         ),
         'improundMANUYRCONVERT': serializeParam(
           _improundMANUYRCONVERT,
+          ParamType.String,
+        ),
+        'impoundPrice': serializeParam(
+          _impoundPrice,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -471,6 +486,11 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        impoundPrice: deserializeParam(
+          data['impoundPrice'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -500,7 +520,8 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         improudCOLORCOD == other.improudCOLORCOD &&
         improundENGNO == other.improundENGNO &&
         improundKEYINCSHPRC == other.improundKEYINCSHPRC &&
-        improundMANUYRCONVERT == other.improundMANUYRCONVERT;
+        improundMANUYRCONVERT == other.improundMANUYRCONVERT &&
+        impoundPrice == other.impoundPrice;
   }
 
   @override
@@ -526,7 +547,8 @@ class ImpoundCarParamSetStruct extends FFFirebaseStruct {
         improudCOLORCOD,
         improundENGNO,
         improundKEYINCSHPRC,
-        improundMANUYRCONVERT
+        improundMANUYRCONVERT,
+        impoundPrice
       ]);
 }
 
@@ -553,6 +575,7 @@ ImpoundCarParamSetStruct createImpoundCarParamSetStruct({
   String? improundENGNO,
   String? improundKEYINCSHPRC,
   String? improundMANUYRCONVERT,
+  String? impoundPrice,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -581,6 +604,7 @@ ImpoundCarParamSetStruct createImpoundCarParamSetStruct({
       improundENGNO: improundENGNO,
       improundKEYINCSHPRC: improundKEYINCSHPRC,
       improundMANUYRCONVERT: improundMANUYRCONVERT,
+      impoundPrice: impoundPrice,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

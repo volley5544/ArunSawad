@@ -33,6 +33,8 @@ class SearchCustomersGDWidget extends StatefulWidget {
     required this.userRoleSave,
     required this.carConfig,
     required this.motocycleConfig,
+    required this.editAccessRoleData,
+    required this.userRoleEdit,
   });
 
   final String? fromPage;
@@ -44,6 +46,8 @@ class SearchCustomersGDWidget extends StatefulWidget {
   final String? userRoleSave;
   final List<String>? carConfig;
   final List<String>? motocycleConfig;
+  final dynamic editAccessRoleData;
+  final String? userRoleEdit;
 
   @override
   State<SearchCustomersGDWidget> createState() =>
@@ -2085,6 +2089,190 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     'takeImages') ||
                                                                 (widget!.fromPage ==
                                                                     'changeCarLocation')) {
+                                                              if (widget!
+                                                                      .fromPage !=
+                                                                  'takeImages') {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'ChangeCarLocationPage',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'step':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .step,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'readAccessRoleData':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .readAccessRoleData,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'saveAccessRoleData':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .saveAccessRoleData,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'userRoleRead':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .userRoleRead,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'userRoleSave':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .userRoleSave,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'fromPage':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .fromPage,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'impoundCarParamSet':
+                                                                        serializeParam(
+                                                                      ImpoundCarParamSetStruct(
+                                                                        improundCONTNO:
+                                                                            FFAppState().improundCONTNO[listImproundIndex],
+                                                                        improundLOCAT:
+                                                                            FFAppState().improundLOCAT[listImproundIndex],
+                                                                        improundTITLE:
+                                                                            FFAppState().improundTITLE[listImproundIndex],
+                                                                        improundFNAME:
+                                                                            FFAppState().improundFNAME[listImproundIndex],
+                                                                        improundSNAME:
+                                                                            FFAppState().improundSNAME[listImproundIndex],
+                                                                        improundREGNO:
+                                                                            FFAppState().improundREGNO[listImproundIndex],
+                                                                        improundREGPROV:
+                                                                            FFAppState().improundREGPROV[listImproundIndex],
+                                                                        improundCONTNOTYPE:
+                                                                            FFAppState().improundCONTNOTYPE[listImproundIndex],
+                                                                        improundCONTNOTYPENAME:
+                                                                            FFAppState().improundCONTNOTYPENAME[listImproundIndex],
+                                                                        improundGCODE:
+                                                                            FFAppState().improundGCODE[listImproundIndex],
+                                                                        improundGDESC:
+                                                                            FFAppState().improundGDESC[listImproundIndex],
+                                                                        improundNumbody:
+                                                                            FFAppState().improundNumbody[listImproundIndex],
+                                                                        improundCUSCOD:
+                                                                            FFAppState().improundCUSCOD[listImproundIndex],
+                                                                        improundARNOW:
+                                                                            FFAppState().improundARNOW[listImproundIndex],
+                                                                        improundCONTSTAT:
+                                                                            FFAppState().improundCONTSTAT[listImproundIndex],
+                                                                        improundTYPECOD:
+                                                                            FFAppState().improundTYPECOD[listImproundIndex],
+                                                                        improundMANUYR:
+                                                                            FFAppState().improundMANUYR[listImproundIndex],
+                                                                        improundMODELCOD:
+                                                                            FFAppState().improundMODELCOD[listImproundIndex],
+                                                                        improudCOLORCOD:
+                                                                            FFAppState().improundCOLORCOD[listImproundIndex],
+                                                                        improundENGNO:
+                                                                            FFAppState().improundENGNO[listImproundIndex],
+                                                                        improundKEYINCSHPRC:
+                                                                            FFAppState().improundKEYINCSHPRC[listImproundIndex],
+                                                                        improundMANUYRCONVERT:
+                                                                            FFAppState().improundMANUYRCONVERT[listImproundIndex],
+                                                                      ),
+                                                                      ParamType
+                                                                          .DataStruct,
+                                                                    ),
+                                                                    'impoundCarStatusId':
+                                                                        serializeParam(
+                                                                      widget!.fromPage ==
+                                                                              'changeCarLocation'
+                                                                          ? FFAppState()
+                                                                              .impoundCarStatusId[listImproundIndex]
+                                                                          : '',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'impoundCarStatusCode':
+                                                                        serializeParam(
+                                                                      widget!.fromPage ==
+                                                                              'changeCarLocation'
+                                                                          ? FFAppState()
+                                                                              .impoundCarStatusCode[listImproundIndex]
+                                                                          : '',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'impoundCarStatusName':
+                                                                        serializeParam(
+                                                                      widget!.fromPage ==
+                                                                              'changeCarLocation'
+                                                                          ? FFAppState()
+                                                                              .impoundCarStatusName[listImproundIndex]
+                                                                          : '',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'carConfig':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .carConfig,
+                                                                      ParamType
+                                                                          .String,
+                                                                      isList:
+                                                                          true,
+                                                                    ),
+                                                                    'motocycleConfig':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .motocycleConfig,
+                                                                      ParamType
+                                                                          .String,
+                                                                      isList:
+                                                                          true,
+                                                                    ),
+                                                                    'impoundCarLocateParamSet':
+                                                                        serializeParam(
+                                                                      ImpoundCarLocateParamSetStruct(
+                                                                        locatName:
+                                                                            FFAppState().impoundCarMainBranch[listImproundIndex],
+                                                                        branchNameLocat:
+                                                                            FFAppState().impoundCarBranchName[listImproundIndex],
+                                                                        branchCodeLocat:
+                                                                            FFAppState().ImpoundCarBranchCode[listImproundIndex],
+                                                                        improundcarLocatId:
+                                                                            FFAppState().improundLOCAT[listImproundIndex],
+                                                                      ),
+                                                                      ParamType
+                                                                          .DataStruct,
+                                                                    ),
+                                                                    'editAccessRoleData':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .editAccessRoleData,
+                                                                      ParamType
+                                                                          .JSON,
+                                                                    ),
+                                                                    'userRoleEdit':
+                                                                        serializeParam(
+                                                                      widget!
+                                                                          .userRoleEdit,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+
+                                                                return;
+                                                              }
+
                                                               context.pushNamed(
                                                                 'ChangeCarLocationPage',
                                                                 queryParameters:
@@ -2252,6 +2440,20 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     isList:
                                                                         true,
                                                                   ),
+                                                                  'editAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .editAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'userRoleEdit':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleEdit,
+                                                                    ParamType
+                                                                        .String,
+                                                                  ),
                                                                 }.withoutNulls,
                                                               );
                                                             } else {
@@ -2415,6 +2617,20 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                         .String,
                                                                     isList:
                                                                         true,
+                                                                  ),
+                                                                  'editAccessRoleData':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .editAccessRoleData,
+                                                                    ParamType
+                                                                        .JSON,
+                                                                  ),
+                                                                  'userRoleEdit':
+                                                                      serializeParam(
+                                                                    widget!
+                                                                        .userRoleEdit,
+                                                                    ParamType
+                                                                        .String,
                                                                   ),
                                                                 }.withoutNulls,
                                                               );

@@ -36,6 +36,9 @@ class ChangeCarLocationPageWidget extends StatefulWidget {
     required this.impoundCarStatusName,
     required this.carConfig,
     required this.motocycleConfig,
+    this.impoundCarLocateParamSet,
+    required this.editAccessRoleData,
+    required this.userRoleEdit,
   });
 
   final String? step;
@@ -50,6 +53,9 @@ class ChangeCarLocationPageWidget extends StatefulWidget {
   final String? impoundCarStatusName;
   final List<String>? carConfig;
   final List<String>? motocycleConfig;
+  final ImpoundCarLocateParamSetStruct? impoundCarLocateParamSet;
+  final dynamic editAccessRoleData;
+  final String? userRoleEdit;
 
   @override
   State<ChangeCarLocationPageWidget> createState() =>
@@ -73,10 +79,48 @@ class _ChangeCarLocationPageWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().selectedDropdownList = [];
       safeSetState(() {});
+      if (widget!.fromPage != 'takeImages') {
+        _model.allowChangeLocation = false;
+        safeSetState(() {});
+      } else {
+        _model.allowChangeLocation = true;
+        safeSetState(() {});
+      }
     });
 
     _model.searchTextfieldTextController ??= TextEditingController();
     _model.searchTextfieldFocusNode ??= FocusNode();
+
+    _model.textController2 ??= TextEditingController(
+        text: widget!.fromPage != 'takeImages'
+            ? functions.returnNumberWithComma2Decimal(
+                widget!.impoundCarParamSet?.impoundPrice)
+            : '');
+    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.textFieldFocusNode1!.addListener(
+      () async {
+        if ((_model.textFieldFocusNode1?.hasFocus ?? false)) {
+          safeSetState(() {
+            _model.textController2?.text =
+                functions.removeCommaFromNumText(_model.textController2.text);
+            _model.textController2?.selection = TextSelection.collapsed(
+                offset: _model.textController2!.text.length);
+          });
+        } else {
+          safeSetState(() {
+            _model.textController2?.text = functions
+                .returnNumberWithComma2Decimal(_model.textController2.text)!;
+            _model.textController2?.selection = TextSelection.collapsed(
+                offset: _model.textController2!.text.length);
+          });
+        }
+      },
+    );
+    _model.textController3 ??= TextEditingController(
+        text: widget!.fromPage != 'takeImages'
+            ? widget!.impoundCarLocateParamSet?.remark
+            : '');
+    _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -185,534 +229,1306 @@ class _ChangeCarLocationPageWidgetState
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 10.0, 12.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFAFAFA),
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: Color(0xFFB3B3B3),
-                                ),
-                              ),
-                              child: FlutterFlowDropDown<String>(
-                                controller: _model.dropDownValueController ??=
-                                    FormFieldController<String>(
-                                  _model.dropDownValue ??= '',
-                                ),
-                                options: List<String>.from(
-                                    containerImpoundCarMasterRecord.locateCode),
-                                optionLabels:
-                                    containerImpoundCarMasterRecord.locateName,
-                                onChanged: (val) async {
-                                  safeSetState(
-                                      () => _model.dropDownValue = val);
-                                  var _shouldSetState = false;
-                                  showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return WebViewAware(
-                                        child: GestureDetector(
-                                          onTap: () =>
-                                              FocusScope.of(context).unfocus(),
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: double.infinity,
-                                              child: LoadingSceneWidget(),
+                          if (widget!.fromPage != 'takeImages')
+                            Builder(
+                              builder: (context) {
+                                if (!_model.allowChangeLocation) {
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 12.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              if (widget!
+                                                      .impoundCarLocateParamSet
+                                                      ?.branchNameLocat !=
+                                                  '')
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 15.0, 8.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    3.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              'สถานที่จอดรถ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF404040),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              ':',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF404040),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Flexible(
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          -1.0),
+                                                                  child: Text(
+                                                                    '${widget!.impoundCarLocateParamSet?.locatName}',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Poppins',
+                                                                          color:
+                                                                              Color(0xFF404040),
+                                                                          fontSize:
+                                                                              16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              if (widget!
+                                                      .impoundCarLocateParamSet
+                                                      ?.branchNameLocat !=
+                                                  '')
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 4.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    3.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              'สาขาที่จอดรถ',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF404040),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Text(
+                                                              ':',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF404040),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Container(
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child: Text(
+                                                            '${widget!.impoundCarLocateParamSet?.branchNameLocat}(${widget!.impoundCarLocateParamSet?.branchCodeLocat})',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Color(
+                                                                      0xFF404040),
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 8.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              _model.allowChangeLocation = true;
+                                              safeSetState(() {});
+                                            },
+                                            text: 'เปลี่ยนที่',
+                                            options: FFButtonOptions(
+                                              width: 94.0,
+                                              height: 50.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 0.0, 24.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Color(0xFFFE6400),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
                                           ),
                                         ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
-
-                                  _model.getBranchOutput =
-                                      await ImproundCarGetBranchCall.call(
-                                    apiUrl: FFAppState().impoundUrlVloan,
-                                    token: FFAppState().impoundUrlVloanToken,
-                                    locatCode: _model.dropDownValue,
-                                  );
-
-                                  _shouldSetState = true;
-                                  if ((_model.getBranchOutput?.statusCode ??
-                                          200) !=
-                                      200) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาด Connection(${(_model.getBranchOutput?.statusCode ?? 200).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  if (ImproundCarGetBranchCall.statusLayer1(
-                                        (_model.getBranchOutput?.jsonBody ??
-                                            ''),
-                                      ) !=
-                                      '200') {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                '${ImproundCarGetBranchCall.messageLayer1(
-                                              (_model.getBranchOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  FFAppState().selectedDropdownList = [];
-                                  safeSetState(() {});
-                                  FFAppState().selectedDropdownList = functions
-                                      .createFalseListByItemNumber(
-                                          false,
-                                          ImproundCarGetBranchCall.branchname(
-                                            (_model.getBranchOutput?.jsonBody ??
-                                                ''),
-                                          )?.length)!
-                                      .toList()
-                                      .cast<bool>();
-                                  safeSetState(() {});
-                                  FFAppState().branchDataOriginal =
-                                      (getJsonField(
-                                    (_model.getBranchOutput?.jsonBody ?? ''),
-                                    r'''$.results.data''',
-                                    true,
-                                  )!
-                                                  .toList()
-                                                  .map<BranchDataTypeStruct?>(
-                                                      BranchDataTypeStruct
-                                                          .maybeFromMap)
-                                                  .toList()
-                                              as Iterable<
-                                                  BranchDataTypeStruct?>)
-                                          .withoutNulls
-                                          .toList()
-                                          .cast<BranchDataTypeStruct>();
-                                  FFAppState().branchDataOutput = (getJsonField(
-                                    (_model.getBranchOutput?.jsonBody ?? ''),
-                                    r'''$.results.data''',
-                                    true,
-                                  )!
-                                              .toList()
-                                              .map<BranchDataTypeStruct?>(
-                                                  BranchDataTypeStruct.maybeFromMap)
-                                              .toList()
-                                          as Iterable<BranchDataTypeStruct?>)
-                                      .withoutNulls
-                                      .toList()
-                                      .cast<BranchDataTypeStruct>();
-                                  safeSetState(() {});
-                                  Navigator.pop(context);
-                                  if (_shouldSetState) safeSetState(() {});
-                                },
-                                width: 300.0,
-                                height: 56.0,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      letterSpacing: 0.0,
+                                      ],
                                     ),
-                                hintText: 'กรุณาเลือกสถานที่จอดรถ....',
-                                icon: Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
-                                ),
-                                fillColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 2.0,
-                                borderColor: Colors.transparent,
-                                borderWidth: 2.0,
-                                borderRadius: 8.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 4.0, 16.0, 4.0),
-                                hidesUnderline: true,
-                                isOverButton: true,
-                                isSearchable: false,
-                                isMultiSelect: false,
-                              ),
+                                  );
+                                } else {
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 12.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        15.0, 15.0, 8.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Container(
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .end,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child:
+                                                                  FFButtonWidget(
+                                                                onPressed:
+                                                                    () async {
+                                                                  _model.allowChangeLocation =
+                                                                      false;
+                                                                  safeSetState(
+                                                                      () {});
+                                                                },
+                                                                text: 'ยกเลิก',
+                                                                options:
+                                                                    FFButtonOptions(
+                                                                  width: 94.0,
+                                                                  height: 50.0,
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                                  iconPadding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  color: Color(
+                                                                      0xFFFE6400),
+                                                                  textStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                  elevation:
+                                                                      3.0,
+                                                                  borderSide:
+                                                                      BorderSide(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    width: 1.0,
+                                                                  ),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }
+                              },
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 10.0, 12.0, 8.0),
-                            child: Container(
-                              width: double.infinity,
-                              height: 50.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFFAFAFA),
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: Color(0xFFB3B3B3),
-                                ),
-                              ),
-                              child: Row(
+                          if (_model.allowChangeLocation)
+                            Expanded(
+                              child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  Expanded(
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 10.0, 12.0, 0.0),
                                     child: Container(
-                                      decoration: BoxDecoration(),
-                                      child: Container(
-                                        width: 200.0,
-                                        child: TextFormField(
-                                          controller: _model
-                                              .searchTextfieldTextController,
-                                          focusNode:
-                                              _model.searchTextfieldFocusNode,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            isDense: true,
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            hintText: 'ระบุคำค้นหา...',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .error,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                            ),
-                                            filled: true,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryBackground,
-                                            prefixIcon: Icon(
-                                              Icons.search_outlined,
-                                              size: 24.0,
-                                            ),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                letterSpacing: 0.0,
-                                              ),
-                                          cursorColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primaryText,
-                                          validator: _model
-                                              .searchTextfieldTextControllerValidator
-                                              .asValidator(context),
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFFAFAFA),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
                                         ),
+                                      ),
+                                      child: FlutterFlowDropDown<String>(
+                                        controller:
+                                            _model.dropDownValueController ??=
+                                                FormFieldController<String>(
+                                          _model.dropDownValue ??=
+                                              widget!.fromPage != 'takeImages'
+                                                  ? widget!
+                                                      .impoundCarLocateParamSet
+                                                      ?.locatCode
+                                                  : '',
+                                        ),
+                                        options: List<String>.from(
+                                            containerImpoundCarMasterRecord
+                                                .locateCode),
+                                        optionLabels:
+                                            containerImpoundCarMasterRecord
+                                                .locateName,
+                                        onChanged: (val) async {
+                                          safeSetState(
+                                              () => _model.dropDownValue = val);
+                                          var _shouldSetState = false;
+                                          showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: Container(
+                                                      height: double.infinity,
+                                                      child:
+                                                          LoadingSceneWidget(),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+
+                                          _model.getBranchOutput =
+                                              await ImproundCarGetBranchCall
+                                                  .call(
+                                            apiUrl:
+                                                FFAppState().impoundUrlVloan,
+                                            token: FFAppState()
+                                                .impoundUrlVloanToken,
+                                            locatCode: _model.dropDownValue,
+                                          );
+
+                                          _shouldSetState = true;
+                                          if ((_model.getBranchOutput
+                                                      ?.statusCode ??
+                                                  200) !=
+                                              200) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'พบข้อผิดพลาด Connection(${(_model.getBranchOutput?.statusCode ?? 200).toString()})'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if (ImproundCarGetBranchCall
+                                                  .statusLayer1(
+                                                (_model.getBranchOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              ) !=
+                                              '200') {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        '${ImproundCarGetBranchCall.messageLayer1(
+                                                      (_model.getBranchOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          FFAppState().selectedDropdownList =
+                                              [];
+                                          safeSetState(() {});
+                                          FFAppState().selectedDropdownList =
+                                              functions
+                                                  .createFalseListByItemNumber(
+                                                      false,
+                                                      ImproundCarGetBranchCall
+                                                          .branchname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )?.length)!
+                                                  .toList()
+                                                  .cast<bool>();
+                                          safeSetState(() {});
+                                          FFAppState().branchDataOriginal =
+                                              (getJsonField(
+                                            (_model.getBranchOutput?.jsonBody ??
+                                                ''),
+                                            r'''$.results.data''',
+                                            true,
+                                          )!
+                                                          .toList()
+                                                          .map<BranchDataTypeStruct?>(
+                                                              BranchDataTypeStruct
+                                                                  .maybeFromMap)
+                                                          .toList()
+                                                      as Iterable<
+                                                          BranchDataTypeStruct?>)
+                                                  .withoutNulls
+                                                  .toList()
+                                                  .cast<BranchDataTypeStruct>();
+                                          FFAppState()
+                                              .branchDataOutput = (getJsonField(
+                                            (_model.getBranchOutput?.jsonBody ??
+                                                ''),
+                                            r'''$.results.data''',
+                                            true,
+                                          )!
+                                                      .toList()
+                                                      .map<BranchDataTypeStruct?>(
+                                                          BranchDataTypeStruct
+                                                              .maybeFromMap)
+                                                      .toList()
+                                                  as Iterable<
+                                                      BranchDataTypeStruct?>)
+                                              .withoutNulls
+                                              .toList()
+                                              .cast<BranchDataTypeStruct>();
+                                          safeSetState(() {});
+                                          Navigator.pop(context);
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                        },
+                                        width: 300.0,
+                                        height: 56.0,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                        hintText: 'กรุณาเลือกสถานที่จอดรถ....',
+                                        icon: Icon(
+                                          Icons.keyboard_arrow_down_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          size: 24.0,
+                                        ),
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        elevation: 2.0,
+                                        borderColor: Colors.transparent,
+                                        borderWidth: 2.0,
+                                        borderRadius: 8.0,
+                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 4.0, 16.0, 4.0),
+                                        hidesUnderline: true,
+                                        isOverButton: true,
+                                        isSearchable: false,
+                                        isMultiSelect: false,
                                       ),
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        4.0, 0.0, 0.0, 0.0),
-                                    child: FFButtonWidget(
-                                      onPressed: () async {
-                                        await actions.hideKeyboardAction(
-                                          context,
-                                        );
-                                        if (!(_model.searchTextfieldTextController
-                                                    .text !=
-                                                null &&
-                                            _model.searchTextfieldTextController
-                                                    .text !=
-                                                '')) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                child: AlertDialog(
-                                                  content:
-                                                      Text('กรุณากรอกคำค้นหา'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              );
-                                            },
-                                          );
-                                          return;
-                                        }
-                                        FFAppState().branchDataOutput = functions
-                                            .generateBranchDataOutput(
-                                                FFAppState()
-                                                    .branchDataOriginal
-                                                    .toList(),
-                                                _model
-                                                    .searchTextfieldTextController
-                                                    .text)!
-                                            .toList()
-                                            .cast<BranchDataTypeStruct>();
-                                        safeSetState(() {});
-                                        FFAppState().selectedDropdownList = [];
-                                        safeSetState(() {});
-                                        FFAppState().selectedDropdownList =
-                                            functions
-                                                .createFalseListByItemNumber(
-                                                    false,
-                                                    FFAppState()
-                                                        .branchDataOutput
-                                                        .length)!
-                                                .toList()
-                                                .cast<bool>();
-                                        safeSetState(() {});
-                                      },
-                                      text: 'ค้นหา',
-                                      options: FFButtonOptions(
-                                        width: 94.0,
-                                        height: 50.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 0.0, 24.0, 0.0),
-                                        iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                0.0, 0.0, 0.0, 0.0),
-                                        color: Color(0xFFFE6400),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 3.0,
-                                        borderSide: BorderSide(
-                                          color: Colors.transparent,
-                                          width: 1.0,
-                                        ),
+                                        12.0, 10.0, 12.0, 8.0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xFFFAFAFA),
                                         borderRadius:
                                             BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              decoration: BoxDecoration(),
+                                              child: Container(
+                                                width: 200.0,
+                                                child: TextFormField(
+                                                  controller: _model
+                                                      .searchTextfieldTextController,
+                                                  focusNode: _model
+                                                      .searchTextfieldFocusNode,
+                                                  autofocus: false,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    isDense: true,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    hintText: 'ระบุคำค้นหา...',
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0x00000000),
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    focusedBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0x00000000),
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    errorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    focusedErrorBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    filled: true,
+                                                    fillColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    prefixIcon: Icon(
+                                                      Icons.search_outlined,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  cursorColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryText,
+                                                  validator: _model
+                                                      .searchTextfieldTextControllerValidator
+                                                      .asValidator(context),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 0.0, 0.0),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                                if (!(_model.searchTextfieldTextController
+                                                            .text !=
+                                                        null &&
+                                                    _model.searchTextfieldTextController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณากรอกคำค้นหา'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  return;
+                                                }
+                                                FFAppState().branchDataOutput = functions
+                                                    .generateBranchDataOutput(
+                                                        FFAppState()
+                                                            .branchDataOriginal
+                                                            .toList(),
+                                                        _model
+                                                            .searchTextfieldTextController
+                                                            .text)!
+                                                    .toList()
+                                                    .cast<
+                                                        BranchDataTypeStruct>();
+                                                safeSetState(() {});
+                                                FFAppState()
+                                                    .selectedDropdownList = [];
+                                                safeSetState(() {});
+                                                FFAppState()
+                                                        .selectedDropdownList =
+                                                    functions
+                                                        .createFalseListByItemNumber(
+                                                            false,
+                                                            FFAppState()
+                                                                .branchDataOutput
+                                                                .length)!
+                                                        .toList()
+                                                        .cast<bool>();
+                                                safeSetState(() {});
+                                              },
+                                              text: 'ค้นหา',
+                                              options: FFButtonOptions(
+                                                width: 94.0,
+                                                height: 50.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        24.0, 0.0, 24.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFFFE6400),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                elevation: 3.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(
+                                    thickness: 2.0,
+                                  ),
+                                  Expanded(
+                                    child: Container(
+                                      height: 200.0,
+                                      child: Visibility(
+                                        visible: (_model.dropDownValue !=
+                                                    null &&
+                                                _model.dropDownValue != '') &&
+                                            (((_model.getBranchOutput
+                                                            ?.statusCode ??
+                                                        200) ==
+                                                    200) &&
+                                                (ImproundCarGetBranchCall
+                                                        .statusLayer1(
+                                                      (_model.getBranchOutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ) ==
+                                                    '200')),
+                                        child: Builder(
+                                          builder: (context) {
+                                            final branchListItem = FFAppState()
+                                                .branchDataOutput
+                                                .take(100)
+                                                .toList();
+                                            if (branchListItem.isEmpty) {
+                                              return Center(
+                                                child: Image.asset(
+                                                  'assets/images/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png',
+                                                ),
+                                              );
+                                            }
+
+                                            return ListView.builder(
+                                              padding: EdgeInsets.fromLTRB(
+                                                0,
+                                                12.0,
+                                                0,
+                                                50.0,
+                                              ),
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount: branchListItem.length,
+                                              itemBuilder: (context,
+                                                  branchListItemIndex) {
+                                                final branchListItemItem =
+                                                    branchListItem[
+                                                        branchListItemIndex];
+                                                return Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 10.0, 8.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      FFAppState().selectedDropdownList = functions
+                                                          .setBoolValueListAtIndex(
+                                                              functions
+                                                                  .createFalseListByItemNumber(
+                                                                      false,
+                                                                      FFAppState()
+                                                                          .selectedDropdownList
+                                                                          .length)
+                                                                  ?.toList(),
+                                                              branchListItemIndex)!
+                                                          .toList()
+                                                          .cast<bool>();
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Container(
+                                                      height: 40.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 4.0,
+                                                            color: Color(
+                                                                0x33000000),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              2.0,
+                                                            ),
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(4.0),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    12.0,
+                                                                    0.0),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Expanded(
+                                                              flex: 10,
+                                                              child: Text(
+                                                                '${branchListItemItem.branchName} (${branchListItemItem.branchCode})',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                            Expanded(
+                                                              flex: 1,
+                                                              child: Builder(
+                                                                builder:
+                                                                    (context) {
+                                                                  if ((List<bool>
+                                                                              selectedDropdownList,
+                                                                          int
+                                                                              index) {
+                                                                    return selectedDropdownList[
+                                                                        index];
+                                                                  }(
+                                                                      FFAppState()
+                                                                          .selectedDropdownList
+                                                                          .toList(),
+                                                                      branchListItemIndex)) {
+                                                                    return Icon(
+                                                                      Icons
+                                                                          .check_sharp,
+                                                                      color: Color(
+                                                                          0xFF14B401),
+                                                                      size:
+                                                                          24.0,
+                                                                    );
+                                                                  } else {
+                                                                    return Container(
+                                                                      width:
+                                                                          100.0,
+                                                                      height:
+                                                                          100.0,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                    );
+                                                                  }
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ),
-                          Divider(
-                            thickness: 2.0,
-                          ),
-                          if ((_model.dropDownValue != null &&
-                                  _model.dropDownValue != '') &&
-                              (((_model.getBranchOutput?.statusCode ?? 200) ==
-                                      200) &&
-                                  (ImproundCarGetBranchCall.statusLayer1(
-                                        (_model.getBranchOutput?.jsonBody ??
-                                            ''),
-                                      ) ==
-                                      '200')))
-                            Expanded(
-                              child: Builder(
-                                builder: (context) {
-                                  final branchListItem = FFAppState()
-                                      .branchDataOutput
-                                      .take(100)
-                                      .toList();
-                                  if (branchListItem.isEmpty) {
-                                    return Center(
-                                      child: Image.asset(
-                                        'assets/images/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png',
-                                      ),
-                                    );
-                                  }
-
-                                  return ListView.builder(
-                                    padding: EdgeInsets.fromLTRB(
-                                      0,
-                                      12.0,
-                                      0,
-                                      50.0,
-                                    ),
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: branchListItem.length,
-                                    itemBuilder:
-                                        (context, branchListItemIndex) {
-                                      final branchListItemItem =
-                                          branchListItem[branchListItemIndex];
-                                      return Padding(
+                          if (widget!.fromPage != 'takeImages')
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                if (((FFAppState().profileLevel == 'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_level'),
+                                            FFAppState().profileLevel)
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_role'),
+                                            widget!.userRoleEdit)) ??
+                                    true)
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 8.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            FFAppState().selectedDropdownList =
-                                                functions
-                                                    .setBoolValueListAtIndex(
-                                                        functions
-                                                            .createFalseListByItemNumber(
-                                                                false,
-                                                                FFAppState()
-                                                                    .selectedDropdownList
-                                                                    .length)
-                                                            ?.toList(),
-                                                        branchListItemIndex)!
-                                                    .toList()
-                                                    .cast<bool>();
-                                            safeSetState(() {});
-                                          },
-                                          child: Container(
-                                            height: 40.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 4.0,
-                                                  color: Color(0x33000000),
-                                                  offset: Offset(
-                                                    0.0,
-                                                    2.0,
+                                            15.0, 0.0, 15.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              'ราคาประมูล',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xFF404040),
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
                                                   ),
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
                                             ),
+                                            Text(
+                                              '(ถ้ามี)',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xFF404040),
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      12.0, 0.0, 12.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Expanded(
-                                                    flex: 10,
-                                                    child: Text(
-                                                      '${branchListItemItem.branchName} (${branchListItemItem.branchCode})',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
+                                                      15.0, 8.0, 15.0, 0.0),
+                                              child: Container(
+                                                width: 100.0,
+                                                height: 50.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFF404040),
                                                   ),
-                                                  Expanded(
-                                                    flex: 1,
-                                                    child: Builder(
-                                                      builder: (context) {
-                                                        if ((List<bool>
-                                                                    selectedDropdownList,
-                                                                int index) {
-                                                          return selectedDropdownList[
-                                                              index];
-                                                        }(
-                                                            FFAppState()
-                                                                .selectedDropdownList
-                                                                .toList(),
-                                                            branchListItemIndex)) {
-                                                          return Icon(
-                                                            Icons.check_sharp,
-                                                            color: Color(
-                                                                0xFF14B401),
-                                                            size: 24.0,
-                                                          );
-                                                        } else {
-                                                          return Container(
-                                                            width: 100.0,
-                                                            height: 100.0,
-                                                            decoration:
-                                                                BoxDecoration(),
-                                                          );
-                                                        }
-                                                      },
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 8.0, 0.0),
+                                                  child: TextFormField(
+                                                    controller:
+                                                        _model.textController2,
+                                                    focusNode: _model
+                                                        .textFieldFocusNode1,
+                                                    autofocus: false,
+                                                    obscureText: false,
+                                                    decoration: InputDecoration(
+                                                      labelStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      hintText:
+                                                          'กรอกราคาประมูล...',
+                                                      hintStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      enabledBorder:
+                                                          InputBorder.none,
+                                                      focusedBorder:
+                                                          InputBorder.none,
+                                                      errorBorder:
+                                                          InputBorder.none,
+                                                      focusedErrorBorder:
+                                                          InputBorder.none,
                                                     ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    maxLines: null,
+                                                    keyboardType:
+                                                        const TextInputType
+                                                            .numberWithOptions(
+                                                            decimal: true),
+                                                    validator: _model
+                                                        .textController2Validator
+                                                        .asValidator(context),
                                                   ),
-                                                ],
+                                                ),
                                               ),
                                             ),
                                           ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 8.0, 15.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'เหตุผลที่เปลี่ยนสถานที่จอดรถ / ราคา',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Color(0xFF404040),
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      Text(
+                                        '(บังคับกรอก)',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Color(0xFFFF0000),
+                                              fontSize: 16.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 8.0, 15.0, 0.0),
+                                        child: Container(
+                                          width: 100.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFF404040),
+                                            ),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 8.0, 0.0),
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.textController3,
+                                              focusNode:
+                                                  _model.textFieldFocusNode2,
+                                              autofocus: false,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintText:
+                                                    'กรอกเหตุผลที่เปลี่ยนสถานที่จอดรถ / ราคา...',
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder: InputBorder.none,
+                                                focusedBorder: InputBorder.none,
+                                                errorBorder: InputBorder.none,
+                                                focusedErrorBorder:
+                                                    InputBorder.none,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              maxLines: null,
+                                              validator: _model
+                                                  .textController3Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
                                         ),
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                         ],
                       ),
@@ -777,29 +1593,60 @@ class _ChangeCarLocationPageWidgetState
                                     return;
                                   }
                                   if (widget!.fromPage != 'takeImages') {
+                                    if (_model.textController3.text == '') {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณากรอกเหตุผลที่เปลี่ยนสถานที่จอดรถ / ราคา'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
                                     _model.updateCarLocationOutput =
                                         await UploadImagesGoogleDriveGroup
                                             .updateImproundCarCall
                                             .call(
                                       contNo: widget!
                                           .impoundCarParamSet?.improundCONTNO,
-                                      improundcarLocatId:
-                                          containerImpoundCarMasterRecord
+                                      improundcarLocatId: _model
+                                              .allowChangeLocation
+                                          ? containerImpoundCarMasterRecord
                                                   .impoundCarLocateId[
                                               functions.getIndexOfSomethingList(
                                                   containerImpoundCarMasterRecord
                                                       .locateCode
                                                       .toList(),
-                                                  _model.dropDownValue)],
-                                      locatName: containerImpoundCarMasterRecord
-                                              .locateName[
-                                          functions.getIndexOfSomethingList(
-                                              containerImpoundCarMasterRecord
-                                                  .locateCode
-                                                  .toList(),
-                                              _model.dropDownValue)],
-                                      improundcarSubLocatId:
-                                          ImproundCarGetBranchCall.subLocatId(
+                                                  _model.dropDownValue)]
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.improundcarLocatId,
+                                      locatName: _model.allowChangeLocation
+                                          ? containerImpoundCarMasterRecord
+                                                  .locateName[
+                                              functions.getIndexOfSomethingList(
+                                                  containerImpoundCarMasterRecord
+                                                      .locateCode
+                                                      .toList(),
+                                                  _model.dropDownValue)]
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.locatName,
+                                      improundcarSubLocatId: _model
+                                              .allowChangeLocation
+                                          ? (ImproundCarGetBranchCall
+                                                          .subLocatId(
                                                         (_model.getBranchOutput
                                                                 ?.jsonBody ??
                                                             ''),
@@ -820,334 +1667,377 @@ class _ChangeCarLocationPageWidgetState
                                                               .toList(),
                                                           true)]
                                                   .improundcarSubLocatId
-                                              : '',
-                                      branchCodeLocat: ImproundCarGetBranchCall
-                                                      .branchcode(
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.improundcarSubLocatId,
+                                      branchCodeLocat: _model
+                                              .allowChangeLocation
+                                          ? (ImproundCarGetBranchCall
+                                                          .branchcode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .branchcode(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .branchcode(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .branchCode
-                                          : '',
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .branchCode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.branchCodeLocat,
                                       branchName:
                                           FFAppState().profileUnitCodeName,
                                       userid: FFAppState().employeeID,
-                                      branchNameLocat: ImproundCarGetBranchCall
-                                                      .branchname(
+                                      branchNameLocat: _model
+                                              .allowChangeLocation
+                                          ? (ImproundCarGetBranchCall
+                                                          .branchname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .branchname(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .branchname(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .branchName
-                                          : '',
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .branchName
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.branchNameLocat,
                                       branchCode: FFAppState().profileBranch,
                                       nameTh: FFAppState().profileFullName,
-                                      address: ImproundCarGetBranchCall.address(
+                                      address: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.address(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .address(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall.address(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .address
-                                          : '',
-                                      subDistrict: ImproundCarGetBranchCall
-                                                      .subdistrict(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .address
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.address,
+                                      subDistrict: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall
+                                                          .subdistrict(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .subdistrict(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .subdistrict(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .subDistrict
-                                          : '',
-                                      district: ImproundCarGetBranchCall
-                                                      .district(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .subDistrict
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.subDistrict,
+                                      district: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.district(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .district(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .district(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .district
-                                          : '',
-                                      province: ImproundCarGetBranchCall
-                                                      .province(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .district
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.district,
+                                      province: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.province(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .province(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .province(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .province
-                                          : '',
-                                      postcode: ImproundCarGetBranchCall
-                                                      .postcode(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .province
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.province,
+                                      postcode: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.postcode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .postcode(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .postcode(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .postcode
-                                          : '',
-                                      phoneNumber: ImproundCarGetBranchCall
-                                                      .phoneNumber(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .postcode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.postcode,
+                                      phoneNumber: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall
+                                                          .phoneNumber(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .phoneNumber(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .phoneNumber(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .phoneNumber
-                                          : '',
-                                      latitude: ImproundCarGetBranchCall
-                                                      .latitude(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .phoneNumber
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.phoneNumber,
+                                      latitude: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.latitude(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .latitude(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .latitude(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .latitude
-                                          : '',
-                                      longitude: ImproundCarGetBranchCall
-                                                      .longitude(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .latitude
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.latitude,
+                                      longitude: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.longitude(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .longitude(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .longitude(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .longitude
-                                          : '',
-                                      areaCode: ImproundCarGetBranchCall
-                                                      .areacode(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .longitude
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.longitude,
+                                      areaCode: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.areacode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .areacode(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .areacode(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .areaCode
-                                          : '',
-                                      areaName: ImproundCarGetBranchCall
-                                                      .areaname(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .areaCode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.areaCode,
+                                      areaName: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall.areaname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .areaname(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .areaname(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .areaName
-                                          : '',
-                                      regionCode: ImproundCarGetBranchCall
-                                                      .regioncode(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .areaName
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.areaName,
+                                      regionCode: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall
+                                                          .regioncode(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .regioncode(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .regioncode(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .regionCode
-                                          : '',
-                                      regionName: ImproundCarGetBranchCall
-                                                      .regionname(
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .regionCode
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.regionCode,
+                                      regionName: _model.allowChangeLocation
+                                          ? (ImproundCarGetBranchCall
+                                                          .regionname(
+                                                        (_model.getBranchOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      null &&
+                                                  (ImproundCarGetBranchCall
+                                                          .regionname(
                                                     (_model.getBranchOutput
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) !=
-                                                  null &&
-                                              (ImproundCarGetBranchCall
-                                                      .regionname(
-                                                (_model.getBranchOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ))!
-                                                  .isNotEmpty
-                                          ? FFAppState()
-                                              .branchDataOutput[
-                                                  functions.getIndexOfBoolList(
-                                                      FFAppState()
-                                                          .selectedDropdownList
-                                                          .toList(),
-                                                      true)]
-                                              .regionName
-                                          : '',
+                                                  ))!
+                                                      .isNotEmpty
+                                              ? FFAppState()
+                                                  .branchDataOutput[functions
+                                                      .getIndexOfBoolList(
+                                                          FFAppState()
+                                                              .selectedDropdownList
+                                                              .toList(),
+                                                          true)]
+                                                  .regionName
+                                              : '')
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.regionName,
                                       url: FFAppState().improundUrl,
-                                      locatCode: _model.dropDownValue,
+                                      locatCode: _model.allowChangeLocation
+                                          ? _model.dropDownValue
+                                          : widget!.impoundCarLocateParamSet
+                                              ?.locatCode,
                                     );
 
                                     _shouldSetState = true;
@@ -1451,6 +2341,14 @@ class _ChangeCarLocationPageWidgetState
                                             ParamType.String,
                                             isList: true,
                                           ),
+                                          'editAccessRoleData': serializeParam(
+                                            widget!.editAccessRoleData,
+                                            ParamType.JSON,
+                                          ),
+                                          'userRoleEdit': serializeParam(
+                                            widget!.userRoleEdit,
+                                            ParamType.String,
+                                          ),
                                         }.withoutNulls,
                                       );
                                     } else {
@@ -1710,6 +2608,14 @@ class _ChangeCarLocationPageWidgetState
                                           ParamType.String,
                                           isList: true,
                                         ),
+                                        'editAccessRoleData': serializeParam(
+                                          widget!.editAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'userRoleEdit': serializeParam(
+                                          widget!.userRoleEdit,
+                                          ParamType.String,
+                                        ),
                                       }.withoutNulls,
                                     );
                                   } else {
@@ -1937,6 +2843,14 @@ class _ChangeCarLocationPageWidgetState
                                           widget!.motocycleConfig,
                                           ParamType.String,
                                           isList: true,
+                                        ),
+                                        'editAccessRoleData': serializeParam(
+                                          widget!.editAccessRoleData,
+                                          ParamType.JSON,
+                                        ),
+                                        'userRoleEdit': serializeParam(
+                                          widget!.userRoleEdit,
+                                          ParamType.String,
                                         ),
                                       }.withoutNulls,
                                     );

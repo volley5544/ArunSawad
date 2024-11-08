@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,6 +31,8 @@ class CustomerCarDeailsStep4Widget extends StatefulWidget {
     required this.impoundCarLocateParamSet,
     required this.carConfig,
     required this.motocycleConfig,
+    required this.editAccessRoleData,
+    required this.userRoleEdit,
   });
 
   final String? step;
@@ -41,6 +44,8 @@ class CustomerCarDeailsStep4Widget extends StatefulWidget {
   final ImpoundCarLocateParamSetStruct? impoundCarLocateParamSet;
   final List<String>? carConfig;
   final List<String>? motocycleConfig;
+  final dynamic editAccessRoleData;
+  final String? userRoleEdit;
 
   @override
   State<CustomerCarDeailsStep4Widget> createState() =>
@@ -60,8 +65,29 @@ class _CustomerCarDeailsStep4WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CustomerCarDeailsStep4'});
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+    _model.textFieldFocusNode1!.addListener(
+      () async {
+        if ((_model.textFieldFocusNode1?.hasFocus ?? false)) {
+          safeSetState(() {
+            _model.textController1?.text =
+                functions.removeCommaFromNumText(_model.textController1.text);
+            _model.textController1?.selection = TextSelection.collapsed(
+                offset: _model.textController1!.text.length);
+          });
+        } else {
+          safeSetState(() {
+            _model.textController1?.text = functions
+                .returnNumberWithComma2Decimal(_model.textController1.text)!;
+            _model.textController1?.selection = TextSelection.collapsed(
+                offset: _model.textController1!.text.length);
+          });
+        }
+      },
+    );
+    _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -6527,6 +6553,166 @@ class _CustomerCarDeailsStep4WidgetState
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
+                                  if (((FFAppState().profileLevel == 'สาขา') ||
+                                              (FFAppState().profileLevel ==
+                                                  'เขต') ||
+                                              (FFAppState().profileLevel ==
+                                                  'ภาค')
+                                          ? functions.containsValueInJsonList(
+                                              functions.getDataFromMapJson(
+                                                  functions.getDataFromMapJson(
+                                                      widget!
+                                                          .saveAccessRoleData,
+                                                      widget!.step),
+                                                  'price_edit_level'),
+                                              FFAppState().profileLevel)
+                                          : functions.containsValueInJsonList(
+                                              functions.getDataFromMapJson(
+                                                  functions.getDataFromMapJson(
+                                                      widget!
+                                                          .saveAccessRoleData,
+                                                      widget!.step),
+                                                  'price_edit_role'),
+                                              widget!.userRoleSave)) ??
+                                      true)
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 20.0, 15.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                'ราคาประมูล',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '(ถ้ามี)',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color:
+                                                              Color(0xFF404040),
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        15.0, 8.0, 15.0, 0.0),
+                                                child: Container(
+                                                  width: 100.0,
+                                                  height: 50.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFF404040),
+                                                    ),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .textController1,
+                                                      focusNode: _model
+                                                          .textFieldFocusNode1,
+                                                      autofocus: false,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        hintText:
+                                                            'กรอกราคาประมูล...',
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      maxLines: null,
+                                                      keyboardType:
+                                                          const TextInputType
+                                                              .numberWithOptions(
+                                                              decimal: true),
+                                                      validator: _model
+                                                          .textController1Validator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 20.0, 15.0, 0.0),
@@ -6586,9 +6772,9 @@ class _CustomerCarDeailsStep4WidgetState
                                                   .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                               child: TextFormField(
                                                 controller:
-                                                    _model.textController,
+                                                    _model.textController2,
                                                 focusNode:
-                                                    _model.textFieldFocusNode,
+                                                    _model.textFieldFocusNode2,
                                                 autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
@@ -6628,7 +6814,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         ),
                                                 maxLines: null,
                                                 validator: _model
-                                                    .textControllerValidator
+                                                    .textController2Validator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -6806,10 +6992,10 @@ class _CustomerCarDeailsStep4WidgetState
                             userid: FFAppState().employeeID,
                             locat:
                                 '${widget!.impoundCarParamSet?.improundLOCAT}',
-                            remark: (_model.textController.text != null &&
-                                        _model.textController.text != '') &&
-                                    (_model.textController.text != '')
-                                ? '${_model.textController.text}'
+                            remark: (_model.textController2.text != null &&
+                                        _model.textController2.text != '') &&
+                                    (_model.textController2.text != '')
+                                ? '${_model.textController2.text}'
                                 : '',
                             images1: _model.uploadedLocalFile1,
                             images2: _model.uploadedLocalFile2,
@@ -6883,6 +7069,10 @@ class _CustomerCarDeailsStep4WidgetState
                             impoundEmp: '',
                             impoundDate: '',
                             impoundNameth: '',
+                            impoundcarPrice: _model.textController1.text != ''
+                                ? functions.removeCommaFromNumText(
+                                    _model.textController1.text)
+                                : '0.00',
                           );
 
                           _shouldSetState = true;
@@ -7013,6 +7203,14 @@ class _CustomerCarDeailsStep4WidgetState
                                 widget!.motocycleConfig,
                                 ParamType.String,
                                 isList: true,
+                              ),
+                              'editAccessRoleData': serializeParam(
+                                widget!.editAccessRoleData,
+                                ParamType.JSON,
+                              ),
+                              'userRoleEdit': serializeParam(
+                                widget!.userRoleEdit,
+                                ParamType.String,
                               ),
                             }.withoutNulls,
                           );

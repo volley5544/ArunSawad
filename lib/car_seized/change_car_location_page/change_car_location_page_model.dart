@@ -22,6 +22,10 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class ChangeCarLocationPageModel
     extends FlutterFlowModel<ChangeCarLocationPageWidget> {
+  ///  Local state fields for this page.
+
+  bool allowChangeLocation = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for DropDown widget.
@@ -34,6 +38,14 @@ class ChangeCarLocationPageModel
   TextEditingController? searchTextfieldTextController;
   String? Function(BuildContext, String?)?
       searchTextfieldTextControllerValidator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode1;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
   // Stores action output result for [Backend Call - API (updateImproundCar)] action in Button widget.
   ApiCallResponse? updateCarLocationOutput;
 
@@ -44,5 +56,11 @@ class ChangeCarLocationPageModel
   void dispose() {
     searchTextfieldFocusNode?.dispose();
     searchTextfieldTextController?.dispose();
+
+    textFieldFocusNode1?.dispose();
+    textController2?.dispose();
+
+    textFieldFocusNode2?.dispose();
+    textController3?.dispose();
   }
 }

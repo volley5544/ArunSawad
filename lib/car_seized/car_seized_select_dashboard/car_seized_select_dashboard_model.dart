@@ -48,6 +48,10 @@ class CarSeizedSelectDashboardModel
   void updateMotocycleConfigAtIndex(int index, Function(String) updateFn) =>
       motocycleConfig[index] = updateFn(motocycleConfig[index]);
 
+  dynamic editAccessRoleData;
+
+  String userRoleEdit = 'no_role';
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in CarSeizedSelectDashboard widget.

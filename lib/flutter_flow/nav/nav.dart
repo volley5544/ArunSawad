@@ -1918,6 +1918,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                editAccessRoleData: params.getParam(
+                  'editAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleEdit: params.getParam(
+                  'userRoleEdit',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1966,6 +1974,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'motocycleConfig',
                   ParamType.String,
                   isList: true,
+                ),
+                editAccessRoleData: params.getParam(
+                  'editAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleEdit: params.getParam(
+                  'userRoleEdit',
+                  ParamType.String,
                 ),
               ),
             ),
@@ -2044,6 +2060,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                editAccessRoleData: params.getParam(
+                  'editAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleEdit: params.getParam(
+                  'userRoleEdit',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2108,6 +2132,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.String,
                   isList: true,
                 ),
+                editAccessRoleData: params.getParam(
+                  'editAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleEdit: params.getParam(
+                  'userRoleEdit',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -2164,6 +2196,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'motocycleConfig',
                   ParamType.String,
                   isList: true,
+                ),
+                editAccessRoleData: params.getParam(
+                  'editAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleEdit: params.getParam(
+                  'userRoleEdit',
+                  ParamType.String,
                 ),
               ),
             ),
@@ -2228,6 +2268,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'motocycleConfig',
                   ParamType.String,
                   isList: true,
+                ),
+                impoundCarLocateParamSet: params.getParam(
+                  'impoundCarLocateParamSet',
+                  ParamType.DataStruct,
+                  isList: false,
+                  structBuilder:
+                      ImpoundCarLocateParamSetStruct.fromSerializableMap,
+                ),
+                editAccessRoleData: params.getParam(
+                  'editAccessRoleData',
+                  ParamType.JSON,
+                ),
+                userRoleEdit: params.getParam(
+                  'userRoleEdit',
+                  ParamType.String,
                 ),
               ),
             ),

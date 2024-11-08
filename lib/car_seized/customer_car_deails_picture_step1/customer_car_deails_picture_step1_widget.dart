@@ -33,6 +33,8 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
     required this.impoundCarStatusName,
     required this.carConfig,
     required this.motocycleConfig,
+    required this.editAccessRoleData,
+    required this.userRoleEdit,
   });
 
   final String? step;
@@ -46,6 +48,8 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
   final String? impoundCarStatusName;
   final List<String>? carConfig;
   final List<String>? motocycleConfig;
+  final dynamic editAccessRoleData;
+  final String? userRoleEdit;
 
   @override
   State<CustomerCarDeailsPictureStep1Widget> createState() =>
@@ -499,6 +503,14 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         ParamType.String,
                         isList: true,
                       ),
+                      'editAccessRoleData': serializeParam(
+                        widget!.editAccessRoleData,
+                        ParamType.JSON,
+                      ),
+                      'userRoleEdit': serializeParam(
+                        widget!.userRoleEdit,
+                        ParamType.String,
+                      ),
                     }.withoutNulls,
                   );
                 },
@@ -666,346 +678,383 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       ],
                     ),
                   ),
-                  if (widget!.impoundCarLocateParamSet?.branchNameLocat != '')
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 3.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'สถานที่จอดรถ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF404040),
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 5.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  ':',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF404040),
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, -1.0),
-                                      child: Text(
-                                        '${widget!.impoundCarLocateParamSet?.locatName}',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF404040),
-                                              fontSize: 16.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      if (widget!.impoundCarLocateParamSet?.branchNameLocat !=
+                          '')
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 15.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 3.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'สถานที่จอดรถ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Color(0xFF404040),
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
-                                  ),
-                                  if (() {
-                                        if (widget!.step == 'step1') {
-                                          return ((FFAppState().profileLevel ==
-                                                      'สาขา') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'เขต') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'ภาค')
-                                              ? functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step1'),
-                                                      'Level'),
-                                                  FFAppState().profileLevel)
-                                              : functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step1'),
-                                                      'role_name'),
-                                                  widget!.userRoleSave));
-                                        } else if (widget!.step == 'step2') {
-                                          return ((FFAppState().profileLevel ==
-                                                      'สาขา') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'เขต') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'ภาค')
-                                              ? functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step2'),
-                                                      'Level'),
-                                                  FFAppState().profileLevel)
-                                              : functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step2'),
-                                                      'role_name'),
-                                                  widget!.userRoleSave));
-                                        } else if (widget!.step == 'step3') {
-                                          return ((FFAppState().profileLevel ==
-                                                      'สาขา') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'เขต') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'ภาค')
-                                              ? functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step3'),
-                                                      'Level'),
-                                                  FFAppState().profileLevel)
-                                              : functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step3'),
-                                                      'role_name'),
-                                                  widget!.userRoleSave));
-                                        } else if (widget!.step == 'step4') {
-                                          return ((FFAppState().profileLevel ==
-                                                      'สาขา') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'เขต') ||
-                                                  (FFAppState().profileLevel ==
-                                                      'ภาค')
-                                              ? functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step4'),
-                                                      'Level'),
-                                                  FFAppState().profileLevel)
-                                              : functions.containsValueInJsonList(
-                                                  functions.getDataFromMapJson(
-                                                      functions.getDataFromMapJson(
-                                                          widget!
-                                                              .saveAccessRoleData,
-                                                          'step4'),
-                                                      'role_name'),
-                                                  widget!.userRoleSave));
-                                        } else {
-                                          return true;
-                                        }
-                                      }() ??
-                                      true)
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 40.0,
-                                      icon: Icon(
-                                        Icons.edit_outlined,
-                                        color: Color(0xFFDB771A),
-                                        size: 25.0,
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 5.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      ':',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Color(0xFF404040),
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Flexible(
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(-1.0, -1.0),
+                                          child: Text(
+                                            '${widget!.impoundCarLocateParamSet?.locatName}',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFF404040),
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                        ),
                                       ),
-                                      onPressed: () async {
-                                        if (widget!.step == 'step4') {}
+                                      if (() {
+                                            if (widget!.step == 'step1') {
+                                              return ((FFAppState()
+                                                              .profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .saveAccessRoleData,
+                                                              'step1'),
+                                                          'Level'),
+                                                      FFAppState().profileLevel)
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions
+                                                              .getDataFromMapJson(
+                                                                  widget!
+                                                                      .saveAccessRoleData,
+                                                                  'step1'),
+                                                          'role_name'),
+                                                      widget!.userRoleSave));
+                                            } else if (widget!.step ==
+                                                'step2') {
+                                              return ((FFAppState()
+                                                              .profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .saveAccessRoleData,
+                                                              'step2'),
+                                                          'Level'),
+                                                      FFAppState().profileLevel)
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions
+                                                              .getDataFromMapJson(
+                                                                  widget!
+                                                                      .saveAccessRoleData,
+                                                                  'step2'),
+                                                          'role_name'),
+                                                      widget!.userRoleSave));
+                                            } else if (widget!.step ==
+                                                'step3') {
+                                              return ((FFAppState()
+                                                              .profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .saveAccessRoleData,
+                                                              'step3'),
+                                                          'Level'),
+                                                      FFAppState().profileLevel)
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions
+                                                              .getDataFromMapJson(
+                                                                  widget!
+                                                                      .saveAccessRoleData,
+                                                                  'step3'),
+                                                          'role_name'),
+                                                      widget!.userRoleSave));
+                                            } else if (widget!.step ==
+                                                'step4') {
+                                              return ((FFAppState()
+                                                              .profileLevel ==
+                                                          'สาขา') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'เขต') ||
+                                                      (FFAppState()
+                                                              .profileLevel ==
+                                                          'ภาค')
+                                                  ? functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions.getDataFromMapJson(
+                                                              widget!
+                                                                  .saveAccessRoleData,
+                                                              'step4'),
+                                                          'Level'),
+                                                      FFAppState().profileLevel)
+                                                  : functions.containsValueInJsonList(
+                                                      functions.getDataFromMapJson(
+                                                          functions
+                                                              .getDataFromMapJson(
+                                                                  widget!
+                                                                      .saveAccessRoleData,
+                                                                  'step4'),
+                                                          'role_name'),
+                                                      widget!.userRoleSave));
+                                            } else {
+                                              return true;
+                                            }
+                                          }() ??
+                                          true)
+                                        FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 30.0,
+                                          borderWidth: 1.0,
+                                          buttonSize: 40.0,
+                                          icon: Icon(
+                                            Icons.edit_outlined,
+                                            color: Color(0xFFDB771A),
+                                            size: 25.0,
+                                          ),
+                                          onPressed: () async {
+                                            if (widget!.step == 'step4') {}
 
-                                        context.pushNamed(
-                                          'ChangeCarLocationPage',
-                                          queryParameters: {
-                                            'step': serializeParam(
-                                              widget!.step,
-                                              ParamType.String,
-                                            ),
-                                            'readAccessRoleData':
-                                                serializeParam(
-                                              widget!.readAccessRoleData,
-                                              ParamType.JSON,
-                                            ),
-                                            'saveAccessRoleData':
-                                                serializeParam(
-                                              widget!.saveAccessRoleData,
-                                              ParamType.JSON,
-                                            ),
-                                            'userRoleRead': serializeParam(
-                                              widget!.userRoleRead,
-                                              ParamType.String,
-                                            ),
-                                            'userRoleSave': serializeParam(
-                                              widget!.userRoleSave,
-                                              ParamType.String,
-                                            ),
-                                            'impoundCarParamSet':
-                                                serializeParam(
-                                              widget!.impoundCarParamSet,
-                                              ParamType.DataStruct,
-                                            ),
-                                            'fromPage': serializeParam(
-                                              'changeCarLocation',
-                                              ParamType.String,
-                                            ),
-                                            'impoundCarStatusId':
-                                                serializeParam(
-                                              UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .impoundCarStatusId(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
-                                              ParamType.String,
-                                            ),
-                                            'impoundCarStatusCode':
-                                                serializeParam(
-                                              UploadImagesGoogleDriveGroup
-                                                  .searchImagesCall
-                                                  .impoundCarStatusCode(
-                                                (_model.imagesAPIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ),
-                                              ParamType.String,
-                                            ),
-                                            'impoundCarStatusName':
-                                                serializeParam(
-                                              widget!.impoundCarStatusName,
-                                              ParamType.String,
-                                            ),
-                                            'carConfig': serializeParam(
-                                              widget!.carConfig,
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                            'motocycleConfig': serializeParam(
-                                              widget!.motocycleConfig,
-                                              ParamType.String,
-                                              isList: true,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  if (widget!.impoundCarLocateParamSet?.branchNameLocat != '')
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 3.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'สาขาที่จอดรถ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF404040),
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                            context.pushNamed(
+                                              'ChangeCarLocationPage',
+                                              queryParameters: {
+                                                'step': serializeParam(
+                                                  widget!.step,
+                                                  ParamType.String,
+                                                ),
+                                                'readAccessRoleData':
+                                                    serializeParam(
+                                                  widget!.readAccessRoleData,
+                                                  ParamType.JSON,
+                                                ),
+                                                'saveAccessRoleData':
+                                                    serializeParam(
+                                                  widget!.saveAccessRoleData,
+                                                  ParamType.JSON,
+                                                ),
+                                                'userRoleRead': serializeParam(
+                                                  widget!.userRoleRead,
+                                                  ParamType.String,
+                                                ),
+                                                'userRoleSave': serializeParam(
+                                                  widget!.userRoleSave,
+                                                  ParamType.String,
+                                                ),
+                                                'impoundCarParamSet':
+                                                    serializeParam(
+                                                  widget!.impoundCarParamSet,
+                                                  ParamType.DataStruct,
+                                                ),
+                                                'fromPage': serializeParam(
+                                                  'changeCarLocation',
+                                                  ParamType.String,
+                                                ),
+                                                'impoundCarStatusId':
+                                                    serializeParam(
+                                                  UploadImagesGoogleDriveGroup
+                                                      .searchImagesCall
+                                                      .impoundCarStatusId(
+                                                    (_model.imagesAPIOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  ParamType.String,
+                                                ),
+                                                'impoundCarStatusCode':
+                                                    serializeParam(
+                                                  UploadImagesGoogleDriveGroup
+                                                      .searchImagesCall
+                                                      .impoundCarStatusCode(
+                                                    (_model.imagesAPIOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ),
+                                                  ParamType.String,
+                                                ),
+                                                'impoundCarStatusName':
+                                                    serializeParam(
+                                                  widget!.impoundCarStatusName,
+                                                  ParamType.String,
+                                                ),
+                                                'carConfig': serializeParam(
+                                                  widget!.carConfig,
+                                                  ParamType.String,
+                                                  isList: true,
+                                                ),
+                                                'motocycleConfig':
+                                                    serializeParam(
+                                                  widget!.motocycleConfig,
+                                                  ParamType.String,
+                                                  isList: true,
+                                                ),
+                                                'editAccessRoleData':
+                                                    serializeParam(
+                                                  widget!.editAccessRoleData,
+                                                  ParamType.JSON,
+                                                ),
+                                                'userRoleEdit': serializeParam(
+                                                  widget!.userRoleEdit,
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                        ),
+                                    ],
+                                  ),
                                 ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 5.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  ':',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF404040),
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(),
-                              child: Text(
-                                '${widget!.impoundCarLocateParamSet?.branchNameLocat}(${widget!.impoundCarLocateParamSet?.branchCodeLocat})',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF404040),
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
+                        ),
+                      if (widget!.impoundCarLocateParamSet?.branchNameLocat !=
+                          '')
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 0.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 3.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      'สาขาที่จอดรถ',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Color(0xFF404040),
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 5.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      ':',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Color(0xFF404040),
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Expanded(
+                                child: Container(
+                                  decoration: BoxDecoration(),
+                                  child: Text(
+                                    '${widget!.impoundCarLocateParamSet?.branchNameLocat}(${widget!.impoundCarLocateParamSet?.branchCodeLocat})',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFF404040),
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                    ],
+                  ),
                   if (widget!.impoundCarStatusName != '')
                     Padding(
                       padding:

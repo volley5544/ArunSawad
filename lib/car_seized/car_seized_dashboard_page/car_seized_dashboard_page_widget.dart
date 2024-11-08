@@ -19,6 +19,8 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
     String? userRoleSave,
     required this.carConfig,
     required this.motocycleConfig,
+    required this.editAccessRoleData,
+    required this.userRoleEdit,
   })  : this.userRoleRead = userRoleRead ?? 'no_role',
         this.userRoleSave = userRoleSave ?? 'no_role';
 
@@ -29,6 +31,8 @@ class CarSeizedDashboardPageWidget extends StatefulWidget {
   final String userRoleSave;
   final List<String>? carConfig;
   final List<String>? motocycleConfig;
+  final dynamic editAccessRoleData;
+  final String? userRoleEdit;
 
   @override
   State<CarSeizedDashboardPageWidget> createState() =>
@@ -201,6 +205,14 @@ class _CarSeizedDashboardPageWidgetState
                             widget!.motocycleConfig,
                             ParamType.String,
                             isList: true,
+                          ),
+                          'editAccessRoleData': serializeParam(
+                            widget!.editAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleEdit': serializeParam(
+                            widget!.userRoleEdit,
+                            ParamType.String,
                           ),
                         }.withoutNulls,
                       );
@@ -458,6 +470,14 @@ class _CarSeizedDashboardPageWidgetState
                             ParamType.String,
                             isList: true,
                           ),
+                          'editAccessRoleData': serializeParam(
+                            widget!.editAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleEdit': serializeParam(
+                            widget!.userRoleEdit,
+                            ParamType.String,
+                          ),
                         }.withoutNulls,
                       );
                     },
@@ -701,6 +721,14 @@ class _CarSeizedDashboardPageWidgetState
                             ParamType.String,
                             isList: true,
                           ),
+                          'editAccessRoleData': serializeParam(
+                            widget!.editAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleEdit': serializeParam(
+                            widget!.userRoleEdit,
+                            ParamType.String,
+                          ),
                         }.withoutNulls,
                       );
                     },
@@ -943,6 +971,14 @@ class _CarSeizedDashboardPageWidgetState
                             widget!.motocycleConfig,
                             ParamType.String,
                             isList: true,
+                          ),
+                          'editAccessRoleData': serializeParam(
+                            widget!.editAccessRoleData,
+                            ParamType.JSON,
+                          ),
+                          'userRoleEdit': serializeParam(
+                            widget!.userRoleEdit,
+                            ParamType.String,
                           ),
                         }.withoutNulls,
                       );

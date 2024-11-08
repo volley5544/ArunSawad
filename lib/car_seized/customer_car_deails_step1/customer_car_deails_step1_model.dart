@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:convert';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'customer_car_deails_step1_widget.dart'
     show CustomerCarDeailsStep1Widget;
 import 'package:flutter/material.dart';
@@ -96,9 +97,13 @@ class CustomerCarDeailsStep1Model
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
+  FocusNode? textFieldFocusNode1;
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
   // Stores action output result for [Backend Call - API (uploadGoogleDriveAPI)] action in Button widget.
   ApiCallResponse? uploadGoogleDriveApiOutput;
 
@@ -144,7 +149,10 @@ class CustomerCarDeailsStep1Model
     captureCameraWidgetModel10.dispose();
     captureCameraWidgetModel11.dispose();
     captureCameraWidgetModel12.dispose();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
+    textFieldFocusNode1?.dispose();
+    textController1?.dispose();
+
+    textFieldFocusNode2?.dispose();
+    textController2?.dispose();
   }
 }

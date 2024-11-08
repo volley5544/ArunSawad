@@ -627,6 +627,7 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
+          'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
         },
       ),
   'CustomerCarDeailsStep1': (data) async => ParameterData(
@@ -634,6 +635,7 @@ final parametersBuilderMap =
           'step': getParameter<String>(data, 'step'),
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
+          'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
         },
       ),
   'SampleCarImageStep1': (data) async => ParameterData(
@@ -648,6 +650,7 @@ final parametersBuilderMap =
           'step': getParameter<String>(data, 'step'),
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
+          'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
         },
       ),
   'TypePicStep1': ParameterData.none(),
@@ -661,6 +664,7 @@ final parametersBuilderMap =
           'textShow': getParameter<String>(data, 'textShow'),
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
+          'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
         },
       ),
   'customerCarDeailsPictureStep1': (data) async => ParameterData(
@@ -671,6 +675,7 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
           'impoundCarStatusName':
               getParameter<String>(data, 'impoundCarStatusName'),
+          'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
         },
       ),
   'customerCarDeailsPictureStep12': ParameterData.none(),
@@ -686,6 +691,7 @@ final parametersBuilderMap =
               getParameter<String>(data, 'impoundCarStatusCode'),
           'impoundCarStatusName':
               getParameter<String>(data, 'impoundCarStatusName'),
+          'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
         },
       ),
   'calendarPage': ParameterData.none(),

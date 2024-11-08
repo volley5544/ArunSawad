@@ -95,11 +95,15 @@ class _CarSeizedSelectDashboardWidgetState
           _model.getDataCollection, 'impoundCarReadAccessRole');
       _model.writeAccessRoleData = functions.getDataFromMapJson(
           _model.getDataCollection, 'impoundCarSaveAccessRole');
+      _model.editAccessRoleData = functions.getDataFromMapJson(
+          _model.getDataCollection, 'impoundCarEditAccessRole');
       safeSetState(() {});
       _model.userRoleRead = functions.impoundCargetRoleName(
           _model.readAccessRoleData, FFAppState().employeeID)!;
       _model.userRoleSave = functions.impoundCargetRoleName(
           _model.writeAccessRoleData, FFAppState().employeeID)!;
+      _model.userRoleEdit = functions.impoundCargetRoleName(
+          _model.editAccessRoleData, FFAppState().employeeID)!;
       safeSetState(() {});
       _model.carConfig = functions
           .getDataFromMapJsonToList(
@@ -250,6 +254,14 @@ class _CarSeizedSelectDashboardWidgetState
                               ParamType.String,
                               isList: true,
                             ),
+                            'editAccessRoleData': serializeParam(
+                              _model.editAccessRoleData,
+                              ParamType.JSON,
+                            ),
+                            'userRoleEdit': serializeParam(
+                              _model.userRoleEdit,
+                              ParamType.String,
+                            ),
                           }.withoutNulls,
                         );
                       },
@@ -371,6 +383,14 @@ class _CarSeizedSelectDashboardWidgetState
                               ParamType.String,
                               isList: true,
                             ),
+                            'editAccessRoleData': serializeParam(
+                              _model.editAccessRoleData,
+                              ParamType.JSON,
+                            ),
+                            'userRoleEdit': serializeParam(
+                              _model.userRoleEdit,
+                              ParamType.String,
+                            ),
                           }.withoutNulls,
                         );
                       },
@@ -443,9 +463,9 @@ class _CarSeizedSelectDashboardWidgetState
                               (FFAppState().profileLevel == 'ภาค')
                           ? functions.containsValueInJsonList(
                               functions.getDataFromMapJson(
-                                  _model.writeAccessRoleData, 'profile_level'),
+                                  _model.editAccessRoleData, 'profile_level'),
                               FFAppState().profileLevel)
-                          : (_model.userRoleSave != 'no_role')) ??
+                          : (_model.userRoleEdit != 'no_role')) ??
                       true)
                     InkWell(
                       splashColor: Colors.transparent,
@@ -485,6 +505,14 @@ class _CarSeizedSelectDashboardWidgetState
                               _model.motocycleConfig,
                               ParamType.String,
                               isList: true,
+                            ),
+                            'editAccessRoleData': serializeParam(
+                              _model.editAccessRoleData,
+                              ParamType.JSON,
+                            ),
+                            'userRoleEdit': serializeParam(
+                              _model.userRoleEdit,
+                              ParamType.String,
                             ),
                           }.withoutNulls,
                         );
@@ -527,7 +555,7 @@ class _CarSeizedSelectDashboardWidgetState
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Icon(
-                                      Icons.location_on,
+                                      Icons.edit_outlined,
                                       color: Color(0xFF354052),
                                       size: 28.0,
                                     ),
@@ -538,7 +566,8 @@ class _CarSeizedSelectDashboardWidgetState
                             Expanded(
                               flex: 1,
                               child: Text(
-                                'เปลี่ยนสถานที่จอดรถ',
+                                'เปลี่ยนสถานที่จอดรถ\n, ราคา',
+                                textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

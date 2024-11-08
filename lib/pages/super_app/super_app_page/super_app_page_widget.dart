@@ -201,6 +201,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
 
             return;
           }
+          if (_model.leadNotiOutput == 'sawad_chat') {
+            FFAppState().inAppViaNotification = false;
+            FFAppState().update(() {});
+            Navigator.pop(context);
+
+            context.goNamed('NotificationDetailPage');
+
+            return;
+          }
           FFAppState().inAppViaNotification = false;
           FFAppState().update(() {});
           Navigator.pop(context);

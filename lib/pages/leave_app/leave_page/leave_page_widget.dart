@@ -228,27 +228,54 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            barrierColor: Color(0x00000000),
-                            enableDrag: false,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                child: GestureDetector(
-                                  onTap: () => FocusScope.of(context).unfocus(),
-                                  child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: PDFViewerWidget(
-                                      pdfUrl:
-                                          'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/AnnouncementPDF%2F%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B8%94%E0%B8%95%E0%B8%B2%E0%B8%A1%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9E%E0%B8%93%E0%B8%B5%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%9B%E0%B8%B5%202567.pdf?alt=media&token=15daf745-a5c8-477f-aed0-acebb73d8cee',
+                          if (functions
+                              .checkYearHoliday(getCurrentTimestamp)!) {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              barrierColor: Color(0xB2000000),
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () =>
+                                        FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: PDFViewerWidget(
+                                        pdfUrl:
+                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/AnnouncementPDF%2F%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B8%94%E0%B8%95%E0%B8%B2%E0%B8%A1%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9E%E0%B8%93%E0%B8%B5%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%9B%E0%B8%B52568.pdf?alt=media&token=8bd45d24-e555-4e59-9ebe-1eb0ac4ebfc5',
+                                      ),
                                     ),
                                   ),
-                                ),
-                              );
-                            },
-                          ).then((value) => safeSetState(() {}));
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          } else {
+                            await showModalBottomSheet(
+                              isScrollControlled: true,
+                              backgroundColor: Colors.transparent,
+                              barrierColor: Color(0xB2000000),
+                              enableDrag: false,
+                              context: context,
+                              builder: (context) {
+                                return WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () =>
+                                        FocusScope.of(context).unfocus(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: PDFViewerWidget(
+                                        pdfUrl:
+                                            'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/AnnouncementPDF%2F%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AB%E0%B8%A2%E0%B8%B8%E0%B8%94%E0%B8%95%E0%B8%B2%E0%B8%A1%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9E%E0%B8%93%E0%B8%B5%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%88%E0%B8%B3%E0%B8%9B%E0%B8%B5%202567.pdf?alt=media&token=15daf745-a5c8-477f-aed0-acebb73d8cee',
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ).then((value) => safeSetState(() {}));
+                          }
                         },
                         child: Container(
                           width: double.infinity,
@@ -274,7 +301,10 @@ class _LeavePageWidgetState extends State<LeavePageWidget> {
                                         AlignmentDirectional(-0.35, -0.09),
                                     child: SelectionArea(
                                         child: Text(
-                                      'ประกาศวันหยุดตามประเพณี ประจำปี  2567',
+                                      functions.checkYearHoliday(
+                                              getCurrentTimestamp)!
+                                          ? 'ประกาศวันหยุดตามประเพณี ประจำปี  2568'
+                                          : 'ประกาศวันหยุดตามประเพณี ประจำปี  2567',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
