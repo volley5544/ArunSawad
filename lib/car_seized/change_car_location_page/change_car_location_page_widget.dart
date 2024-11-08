@@ -93,8 +93,10 @@ class _ChangeCarLocationPageWidgetState
 
     _model.textController2 ??= TextEditingController(
         text: widget!.fromPage != 'takeImages'
-            ? functions.returnNumberWithComma2Decimal(
-                widget!.impoundCarParamSet?.impoundPrice)
+            ? (widget!.impoundCarParamSet?.impoundPrice != ''
+                ? functions.returnNumberWithComma2Decimal(
+                    widget!.impoundCarParamSet?.impoundPrice)
+                : '')
             : '');
     _model.textFieldFocusNode1 ??= FocusNode();
     _model.textFieldFocusNode1!.addListener(
