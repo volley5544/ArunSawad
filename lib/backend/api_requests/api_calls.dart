@@ -11429,7 +11429,7 @@ class SswSurveyAPIVloanGetContractCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static List<String>? db(dynamic response) => (getJsonField(
+  static List<String>? dBName(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].DB''',
         true,
@@ -11581,6 +11581,15 @@ class SswSurveyAPIVloanGetContractCall {
   static List<String>? statusname(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].status_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dBCode(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].DB_CODE''',
         true,
       ) as List?)
           ?.withoutNulls
