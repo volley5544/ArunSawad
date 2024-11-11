@@ -1885,9 +1885,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                 unawaited(
                                                                   () async {}(),
                                                                 );
-
-                                                                context.pushNamed(
-                                                                    'ScanQR');
                                                               },
                                                               child: Text(
                                                                 'บริการ',

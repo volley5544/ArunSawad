@@ -228,7 +228,24 @@ class _ChangeCarLocationPageWidgetState
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          if (widget!.fromPage != 'takeImages')
+                          if ((widget!.fromPage != 'takeImages') &&
+                              ((FFAppState().profileLevel == 'สาขา') ||
+                                      (FFAppState().profileLevel == 'เขต') ||
+                                      (FFAppState().profileLevel == 'ภาค')
+                                  ? functions.containsValueInJsonList(
+                                      functions.getDataFromMapJson(
+                                          functions.getDataFromMapJson(
+                                              widget!.editAccessRoleData,
+                                              widget!.step),
+                                          'price_edit_level'),
+                                      FFAppState().profileLevel)!
+                                  : functions.containsValueInJsonList(
+                                      functions.getDataFromMapJson(
+                                          functions.getDataFromMapJson(
+                                              widget!.editAccessRoleData,
+                                              widget!.step),
+                                          'price_edit_role'),
+                                      widget!.userRoleEdit)!))
                             Builder(
                               builder: (context) {
                                 if (!_model.allowChangeLocation) {
@@ -645,7 +662,24 @@ class _ChangeCarLocationPageWidgetState
                                 }
                               },
                             ),
-                          if (_model.allowChangeLocation)
+                          if (_model.allowChangeLocation ||
+                              !((FFAppState().profileLevel == 'สาขา') ||
+                                      (FFAppState().profileLevel == 'เขต') ||
+                                      (FFAppState().profileLevel == 'ภาค')
+                                  ? functions.containsValueInJsonList(
+                                      functions.getDataFromMapJson(
+                                          functions.getDataFromMapJson(
+                                              widget!.editAccessRoleData,
+                                              widget!.step),
+                                          'price_edit_level'),
+                                      FFAppState().profileLevel)!
+                                  : functions.containsValueInJsonList(
+                                      functions.getDataFromMapJson(
+                                          functions.getDataFromMapJson(
+                                              widget!.editAccessRoleData,
+                                              widget!.step),
+                                          'price_edit_role'),
+                                      widget!.userRoleEdit)!))
                             Expanded(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -1595,7 +1629,50 @@ class _ChangeCarLocationPageWidgetState
                                       if (_shouldSetState) safeSetState(() {});
                                       return;
                                     }
+                                  } else {
+                                    if (!((FFAppState().profileLevel ==
+                                                'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_role'),
+                                            widget!.userRoleEdit)!)) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาเลือกสถานที่จอดรถใหม่เพื่อบันทึกแก้ไข'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
                                   }
+
                                   if (widget!.fromPage != 'takeImages') {
                                     if (_model.textController3.text == '') {
                                       await showDialog(
