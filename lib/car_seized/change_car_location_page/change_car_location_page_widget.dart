@@ -2037,6 +2037,10 @@ class _ChangeCarLocationPageWidgetState
                                           ? _model.dropDownValue
                                           : widget!.impoundCarLocateParamSet
                                               ?.locatCode,
+                                      impoundcarPrice:
+                                          functions.removeCommaFromNumText(
+                                              _model.textController2.text),
+                                      remarkPrice: _model.textController3.text,
                                     );
 
                                     _shouldSetState = true;

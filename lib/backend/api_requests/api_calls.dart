@@ -953,6 +953,8 @@ class UpdateImproundCarCall {
     String? regionCode = '',
     String? regionName = '',
     String? locatCode = '',
+    String? impoundcarPrice = '',
+    String? remarkPrice = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -961,9 +963,11 @@ class UpdateImproundCarCall {
 
     final ffApiRequestBody = '''
 {
+  "impoundcar_price": "${impoundcarPrice}",
+  "remark_price": "${remarkPrice}",
   "cont_no": "${contNo}",
   "improundcar_locat_id": "${improundcarLocatId}",
-"locat_code":"${locatCode}",
+  "locat_code": "${locatCode}",
   "locat_name": "${locatName}",
   "improundcar_sub_locat_id": "${improundcarSubLocatId}",
   "branch_code_locat": "${branchCodeLocat}",
@@ -971,20 +975,20 @@ class UpdateImproundCarCall {
   "userid": "${userid}",
   "branch_name_locat": "${branchNameLocat}",
   "branch_code": "${branchCode}",
-  "name_th":"${nameTh}",
+  "name_th": "${nameTh}",
   "improundcar_status_id": "${improundcarStatusId}",
-  "status_code":"${statusCode}" ,
-  "status_name":"${statusName}" ,
+  "status_code": "${statusCode}",
+  "status_name": "${statusName}",
   "address": "${address}",
-  "sub_district":"${subDistrict}" ,
-  "district":"${district}" ,
-  "province":"${province}" ,
+  "sub_district": "${subDistrict}",
+  "district": "${district}",
+  "province": "${province}",
   "postcode": "${postcode}",
-  "phone_number":"${phoneNumber}" ,
+  "phone_number": "${phoneNumber}",
   "latitude": "${latitude}",
-  "longitude":"${longitude}" ,
-  "area_code":"${areaCode}" ,
-  "area_name":"${areaName}" ,
+  "longitude": "${longitude}",
+  "area_code": "${areaCode}",
+  "area_name": "${areaName}",
   "region_code": "${regionCode}",
   "region_name": "${regionName}"
 }''';

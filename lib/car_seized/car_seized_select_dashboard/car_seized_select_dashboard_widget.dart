@@ -71,9 +71,8 @@ class _CarSeizedSelectDashboardWidgetState
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      FFAppState().improundUrl = true
-          ? 'https://e299-115-31-145-24.ngrok-free.app'
-          : _model.urlLinkStorage!.urlLink;
+      FFAppState().improundUrl =
+          true ? 'https://dev.swpfin.com:7077' : _model.urlLinkStorage!.urlLink;
       safeSetState(() {});
       _model.urlLinkStorageVloan = await queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
