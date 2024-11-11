@@ -2155,6 +2155,7 @@ class _ChangeCarLocationPageWidgetState
                                           functions.removeCommaFromNumText(
                                               _model.textController2.text),
                                       remarkPrice: _model.textController3.text,
+                                      step: widget!.step,
                                     );
 
                                     _shouldSetState = true;
