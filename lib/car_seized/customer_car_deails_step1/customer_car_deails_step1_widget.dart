@@ -7006,6 +7006,10 @@ class _CustomerCarDeailsStep1WidgetState
                                             _model.textController1.text)
                                         : '0.00')
                                     : '0.00',
+                                dbCode:
+                                    widget!.impoundCarParamSet?.impoundDbCode,
+                                dbName:
+                                    widget!.impoundCarParamSet?.impoundDbName,
                               );
 
                               _shouldSetState = true;

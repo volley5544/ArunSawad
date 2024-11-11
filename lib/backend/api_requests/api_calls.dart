@@ -835,6 +835,8 @@ class UploadGoogleDriveAPICall {
     String? impoundDate = '',
     String? impoundNameth = '',
     String? impoundcarPrice = '',
+    String? dbCode = '',
+    String? dbName = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -913,6 +915,8 @@ class UploadGoogleDriveAPICall {
         'impound_date': impoundDate,
         'impound_nameth': impoundNameth,
         'impoundcar_price': impoundcarPrice,
+        'db_code': dbCode,
+        'db': dbName,
       },
       bodyType: BodyType.MULTIPART,
       returnBody: true,
