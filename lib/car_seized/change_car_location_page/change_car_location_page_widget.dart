@@ -1543,53 +1543,58 @@ class _ChangeCarLocationPageWidgetState
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   var _shouldSetState = false;
-                                  if (!(_model.dropDownValue != null &&
-                                      _model.dropDownValue != '')) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content:
-                                                Text('กรุณาเลือกสถานที่จอดรถ'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
-                                  }
-                                  if (functions.countTrueInBoolList(FFAppState()
-                                          .selectedDropdownList
-                                          .toList())! <=
-                                      0) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content:
-                                                Text('กรุณาเลือกสาขาที่จอดรถ'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    if (_shouldSetState) safeSetState(() {});
-                                    return;
+                                  if (_model.allowChangeLocation) {
+                                    if (!(_model.dropDownValue != null &&
+                                        _model.dropDownValue != '')) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาเลือกสถานที่จอดรถ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
+                                    if (functions.countTrueInBoolList(
+                                            FFAppState()
+                                                .selectedDropdownList
+                                                .toList())! <=
+                                        0) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาเลือกสาขาที่จอดรถ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) safeSetState(() {});
+                                      return;
+                                    }
                                   }
                                   if (widget!.fromPage != 'takeImages') {
                                     if (_model.textController3.text == '') {
