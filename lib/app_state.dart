@@ -9495,6 +9495,35 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImpoundPriceCurrentStep(int index, String value) {
     impoundPriceCurrentStep.insert(index, value);
   }
+
+  List<String> _impoundLocateCode = [];
+  List<String> get impoundLocateCode => _impoundLocateCode;
+  set impoundLocateCode(List<String> value) {
+    _impoundLocateCode = value;
+  }
+
+  void addToImpoundLocateCode(String value) {
+    impoundLocateCode.add(value);
+  }
+
+  void removeFromImpoundLocateCode(String value) {
+    impoundLocateCode.remove(value);
+  }
+
+  void removeAtIndexFromImpoundLocateCode(int index) {
+    impoundLocateCode.removeAt(index);
+  }
+
+  void updateImpoundLocateCodeAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundLocateCode[index] = updateFn(_impoundLocateCode[index]);
+  }
+
+  void insertAtIndexInImpoundLocateCode(int index, String value) {
+    impoundLocateCode.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

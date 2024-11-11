@@ -1310,6 +1310,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState().impoundLocateCode =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .locatcode(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                       } else {
                                         await showDialog(
@@ -2459,6 +2469,8 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             FFAppState().impoundRegionName[listImproundIndex],
                                                                         improundcarSubLocatId:
                                                                             FFAppState().impoundSubLocateId[listImproundIndex],
+                                                                        locatCode:
+                                                                            FFAppState().impoundLocateCode[listImproundIndex],
                                                                       ),
                                                                       ParamType
                                                                           .DataStruct,
