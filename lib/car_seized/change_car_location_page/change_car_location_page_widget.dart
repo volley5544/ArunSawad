@@ -79,6 +79,11 @@ class _ChangeCarLocationPageWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().selectedDropdownList = [];
       safeSetState(() {});
+      FFAppState().impoundDeliverLocateName =
+          widget!.impoundCarLocateParamSet!.deliverLocateName;
+      FFAppState().impoundDeliverLocateCode =
+          widget!.impoundCarLocateParamSet!.deliverLocateCode;
+      safeSetState(() {});
       if (widget!.fromPage != 'takeImages') {
         _model.allowChangeLocation = false;
         safeSetState(() {});

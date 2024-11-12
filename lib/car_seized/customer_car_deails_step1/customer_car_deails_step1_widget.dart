@@ -8820,6 +8820,92 @@ class _CustomerCarDeailsStep1WidgetState
                                 images14: _model.uploadedLocalFile14,
                                 images15: _model.uploadedLocalFile15,
                                 images16: _model.uploadedLocalFile16,
+                                locatDelivercar: ((FFAppState().profileLevel ==
+                                                'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleSave)!)
+                                    ? widget!.impoundCarLocateParamSet
+                                        ?.deliverLocateCode
+                                    : '',
+                                locatNameDelivercar: ((FFAppState().profileLevel ==
+                                                'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleSave)!)
+                                    ? widget!.impoundCarLocateParamSet
+                                        ?.deliverLocateName
+                                    : '',
+                                logisticsComany: ((FFAppState().profileLevel ==
+                                                'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleSave)!)
+                                    ? widget!.impoundCarLocateParamSet
+                                        ?.logisticsCompany
+                                    : '',
+                                receiver: ((FFAppState().profileLevel == 'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleSave)!)
+                                    ? widget!.impoundCarLocateParamSet?.receiver
+                                    : '',
                               );
 
                               _shouldSetState = true;
