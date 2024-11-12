@@ -9524,6 +9524,79 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImpoundLocateCode(int index, String value) {
     impoundLocateCode.insert(index, value);
   }
+
+  String _impoundDeliverLocateName = '';
+  String get impoundDeliverLocateName => _impoundDeliverLocateName;
+  set impoundDeliverLocateName(String value) {
+    _impoundDeliverLocateName = value;
+  }
+
+  String _impoundDeliverLocateCode = '';
+  String get impoundDeliverLocateCode => _impoundDeliverLocateCode;
+  set impoundDeliverLocateCode(String value) {
+    _impoundDeliverLocateCode = value;
+  }
+
+  List<BranchDataTypeStruct> _deliverLocateOriginal = [];
+  List<BranchDataTypeStruct> get deliverLocateOriginal =>
+      _deliverLocateOriginal;
+  set deliverLocateOriginal(List<BranchDataTypeStruct> value) {
+    _deliverLocateOriginal = value;
+  }
+
+  void addToDeliverLocateOriginal(BranchDataTypeStruct value) {
+    deliverLocateOriginal.add(value);
+  }
+
+  void removeFromDeliverLocateOriginal(BranchDataTypeStruct value) {
+    deliverLocateOriginal.remove(value);
+  }
+
+  void removeAtIndexFromDeliverLocateOriginal(int index) {
+    deliverLocateOriginal.removeAt(index);
+  }
+
+  void updateDeliverLocateOriginalAtIndex(
+    int index,
+    BranchDataTypeStruct Function(BranchDataTypeStruct) updateFn,
+  ) {
+    deliverLocateOriginal[index] = updateFn(_deliverLocateOriginal[index]);
+  }
+
+  void insertAtIndexInDeliverLocateOriginal(
+      int index, BranchDataTypeStruct value) {
+    deliverLocateOriginal.insert(index, value);
+  }
+
+  List<BranchDataTypeStruct> _deliverLocateOutput = [];
+  List<BranchDataTypeStruct> get deliverLocateOutput => _deliverLocateOutput;
+  set deliverLocateOutput(List<BranchDataTypeStruct> value) {
+    _deliverLocateOutput = value;
+  }
+
+  void addToDeliverLocateOutput(BranchDataTypeStruct value) {
+    deliverLocateOutput.add(value);
+  }
+
+  void removeFromDeliverLocateOutput(BranchDataTypeStruct value) {
+    deliverLocateOutput.remove(value);
+  }
+
+  void removeAtIndexFromDeliverLocateOutput(int index) {
+    deliverLocateOutput.removeAt(index);
+  }
+
+  void updateDeliverLocateOutputAtIndex(
+    int index,
+    BranchDataTypeStruct Function(BranchDataTypeStruct) updateFn,
+  ) {
+    deliverLocateOutput[index] = updateFn(_deliverLocateOutput[index]);
+  }
+
+  void insertAtIndexInDeliverLocateOutput(
+      int index, BranchDataTypeStruct value) {
+    deliverLocateOutput.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

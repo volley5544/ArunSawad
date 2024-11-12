@@ -701,6 +701,7 @@ final parametersBuilderMap =
         },
       ),
   'ScanQR': ParameterData.none(),
+  'BranchSelectedPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

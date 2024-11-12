@@ -46,6 +46,14 @@ class ChangeCarLocationPageModel
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode3;
+  TextEditingController? textController4;
+  String? Function(BuildContext, String?)? textController4Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode4;
+  TextEditingController? textController5;
+  String? Function(BuildContext, String?)? textController5Validator;
   // Stores action output result for [Backend Call - API (updateImproundCar)] action in Button widget.
   ApiCallResponse? updateCarLocationOutput;
 
@@ -62,5 +70,11 @@ class ChangeCarLocationPageModel
 
     textFieldFocusNode2?.dispose();
     textController3?.dispose();
+
+    textFieldFocusNode3?.dispose();
+    textController4?.dispose();
+
+    textFieldFocusNode4?.dispose();
+    textController5?.dispose();
   }
 }

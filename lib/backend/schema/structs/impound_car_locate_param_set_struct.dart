@@ -29,6 +29,10 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
     String? regionName,
     String? locatCode,
     String? remark,
+    String? deliverLocateName,
+    String? deliverLocateCode,
+    String? logisticsCompany,
+    String? receiver,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _improundcarLocatId = improundcarLocatId,
         _locatName = locatName,
@@ -49,6 +53,10 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         _regionName = regionName,
         _locatCode = locatCode,
         _remark = remark,
+        _deliverLocateName = deliverLocateName,
+        _deliverLocateCode = deliverLocateCode,
+        _logisticsCompany = logisticsCompany,
+        _receiver = receiver,
         super(firestoreUtilData);
 
   // "improundcar_locat_id" field.
@@ -184,6 +192,34 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
 
   bool hasRemark() => _remark != null;
 
+  // "deliver_locate_name" field.
+  String? _deliverLocateName;
+  String get deliverLocateName => _deliverLocateName ?? '';
+  set deliverLocateName(String? val) => _deliverLocateName = val;
+
+  bool hasDeliverLocateName() => _deliverLocateName != null;
+
+  // "deliver_locate_code" field.
+  String? _deliverLocateCode;
+  String get deliverLocateCode => _deliverLocateCode ?? '';
+  set deliverLocateCode(String? val) => _deliverLocateCode = val;
+
+  bool hasDeliverLocateCode() => _deliverLocateCode != null;
+
+  // "logistics_company" field.
+  String? _logisticsCompany;
+  String get logisticsCompany => _logisticsCompany ?? '';
+  set logisticsCompany(String? val) => _logisticsCompany = val;
+
+  bool hasLogisticsCompany() => _logisticsCompany != null;
+
+  // "receiver" field.
+  String? _receiver;
+  String get receiver => _receiver ?? '';
+  set receiver(String? val) => _receiver = val;
+
+  bool hasReceiver() => _receiver != null;
+
   static ImpoundCarLocateParamSetStruct fromMap(Map<String, dynamic> data) =>
       ImpoundCarLocateParamSetStruct(
         improundcarLocatId: data['improundcar_locat_id'] as String?,
@@ -205,6 +241,10 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         regionName: data['region_name'] as String?,
         locatCode: data['locat_code'] as String?,
         remark: data['remark'] as String?,
+        deliverLocateName: data['deliver_locate_name'] as String?,
+        deliverLocateCode: data['deliver_locate_code'] as String?,
+        logisticsCompany: data['logistics_company'] as String?,
+        receiver: data['receiver'] as String?,
       );
 
   static ImpoundCarLocateParamSetStruct? maybeFromMap(dynamic data) =>
@@ -232,6 +272,10 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         'region_name': _regionName,
         'locat_code': _locatCode,
         'remark': _remark,
+        'deliver_locate_name': _deliverLocateName,
+        'deliver_locate_code': _deliverLocateCode,
+        'logistics_company': _logisticsCompany,
+        'receiver': _receiver,
       }.withoutNulls;
 
   @override
@@ -310,6 +354,22 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         ),
         'remark': serializeParam(
           _remark,
+          ParamType.String,
+        ),
+        'deliver_locate_name': serializeParam(
+          _deliverLocateName,
+          ParamType.String,
+        ),
+        'deliver_locate_code': serializeParam(
+          _deliverLocateCode,
+          ParamType.String,
+        ),
+        'logistics_company': serializeParam(
+          _logisticsCompany,
+          ParamType.String,
+        ),
+        'receiver': serializeParam(
+          _receiver,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -412,6 +472,26 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        deliverLocateName: deserializeParam(
+          data['deliver_locate_name'],
+          ParamType.String,
+          false,
+        ),
+        deliverLocateCode: deserializeParam(
+          data['deliver_locate_code'],
+          ParamType.String,
+          false,
+        ),
+        logisticsCompany: deserializeParam(
+          data['logistics_company'],
+          ParamType.String,
+          false,
+        ),
+        receiver: deserializeParam(
+          data['receiver'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -438,7 +518,11 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         regionCode == other.regionCode &&
         regionName == other.regionName &&
         locatCode == other.locatCode &&
-        remark == other.remark;
+        remark == other.remark &&
+        deliverLocateName == other.deliverLocateName &&
+        deliverLocateCode == other.deliverLocateCode &&
+        logisticsCompany == other.logisticsCompany &&
+        receiver == other.receiver;
   }
 
   @override
@@ -461,7 +545,11 @@ class ImpoundCarLocateParamSetStruct extends FFFirebaseStruct {
         regionCode,
         regionName,
         locatCode,
-        remark
+        remark,
+        deliverLocateName,
+        deliverLocateCode,
+        logisticsCompany,
+        receiver
       ]);
 }
 
@@ -485,6 +573,10 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
   String? regionName,
   String? locatCode,
   String? remark,
+  String? deliverLocateName,
+  String? deliverLocateCode,
+  String? logisticsCompany,
+  String? receiver,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -510,6 +602,10 @@ ImpoundCarLocateParamSetStruct createImpoundCarLocateParamSetStruct({
       regionName: regionName,
       locatCode: locatCode,
       remark: remark,
+      deliverLocateName: deliverLocateName,
+      deliverLocateCode: deliverLocateCode,
+      logisticsCompany: logisticsCompany,
+      receiver: receiver,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

@@ -2305,6 +2305,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'ScanQR',
               path: 'scanQR',
               builder: (context, params) => ScanQRWidget(),
+            ),
+            FFRoute(
+              name: 'BranchSelectedPage',
+              path: 'BranchSelectedPage',
+              builder: (context, params) => BranchSelectedPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

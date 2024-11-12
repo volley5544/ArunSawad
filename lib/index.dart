@@ -247,3 +247,5 @@ export '/car_seized/change_car_location_page/change_car_location_page_widget.dar
 export '/calendar_page/calendar_page_widget.dart' show CalendarPageWidget;
 export '/test_page/test_page_widget.dart' show TestPageWidget;
 export '/scan_q_r/scan_q_r_widget.dart' show ScanQRWidget;
+export '/car_seized/branch_selected_page/branch_selected_page_widget.dart'
+    show BranchSelectedPageWidget;
