@@ -202,6 +202,22 @@ class SearchImagesCall {
         response,
         r'''$.data[:].locat_name''',
       ));
+  String? images13(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images13''',
+      ));
+  String? images14(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images14''',
+      ));
+  String? images15(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images15''',
+      ));
+  String? images16(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].images16''',
+      ));
 }
 
 class SearchContractNumberCall {

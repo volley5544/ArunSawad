@@ -7180,9 +7180,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                     ),
                                                     onPressed: () async {
                                                       safeSetState(() {
-                                                        _model.isDataUploading13 =
+                                                        _model.isDataUploading14 =
                                                             false;
-                                                        _model.uploadedLocalFile13 =
+                                                        _model.uploadedLocalFile14 =
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
@@ -7629,9 +7629,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                     ),
                                                     onPressed: () async {
                                                       safeSetState(() {
-                                                        _model.isDataUploading13 =
+                                                        _model.isDataUploading15 =
                                                             false;
-                                                        _model.uploadedLocalFile13 =
+                                                        _model.uploadedLocalFile15 =
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(
@@ -8078,9 +8078,9 @@ class _CustomerCarDeailsStep1WidgetState
                                                     ),
                                                     onPressed: () async {
                                                       safeSetState(() {
-                                                        _model.isDataUploading13 =
+                                                        _model.isDataUploading16 =
                                                             false;
-                                                        _model.uploadedLocalFile13 =
+                                                        _model.uploadedLocalFile16 =
                                                             FFUploadedFile(
                                                                 bytes: Uint8List
                                                                     .fromList(

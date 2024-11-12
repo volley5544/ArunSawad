@@ -6611,6 +6611,2238 @@ class _CustomerCarDeailsStep4WidgetState
                                   ),
                                 ],
                               ),
+                              if (functions.getBoolValueInJson(
+                                      functions.getDataFromMapJson(
+                                          functions.getDataFromMapJson(
+                                              widget!.saveAccessRoleData,
+                                              widget!.step),
+                                          'allow_16_pic')) ??
+                                  true)
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: Container(
+                                            height: 25.0,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 20.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      '13.',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      'อื่นๆ (ถ้ามี)',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 12.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 45.0,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 20,
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.74,
+                                                      height: 100.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              final selectedMedia =
+                                                                  await selectMedia(
+                                                                imageQuality:
+                                                                    30,
+                                                                multiImage:
+                                                                    false,
+                                                              );
+                                                              if (selectedMedia !=
+                                                                      null &&
+                                                                  selectedMedia.every((m) =>
+                                                                      validateFileFormat(
+                                                                          m.storagePath,
+                                                                          context))) {
+                                                                safeSetState(() =>
+                                                                    _model.isDataUploading13 =
+                                                                        true);
+                                                                var selectedUploadedFiles =
+                                                                    <FFUploadedFile>[];
+
+                                                                try {
+                                                                  selectedUploadedFiles =
+                                                                      selectedMedia
+                                                                          .map((m) =>
+                                                                              FFUploadedFile(
+                                                                                name: m.storagePath.split('/').last,
+                                                                                bytes: m.bytes,
+                                                                                height: m.dimensions?.height,
+                                                                                width: m.dimensions?.width,
+                                                                                blurHash: m.blurHash,
+                                                                              ))
+                                                                          .toList();
+                                                                } finally {
+                                                                  _model.isDataUploading13 =
+                                                                      false;
+                                                                }
+                                                                if (selectedUploadedFiles
+                                                                        .length ==
+                                                                    selectedMedia
+                                                                        .length) {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.uploadedLocalFile13 =
+                                                                        selectedUploadedFiles
+                                                                            .first;
+                                                                  });
+                                                                } else {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                  return;
+                                                                }
+                                                              }
+
+                                                              if (_model.uploadedLocalFile13 !=
+                                                                      null &&
+                                                                  (_model
+                                                                          .uploadedLocalFile13
+                                                                          .bytes
+                                                                          ?.isNotEmpty ??
+                                                                      false)) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปสำเร็จ!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                              } else {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปล้มเหลว กรุณาอัพโหลดรูปอีกครั้ง',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                                return;
+                                                              }
+                                                            },
+                                                            text: 'อัพโหลดรูป',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 125.0,
+                                                              height: 45.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xFFFE6400),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16.0),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        7.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'สถานะ :',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        2.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              _model.uploadedLocalFile13 !=
+                                                                          null &&
+                                                                      (_model
+                                                                              .uploadedLocalFile13
+                                                                              .bytes
+                                                                              ?.isNotEmpty ??
+                                                                          false)
+                                                                  ? 'อัพโหลดสำเร็จ'
+                                                                  : 'ยังไม่อัพโหลด',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    flex: 2,
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        if (_model.uploadedLocalFile13 !=
+                                                                null &&
+                                                            (_model
+                                                                    .uploadedLocalFile13
+                                                                    .bytes
+                                                                    ?.isNotEmpty ??
+                                                                false)) {
+                                                          return Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    width: 20.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFFAFAFA),
+                                                                    ),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .check_circle_rounded,
+                                                                      color: Color(
+                                                                          0xFF24BF03),
+                                                                      size:
+                                                                          20.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        } else {
+                                                          return Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
+                                                            child: Container(
+                                                              width: 20.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFFAFAFA),
+                                                              ),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .cancel_rounded,
+                                                                color: Color(
+                                                                    0xFFE21C3D),
+                                                                size: 20.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) {
+                                            if (_model.uploadedLocalFile13 !=
+                                                    null &&
+                                                (_model.uploadedLocalFile13
+                                                        .bytes?.isNotEmpty ??
+                                                    false)) {
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 12.0,
+                                                                0.0, 12.0),
+                                                    child: Container(
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Stack(
+                                                        children: [
+                                                          InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await Navigator
+                                                                  .push(
+                                                                context,
+                                                                PageTransition(
+                                                                  type:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  child:
+                                                                      FlutterFlowExpandedImageView(
+                                                                    image: Image
+                                                                        .memory(
+                                                                      _model.uploadedLocalFile13
+                                                                              .bytes ??
+                                                                          Uint8List.fromList(
+                                                                              []),
+                                                                      fit: BoxFit
+                                                                          .contain,
+                                                                    ),
+                                                                    allowRotation:
+                                                                        false,
+                                                                    tag:
+                                                                        'imageTag13',
+                                                                    useHeroAnimation:
+                                                                        true,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Hero(
+                                                              tag: 'imageTag13',
+                                                              transitionOnUserGestures:
+                                                                  true,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .memory(
+                                                                  _model.uploadedLocalFile13
+                                                                          .bytes ??
+                                                                      Uint8List
+                                                                          .fromList(
+                                                                              []),
+                                                                  width: 200.0,
+                                                                  height: 200.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          4.0,
+                                                                          0.0),
+                                                              child:
+                                                                  FlutterFlowIconButton(
+                                                                borderColor:
+                                                                    Colors
+                                                                        .black,
+                                                                borderRadius:
+                                                                    20.0,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                buttonSize:
+                                                                    35.0,
+                                                                fillColor:
+                                                                    Colors
+                                                                        .white,
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .close_rounded,
+                                                                  color: Color(
+                                                                      0xFFFF0000),
+                                                                  size: 18.0,
+                                                                ),
+                                                                onPressed:
+                                                                    () async {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.isDataUploading13 =
+                                                                        false;
+                                                                    _model.uploadedLocalFile13 =
+                                                                        FFUploadedFile(
+                                                                            bytes:
+                                                                                Uint8List.fromList([]));
+                                                                  });
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Divider(
+                                                    thickness: 1.0,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent4,
+                                                  ),
+                                                ],
+                                              );
+                                            } else {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: Container(
+                                            height: 25.0,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 20.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      '14.',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      'อื่นๆ (ถ้ามี)',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 12.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 45.0,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 20,
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.74,
+                                                      height: 100.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              final selectedMedia =
+                                                                  await selectMedia(
+                                                                imageQuality:
+                                                                    30,
+                                                                multiImage:
+                                                                    false,
+                                                              );
+                                                              if (selectedMedia !=
+                                                                      null &&
+                                                                  selectedMedia.every((m) =>
+                                                                      validateFileFormat(
+                                                                          m.storagePath,
+                                                                          context))) {
+                                                                safeSetState(() =>
+                                                                    _model.isDataUploading14 =
+                                                                        true);
+                                                                var selectedUploadedFiles =
+                                                                    <FFUploadedFile>[];
+
+                                                                try {
+                                                                  selectedUploadedFiles =
+                                                                      selectedMedia
+                                                                          .map((m) =>
+                                                                              FFUploadedFile(
+                                                                                name: m.storagePath.split('/').last,
+                                                                                bytes: m.bytes,
+                                                                                height: m.dimensions?.height,
+                                                                                width: m.dimensions?.width,
+                                                                                blurHash: m.blurHash,
+                                                                              ))
+                                                                          .toList();
+                                                                } finally {
+                                                                  _model.isDataUploading14 =
+                                                                      false;
+                                                                }
+                                                                if (selectedUploadedFiles
+                                                                        .length ==
+                                                                    selectedMedia
+                                                                        .length) {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.uploadedLocalFile14 =
+                                                                        selectedUploadedFiles
+                                                                            .first;
+                                                                  });
+                                                                } else {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                  return;
+                                                                }
+                                                              }
+
+                                                              if (_model.uploadedLocalFile14 !=
+                                                                      null &&
+                                                                  (_model
+                                                                          .uploadedLocalFile14
+                                                                          .bytes
+                                                                          ?.isNotEmpty ??
+                                                                      false)) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปสำเร็จ!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                              } else {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปล้มเหลว กรุณาอัพโหลดรูปอีกครั้ง',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                                return;
+                                                              }
+                                                            },
+                                                            text: 'อัพโหลดรูป',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 125.0,
+                                                              height: 45.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xFFFE6400),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16.0),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        7.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'สถานะ :',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        2.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              _model.uploadedLocalFile14 !=
+                                                                          null &&
+                                                                      (_model
+                                                                              .uploadedLocalFile14
+                                                                              .bytes
+                                                                              ?.isNotEmpty ??
+                                                                          false)
+                                                                  ? 'อัพโหลดสำเร็จ'
+                                                                  : 'ยังไม่อัพโหลด',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    flex: 2,
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        if (_model.uploadedLocalFile14 !=
+                                                                null &&
+                                                            (_model
+                                                                    .uploadedLocalFile14
+                                                                    .bytes
+                                                                    ?.isNotEmpty ??
+                                                                false)) {
+                                                          return Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    width: 20.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFFAFAFA),
+                                                                    ),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .check_circle_rounded,
+                                                                      color: Color(
+                                                                          0xFF24BF03),
+                                                                      size:
+                                                                          20.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        } else {
+                                                          return Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
+                                                            child: Container(
+                                                              width: 20.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFFAFAFA),
+                                                              ),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .cancel_rounded,
+                                                                color: Color(
+                                                                    0xFFE21C3D),
+                                                                size: 20.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) {
+                                            if (_model.uploadedLocalFile14 !=
+                                                    null &&
+                                                (_model.uploadedLocalFile14
+                                                        .bytes?.isNotEmpty ??
+                                                    false)) {
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 12.0,
+                                                                0.0, 12.0),
+                                                    child: Container(
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Stack(
+                                                        children: [
+                                                          InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await Navigator
+                                                                  .push(
+                                                                context,
+                                                                PageTransition(
+                                                                  type:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  child:
+                                                                      FlutterFlowExpandedImageView(
+                                                                    image: Image
+                                                                        .memory(
+                                                                      _model.uploadedLocalFile14
+                                                                              .bytes ??
+                                                                          Uint8List.fromList(
+                                                                              []),
+                                                                      fit: BoxFit
+                                                                          .contain,
+                                                                    ),
+                                                                    allowRotation:
+                                                                        false,
+                                                                    tag:
+                                                                        'imageTag14',
+                                                                    useHeroAnimation:
+                                                                        true,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Hero(
+                                                              tag: 'imageTag14',
+                                                              transitionOnUserGestures:
+                                                                  true,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .memory(
+                                                                  _model.uploadedLocalFile14
+                                                                          .bytes ??
+                                                                      Uint8List
+                                                                          .fromList(
+                                                                              []),
+                                                                  width: 200.0,
+                                                                  height: 200.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          4.0,
+                                                                          0.0),
+                                                              child:
+                                                                  FlutterFlowIconButton(
+                                                                borderColor:
+                                                                    Colors
+                                                                        .black,
+                                                                borderRadius:
+                                                                    20.0,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                buttonSize:
+                                                                    35.0,
+                                                                fillColor:
+                                                                    Colors
+                                                                        .white,
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .close_rounded,
+                                                                  color: Color(
+                                                                      0xFFFF0000),
+                                                                  size: 18.0,
+                                                                ),
+                                                                onPressed:
+                                                                    () async {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.isDataUploading13 =
+                                                                        false;
+                                                                    _model.uploadedLocalFile13 =
+                                                                        FFUploadedFile(
+                                                                            bytes:
+                                                                                Uint8List.fromList([]));
+                                                                  });
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Divider(
+                                                    thickness: 1.0,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent4,
+                                                  ),
+                                                ],
+                                              );
+                                            } else {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: Container(
+                                            height: 25.0,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 20.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      '15.',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      'อื่นๆ (ถ้ามี)',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 12.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 45.0,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 20,
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.74,
+                                                      height: 100.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              final selectedMedia =
+                                                                  await selectMedia(
+                                                                imageQuality:
+                                                                    30,
+                                                                multiImage:
+                                                                    false,
+                                                              );
+                                                              if (selectedMedia !=
+                                                                      null &&
+                                                                  selectedMedia.every((m) =>
+                                                                      validateFileFormat(
+                                                                          m.storagePath,
+                                                                          context))) {
+                                                                safeSetState(() =>
+                                                                    _model.isDataUploading15 =
+                                                                        true);
+                                                                var selectedUploadedFiles =
+                                                                    <FFUploadedFile>[];
+
+                                                                try {
+                                                                  selectedUploadedFiles =
+                                                                      selectedMedia
+                                                                          .map((m) =>
+                                                                              FFUploadedFile(
+                                                                                name: m.storagePath.split('/').last,
+                                                                                bytes: m.bytes,
+                                                                                height: m.dimensions?.height,
+                                                                                width: m.dimensions?.width,
+                                                                                blurHash: m.blurHash,
+                                                                              ))
+                                                                          .toList();
+                                                                } finally {
+                                                                  _model.isDataUploading15 =
+                                                                      false;
+                                                                }
+                                                                if (selectedUploadedFiles
+                                                                        .length ==
+                                                                    selectedMedia
+                                                                        .length) {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.uploadedLocalFile15 =
+                                                                        selectedUploadedFiles
+                                                                            .first;
+                                                                  });
+                                                                } else {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                  return;
+                                                                }
+                                                              }
+
+                                                              if (_model.uploadedLocalFile15 !=
+                                                                      null &&
+                                                                  (_model
+                                                                          .uploadedLocalFile15
+                                                                          .bytes
+                                                                          ?.isNotEmpty ??
+                                                                      false)) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปสำเร็จ!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                              } else {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปล้มเหลว กรุณาอัพโหลดรูปอีกครั้ง',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                                return;
+                                                              }
+                                                            },
+                                                            text: 'อัพโหลดรูป',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 125.0,
+                                                              height: 45.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xFFFE6400),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16.0),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        7.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'สถานะ :',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        2.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              _model.uploadedLocalFile15 !=
+                                                                          null &&
+                                                                      (_model
+                                                                              .uploadedLocalFile15
+                                                                              .bytes
+                                                                              ?.isNotEmpty ??
+                                                                          false)
+                                                                  ? 'อัพโหลดสำเร็จ'
+                                                                  : 'ยังไม่อัพโหลด',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    flex: 2,
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        if (_model.uploadedLocalFile15 !=
+                                                                null &&
+                                                            (_model
+                                                                    .uploadedLocalFile15
+                                                                    .bytes
+                                                                    ?.isNotEmpty ??
+                                                                false)) {
+                                                          return Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    width: 20.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFFAFAFA),
+                                                                    ),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .check_circle_rounded,
+                                                                      color: Color(
+                                                                          0xFF24BF03),
+                                                                      size:
+                                                                          20.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        } else {
+                                                          return Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
+                                                            child: Container(
+                                                              width: 20.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFFAFAFA),
+                                                              ),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .cancel_rounded,
+                                                                color: Color(
+                                                                    0xFFE21C3D),
+                                                                size: 20.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) {
+                                            if (_model.uploadedLocalFile15 !=
+                                                    null &&
+                                                (_model.uploadedLocalFile15
+                                                        .bytes?.isNotEmpty ??
+                                                    false)) {
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 12.0,
+                                                                0.0, 12.0),
+                                                    child: Container(
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Stack(
+                                                        children: [
+                                                          InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await Navigator
+                                                                  .push(
+                                                                context,
+                                                                PageTransition(
+                                                                  type:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  child:
+                                                                      FlutterFlowExpandedImageView(
+                                                                    image: Image
+                                                                        .memory(
+                                                                      _model.uploadedLocalFile15
+                                                                              .bytes ??
+                                                                          Uint8List.fromList(
+                                                                              []),
+                                                                      fit: BoxFit
+                                                                          .contain,
+                                                                    ),
+                                                                    allowRotation:
+                                                                        false,
+                                                                    tag:
+                                                                        'imageTag15',
+                                                                    useHeroAnimation:
+                                                                        true,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Hero(
+                                                              tag: 'imageTag15',
+                                                              transitionOnUserGestures:
+                                                                  true,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .memory(
+                                                                  _model.uploadedLocalFile15
+                                                                          .bytes ??
+                                                                      Uint8List
+                                                                          .fromList(
+                                                                              []),
+                                                                  width: 200.0,
+                                                                  height: 200.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          4.0,
+                                                                          0.0),
+                                                              child:
+                                                                  FlutterFlowIconButton(
+                                                                borderColor:
+                                                                    Colors
+                                                                        .black,
+                                                                borderRadius:
+                                                                    20.0,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                buttonSize:
+                                                                    35.0,
+                                                                fillColor:
+                                                                    Colors
+                                                                        .white,
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .close_rounded,
+                                                                  color: Color(
+                                                                      0xFFFF0000),
+                                                                  size: 18.0,
+                                                                ),
+                                                                onPressed:
+                                                                    () async {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.isDataUploading13 =
+                                                                        false;
+                                                                    _model.uploadedLocalFile13 =
+                                                                        FFUploadedFile(
+                                                                            bytes:
+                                                                                Uint8List.fromList([]));
+                                                                  });
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Divider(
+                                                    thickness: 1.0,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent4,
+                                                  ),
+                                                ],
+                                              );
+                                            } else {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: Container(
+                                            height: 25.0,
+                                            decoration: BoxDecoration(),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Container(
+                                                    width: 20.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      '16.',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFAFAFA),
+                                                    ),
+                                                    child: Text(
+                                                      'อื่นๆ (ถ้ามี)',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 12.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 45.0,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 15.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 20,
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.74,
+                                                      height: 100.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              final selectedMedia =
+                                                                  await selectMedia(
+                                                                imageQuality:
+                                                                    30,
+                                                                multiImage:
+                                                                    false,
+                                                              );
+                                                              if (selectedMedia !=
+                                                                      null &&
+                                                                  selectedMedia.every((m) =>
+                                                                      validateFileFormat(
+                                                                          m.storagePath,
+                                                                          context))) {
+                                                                safeSetState(() =>
+                                                                    _model.isDataUploading16 =
+                                                                        true);
+                                                                var selectedUploadedFiles =
+                                                                    <FFUploadedFile>[];
+
+                                                                try {
+                                                                  selectedUploadedFiles =
+                                                                      selectedMedia
+                                                                          .map((m) =>
+                                                                              FFUploadedFile(
+                                                                                name: m.storagePath.split('/').last,
+                                                                                bytes: m.bytes,
+                                                                                height: m.dimensions?.height,
+                                                                                width: m.dimensions?.width,
+                                                                                blurHash: m.blurHash,
+                                                                              ))
+                                                                          .toList();
+                                                                } finally {
+                                                                  _model.isDataUploading16 =
+                                                                      false;
+                                                                }
+                                                                if (selectedUploadedFiles
+                                                                        .length ==
+                                                                    selectedMedia
+                                                                        .length) {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.uploadedLocalFile16 =
+                                                                        selectedUploadedFiles
+                                                                            .first;
+                                                                  });
+                                                                } else {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                  return;
+                                                                }
+                                                              }
+
+                                                              if (_model.uploadedLocalFile16 !=
+                                                                      null &&
+                                                                  (_model
+                                                                          .uploadedLocalFile16
+                                                                          .bytes
+                                                                          ?.isNotEmpty ??
+                                                                      false)) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปสำเร็จ!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                              } else {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .clearSnackBars();
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'อัพโหลดรูปล้มเหลว กรุณาอัพโหลดรูปอีกครั้ง',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Colors
+                                                                            .white,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            3000),
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .black,
+                                                                  ),
+                                                                );
+                                                                return;
+                                                              }
+                                                            },
+                                                            text: 'อัพโหลดรูป',
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 125.0,
+                                                              height: 45.0,
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: Color(
+                                                                  0xFFFE6400),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Poppins',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16.0),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        7.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'สถานะ :',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        2.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              _model.uploadedLocalFile16 !=
+                                                                          null &&
+                                                                      (_model
+                                                                              .uploadedLocalFile16
+                                                                              .bytes
+                                                                              ?.isNotEmpty ??
+                                                                          false)
+                                                                  ? 'อัพโหลดสำเร็จ'
+                                                                  : 'ยังไม่อัพโหลด',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    flex: 2,
+                                                    child: Builder(
+                                                      builder: (context) {
+                                                        if (_model.uploadedLocalFile16 !=
+                                                                null &&
+                                                            (_model
+                                                                    .uploadedLocalFile16
+                                                                    .bytes
+                                                                    ?.isNotEmpty ??
+                                                                false)) {
+                                                          return Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Expanded(
+                                                                flex: 1,
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    width: 20.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0xFFFAFAFA),
+                                                                    ),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .check_circle_rounded,
+                                                                      color: Color(
+                                                                          0xFF24BF03),
+                                                                      size:
+                                                                          20.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        } else {
+                                                          return Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 0.0),
+                                                            child: Container(
+                                                              width: 20.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFFAFAFA),
+                                                              ),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .cancel_rounded,
+                                                                color: Color(
+                                                                    0xFFE21C3D),
+                                                                size: 20.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                      },
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Builder(
+                                          builder: (context) {
+                                            if (_model.uploadedLocalFile16 !=
+                                                    null &&
+                                                (_model.uploadedLocalFile16
+                                                        .bytes?.isNotEmpty ??
+                                                    false)) {
+                                              return Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 12.0,
+                                                                0.0, 12.0),
+                                                    child: Container(
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      decoration:
+                                                          BoxDecoration(),
+                                                      child: Stack(
+                                                        children: [
+                                                          InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await Navigator
+                                                                  .push(
+                                                                context,
+                                                                PageTransition(
+                                                                  type:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  child:
+                                                                      FlutterFlowExpandedImageView(
+                                                                    image: Image
+                                                                        .memory(
+                                                                      _model.uploadedLocalFile16
+                                                                              .bytes ??
+                                                                          Uint8List.fromList(
+                                                                              []),
+                                                                      fit: BoxFit
+                                                                          .contain,
+                                                                    ),
+                                                                    allowRotation:
+                                                                        false,
+                                                                    tag:
+                                                                        'imageTag16',
+                                                                    useHeroAnimation:
+                                                                        true,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Hero(
+                                                              tag: 'imageTag16',
+                                                              transitionOnUserGestures:
+                                                                  true,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child: Image
+                                                                    .memory(
+                                                                  _model.uploadedLocalFile16
+                                                                          .bytes ??
+                                                                      Uint8List
+                                                                          .fromList(
+                                                                              []),
+                                                                  width: 200.0,
+                                                                  height: 200.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, -1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          4.0,
+                                                                          0.0),
+                                                              child:
+                                                                  FlutterFlowIconButton(
+                                                                borderColor:
+                                                                    Colors
+                                                                        .black,
+                                                                borderRadius:
+                                                                    20.0,
+                                                                borderWidth:
+                                                                    1.0,
+                                                                buttonSize:
+                                                                    35.0,
+                                                                fillColor:
+                                                                    Colors
+                                                                        .white,
+                                                                icon: Icon(
+                                                                  Icons
+                                                                      .close_rounded,
+                                                                  color: Color(
+                                                                      0xFFFF0000),
+                                                                  size: 18.0,
+                                                                ),
+                                                                onPressed:
+                                                                    () async {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.isDataUploading13 =
+                                                                        false;
+                                                                    _model.uploadedLocalFile13 =
+                                                                        FFUploadedFile(
+                                                                            bytes:
+                                                                                Uint8List.fromList([]));
+                                                                  });
+                                                                },
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Divider(
+                                                    thickness: 1.0,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .accent4,
+                                                  ),
+                                                ],
+                                              );
+                                            } else {
+                                              return Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                              );
+                                            }
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -7134,6 +9366,10 @@ class _CustomerCarDeailsStep4WidgetState
                                 ? functions.removeCommaFromNumText(
                                     _model.textController1.text)
                                 : '0.00',
+                            images13: _model.uploadedLocalFile13,
+                            images14: _model.uploadedLocalFile14,
+                            images15: _model.uploadedLocalFile15,
+                            images16: _model.uploadedLocalFile16,
                           );
 
                           _shouldSetState = true;
