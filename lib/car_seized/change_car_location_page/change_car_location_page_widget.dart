@@ -1380,7 +1380,7 @@ class _ChangeCarLocationPageWidgetState
                                               : functions.containsValueInJsonList(
                                                   functions.getDataFromMapJson(
                                                       functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'include_deliver_data_role'),
-                                                  widget!.userRoleEdit))) ??
+                                                  widget!.userRoleSave))) ??
                                       true)
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -1437,50 +1437,79 @@ class _ChangeCarLocationPageWidgetState
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 8.0,
                                                                 15.0, 0.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 50.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                        border: Border.all(
-                                                          color:
-                                                              Color(0xFF404040),
-                                                        ),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              FFAppState().impoundDeliverLocateName !=
-                                                                      ''
-                                                                  ? '${FFAppState().impoundDeliverLocateName} (${FFAppState().impoundDeliverLocateCode})'
-                                                                  : 'เลือกสถานที่ส่งมอบรถ...',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Poppins',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                            ),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        if (widget!
+                                                                .impoundCarLocateParamSet
+                                                                ?.deliverLocateName !=
+                                                            '') {
+                                                          return;
+                                                        }
+
+                                                        context.pushNamed(
+                                                            'BranchSelectedPage');
+                                                      },
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        height: 50.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          border: Border.all(
+                                                            color: Color(
+                                                                0xFF404040),
                                                           ),
-                                                        ],
+                                                        ),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                FFAppState().impoundDeliverLocateName !=
+                                                                        ''
+                                                                    ? '${FFAppState().impoundDeliverLocateName} (${FFAppState().impoundDeliverLocateCode})'
+                                                                    : 'เลือกสถานที่ส่งมอบรถ...',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Poppins',
+                                                                      color: FFAppState().impoundDeliverLocateName !=
+                                                                              ''
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .primaryText
+                                                                          : FlutterFlowTheme.of(context)
+                                                                              .secondaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -2247,13 +2276,24 @@ class _ChangeCarLocationPageWidgetState
                                   }
 
                                   if (widget!.fromPage == 'takeImages') {
-                                    if (functions.containsValueInJsonList(
-                                        functions.getDataFromMapJson(
+                                    if ((FFAppState().profileLevel == 'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
                                             functions.getDataFromMapJson(
-                                                widget!.saveAccessRoleData,
-                                                widget!.step),
-                                            'include_deliver_data_level'),
-                                        FFAppState().profileLevel)!) {
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleSave)!) {
                                       if (!((FFAppState()
                                                   .impoundDeliverLocateName !=
                                               '') &&
@@ -2333,6 +2373,73 @@ class _ChangeCarLocationPageWidgetState
                                       }
                                     }
                                   } else {
+                                    if ((FFAppState().profileLevel == 'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.editAccessRoleData,
+                                                    widget!.step),
+                                                'include_deliver_data_role'),
+                                            widget!.userRoleEdit)!) {
+                                      if (_model.textController2.text == '') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณากรอกบริษัทรับรถ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                      if (_model.textController3.text == '') {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content:
+                                                    Text('กรุณากรอกผู้มารับรถ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState)
+                                          safeSetState(() {});
+                                        return;
+                                      }
+                                    }
                                     if (_model.textController5.text == '') {
                                       await showDialog(
                                         context: context,

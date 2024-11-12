@@ -781,6 +781,42 @@ class SearchContractNumberCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  List<String>? locatDeliverCar(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].locat_delivercar''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? locatNameDeliverCar(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].locat_name_delivercar''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? logisticsCompany(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].logistics_comany''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  List<String>? receiver(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].receiver''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class UploadGoogleDriveAPICall {
@@ -11624,6 +11660,24 @@ class SswSurveyAPIVloanGetContractCall {
   static List<String>? dBCode(dynamic response) => (getJsonField(
         response,
         r'''$.results.data[:].DB_CODE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? locateDeliverCar(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].locat_delivercar''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? locateNameDeliverCar(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data[:].locat_name_delivercar''',
         true,
       ) as List?)
           ?.withoutNulls

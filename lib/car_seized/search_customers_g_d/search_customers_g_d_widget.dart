@@ -1320,6 +1320,48 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                 )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState()
+                                                .impoundDeliverLocateNameList =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .locatNameDeliverCar(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState()
+                                                .impoundDeliverLocateCodeList =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .locatDeliverCar(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundReceiver =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .receiver(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState().impoundLogisticsCompany =
+                                            UploadImagesGoogleDriveGroup
+                                                .searchContractNumberCall
+                                                .logisticsCompany(
+                                                  (_model.searchAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                       } else {
                                         await showDialog(
@@ -2471,6 +2513,14 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                             FFAppState().impoundSubLocateId[listImproundIndex],
                                                                         locatCode:
                                                                             FFAppState().impoundLocateCode[listImproundIndex],
+                                                                        receiver:
+                                                                            FFAppState().impoundReceiver[listImproundIndex],
+                                                                        deliverLocateName:
+                                                                            FFAppState().impoundDeliverLocateNameList[listImproundIndex],
+                                                                        deliverLocateCode:
+                                                                            FFAppState().impoundDeliverLocateCodeList[listImproundIndex],
+                                                                        logisticsCompany:
+                                                                            FFAppState().impoundLogisticsCompany[listImproundIndex],
                                                                       ),
                                                                       ParamType
                                                                           .DataStruct,
@@ -2682,6 +2732,23 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                     ParamType
                                                                         .String,
                                                                   ),
+                                                                  'impoundCarLocateParamSet':
+                                                                      serializeParam(
+                                                                    ImpoundCarLocateParamSetStruct(
+                                                                      deliverLocateName:
+                                                                          FFAppState()
+                                                                              .impoundDeliverLocateNameList[listImproundIndex],
+                                                                      deliverLocateCode:
+                                                                          FFAppState()
+                                                                              .impoundDeliverLocateCodeList[listImproundIndex],
+                                                                      logisticsCompany:
+                                                                          '',
+                                                                      receiver:
+                                                                          '',
+                                                                    ),
+                                                                    ParamType
+                                                                        .DataStruct,
+                                                                  ),
                                                                 }.withoutNulls,
                                                               );
                                                             } else {
@@ -2822,6 +2889,18 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       branchCodeLocat:
                                                                           FFAppState()
                                                                               .ImpoundCarBranchCode[listImproundIndex],
+                                                                      deliverLocateName:
+                                                                          FFAppState()
+                                                                              .impoundDeliverLocateNameList[listImproundIndex],
+                                                                      deliverLocateCode:
+                                                                          FFAppState()
+                                                                              .impoundDeliverLocateCodeList[listImproundIndex],
+                                                                      logisticsCompany:
+                                                                          FFAppState()
+                                                                              .impoundLogisticsCompany[listImproundIndex],
+                                                                      receiver:
+                                                                          FFAppState()
+                                                                              .impoundReceiver[listImproundIndex],
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,

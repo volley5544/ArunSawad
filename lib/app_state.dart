@@ -9597,6 +9597,126 @@ class FFAppState extends ChangeNotifier {
       int index, BranchDataTypeStruct value) {
     deliverLocateOutput.insert(index, value);
   }
+
+  List<String> _impoundDeliverLocateNameList = [];
+  List<String> get impoundDeliverLocateNameList =>
+      _impoundDeliverLocateNameList;
+  set impoundDeliverLocateNameList(List<String> value) {
+    _impoundDeliverLocateNameList = value;
+  }
+
+  void addToImpoundDeliverLocateNameList(String value) {
+    impoundDeliverLocateNameList.add(value);
+  }
+
+  void removeFromImpoundDeliverLocateNameList(String value) {
+    impoundDeliverLocateNameList.remove(value);
+  }
+
+  void removeAtIndexFromImpoundDeliverLocateNameList(int index) {
+    impoundDeliverLocateNameList.removeAt(index);
+  }
+
+  void updateImpoundDeliverLocateNameListAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundDeliverLocateNameList[index] =
+        updateFn(_impoundDeliverLocateNameList[index]);
+  }
+
+  void insertAtIndexInImpoundDeliverLocateNameList(int index, String value) {
+    impoundDeliverLocateNameList.insert(index, value);
+  }
+
+  List<String> _impoundDeliverLocateCodeList = [];
+  List<String> get impoundDeliverLocateCodeList =>
+      _impoundDeliverLocateCodeList;
+  set impoundDeliverLocateCodeList(List<String> value) {
+    _impoundDeliverLocateCodeList = value;
+  }
+
+  void addToImpoundDeliverLocateCodeList(String value) {
+    impoundDeliverLocateCodeList.add(value);
+  }
+
+  void removeFromImpoundDeliverLocateCodeList(String value) {
+    impoundDeliverLocateCodeList.remove(value);
+  }
+
+  void removeAtIndexFromImpoundDeliverLocateCodeList(int index) {
+    impoundDeliverLocateCodeList.removeAt(index);
+  }
+
+  void updateImpoundDeliverLocateCodeListAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundDeliverLocateCodeList[index] =
+        updateFn(_impoundDeliverLocateCodeList[index]);
+  }
+
+  void insertAtIndexInImpoundDeliverLocateCodeList(int index, String value) {
+    impoundDeliverLocateCodeList.insert(index, value);
+  }
+
+  List<String> _impoundReceiver = [];
+  List<String> get impoundReceiver => _impoundReceiver;
+  set impoundReceiver(List<String> value) {
+    _impoundReceiver = value;
+  }
+
+  void addToImpoundReceiver(String value) {
+    impoundReceiver.add(value);
+  }
+
+  void removeFromImpoundReceiver(String value) {
+    impoundReceiver.remove(value);
+  }
+
+  void removeAtIndexFromImpoundReceiver(int index) {
+    impoundReceiver.removeAt(index);
+  }
+
+  void updateImpoundReceiverAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundReceiver[index] = updateFn(_impoundReceiver[index]);
+  }
+
+  void insertAtIndexInImpoundReceiver(int index, String value) {
+    impoundReceiver.insert(index, value);
+  }
+
+  List<String> _impoundLogisticsCompany = [];
+  List<String> get impoundLogisticsCompany => _impoundLogisticsCompany;
+  set impoundLogisticsCompany(List<String> value) {
+    _impoundLogisticsCompany = value;
+  }
+
+  void addToImpoundLogisticsCompany(String value) {
+    impoundLogisticsCompany.add(value);
+  }
+
+  void removeFromImpoundLogisticsCompany(String value) {
+    impoundLogisticsCompany.remove(value);
+  }
+
+  void removeAtIndexFromImpoundLogisticsCompany(int index) {
+    impoundLogisticsCompany.removeAt(index);
+  }
+
+  void updateImpoundLogisticsCompanyAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    impoundLogisticsCompany[index] = updateFn(_impoundLogisticsCompany[index]);
+  }
+
+  void insertAtIndexInImpoundLogisticsCompany(int index, String value) {
+    impoundLogisticsCompany.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {
