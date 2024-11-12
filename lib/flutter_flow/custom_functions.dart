@@ -920,6 +920,12 @@ String profileShowNickName(String? nickname) {
   return '($nickname)';
 }
 
+bool? getBoolValueInJson(dynamic listFromJson) {
+  dynamic inputList = jsonDecode(listFromJson!);
+
+  return inputList;
+}
+
 List<String> checkLeadIDInAppAndLeadID(
   List<String>? leadIDInAppCalled,
   List<String>? leadIDList,

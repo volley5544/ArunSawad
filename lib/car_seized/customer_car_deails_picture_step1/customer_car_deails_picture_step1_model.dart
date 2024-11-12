@@ -51,10 +51,17 @@ class CustomerCarDeailsPictureStep1Model
   String? image11File;
   // Stores action output result for [Custom Action - convertBase64ToFFFiles] action in customerCarDeailsPictureStep1 widget.
   String? image12File;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+  }
 }

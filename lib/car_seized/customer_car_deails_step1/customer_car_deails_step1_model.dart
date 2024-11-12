@@ -96,6 +96,22 @@ class CustomerCarDeailsStep1Model
   FFUploadedFile uploadedLocalFile12 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
+  bool isDataUploading13 = false;
+  FFUploadedFile uploadedLocalFile13 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  bool isDataUploading14 = false;
+  FFUploadedFile uploadedLocalFile14 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  bool isDataUploading15 = false;
+  FFUploadedFile uploadedLocalFile15 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  bool isDataUploading16 = false;
+  FFUploadedFile uploadedLocalFile16 =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;

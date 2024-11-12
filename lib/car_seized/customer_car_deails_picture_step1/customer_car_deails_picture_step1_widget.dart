@@ -308,6 +308,13 @@ class _CustomerCarDeailsPictureStep1WidgetState
       Navigator.pop(context);
     });
 
+    _model.textController ??= TextEditingController(
+        text: widget!.impoundCarParamSet?.impoundPrice != ''
+            ? functions.returnNumberWithComma2Decimal(
+                widget!.impoundCarParamSet?.impoundPrice)
+            : '');
+    _model.textFieldFocusNode ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -759,122 +766,20 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                           ),
                                         ),
                                       ),
-                                      if (() {
-                                            if (widget!.step == 'step1') {
-                                              return ((FFAppState()
-                                                              .profileLevel ==
-                                                          'สาขา') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'เขต') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'ภาค')
-                                                  ? functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions.getDataFromMapJson(
-                                                              widget!
-                                                                  .saveAccessRoleData,
-                                                              'step1'),
-                                                          'Level'),
-                                                      FFAppState().profileLevel)
-                                                  : functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions
-                                                              .getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  'step1'),
-                                                          'role_name'),
-                                                      widget!.userRoleSave));
-                                            } else if (widget!.step ==
-                                                'step2') {
-                                              return ((FFAppState()
-                                                              .profileLevel ==
-                                                          'สาขา') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'เขต') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'ภาค')
-                                                  ? functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions.getDataFromMapJson(
-                                                              widget!
-                                                                  .saveAccessRoleData,
-                                                              'step2'),
-                                                          'Level'),
-                                                      FFAppState().profileLevel)
-                                                  : functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions
-                                                              .getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  'step2'),
-                                                          'role_name'),
-                                                      widget!.userRoleSave));
-                                            } else if (widget!.step ==
-                                                'step3') {
-                                              return ((FFAppState()
-                                                              .profileLevel ==
-                                                          'สาขา') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'เขต') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'ภาค')
-                                                  ? functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions.getDataFromMapJson(
-                                                              widget!
-                                                                  .saveAccessRoleData,
-                                                              'step3'),
-                                                          'Level'),
-                                                      FFAppState().profileLevel)
-                                                  : functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions
-                                                              .getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  'step3'),
-                                                          'role_name'),
-                                                      widget!.userRoleSave));
-                                            } else if (widget!.step ==
-                                                'step4') {
-                                              return ((FFAppState()
-                                                              .profileLevel ==
-                                                          'สาขา') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'เขต') ||
-                                                      (FFAppState()
-                                                              .profileLevel ==
-                                                          'ภาค')
-                                                  ? functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions.getDataFromMapJson(
-                                                              widget!
-                                                                  .saveAccessRoleData,
-                                                              'step4'),
-                                                          'Level'),
-                                                      FFAppState().profileLevel)
-                                                  : functions.containsValueInJsonList(
-                                                      functions.getDataFromMapJson(
-                                                          functions
-                                                              .getDataFromMapJson(
-                                                                  widget!
-                                                                      .saveAccessRoleData,
-                                                                  'step4'),
-                                                          'role_name'),
-                                                      widget!.userRoleSave));
-                                            } else {
-                                              return true;
-                                            }
-                                          }() ??
+                                      if (((FFAppState().profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      widget!
+                                                          .editAccessRoleData,
+                                                      'profile_level'),
+                                                  FFAppState().profileLevel)
+                                              : (widget!.userRoleEdit !=
+                                                  'no_role')) ??
                                           true)
                                         FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
@@ -969,6 +874,12 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                 'userRoleEdit': serializeParam(
                                                   widget!.userRoleEdit,
                                                   ParamType.String,
+                                                ),
+                                                'impoundCarLocateParamSet':
+                                                    serializeParam(
+                                                  widget!
+                                                      .impoundCarLocateParamSet,
+                                                  ParamType.DataStruct,
                                                 ),
                                               }.withoutNulls,
                                             );
@@ -4640,71 +4551,176 @@ class _CustomerCarDeailsPictureStep1WidgetState
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            15.0, 20.0, 15.0, 0.0),
-                        child: Row(
+                      if (widget!.impoundCarParamSet?.impoundPrice != '')
+                        Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Text(
-                              'หมายเหตุ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF404040),
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: Padding(
+                            Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 8.0, 15.0, 0.0),
-                              child: Container(
-                                width: 100.0,
-                                constraints: BoxConstraints(
-                                  minHeight: 137.0,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: Color(0xFF404040),
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 12.0, 12.0, 12.0),
-                                  child: SelectionArea(
-                                      child: Text(
-                                    valueOrDefault<String>(
-                                      UploadImagesGoogleDriveGroup
-                                          .searchImagesCall
-                                          .remark(
-                                        (_model.imagesAPIOutput?.jsonBody ??
-                                            ''),
-                                      ),
-                                      '-',
-                                    ),
+                                  15.0, 20.0, 15.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    'ราคาประมูล',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          color: Color(0xFF404040),
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                  )),
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15.0, 8.0, 15.0, 0.0),
+                                    child: Container(
+                                      width: 100.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFF404040),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 0.0),
+                                        child: TextFormField(
+                                          controller: _model.textController,
+                                          focusNode: _model.textFieldFocusNode,
+                                          autofocus: false,
+                                          readOnly: true,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            hintText: 'กรอกราคาประมูล...',
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            enabledBorder: InputBorder.none,
+                                            focusedBorder: InputBorder.none,
+                                            errorBorder: InputBorder.none,
+                                            focusedErrorBorder:
+                                                InputBorder.none,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                letterSpacing: 0.0,
+                                              ),
+                                          maxLines: null,
+                                          keyboardType: const TextInputType
+                                              .numberWithOptions(decimal: true),
+                                          validator: _model
+                                              .textControllerValidator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 12.0, 15.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'หมายเหตุ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF404040),
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 8.0, 15.0, 0.0),
+                                  child: Container(
+                                    width: 100.0,
+                                    constraints: BoxConstraints(
+                                      minHeight: 137.0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      border: Border.all(
+                                        color: Color(0xFF404040),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 12.0, 12.0, 12.0),
+                                      child: SelectionArea(
+                                          child: Text(
+                                        valueOrDefault<String>(
+                                          UploadImagesGoogleDriveGroup
+                                              .searchImagesCall
+                                              .remark(
+                                            (_model.imagesAPIOutput?.jsonBody ??
+                                                ''),
+                                          ),
+                                          '-',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      )),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
