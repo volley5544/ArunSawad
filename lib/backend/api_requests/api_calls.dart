@@ -1020,6 +1020,10 @@ class UpdateImproundCarCall {
     String? impoundcarPrice = '',
     String? remarkPrice = '',
     String? step = '',
+    String? locatDelivercar = '',
+    String? locatNameDelivercar = '',
+    String? logisticsComany = '',
+    String? receiver = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -1028,6 +1032,10 @@ class UpdateImproundCarCall {
 
     final ffApiRequestBody = '''
 {
+  "locat_delivercar": "${locatDelivercar}",
+  "locat_name_delivercar": "${locatNameDelivercar}",
+  "logistics_comany": "${logisticsComany}",
+  "receiver": "${receiver}",
   "step": "${step}",
   "impoundcar_price": "${impoundcarPrice}",
   "remark_price": "${remarkPrice}",

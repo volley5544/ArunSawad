@@ -1344,6 +1344,9 @@ class _ChangeCarLocationPageWidgetState
                                 ],
                               ),
                             ),
+                          Divider(
+                            thickness: 2.0,
+                          ),
                           Expanded(
                             flex: 2,
                             child: SingleChildScrollView(
@@ -2129,7 +2132,7 @@ class _ChangeCarLocationPageWidgetState
                                         ),
                                       ],
                                     ),
-                                ],
+                                ].addToEnd(SizedBox(height: 50.0)),
                               ),
                             ),
                           ),
@@ -3173,6 +3176,105 @@ class _ChangeCarLocationPageWidgetState
                                               _model.textController4.text),
                                       remarkPrice: _model.textController5.text,
                                       step: widget!.step,
+                                      locatDelivercar: ((FFAppState()
+                                                          .profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? FFAppState()
+                                              .impoundDeliverLocateCode
+                                          : '',
+                                      locatNameDelivercar: ((FFAppState().profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? FFAppState()
+                                              .impoundDeliverLocateName
+                                          : '',
+                                      logisticsComany: ((FFAppState()
+                                                          .profileLevel ==
+                                                      'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? _model.textController2.text
+                                          : '',
+                                      receiver: ((FFAppState().profileLevel == 'สาขา') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'เขต') ||
+                                                  (FFAppState().profileLevel ==
+                                                      'ภาค')
+                                              ? functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_level'),
+                                                  FFAppState().profileLevel)!
+                                              : functions.containsValueInJsonList(
+                                                  functions.getDataFromMapJson(
+                                                      functions.getDataFromMapJson(
+                                                          widget!
+                                                              .editAccessRoleData,
+                                                          widget!.step),
+                                                      'include_deliver_data_role'),
+                                                  widget!.userRoleEdit)!)
+                                          ? _model.textController3.text
+                                          : '',
                                     );
 
                                     _shouldSetState = true;
@@ -4222,6 +4324,121 @@ class _ChangeCarLocationPageWidgetState
                                                         true)]
                                                 .regionName,
                                             locatCode: _model.dropDownValue,
+                                            receiver: ((FFAppState().profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions
+                                                                .getDataFromMapJson(
+                                                                    widget!
+                                                                        .saveAccessRoleData,
+                                                                    widget!
+                                                                        .step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model.textController3.text
+                                                : '',
+                                            deliverLocateName: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateName
+                                                : '',
+                                            deliverLocateCode: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateCode
+                                                : '',
+                                            logisticsCompany: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model.textController2.text
+                                                : '',
                                           ),
                                           ParamType.DataStruct,
                                         ),
@@ -4458,6 +4675,121 @@ class _ChangeCarLocationPageWidgetState
                                                         true)]
                                                 .regionName,
                                             locatCode: _model.dropDownValue,
+                                            receiver: ((FFAppState().profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions
+                                                                .getDataFromMapJson(
+                                                                    widget!
+                                                                        .saveAccessRoleData,
+                                                                    widget!
+                                                                        .step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model.textController3.text
+                                                : '',
+                                            deliverLocateName: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateName
+                                                : '',
+                                            deliverLocateCode: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? FFAppState()
+                                                    .impoundDeliverLocateCode
+                                                : '',
+                                            logisticsCompany: ((FFAppState()
+                                                                .profileLevel ==
+                                                            'สาขา') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'เขต') ||
+                                                        (FFAppState()
+                                                                .profileLevel ==
+                                                            'ภาค')
+                                                    ? functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_level'),
+                                                        FFAppState()
+                                                            .profileLevel)!
+                                                    : functions.containsValueInJsonList(
+                                                        functions.getDataFromMapJson(
+                                                            functions.getDataFromMapJson(
+                                                                widget!
+                                                                    .saveAccessRoleData,
+                                                                widget!.step),
+                                                            'include_deliver_data_role'),
+                                                        widget!.userRoleSave)!)
+                                                ? _model.textController2.text
+                                                : '',
                                           ),
                                           ParamType.DataStruct,
                                         ),
