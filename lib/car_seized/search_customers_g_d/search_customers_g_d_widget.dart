@@ -717,6 +717,26 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         )!
                                                 .toList()
                                                 .cast<String>();
+                                        FFAppState()
+                                                .impoundDeliverLocateNameList =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .locateNameDeliverCar(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
+                                        FFAppState()
+                                                .impoundDeliverLocateCodeList =
+                                            SswSurveyAPIVloanGetContractCall
+                                                    .locateDeliverCar(
+                                          (_model.vloanContractAPIOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        )!
+                                                .toList()
+                                                .cast<String>();
                                         safeSetState(() {});
                                         FFAppState().impoundCarBranchName =
                                             SswSurveyAPIVloanGetContractCall
