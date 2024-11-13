@@ -8893,20 +8893,51 @@ class _CustomerCarDeailsStep4WidgetState
                                                               FontWeight.w500,
                                                         ),
                                               ),
-                                              Text(
-                                                '(ถ้ามี)',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                              Builder(
+                                                builder: (context) {
+                                                  if (functions.getBoolValueInJson(
+                                                          functions.getDataFromMapJson(
+                                                              functions.getDataFromMapJson(
+                                                                  widget!
+                                                                      .saveAccessRoleData,
+                                                                  widget!.step),
+                                                              'price_is_required')) ??
+                                                      false) {
+                                                    return Text(
+                                                      '(บังคับกรอก)',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFFFF0000),
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    );
+                                                  } else {
+                                                    return Text(
+                                                      '(ถ้ามี)',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    );
+                                                  }
+                                                },
                                               ),
                                             ],
                                           ),
@@ -9201,6 +9232,56 @@ class _CustomerCarDeailsStep4WidgetState
                             );
                             if (_shouldSetState) safeSetState(() {});
                             return;
+                          }
+                          if (functions.getBoolValueInJson(
+                              functions.getDataFromMapJson(
+                                  functions.getDataFromMapJson(
+                                      widget!.saveAccessRoleData, widget!.step),
+                                  'price_is_required'))!) {
+                            if (_model.textController1.text == '') {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                    child: AlertDialog(
+                                      content: Text('กรุณากรอกราคาประมูล'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                              if (_shouldSetState) safeSetState(() {});
+                              return;
+                            }
+                            if (!(double.parse(_model.textController1.text) >
+                                0.0)) {
+                              await showDialog(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return WebViewAware(
+                                    child: AlertDialog(
+                                      content: Text(
+                                          'กรุณากรอกราคาประมูลมากกว่า 0 บาท'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                              if (_shouldSetState) safeSetState(() {});
+                              return;
+                            }
                           }
                           var confirmDialogResponse = await showDialog<bool>(
                                 context: context,
