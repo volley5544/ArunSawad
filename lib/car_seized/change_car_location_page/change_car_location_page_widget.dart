@@ -527,7 +527,7 @@ class _ChangeCarLocationPageWidgetState
                                   _model.allowChangeLocation = true;
                                   safeSetState(() {});
                                 },
-                                text: 'เปลี่ยนที่',
+                                text: 'แก้ไข',
                                 options: FFButtonOptions(
                                   width: 94.0,
                                   height: 50.0,
@@ -985,6 +985,10 @@ class _ChangeCarLocationPageWidgetState
                                         '200')))
                               Expanded(
                                 child: Container(
+                                  constraints: BoxConstraints(
+                                    minHeight: 200.0,
+                                    maxHeight: 400.0,
+                                  ),
                                   child: Builder(
                                     builder: (context) {
                                       final branchListItem = FFAppState()
