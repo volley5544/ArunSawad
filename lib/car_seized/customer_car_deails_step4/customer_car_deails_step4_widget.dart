@@ -9259,7 +9259,8 @@ class _CustomerCarDeailsStep4WidgetState
                               if (_shouldSetState) safeSetState(() {});
                               return;
                             }
-                            if (!(double.parse(_model.textController1.text) >
+                            if (!(double.parse(functions.removeCommaFromNumText(
+                                    _model.textController1.text)) >
                                 0.0)) {
                               await showDialog(
                                 context: context,

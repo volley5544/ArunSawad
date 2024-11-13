@@ -8686,7 +8686,8 @@ class _CustomerCarDeailsStep1WidgetState
                                   return;
                                 }
                                 if (!(double.parse(
-                                        _model.textController1.text) >
+                                        functions.removeCommaFromNumText(
+                                            _model.textController1.text)) >
                                     0.0)) {
                                   await showDialog(
                                     context: context,
