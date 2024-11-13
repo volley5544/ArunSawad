@@ -675,25 +675,23 @@ class _ChangeCarLocationPageWidgetState
                           },
                         ),
                       if (_model.allowChangeLocation ||
-                          (widget!.fromPage != 'takeImages'
-                              ? !((FFAppState().profileLevel == 'สาขา') ||
-                                      (FFAppState().profileLevel == 'เขต') ||
-                                      (FFAppState().profileLevel == 'ภาค')
-                                  ? functions.containsValueInJsonList(
+                          !((FFAppState().profileLevel == 'สาขา') ||
+                                  (FFAppState().profileLevel == 'เขต') ||
+                                  (FFAppState().profileLevel == 'ภาค')
+                              ? functions.containsValueInJsonList(
+                                  functions.getDataFromMapJson(
                                       functions.getDataFromMapJson(
-                                          functions.getDataFromMapJson(
-                                              widget!.editAccessRoleData,
-                                              widget!.step),
-                                          'price_edit_level'),
-                                      FFAppState().profileLevel)!
-                                  : functions.containsValueInJsonList(
+                                          widget!.editAccessRoleData,
+                                          widget!.step),
+                                      'price_edit_level'),
+                                  FFAppState().profileLevel)!
+                              : functions.containsValueInJsonList(
+                                  functions.getDataFromMapJson(
                                       functions.getDataFromMapJson(
-                                          functions.getDataFromMapJson(
-                                              widget!.editAccessRoleData,
-                                              widget!.step),
-                                          'price_edit_role'),
-                                      widget!.userRoleEdit)!)
-                              : true))
+                                          widget!.editAccessRoleData,
+                                          widget!.step),
+                                      'price_edit_role'),
+                                  widget!.userRoleEdit)!))
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
