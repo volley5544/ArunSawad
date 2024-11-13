@@ -91,6 +91,24 @@ class _ChangeCarLocationPageWidgetState
         _model.allowChangeLocation = true;
         safeSetState(() {});
       }
+
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              title: Text(widget!.fromPage!),
+              content: Text(_model.allowChangeLocation.toString()),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
     });
 
     _model.searchTextfieldTextController ??= TextEditingController();
@@ -590,11 +608,7 @@ class _ChangeCarLocationPageWidgetState
                                 child: FlutterFlowDropDown<String>(
                                   controller: _model.dropDownValueController ??=
                                       FormFieldController<String>(
-                                    _model.dropDownValue ??=
-                                        widget!.fromPage != 'takeImages'
-                                            ? widget!.impoundCarLocateParamSet
-                                                ?.locatCode
-                                            : '',
+                                    _model.dropDownValue ??= '',
                                   ),
                                   options: List<String>.from(
                                       containerImpoundCarMasterRecord
