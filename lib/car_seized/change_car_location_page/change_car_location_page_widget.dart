@@ -1096,7 +1096,6 @@ class _ChangeCarLocationPageWidgetState
                             ),
                             Expanded(
                               child: Container(
-                                height: 200.0,
                                 child: Visibility(
                                   visible: (_model.dropDownValue != null &&
                                           _model.dropDownValue != '') &&
