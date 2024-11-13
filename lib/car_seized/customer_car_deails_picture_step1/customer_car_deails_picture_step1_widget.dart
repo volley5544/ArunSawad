@@ -570,6 +570,10 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         widget!.userRoleEdit,
                         ParamType.String,
                       ),
+                      'impoundCarLocateParamSet': serializeParam(
+                        widget!.impoundCarLocateParamSet,
+                        ParamType.DataStruct,
+                      ),
                     }.withoutNulls,
                   );
                 },
