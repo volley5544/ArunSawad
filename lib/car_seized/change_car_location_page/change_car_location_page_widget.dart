@@ -5,6 +5,7 @@ import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -229,27 +230,6 @@ class _ChangeCarLocationPageWidgetState
               size: 30.0,
             ),
             onPressed: () async {
-              if ((widget!.fromPage != 'takeImages') &&
-                  ((FFAppState().profileLevel == 'สาขา') ||
-                          (FFAppState().profileLevel == 'เขต') ||
-                          (FFAppState().profileLevel == 'ภาค')
-                      ? functions.containsValueInJsonList(
-                          functions.getDataFromMapJson(
-                              functions.getDataFromMapJson(
-                                  widget!.editAccessRoleData, widget!.step),
-                              'price_edit_level'),
-                          FFAppState().profileLevel)!
-                      : functions.containsValueInJsonList(
-                          functions.getDataFromMapJson(
-                              functions.getDataFromMapJson(
-                                  widget!.editAccessRoleData, widget!.step),
-                              'price_edit_role'),
-                          widget!.userRoleEdit)!) &&
-                  _model.allowChangeLocation) {
-                _model.allowChangeLocation = false;
-                safeSetState(() {});
-                return;
-              }
               context.safePop();
             },
           ),
@@ -336,93 +316,109 @@ class _ChangeCarLocationPageWidgetState
                                           widget!.editAccessRoleData,
                                           widget!.step),
                                       'price_edit_role'),
-                                  widget!.userRoleEdit)!) &&
-                          !_model.allowChangeLocation)
-                        Row(
+                                  widget!.userRoleEdit)!))
+                        Column(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: Column(
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 0.0, 4.0),
+                              child: FlutterFlowRadioButton(
+                                options: [
+                                  'ใช้สถานที่จอดรถเดิม',
+                                  'ใช้สถานที่จอดรถใหม่'
+                                ].toList(),
+                                onChanged: (val) async {
+                                  safeSetState(() {});
+                                  if (_model.radioButtonValue ==
+                                      'ใช้สถานที่จอดรถเดิม') {
+                                    _model.allowChangeLocation = false;
+                                    safeSetState(() {});
+                                  } else {
+                                    _model.allowChangeLocation = true;
+                                    safeSetState(() {});
+                                  }
+                                },
+                                controller:
+                                    _model.radioButtonValueController ??=
+                                        FormFieldController<String>(
+                                            'ใช้สถานที่จอดรถเดิม'),
+                                optionHeight: 32.0,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      letterSpacing: 0.0,
+                                    ),
+                                selectedTextStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.black,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                    ),
+                                buttonPosition: RadioButtonPosition.left,
+                                direction: Axis.horizontal,
+                                radioButtonColor: Color(0xFFFE6400),
+                                inactiveRadioButtonColor:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                toggleable: false,
+                                horizontalAlignment: WrapAlignment.start,
+                                verticalAlignment: WrapCrossAlignment.start,
+                              ),
+                            ),
+                            if ((widget!.fromPage != 'takeImages') &&
+                                ((FFAppState().profileLevel == 'สาขา') ||
+                                        (FFAppState().profileLevel == 'เขต') ||
+                                        (FFAppState().profileLevel == 'ภาค')
+                                    ? functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.editAccessRoleData,
+                                                widget!.step),
+                                            'price_edit_level'),
+                                        FFAppState().profileLevel)!
+                                    : functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.editAccessRoleData,
+                                                widget!.step),
+                                            'price_edit_role'),
+                                        widget!.userRoleEdit)!) &&
+                                !_model.allowChangeLocation)
+                              Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  if (widget!.impoundCarLocateParamSet
-                                          ?.branchNameLocat !=
-                                      '')
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 15.0, 8.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        if (widget!.impoundCarLocateParamSet
+                                                ?.branchNameLocat !=
+                                            '')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 3.0, 0.0),
+                                                    15.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  'สถานที่จอดรถ',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF404040),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  ':',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF404040),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Container(
-                                              decoration: BoxDecoration(),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Flexible(
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.0, -1.0),
-                                                      child: Text(
-                                                        '${widget!.impoundCarLocateParamSet?.locatName}',
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        'สถานที่จอดรถเดิม',
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -439,137 +435,182 @@ class _ChangeCarLocationPageWidgetState
                                                                       .w600,
                                                             ),
                                                       ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        ':',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xFF404040),
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Flexible(
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    -1.0, -1.0),
+                                                            child: Text(
+                                                              '${widget!.impoundCarLocateParamSet?.locatName}',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: Color(
+                                                                        0xFF404040),
+                                                                    fontSize:
+                                                                        16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  if (widget!.impoundCarLocateParamSet
-                                          ?.branchNameLocat !=
-                                      '')
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          15.0, 4.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 3.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  'สาขาที่จอดรถ',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF404040),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
                                                 ),
                                               ],
                                             ),
                                           ),
+                                        if (widget!.impoundCarLocateParamSet
+                                                ?.branchNameLocat !=
+                                            '')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
+                                                    15.0, 4.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  ':',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            Color(0xFF404040),
-                                                        fontSize: 16.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        'สาขาที่จอดรถเดิม',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xFF404040),
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
                                                       ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 5.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Text(
+                                                        ':',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color: Color(
+                                                                  0xFF404040),
+                                                              fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    decoration: BoxDecoration(),
+                                                    child: Text(
+                                                      '${widget!.impoundCarLocateParamSet?.branchNameLocat}(${widget!.impoundCarLocateParamSet?.branchCodeLocat})',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Color(
+                                                                0xFF404040),
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                          Expanded(
-                                            child: Container(
-                                              decoration: BoxDecoration(),
-                                              child: Text(
-                                                '${widget!.impoundCarLocateParamSet?.branchNameLocat}(${widget!.impoundCarLocateParamSet?.branchCodeLocat})',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color:
-                                                              Color(0xFF404040),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
+                                      ],
                                     ),
+                                  ),
                                 ],
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 8.0, 0.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  _model.allowChangeLocation = true;
-                                  safeSetState(() {});
-                                },
-                                text: 'แก้ไข',
-                                options: FFButtonOptions(
-                                  width: 94.0,
-                                  height: 50.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFFFE6400),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ),
-                            ),
                           ],
                         ),
                       if (_model.allowChangeLocation ||
@@ -998,151 +1039,181 @@ class _ChangeCarLocationPageWidgetState
                                         ) ==
                                         '200')))
                               Expanded(
-                                child: Container(
-                                  constraints: BoxConstraints(
-                                    minHeight: 200.0,
-                                    maxHeight: 400.0,
-                                  ),
-                                  child: Builder(
-                                    builder: (context) {
-                                      final branchListItem = FFAppState()
-                                          .branchDataOutput
-                                          .take(100)
-                                          .toList();
-                                      if (branchListItem.isEmpty) {
-                                        return Center(
-                                          child: Image.asset(
-                                            'assets/images/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png',
-                                          ),
-                                        );
-                                      }
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 12.0, 0.0),
+                                  child: Container(
+                                    constraints: BoxConstraints(
+                                      minHeight: 200.0,
+                                      maxHeight: ((FFAppState().profileLevel == 'สาขา') || (FFAppState().profileLevel == 'เขต') || (FFAppState().profileLevel == 'ภาค')
+                                                  ? (widget!.fromPage != 'takeImages'
+                                                      ? functions.containsValueInJsonList(
+                                                          functions.getDataFromMapJson(
+                                                              functions.getDataFromMapJson(
+                                                                  widget!
+                                                                      .editAccessRoleData,
+                                                                  widget!.step),
+                                                              'include_deliver_data_level'),
+                                                          FFAppState()
+                                                              .profileLevel)!
+                                                      : functions.containsValueInJsonList(
+                                                          functions.getDataFromMapJson(
+                                                              functions.getDataFromMapJson(
+                                                                  widget!
+                                                                      .saveAccessRoleData,
+                                                                  widget!.step),
+                                                              'include_deliver_data_level'),
+                                                          FFAppState()
+                                                              .profileLevel)!)
+                                                  : (widget!.fromPage != 'takeImages'
+                                                      ? functions.containsValueInJsonList(
+                                                          functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.editAccessRoleData, widget!.step), 'include_deliver_data_role'), widget!.userRoleEdit)!
+                                                      : functions.containsValueInJsonList(functions.getDataFromMapJson(functions.getDataFromMapJson(widget!.saveAccessRoleData, widget!.step), 'include_deliver_data_role'), widget!.userRoleSave)!)) ||
+                                              (widget!.fromPage != 'takeImages')
+                                          ? 300.0
+                                          : 400.0,
+                                    ),
+                                    child: Builder(
+                                      builder: (context) {
+                                        final branchListItem = FFAppState()
+                                            .branchDataOutput
+                                            .take(100)
+                                            .toList();
+                                        if (branchListItem.isEmpty) {
+                                          return Center(
+                                            child: Image.asset(
+                                              'assets/images/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png',
+                                            ),
+                                          );
+                                        }
 
-                                      return ListView.builder(
-                                        padding: EdgeInsets.fromLTRB(
-                                          0,
-                                          12.0,
-                                          0,
-                                          50.0,
-                                        ),
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        itemCount: branchListItem.length,
-                                        itemBuilder:
-                                            (context, branchListItemIndex) {
-                                          final branchListItemItem =
-                                              branchListItem[
-                                                  branchListItemIndex];
-                                          return Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 8.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                FFAppState()
-                                                        .selectedDropdownList =
-                                                    functions
-                                                        .setBoolValueListAtIndex(
-                                                            functions
-                                                                .createFalseListByItemNumber(
-                                                                    false,
-                                                                    FFAppState()
-                                                                        .selectedDropdownList
-                                                                        .length)
-                                                                ?.toList(),
-                                                            branchListItemIndex)!
-                                                        .toList()
-                                                        .cast<bool>();
-                                                safeSetState(() {});
-                                              },
-                                              child: Container(
-                                                height: 40.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      blurRadius: 4.0,
-                                                      color: Color(0x33000000),
-                                                      offset: Offset(
-                                                        0.0,
-                                                        2.0,
-                                                      ),
-                                                    )
-                                                  ],
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 12.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Expanded(
-                                                        flex: 10,
-                                                        child: Text(
-                                                          '${branchListItemItem.branchName} (${branchListItemItem.branchCode})',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
+                                        return ListView.builder(
+                                          padding: EdgeInsets.fromLTRB(
+                                            0,
+                                            12.0,
+                                            0,
+                                            50.0,
+                                          ),
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.vertical,
+                                          itemCount: branchListItem.length,
+                                          itemBuilder:
+                                              (context, branchListItemIndex) {
+                                            final branchListItemItem =
+                                                branchListItem[
+                                                    branchListItemIndex];
+                                            return Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 8.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  FFAppState().selectedDropdownList = functions
+                                                      .setBoolValueListAtIndex(
+                                                          functions
+                                                              .createFalseListByItemNumber(
+                                                                  false,
+                                                                  FFAppState()
+                                                                      .selectedDropdownList
+                                                                      .length)
+                                                              ?.toList(),
+                                                          branchListItemIndex)!
+                                                      .toList()
+                                                      .cast<bool>();
+                                                  safeSetState(() {});
+                                                },
+                                                child: Container(
+                                                  height: 40.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        blurRadius: 4.0,
+                                                        color:
+                                                            Color(0x33000000),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          2.0,
                                                         ),
-                                                      ),
-                                                      Expanded(
-                                                        flex: 1,
-                                                        child: Builder(
-                                                          builder: (context) {
-                                                            if ((List<bool>
-                                                                        selectedDropdownList,
-                                                                    int index) {
-                                                              return selectedDropdownList[
-                                                                  index];
-                                                            }(
-                                                                FFAppState()
-                                                                    .selectedDropdownList
-                                                                    .toList(),
-                                                                branchListItemIndex)) {
-                                                              return Icon(
-                                                                Icons
-                                                                    .check_sharp,
-                                                                color: Color(
-                                                                    0xFF14B401),
-                                                                size: 24.0,
-                                                              );
-                                                            } else {
-                                                              return Container(
-                                                                width: 100.0,
-                                                                height: 100.0,
-                                                                decoration:
-                                                                    BoxDecoration(),
-                                                              );
-                                                            }
-                                                          },
-                                                        ),
-                                                      ),
+                                                      )
                                                     ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            4.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                12.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Expanded(
+                                                          flex: 10,
+                                                          child: Text(
+                                                            '${branchListItemItem.branchName} (${branchListItemItem.branchCode})',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Expanded(
+                                                          flex: 1,
+                                                          child: Builder(
+                                                            builder: (context) {
+                                                              if ((List<bool>
+                                                                          selectedDropdownList,
+                                                                      int index) {
+                                                                return selectedDropdownList[
+                                                                    index];
+                                                              }(
+                                                                  FFAppState()
+                                                                      .selectedDropdownList
+                                                                      .toList(),
+                                                                  branchListItemIndex)) {
+                                                                return Icon(
+                                                                  Icons
+                                                                      .check_sharp,
+                                                                  color: Color(
+                                                                      0xFF14B401),
+                                                                  size: 24.0,
+                                                                );
+                                                              } else {
+                                                                return Container(
+                                                                  width: 100.0,
+                                                                  height: 100.0,
+                                                                  decoration:
+                                                                      BoxDecoration(),
+                                                                );
+                                                              }
+                                                            },
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1817,7 +1888,7 @@ class _ChangeCarLocationPageWidgetState
                       Expanded(
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
+                              12.0, 0.0, 12.0, 20.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [

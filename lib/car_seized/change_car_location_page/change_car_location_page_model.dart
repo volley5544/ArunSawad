@@ -5,6 +5,7 @@ import '/backend/schema/structs/index.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -28,6 +29,8 @@ class ChangeCarLocationPageModel
 
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for RadioButton widget.
+  FormFieldController<String>? radioButtonValueController;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -77,4 +80,7 @@ class ChangeCarLocationPageModel
     textFieldFocusNode4?.dispose();
     textController5?.dispose();
   }
+
+  /// Additional helper methods.
+  String? get radioButtonValue => radioButtonValueController?.value;
 }
