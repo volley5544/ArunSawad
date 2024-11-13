@@ -211,7 +211,7 @@ class _ChangeCarLocationPageWidgetState
               size: 30.0,
             ),
             onPressed: () async {
-              if (!((widget!.fromPage != 'takeImages') &&
+              if ((widget!.fromPage != 'takeImages') &&
                   ((FFAppState().profileLevel == 'สาขา') ||
                           (FFAppState().profileLevel == 'เขต') ||
                           (FFAppState().profileLevel == 'ภาค')
@@ -226,7 +226,8 @@ class _ChangeCarLocationPageWidgetState
                               functions.getDataFromMapJson(
                                   widget!.editAccessRoleData, widget!.step),
                               'price_edit_role'),
-                          widget!.userRoleEdit)!))) {
+                          widget!.userRoleEdit)!) &&
+                  _model.allowChangeLocation) {
                 _model.allowChangeLocation = false;
                 safeSetState(() {});
                 return;
@@ -317,7 +318,8 @@ class _ChangeCarLocationPageWidgetState
                                           widget!.editAccessRoleData,
                                           widget!.step),
                                       'price_edit_role'),
-                                  widget!.userRoleEdit)!))
+                                  widget!.userRoleEdit)!) &&
+                          !_model.allowChangeLocation)
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
