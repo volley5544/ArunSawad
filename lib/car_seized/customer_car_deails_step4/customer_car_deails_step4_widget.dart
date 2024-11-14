@@ -8891,7 +8891,7 @@ class _CustomerCarDeailsStep4WidgetState
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                'ราคาประมูล',
+                                                'ราคา',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium

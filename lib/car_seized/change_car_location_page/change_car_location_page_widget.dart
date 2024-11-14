@@ -184,7 +184,7 @@ class _ChangeCarLocationPageWidgetState
     _model.priceTextFieldFocusNode ??= FocusNode();
     _model.priceTextFieldFocusNode!.addListener(
       () async {
-        if ((_model.priceTextFieldFocusNode?.hasFocus ?? false)) {
+        if (true) {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
