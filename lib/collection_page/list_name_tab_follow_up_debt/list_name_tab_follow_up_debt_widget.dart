@@ -1065,11 +1065,11 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                           child:
                                                                               AutoSizeText(
                                                                             () {
-                                                                              if (getJsonField(
+                                                                              if ('${getJsonField(
                                                                                     listNameItem,
                                                                                     r'''$.ACTION_DATE''',
-                                                                                  ) ==
-                                                                                  FFAppState().EmptyJson) {
+                                                                                  ).toString()}' ==
+                                                                                  '') {
                                                                                 return '${getJsonField(
                                                                                   listNameItem,
                                                                                   r'''$.ACTION_DATE''',

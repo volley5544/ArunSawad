@@ -65,37 +65,41 @@ class _CustomerCarDeailsStep4WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CustomerCarDeailsStep4'});
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
-    _model.textFieldFocusNode1!.addListener(
+    _model.priceTextFieldTextController ??= TextEditingController();
+    _model.priceTextFieldFocusNode ??= FocusNode();
+    _model.priceTextFieldFocusNode!.addListener(
       () async {
-        if ((_model.textFieldFocusNode1?.hasFocus ?? false)) {
+        if ((_model.priceTextFieldFocusNode?.hasFocus ?? false)) {
           safeSetState(() {
-            _model.textController1?.text =
-                functions.removeCommaFromNumText(_model.textController1.text);
-            _model.textFieldFocusNode1?.requestFocus();
+            _model.priceTextFieldTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.priceTextFieldTextController.text);
+            _model.priceTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController1?.selection = TextSelection.collapsed(
-                offset: _model.textController1!.text.length,
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
               );
             });
           });
         } else {
           safeSetState(() {
-            _model.textController1?.text = functions
-                .returnNumberWithComma2Decimal(_model.textController1.text)!;
-            _model.textFieldFocusNode1?.requestFocus();
+            _model.priceTextFieldTextController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.priceTextFieldTextController.text)!;
+            _model.priceTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController1?.selection = TextSelection.collapsed(
-                offset: _model.textController1!.text.length,
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
               );
             });
           });
         }
       },
     );
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
+    _model.remarkTextFieldTextController ??= TextEditingController();
+    _model.remarkTextFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -8979,10 +8983,12 @@ class _CustomerCarDeailsStep4WidgetState
                                                                 8.0, 0.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .textController1,
+                                                          .priceTextFieldTextController,
                                                       focusNode: _model
-                                                          .textFieldFocusNode1,
+                                                          .priceTextFieldFocusNode,
                                                       autofocus: false,
+                                                      textInputAction:
+                                                          TextInputAction.next,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -9034,7 +9040,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                               .numberWithOptions(
                                                               decimal: true),
                                                       validator: _model
-                                                          .textController1Validator
+                                                          .priceTextFieldTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -9103,10 +9109,10 @@ class _CustomerCarDeailsStep4WidgetState
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 8.0, 0.0),
                                               child: TextFormField(
-                                                controller:
-                                                    _model.textController2,
-                                                focusNode:
-                                                    _model.textFieldFocusNode2,
+                                                controller: _model
+                                                    .remarkTextFieldTextController,
+                                                focusNode: _model
+                                                    .remarkTextFieldFocusNode,
                                                 autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
@@ -9146,7 +9152,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                         ),
                                                 maxLines: null,
                                                 validator: _model
-                                                    .textController2Validator
+                                                    .remarkTextFieldTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -9246,7 +9252,8 @@ class _CustomerCarDeailsStep4WidgetState
                                   functions.getDataFromMapJson(
                                       widget!.saveAccessRoleData, widget!.step),
                                   'price_is_required'))!) {
-                            if (_model.textController1.text == '') {
+                            if (_model.priceTextFieldTextController.text ==
+                                '') {
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -9268,7 +9275,7 @@ class _CustomerCarDeailsStep4WidgetState
                               return;
                             }
                             if (!(double.parse(functions.removeCommaFromNumText(
-                                    _model.textController1.text)) >
+                                    _model.priceTextFieldTextController.text)) >
                                 0.0)) {
                               await showDialog(
                                 context: context,
@@ -9375,10 +9382,16 @@ class _CustomerCarDeailsStep4WidgetState
                             userid: FFAppState().employeeID,
                             locat:
                                 '${widget!.impoundCarParamSet?.improundLOCAT}',
-                            remark: (_model.textController2.text != null &&
-                                        _model.textController2.text != '') &&
-                                    (_model.textController2.text != '')
-                                ? '${_model.textController2.text}'
+                            remark: (_model.remarkTextFieldTextController
+                                                .text !=
+                                            null &&
+                                        _model.remarkTextFieldTextController
+                                                .text !=
+                                            '') &&
+                                    (_model.remarkTextFieldTextController
+                                            .text !=
+                                        '')
+                                ? '${_model.remarkTextFieldTextController.text}'
                                 : '',
                             images1: _model.uploadedLocalFile1,
                             images2: _model.uploadedLocalFile2,
@@ -9452,9 +9465,11 @@ class _CustomerCarDeailsStep4WidgetState
                             impoundEmp: '',
                             impoundDate: '',
                             impoundNameth: '',
-                            impoundcarPrice: _model.textController1.text != ''
+                            impoundcarPrice: _model
+                                        .priceTextFieldTextController.text !=
+                                    ''
                                 ? functions.removeCommaFromNumText(
-                                    _model.textController1.text)
+                                    _model.priceTextFieldTextController.text)
                                 : '0.00',
                             images13: _model.uploadedLocalFile13,
                             images14: _model.uploadedLocalFile14,
