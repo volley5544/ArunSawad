@@ -2189,6 +2189,61 @@ class _ChangeCarLocationPageWidgetState
                                           safeSetState(() {});
                                         return;
                                       }
+                                      if ((FFAppState().profileLevel ==
+                                                  'สาขา') ||
+                                              (FFAppState().profileLevel ==
+                                                  'เขต') ||
+                                              (FFAppState().profileLevel ==
+                                                  'ภาค')
+                                          ? functions.containsValueInJsonList(
+                                              functions.getDataFromMapJson(
+                                                  functions.getDataFromMapJson(
+                                                      widget!
+                                                          .editAccessRoleData,
+                                                      widget!.step),
+                                                  'price_edit_level'),
+                                              FFAppState().profileLevel)!
+                                          : functions.containsValueInJsonList(
+                                              functions.getDataFromMapJson(
+                                                  functions.getDataFromMapJson(
+                                                      widget!
+                                                          .editAccessRoleData,
+                                                      widget!.step),
+                                                  'price_edit_role'),
+                                              widget!.userRoleEdit)!) {
+                                        if (_model.priceTextFieldTextController
+                                                .text !=
+                                            '') {
+                                          if (!(double.parse(functions
+                                                  .removeCommaFromNumText(_model
+                                                      .priceTextFieldTextController
+                                                      .text)) >
+                                              0.0)) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'กรุณากรอกราคามากกว่า 0 บาท'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                        }
+                                      }
                                       _model.updateCarLocationOutput =
                                           await UploadImagesGoogleDriveGroup
                                               .updateImproundCarCall

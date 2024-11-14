@@ -8729,7 +8729,38 @@ class _CustomerCarDeailsStep1WidgetState
                                   if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
+                              } else {
+                                if (_model.priceTextFieldTextController.text !=
+                                    '') {
+                                  if (!(double.parse(functions
+                                          .removeCommaFromNumText(_model
+                                              .priceTextFieldTextController
+                                              .text)) >
+                                      0.0)) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'หากกรอกราคา กรุณากรอกราคามากกว่า 0 บาท'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
+                                    return;
+                                  }
+                                }
                               }
+
                               var confirmDialogResponse =
                                   await showDialog<bool>(
                                         context: context,
