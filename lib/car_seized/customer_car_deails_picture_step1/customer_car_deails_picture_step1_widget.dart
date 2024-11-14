@@ -509,7 +509,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                 onPressed: () async {
                   if (widget!.step == 'step4') {}
 
-                  context.pushNamed(
+                  context.goNamed(
                     'ChangeCarLocationPage',
                     queryParameters: {
                       'step': serializeParam(

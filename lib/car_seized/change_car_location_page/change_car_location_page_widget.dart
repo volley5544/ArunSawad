@@ -2,6 +2,7 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
+import '/components/data_not_found_component_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -92,24 +93,6 @@ class _ChangeCarLocationPageWidgetState
         _model.allowChangeLocation = true;
         safeSetState(() {});
       }
-
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              title: Text(widget!.fromPage!),
-              content: Text(_model.allowChangeLocation.toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
     });
 
     _model.searchTextfieldTextController ??= TextEditingController();
@@ -128,15 +111,23 @@ class _ChangeCarLocationPageWidgetState
           safeSetState(() {
             _model.textController2?.text =
                 functions.removeCommaFromNumText(_model.textController2.text);
-            _model.textController2?.selection = TextSelection.collapsed(
-                offset: _model.textController2!.text.length);
+            _model.textFieldFocusNode1?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController2?.selection = TextSelection.collapsed(
+                offset: _model.textController2!.text.length,
+              );
+            });
           });
         } else {
           safeSetState(() {
             _model.textController2?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController2.text)!;
-            _model.textController2?.selection = TextSelection.collapsed(
-                offset: _model.textController2!.text.length);
+            _model.textFieldFocusNode1?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController2?.selection = TextSelection.collapsed(
+                offset: _model.textController2!.text.length,
+              );
+            });
           });
         }
       },
@@ -154,15 +145,23 @@ class _ChangeCarLocationPageWidgetState
           safeSetState(() {
             _model.textController3?.text =
                 functions.removeCommaFromNumText(_model.textController3.text);
-            _model.textController3?.selection = TextSelection.collapsed(
-                offset: _model.textController3!.text.length);
+            _model.textFieldFocusNode2?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController3?.selection = TextSelection.collapsed(
+                offset: _model.textController3!.text.length,
+              );
+            });
           });
         } else {
           safeSetState(() {
             _model.textController3?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController3.text)!;
-            _model.textController3?.selection = TextSelection.collapsed(
-                offset: _model.textController3!.text.length);
+            _model.textFieldFocusNode2?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController3?.selection = TextSelection.collapsed(
+                offset: _model.textController3!.text.length,
+              );
+            });
           });
         }
       },
@@ -181,15 +180,23 @@ class _ChangeCarLocationPageWidgetState
           safeSetState(() {
             _model.textController4?.text =
                 functions.removeCommaFromNumText(_model.textController4.text);
-            _model.textController4?.selection = TextSelection.collapsed(
-                offset: _model.textController4!.text.length);
+            _model.textFieldFocusNode3?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController4?.selection = TextSelection.collapsed(
+                offset: _model.textController4!.text.length,
+              );
+            });
           });
         } else {
           safeSetState(() {
             _model.textController4?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController4.text)!;
-            _model.textController4?.selection = TextSelection.collapsed(
-                offset: _model.textController4!.text.length);
+            _model.textFieldFocusNode3?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController4?.selection = TextSelection.collapsed(
+                offset: _model.textController4!.text.length,
+              );
+            });
           });
         }
       },
@@ -234,7 +241,9 @@ class _ChangeCarLocationPageWidgetState
             },
           ),
           title: AutoSizeText(
-            'เลือกสถานที่จอดรถ',
+            widget!.fromPage == 'takeImages'
+                ? 'เลือกสถานที่จอดรถ'
+                : 'แก้ไขข้อมูล',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Poppins',
                   color: Color(0xFF003063),
@@ -368,7 +377,7 @@ class _ChangeCarLocationPageWidgetState
                                             ),
                                     buttonPosition: RadioButtonPosition.left,
                                     direction: Axis.horizontal,
-                                    radioButtonColor: Color(0xFFFE6400),
+                                    radioButtonColor: Color(0xFF3FCC4B),
                                     inactiveRadioButtonColor:
                                         FlutterFlowTheme.of(context)
                                             .secondaryText,
@@ -1065,8 +1074,10 @@ class _ChangeCarLocationPageWidgetState
                                             .toList();
                                         if (branchListItem.isEmpty) {
                                           return Center(
-                                            child: Image.asset(
-                                              'assets/images/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png',
+                                            child: Container(
+                                              height: 50.0,
+                                              child:
+                                                  DataNotFoundComponentWidget(),
                                             ),
                                           );
                                         }
@@ -1638,7 +1649,7 @@ class _ChangeCarLocationPageWidgetState
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
-                                              'ราคาประมูล',
+                                              'ราคา',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium

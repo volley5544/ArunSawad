@@ -192,7 +192,7 @@ class _CarSeizedDashboardPageWidgetState
                                 return 'ถ่ายรูปส่งเปลี่ยนเป้ารถยึด';
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
-                                return 'เปลี่ยนสถานที่ส่งเปลี่ยนเป้ารถยึด';
+                                return 'แก้ไขข้อมูลส่งเปลี่ยนเป้ารถยึด';
                               } else {
                                 return 'ดูรูปส่งเปลี่ยนเป้ารถยึด';
                               }
@@ -322,7 +322,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.location_pin,
+                                        Icons.edit_sharp,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -344,7 +344,7 @@ class _CarSeizedDashboardPageWidgetState
                                           return 'ถ่ายรูป';
                                         } else if (widget!.fromPage ==
                                             'changeCarLocation') {
-                                          return 'เปลี่ยนสถานที่';
+                                          return 'แก้ไขข้อมูล';
                                         } else {
                                           return 'ดูรูป';
                                         }
@@ -475,7 +475,7 @@ class _CarSeizedDashboardPageWidgetState
                                 return 'ถ่ายรูปส่งมอบรถ';
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
-                                return 'เปลี่ยนที่จอดส่งมอบรถ';
+                                return 'แก้ไขข้อมูลส่งมอบรถ';
                               } else {
                                 return 'ดูรูปส่งมอบรถ';
                               }
@@ -606,7 +606,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.location_pin,
+                                        Icons.edit_sharp,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -625,7 +625,7 @@ class _CarSeizedDashboardPageWidgetState
                                         return 'ถ่ายรูปส่งมอบรถ';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
-                                        return 'เปลี่ยนสถานที่';
+                                        return 'แก้ไขข้อมูล';
                                       } else {
                                         return 'ดูรูปส่งมอบรถ';
                                       }
@@ -745,7 +745,7 @@ class _CarSeizedDashboardPageWidgetState
                                 return 'ถ่ายรูปตั้งราคา';
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
-                                return 'เปลี่ยนที่จอดตั้งราคา';
+                                return 'แก้ไขข้อมูลตั้งราคา';
                               } else {
                                 return 'ดูรูปตั้งราคา';
                               }
@@ -876,7 +876,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.location_pin,
+                                        Icons.edit_sharp,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -895,7 +895,7 @@ class _CarSeizedDashboardPageWidgetState
                                         return 'ถ่ายรูปตั้งราคา';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
-                                        return 'เปลี่ยนสถานที่';
+                                        return 'แก้ไขข้อมูล';
                                       } else {
                                         return 'ดูรูปตั้งราคา';
                                       }
@@ -1015,7 +1015,7 @@ class _CarSeizedDashboardPageWidgetState
                                 return 'อัพโหลดรูปเข้าประมูล';
                               } else if (widget!.fromPage ==
                                   'changeCarLocation') {
-                                return 'เปลี่ยนที่จอดเข้าประมูล';
+                                return 'แก้ไขข้อมูลเข้าประมูล';
                               } else {
                                 return 'ดูรูปเข้าประมูล';
                               }
@@ -1146,7 +1146,7 @@ class _CarSeizedDashboardPageWidgetState
                                     child: Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
-                                        Icons.location_pin,
+                                        Icons.edit_sharp,
                                         color: Color(0xFF354052),
                                         size: 28.0,
                                       ),
@@ -1165,7 +1165,7 @@ class _CarSeizedDashboardPageWidgetState
                                         return 'อัพโหลดรูปเข้าประมูล';
                                       } else if (widget!.fromPage ==
                                           'changeCarLocation') {
-                                        return 'เปลี่ยนสถานที่';
+                                        return 'แก้ไขข้อมูล';
                                       } else {
                                         return 'ดูรูปเข้าประมูล';
                                       }

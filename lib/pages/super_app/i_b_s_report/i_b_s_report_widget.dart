@@ -283,9 +283,7 @@ class _IBSReportWidgetState extends State<IBSReportWidget>
                                     child: TabBar(
                                       labelColor: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      unselectedLabelColor:
-                                          FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                      unselectedLabelColor: Color(0xFF71797E),
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(

@@ -117,22 +117,6 @@ class _CarSeizedSelectDashboardWidgetState
           .cast<String>();
       safeSetState(() {});
       Navigator.pop(context);
-
-      var userLogRecordReference = UserLogRecord.collection.doc();
-      await userLogRecordReference.set(createUserLogRecordData(
-        employeeId: FFAppState().employeeID,
-        action: 'ImpoundCar',
-        actionTime: getCurrentTimestamp,
-        userLocation: currentUserLocationValue,
-      ));
-      _model.createdUserLogImpoundCar = UserLogRecord.getDocumentFromData(
-          createUserLogRecordData(
-            employeeId: FFAppState().employeeID,
-            action: 'ImpoundCar',
-            actionTime: getCurrentTimestamp,
-            userLocation: currentUserLocationValue,
-          ),
-          userLogRecordReference);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -566,7 +550,7 @@ class _CarSeizedSelectDashboardWidgetState
                             Expanded(
                               flex: 1,
                               child: Text(
-                                'เปลี่ยนสถานที่จอดรถ\n, ราคา',
+                                'แก้ไขข้อมูล',
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium

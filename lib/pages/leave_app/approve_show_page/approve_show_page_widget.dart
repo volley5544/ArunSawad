@@ -449,8 +449,6 @@ class _ApproveShowPageWidgetState extends State<ApproveShowPageWidget>
                         alignment: Alignment(0.0, 0),
                         child: TabBar(
                           labelColor: FlutterFlowTheme.of(context).black600,
-                          unselectedLabelColor:
-                              FlutterFlowTheme.of(context).black600,
                           labelStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Poppins',

@@ -84,10 +84,13 @@ class _InsuranceRequestBasicPageWidgetState
         safeSetState(() {
           _model.insuranceLicenseNoInputTextController?.text =
               FFAppState().insuranceBasicOldLicenseNo;
-          _model.insuranceLicenseNoInputTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model
-                      .insuranceLicenseNoInputTextController!.text.length);
+          _model.insuranceLicenseNoInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.insuranceLicenseNoInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.insuranceLicenseNoInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.vehicleTypeDropDownValueController?.value =
@@ -129,10 +132,13 @@ class _InsuranceRequestBasicPageWidgetState
           _model.freezeBoxPriceInputTextController?.text =
               functions.convertDoubleTextToIntText(
                   FFAppState().insuranceBasicPickupBoxPrice)!;
-          _model.freezeBoxPriceInputTextController?.selection =
-              TextSelection.collapsed(
-                  offset:
-                      _model.freezeBoxPriceInputTextController!.text.length);
+          _model.freezeBoxPriceInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.freezeBoxPriceInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.freezeBoxPriceInputTextController!.text.length,
+            );
+          });
         });
         await Future.delayed(const Duration(milliseconds: 600));
         await showDialog(
@@ -155,14 +161,24 @@ class _InsuranceRequestBasicPageWidgetState
         safeSetState(() {
           _model.brandInputTextController?.text =
               FFAppState().insuranceBasicBrandName;
-          _model.brandInputTextController?.selection = TextSelection.collapsed(
-              offset: _model.brandInputTextController!.text.length);
+          _model.brandInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.brandInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.brandInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.modelInputTextController?.text =
               FFAppState().insuranceBasicModelName;
-          _model.modelInputTextController?.selection = TextSelection.collapsed(
-              offset: _model.modelInputTextController!.text.length);
+          _model.modelInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.modelInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.modelInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.truckCurrentPriceInputTextController?.text =
@@ -170,26 +186,37 @@ class _InsuranceRequestBasicPageWidgetState
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicTruckCurrentPrice)!);
-          _model.truckCurrentPriceInputTextController?.selection =
-              TextSelection.collapsed(
-                  offset:
-                      _model.truckCurrentPriceInputTextController!.text.length);
+          _model.truckCurrentPriceInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.truckCurrentPriceInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.truckCurrentPriceInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.plateInputTextController?.text =
               FFAppState().insuranceBasicPlateNo;
-          _model.plateInputTextController?.selection = TextSelection.collapsed(
-              offset: _model.plateInputTextController!.text.length);
+          _model.plateInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.plateInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.plateInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.plateAdditionalInputTextController?.text =
               (FFAppState().insuranceBasicPlateAdditional == '-'
                   ? ''
                   : FFAppState().insuranceBasicPlateAdditional);
-          _model.plateAdditionalInputTextController?.selection =
-              TextSelection.collapsed(
-                  offset:
-                      _model.plateAdditionalInputTextController!.text.length);
+          _model.plateAdditionalInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.plateAdditionalInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.plateAdditionalInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.yearDropDownValueController?.value =
@@ -208,9 +235,13 @@ class _InsuranceRequestBasicPageWidgetState
               (FFAppState().insuranceBasicCarryPurpose == '-'
                   ? ''
                   : FFAppState().insuranceBasicCarryPurpose);
-          _model.logistPoposeInputTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.logistPoposeInputTextController!.text.length);
+          _model.logistPoposeInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.logistPoposeInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.logistPoposeInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.carModifyCheckboxValue = FFAppState().insuranceBasicCarModify;
@@ -220,45 +251,70 @@ class _InsuranceRequestBasicPageWidgetState
               (FFAppState().insuranceBasicAccessoryProtected == '-'
                   ? ''
                   : FFAppState().insuranceBasicAccessoryProtected);
-          _model.accessoryProtectedInputTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model
-                      .accessoryProtectedInputTextController!.text.length);
+          _model.accessoryProtectedInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.accessoryProtectedInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.accessoryProtectedInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.nameInputTextController?.text =
               FFAppState().insuranceBasicCusName;
-          _model.nameInputTextController?.selection = TextSelection.collapsed(
-              offset: _model.nameInputTextController!.text.length);
+          _model.nameInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.nameInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.nameInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.lastnameInputTextController?.text =
               FFAppState().insuranceBasicCusLastname;
-          _model.lastnameInputTextController?.selection =
-              TextSelection.collapsed(
-                  offset: _model.lastnameInputTextController!.text.length);
+          _model.lastnameInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.lastnameInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.lastnameInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.phoneInputTextController?.text =
               FFAppState().insuranceBasicCusPhone;
-          _model.phoneInputTextController?.selection = TextSelection.collapsed(
-              offset: _model.phoneInputTextController!.text.length);
+          _model.phoneInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.phoneInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.phoneInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.idInputTextController?.text =
               (FFAppState().insuranceBasicIdCardNo == '-'
                   ? ''
                   : FFAppState().insuranceBasicIdCardNo);
-          _model.idInputTextController?.selection = TextSelection.collapsed(
-              offset: _model.idInputTextController!.text.length);
+          _model.idInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.idInputTextController?.selection = TextSelection.collapsed(
+              offset: _model.idInputTextController!.text.length,
+            );
+          });
         });
         safeSetState(() {
           _model.remarkInputTextController?.text =
               (FFAppState().insuranceBasicRemark == '-'
                   ? ''
                   : FFAppState().insuranceBasicRemark);
-          _model.remarkInputTextController?.selection = TextSelection.collapsed(
-              offset: _model.remarkInputTextController!.text.length);
+          _model.remarkInputFocusNode?.requestFocus();
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.remarkInputTextController?.selection =
+                TextSelection.collapsed(
+              offset: _model.remarkInputTextController!.text.length,
+            );
+          });
         });
       }
       Navigator.pop(context);

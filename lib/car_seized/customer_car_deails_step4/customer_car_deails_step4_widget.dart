@@ -73,15 +73,23 @@ class _CustomerCarDeailsStep4WidgetState
           safeSetState(() {
             _model.textController1?.text =
                 functions.removeCommaFromNumText(_model.textController1.text);
-            _model.textController1?.selection = TextSelection.collapsed(
-                offset: _model.textController1!.text.length);
+            _model.textFieldFocusNode1?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController1?.selection = TextSelection.collapsed(
+                offset: _model.textController1!.text.length,
+              );
+            });
           });
         } else {
           safeSetState(() {
             _model.textController1?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController1.text)!;
-            _model.textController1?.selection = TextSelection.collapsed(
-                offset: _model.textController1!.text.length);
+            _model.textFieldFocusNode1?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController1?.selection = TextSelection.collapsed(
+                offset: _model.textController1!.text.length,
+              );
+            });
           });
         }
       },

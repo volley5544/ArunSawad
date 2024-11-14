@@ -942,8 +942,6 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
                             alignment: Alignment(0.0, 0),
                             child: TabBar(
                               labelColor: FlutterFlowTheme.of(context).primary,
-                              unselectedLabelColor:
-                                  FlutterFlowTheme.of(context).primary,
                               labelStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

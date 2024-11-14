@@ -44,8 +44,12 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
           safeSetState(() {
             _model.textController?.text =
                 functions.removeCommaFromNumText(_model.textController.text);
-            _model.textController?.selection = TextSelection.collapsed(
-                offset: _model.textController!.text.length);
+            _model.textFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController?.selection = TextSelection.collapsed(
+                offset: _model.textController!.text.length,
+              );
+            });
           });
         } else {
           if (_model.textController.text == '') {
@@ -54,8 +58,12 @@ class _InputComponentWidgetState extends State<InputComponentWidget> {
           safeSetState(() {
             _model.textController?.text = functions
                 .returnNumberWithComma2Decimal(_model.textController.text)!;
-            _model.textController?.selection = TextSelection.collapsed(
-                offset: _model.textController!.text.length);
+            _model.textFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.textController?.selection = TextSelection.collapsed(
+                offset: _model.textController!.text.length,
+              );
+            });
           });
         }
       },

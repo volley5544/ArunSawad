@@ -60,8 +60,6 @@ class CarSeizedSelectDashboardModel
   UrlLinkStorageRecord? urlLinkStorageVloan;
   // Stores action output result for [Custom Action - getDataFromCollection] action in CarSeizedSelectDashboard widget.
   dynamic? getDataCollection;
-  // Stores action output result for [Backend Call - Create Document] action in CarSeizedSelectDashboard widget.
-  UserLogRecord? createdUserLogImpoundCar;
 
   @override
   void initState(BuildContext context) {}

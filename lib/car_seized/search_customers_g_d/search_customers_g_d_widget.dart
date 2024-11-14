@@ -817,10 +817,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         );
                                         safeSetState(() {
                                           _model.textController?.text = '';
-                                          _model.textController?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model.textController!
-                                                      .text.length);
+                                          _model.textFieldFocusNode
+                                              ?.requestFocus();
+                                          WidgetsBinding.instance
+                                              .addPostFrameCallback((_) {
+                                            _model.textController?.selection =
+                                                TextSelection.collapsed(
+                                              offset: _model
+                                                  .textController!.text.length,
+                                            );
+                                          });
                                         });
                                         Navigator.pop(context);
                                         if (_shouldSetState)
@@ -1411,10 +1417,16 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                         );
                                         safeSetState(() {
                                           _model.textController?.text = '';
-                                          _model.textController?.selection =
-                                              TextSelection.collapsed(
-                                                  offset: _model.textController!
-                                                      .text.length);
+                                          _model.textFieldFocusNode
+                                              ?.requestFocus();
+                                          WidgetsBinding.instance
+                                              .addPostFrameCallback((_) {
+                                            _model.textController?.selection =
+                                                TextSelection.collapsed(
+                                              offset: _model
+                                                  .textController!.text.length,
+                                            );
+                                          });
                                         });
                                         Navigator.pop(context);
                                         if (_shouldSetState)
