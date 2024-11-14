@@ -105,37 +105,7 @@ class _ChangeCarLocationPageWidgetState
                 : '')
             : '');
     _model.companyTextFieldFocusNode ??= FocusNode();
-    _model.companyTextFieldFocusNode!.addListener(
-      () async {
-        if ((_model.companyTextFieldFocusNode?.hasFocus ?? false)) {
-          safeSetState(() {
-            _model.companyTextFieldTextController?.text =
-                functions.removeCommaFromNumText(
-                    _model.companyTextFieldTextController.text);
-            _model.companyTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.companyTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.companyTextFieldTextController!.text.length,
-              );
-            });
-          });
-        } else {
-          safeSetState(() {
-            _model.companyTextFieldTextController?.text =
-                functions.returnNumberWithComma2Decimal(
-                    _model.companyTextFieldTextController.text)!;
-            _model.companyTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.companyTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.companyTextFieldTextController!.text.length,
-              );
-            });
-          });
-        }
-      },
-    );
+
     _model.deliverTextFieldTextController ??= TextEditingController(
         text: widget!.fromPage != 'takeImages'
             ? (widget!.impoundCarLocateParamSet?.receiver != ''
@@ -143,37 +113,7 @@ class _ChangeCarLocationPageWidgetState
                 : '')
             : '');
     _model.deliverTextFieldFocusNode ??= FocusNode();
-    _model.deliverTextFieldFocusNode!.addListener(
-      () async {
-        if ((_model.deliverTextFieldFocusNode?.hasFocus ?? false)) {
-          safeSetState(() {
-            _model.deliverTextFieldTextController?.text =
-                functions.removeCommaFromNumText(
-                    _model.deliverTextFieldTextController.text);
-            _model.deliverTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.deliverTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.deliverTextFieldTextController!.text.length,
-              );
-            });
-          });
-        } else {
-          safeSetState(() {
-            _model.deliverTextFieldTextController?.text =
-                functions.returnNumberWithComma2Decimal(
-                    _model.deliverTextFieldTextController.text)!;
-            _model.deliverTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.deliverTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.deliverTextFieldTextController!.text.length,
-              );
-            });
-          });
-        }
-      },
-    );
+
     _model.priceTextFieldTextController ??= TextEditingController(
         text: widget!.fromPage != 'takeImages'
             ? (widget!.impoundCarParamSet?.impoundPrice != ''
