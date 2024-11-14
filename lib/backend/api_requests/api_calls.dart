@@ -10327,6 +10327,15 @@ class CollectionFollowupDebtCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? actiondate(dynamic response) => (getJsonField(
+        response,
+        r'''$.data[:].ACTION_DATE''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class CollectionFollowupDebtPPCall {

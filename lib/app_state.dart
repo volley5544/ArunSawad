@@ -9717,6 +9717,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInImpoundLogisticsCompany(int index, String value) {
     impoundLogisticsCompany.insert(index, value);
   }
+
+  dynamic _EmptyJson;
+  dynamic get EmptyJson => _EmptyJson;
+  set EmptyJson(dynamic value) {
+    _EmptyJson = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

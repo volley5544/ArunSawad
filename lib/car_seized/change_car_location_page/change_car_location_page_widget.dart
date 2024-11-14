@@ -98,111 +98,123 @@ class _ChangeCarLocationPageWidgetState
     _model.searchTextfieldTextController ??= TextEditingController();
     _model.searchTextfieldFocusNode ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(
+    _model.companyTextFieldTextController ??= TextEditingController(
         text: widget!.fromPage != 'takeImages'
             ? (widget!.impoundCarLocateParamSet?.logisticsCompany != ''
                 ? widget!.impoundCarLocateParamSet?.logisticsCompany
                 : '')
             : '');
-    _model.textFieldFocusNode1 ??= FocusNode();
-    _model.textFieldFocusNode1!.addListener(
+    _model.companyTextFieldFocusNode ??= FocusNode();
+    _model.companyTextFieldFocusNode!.addListener(
       () async {
-        if ((_model.textFieldFocusNode1?.hasFocus ?? false)) {
+        if ((_model.companyTextFieldFocusNode?.hasFocus ?? false)) {
           safeSetState(() {
-            _model.textController2?.text =
-                functions.removeCommaFromNumText(_model.textController2.text);
-            _model.textFieldFocusNode1?.requestFocus();
+            _model.companyTextFieldTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.companyTextFieldTextController.text);
+            _model.companyTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController2?.selection = TextSelection.collapsed(
-                offset: _model.textController2!.text.length,
+              _model.companyTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.companyTextFieldTextController!.text.length,
               );
             });
           });
         } else {
           safeSetState(() {
-            _model.textController2?.text = functions
-                .returnNumberWithComma2Decimal(_model.textController2.text)!;
-            _model.textFieldFocusNode1?.requestFocus();
+            _model.companyTextFieldTextController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.companyTextFieldTextController.text)!;
+            _model.companyTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController2?.selection = TextSelection.collapsed(
-                offset: _model.textController2!.text.length,
+              _model.companyTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.companyTextFieldTextController!.text.length,
               );
             });
           });
         }
       },
     );
-    _model.textController3 ??= TextEditingController(
+    _model.deliverTextFieldTextController ??= TextEditingController(
         text: widget!.fromPage != 'takeImages'
             ? (widget!.impoundCarLocateParamSet?.receiver != ''
                 ? widget!.impoundCarLocateParamSet?.receiver
                 : '')
             : '');
-    _model.textFieldFocusNode2 ??= FocusNode();
-    _model.textFieldFocusNode2!.addListener(
+    _model.deliverTextFieldFocusNode ??= FocusNode();
+    _model.deliverTextFieldFocusNode!.addListener(
       () async {
-        if ((_model.textFieldFocusNode2?.hasFocus ?? false)) {
+        if ((_model.deliverTextFieldFocusNode?.hasFocus ?? false)) {
           safeSetState(() {
-            _model.textController3?.text =
-                functions.removeCommaFromNumText(_model.textController3.text);
-            _model.textFieldFocusNode2?.requestFocus();
+            _model.deliverTextFieldTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.deliverTextFieldTextController.text);
+            _model.deliverTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController3?.selection = TextSelection.collapsed(
-                offset: _model.textController3!.text.length,
+              _model.deliverTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.deliverTextFieldTextController!.text.length,
               );
             });
           });
         } else {
           safeSetState(() {
-            _model.textController3?.text = functions
-                .returnNumberWithComma2Decimal(_model.textController3.text)!;
-            _model.textFieldFocusNode2?.requestFocus();
+            _model.deliverTextFieldTextController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.deliverTextFieldTextController.text)!;
+            _model.deliverTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController3?.selection = TextSelection.collapsed(
-                offset: _model.textController3!.text.length,
+              _model.deliverTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.deliverTextFieldTextController!.text.length,
               );
             });
           });
         }
       },
     );
-    _model.textController4 ??= TextEditingController(
+    _model.priceTextFieldTextController ??= TextEditingController(
         text: widget!.fromPage != 'takeImages'
             ? (widget!.impoundCarParamSet?.impoundPrice != ''
                 ? functions.returnNumberWithComma2Decimal(
                     widget!.impoundCarParamSet?.impoundPrice)
                 : '')
             : '');
-    _model.textFieldFocusNode3 ??= FocusNode();
-    _model.textFieldFocusNode3!.addListener(
+    _model.priceTextFieldFocusNode ??= FocusNode();
+    _model.priceTextFieldFocusNode!.addListener(
       () async {
-        if ((_model.textFieldFocusNode3?.hasFocus ?? false)) {
+        if ((_model.priceTextFieldFocusNode?.hasFocus ?? false)) {
           safeSetState(() {
-            _model.textController4?.text =
-                functions.removeCommaFromNumText(_model.textController4.text);
-            _model.textFieldFocusNode3?.requestFocus();
+            _model.priceTextFieldTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.priceTextFieldTextController.text);
+            _model.priceTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController4?.selection = TextSelection.collapsed(
-                offset: _model.textController4!.text.length,
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
               );
             });
           });
         } else {
           safeSetState(() {
-            _model.textController4?.text = functions
-                .returnNumberWithComma2Decimal(_model.textController4.text)!;
-            _model.textFieldFocusNode3?.requestFocus();
+            _model.priceTextFieldTextController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.priceTextFieldTextController.text)!;
+            _model.priceTextFieldFocusNode?.requestFocus();
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.textController4?.selection = TextSelection.collapsed(
-                offset: _model.textController4!.text.length,
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
               );
             });
           });
         }
       },
     );
-    _model.textController5 ??= TextEditingController();
-    _model.textFieldFocusNode4 ??= FocusNode();
+    _model.remarkTextFieldTextController ??= TextEditingController();
+    _model.remarkTextFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -1442,10 +1454,10 @@ class _ChangeCarLocationPageWidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 8.0, 0.0),
                                                 child: TextFormField(
-                                                  controller:
-                                                      _model.textController2,
+                                                  controller: _model
+                                                      .companyTextFieldTextController,
                                                   focusNode: _model
-                                                      .textFieldFocusNode1,
+                                                      .companyTextFieldFocusNode,
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -1486,7 +1498,7 @@ class _ChangeCarLocationPageWidgetState
                                                       ),
                                                   maxLines: null,
                                                   validator: _model
-                                                      .textController2Validator
+                                                      .companyTextFieldTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -1559,10 +1571,10 @@ class _ChangeCarLocationPageWidgetState
                                                     .fromSTEB(
                                                         8.0, 0.0, 8.0, 0.0),
                                                 child: TextFormField(
-                                                  controller:
-                                                      _model.textController3,
+                                                  controller: _model
+                                                      .deliverTextFieldTextController,
                                                   focusNode: _model
-                                                      .textFieldFocusNode2,
+                                                      .deliverTextFieldFocusNode,
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -1603,7 +1615,7 @@ class _ChangeCarLocationPageWidgetState
                                                       ),
                                                   maxLines: null,
                                                   validator: _model
-                                                      .textController3Validator
+                                                      .deliverTextFieldTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -1704,10 +1716,10 @@ class _ChangeCarLocationPageWidgetState
                                                       .fromSTEB(
                                                           8.0, 0.0, 8.0, 0.0),
                                                   child: TextFormField(
-                                                    controller:
-                                                        _model.textController4,
+                                                    controller: _model
+                                                        .priceTextFieldTextController,
                                                     focusNode: _model
-                                                        .textFieldFocusNode3,
+                                                        .priceTextFieldFocusNode,
                                                     autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
@@ -1758,7 +1770,7 @@ class _ChangeCarLocationPageWidgetState
                                                             .numberWithOptions(
                                                             decimal: true),
                                                     validator: _model
-                                                        .textController4Validator
+                                                        .priceTextFieldTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -1826,10 +1838,10 @@ class _ChangeCarLocationPageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
-                                              controller:
-                                                  _model.textController5,
-                                              focusNode:
-                                                  _model.textFieldFocusNode4,
+                                              controller: _model
+                                                  .remarkTextFieldTextController,
+                                              focusNode: _model
+                                                  .remarkTextFieldFocusNode,
                                               autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
@@ -1867,7 +1879,7 @@ class _ChangeCarLocationPageWidgetState
                                                       ),
                                               maxLines: null,
                                               validator: _model
-                                                  .textController5Validator
+                                                  .remarkTextFieldTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2076,7 +2088,10 @@ class _ChangeCarLocationPageWidgetState
                                             safeSetState(() {});
                                           return;
                                         }
-                                        if (_model.textController2.text == '') {
+                                        if (_model
+                                                .companyTextFieldTextController
+                                                .text ==
+                                            '') {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -2100,7 +2115,10 @@ class _ChangeCarLocationPageWidgetState
                                             safeSetState(() {});
                                           return;
                                         }
-                                        if (_model.textController3.text == '') {
+                                        if (_model
+                                                .deliverTextFieldTextController
+                                                .text ==
+                                            '') {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -2148,7 +2166,10 @@ class _ChangeCarLocationPageWidgetState
                                                       widget!.step),
                                                   'include_deliver_data_role'),
                                               widget!.userRoleEdit)!) {
-                                        if (_model.textController2.text == '') {
+                                        if (_model
+                                                .companyTextFieldTextController
+                                                .text ==
+                                            '') {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -2172,7 +2193,10 @@ class _ChangeCarLocationPageWidgetState
                                             safeSetState(() {});
                                           return;
                                         }
-                                        if (_model.textController3.text == '') {
+                                        if (_model
+                                                .deliverTextFieldTextController
+                                                .text ==
+                                            '') {
                                           await showDialog(
                                             context: context,
                                             builder: (alertDialogContext) {
@@ -2197,7 +2221,9 @@ class _ChangeCarLocationPageWidgetState
                                           return;
                                         }
                                       }
-                                      if (_model.textController5.text == '') {
+                                      if (_model.remarkTextFieldTextController
+                                              .text ==
+                                          '') {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
@@ -2940,11 +2966,12 @@ class _ChangeCarLocationPageWidgetState
                                             ? _model.dropDownValue
                                             : widget!.impoundCarLocateParamSet
                                                 ?.locatCode,
-                                        impoundcarPrice:
-                                            functions.removeCommaFromNumText(
-                                                _model.textController4.text),
-                                        remarkPrice:
-                                            _model.textController5.text,
+                                        impoundcarPrice: functions
+                                            .removeCommaFromNumText(_model
+                                                .priceTextFieldTextController
+                                                .text),
+                                        remarkPrice: _model
+                                            .remarkTextFieldTextController.text,
                                         step: widget!.step,
                                         locatDelivercar: ((FFAppState()
                                                             .profileLevel ==
@@ -3033,7 +3060,9 @@ class _ChangeCarLocationPageWidgetState
                                                                 widget!.step),
                                                         'include_deliver_data_role'),
                                                     widget!.userRoleEdit)!)
-                                            ? _model.textController2.text
+                                            ? _model
+                                                .companyTextFieldTextController
+                                                .text
                                             : '',
                                         receiver: ((FFAppState().profileLevel ==
                                                         'สาขา') ||
@@ -3061,7 +3090,9 @@ class _ChangeCarLocationPageWidgetState
                                                                 widget!.step),
                                                         'include_deliver_data_role'),
                                                     widget!.userRoleEdit)!)
-                                            ? _model.textController3.text
+                                            ? _model
+                                                .deliverTextFieldTextController
+                                                .text
                                             : '',
                                       );
 
@@ -4147,7 +4178,9 @@ class _ChangeCarLocationPageWidgetState
                                                               'include_deliver_data_role'),
                                                           widget!
                                                               .userRoleSave)!)
-                                                  ? _model.textController3.text
+                                                  ? _model
+                                                      .deliverTextFieldTextController
+                                                      .text
                                                   : '',
                                               deliverLocateName: ((FFAppState()
                                                                   .profileLevel ==
@@ -4210,11 +4243,9 @@ class _ChangeCarLocationPageWidgetState
                                               logisticsCompany: ((FFAppState()
                                                                   .profileLevel ==
                                                               'สาขา') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
+                                                          (FFAppState().profileLevel ==
                                                               'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
+                                                          (FFAppState().profileLevel ==
                                                               'ภาค')
                                                       ? functions.containsValueInJsonList(
                                                           functions.getDataFromMapJson(
@@ -4232,8 +4263,11 @@ class _ChangeCarLocationPageWidgetState
                                                                       .saveAccessRoleData,
                                                                   widget!.step),
                                                               'include_deliver_data_role'),
-                                                          widget!.userRoleSave)!)
-                                                  ? _model.textController2.text
+                                                          widget!
+                                                              .userRoleSave)!)
+                                                  ? _model
+                                                      .companyTextFieldTextController
+                                                      .text
                                                   : '',
                                             ),
                                             ParamType.DataStruct,
@@ -4497,7 +4531,9 @@ class _ChangeCarLocationPageWidgetState
                                                               'include_deliver_data_role'),
                                                           widget!
                                                               .userRoleSave)!)
-                                                  ? _model.textController3.text
+                                                  ? _model
+                                                      .deliverTextFieldTextController
+                                                      .text
                                                   : '',
                                               deliverLocateName: ((FFAppState()
                                                                   .profileLevel ==
@@ -4560,11 +4596,9 @@ class _ChangeCarLocationPageWidgetState
                                               logisticsCompany: ((FFAppState()
                                                                   .profileLevel ==
                                                               'สาขา') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
+                                                          (FFAppState().profileLevel ==
                                                               'เขต') ||
-                                                          (FFAppState()
-                                                                  .profileLevel ==
+                                                          (FFAppState().profileLevel ==
                                                               'ภาค')
                                                       ? functions.containsValueInJsonList(
                                                           functions.getDataFromMapJson(
@@ -4582,8 +4616,11 @@ class _ChangeCarLocationPageWidgetState
                                                                       .saveAccessRoleData,
                                                                   widget!.step),
                                                               'include_deliver_data_role'),
-                                                          widget!.userRoleSave)!)
-                                                  ? _model.textController2.text
+                                                          widget!
+                                                              .userRoleSave)!)
+                                                  ? _model
+                                                      .companyTextFieldTextController
+                                                      .text
                                                   : '',
                                             ),
                                             ParamType.DataStruct,

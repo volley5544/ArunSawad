@@ -1064,17 +1064,30 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                               5,
                                                                           child:
                                                                               AutoSizeText(
-                                                                            containerUserLogRecord != null
-                                                                                ? '${functions.dateToBEDate(dateTimeFormat(
-                                                                                    "d/M/y",
-                                                                                    containerUserLogRecord?.actionTime,
-                                                                                    locale: FFLocalizations.of(context).languageCode,
-                                                                                  ))} ${dateTimeFormat(
-                                                                                    "Hm",
-                                                                                    containerUserLogRecord?.actionTime,
-                                                                                    locale: FFLocalizations.of(context).languageCode,
-                                                                                  )}'
-                                                                                : 'ยังไม่โทร',
+                                                                            () {
+                                                                              if (getJsonField(
+                                                                                    listNameItem,
+                                                                                    r'''$.ACTION_DATE''',
+                                                                                  ) ==
+                                                                                  FFAppState().EmptyJson) {
+                                                                                return '${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.ACTION_DATE''',
+                                                                                ).toString()}';
+                                                                              } else if (containerUserLogRecord != null) {
+                                                                                return '${functions.dateToBEDate(dateTimeFormat(
+                                                                                  "d/M/y",
+                                                                                  containerUserLogRecord?.actionTime,
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                ))} ${dateTimeFormat(
+                                                                                  "Hm",
+                                                                                  containerUserLogRecord?.actionTime,
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                )}';
+                                                                              } else {
+                                                                                return 'ยังไม่โทร';
+                                                                              }
+                                                                            }(),
                                                                             maxLines:
                                                                                 1,
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(

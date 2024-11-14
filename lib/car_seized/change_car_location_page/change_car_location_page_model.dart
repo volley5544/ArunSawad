@@ -42,22 +42,26 @@ class ChangeCarLocationPageModel
   TextEditingController? searchTextfieldTextController;
   String? Function(BuildContext, String?)?
       searchTextfieldTextControllerValidator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode3;
-  TextEditingController? textController4;
-  String? Function(BuildContext, String?)? textController4Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode4;
-  TextEditingController? textController5;
-  String? Function(BuildContext, String?)? textController5Validator;
+  // State field(s) for CompanyTextField widget.
+  FocusNode? companyTextFieldFocusNode;
+  TextEditingController? companyTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      companyTextFieldTextControllerValidator;
+  // State field(s) for DeliverTextField widget.
+  FocusNode? deliverTextFieldFocusNode;
+  TextEditingController? deliverTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      deliverTextFieldTextControllerValidator;
+  // State field(s) for PriceTextField widget.
+  FocusNode? priceTextFieldFocusNode;
+  TextEditingController? priceTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      priceTextFieldTextControllerValidator;
+  // State field(s) for RemarkTextField widget.
+  FocusNode? remarkTextFieldFocusNode;
+  TextEditingController? remarkTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      remarkTextFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (updateImproundCar)] action in Button widget.
   ApiCallResponse? updateCarLocationOutput;
 
@@ -69,17 +73,17 @@ class ChangeCarLocationPageModel
     searchTextfieldFocusNode?.dispose();
     searchTextfieldTextController?.dispose();
 
-    textFieldFocusNode1?.dispose();
-    textController2?.dispose();
+    companyTextFieldFocusNode?.dispose();
+    companyTextFieldTextController?.dispose();
 
-    textFieldFocusNode2?.dispose();
-    textController3?.dispose();
+    deliverTextFieldFocusNode?.dispose();
+    deliverTextFieldTextController?.dispose();
 
-    textFieldFocusNode3?.dispose();
-    textController4?.dispose();
+    priceTextFieldFocusNode?.dispose();
+    priceTextFieldTextController?.dispose();
 
-    textFieldFocusNode4?.dispose();
-    textController5?.dispose();
+    remarkTextFieldFocusNode?.dispose();
+    remarkTextFieldTextController?.dispose();
   }
 
   /// Additional helper methods.
