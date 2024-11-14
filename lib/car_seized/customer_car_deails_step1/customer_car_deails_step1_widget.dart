@@ -68,7 +68,37 @@ class _CustomerCarDeailsStep1WidgetState
         parameters: {'screen_name': 'CustomerCarDeailsStep1'});
     _model.priceTextFieldTextController ??= TextEditingController();
     _model.priceTextFieldFocusNode ??= FocusNode();
-
+    _model.priceTextFieldFocusNode!.addListener(
+      () async {
+        if ((_model.priceTextFieldFocusNode?.hasFocus ?? false)) {
+          safeSetState(() {
+            _model.priceTextFieldTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.priceTextFieldTextController.text);
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
+              );
+            });
+          });
+        } else {
+          safeSetState(() {
+            _model.priceTextFieldTextController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.priceTextFieldTextController.text)!;
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _model.priceTextFieldTextController?.selection =
+                  TextSelection.collapsed(
+                offset: _model.priceTextFieldTextController!.text.length,
+              );
+            });
+          });
+        }
+      },
+    );
     _model.remarkTextFieldTextController ??= TextEditingController();
     _model.remarkTextFieldFocusNode ??= FocusNode();
 
@@ -8132,7 +8162,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'ราคา',
+                                    'ประมูล',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
