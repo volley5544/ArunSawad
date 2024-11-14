@@ -1022,64 +1022,21 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         ),
                     ],
                   ),
-                  if (widget!.impoundCarStatusName != '')
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 3.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'สถานะ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF404040),
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 5.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  ':',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF404040),
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Row(
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 3.0, 0.0),
+                          child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                valueOrDefault<String>(
-                                  widget!.impoundCarStatusName,
-                                  'status_name',
-                                ),
+                                'สถานะ',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -1092,9 +1049,53 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               ),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 5.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                ':',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF404040),
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              valueOrDefault<String>(
+                                widget!.impoundCarStatusName != ''
+                                    ? widget!.impoundCarStatusName
+                                    : 'ใหม่',
+                                'ใหม่',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Color(0xFF404040),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
+                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 12.0),

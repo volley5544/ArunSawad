@@ -2908,10 +2908,15 @@ class _ChangeCarLocationPageWidgetState
                                             ? _model.dropDownValue
                                             : widget!.impoundCarLocateParamSet
                                                 ?.locatCode,
-                                        impoundcarPrice: functions
-                                            .removeCommaFromNumText(_model
-                                                .priceTextFieldTextController
-                                                .text),
+                                        impoundcarPrice: _model
+                                                    .priceTextFieldTextController
+                                                    .text !=
+                                                ''
+                                            ? functions.removeCommaFromNumText(
+                                                _model
+                                                    .priceTextFieldTextController
+                                                    .text)
+                                            : '0.00',
                                         remarkPrice: _model
                                             .remarkTextFieldTextController.text,
                                         step: widget!.step,
@@ -3098,6 +3103,46 @@ class _ChangeCarLocationPageWidgetState
                                             );
                                           },
                                         );
+                                        _model.tempImpoundCarParamSet =
+                                            widget!.impoundCarParamSet;
+                                        safeSetState(() {});
+                                        if ((FFAppState().profileLevel ==
+                                                    'สาขา') ||
+                                                (FFAppState().profileLevel ==
+                                                    'เขต') ||
+                                                (FFAppState().profileLevel ==
+                                                    'ภาค')
+                                            ? functions.containsValueInJsonList(
+                                                functions.getDataFromMapJson(
+                                                    functions.getDataFromMapJson(
+                                                        widget!
+                                                            .editAccessRoleData,
+                                                        widget!.step),
+                                                    'price_edit_level'),
+                                                FFAppState().profileLevel)!
+                                            : functions.containsValueInJsonList(
+                                                functions.getDataFromMapJson(
+                                                    functions.getDataFromMapJson(
+                                                        widget!
+                                                            .editAccessRoleData,
+                                                        widget!.step),
+                                                    'price_edit_role'),
+                                                widget!.userRoleEdit)!) {
+                                          _model
+                                              .updateTempImpoundCarParamSetStruct(
+                                            (e) => e
+                                              ..impoundPrice = _model
+                                                          .priceTextFieldTextController
+                                                          .text !=
+                                                      ''
+                                                  ? functions
+                                                      .removeCommaFromNumText(_model
+                                                          .priceTextFieldTextController
+                                                          .text)
+                                                  : '0.00',
+                                          );
+                                          safeSetState(() {});
+                                        }
 
                                         context.goNamed(
                                           'customerCarDeailsPictureStep1',
@@ -3126,7 +3171,7 @@ class _ChangeCarLocationPageWidgetState
                                             ),
                                             'impoundCarParamSet':
                                                 serializeParam(
-                                              widget!.impoundCarParamSet,
+                                              _model.tempImpoundCarParamSet,
                                               ParamType.DataStruct,
                                             ),
                                             'fromPage': serializeParam(
@@ -3848,6 +3893,9 @@ class _ChangeCarLocationPageWidgetState
                                             ),
                                           }.withoutNulls,
                                         );
+
+                                        _model.tempImpoundCarParamSet = null;
+                                        safeSetState(() {});
                                       } else {
                                         await showDialog(
                                           context: context,

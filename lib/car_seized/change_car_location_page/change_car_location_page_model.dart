@@ -28,6 +28,12 @@ class ChangeCarLocationPageModel
 
   bool allowChangeLocation = false;
 
+  ImpoundCarParamSetStruct? tempImpoundCarParamSet;
+  void updateTempImpoundCarParamSetStruct(
+      Function(ImpoundCarParamSetStruct) updateFn) {
+    updateFn(tempImpoundCarParamSet ??= ImpoundCarParamSetStruct());
+  }
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for RadioButton widget.
