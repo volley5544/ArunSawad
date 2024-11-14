@@ -1068,7 +1068,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                               if ('${getJsonField(
                                                                                     listNameItem,
                                                                                     r'''$.ACTION_DATE''',
-                                                                                  ).toString()}' ==
+                                                                                  ).toString()}' !=
                                                                                   '') {
                                                                                 return '${getJsonField(
                                                                                   listNameItem,

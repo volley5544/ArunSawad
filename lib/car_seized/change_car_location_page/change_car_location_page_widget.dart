@@ -1721,6 +1721,8 @@ class _ChangeCarLocationPageWidgetState
                                                     focusNode: _model
                                                         .priceTextFieldFocusNode,
                                                     autofocus: false,
+                                                    textInputAction:
+                                                        TextInputAction.next,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       labelStyle:
