@@ -4613,7 +4613,11 @@ class _CustomerCarDeailsPictureStep1WidgetState
                       ),
                     ],
                   ),
-                  if (widget!.step == 'step2')
+                  if (functions.getBoolValueInJson(functions.getDataFromMapJson(
+                          functions.getDataFromMapJson(
+                              widget!.saveAccessRoleData, widget!.step),
+                          'allow_16_pic')) ??
+                      true)
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
