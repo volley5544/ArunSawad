@@ -8253,7 +8253,7 @@ class _CustomerCarDeailsStep1WidgetState
                                                       fontFamily: 'Poppins',
                                                       letterSpacing: 0.0,
                                                     ),
-                                            hintText: 'กรอกราคาประมูล...',
+                                            hintText: 'กรอกราคา...',
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium

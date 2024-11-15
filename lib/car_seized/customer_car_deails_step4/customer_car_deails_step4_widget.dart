@@ -9003,8 +9003,7 @@ class _CustomerCarDeailsStep4WidgetState
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        hintText:
-                                                            'กรอกราคาประมูล...',
+                                                        hintText: 'กรอกราคา...',
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)

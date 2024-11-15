@@ -1274,6 +1274,15 @@ class _ChangeCarLocationPageWidgetState
                                                 width: 100.0,
                                                 height: 50.0,
                                                 decoration: BoxDecoration(
+                                                  color: widget!.impoundCarLocateParamSet
+                                                              ?.deliverLocateName ==
+                                                          ''
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryBackground
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .accent3,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -1672,8 +1681,7 @@ class _ChangeCarLocationPageWidgetState
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                      hintText:
-                                                          'กรอกราคาประมูล...',
+                                                      hintText: 'กรอกราคา...',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
