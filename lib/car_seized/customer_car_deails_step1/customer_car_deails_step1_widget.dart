@@ -8163,7 +8163,7 @@ class _CustomerCarDeailsStep1WidgetState
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
-                                    'ประมูล',
+                                    'ราคา',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
