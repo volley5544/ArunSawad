@@ -596,21 +596,6 @@ class _CustomerCarDeailsPictureStep1WidgetState
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    UploadImagesGoogleDriveGroup.searchImagesCall.images1(
-                              (_model.imagesAPIOutput?.jsonBody ?? ''),
-                            ) !=
-                            ''
-                        ? 'อัพโหลดสำเร็จ'
-                        : 'ยังไม่อัพโหลด',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Poppins',
-                          color: Color(0xFF404040),
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
@@ -1278,6 +1263,25 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                 width: 37.0,
                                 decoration: BoxDecoration(
                                   color: Color(0xFFFAFAFA),
+                                ),
+                                child: Text(
+                                  UploadImagesGoogleDriveGroup.searchImagesCall
+                                              .images1(
+                                            (_model.imagesAPIOutput?.jsonBody ??
+                                                ''),
+                                          ) !=
+                                          ''
+                                      ? 'อัพโหลดสำเร็จ'
+                                      : 'ยังไม่อัพโหลด',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF404040),
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                 ),
                               ),
                             ),
