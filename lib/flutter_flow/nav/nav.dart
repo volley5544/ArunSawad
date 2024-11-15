@@ -2140,6 +2140,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'userRoleEdit',
                   ParamType.String,
                 ),
+                contractNumber: params.getParam(
+                  'contractNumber',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

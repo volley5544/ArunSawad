@@ -665,6 +665,7 @@ final parametersBuilderMap =
           'userRoleRead': getParameter<String>(data, 'userRoleRead'),
           'userRoleSave': getParameter<String>(data, 'userRoleSave'),
           'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
+          'contractNumber': getParameter<String>(data, 'contractNumber'),
         },
       ),
   'customerCarDeailsPictureStep1': (data) async => ParameterData(

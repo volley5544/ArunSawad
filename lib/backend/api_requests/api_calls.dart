@@ -218,6 +218,14 @@ class SearchImagesCall {
         response,
         r'''$.data[:].images16''',
       ));
+  String? statusName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].status_name''',
+      ));
+  String? statusCode(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data[:].status_code''',
+      ));
 }
 
 class SearchContractNumberCall {

@@ -549,7 +549,10 @@ class _CustomerCarDeailsPictureStep1WidgetState
                         ParamType.String,
                       ),
                       'impoundCarStatusName': serializeParam(
-                        '',
+                        UploadImagesGoogleDriveGroup.searchImagesCall
+                            .statusName(
+                          (_model.imagesAPIOutput?.jsonBody ?? ''),
+                        ),
                         ParamType.String,
                       ),
                       'carConfig': serializeParam(
@@ -1076,8 +1079,18 @@ class _CustomerCarDeailsPictureStep1WidgetState
                           children: [
                             Text(
                               valueOrDefault<String>(
-                                widget!.impoundCarStatusName != ''
-                                    ? widget!.impoundCarStatusName
+                                UploadImagesGoogleDriveGroup.searchImagesCall
+                                            .statusName(
+                                          (_model.imagesAPIOutput?.jsonBody ??
+                                              ''),
+                                        ) !=
+                                        ''
+                                    ? UploadImagesGoogleDriveGroup
+                                        .searchImagesCall
+                                        .statusName(
+                                        (_model.imagesAPIOutput?.jsonBody ??
+                                            ''),
+                                      )
                                     : functions.getStringValueInJson(
                                         functions.getDataFromMapJson(
                                             functions.getDataFromMapJson(

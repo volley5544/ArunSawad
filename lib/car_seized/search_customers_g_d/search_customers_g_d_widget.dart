@@ -35,7 +35,8 @@ class SearchCustomersGDWidget extends StatefulWidget {
     required this.motocycleConfig,
     required this.editAccessRoleData,
     required this.userRoleEdit,
-  });
+    String? contractNumber,
+  }) : this.contractNumber = contractNumber ?? 'contractNumber';
 
   final String? fromPage;
   final String? step;
@@ -48,6 +49,7 @@ class SearchCustomersGDWidget extends StatefulWidget {
   final List<String>? motocycleConfig;
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
+  final String contractNumber;
 
   @override
   State<SearchCustomersGDWidget> createState() =>
