@@ -1274,9 +1274,6 @@ class _ChangeCarLocationPageWidgetState
                                                 width: 100.0,
                                                 height: 50.0,
                                                 decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
