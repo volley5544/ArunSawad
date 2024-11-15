@@ -2139,6 +2139,12 @@ bool? allowLeaveDay(
   }
 }
 
+String? getStringValueInJson(dynamic listFromJson) {
+  dynamic inputList = jsonDecode(listFromJson!);
+
+  return inputList;
+}
+
 String? leaveTimeToNumber(
   String? leaveTimeInput,
   String? leaveDayInput,

@@ -1078,8 +1078,13 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               valueOrDefault<String>(
                                 widget!.impoundCarStatusName != ''
                                     ? widget!.impoundCarStatusName
-                                    : 'ใหม่',
-                                'ใหม่',
+                                    : functions.getStringValueInJson(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                widget!.step),
+                                            'status_name')),
+                                '-',
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -5679,7 +5684,24 @@ class _CustomerCarDeailsPictureStep1WidgetState
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      if (widget!.impoundCarParamSet?.impoundPrice != '')
+                      if (((FFAppState().profileLevel == 'สาขา') ||
+                                  (FFAppState().profileLevel == 'เขต') ||
+                                  (FFAppState().profileLevel == 'ภาค')
+                              ? functions.containsValueInJsonList(
+                                  functions.getDataFromMapJson(
+                                      functions.getDataFromMapJson(
+                                          widget!.saveAccessRoleData,
+                                          widget!.step),
+                                      'price_edit_level'),
+                                  FFAppState().profileLevel)
+                              : functions.containsValueInJsonList(
+                                  functions.getDataFromMapJson(
+                                      functions.getDataFromMapJson(
+                                          widget!.saveAccessRoleData,
+                                          widget!.step),
+                                      'price_edit_role'),
+                                  widget!.userRoleSave)) ??
+                          true)
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
