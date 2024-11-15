@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/capture_camera_widget_widget.dart';
 import '/components/loading_scene_insurance/loading_scene_insurance_widget.dart';
@@ -22,6 +23,14 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class CustomerCarDeailsStep1Model
     extends FlutterFlowModel<CustomerCarDeailsStep1Widget> {
+  ///  Local state fields for this page.
+
+  ImpoundCarParamSetStruct? tempImpoundCarParamSet;
+  void updateTempImpoundCarParamSetStruct(
+      Function(ImpoundCarParamSetStruct) updateFn) {
+    updateFn(tempImpoundCarParamSet ??= ImpoundCarParamSetStruct());
+  }
+
   ///  State fields for stateful widgets in this page.
 
   // Model for CaptureCameraWidget component.

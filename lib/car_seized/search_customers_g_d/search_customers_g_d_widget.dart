@@ -2898,6 +2898,9 @@ class _SearchCustomersGDWidgetState extends State<SearchCustomersGDWidget> {
                                                                       impoundDbCode:
                                                                           FFAppState()
                                                                               .impoundVloanDbCode[listImproundIndex],
+                                                                      impoundPrice:
+                                                                          FFAppState()
+                                                                              .impoundPriceCurrentStep[listImproundIndex],
                                                                     ),
                                                                     ParamType
                                                                         .DataStruct,

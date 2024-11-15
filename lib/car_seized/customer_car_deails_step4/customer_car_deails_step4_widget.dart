@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/loading_scene_insurance/loading_scene_insurance_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
@@ -9378,6 +9379,55 @@ class _CustomerCarDeailsStep4WidgetState
                             },
                           ).then((value) => safeSetState(() {}));
 
+                          _model.tempImpoundCarParamSet =
+                              widget!.impoundCarParamSet;
+                          safeSetState(() {});
+                          if ((FFAppState().profileLevel == 'สาขา') ||
+                                  (FFAppState().profileLevel == 'เขต') ||
+                                  (FFAppState().profileLevel == 'ภาค')
+                              ? functions.containsValueInJsonList(
+                                  functions.getDataFromMapJson(
+                                      functions.getDataFromMapJson(
+                                          widget!.saveAccessRoleData,
+                                          widget!.step),
+                                      'price_edit_level'),
+                                  FFAppState().profileLevel)!
+                              : functions.containsValueInJsonList(
+                                  functions.getDataFromMapJson(
+                                      functions.getDataFromMapJson(
+                                          widget!.saveAccessRoleData,
+                                          widget!.step),
+                                      'price_edit_role'),
+                                  widget!.userRoleSave)!) {
+                            _model.updateTempImpoundCarParamSetStruct(
+                              (e) => e
+                                ..impoundPrice = ((FFAppState().profileLevel ==
+                                                'สาขา') ||
+                                            (FFAppState().profileLevel ==
+                                                'เขต') ||
+                                            (FFAppState().profileLevel == 'ภาค')
+                                        ? functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_level'),
+                                            FFAppState().profileLevel)!
+                                        : functions.containsValueInJsonList(
+                                            functions.getDataFromMapJson(
+                                                functions.getDataFromMapJson(
+                                                    widget!.saveAccessRoleData,
+                                                    widget!.step),
+                                                'price_edit_role'),
+                                            widget!.userRoleSave)!)
+                                    ? (_model.priceTextFieldTextController.text != ''
+                                        ? functions.removeCommaFromNumText(_model
+                                            .priceTextFieldTextController.text)
+                                        : '0.00')
+                                    : '0.00',
+                            );
+                            safeSetState(() {});
+                          }
                           _model.uploadGoogleDriveApiOutput =
                               await UploadImagesGoogleDriveGroup
                                   .uploadGoogleDriveAPICall
@@ -9437,8 +9487,14 @@ class _CustomerCarDeailsStep4WidgetState
                             images12: _model.uploadedLocalFile12,
                             cuscod: widget!.impoundCarParamSet?.improundCUSCOD,
                             url: FFAppState().improundUrl,
-                            statusCode: '',
-                            statusName: '',
+                            statusCode: (widget!.step != 'step1') &&
+                                    (widget!.step != 'document')
+                                ? '11'
+                                : '',
+                            statusName: (widget!.step != 'step1') &&
+                                    (widget!.step != 'document')
+                                ? 'เปลี่ยนเป็นเป้า W'
+                                : '',
                             originYear:
                                 widget!.impoundCarParamSet?.improundMANUYR,
                             convertYear: widget!
@@ -9495,11 +9551,29 @@ class _CustomerCarDeailsStep4WidgetState
                             impoundEmp: '',
                             impoundDate: '',
                             impoundNameth: '',
-                            impoundcarPrice: _model
-                                        .priceTextFieldTextController.text !=
-                                    ''
-                                ? functions.removeCommaFromNumText(
-                                    _model.priceTextFieldTextController.text)
+                            impoundcarPrice: ((FFAppState().profileLevel ==
+                                            'สาขา') ||
+                                        (FFAppState().profileLevel == 'เขต') ||
+                                        (FFAppState().profileLevel == 'ภาค')
+                                    ? functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                widget!.step),
+                                            'price_edit_level'),
+                                        FFAppState().profileLevel)!
+                                    : functions.containsValueInJsonList(
+                                        functions.getDataFromMapJson(
+                                            functions.getDataFromMapJson(
+                                                widget!.saveAccessRoleData,
+                                                widget!.step),
+                                            'price_edit_role'),
+                                        widget!.userRoleSave)!)
+                                ? (_model.priceTextFieldTextController.text !=
+                                        ''
+                                    ? functions.removeCommaFromNumText(_model
+                                        .priceTextFieldTextController.text)
+                                    : '0.00')
                                 : '0.00',
                             images13: _model.uploadedLocalFile13,
                             images14: _model.uploadedLocalFile14,
@@ -9695,7 +9769,7 @@ class _CustomerCarDeailsStep4WidgetState
                                 ParamType.String,
                               ),
                               'impoundCarParamSet': serializeParam(
-                                widget!.impoundCarParamSet,
+                                _model.tempImpoundCarParamSet,
                                 ParamType.DataStruct,
                               ),
                               'fromPage': serializeParam(
@@ -9731,6 +9805,8 @@ class _CustomerCarDeailsStep4WidgetState
                             }.withoutNulls,
                           );
 
+                          _model.tempImpoundCarParamSet = null;
+                          safeSetState(() {});
                           if (_shouldSetState) safeSetState(() {});
                         },
                         text: 'บันทึก',
