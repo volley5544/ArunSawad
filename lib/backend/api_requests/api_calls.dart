@@ -1040,6 +1040,8 @@ class UpdateImproundCarCall {
     String? locatNameDelivercar = '',
     String? logisticsComany = '',
     String? receiver = '',
+    String? dbCode = '',
+    String? db = '',
     String? url = '',
   }) async {
     final baseUrl = UploadImagesGoogleDriveGroup.getBaseUrl(
@@ -1048,6 +1050,8 @@ class UpdateImproundCarCall {
 
     final ffApiRequestBody = '''
 {
+  "db_code": "${dbCode}",
+  "db": "${db}",
   "locat_delivercar": "${locatDelivercar}",
   "locat_name_delivercar": "${locatNameDelivercar}",
   "logistics_comany": "${logisticsComany}",
