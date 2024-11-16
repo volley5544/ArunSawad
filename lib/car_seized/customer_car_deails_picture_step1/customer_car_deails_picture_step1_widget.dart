@@ -508,8 +508,10 @@ class _CustomerCarDeailsPictureStep1WidgetState
                 ),
                 onPressed: () async {
                   if (widget!.step == 'step4') {}
-
-                  context.goNamed(
+                  if (Navigator.of(context).canPop()) {
+                    context.pop();
+                  }
+                  context.pushNamed(
                     'ChangeCarLocationPage',
                     queryParameters: {
                       'step': serializeParam(
@@ -852,7 +854,10 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                           ),
                                           onPressed: () async {
                                             if (widget!.step == 'step4') {}
-
+                                            if (Navigator.of(context)
+                                                .canPop()) {
+                                              context.pop();
+                                            }
                                             context.pushNamed(
                                               'ChangeCarLocationPage',
                                               queryParameters: {
