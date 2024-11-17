@@ -71,31 +71,32 @@ class _CustomerCarDeailsStep1WidgetState
     _model.priceTextFieldFocusNode ??= FocusNode();
     _model.priceTextFieldFocusNode!.addListener(
       () async {
+        print('in Focus Step1');
         if ((_model.priceTextFieldFocusNode?.hasFocus ?? false)) {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.priceTextFieldTextController.text);
-            _model.priceTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
+            //_model.priceTextFieldFocusNode?.requestFocus();
+            //WidgetsBinding.instance.addPostFrameCallback((_) {
               _model.priceTextFieldTextController?.selection =
                   TextSelection.collapsed(
                 offset: _model.priceTextFieldTextController!.text.length,
               );
-            });
+            //});
           });
         } else {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.priceTextFieldTextController.text)!;
-            _model.priceTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
+           // _model.priceTextFieldFocusNode?.requestFocus();
+            //WidgetsBinding.instance.addPostFrameCallback((_) {
               _model.priceTextFieldTextController?.selection =
                   TextSelection.collapsed(
                 offset: _model.priceTextFieldTextController!.text.length,
               );
-            });
+            //});
           });
         }
       },
