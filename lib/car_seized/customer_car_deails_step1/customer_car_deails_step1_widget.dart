@@ -71,32 +71,31 @@ class _CustomerCarDeailsStep1WidgetState
     _model.priceTextFieldFocusNode ??= FocusNode();
     _model.priceTextFieldFocusNode!.addListener(
       () async {
-        print('in Focus Step1');
         if ((_model.priceTextFieldFocusNode?.hasFocus ?? false)) {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.priceTextFieldTextController.text);
-            //_model.priceTextFieldFocusNode?.requestFocus();
-            //WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               _model.priceTextFieldTextController?.selection =
                   TextSelection.collapsed(
                 offset: _model.priceTextFieldTextController!.text.length,
               );
-            //});
+            });
           });
         } else {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.priceTextFieldTextController.text)!;
-           // _model.priceTextFieldFocusNode?.requestFocus();
-            //WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               _model.priceTextFieldTextController?.selection =
                   TextSelection.collapsed(
                 offset: _model.priceTextFieldTextController!.text.length,
               );
-            //});
+            });
           });
         }
       },
@@ -8873,7 +8872,7 @@ class _CustomerCarDeailsStep1WidgetState
                                   await UploadImagesGoogleDriveGroup
                                       .uploadGoogleDriveAPICall
                                       .call(
-                                projectName: 'impround_car_dev_test',
+                                projectName: 'impound_car',
                                 contractNumber:
                                     '${widget!.impoundCarParamSet?.improundCONTNO}',
                                 step: widget!.step,

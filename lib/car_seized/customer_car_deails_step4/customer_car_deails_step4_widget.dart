@@ -75,26 +75,26 @@ class _CustomerCarDeailsStep4WidgetState
             _model.priceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.priceTextFieldTextController.text);
-            // _model.priceTextFieldFocusNode?.requestFocus();
-            // WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               _model.priceTextFieldTextController?.selection =
                   TextSelection.collapsed(
                 offset: _model.priceTextFieldTextController!.text.length,
               );
-           // });
+            });
           });
         } else {
           safeSetState(() {
             _model.priceTextFieldTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.priceTextFieldTextController.text)!;
-            // _model.priceTextFieldFocusNode?.requestFocus();
-            // WidgetsBinding.instance.addPostFrameCallback((_) {
+            _model.priceTextFieldFocusNode?.requestFocus();
+            WidgetsBinding.instance.addPostFrameCallback((_) {
               _model.priceTextFieldTextController?.selection =
                   TextSelection.collapsed(
                 offset: _model.priceTextFieldTextController!.text.length,
               );
-            //});
+            });
           });
         }
       },
@@ -9431,7 +9431,7 @@ class _CustomerCarDeailsStep4WidgetState
                               await UploadImagesGoogleDriveGroup
                                   .uploadGoogleDriveAPICall
                                   .call(
-                            projectName: 'impround_car_dev_test',
+                            projectName: 'impound_car',
                             contractNumber:
                                 '${widget!.impoundCarParamSet?.improundCONTNO}',
                             step: widget!.step,
