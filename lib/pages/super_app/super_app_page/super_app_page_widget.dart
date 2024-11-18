@@ -769,7 +769,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       color: Colors.transparent,
                                       child: ListTile(
                                         title: Text(
-                                          'ออกจากระบบ',
+                                          'ดึงข้อมูลพนักงาน',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
@@ -778,8 +778,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        trailing: FaIcon(
-                                          FontAwesomeIcons.signOutAlt,
+                                        trailing: Icon(
+                                          Icons.person_sharp,
                                           color: Colors.white,
                                           size: 20.0,
                                         ),
