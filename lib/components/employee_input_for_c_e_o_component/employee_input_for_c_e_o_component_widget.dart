@@ -108,7 +108,7 @@ class _EmployeeInputForCEOComponentWidgetState
                           size: 24.0,
                         ),
                         onPressed: () async {
-                          Navigator.pop(context);
+                          Navigator.pop(context, 'cancel');
                         },
                       ),
                     ),

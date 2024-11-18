@@ -1508,6 +1508,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               true;
                                                                           if ((_model.employeeInputOutput != '') &&
                                                                               (_model.employeeInputOutput != null && _model.employeeInputOutput != '')) {
+                                                                            if (_model.employeeInputOutput ==
+                                                                                'cancel') {
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
                                                                             _model.getEmployeeTokenOutput =
                                                                                 await GetTokenEmployeeCall.call(
                                                                               username: _model.employeeInputOutput,

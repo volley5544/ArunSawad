@@ -666,9 +666,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                             ),
                           ),
                         ),
-                      if ((FFAppState().employeeID == '33511') ||
-                          (FFAppState().employeeID == '31622') ||
-                          (FFAppState().employeeID == 'euai'))
+                      if ((FFAppState().secretEmployee == '33511') ||
+                          (FFAppState().secretEmployee == '31622') ||
+                          (FFAppState().secretEmployee == 'euai'))
                         Expanded(
                           flex: 1,
                           child: Container(
@@ -688,10 +688,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       var _shouldSetState = false;
-                                      if ((FFAppState().employeeID == '33511') ||
-                                          (FFAppState().employeeID ==
+                                      if ((FFAppState().secretEmployee == '33511') ||
+                                          (FFAppState().secretEmployee ==
                                               '31622') ||
-                                          (FFAppState().employeeID == 'euai')) {
+                                          (FFAppState().secretEmployee ==
+                                              'euai')) {
                                         if ((FFAppState().userSelect != '') &&
                                             (FFAppState().userSelect != null &&
                                                 FFAppState().userSelect !=
@@ -777,7 +778,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       color: Colors.transparent,
                                       child: ListTile(
                                         title: Text(
-                                          'REFEASH TOKEN',
+                                          'เรียกข้อมูลUSERใหม่',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
@@ -790,7 +791,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               ),
                                         ),
                                         trailing: Icon(
-                                          Icons.delete,
+                                          Icons.refresh_outlined,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           size: 20.0,

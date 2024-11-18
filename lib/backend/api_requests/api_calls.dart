@@ -11954,7 +11954,7 @@ class GetTokenEmployeeCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getTokenEmployee',
       apiUrl:
-          'https://86db-115-31-145-24.ngrok-free.app/ssw_arunsawad_api/api/getToken',
+          'https://8dd8-115-31-145-24.ngrok-free.app/ssw_arunsawad_api/api/getToken',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
