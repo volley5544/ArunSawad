@@ -1065,16 +1065,7 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                           child:
                                                                               AutoSizeText(
                                                                             () {
-                                                                              if ('${getJsonField(
-                                                                                    listNameItem,
-                                                                                    r'''$.ACTION_DATE''',
-                                                                                  ).toString()}' !=
-                                                                                  '') {
-                                                                                return '${getJsonField(
-                                                                                  listNameItem,
-                                                                                  r'''$.ACTION_DATE''',
-                                                                                ).toString()}';
-                                                                              } else if (containerUserLogRecord != null) {
+                                                                              if (containerUserLogRecord != null) {
                                                                                 return '${functions.dateToBEDate(dateTimeFormat(
                                                                                   "d/M/y",
                                                                                   containerUserLogRecord?.actionTime,
@@ -1084,6 +1075,15 @@ class _ListNameTabFollowUpDebtWidgetState
                                                                                   containerUserLogRecord?.actionTime,
                                                                                   locale: FFLocalizations.of(context).languageCode,
                                                                                 )}';
+                                                                              } else if ('${getJsonField(
+                                                                                    listNameItem,
+                                                                                    r'''$.ACTION_DATE''',
+                                                                                  ).toString()}' !=
+                                                                                  '') {
+                                                                                return '${getJsonField(
+                                                                                  listNameItem,
+                                                                                  r'''$.ACTION_DATE''',
+                                                                                ).toString()}';
                                                                               } else {
                                                                                 return 'ยังไม่โทร';
                                                                               }

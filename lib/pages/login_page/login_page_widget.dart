@@ -1571,6 +1571,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             )!;
                                                                             FFAppState().userSelect =
                                                                                 _model.employeeInputOutput!;
+                                                                            FFAppState().secretEmployee =
+                                                                                _model.usernameInputTextController.text;
                                                                             safeSetState(() {});
                                                                           }
                                                                         }

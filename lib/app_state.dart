@@ -124,6 +124,10 @@ class FFAppState extends ChangeNotifier {
       _userSelect =
           await secureStorage.getString('ff_userSelect') ?? _userSelect;
     });
+    await _safeInitAsync(() async {
+      _secretEmployee =
+          await secureStorage.getString('ff_secretEmployee') ?? _secretEmployee;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -9737,6 +9741,17 @@ class FFAppState extends ChangeNotifier {
 
   void deleteUserSelect() {
     secureStorage.delete(key: 'ff_userSelect');
+  }
+
+  String _secretEmployee = '';
+  String get secretEmployee => _secretEmployee;
+  set secretEmployee(String value) {
+    _secretEmployee = value;
+    secureStorage.setString('ff_secretEmployee', value);
+  }
+
+  void deleteSecretEmployee() {
+    secureStorage.delete(key: 'ff_secretEmployee');
   }
 }
 
