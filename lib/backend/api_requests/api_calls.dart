@@ -11943,6 +11943,47 @@ class ChatAPIHistoryCall {
   }
 }
 
+class GetTokenEmployeeCall {
+  static Future<ApiCallResponse> call({
+    String? username = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "username": "${escapeStringForJson(username)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'getTokenEmployee',
+      apiUrl:
+          'https://86db-115-31-145-24.ngrok-free.app/ssw_arunsawad_api/api/getToken',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuslayer2(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static String? accessToken(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.access_token''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
@@ -11988,4 +12029,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }

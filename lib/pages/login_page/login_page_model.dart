@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -56,6 +57,10 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   ApiCallResponse? authenAPIOutputBtn;
   // Stores action output result for [Backend Call - API (authenAPI)] action in Button widget.
   ApiCallResponse? confirmAuthen;
+  // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in Button widget.
+  String? employeeInputOutput;
+  // Stores action output result for [Backend Call - API (getTokenEmployee)] action in Button widget.
+  ApiCallResponse? getEmployeeTokenOutput;
   // Stores action output result for [Backend Call - API (getUserProfileAPI)] action in Button widget.
   ApiCallResponse? getUserProfile;
   // Stores action output result for [Backend Call - API (getUserInsuranceLicense)] action in Button widget.

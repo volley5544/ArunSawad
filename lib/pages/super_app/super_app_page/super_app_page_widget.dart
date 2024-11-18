@@ -666,6 +666,145 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                             ),
                           ),
                         ),
+                      if ((FFAppState().employeeID == '33511') ||
+                          (FFAppState().employeeID == '31622') ||
+                          (FFAppState().employeeID == 'euai'))
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            height: MediaQuery.sizeOf(context).height * 0.06,
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      var _shouldSetState = false;
+                                      if ((FFAppState().employeeID == '33511') ||
+                                          (FFAppState().employeeID ==
+                                              '31622') ||
+                                          (FFAppState().employeeID == 'euai')) {
+                                        if ((FFAppState().userSelect != '') &&
+                                            (FFAppState().userSelect != null &&
+                                                FFAppState().userSelect !=
+                                                    '')) {
+                                          _model.getEmployeeTokenByCeo =
+                                              await GetTokenEmployeeCall.call(
+                                            username: FFAppState().userSelect,
+                                          );
+
+                                          _shouldSetState = true;
+                                          if ((_model.getEmployeeTokenByCeo
+                                                      ?.statusCode ??
+                                                  200) !=
+                                              200) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'พบข้อผิดพลาดGet Token Connection(${(_model.getEmployeeTokenByCeo?.statusCode ?? 200).toString()})'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if ('${GetTokenEmployeeCall.statuslayer2(
+                                                (_model.getEmployeeTokenByCeo
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )?.toString()}' !=
+                                              '200') {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        '${GetTokenEmployeeCall.message(
+                                                      (_model.getEmployeeTokenByCeo
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          FFAppState().accessToken =
+                                              GetTokenEmployeeCall.accessToken(
+                                            (_model.getEmployeeTokenByCeo
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!;
+                                          safeSetState(() {});
+                                        }
+                                      }
+                                      if (_shouldSetState) safeSetState(() {});
+                                    },
+                                    child: Material(
+                                      color: Colors.transparent,
+                                      child: ListTile(
+                                        title: Text(
+                                          'REFEASH TOKEN',
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                fontSize: 16.0,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                        trailing: Icon(
+                                          Icons.delete,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          size: 20.0,
+                                        ),
+                                        tileColor: Color(0xFF261E1E),
+                                        dense: false,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       Expanded(
                         flex: 1,
                         child: Container(
@@ -913,7 +1052,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                         color: Colors.white,
                                         size: 20.0,
                                       ),
-                                      tileColor: Colors.white,
+                                      tileColor: Color(0xFF261E1E),
                                       dense: false,
                                     ),
                                   ),

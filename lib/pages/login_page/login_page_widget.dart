@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/components/employee_input_for_c_e_o_component/employee_input_for_c_e_o_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -1469,6 +1470,110 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           return;
                                                                         }
 
+                                                                        if ((_model.usernameInputTextController.text == 'euai') ||
+                                                                            (_model.usernameInputTextController.text ==
+                                                                                '33511') ||
+                                                                            (_model.usernameInputTextController.text ==
+                                                                                '31622')) {
+                                                                          await showModalBottomSheet(
+                                                                            isScrollControlled:
+                                                                                true,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            isDismissible:
+                                                                                false,
+                                                                            enableDrag:
+                                                                                false,
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (context) {
+                                                                              return WebViewAware(
+                                                                                child: GestureDetector(
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  child: Padding(
+                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                    child: Container(
+                                                                                      height: MediaQuery.sizeOf(context).height * 0.35,
+                                                                                      child: EmployeeInputForCEOComponentWidget(),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ).then((value) =>
+                                                                              safeSetState(() => _model.employeeInputOutput = value));
+
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          if ((_model.employeeInputOutput != '') &&
+                                                                              (_model.employeeInputOutput != null && _model.employeeInputOutput != '')) {
+                                                                            _model.getEmployeeTokenOutput =
+                                                                                await GetTokenEmployeeCall.call(
+                                                                              username: _model.employeeInputOutput,
+                                                                            );
+
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            if ((_model.getEmployeeTokenOutput?.statusCode ?? 200) !=
+                                                                                200) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('พบข้อผิดพลาดGet Token Connection(${(_model.getEmployeeTokenOutput?.statusCode ?? 200).toString()})'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                            if ('${getJsonField(
+                                                                                  (_model.getEmployeeTokenOutput?.jsonBody ?? ''),
+                                                                                  r'''$.status''',
+                                                                                ).toString()}' !=
+                                                                                '200') {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('พบข้อผิดพลาดGet Token(${getJsonField(
+                                                                                        (_model.getEmployeeTokenOutput?.jsonBody ?? ''),
+                                                                                        r'''$.status''',
+                                                                                      ).toString()})'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                            FFAppState().accessToken =
+                                                                                GetTokenEmployeeCall.accessToken(
+                                                                              (_model.getEmployeeTokenOutput?.jsonBody ?? ''),
+                                                                            )!;
+                                                                            FFAppState().userSelect =
+                                                                                _model.employeeInputOutput!;
+                                                                            safeSetState(() {});
+                                                                          }
+                                                                        }
                                                                         _model.getUserProfile =
                                                                             await GetUserProfileAPICall.call(
                                                                           token:
@@ -1533,6 +1638,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           if (_shouldSetState)
                                                                             safeSetState(() {});
                                                                           return;
+                                                                        }
+                                                                        if (_model.usernameInputTextController.text ==
+                                                                            'euai') {
+                                                                          FFAppState().employeeID =
+                                                                              '${GetUserProfileAPICall.profileEmployeeID(
+                                                                            (_model.getUserProfile?.jsonBody ??
+                                                                                ''),
+                                                                          )}';
+                                                                          FFAppState()
+                                                                              .update(() {});
+                                                                          FFAppState().branchCode =
+                                                                              '${GetUserProfileAPICall.branchCode(
+                                                                            (_model.getUserProfile?.jsonBody ??
+                                                                                ''),
+                                                                          )}';
+                                                                          FFAppState()
+                                                                              .update(() {});
                                                                         }
                                                                         FFAppState().userNickname =
                                                                             '${GetUserProfileAPICall.profileNickName(

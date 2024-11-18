@@ -120,6 +120,10 @@ class FFAppState extends ChangeNotifier {
       _profileImage =
           await secureStorage.getString('ff_profileImage') ?? _profileImage;
     });
+    await _safeInitAsync(() async {
+      _userSelect =
+          await secureStorage.getString('ff_userSelect') ?? _userSelect;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -9722,6 +9726,17 @@ class FFAppState extends ChangeNotifier {
   dynamic get EmptyJson => _EmptyJson;
   set EmptyJson(dynamic value) {
     _EmptyJson = value;
+  }
+
+  String _userSelect = '';
+  String get userSelect => _userSelect;
+  set userSelect(String value) {
+    _userSelect = value;
+    secureStorage.setString('ff_userSelect', value);
+  }
+
+  void deleteUserSelect() {
+    secureStorage.delete(key: 'ff_userSelect');
   }
 }
 
