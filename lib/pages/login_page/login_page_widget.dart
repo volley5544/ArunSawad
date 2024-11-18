@@ -1514,6 +1514,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 safeSetState(() {});
                                                                               return;
                                                                             }
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text(_model.employeeInputOutput!),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
                                                                             _model.getEmployeeTokenOutput =
                                                                                 await GetTokenEmployeeCall.call(
                                                                               username: _model.employeeInputOutput,
