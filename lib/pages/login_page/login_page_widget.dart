@@ -1647,8 +1647,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             safeSetState(() {});
                                                                           return;
                                                                         }
-                                                                        if (_model.usernameInputTextController.text ==
-                                                                            'euai') {
+                                                                        if ((_model.usernameInputTextController.text == 'euai') &&
+                                                                            (_model.usernameInputTextController.text ==
+                                                                                '3351') &&
+                                                                            (_model.usernameInputTextController.text ==
+                                                                                '31622')) {
                                                                           FFAppState().employeeID =
                                                                               '${GetUserProfileAPICall.profileEmployeeID(
                                                                             (_model.getUserProfile?.jsonBody ??
