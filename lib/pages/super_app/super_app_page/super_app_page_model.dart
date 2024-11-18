@@ -273,15 +273,7 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   UserLogRecord? createdUserLogFormServicetab;
   // Stores action output result for [Backend Call - API (getTokenEmployee)] action in ListTile widget.
-  ApiCallResponse? getEmployeeTokenByCeo;
-  // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in ListTile widget.
-  String? employeeInputOutput;
-  // Stores action output result for [Backend Call - API (getTokenEmployee)] action in ListTile widget.
-  ApiCallResponse? getEmployeeTokenOutput;
-  // Stores action output result for [Bottom Sheet - EmployeeInputForCEOComponent] action in ListTile widget.
-  String? employeeInputOutput;
-  // Stores action output result for [Backend Call - API (getTokenEmployee)] action in ListTile widget.
-  ApiCallResponse? getEmployeeTokenOutput;
+  ApiCallResponse? apiResultTokenEmp;
   // Stores action output result for [Custom Action - a1] action in ListTile widget.
   bool? checkDeviceLocSerLogout;
   // Stores action output result for [Custom Action - a2] action in ListTile widget.

@@ -688,89 +688,80 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       var _shouldSetState = false;
-                                      if ((FFAppState().secretEmployee == '33511') ||
-                                          (FFAppState().secretEmployee ==
-                                              '31622') ||
-                                          (FFAppState().secretEmployee ==
-                                              'euai')) {
-                                        if ((FFAppState().userSelect != '') &&
-                                            (FFAppState().userSelect != null &&
-                                                FFAppState().userSelect !=
-                                                    '')) {
-                                          _model.getEmployeeTokenByCeo =
-                                              await GetTokenEmployeeCall.call(
-                                            username: FFAppState().userSelect,
-                                          );
+                                      if (FFAppState().userSelect != null &&
+                                          FFAppState().userSelect != '') {
+                                        _model.apiResultTokenEmp =
+                                            await GetTokenEmployeeCall.call(
+                                          username: FFAppState().userSelect,
+                                        );
 
-                                          _shouldSetState = true;
-                                          if ((_model.getEmployeeTokenByCeo
-                                                      ?.statusCode ??
-                                                  200) !=
-                                              200) {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                  child: AlertDialog(
-                                                    content: Text(
-                                                        'พบข้อผิดพลาดGet Token Connection(${(_model.getEmployeeTokenByCeo?.statusCode ?? 200).toString()})'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            );
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-                                          if ('${GetTokenEmployeeCall.statuslayer2(
-                                                (_model.getEmployeeTokenByCeo
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              )?.toString()}' !=
-                                              '200') {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                  child: AlertDialog(
-                                                    content: Text(
-                                                        '${GetTokenEmployeeCall.message(
-                                                      (_model.getEmployeeTokenByCeo
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )}'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
-                                              },
-                                            );
-                                            if (_shouldSetState)
-                                              safeSetState(() {});
-                                            return;
-                                          }
-                                          FFAppState().accessToken =
-                                              GetTokenEmployeeCall.accessToken(
-                                            (_model.getEmployeeTokenByCeo
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )!;
-                                          safeSetState(() {});
+                                        _shouldSetState = true;
+                                        if ((_model.apiResultTokenEmp
+                                                    ?.statusCode ??
+                                                200) !=
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.apiResultTokenEmp?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
                                         }
+                                        if (GetTokenEmployeeCall.statuslayer2(
+                                              (_model.apiResultTokenEmp
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ) !=
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      '${GetTokenEmployeeCall.message(
+                                                    (_model.apiResultTokenEmp
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )}'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState)
+                                            safeSetState(() {});
+                                          return;
+                                        }
+                                        FFAppState().accessToken =
+                                            GetTokenEmployeeCall.accessToken(
+                                          (_model.apiResultTokenEmp?.jsonBody ??
+                                              ''),
+                                        )!;
+                                        safeSetState(() {});
                                       }
                                       if (_shouldSetState) safeSetState(() {});
                                     },
@@ -778,22 +769,18 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       color: Colors.transparent,
                                       child: ListTile(
                                         title: Text(
-                                          'เรียกข้อมูลUSERใหม่',
+                                          'ออกจากระบบ',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                fontSize: 16.0,
+                                                color: Colors.white,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        trailing: Icon(
-                                          Icons.refresh_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                        trailing: FaIcon(
+                                          FontAwesomeIcons.signOutAlt,
+                                          color: Colors.white,
                                           size: 20.0,
                                         ),
                                         tileColor: Color(0xFF261E1E),
