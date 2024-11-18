@@ -70,6 +70,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   bool? checkDoNotShowHoliday;
   // Stores action output result for [Custom Action - a18] action in SuperAppPage widget.
   bool? checkDoNotShow;
+  // Stores action output result for [Firestore Query - Query a collection] action in SuperAppPage widget.
+  List<SawadAnnouncementRecord>? queryAnnouncement;
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in SuperAppPage widget.
   ApiCallResponse? datetimeAPIOutput;
   // State field(s) for PageViewBanner widget.

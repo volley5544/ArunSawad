@@ -324,7 +324,11 @@ final parametersBuilderMap =
         },
       ),
   'PromotionPage': ParameterData.none(),
-  'EmployeeKPIPage': ParameterData.none(),
+  'EmployeeKPIPage': (data) async => ParameterData(
+        allParams: {
+          'annoucementUrl': getParameter<String>(data, 'annoucementUrl'),
+        },
+      ),
   'GuideBookPage': ParameterData.none(),
   'AddResignPage': (data) async => ParameterData(
         allParams: {

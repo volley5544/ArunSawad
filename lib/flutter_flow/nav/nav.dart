@@ -789,7 +789,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'EmployeeKPIPage',
               path: 'employeeKPIPage',
-              builder: (context, params) => EmployeeKPIPageWidget(),
+              builder: (context, params) => EmployeeKPIPageWidget(
+                annoucementUrl: params.getParam(
+                  'annoucementUrl',
+                  ParamType.String,
+                ),
+              ),
             ),
             FFRoute(
               name: 'GuideBookPage',

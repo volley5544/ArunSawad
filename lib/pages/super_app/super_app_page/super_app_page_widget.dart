@@ -301,6 +301,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
+      _model.queryAnnouncement = await querySawadAnnouncementRecordOnce(
+        queryBuilder: (sawadAnnouncementRecord) =>
+            sawadAnnouncementRecord.orderBy('order'),
+      );
       _model.datetimeAPIOutput = await GetDateTimeAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
         token: valueOrDefault(currentUserDocument?.employeeId, 0) >= 100000
@@ -690,6 +694,28 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                       var _shouldSetState = false;
                                       if (FFAppState().userSelect != null &&
                                           FFAppState().userSelect != '') {
+                                        showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () =>
+                                                    FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: LoadingSceneWidget(),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+
                                         _model.apiResultTokenEmp =
                                             await GetTokenEmployeeCall.call(
                                           username: FFAppState().userSelect,
@@ -719,6 +745,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               );
                                             },
                                           );
+                                          Navigator.pop(context);
                                           if (_shouldSetState)
                                             safeSetState(() {});
                                           return;
@@ -752,6 +779,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               );
                                             },
                                           );
+                                          Navigator.pop(context);
                                           if (_shouldSetState)
                                             safeSetState(() {});
                                           return;
@@ -762,6 +790,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                               ''),
                                         )!;
                                         safeSetState(() {});
+                                        Navigator.pop(context);
                                       }
                                       if (_shouldSetState) safeSetState(() {});
                                     },
@@ -4758,7 +4787,15 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                     return;
                                                                                   }
 
-                                                                                  context.goNamed('EmployeeKPIPage');
+                                                                                  context.goNamed(
+                                                                                    'EmployeeKPIPage',
+                                                                                    queryParameters: {
+                                                                                      'annoucementUrl': serializeParam(
+                                                                                        functions.findIndexOfList(_model.queryAnnouncement?.map((e) => e.title).toList()?.toList(), _model.queryAnnouncement?.map((e) => e.pdfUrl).toList()?.toList(), 'เป้าหมายการขายรายบุคคล'),
+                                                                                        ParamType.String,
+                                                                                      ),
+                                                                                    }.withoutNulls,
+                                                                                  );
                                                                                 }
 
                                                                                 if (_shouldSetState) safeSetState(() {});
@@ -16422,41 +16459,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                   width: double.infinity,
                                                   height: 195.0,
                                                   decoration: BoxDecoration(),
-                                                  child: FutureBuilder<
-                                                      List<
-                                                          SawadAnnouncementRecord>>(
-                                                    future:
-                                                        querySawadAnnouncementRecordOnce(
-                                                      queryBuilder:
-                                                          (sawadAnnouncementRecord) =>
-                                                              sawadAnnouncementRecord
-                                                                  .orderBy(
-                                                                      'order'),
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .tertiary,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<SawadAnnouncementRecord>
-                                                          listViewSawadAnnouncementRecordList =
-                                                          snapshot.data!;
+                                                  child: Builder(
+                                                    builder: (context) {
+                                                      final announcementList =
+                                                          _model.queryAnnouncement
+                                                                  ?.toList() ??
+                                                              [];
 
                                                       return ListView.builder(
                                                         padding:
@@ -16470,13 +16478,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                         scrollDirection:
                                                             Axis.horizontal,
                                                         itemCount:
-                                                            listViewSawadAnnouncementRecordList
+                                                            announcementList
                                                                 .length,
                                                         itemBuilder: (context,
-                                                            listViewIndex) {
-                                                          final listViewSawadAnnouncementRecord =
-                                                              listViewSawadAnnouncementRecordList[
-                                                                  listViewIndex];
+                                                            announcementListIndex) {
+                                                          final announcementListItem =
+                                                              announcementList[
+                                                                  announcementListIndex];
                                                           return Align(
                                                             alignment:
                                                                 AlignmentDirectional(
@@ -16546,7 +16554,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                                                   children: [
                                                                                     Text(
-                                                                                      listViewSawadAnnouncementRecord.title,
+                                                                                      announcementListItem.title,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             fontSize: 18.0,
@@ -16557,14 +16565,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                       color: FlutterFlowTheme.of(context).grayIcon,
                                                                                     ),
                                                                                     Text(
-                                                                                      listViewSawadAnnouncementRecord.announceDate,
+                                                                                      announcementListItem.announceDate,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Poppins',
                                                                                             letterSpacing: 0.0,
                                                                                           ),
                                                                                     ),
                                                                                     Text(
-                                                                                      listViewSawadAnnouncementRecord.body,
+                                                                                      announcementListItem.body,
                                                                                       textAlign: TextAlign.start,
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Poppins',
@@ -16615,7 +16623,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                                                   child: Container(
                                                                                                     height: 600.0,
                                                                                                     child: PDFViewerWidget(
-                                                                                                      pdfUrl: listViewSawadAnnouncementRecord.pdfUrl,
+                                                                                                      pdfUrl: announcementListItem.pdfUrl,
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
@@ -16640,7 +16648,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  if (listViewSawadAnnouncementRecord
+                                                                  if (announcementListItem
                                                                       .newAnnouncement)
                                                                     Align(
                                                                       alignment:
