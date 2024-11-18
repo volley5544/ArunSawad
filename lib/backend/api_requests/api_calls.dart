@@ -11956,7 +11956,10 @@ class GetTokenEmployeeCall {
       apiUrl:
           'https://8dd8-115-31-145-24.ngrok-free.app/ssw_arunsawad_api/api/getToken',
       callType: ApiCallType.POST,
-      headers: {},
+      headers: {
+        'ContentType': 'application/json; charset=utf-8,',
+        'Authorization': 'Basic dGFra286MTIzNDU2',
+      },
       params: {},
       body: ffApiRequestBody,
       bodyType: BodyType.JSON,
