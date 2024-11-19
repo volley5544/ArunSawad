@@ -68,9 +68,8 @@ class _CarSeizedSelectDashboardWidgetState
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      FFAppState().improundUrl = false
-          ? 'https://dev.swpfin.com:7077'
-          : _model.urlLinkStorage!.urlLink;
+      FFAppState().improundUrl =
+          true ? 'https://dev.swpfin.com:7077' : _model.urlLinkStorage!.urlLink;
       safeSetState(() {});
       _model.urlLinkStorageVloan = await queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
@@ -82,7 +81,7 @@ class _CarSeizedSelectDashboardWidgetState
       FFAppState().impoundUrlVloan = true
           ? 'https://is-dev.swpfin.com/ssw_survey'
           : _model.urlLinkStorageVloan!.urlLink;
-      FFAppState().impoundUrlVloanToken = false
+      FFAppState().impoundUrlVloanToken = true
           ? 'xhJfdKPYnhicbDsC8YpPiOSyoA3ugBGqVXE1Bf9Ufnk=%'
           : _model.urlLinkStorageVloan!.urlToken;
       safeSetState(() {});
