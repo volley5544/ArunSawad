@@ -79,7 +79,7 @@ class _CarSeizedSelectDashboardWidgetState
         ),
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      FFAppState().impoundUrlVloan = false
+      FFAppState().impoundUrlVloan = true
           ? 'https://is-dev.swpfin.com/ssw_survey'
           : _model.urlLinkStorageVloan!.urlLink;
       FFAppState().impoundUrlVloanToken = false

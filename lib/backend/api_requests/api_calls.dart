@@ -11946,6 +11946,7 @@ class ChatAPIHistoryCall {
 class GetTokenEmployeeCall {
   static Future<ApiCallResponse> call({
     String? username = '',
+    String? apiUrl = '',
   }) async {
     final ffApiRequestBody = '''
 {
@@ -11953,8 +11954,7 @@ class GetTokenEmployeeCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'getTokenEmployee',
-      apiUrl:
-          'https://8dd8-115-31-145-24.ngrok-free.app/ssw_arunsawad_api/api/getToken',
+      apiUrl: '${apiUrl}/api/getToken',
       callType: ApiCallType.POST,
       headers: {
         'ContentType': 'application/json; charset=utf-8,',
