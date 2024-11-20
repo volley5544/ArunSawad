@@ -480,7 +480,7 @@ class _CheckInStatusPageWidgetState extends State<CheckInStatusPageWidget>
       }
 
       _model.getPersonalLeaveDate = await GetLeaveDateCheckinAPICall.call(
-        apiUrl: 'https://72f8-115-31-145-24.ngrok-free.app/ssw_arunsawad_api',
+        apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
 
