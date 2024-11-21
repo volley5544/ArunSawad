@@ -1716,7 +1716,7 @@ class _ChangeCarLocationPageWidgetState
                                                     maxLength: 11,
                                                     maxLengthEnforcement:
                                                         MaxLengthEnforcement
-                                                            .none,
+                                                            .enforced,
                                                     buildCounter: (context,
                                                             {required currentLength,
                                                             required isFocused,
