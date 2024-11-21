@@ -8682,14 +8682,20 @@ class _CustomerCarDeailsStep1WidgetState
                                           widget!.saveAccessRoleData,
                                           widget!.step),
                                       'price_is_required'))!) {
-                                if (_model.priceTextFieldTextController.text ==
-                                    '') {
+                                if (!((_model.priceTextFieldTextController
+                                            .text !=
+                                        '') &&
+                                    functions.validatePriceImpound(
+                                        functions.removeCommaFromNumText(_model
+                                            .priceTextFieldTextController
+                                            .text))!)) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
                                         child: AlertDialog(
-                                          content: Text('กรุณากรอกราคาประมูล'),
+                                          content: Text(
+                                              'กรุณากรอกราคาประมูลและกรุณากรอกราคาไม่เกิน 8 หลัก'),
                                           actions: [
                                             TextButton(
                                               onPressed: () => Navigator.pop(
@@ -8731,8 +8737,9 @@ class _CustomerCarDeailsStep1WidgetState
                                   return;
                                 }
                               } else {
-                                if (_model.priceTextFieldTextController.text !=
-                                    '') {
+                                if ((_model.priceTextFieldTextController.text !=
+                                        '') &&
+                                    true) {
                                   if (!(double.parse(functions
                                           .removeCommaFromNumText(_model
                                               .priceTextFieldTextController
@@ -8745,6 +8752,31 @@ class _CustomerCarDeailsStep1WidgetState
                                           child: AlertDialog(
                                             content: Text(
                                                 'หากกรอกราคา กรุณากรอกราคามากกว่า 0 บาท'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    if (_shouldSetState) safeSetState(() {});
+                                    return;
+                                  }
+                                  if (!functions.validatePriceImpound(
+                                      functions.removeCommaFromNumText(_model
+                                          .priceTextFieldTextController
+                                          .text))!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณากรอกราคาไม่เกิน 8 หลัก'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(

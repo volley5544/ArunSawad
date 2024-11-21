@@ -4587,3 +4587,9 @@ List<BranchDataTypeStruct>? generateBranchDataOutput(
 
   return branchOutput;
 }
+
+bool? validatePriceImpound(String? input) {
+  List<String> inputSplit = input!.split(".");
+  bool result = inputSplit.first.length <= 8;
+  return result;
+}
