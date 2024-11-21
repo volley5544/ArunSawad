@@ -2193,10 +2193,7 @@ class _ChangeCarLocationPageWidgetState
                                         if ((_model.priceTextFieldTextController
                                                     .text !=
                                                 '') &&
-                                            functions.validatePriceImpound(functions
-                                                .removeCommaFromNumText(_model
-                                                    .priceTextFieldTextController
-                                                    .text))!) {
+                                            true) {
                                           if (!(double.parse(functions
                                                   .removeCommaFromNumText(_model
                                                       .priceTextFieldTextController
@@ -2209,6 +2206,34 @@ class _ChangeCarLocationPageWidgetState
                                                   child: AlertDialog(
                                                     content: Text(
                                                         'กรุณากรอกราคามากกว่า 0 บาท'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                            if (_shouldSetState)
+                                              safeSetState(() {});
+                                            return;
+                                          }
+                                          if (!functions.validatePriceImpound(
+                                              functions.removeCommaFromNumText(
+                                                  _model
+                                                      .priceTextFieldTextController
+                                                      .text))!) {
+                                            await showDialog(
+                                              context: context,
+                                              builder: (alertDialogContext) {
+                                                return WebViewAware(
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'กรุณากรอกราคาไม่เกิน 8 หลัก'),
                                                     actions: [
                                                       TextButton(
                                                         onPressed: () =>
