@@ -9753,6 +9753,14 @@ class FFAppState extends ChangeNotifier {
   void deleteSecretEmployee() {
     secureStorage.delete(key: 'ff_secretEmployee');
   }
+
+  DocumentReference? _auctionAppointmentUrlDocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/8QUGeI0T15Qc4MM4vNyU');
+  DocumentReference? get auctionAppointmentUrlDocRef =>
+      _auctionAppointmentUrlDocRef;
+  set auctionAppointmentUrlDocRef(DocumentReference? value) {
+    _auctionAppointmentUrlDocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
