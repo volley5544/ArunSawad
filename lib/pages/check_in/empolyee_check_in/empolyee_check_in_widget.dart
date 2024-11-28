@@ -2733,8 +2733,8 @@ class _EmpolyeeCheckInWidgetState extends State<EmpolyeeCheckInWidget>
                                                       FFAppState().employeeID)
                                               ? (FFAppState().branchLoString ==
                                                       'บ้าน'
-                                                  ? currentUserLocationValue
-                                                      ?.toString()
+                                                  ? functions.userLongitude(
+                                                      currentUserLocationValue)
                                                   : functions.userLongitude(
                                                       functions.randomLatLng(
                                                           13.886102345654345,
