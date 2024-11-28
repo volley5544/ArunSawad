@@ -89,13 +89,6 @@ class _CustomerCarDeailsStep1WidgetState
             _model.priceTextFieldTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.priceTextFieldTextController.text)!;
-            _model.priceTextFieldFocusNode?.requestFocus();
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _model.priceTextFieldTextController?.selection =
-                  TextSelection.collapsed(
-                offset: _model.priceTextFieldTextController!.text.length,
-              );
-            });
           });
         }
       },

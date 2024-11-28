@@ -9761,6 +9761,20 @@ class FFAppState extends ChangeNotifier {
   set auctionAppointmentUrlDocRef(DocumentReference? value) {
     _auctionAppointmentUrlDocRef = value;
   }
+
+  DocumentReference? _marketingUrlMenu1DocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/41KF2QsNLEisOeKi8iLo');
+  DocumentReference? get marketingUrlMenu1DocRef => _marketingUrlMenu1DocRef;
+  set marketingUrlMenu1DocRef(DocumentReference? value) {
+    _marketingUrlMenu1DocRef = value;
+  }
+
+  DocumentReference? _marketingUrlMenu2DocRef =
+      FirebaseFirestore.instance.doc('/urlLinkStorage/DKYmX4luuEw964i4bUci');
+  DocumentReference? get marketingUrlMenu2DocRef => _marketingUrlMenu2DocRef;
+  set marketingUrlMenu2DocRef(DocumentReference? value) {
+    _marketingUrlMenu2DocRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

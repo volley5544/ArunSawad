@@ -80,13 +80,6 @@ class _InsuranceRequestInsurerPageWidgetState
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicSumInsured)!);
-          _model.sumInsuredInputFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.sumInsuredInputTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.sumInsuredInputTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.trailerSumInsuredInputTextController?.text =
@@ -94,13 +87,6 @@ class _InsuranceRequestInsurerPageWidgetState
                   ? ''
                   : functions.convertDoubleTextToIntText(
                       FFAppState().insuranceBasicTrailerSumInsured)!);
-          _model.trailerSumInsuredInputFocusNode?.requestFocus();
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _model.trailerSumInsuredInputTextController?.selection =
-                TextSelection.collapsed(
-              offset: _model.trailerSumInsuredInputTextController!.text.length,
-            );
-          });
         });
         safeSetState(() {
           _model.checkboxGroupValueController?.value =

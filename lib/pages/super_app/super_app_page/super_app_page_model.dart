@@ -160,6 +160,10 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ApiCallResponse? checkLoginClassroom;
   // Stores action output result for [Backend Call - API (actionUserAPI)] action in Container widget.
   ApiCallResponse? checkLoginITSupport;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryMarketingUrl1;
+  // Stores action output result for [Backend Call - Read Document] action in Container widget.
+  UrlLinkStorageRecord? queryMarketingUrl2;
   // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in Container widget.
   ApiCallResponse? gerBrandNew;
   // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in Container widget.

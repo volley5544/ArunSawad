@@ -67,8 +67,7 @@ export '/pages/insurance/check_1_insurance_page/check1_insurance_page_widget.dar
     show Check1InsurancePageWidget;
 export '/pages/leave_app/confirm_email_page/confirm_email_page_widget.dart'
     show ConfirmEmailPageWidget;
-export '/pages/check_in/info_checkin/info_checkin_widget.dart'
-    show InfoCheckinWidget;
+export '/pages/info_checkin/info_checkin_widget.dart' show InfoCheckinWidget;
 export '/pages/insurance/list_insuranc_page/list_insuranc_page_widget.dart'
     show ListInsurancPageWidget;
 export '/pages/find_place_page/find_place_page_widget.dart'
@@ -125,7 +124,7 @@ export '/pages/e_learning/e_learning_widget.dart' show ELearningWidget;
 export '/pages/support_template/support_template_widget.dart'
     show SupportTemplateWidget;
 export '/pages/super_app/html_page/html_page_widget.dart' show HtmlPageWidget;
-export '/pages/super_app/employee_kpi_c_e_o_page/employee_kpi_c_e_o_page_widget.dart'
+export '/pages/employee_kpi_c_e_o_page/employee_kpi_c_e_o_page_widget.dart'
     show EmployeeKpiCEOPageWidget;
 export '/pages/super_app/welfare_k_p_i_c_e_o_page/welfare_k_p_i_c_e_o_page_widget.dart'
     show WelfareKPICEOPageWidget;

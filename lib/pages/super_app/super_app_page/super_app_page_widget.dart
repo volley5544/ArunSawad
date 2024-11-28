@@ -7874,6 +7874,222 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                             ),
                                                                           ),
                                                                         ),
+                                                                      if (functions.getSpecificIndexFromJson(
+                                                                              FFAppState()
+                                                                                  .roleMenuJson,
+                                                                              'รวมกิจกรรมการตลาด',
+                                                                              FFAppState()
+                                                                                  .profileLevel)! ||
+                                                                          functions.containStringInListString(
+                                                                              functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รวมกิจกรรมการตลาด')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'รวมกิจกรรมการตลาด')?.toList(), FFAppState().profilePositionName)!)
+                                                                        InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            HapticFeedback.mediumImpact();
+                                                                            if (!(FFAppState().isFromAuthenPage ||
+                                                                                FFAppState().isFromSetPinPage)) {
+                                                                              Navigator.pop(context);
+
+                                                                              context.goNamed('PinCodePage');
+
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                            showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              enableDrag: false,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: LoadingSceneWidget(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+
+                                                                            _model.queryMarketingUrl1 =
+                                                                                await UrlLinkStorageRecord.getDocumentOnce(FFAppState().marketingUrlMenu1DocRef!);
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            Navigator.pop(context);
+                                                                            await launchURL(_model.queryMarketingUrl1!.urlLink);
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                  child: Container(
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.asset(
+                                                                                      'assets/images/icon1-.png',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'รวมกิจกรรม\nการตลาด',
+                                                                                  textAlign: TextAlign.center,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      if (functions.getSpecificIndexFromJson(
+                                                                              FFAppState()
+                                                                                  .roleMenuJson,
+                                                                              'รวมกิจกรรมการตลาด',
+                                                                              FFAppState()
+                                                                                  .profileLevel)! ||
+                                                                          functions.containStringInListString(
+                                                                              functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
+                                                                              FFAppState().employeeID)! ||
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รวมกิจกรรมการตลาด')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'รวมกิจกรรมการตลาด')?.toList(), FFAppState().profilePositionName)!)
+                                                                        InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            var _shouldSetState =
+                                                                                false;
+                                                                            HapticFeedback.mediumImpact();
+                                                                            if (!(FFAppState().isFromAuthenPage ||
+                                                                                FFAppState().isFromSetPinPage)) {
+                                                                              Navigator.pop(context);
+
+                                                                              context.goNamed('PinCodePage');
+
+                                                                              if (_shouldSetState)
+                                                                                safeSetState(() {});
+                                                                              return;
+                                                                            }
+                                                                            showModalBottomSheet(
+                                                                              isScrollControlled: true,
+                                                                              backgroundColor: Colors.transparent,
+                                                                              enableDrag: false,
+                                                                              context: context,
+                                                                              builder: (context) {
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () => FocusScope.of(context).unfocus(),
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: double.infinity,
+                                                                                        child: LoadingSceneWidget(),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                safeSetState(() {}));
+
+                                                                            _model.queryMarketingUrl2 =
+                                                                                await UrlLinkStorageRecord.getDocumentOnce(FFAppState().marketingUrlMenu2DocRef!);
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            Navigator.pop(context);
+                                                                            await launchURL(_model.queryMarketingUrl2!.urlLink);
+                                                                            if (_shouldSetState)
+                                                                              safeSetState(() {});
+                                                                          },
+                                                                          child:
+                                                                              Container(
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            ),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                                                                                  child: Container(
+                                                                                    width: 50.0,
+                                                                                    height: 50.0,
+                                                                                    clipBehavior: Clip.antiAlias,
+                                                                                    decoration: BoxDecoration(
+                                                                                      shape: BoxShape.circle,
+                                                                                    ),
+                                                                                    child: Image.asset(
+                                                                                      'assets/images/icon2-_.png',
+                                                                                      fit: BoxFit.cover,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Text(
+                                                                                  'รายงานการแชร์โพสต์',
+                                                                                  textAlign: TextAlign.center,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Poppins',
+                                                                                        fontSize: 12.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        ),
                                                                     ],
                                                                   );
                                                                 },
