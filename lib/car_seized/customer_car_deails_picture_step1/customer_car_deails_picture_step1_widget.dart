@@ -427,76 +427,15 @@ class _CustomerCarDeailsPictureStep1WidgetState
           ),
           actions: [
             Visibility(
-              visible: () {
-                    if (widget!.step == 'step1') {
-                      return ((FFAppState().profileLevel == 'สาขา') ||
-                              (FFAppState().profileLevel == 'เขต') ||
-                              (FFAppState().profileLevel == 'ภาค')
-                          ? functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step1'),
-                                  'Level'),
-                              FFAppState().profileLevel)
-                          : functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step1'),
-                                  'role_name'),
-                              widget!.userRoleSave));
-                    } else if (widget!.step == 'step2') {
-                      return ((FFAppState().profileLevel == 'สาขา') ||
-                              (FFAppState().profileLevel == 'เขต') ||
-                              (FFAppState().profileLevel == 'ภาค')
-                          ? functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step2'),
-                                  'Level'),
-                              FFAppState().profileLevel)
-                          : functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step2'),
-                                  'role_name'),
-                              widget!.userRoleSave));
-                    } else if (widget!.step == 'step3') {
-                      return ((FFAppState().profileLevel == 'สาขา') ||
-                              (FFAppState().profileLevel == 'เขต') ||
-                              (FFAppState().profileLevel == 'ภาค')
-                          ? functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step3'),
-                                  'Level'),
-                              FFAppState().profileLevel)
-                          : functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step3'),
-                                  'role_name'),
-                              widget!.userRoleSave));
-                    } else if (widget!.step == 'step4') {
-                      return ((FFAppState().profileLevel == 'สาขา') ||
-                              (FFAppState().profileLevel == 'เขต') ||
-                              (FFAppState().profileLevel == 'ภาค')
-                          ? functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step4'),
-                                  'Level'),
-                              FFAppState().profileLevel)
-                          : functions.containsValueInJsonList(
-                              functions.getDataFromMapJson(
-                                  functions.getDataFromMapJson(
-                                      widget!.saveAccessRoleData, 'step4'),
-                                  'role_name'),
-                              widget!.userRoleSave));
-                    } else {
-                      return true;
-                    }
-                  }() ??
-                  true,
+              visible: ((FFAppState().profileLevel == 'สาขา') ||
+                          (FFAppState().profileLevel == 'เขต') ||
+                          (FFAppState().profileLevel == 'ภาค')
+                      ? functions.containsValueInJsonList(
+                          functions.getDataFromMapJson(
+                              widget!.saveAccessRoleData, 'profile_level'),
+                          FFAppState().profileLevel)!
+                      : (widget!.userRoleSave != 'no_role')) &&
+                  (widget!.fromPage != 'changeCarLocation'),
               child: FlutterFlowIconButton(
                 borderRadius: 30.0,
                 borderWidth: 1.0,
@@ -838,10 +777,11 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                       widget!
                                                           .editAccessRoleData,
                                                       'profile_level'),
-                                                  FFAppState().profileLevel)
+                                                  FFAppState().profileLevel)!
                                               : (widget!.userRoleEdit !=
-                                                  'no_role')) ??
-                                          true)
+                                                  'no_role')) &&
+                                          (widget!.fromPage !=
+                                              'changeCarLocation'))
                                         FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
