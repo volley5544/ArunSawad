@@ -7985,14 +7985,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget>
                                                                       if (functions.getSpecificIndexFromJson(
                                                                               FFAppState()
                                                                                   .roleMenuJson,
-                                                                              'รวมกิจกรรมการตลาด',
+                                                                              'รายงานการแชร์โพสต์',
                                                                               FFAppState()
                                                                                   .profileLevel)! ||
                                                                           functions.containStringInListString(
                                                                               functions.getListDataFromJson(FFAppState().roleMenuJson, 'empAdmin')?.toList(),
                                                                               FFAppState().employeeID)! ||
-                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รวมกิจกรรมการตลาด')! ||
-                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'รวมกิจกรรมการตลาด')?.toList(), FFAppState().profilePositionName)!)
+                                                                          functions.containsValueInDataTypeList(functions.getDataTypeFromJson(FFAppState().roleMenuJson, 'adminRoleGroup')?.toList(), FFAppState().employeeID, 'รายงานการแชร์โพสต์')! ||
+                                                                          functions.containListInString(functions.getListDataFromJsonList(FFAppState().roleMenuJson, 'positionName', 'รายงานการแชร์โพสต์')?.toList(), FFAppState().profilePositionName)!)
                                                                         InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
