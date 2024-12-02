@@ -782,8 +782,8 @@ class _CustomerCarDeailsPictureStep1WidgetState
                                                   FFAppState().profileLevel)!
                                               : (widget!.userRoleEdit !=
                                                   'no_role')) &&
-                                          (widget!.fromPage !=
-                                              'changeCarLocation'))
+                                          (widget!.fromPage2 !=
+                                              'seeImageButton'))
                                         FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
