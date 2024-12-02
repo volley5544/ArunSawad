@@ -2214,6 +2214,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'userRoleEdit',
                   ParamType.String,
                 ),
+                fromPage2: params.getParam(
+                  'fromPage2',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(

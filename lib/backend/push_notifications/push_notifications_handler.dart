@@ -681,6 +681,7 @@ final parametersBuilderMap =
           'impoundCarStatusName':
               getParameter<String>(data, 'impoundCarStatusName'),
           'userRoleEdit': getParameter<String>(data, 'userRoleEdit'),
+          'fromPage2': getParameter<String>(data, 'fromPage2'),
         },
       ),
   'customerCarDeailsPictureStep12': ParameterData.none(),

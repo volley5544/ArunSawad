@@ -7532,11 +7532,12 @@ class SendFCMNotificationAPICall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'SendFCMNotificationAPI',
-      apiUrl: 'https://fcm.googleapis.com/fcm/send',
+      apiUrl:
+          'https://fcm.googleapis.com/v1/projects/flut-flow-test/messages:send',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
-            'key=AAAAWEYHwRs:APA91bG7ezsMWzUoITp6S--2hs3LdrivYaMprdAPl42YdwC1CIu6e8FkOSOGhbtJvaYkdCIjsKBU_U76PKM-bhrwWrPJQy3gHg3ZSi6Uqb76XIuNSh-lIPQ_rloc5wXnTlQlzbaWUSpk',
+            'bearer AAAAWEYHwRs:APA91bG7ezsMWzUoITp6S--2hs3LdrivYaMprdAPl42YdwC1CIu6e8FkOSOGhbtJvaYkdCIjsKBU_U76PKM-bhrwWrPJQy3gHg3ZSi6Uqb76XIuNSh-lIPQ_rloc5wXnTlQlzbaWUSpk',
       },
       params: {},
       body: ffApiRequestBody,

@@ -875,6 +875,10 @@ class _ChangeCarLocationPageWidgetState
                         widget!.userRoleEdit,
                         ParamType.String,
                       ),
+                      'fromPage2': serializeParam(
+                        'seeImageButton',
+                        ParamType.String,
+                      ),
                     }.withoutNulls,
                   );
                 },

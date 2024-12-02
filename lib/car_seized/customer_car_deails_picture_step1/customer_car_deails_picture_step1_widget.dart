@@ -35,7 +35,8 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
     required this.motocycleConfig,
     required this.editAccessRoleData,
     required this.userRoleEdit,
-  });
+    String? fromPage2,
+  }) : this.fromPage2 = fromPage2 ?? 'fromPage2';
 
   final String? step;
   final dynamic readAccessRoleData;
@@ -50,6 +51,7 @@ class CustomerCarDeailsPictureStep1Widget extends StatefulWidget {
   final List<String>? motocycleConfig;
   final dynamic editAccessRoleData;
   final String? userRoleEdit;
+  final String fromPage2;
 
   @override
   State<CustomerCarDeailsPictureStep1Widget> createState() =>
@@ -435,7 +437,7 @@ class _CustomerCarDeailsPictureStep1WidgetState
                               widget!.saveAccessRoleData, 'profile_level'),
                           FFAppState().profileLevel)!
                       : (widget!.userRoleSave != 'no_role')) &&
-                  (widget!.fromPage != 'changeCarLocation'),
+                  (widget!.fromPage2 != 'seeImageButton'),
               child: FlutterFlowIconButton(
                 borderRadius: 30.0,
                 borderWidth: 1.0,
